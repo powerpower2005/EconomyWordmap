@@ -1,0 +1,638 @@
+{
+  "terms": [
+    {
+      "id": "inflation",
+      "name": "인플레이션 (Inflation)",
+      "description": "일반적인 물가 수준의 지속적인 상승으로, 화폐의 구매력이 하락하는 현상",
+      "category": "거시경제"
+    },
+    {
+      "id": "interest-rate",
+      "name": "금리 (Interest Rate)",
+      "description": "자금을 빌리거나 빌려줄 때 지불하는 이자의 비율",
+      "category": "금융"
+    },
+    {
+      "id": "gdp",
+      "name": "GDP (Gross Domestic Product)",
+      "description": "국내총생산, 한 국가에서 일정 기간 동안 생산된 최종 재화와 서비스의 시장 가치",
+      "category": "거시경제"
+    },
+    {
+      "id": "unemployment",
+      "name": "실업률 (Unemployment Rate)",
+      "description": "경제활동인구 중 실업자 비율",
+      "category": "거시경제"
+    },
+    {
+      "id": "exchange-rate",
+      "name": "환율 (Exchange Rate)",
+      "description": "한 국가의 통화를 다른 국가의 통화로 교환할 때의 비율",
+      "category": "국제경제"
+    },
+    {
+      "id": "money-supply",
+      "name": "통화량 (Money Supply)",
+      "description": "경제 내에 유통되는 화폐의 총량",
+      "category": "금융"
+    },
+    {
+      "id": "consumption",
+      "name": "소비 (Consumption)",
+      "description": "재화와 서비스를 구매하여 사용하는 경제 활동",
+      "category": "거시경제"
+    },
+    {
+      "id": "investment",
+      "name": "투자 (Investment)",
+      "description": "미래의 수익을 기대하고 자본을 투입하는 행위",
+      "category": "거시경제"
+    },
+    {
+      "id": "credit-creation",
+      "name": "신용창조 (Credit Creation)",
+      "description": "은행이 지급준비금과 자기자본을 기반으로 예금 이상의 대출을 발생시키는 과정",
+      "category": "통화금융"
+    },
+    {
+      "id": "bank",
+      "name": "은행 (Bank)",
+      "description": "예금과 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관",
+      "category": "금융"
+    },
+    {
+      "id": "capital-adequacy-ratio",
+      "name": "자기자본비율 (Capital Adequacy Ratio)",
+      "description": "은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제의 핵심 지표",
+      "category": "금융규제"
+    },
+    {
+      "id": "leverage-ratio",
+      "name": "레버리지비율 (Leverage Ratio)",
+      "description": "은행의 자기자본 대비 총자산 비율로 과도한 차입을 제한하는 규제",
+      "category": "금융규제"
+    },
+    {
+      "id": "prudential-regulation",
+      "name": "건전성 규제 (Prudential Regulation)",
+      "description": "은행의 자본과 부채 비율을 제한하여 금융 시스템 안정성을 확보하는 규제",
+      "category": "금융규제"
+    },
+    {
+      "id": "reserves",
+      "name": "지급준비금 (Reserves)",
+      "description": "은행이 중앙은행 계좌에 보유하는 예치금으로 결제와 규제 목적에 사용",
+      "category": "통화"
+    },
+    {
+      "id": "base-money",
+      "name": "본원통화(M0) (Base Money)",
+      "description": "중앙은행이 직접 공급하는 현금과 은행의 지급준비금",
+      "category": "통화"
+    },
+    {
+      "id": "required-reserve-ratio",
+      "name": "지급준비율 (Required Reserve Ratio)",
+      "description": "은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율",
+      "category": "통화정책"
+    },
+    {
+      "id": "money-multiplier",
+      "name": "통화승수 (Money Multiplier)",
+      "description": "본원통화가 시중 통화량으로 확대되는 배율 또는 비율 (1 / 지급준비율)",
+      "category": "통화"
+    },
+    {
+      "id": "velocity-of-money",
+      "name": "화폐유통속도 (Velocity of Money)",
+      "description": "창조된 통화가 실물경제에서 실제로 사용되는 속도",
+      "category": "거시경제"
+    },
+    {
+      "id": "quantitative-easing",
+      "name": "양적완화(QE) (Quantitative Easing)",
+      "description": "중앙은행이 국채나 MBS를 매입하여 장기금리를 낮추고 유동성을 공급하는 정책",
+      "category": "통화정책"
+    },
+    {
+      "id": "quantitative-tightening",
+      "name": "양적긴축(QT) (Quantitative Tightening)",
+      "description": "중앙은행이 보유 자산을 축소하여 유동성과 지급준비금을 줄이는 정책",
+      "category": "통화정책"
+    },
+    {
+      "id": "federal-reserve",
+      "name": "연준(Fed) (Federal Reserve)",
+      "description": "미국의 중앙은행으로 통화정책과 금융안정을 담당",
+      "category": "중앙은행"
+    },
+    {
+      "id": "central-bank",
+      "name": "중앙은행 (Central Bank)",
+      "description": "통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국",
+      "category": "중앙은행"
+    },
+    {
+      "id": "government-bond",
+      "name": "국채 (Government Bond)",
+      "description": "정부가 재정 조달을 위해 발행하는 채권",
+      "category": "채권"
+    },
+    {
+      "id": "mbs",
+      "name": "MBS (Mortgage-Backed Security)",
+      "description": "주택담보대출을 기초자산으로 한 유동화 증권",
+      "category": "채권"
+    },
+    {
+      "id": "bond-price",
+      "name": "채권가격 (Bond Price)",
+      "description": "채권의 시장 가격으로 금리와 반대 방향으로 움직임",
+      "category": "금융시장"
+    },
+    {
+      "id": "long-term-interest-rate",
+      "name": "장기금리 (Long-term Interest Rate)",
+      "description": "장기 채권을 기준으로 형성되는 금리",
+      "category": "금리"
+    },
+    {
+      "id": "market-interest-rate",
+      "name": "시중금리 (Market Interest Rate)",
+      "description": "시장 내에서 실제로 적용되는 대출·예금 금리",
+      "category": "금리"
+    },
+    {
+      "id": "low-interest-policy",
+      "name": "저금리 정책 (Low Interest Policy)",
+      "description": "차입과 투자를 유도하기 위해 금리를 낮게 유지하는 정책",
+      "category": "통화정책"
+    },
+    {
+      "id": "excess-reserves",
+      "name": "초과지준금 (Excess Reserves)",
+      "description": "의무 지급준비금 초과분으로 2020년 이후 개념상 의미가 약화됨",
+      "category": "통화"
+    },
+    {
+      "id": "fed-balance-sheet",
+      "name": "연준 대차대조표 (Fed Balance Sheet)",
+      "description": "연준이 보유한 자산과 부채의 총괄 상태",
+      "category": "중앙은행"
+    },
+    {
+      "id": "treasury",
+      "name": "재무부 (Treasury)",
+      "description": "국채 발행과 국가 재정을 담당하는 정부 기관",
+      "category": "정부"
+    },
+    {
+      "id": "maturity-redemption",
+      "name": "만기상환 (Maturity Redemption)",
+      "description": "채권 만기 도래 시 원금과 이자를 상환하는 과정",
+      "category": "채권"
+    },
+    {
+      "id": "m2",
+      "name": "광의통화(M2) (M2 Money Supply)",
+      "description": "본원통화와 예금통화를 포함한 시중 유동성 지표",
+      "category": "통화"
+    },
+    {
+      "id": "iorb",
+      "name": "IORB (Interest on Reserve Balances)",
+      "description": "연준이 은행의 지급준비금에 지급하는 이자율",
+      "category": "금리정책"
+    },
+    {
+      "id": "lclor",
+      "name": "최소 적정 지급준비금(LCLoR) (Lowest Comfortable Level of Reserves)",
+      "description": "금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준",
+      "category": "금융안정"
+    }
+  ],
+  "relations": [
+    {
+      "id": "r1",
+      "term1Id": "inflation",
+      "term2Id": "interest-rate",
+      "type": "proportional",
+      "description": "인플레이션이 상승하면 중앙은행이 금리를 인상하여 물가를 안정시키려 함",
+      "strength": "strong"
+    },
+    {
+      "id": "r2",
+      "term1Id": "interest-rate",
+      "term2Id": "investment",
+      "type": "inverse",
+      "description": "금리가 상승하면 투자 비용이 증가하여 투자가 감소",
+      "strength": "strong"
+    },
+    {
+      "id": "r3",
+      "term1Id": "gdp",
+      "term2Id": "consumption",
+      "type": "proportional",
+      "description": "GDP가 증가하면 소비도 함께 증가하는 경향",
+      "strength": "strong"
+    },
+    {
+      "id": "r4",
+      "term1Id": "unemployment",
+      "term2Id": "gdp",
+      "type": "inverse",
+      "description": "GDP가 증가하면 실업률이 감소하는 경향 (오쿤의 법칙)",
+      "strength": "medium"
+    },
+    {
+      "id": "r5",
+      "term1Id": "money-supply",
+      "term2Id": "inflation",
+      "type": "proportional",
+      "description": "통화량이 증가하면 인플레이션 압력이 증가",
+      "strength": "medium"
+    },
+    {
+      "id": "r6",
+      "term1Id": "exchange-rate",
+      "term2Id": "interest-rate",
+      "type": "correlation",
+      "description": "금리 차이에 따라 환율이 영향을 받음",
+      "strength": "medium"
+    },
+    {
+      "id": "r7",
+      "term1Id": "consumption",
+      "term2Id": "investment",
+      "type": "correlation",
+      "description": "소비와 투자는 경제 성장의 양대 축으로 상호 연관",
+      "strength": "medium"
+    },
+    {
+      "id": "r8",
+      "term1Id": "base-money",
+      "term2Id": "money-multiplier",
+      "type": "proportional",
+      "description": "본원통화가 증가하면 통화승수 효과로 통화량이 더 크게 확대됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r9",
+      "term1Id": "required-reserve-ratio",
+      "term2Id": "money-multiplier",
+      "type": "inverse",
+      "description": "지급준비율이 낮을수록 통화승수가 높아짐 (통화승수 = 1 / 지급준비율)",
+      "strength": "strong"
+    },
+    {
+      "id": "r10",
+      "term1Id": "base-money",
+      "term2Id": "money-supply",
+      "type": "proportional",
+      "description": "본원통화가 증가하면 통화량이 증가함",
+      "strength": "strong"
+    },
+    {
+      "id": "r11",
+      "term1Id": "money-multiplier",
+      "term2Id": "money-supply",
+      "type": "proportional",
+      "description": "통화승수가 높을수록 본원통화가 통화량으로 더 크게 확대됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r12",
+      "term1Id": "quantitative-easing",
+      "term2Id": "base-money",
+      "type": "proportional",
+      "description": "양적완화는 중앙은행이 자산을 매입하여 본원통화를 증가시킴",
+      "strength": "strong"
+    },
+    {
+      "id": "r13",
+      "term1Id": "quantitative-easing",
+      "term2Id": "money-supply",
+      "type": "proportional",
+      "description": "양적완화는 본원통화 증가를 통해 통화량을 증가시킴",
+      "strength": "strong"
+    },
+    {
+      "id": "r14",
+      "term1Id": "quantitative-easing",
+      "term2Id": "interest-rate",
+      "type": "inverse",
+      "description": "양적완화는 장기금리를 인위적으로 낮춤",
+      "strength": "strong"
+    },
+    {
+      "id": "r15",
+      "term1Id": "quantitative-tightening",
+      "term2Id": "base-money",
+      "type": "inverse",
+      "description": "양적긴축은 중앙은행이 자산을 매각하여 본원통화를 감소시킴",
+      "strength": "strong"
+    },
+    {
+      "id": "r16",
+      "term1Id": "quantitative-tightening",
+      "term2Id": "money-supply",
+      "type": "inverse",
+      "description": "양적긴축은 본원통화 감소를 통해 통화량을 감소시킴",
+      "strength": "strong"
+    },
+    {
+      "id": "r17",
+      "term1Id": "money-supply",
+      "term2Id": "velocity-of-money",
+      "type": "correlation",
+      "description": "통화량과 화폐유통속도는 함께 인플레이션에 영향을 줌 (MV = PY)",
+      "strength": "medium"
+    },
+    {
+      "id": "r18",
+      "term1Id": "velocity-of-money",
+      "term2Id": "inflation",
+      "type": "proportional",
+      "description": "화폐유통속도가 빠를수록 같은 통화량으로도 인플레이션 압력이 증가",
+      "strength": "medium"
+    },
+    {
+      "id": "r19",
+      "term1Id": "credit-creation",
+      "term2Id": "money-supply",
+      "type": "proportional",
+      "description": "신용창조는 은행이 대출을 통해 통화량을 증가시킴",
+      "strength": "strong"
+    },
+    {
+      "id": "r20",
+      "term1Id": "required-reserve-ratio",
+      "term2Id": "credit-creation",
+      "type": "inverse",
+      "description": "지급준비율이 낮을수록 은행이 더 많은 신용을 창조할 수 있음",
+      "strength": "strong"
+    },
+    {
+      "id": "r21",
+      "term1Id": "base-money",
+      "term2Id": "credit-creation",
+      "type": "proportional",
+      "description": "본원통화(지급준비금)가 많을수록 은행이 더 많은 신용을 창조할 수 있음",
+      "strength": "strong"
+    },
+    {
+      "id": "r22",
+      "term1Id": "iorb",
+      "term2Id": "interest-rate",
+      "type": "correlation",
+      "bidirectional": true,
+      "description": "IORB는 금리의 하한선 역할을 하며, 금리 정책의 주요 도구임",
+      "reverseDescription": "금리 정책은 IORB를 조정하여 시장 금리에 영향을 줌",
+      "strength": "strong"
+    },
+    {
+      "id": "r23",
+      "term1Id": "base-money",
+      "term2Id": "lclor",
+      "type": "correlation",
+      "bidirectional": true,
+      "description": "본원통화가 LCLoR 이하로 떨어지면 금융시스템 불안정 위험 증가",
+      "reverseDescription": "LCLoR는 본원통화의 최소 필요 수준을 결정하는 기준이 됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r24",
+      "term1Id": "quantitative-tightening",
+      "term2Id": "lclor",
+      "type": "correlation",
+      "description": "양적긴축 시 본원통화가 LCLoR에 근접하면 정책 조정이 필요함",
+      "strength": "medium"
+    },
+    {
+      "id": "r25",
+      "term1Id": "bank",
+      "term2Id": "credit-creation",
+      "type": "proportional",
+      "description": "은행이 대출을 통해 신용을 창조함",
+      "strength": "strong"
+    },
+    {
+      "id": "r26",
+      "term1Id": "bank",
+      "term2Id": "reserves",
+      "type": "correlation",
+      "description": "은행은 중앙은행에 지급준비금을 보유함",
+      "strength": "strong"
+    },
+    {
+      "id": "r27",
+      "term1Id": "reserves",
+      "term2Id": "base-money",
+      "type": "correlation",
+      "description": "지급준비금은 본원통화의 주요 구성 요소임",
+      "strength": "strong"
+    },
+    {
+      "id": "r28",
+      "term1Id": "reserves",
+      "term2Id": "required-reserve-ratio",
+      "type": "correlation",
+      "description": "지급준비금은 지급준비율에 따라 결정되는 의무 보유액",
+      "strength": "strong"
+    },
+    {
+      "id": "r29",
+      "term1Id": "excess-reserves",
+      "term2Id": "reserves",
+      "type": "correlation",
+      "description": "초과지준금은 지급준비금 중 의무 보유액을 초과하는 부분",
+      "strength": "strong"
+    },
+    {
+      "id": "r30",
+      "term1Id": "capital-adequacy-ratio",
+      "term2Id": "bank",
+      "type": "correlation",
+      "description": "자기자본비율은 은행의 건전성을 측정하는 핵심 지표",
+      "strength": "strong"
+    },
+    {
+      "id": "r31",
+      "term1Id": "leverage-ratio",
+      "term2Id": "bank",
+      "type": "correlation",
+      "description": "레버리지비율은 은행의 차입 수준을 제한하는 규제 지표",
+      "strength": "strong"
+    },
+    {
+      "id": "r32",
+      "term1Id": "prudential-regulation",
+      "term2Id": "capital-adequacy-ratio",
+      "type": "correlation",
+      "description": "건전성 규제는 자기자본비율을 통해 은행의 위험을 관리함",
+      "strength": "strong"
+    },
+    {
+      "id": "r33",
+      "term1Id": "prudential-regulation",
+      "term2Id": "leverage-ratio",
+      "type": "correlation",
+      "description": "건전성 규제는 레버리지비율을 통해 은행의 과도한 차입을 제한함",
+      "strength": "strong"
+    },
+    {
+      "id": "r34",
+      "term1Id": "federal-reserve",
+      "term2Id": "central-bank",
+      "type": "correlation",
+      "description": "연준은 미국의 중앙은행으로 통화정책을 담당함",
+      "strength": "strong"
+    },
+    {
+      "id": "r35",
+      "term1Id": "central-bank",
+      "term2Id": "base-money",
+      "type": "proportional",
+      "description": "중앙은행이 본원통화를 공급함",
+      "strength": "strong"
+    },
+    {
+      "id": "r36",
+      "term1Id": "central-bank",
+      "term2Id": "quantitative-easing",
+      "type": "correlation",
+      "description": "중앙은행이 양적완화 정책을 시행함",
+      "strength": "strong"
+    },
+    {
+      "id": "r37",
+      "term1Id": "central-bank",
+      "term2Id": "quantitative-tightening",
+      "type": "correlation",
+      "description": "중앙은행이 양적긴축 정책을 시행함",
+      "strength": "strong"
+    },
+    {
+      "id": "r38",
+      "term1Id": "quantitative-easing",
+      "term2Id": "government-bond",
+      "type": "proportional",
+      "description": "양적완화는 국채를 매입하여 시행됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r39",
+      "term1Id": "quantitative-easing",
+      "term2Id": "mbs",
+      "type": "proportional",
+      "description": "양적완화는 MBS를 매입하여 시행됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r40",
+      "term1Id": "treasury",
+      "term2Id": "government-bond",
+      "type": "proportional",
+      "description": "재무부가 국채를 발행함",
+      "strength": "strong"
+    },
+    {
+      "id": "r41",
+      "term1Id": "government-bond",
+      "term2Id": "bond-price",
+      "type": "correlation",
+      "description": "국채의 가격은 시장에서 결정됨",
+      "strength": "medium"
+    },
+    {
+      "id": "r42",
+      "term1Id": "bond-price",
+      "term2Id": "long-term-interest-rate",
+      "type": "inverse",
+      "description": "채권가격이 상승하면 장기금리가 하락함",
+      "strength": "strong"
+    },
+    {
+      "id": "r43",
+      "term1Id": "long-term-interest-rate",
+      "term2Id": "interest-rate",
+      "type": "correlation",
+      "description": "장기금리는 전체 금리 수준의 중요한 구성 요소",
+      "strength": "strong"
+    },
+    {
+      "id": "r44",
+      "term1Id": "market-interest-rate",
+      "term2Id": "interest-rate",
+      "type": "correlation",
+      "description": "시중금리는 실제 시장에서 적용되는 금리",
+      "strength": "strong"
+    },
+    {
+      "id": "r45",
+      "term1Id": "low-interest-policy",
+      "term2Id": "interest-rate",
+      "type": "inverse",
+      "description": "저금리 정책은 금리를 낮게 유지하는 정책",
+      "strength": "strong"
+    },
+    {
+      "id": "r46",
+      "term1Id": "quantitative-easing",
+      "term2Id": "long-term-interest-rate",
+      "type": "inverse",
+      "description": "양적완화는 장기금리를 낮춤",
+      "strength": "strong"
+    },
+    {
+      "id": "r47",
+      "term1Id": "fed-balance-sheet",
+      "term2Id": "quantitative-easing",
+      "type": "correlation",
+      "description": "양적완화 시 연준 대차대조표가 확대됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r48",
+      "term1Id": "fed-balance-sheet",
+      "term2Id": "quantitative-tightening",
+      "type": "correlation",
+      "description": "양적긴축 시 연준 대차대조표가 축소됨",
+      "strength": "strong"
+    },
+    {
+      "id": "r49",
+      "term1Id": "government-bond",
+      "term2Id": "maturity-redemption",
+      "type": "correlation",
+      "description": "국채는 만기 시 원금과 이자를 상환함",
+      "strength": "medium"
+    },
+    {
+      "id": "r50",
+      "term1Id": "m2",
+      "term2Id": "money-supply",
+      "type": "correlation",
+      "description": "M2는 통화량의 한 지표로 본원통화와 예금통화를 포함",
+      "strength": "strong"
+    },
+    {
+      "id": "r51",
+      "term1Id": "m2",
+      "term2Id": "base-money",
+      "type": "proportional",
+      "description": "M2는 본원통화를 기반으로 확대된 통화 지표",
+      "strength": "strong"
+    },
+    {
+      "id": "r52",
+      "term1Id": "bank",
+      "term2Id": "reserves",
+      "type": "proportional",
+      "bidirectional": true,
+      "description": "은행이 지급준비금을 보유함",
+      "reverseDescription": "지급준비금은 은행이 중앙은행에 예치하는 자금",
+      "strength": "strong"
+    }
+  ]
+}
