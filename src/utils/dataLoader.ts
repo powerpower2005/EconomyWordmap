@@ -2,11 +2,11 @@ import { Term, Relation, TermWithRelations } from '../types';
 import termsData from '../data/terms.json';
 
 export const loadTerms = (): Term[] => {
-  return termsData.terms;
+  return termsData.terms as Term[];
 };
 
 export const loadRelations = (): Relation[] => {
-  return termsData.relations;
+  return termsData.relations as Relation[];
 };
 
 export const getTermById = (id: string): Term | undefined => {
@@ -16,7 +16,7 @@ export const getTermById = (id: string): Term | undefined => {
 export const getRelationsForTerm = (termId: string): Relation[] => {
   return termsData.relations.filter(
     relation => relation.term1Id === termId || relation.term2Id === termId
-  );
+  ) as Relation[];
 };
 
 export const getTermWithRelations = (termId: string): TermWithRelations | null => {
@@ -58,7 +58,7 @@ export const getAllRelations = (): Array<{ term1: Term; term2: Term; relation: R
     return {
       term1: term1!,
       term2: term2!,
-      relation
+      relation: relation as Relation
     };
   });
 };
