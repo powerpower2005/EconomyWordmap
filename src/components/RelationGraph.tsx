@@ -1,7 +1,11 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
 import cytoscape from 'cytoscape';
 import { loadTerms, loadRelations } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
+
+export interface RelationGraphHandle {
+  clickNode: (termId: string) => void;
+}
 
 const relationTypeColors: Record<RelationType, string> = {
   proportional: '#3b82f6',
@@ -37,17 +41,51 @@ const categoryMapping: Record<string, string> = {
   '채권': '금융'
 };
 
-export default function RelationGraph() {
+const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const animationFrameRef = useRef<number | null>(null);
   const [selectedNode, setSelectedNode] = useState<Term | null>(null);
   const [recommendedTerms, setRecommendedTerms] = useState<Term[]>([]);
+  const termsRef = useRef<Term[]>([]);
+
+  const handleNodeClick = (termId: string) => {
+    const cy = cyRef.current;
+    if (!cy) return;
+    
+    const node = cy.getElementById(termId);
+    if (node.length === 0) return;
+    
+    const clickedTerm = termsRef.current.find(t => t.id === termId);
+    if (!clickedTerm) return;
+    
+    // 노드 확대
+    cy.animate({
+      center: { eles: node },
+      zoom: 1.2
+    }, {
+      duration: 500
+    });
+    
+    if (selectedNode && selectedNode.id === clickedTerm.id) {
+      setSelectedNode(null);
+      // 원래 위치로 복귀
+      cy.fit();
+    } else {
+      setSelectedNode(clickedTerm);
+    }
+  };
+
+  // 외부에서 노드 클릭할 수 있도록 함수 노출
+  useImperativeHandle(ref, () => ({
+    clickNode: handleNodeClick
+  }));
 
   useEffect(() => {
     if (!containerRef.current) return;
 
     const terms = loadTerms();
+    termsRef.current = terms;
     const relations = loadRelations();
 
     // 추천 단어 계산 (엣지가 많은 노드 상위 5개)
@@ -380,25 +418,7 @@ export default function RelationGraph() {
     cy.on('tap', 'node', function(evt) {
       const node = evt.target;
       const nodeData = node.data();
-      const clickedTerm = terms.find(t => t.id === nodeData.id);
-      
-      if (clickedTerm) {
-        // 노드 확대
-        cy.animate({
-          center: { eles: node },
-          zoom: 1.2
-        }, {
-          duration: 500
-        });
-        
-        if (selectedNode && selectedNode.id === clickedTerm.id) {
-          setSelectedNode(null);
-          // 원래 위치로 복귀
-          cy.fit();
-        } else {
-          setSelectedNode(clickedTerm);
-        }
-      }
+      handleNodeClick(nodeData.id);
     });
 
     cy.on('tap', 'edge', function(evt) {
@@ -633,4 +653,8 @@ export default function RelationGraph() {
       )}
     </div>
   );
-}
+});
+
+RelationGraph.displayName = 'RelationGraph';
+
+export default RelationGraph;
