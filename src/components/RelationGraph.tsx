@@ -401,6 +401,14 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
     // 레이아웃이 완료된 후에만 물리 시뮬레이션 시작
     cy.one('layoutstop', function() {
+      // 초기 줌 레벨 설정 (적당히 확대된 상태)
+      cy.fit(cy.elements(), 60);
+      const currentZoom = cy.zoom();
+      // 최소 줌 레벨을 2.0으로 설정하여 더 확대된 상태로 표시
+      if (currentZoom < 2.0) {
+        cy.zoom(2.0);
+        cy.center(cy.elements());
+      }
       // 모든 노드의 속도를 0으로 초기화
       cy.nodes().forEach((node: any) => {
         nodeVelocities.set(node.id(), { vx: 0, vy: 0 });
@@ -466,7 +474,41 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
   return (
     <div className="w-full h-full">
-      <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+      {recommendedTerms.length > 0 && (
+        <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+          <div className="text-sm font-semibold text-gray-700 mb-2">추천 단어:</div>
+          <div className="flex flex-wrap gap-2">
+            {recommendedTerms.map(term => (
+              <span
+                key={term.id}
+                className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm cursor-pointer hover:bg-blue-200 transition-colors"
+                onClick={() => {
+                  setSelectedNode(term);
+                  if (cyRef.current) {
+                    const node = cyRef.current.getElementById(term.id);
+                    if (node.length > 0) {
+                      cyRef.current.animate({
+                        center: { eles: node },
+                        zoom: 1.5
+                      }, {
+                        duration: 500
+                      });
+                    }
+                  }
+                }}
+              >
+                {term.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      <div
+        ref={containerRef}
+        className="w-full border-2 border-gray-200 rounded-lg bg-white mb-4"
+        style={{ height: 'calc(100vh - 250px)', minHeight: '600px' }}
+      />
+      <div className="bg-white rounded-lg shadow-lg p-4">
         <div className="flex flex-wrap gap-4 items-center mb-4">
           {Object.entries(relationTypeLabels).map(([type, label]) => (
             <div key={type} className="flex items-center gap-2">
@@ -492,41 +534,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             ))}
           </div>
         </div>
-        {recommendedTerms.length > 0 && (
-          <div className="border-t pt-4">
-            <div className="text-sm font-semibold text-gray-700 mb-2">추천 단어:</div>
-            <div className="flex flex-wrap gap-2">
-              {recommendedTerms.map(term => (
-                <span
-                  key={term.id}
-                  className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm cursor-pointer hover:bg-blue-200 transition-colors"
-                  onClick={() => {
-                    setSelectedNode(term);
-                    if (cyRef.current) {
-                      const node = cyRef.current.getElementById(term.id);
-                      if (node.length > 0) {
-                        cyRef.current.animate({
-                          center: { eles: node },
-                          zoom: 1.5
-                        }, {
-                          duration: 500
-                        });
-                      }
-                    }
-                  }}
-                >
-                  {term.name}
-                </span>
-              ))}
-            </div>
-          </div>
-        )}
       </div>
-      <div
-        ref={containerRef}
-        className="w-full border-2 border-gray-200 rounded-lg bg-white"
-        style={{ height: 'calc(100vh - 250px)', minHeight: '600px' }}
-      />
       {selectedNode && (
         <div
           className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
@@ -575,6 +583,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                           const edgeData = edge.data();
                           const targetNode = cyRef.current!.getElementById(edgeData.target);
                           const targetName = targetNode.data('label');
+                          const targetId = targetNode.data('id');
                           const relationType = edgeData.type;
                           const color = relationTypeColors[relationType as RelationType];
                           const isBidirectional = edgeData.bidirectional === true;
@@ -585,7 +594,12 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                                 <div className="font-semibold text-gray-800 mb-1">
                                   <span style={{ color }}>{relationTypeLabels[relationType as RelationType]}</span>
                                   {isBidirectional ? ' ⇄ ' : ' → '}
-                                  {targetName}
+                                  <button
+                                    onClick={() => handleNodeClick(targetId)}
+                                    className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
+                                  >
+                                    {targetName}
+                                  </button>
                                 </div>
                                 <div className="text-sm text-gray-600">
                                   {edgeData.description || `${selectedNode.name}이(가) ${targetName}에 영향을 줌`}
@@ -594,7 +608,12 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                               {isBidirectional && (
                                 <div className="border-l-4 pl-4 py-2 ml-4" style={{ borderColor: color, borderStyle: 'dashed' }}>
                                   <div className="font-semibold text-gray-800 mb-1 text-sm">
-                                    {targetName}
+                                    <button
+                                      onClick={() => handleNodeClick(targetId)}
+                                      className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
+                                    >
+                                      {targetName}
+                                    </button>
                                     {' → '}
                                     <span style={{ color }}>{relationTypeLabels[edgeData.reverseType as RelationType]}</span>
                                     {' → '}
@@ -622,6 +641,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                           const edgeData = edge.data();
                           const sourceNode = cyRef.current!.getElementById(edgeData.source);
                           const sourceName = sourceNode.data('label');
+                          const sourceId = sourceNode.data('id');
                           const relationType = edgeData.type;
                           const color = relationTypeColors[relationType as RelationType];
                           const isBidirectional = edgeData.bidirectional === true;
@@ -632,7 +652,12 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                           return (
                             <div key={edgeData.id} className="border-l-4 pl-4 py-2" style={{ borderColor: color }}>
                               <div className="font-semibold text-gray-800 mb-1">
-                                {sourceName}
+                                <button
+                                  onClick={() => handleNodeClick(sourceId)}
+                                  className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
+                                >
+                                  {sourceName}
+                                </button>
                                 {' → '}
                                 <span style={{ color }}>{relationTypeLabels[relationType as RelationType]}</span>
                               </div>

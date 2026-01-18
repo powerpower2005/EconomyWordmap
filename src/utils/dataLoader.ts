@@ -63,7 +63,7 @@ export const getAllRelations = (): Array<{ term1: Term; term2: Term; relation: R
   });
 };
 
-// 한글 초성 추출 함수
+// 한글 초성 추출 함수 (쌍자음을 기본 자음으로 매핑)
 const getKoreanInitial = (text: string): string => {
   const firstChar = text.charAt(0);
   const charCode = firstChar.charCodeAt(0);
@@ -71,18 +71,43 @@ const getKoreanInitial = (text: string): string => {
   // 한글 유니코드 범위: 0xAC00 ~ 0xD7A3
   if (charCode >= 0xAC00 && charCode <= 0xD7A3) {
     const initialIndex = Math.floor((charCode - 0xAC00) / 28 / 21);
-    const initials = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
-    return initials[initialIndex];
+    const allInitials = ['ㄱ', 'ㄲ', 'ㄴ', 'ㄷ', 'ㄸ', 'ㄹ', 'ㅁ', 'ㅂ', 'ㅃ', 'ㅅ', 'ㅆ', 'ㅇ', 'ㅈ', 'ㅉ', 'ㅊ', 'ㅋ', 'ㅌ', 'ㅍ', 'ㅎ'];
+    const initial = allInitials[initialIndex];
+    
+    // 쌍자음을 기본 자음으로 매핑
+    const initialMapping: Record<string, string> = {
+      'ㄲ': 'ㄱ',
+      'ㄸ': 'ㄷ',
+      'ㅃ': 'ㅂ',
+      'ㅆ': 'ㅅ',
+      'ㅉ': 'ㅈ'
+    };
+    
+    return initialMapping[initial] || initial;
   }
   return '';
 };
 
-// 영문 첫 글자 추출 함수
+// 영문 첫 글자 추출 함수 (괄호 안 영어도 포함)
 const getEnglishInitial = (text: string): string => {
+  // 먼저 첫 글자가 영문인지 확인
   const firstChar = text.charAt(0).toUpperCase();
   if (firstChar >= 'A' && firstChar <= 'Z') {
     return firstChar;
   }
+  
+  // 괄호 안의 영어 단어 찾기 (예: "인플레이션 (Inflation)")
+  const match = text.match(/\(([A-Z][a-zA-Z\s]+)\)/);
+  if (match && match[1]) {
+    const englishWord = match[1].trim();
+    if (englishWord.length > 0) {
+      const initial = englishWord.charAt(0).toUpperCase();
+      if (initial >= 'A' && initial <= 'Z') {
+        return initial;
+      }
+    }
+  }
+  
   return '';
 };
 

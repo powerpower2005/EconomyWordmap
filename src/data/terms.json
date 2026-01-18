@@ -209,6 +209,78 @@
       "name": "최소 적정 지급준비금(LCLoR) (Lowest Comfortable Level of Reserves)",
       "description": "금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준",
       "category": "금융안정"
+    },
+    {
+      "id": "fed-assets",
+      "name": "연준보유 자산 (Fed Assets)",
+      "description": "연준이 양적완화 등을 통해 보유한 국채, 모기지담보부증권 등의 자산",
+      "category": "통화정책"
+    },
+    {
+      "id": "tariff",
+      "name": "관세 (Tariff)",
+      "description": "수입품에 부과하는 세금으로 무역 정책의 수단",
+      "category": "국제경제"
+    },
+    {
+      "id": "trade-deficit",
+      "name": "무역적자 (Trade Deficit)",
+      "description": "수입이 수출보다 많은 상태로 경상수지 적자를 의미",
+      "category": "국제경제"
+    },
+    {
+      "id": "trade-surplus",
+      "name": "무역흑자 (Trade Surplus)",
+      "description": "수출이 수입보다 많은 상태로 경상수지 흑자를 의미",
+      "category": "국제경제"
+    },
+    {
+      "id": "strong-dollar",
+      "name": "강달러 (Strong Dollar)",
+      "description": "달러의 가치가 상대적으로 높은 상태로 다른 통화 대비 강세",
+      "category": "국제경제"
+    },
+    {
+      "id": "weak-dollar",
+      "name": "약달러 (Weak Dollar)",
+      "description": "달러의 가치가 상대적으로 낮은 상태로 다른 통화 대비 약세",
+      "category": "국제경제"
+    },
+    {
+      "id": "tax-cut",
+      "name": "감세 (Tax Cut)",
+      "description": "세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적",
+      "category": "정부"
+    },
+    {
+      "id": "tax-increase",
+      "name": "증세 (Tax Increase)",
+      "description": "세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적",
+      "category": "정부"
+    },
+    {
+      "id": "korean-won",
+      "name": "원화 (Korean Won)",
+      "description": "대한민국의 공식 통화",
+      "category": "국제경제"
+    },
+    {
+      "id": "chinese-yuan",
+      "name": "위안화 (Chinese Yuan)",
+      "description": "중국의 공식 통화",
+      "category": "국제경제"
+    },
+    {
+      "id": "japanese-yen",
+      "name": "엔화 (Japanese Yen)",
+      "description": "일본의 공식 통화",
+      "category": "국제경제"
+    },
+    {
+      "id": "euro",
+      "name": "유로 (Euro)",
+      "description": "유럽연합의 공식 통화",
+      "category": "국제경제"
     }
   ],
   "relations": [
@@ -633,6 +705,260 @@
       "description": "은행이 지급준비금을 보유함",
       "reverseDescription": "지급준비금은 은행이 중앙은행에 예치하는 자금",
       "strength": "strong"
+    },
+    {
+      "id": "r53",
+      "term1Id": "quantitative-easing",
+      "term2Id": "fed-assets",
+      "type": "proportional",
+      "description": "양적완화 시 연준이 자산을 매입하여 연준보유 자산이 증가함",
+      "strength": "strong"
+    },
+    {
+      "id": "r54",
+      "term1Id": "quantitative-tightening",
+      "term2Id": "fed-assets",
+      "type": "inverse",
+      "description": "양적긴축 시 연준이 자산을 매각하여 연준보유 자산이 감소함",
+      "strength": "strong"
+    },
+    {
+      "id": "r55",
+      "term1Id": "fed-balance-sheet",
+      "term2Id": "fed-assets",
+      "type": "proportional",
+      "description": "연준보유 자산은 연준 대차대조표의 자산 측을 구성함",
+      "strength": "strong"
+    },
+    {
+      "id": "r56",
+      "term1Id": "tariff",
+      "term2Id": "trade-deficit",
+      "type": "inverse",
+      "description": "관세 인상은 수입을 감소시켜 무역적자를 줄이는 효과",
+      "strength": "medium"
+    },
+    {
+      "id": "r57",
+      "term1Id": "tariff",
+      "term2Id": "trade-surplus",
+      "type": "proportional",
+      "description": "관세 인상은 수입 감소로 무역흑자 확대에 기여할 수 있음",
+      "strength": "medium"
+    },
+    {
+      "id": "r58",
+      "term1Id": "trade-deficit",
+      "term2Id": "gdp",
+      "type": "inverse",
+      "description": "무역적자가 크면 GDP 성장에 부정적 영향을 줄 수 있음",
+      "strength": "medium"
+    },
+    {
+      "id": "r59",
+      "term1Id": "trade-surplus",
+      "term2Id": "gdp",
+      "type": "proportional",
+      "description": "무역흑자는 GDP 성장에 긍정적 기여를 함",
+      "strength": "medium"
+    },
+    {
+      "id": "r60",
+      "term1Id": "trade-deficit",
+      "term2Id": "trade-surplus",
+      "type": "inverse",
+      "bidirectional": true,
+      "description": "무역적자와 무역흑자는 상반된 무역 균형 상태",
+      "reverseDescription": "무역흑자와 무역적자는 상반된 무역 균형 상태",
+      "strength": "strong"
+    },
+    {
+      "id": "r61",
+      "term1Id": "strong-dollar",
+      "term2Id": "weak-dollar",
+      "type": "inverse",
+      "bidirectional": true,
+      "description": "강달러와 약달러는 상반된 달러 가치 상태",
+      "reverseDescription": "약달러와 강달러는 상반된 달러 가치 상태",
+      "strength": "strong"
+    },
+    {
+      "id": "r62",
+      "term1Id": "strong-dollar",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "강달러는 달러 강세를 의미하며 환율에 영향을 줌",
+      "strength": "strong"
+    },
+    {
+      "id": "r63",
+      "term1Id": "weak-dollar",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "약달러는 달러 약세를 의미하며 환율에 영향을 줌",
+      "strength": "strong"
+    },
+    {
+      "id": "r64",
+      "term1Id": "strong-dollar",
+      "term2Id": "trade-deficit",
+      "type": "proportional",
+      "description": "강달러는 수출 경쟁력을 약화시켜 무역적자 확대 가능성",
+      "strength": "medium"
+    },
+    {
+      "id": "r65",
+      "term1Id": "weak-dollar",
+      "term2Id": "trade-surplus",
+      "type": "proportional",
+      "description": "약달러는 수출 경쟁력을 강화시켜 무역흑자 확대 가능성",
+      "strength": "medium"
+    },
+    {
+      "id": "r66",
+      "term1Id": "tax-cut",
+      "term2Id": "tax-increase",
+      "type": "inverse",
+      "bidirectional": true,
+      "description": "감세와 증세는 상반된 세금 정책",
+      "reverseDescription": "증세와 감세는 상반된 세금 정책",
+      "strength": "strong"
+    },
+    {
+      "id": "r67",
+      "term1Id": "tax-cut",
+      "term2Id": "consumption",
+      "type": "proportional",
+      "description": "감세는 가처분소득을 증가시켜 소비를 촉진함",
+      "strength": "medium"
+    },
+    {
+      "id": "r68",
+      "term1Id": "tax-cut",
+      "term2Id": "investment",
+      "type": "proportional",
+      "description": "감세는 기업의 투자 비용을 낮춰 투자를 촉진함",
+      "strength": "medium"
+    },
+    {
+      "id": "r69",
+      "term1Id": "tax-cut",
+      "term2Id": "gdp",
+      "type": "proportional",
+      "description": "감세는 소비와 투자 증가를 통해 GDP 성장을 촉진함",
+      "strength": "medium"
+    },
+    {
+      "id": "r70",
+      "term1Id": "tax-increase",
+      "term2Id": "consumption",
+      "type": "inverse",
+      "description": "증세는 가처분소득을 감소시켜 소비를 위축시킬 수 있음",
+      "strength": "medium"
+    },
+    {
+      "id": "r71",
+      "term1Id": "tax-increase",
+      "term2Id": "investment",
+      "type": "inverse",
+      "description": "증세는 기업의 투자 비용을 높여 투자를 위축시킬 수 있음",
+      "strength": "medium"
+    },
+    {
+      "id": "r72",
+      "term1Id": "korean-won",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "원화는 환율의 기준 통화 중 하나",
+      "strength": "strong"
+    },
+    {
+      "id": "r73",
+      "term1Id": "chinese-yuan",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "위안화는 환율의 기준 통화 중 하나",
+      "strength": "strong"
+    },
+    {
+      "id": "r74",
+      "term1Id": "japanese-yen",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "엔화는 환율의 기준 통화 중 하나",
+      "strength": "strong"
+    },
+    {
+      "id": "r75",
+      "term1Id": "euro",
+      "term2Id": "exchange-rate",
+      "type": "correlation",
+      "description": "유로는 환율의 기준 통화 중 하나",
+      "strength": "strong"
+    },
+    {
+      "id": "r76",
+      "term1Id": "strong-dollar",
+      "term2Id": "korean-won",
+      "type": "correlation",
+      "description": "강달러는 원화 대비 달러 강세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r77",
+      "term1Id": "strong-dollar",
+      "term2Id": "chinese-yuan",
+      "type": "correlation",
+      "description": "강달러는 위안화 대비 달러 강세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r78",
+      "term1Id": "strong-dollar",
+      "term2Id": "japanese-yen",
+      "type": "correlation",
+      "description": "강달러는 엔화 대비 달러 강세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r79",
+      "term1Id": "strong-dollar",
+      "term2Id": "euro",
+      "type": "correlation",
+      "description": "강달러는 유로 대비 달러 강세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r80",
+      "term1Id": "weak-dollar",
+      "term2Id": "korean-won",
+      "type": "correlation",
+      "description": "약달러는 원화 대비 달러 약세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r81",
+      "term1Id": "weak-dollar",
+      "term2Id": "chinese-yuan",
+      "type": "correlation",
+      "description": "약달러는 위안화 대비 달러 약세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r82",
+      "term1Id": "weak-dollar",
+      "term2Id": "japanese-yen",
+      "type": "correlation",
+      "description": "약달러는 엔화 대비 달러 약세를 의미",
+      "strength": "medium"
+    },
+    {
+      "id": "r83",
+      "term1Id": "weak-dollar",
+      "term2Id": "euro",
+      "type": "correlation",
+      "description": "약달러는 유로 대비 달러 약세를 의미",
+      "strength": "medium"
     }
   ]
 }
