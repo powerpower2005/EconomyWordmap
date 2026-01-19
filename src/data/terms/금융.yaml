@@ -1,0 +1,21 @@
+terms:
+  - id: interest-rate
+    name: 금리 (Interest Rate)
+    description: 자금을 빌리거나 빌려줄 때 지불하는 이자의 비율
+    category: 금융
+  - id: money-supply
+    name: 통화량 (Money Supply)
+    description: 경제 내에 유통되는 화폐의 총량
+    category: 금융
+  - id: bank
+    name: 은행 (Bank)
+    description: 예금과 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
+    category: 금융
+  - id: household-debt
+    name: 가계부채 (Household Debt)
+    description: 가계가 부담하는 총 부채 규모
+    category: 금융
+  - id: net-interest-margin
+    name: 예대마진 (Net Interest Margin)
+    description: 은행의 대출금리와 예금금리의 차이로 은행의 수익성 지표
+    category: 금융

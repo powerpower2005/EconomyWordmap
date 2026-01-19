@@ -1,0 +1,225 @@
+terms:
+  - id: inflation
+    name: 인플레이션 (Inflation)
+    description: 일반적인 물가 수준의 지속적인 상승으로, 화폐의 구매력이 하락하는 현상
+    category: 거시경제
+  - id: interest-rate
+    name: 금리 (Interest Rate)
+    description: 자금을 빌리거나 빌려줄 때 지불하는 이자의 비율
+    category: 금융
+  - id: gdp
+    name: GDP (Gross Domestic Product)
+    description: 국내총생산, 한 국가에서 일정 기간 동안 생산된 최종 재화와 서비스의 시장 가치
+    category: 거시경제
+  - id: unemployment
+    name: 실업률 (Unemployment Rate)
+    description: 경제활동인구 중 실업자 비율
+    category: 거시경제
+  - id: exchange-rate
+    name: 환율 (Exchange Rate)
+    description: 한 국가의 통화를 다른 국가의 통화로 교환할 때의 비율
+    category: 국제경제
+  - id: money-supply
+    name: 통화량 (Money Supply)
+    description: 경제 내에 유통되는 화폐의 총량
+    category: 금융
+  - id: consumption
+    name: 소비 (Consumption)
+    description: 재화와 서비스를 구매하여 사용하는 경제 활동
+    category: 거시경제
+  - id: investment
+    name: 투자 (Investment)
+    description: 미래의 수익을 기대하고 자본을 투입하는 행위
+    category: 거시경제
+  - id: credit-creation
+    name: 신용창조 (Credit Creation)
+    description: 은행이 지급준비금과 자기자본을 기반으로 예금 이상의 대출을 발생시키는 과정
+    category: 통화금융
+  - id: bank
+    name: 은행 (Bank)
+    description: 예금과 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
+    category: 금융
+  - id: capital-adequacy-ratio
+    name: 자기자본비율 (Capital Adequacy Ratio)
+    description: 은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제의 핵심 지표
+    category: 금융규제
+  - id: leverage-ratio
+    name: 레버리지비율 (Leverage Ratio)
+    description: 은행의 자기자본 대비 총자산 비율로 과도한 차입을 제한하는 규제
+    category: 금융규제
+  - id: prudential-regulation
+    name: 건전성 규제 (Prudential Regulation)
+    description: 은행의 자본과 부채 비율을 제한하여 금융 시스템 안정성을 확보하는 규제
+    category: 금융규제
+  - id: reserves
+    name: 지급준비금 (Reserves)
+    description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제와 규제 목적에 사용
+    category: 통화
+  - id: base-money
+    name: 본원통화(M0) (Base Money)
+    description: 중앙은행이 직접 공급하는 현금과 은행의 지급준비금
+    category: 통화
+  - id: required-reserve-ratio
+    name: 지급준비율 (Required Reserve Ratio)
+    description: 은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율
+    category: 통화정책
+  - id: money-multiplier
+    name: 통화승수 (Money Multiplier)
+    description: 본원통화가 시중 통화량으로 확대되는 배율 또는 비율 (1 / 지급준비율)
+    category: 통화
+  - id: velocity-of-money
+    name: 화폐유통속도 (Velocity of Money)
+    description: 창조된 통화가 실물경제에서 실제로 사용되는 속도
+    category: 거시경제
+  - id: quantitative-easing
+    name: 양적완화(QE) (Quantitative Easing)
+    description: 중앙은행이 국채나 MBS를 매입하여 장기금리를 낮추고 유동성을 공급하는 정책
+    category: 통화정책
+  - id: quantitative-tightening
+    name: 양적긴축(QT) (Quantitative Tightening)
+    description: 중앙은행이 보유 자산을 축소하여 유동성과 지급준비금을 줄이는 정책
+    category: 통화정책
+  - id: federal-reserve
+    name: 연준(Fed) (Federal Reserve)
+    description: 미국의 중앙은행으로 통화정책과 금융안정을 담당
+    category: 중앙은행
+  - id: central-bank
+    name: 중앙은행 (Central Bank)
+    description: 통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국
+    category: 중앙은행
+  - id: government-bond
+    name: 국채 (Government Bond)
+    description: 정부가 재정 조달을 위해 발행하는 채권
+    category: 채권
+  - id: mbs
+    name: MBS (Mortgage-Backed Security)
+    description: 주택담보대출을 기초자산으로 한 유동화 증권
+    category: 채권
+  - id: bond-price
+    name: 채권가격 (Bond Price)
+    description: 채권의 시장 가격으로 금리와 반대 방향으로 움직임
+    category: 금융시장
+  - id: long-term-interest-rate
+    name: 장기금리 (Long-term Interest Rate)
+    description: 장기 채권을 기준으로 형성되는 금리
+    category: 금리
+  - id: market-interest-rate
+    name: 시중금리 (Market Interest Rate)
+    description: 시장 내에서 실제로 적용되는 대출·예금 금리
+    category: 금리
+  - id: low-interest-policy
+    name: 저금리 정책 (Low Interest Policy)
+    description: 차입과 투자를 유도하기 위해 금리를 낮게 유지하는 정책
+    category: 통화정책
+  - id: excess-reserves
+    name: 초과지준금 (Excess Reserves)
+    description: 의무 지급준비금 초과분으로 2020년 이후 개념상 의미가 약화됨
+    category: 통화
+  - id: fed-balance-sheet
+    name: 연준 대차대조표 (Fed Balance Sheet)
+    description: 연준이 보유한 자산과 부채의 총괄 상태
+    category: 중앙은행
+  - id: treasury
+    name: 재무부 (Treasury)
+    description: 국채 발행과 국가 재정을 담당하는 정부 기관
+    category: 정부
+  - id: maturity-redemption
+    name: 만기상환 (Maturity Redemption)
+    description: 채권 만기 도래 시 원금과 이자를 상환하는 과정
+    category: 채권
+  - id: m2
+    name: 광의통화(M2) (M2 Money Supply)
+    description: 본원통화와 예금통화를 포함한 시중 유동성 지표
+    category: 통화
+  - id: iorb
+    name: IORB (Interest on Reserve Balances)
+    description: 연준이 은행의 지급준비금에 지급하는 이자율
+    category: 금리정책
+  - id: lclor
+    name: 최소 적정 지급준비금(LCLoR) (Lowest Comfortable Level of Reserves)
+    description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준
+    category: 금융안정
+  - id: fed-assets
+    name: 연준보유 자산 (Fed Assets)
+    description: 연준이 양적완화 등을 통해 보유한 국채, 모기지담보부증권 등의 자산
+    category: 통화정책
+  - id: tariff
+    name: 관세 (Tariff)
+    description: 수입품에 부과하는 세금으로 무역 정책의 수단
+    category: 국제경제
+  - id: trade-deficit
+    name: 무역적자 (Trade Deficit)
+    description: 수입이 수출보다 많은 상태로 경상수지 적자를 의미
+    category: 국제경제
+  - id: trade-surplus
+    name: 무역흑자 (Trade Surplus)
+    description: 수출이 수입보다 많은 상태로 경상수지 흑자를 의미
+    category: 국제경제
+  - id: strong-dollar
+    name: 강달러 (Strong Dollar)
+    description: 달러의 가치가 상대적으로 높은 상태로 다른 통화 대비 강세
+    category: 국제경제
+  - id: weak-dollar
+    name: 약달러 (Weak Dollar)
+    description: 달러의 가치가 상대적으로 낮은 상태로 다른 통화 대비 약세
+    category: 국제경제
+  - id: tax-cut
+    name: 감세 (Tax Cut)
+    description: 세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적
+    category: 정부
+  - id: tax-increase
+    name: 증세 (Tax Increase)
+    description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적
+    category: 정부
+  - id: korean-won
+    name: 원화 (Korean Won)
+    description: 대한민국의 공식 통화
+    category: 국제경제
+  - id: chinese-yuan
+    name: 위안화 (Chinese Yuan)
+    description: 중국의 공식 통화
+    category: 국제경제
+  - id: japanese-yen
+    name: 엔화 (Japanese Yen)
+    description: 일본의 공식 통화
+    category: 국제경제
+  - id: euro
+    name: 유로 (Euro)
+    description: 유럽연합의 공식 통화
+    category: 국제경제
+  - id: deflation
+    name: 디플레이션 (Deflation)
+    description: 일반적인 물가 수준의 지속적인 하락으로, 화폐의 구매력이 상승하는 현상
+    category: 거시경제
+  - id: cpi
+    name: CPI 소비자 물가 지수 (Consumer Price Index)
+    description: 일반 가계가 구매하는 상품과 서비스의 가격 변동을 측정하는 지표
+    category: 거시경제
+  - id: stock-market
+    name: 주식시장 (Stock Market)
+    description: 주식을 발행하고 거래하는 시장
+    category: 금융시장
+  - id: bond-market
+    name: 채권시장 (Bond Market)
+    description: 채권을 발행하고 거래하는 시장
+    category: 금융시장
+  - id: commodity-market
+    name: 원자재시장 (Commodity Market)
+    description: 원유, 금, 곡물 등 원자재를 거래하는 시장
+    category: 금융시장
+  - id: nominal-gdp
+    name: 명목 GDP (Nominal GDP)
+    description: 현재 시장 가격으로 평가한 GDP로 인플레이션을 반영하지 않음
+    category: 거시경제
+  - id: real-gdp
+    name: 실질 GDP (Real GDP)
+    description: 기준 연도의 가격으로 평가한 GDP로 인플레이션을 제거한 실제 생산량
+    category: 거시경제
+  - id: household-debt
+    name: 가계부채 (Household Debt)
+    description: 가계가 부담하는 총 부채 규모
+    category: 금융
+  - id: net-interest-margin
+    name: 예대마진 (Net Interest Margin)
+    description: 은행의 대출금리와 예금금리의 차이로 은행의 수익성 지표
+    category: 금융

@@ -1,0 +1,13 @@
+terms:
+  - id: federal-reserve
+    name: 연준(Fed) (Federal Reserve)
+    description: 미국의 중앙은행으로 통화정책과 금융안정을 담당
+    category: 중앙은행
+  - id: central-bank
+    name: 중앙은행 (Central Bank)
+    description: 통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국
+    category: 중앙은행
+  - id: fed-balance-sheet
+    name: 연준 대차대조표 (Fed Balance Sheet)
+    description: 연준이 보유한 자산과 부채의 총괄 상태
+    category: 중앙은행

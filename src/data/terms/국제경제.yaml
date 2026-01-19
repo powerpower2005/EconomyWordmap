@@ -1,0 +1,41 @@
+terms:
+  - id: exchange-rate
+    name: 환율 (Exchange Rate)
+    description: 한 국가의 통화를 다른 국가의 통화로 교환할 때의 비율
+    category: 국제경제
+  - id: tariff
+    name: 관세 (Tariff)
+    description: 수입품에 부과하는 세금으로 무역 정책의 수단
+    category: 국제경제
+  - id: trade-deficit
+    name: 무역적자 (Trade Deficit)
+    description: 수입이 수출보다 많은 상태로 경상수지 적자를 의미
+    category: 국제경제
+  - id: trade-surplus
+    name: 무역흑자 (Trade Surplus)
+    description: 수출이 수입보다 많은 상태로 경상수지 흑자를 의미
+    category: 국제경제
+  - id: strong-dollar
+    name: 강달러 (Strong Dollar)
+    description: 달러의 가치가 상대적으로 높은 상태로 다른 통화 대비 강세
+    category: 국제경제
+  - id: weak-dollar
+    name: 약달러 (Weak Dollar)
+    description: 달러의 가치가 상대적으로 낮은 상태로 다른 통화 대비 약세
+    category: 국제경제
+  - id: korean-won
+    name: 원화 (Korean Won)
+    description: 대한민국의 공식 통화
+    category: 국제경제
+  - id: chinese-yuan
+    name: 위안화 (Chinese Yuan)
+    description: 중국의 공식 통화
+    category: 국제경제
+  - id: japanese-yen
+    name: 엔화 (Japanese Yen)
+    description: 일본의 공식 통화
+    category: 국제경제
+  - id: euro
+    name: 유로 (Euro)
+    description: 유럽연합의 공식 통화
+    category: 국제경제

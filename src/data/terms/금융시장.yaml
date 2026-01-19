@@ -1,0 +1,17 @@
+terms:
+  - id: bond-price
+    name: 채권가격 (Bond Price)
+    description: 채권의 시장 가격으로 금리와 반대 방향으로 움직임
+    category: 금융시장
+  - id: stock-market
+    name: 주식시장 (Stock Market)
+    description: 주식을 발행하고 거래하는 시장
+    category: 금융시장
+  - id: bond-market
+    name: 채권시장 (Bond Market)
+    description: 채권을 발행하고 거래하는 시장
+    category: 금융시장
+  - id: commodity-market
+    name: 원자재시장 (Commodity Market)
+    description: 원유, 금, 곡물 등 원자재를 거래하는 시장
+    category: 금융시장

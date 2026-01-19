@@ -1,0 +1,21 @@
+terms:
+  - id: reserves
+    name: 지급준비금 (Reserves)
+    description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제와 규제 목적에 사용
+    category: 통화
+  - id: base-money
+    name: 본원통화(M0) (Base Money)
+    description: 중앙은행이 직접 공급하는 현금과 은행의 지급준비금
+    category: 통화
+  - id: money-multiplier
+    name: 통화승수 (Money Multiplier)
+    description: 본원통화가 시중 통화량으로 확대되는 배율 또는 비율 (1 / 지급준비율)
+    category: 통화
+  - id: excess-reserves
+    name: 초과지준금 (Excess Reserves)
+    description: 의무 지급준비금 초과분으로 2020년 이후 개념상 의미가 약화됨
+    category: 통화
+  - id: m2
+    name: 광의통화(M2) (M2 Money Supply)
+    description: 본원통화와 예금통화를 포함한 시중 유동성 지표
+    category: 통화

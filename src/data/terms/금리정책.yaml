@@ -1,0 +1,5 @@
+terms:
+  - id: iorb
+    name: IORB (Interest on Reserve Balances)
+    description: 연준이 은행의 지급준비금에 지급하는 이자율
+    category: 금리정책

@@ -1,0 +1,41 @@
+terms:
+  - id: inflation
+    name: 인플레이션 (Inflation)
+    description: 일반적인 물가 수준의 지속적인 상승으로, 화폐의 구매력이 하락하는 현상
+    category: 거시경제
+  - id: gdp
+    name: GDP (Gross Domestic Product)
+    description: 국내총생산, 한 국가에서 일정 기간 동안 생산된 최종 재화와 서비스의 시장 가치
+    category: 거시경제
+  - id: unemployment
+    name: 실업률 (Unemployment Rate)
+    description: 경제활동인구 중 실업자 비율
+    category: 거시경제
+  - id: consumption
+    name: 소비 (Consumption)
+    description: 재화와 서비스를 구매하여 사용하는 경제 활동
+    category: 거시경제
+  - id: investment
+    name: 투자 (Investment)
+    description: 미래의 수익을 기대하고 자본을 투입하는 행위
+    category: 거시경제
+  - id: velocity-of-money
+    name: 화폐유통속도 (Velocity of Money)
+    description: 창조된 통화가 실물경제에서 실제로 사용되는 속도
+    category: 거시경제
+  - id: deflation
+    name: 디플레이션 (Deflation)
+    description: 일반적인 물가 수준의 지속적인 하락으로, 화폐의 구매력이 상승하는 현상
+    category: 거시경제
+  - id: cpi
+    name: CPI 소비자 물가 지수 (Consumer Price Index)
+    description: 일반 가계가 구매하는 상품과 서비스의 가격 변동을 측정하는 지표
+    category: 거시경제
+  - id: nominal-gdp
+    name: 명목 GDP (Nominal GDP)
+    description: 현재 시장 가격으로 평가한 GDP로 인플레이션을 반영하지 않음
+    category: 거시경제
+  - id: real-gdp
+    name: 실질 GDP (Real GDP)
+    description: 기준 연도의 가격으로 평가한 GDP로 인플레이션을 제거한 실제 생산량
+    category: 거시경제

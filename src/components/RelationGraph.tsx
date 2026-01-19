@@ -47,6 +47,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const animationFrameRef = useRef<number | null>(null);
   const [selectedNode, setSelectedNode] = useState<Term | null>(null);
   const [recommendedTerms, setRecommendedTerms] = useState<Term[]>([]);
+  const [randomTerms, setRandomTerms] = useState<Term[]>([]);
   const termsRef = useRef<Term[]>([]);
 
   const handleNodeClick = (termId: string) => {
@@ -104,21 +105,76 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       return countB - countA;
     });
 
-    setRecommendedTerms(sortedTerms.slice(0, 5));
+    // 추천 단어 TOP 10개
+    const top10Terms = sortedTerms.slice(0, 10);
+    setRecommendedTerms(top10Terms);
+
+    // 랜덤 단어 10개 (추천 단어 제외)
+    const recommendedIds = new Set(top10Terms.map(t => t.id));
+    const availableTerms = terms.filter(t => !recommendedIds.has(t.id));
+    const shuffled = [...availableTerms].sort(() => Math.random() - 0.5);
+    setRandomTerms(shuffled.slice(0, 10));
+
+    // 관계 수의 최소값과 최대값 구하기
+    const edgeCounts = Array.from(termEdgeCounts.values());
+    const minEdges = Math.min(...edgeCounts);
+    const maxEdges = Math.max(...edgeCounts);
+    const edgeRange = maxEdges - minEdges;
+
+    // 5단계로 나누는 함수
+    const getNodeSizeLevel = (edgeCount: number): number => {
+      if (edgeRange === 0) return 3; // 모든 노드가 같은 관계 수면 중간 단계
+      
+      // 관계 수를 0-1 범위로 정규화
+      const normalized = (edgeCount - minEdges) / edgeRange;
+      
+      // 5단계로 분할 (0-0.2, 0.2-0.4, 0.4-0.6, 0.6-0.8, 0.8-1.0)
+      if (normalized < 0.2) return 1;
+      if (normalized < 0.4) return 2;
+      if (normalized < 0.6) return 3;
+      if (normalized < 0.8) return 4;
+      return 5;
+    };
+
+    // 단계별 크기 정의 (width, height, font-size)
+    const sizeByLevel: Record<number, { size: number; fontSize: number }> = {
+      1: { size: 80, fontSize: 12 },
+      2: { size: 100, fontSize: 14 },
+      3: { size: 120, fontSize: 16 },
+      4: { size: 140, fontSize: 18 },
+      5: { size: 160, fontSize: 20 }
+    };
 
     const nodes = terms.map(term => {
       const originalCategory = term.category || '기타';
       const mappedCategory = categoryMapping[originalCategory] || originalCategory;
+      const edgeCount = termEdgeCounts.get(term.id) || 0;
+      const sizeLevel = getNodeSizeLevel(edgeCount);
+      
       return {
         data: {
           id: term.id,
           label: term.name,
           description: term.description,
           category: mappedCategory,
-          originalCategory: originalCategory
+          originalCategory: originalCategory,
+          edgeCount: edgeCount,
+          sizeLevel: sizeLevel
         }
       };
     });
+
+    // 노드 수에 따라 엣지 길이를 비례하게 조정
+    const nodeCount = terms.length;
+    // 기본 엣지 길이를 노드 수에 비례하여 조정 (노드가 많을수록 더 길게)
+    // 노드 수가 50개일 때 1200을 기준으로 비례 계산 (더 짧게)
+    const baseEdgeLength = 1200;
+    const baseNodeCount = 50;
+    const dynamicEdgeLength = Math.max(baseEdgeLength, baseEdgeLength * (nodeCount / baseNodeCount));
+    
+    // 노드 간 이격을 위한 설정 (노드 수에 비례)
+    const nodeOverlap = Math.max(400, 200 * (nodeCount / 50)); // 노드가 많을수록 더 큰 이격
+    const componentSpacing = Math.max(400, 200 * (nodeCount / 50)); // 컴포넌트 간 간격도 증가
 
     // 엣지 생성 (양방향이면 하나의 엣지로, 단방향이면 한쪽 화살표만)
     const edges = relations.map(relation => {
@@ -161,9 +217,18 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           style: {
             'background-color': '#6366f1',
             'label': 'data(label)',
-            'width': 150,
-            'height': 150,
-            'font-size': '18px',
+            'width': function(node: any) {
+              const level = node.data('sizeLevel') || 3;
+              return sizeByLevel[level]?.size || 120;
+            },
+            'height': function(node: any) {
+              const level = node.data('sizeLevel') || 3;
+              return sizeByLevel[level]?.size || 120;
+            },
+            'font-size': function(node: any) {
+              const level = node.data('sizeLevel') || 3;
+              return `${sizeByLevel[level]?.fontSize || 16}px`;
+            },
             'font-weight': 'bold',
             'color': '#ffffff',
             'text-outline-color': '#000000',
@@ -171,8 +236,15 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             'text-valign': 'center',
             'text-halign': 'center',
             'text-wrap': 'wrap',
-            'text-max-width': '180px',
-            'border-width': 6,
+            'text-max-width': function(node: any) {
+              const level = node.data('sizeLevel') || 3;
+              return `${(sizeByLevel[level]?.size || 120) + 20}px`;
+            },
+            'border-width': function(node: any) {
+              const level = node.data('sizeLevel') || 3;
+              // 단계가 높을수록 두꺼운 테두리
+              return level >= 4 ? 6 : level >= 3 ? 5 : 4;
+            },
             'border-color': function(node: any) {
               const category = node.data('category');
               return categoryColors[category] || '#6366f1';
@@ -226,13 +298,13 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       ],
       layout: {
         name: 'cose',
-        idealEdgeLength: 1200,
-        nodeOverlap: 200,
+        idealEdgeLength: dynamicEdgeLength, // 노드 수에 비례한 엣지 길이
+        nodeOverlap: nodeOverlap, // 노드 수에 비례한 이격
         refresh: 1,
-        fit: true,
-        padding: 60,
+        fit: false, // fit을 비활성화하여 줌 레벨을 직접 제어
+        padding: 5, // padding을 최소화하여 더 가깝게 배치
         randomize: false,
-        componentSpacing: 200,
+        componentSpacing: componentSpacing, // 노드 수에 비례한 컴포넌트 간격
         nodeRepulsion: 2000000,
         edgeElasticity: 150,
         nestingFactor: 5,
@@ -250,9 +322,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     // 노드를 드래그 가능하게 설정
     cy.nodes().grabify();
 
-    // 최대 엣지 길이 설정
-    const maxEdgeLength = 12500;
-    const idealEdgeLength = 1200;
+    // 최대 엣지 길이 설정 (노드 수에 비례)
+    // idealEdgeLength의 5.625배 (2000 * 5.625 = 11250, 18750 * 0.6 = 11250)
+    const maxEdgeLength = dynamicEdgeLength * 5.625;
+    const idealEdgeLength = dynamicEdgeLength; // 노드 수에 비례한 엣지 길이
     const springConstant = 0.001;
     const damping = 0.99;
 
@@ -287,9 +360,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         let fy = 0;
 
         // 모든 노드와의 반발력 계산 (노드 지름의 1.5배 이내에서만)
-        const nodeDiameter = 150; // 노드 지름
-        const repulsionDistance = nodeDiameter * 1.5; // 반발력 작용 거리 (225)
-        const repulsionStrength = 0.5; // 반발력 강도
+        // 노드 크기가 다양하므로 평균 크기 사용
+        const nodeDiameter = 120; // 평균 노드 지름
+        const repulsionDistance = nodeDiameter * 1.5; // 반발력 작용 거리 (180)
+        const repulsionStrength = 0.2; // 반발력 강도 (0.5 -> 0.2로 감소)
         
         cy.nodes().forEach((otherNode: any) => {
           if (otherNode.id() === nodeId) return; // 자기 자신은 제외
@@ -354,19 +428,13 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         }
       });
 
-      // 안정화 확인 - 30프레임 동안 움직임이 없으면 물리 시뮬레이션 중지
+      // 안정화 확인 - 움직임이 있으면 카운터 리셋 (물리 시뮬레이션은 계속 유지)
       if (hasMovement) {
         stableFrames = 0;
       } else {
         stableFrames++;
-        if (stableFrames > 30) {
-          physicsActive = false;
-          if (animationFrameRef.current !== null) {
-            cancelAnimationFrame(animationFrameRef.current);
-            animationFrameRef.current = null;
-          }
-          return;
-        }
+        // 물리 시뮬레이션을 계속 활성화하여 부드러운 움직임 유지
+        // stableFrames가 높아도 멈추지 않음
       }
 
       animationFrameRef.current = requestAnimationFrame(updatePhysics);
@@ -401,26 +469,34 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
     // 레이아웃이 완료된 후에만 물리 시뮬레이션 시작
     cy.one('layoutstop', function() {
-      // 초기 줌 레벨 설정 (적당히 확대된 상태)
-      cy.fit(cy.elements(), 60);
-      const currentZoom = cy.zoom();
-      // 최소 줌 레벨을 2.0으로 설정하여 더 확대된 상태로 표시
-      if (currentZoom < 2.0) {
-        cy.zoom(2.0);
-        cy.center(cy.elements());
+      // 초기 줌 레벨 설정 (더욱 확대된 상태 - 모든 노드를 보여줄 필요 없음)
+      // fit을 하지 않고 직접 줌 레벨 설정하여 더 가깝게 보이도록
+      cy.zoom(300.0); // 매우 높은 줌 레벨로 설정
+      // 그래프의 중심 부분으로 이동 (모든 노드를 보여줄 필요 없음)
+      const nodes = cy.nodes();
+      if (nodes.length > 0) {
+        // 중앙에 있는 노드들을 중심으로 배치
+        const positions = nodes.map((node: any) => node.position());
+        const avgX = positions.reduce((sum, pos) => sum + pos.x, 0) / positions.length;
+        const avgY = positions.reduce((sum, pos) => sum + pos.y, 0) / positions.length;
+        // pan을 사용하여 중심으로 이동
+        const currentZoom = cy.zoom();
+        const extent = cy.extent();
+        const width = extent.w;
+        const height = extent.h;
+        const newPanX = (width / 2) - (avgX * currentZoom);
+        const newPanY = (height / 2) - (avgY * currentZoom);
+        cy.pan({ x: newPanX, y: newPanY });
       }
       // 모든 노드의 속도를 0으로 초기화
       cy.nodes().forEach((node: any) => {
         nodeVelocities.set(node.id(), { vx: 0, vy: 0 });
       });
       
-      // 레이아웃 완료 후 충분한 지연을 두고 물리 시뮬레이션 시작
-      setTimeout(() => {
-        physicsActive = true;
-        stableFrames = 0;
-        // 처음 시작할 때는 힘을 매우 약하게
-        updatePhysics();
-      }, 500);
+      // 레이아웃 완료 후 즉시 물리 시뮬레이션 시작 (지연 제거)
+      physicsActive = true;
+      stableFrames = 0;
+      updatePhysics();
     });
 
     cy.on('tap', 'node', function(evt) {
@@ -476,12 +552,43 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     <div className="w-full h-full">
       {recommendedTerms.length > 0 && (
         <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
-          <div className="text-sm font-semibold text-gray-700 mb-2">추천 단어:</div>
+          <div className="text-base font-semibold text-gray-700 mb-1">추천 단어</div>
+          <div className="text-xs text-gray-500 mb-2">가장 관계가 많은 단어 TOP 10개</div>
           <div className="flex flex-wrap gap-2">
             {recommendedTerms.map(term => (
               <span
                 key={term.id}
                 className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm cursor-pointer hover:bg-blue-200 transition-colors"
+                onClick={() => {
+                  setSelectedNode(term);
+                  if (cyRef.current) {
+                    const node = cyRef.current.getElementById(term.id);
+                    if (node.length > 0) {
+                      cyRef.current.animate({
+                        center: { eles: node },
+                        zoom: 1.5
+                      }, {
+                        duration: 500
+                      });
+                    }
+                  }
+                }}
+              >
+                {term.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      {randomTerms.length > 0 && (
+        <div className="bg-white rounded-lg shadow-lg p-4 mb-4">
+          <div className="text-base font-semibold text-gray-700 mb-1">랜덤 단어</div>
+          <div className="text-xs text-gray-500 mb-2">추천 단어를 제외한 랜덤 10개</div>
+          <div className="flex flex-wrap gap-2">
+            {randomTerms.map(term => (
+              <span
+                key={term.id}
+                className="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm cursor-pointer hover:bg-purple-200 transition-colors"
                 onClick={() => {
                   setSelectedNode(term);
                   if (cyRef.current) {

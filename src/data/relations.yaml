@@ -1,0 +1,743 @@
+relations:
+  - id: r1
+    term1Id: inflation
+    term2Id: interest-rate
+    type: proportional
+    description: 인플레이션이 상승하면 중앙은행이 금리를 인상하여 물가를 안정시키려 함
+    strength: strong
+  - id: r2
+    term1Id: interest-rate
+    term2Id: investment
+    type: inverse
+    description: 금리가 상승하면 투자 비용이 증가하여 투자가 감소
+    strength: strong
+  - id: r3
+    term1Id: gdp
+    term2Id: consumption
+    type: proportional
+    description: GDP가 증가하면 소비도 함께 증가하는 경향
+    strength: strong
+  - id: r4
+    term1Id: unemployment
+    term2Id: gdp
+    type: inverse
+    description: GDP가 증가하면 실업률이 감소하는 경향 (오쿤의 법칙)
+    strength: medium
+  - id: r5
+    term1Id: money-supply
+    term2Id: inflation
+    type: proportional
+    description: 통화량이 증가하면 인플레이션 압력이 증가
+    strength: medium
+  - id: r6
+    term1Id: exchange-rate
+    term2Id: interest-rate
+    type: correlation
+    description: 금리 차이에 따라 환율이 영향을 받음
+    strength: medium
+  - id: r7
+    term1Id: consumption
+    term2Id: investment
+    type: correlation
+    description: 소비와 투자는 경제 성장의 양대 축으로 상호 연관
+    strength: medium
+  - id: r8
+    term1Id: base-money
+    term2Id: money-multiplier
+    type: proportional
+    description: 본원통화가 증가하면 통화승수 효과로 통화량이 더 크게 확대됨
+    strength: strong
+  - id: r9
+    term1Id: required-reserve-ratio
+    term2Id: money-multiplier
+    type: inverse
+    description: 지급준비율이 낮을수록 통화승수가 높아짐 (통화승수 = 1 / 지급준비율)
+    strength: strong
+  - id: r10
+    term1Id: base-money
+    term2Id: money-supply
+    type: proportional
+    description: 본원통화가 증가하면 통화량이 증가함
+    strength: strong
+  - id: r11
+    term1Id: money-multiplier
+    term2Id: money-supply
+    type: proportional
+    description: 통화승수가 높을수록 본원통화가 통화량으로 더 크게 확대됨
+    strength: strong
+  - id: r12
+    term1Id: quantitative-easing
+    term2Id: base-money
+    type: proportional
+    description: 양적완화는 중앙은행이 자산을 매입하여 본원통화를 증가시킴
+    strength: strong
+  - id: r13
+    term1Id: quantitative-easing
+    term2Id: money-supply
+    type: proportional
+    description: 양적완화는 본원통화 증가를 통해 통화량을 증가시킴
+    strength: strong
+  - id: r14
+    term1Id: quantitative-easing
+    term2Id: interest-rate
+    type: inverse
+    description: 양적완화는 장기금리를 인위적으로 낮춤
+    strength: strong
+  - id: r15
+    term1Id: quantitative-tightening
+    term2Id: base-money
+    type: inverse
+    description: 양적긴축은 중앙은행이 자산을 매각하여 본원통화를 감소시킴
+    strength: strong
+  - id: r16
+    term1Id: quantitative-tightening
+    term2Id: money-supply
+    type: inverse
+    description: 양적긴축은 본원통화 감소를 통해 통화량을 감소시킴
+    strength: strong
+  - id: r17
+    term1Id: money-supply
+    term2Id: velocity-of-money
+    type: correlation
+    description: 통화량과 화폐유통속도는 함께 인플레이션에 영향을 줌 (MV = PY)
+    strength: medium
+  - id: r18
+    term1Id: velocity-of-money
+    term2Id: inflation
+    type: proportional
+    description: 화폐유통속도가 빠를수록 같은 통화량으로도 인플레이션 압력이 증가
+    strength: medium
+  - id: r19
+    term1Id: credit-creation
+    term2Id: money-supply
+    type: proportional
+    description: 신용창조는 은행이 대출을 통해 통화량을 증가시킴
+    strength: strong
+  - id: r20
+    term1Id: required-reserve-ratio
+    term2Id: credit-creation
+    type: inverse
+    description: 지급준비율이 낮을수록 은행이 더 많은 신용을 창조할 수 있음
+    strength: strong
+  - id: r21
+    term1Id: base-money
+    term2Id: credit-creation
+    type: proportional
+    description: 본원통화(지급준비금)가 많을수록 은행이 더 많은 신용을 창조할 수 있음
+    strength: strong
+  - id: r22
+    term1Id: iorb
+    term2Id: interest-rate
+    type: correlation
+    bidirectional: true
+    description: IORB는 금리의 하한선 역할을 하며, 금리 정책의 주요 도구임
+    reverseDescription: 금리 정책은 IORB를 조정하여 시장 금리에 영향을 줌
+    strength: strong
+  - id: r23
+    term1Id: base-money
+    term2Id: lclor
+    type: correlation
+    bidirectional: true
+    description: 본원통화가 LCLoR 이하로 떨어지면 금융시스템 불안정 위험 증가
+    reverseDescription: LCLoR는 본원통화의 최소 필요 수준을 결정하는 기준이 됨
+    strength: strong
+  - id: r24
+    term1Id: quantitative-tightening
+    term2Id: lclor
+    type: correlation
+    description: 양적긴축 시 본원통화가 LCLoR에 근접하면 정책 조정이 필요함
+    strength: medium
+  - id: r25
+    term1Id: bank
+    term2Id: credit-creation
+    type: proportional
+    description: 은행이 대출을 통해 신용을 창조함
+    strength: strong
+  - id: r26
+    term1Id: bank
+    term2Id: reserves
+    type: correlation
+    description: 은행은 중앙은행에 지급준비금을 보유함
+    strength: strong
+  - id: r27
+    term1Id: reserves
+    term2Id: base-money
+    type: correlation
+    description: 지급준비금은 본원통화의 주요 구성 요소임
+    strength: strong
+  - id: r28
+    term1Id: reserves
+    term2Id: required-reserve-ratio
+    type: correlation
+    description: 지급준비금은 지급준비율에 따라 결정되는 의무 보유액
+    strength: strong
+  - id: r29
+    term1Id: excess-reserves
+    term2Id: reserves
+    type: correlation
+    description: 초과지준금은 지급준비금 중 의무 보유액을 초과하는 부분
+    strength: strong
+  - id: r30
+    term1Id: capital-adequacy-ratio
+    term2Id: bank
+    type: correlation
+    description: 자기자본비율은 은행의 건전성을 측정하는 핵심 지표
+    strength: strong
+  - id: r31
+    term1Id: leverage-ratio
+    term2Id: bank
+    type: correlation
+    description: 레버리지비율은 은행의 차입 수준을 제한하는 규제 지표
+    strength: strong
+  - id: r32
+    term1Id: prudential-regulation
+    term2Id: capital-adequacy-ratio
+    type: correlation
+    description: 건전성 규제는 자기자본비율을 통해 은행의 위험을 관리함
+    strength: strong
+  - id: r33
+    term1Id: prudential-regulation
+    term2Id: leverage-ratio
+    type: correlation
+    description: 건전성 규제는 레버리지비율을 통해 은행의 과도한 차입을 제한함
+    strength: strong
+  - id: r34
+    term1Id: federal-reserve
+    term2Id: central-bank
+    type: correlation
+    description: 연준은 미국의 중앙은행으로 통화정책을 담당함
+    strength: strong
+  - id: r35
+    term1Id: central-bank
+    term2Id: base-money
+    type: proportional
+    description: 중앙은행이 본원통화를 공급함
+    strength: strong
+  - id: r36
+    term1Id: central-bank
+    term2Id: quantitative-easing
+    type: correlation
+    description: 중앙은행이 양적완화 정책을 시행함
+    strength: strong
+  - id: r37
+    term1Id: central-bank
+    term2Id: quantitative-tightening
+    type: correlation
+    description: 중앙은행이 양적긴축 정책을 시행함
+    strength: strong
+  - id: r38
+    term1Id: quantitative-easing
+    term2Id: government-bond
+    type: proportional
+    description: 양적완화는 국채를 매입하여 시행됨
+    strength: strong
+  - id: r39
+    term1Id: quantitative-easing
+    term2Id: mbs
+    type: proportional
+    description: 양적완화는 MBS를 매입하여 시행됨
+    strength: strong
+  - id: r40
+    term1Id: treasury
+    term2Id: government-bond
+    type: proportional
+    description: 재무부가 국채를 발행함
+    strength: strong
+  - id: r41
+    term1Id: government-bond
+    term2Id: bond-price
+    type: correlation
+    description: 국채의 가격은 시장에서 결정됨
+    strength: medium
+  - id: r42
+    term1Id: bond-price
+    term2Id: long-term-interest-rate
+    type: inverse
+    description: 채권가격이 상승하면 장기금리가 하락함
+    strength: strong
+  - id: r43
+    term1Id: long-term-interest-rate
+    term2Id: interest-rate
+    type: correlation
+    description: 장기금리는 전체 금리 수준의 중요한 구성 요소
+    strength: strong
+  - id: r44
+    term1Id: market-interest-rate
+    term2Id: interest-rate
+    type: correlation
+    description: 시중금리는 실제 시장에서 적용되는 금리
+    strength: strong
+  - id: r45
+    term1Id: low-interest-policy
+    term2Id: interest-rate
+    type: inverse
+    description: 저금리 정책은 금리를 낮게 유지하는 정책
+    strength: strong
+  - id: r46
+    term1Id: quantitative-easing
+    term2Id: long-term-interest-rate
+    type: inverse
+    description: 양적완화는 장기금리를 낮춤
+    strength: strong
+  - id: r47
+    term1Id: fed-balance-sheet
+    term2Id: quantitative-easing
+    type: correlation
+    description: 양적완화 시 연준 대차대조표가 확대됨
+    strength: strong
+  - id: r48
+    term1Id: fed-balance-sheet
+    term2Id: quantitative-tightening
+    type: correlation
+    description: 양적긴축 시 연준 대차대조표가 축소됨
+    strength: strong
+  - id: r49
+    term1Id: government-bond
+    term2Id: maturity-redemption
+    type: correlation
+    description: 국채는 만기 시 원금과 이자를 상환함
+    strength: medium
+  - id: r50
+    term1Id: m2
+    term2Id: money-supply
+    type: correlation
+    description: M2는 통화량의 한 지표로 본원통화와 예금통화를 포함
+    strength: strong
+  - id: r51
+    term1Id: m2
+    term2Id: base-money
+    type: proportional
+    description: M2는 본원통화를 기반으로 확대된 통화 지표
+    strength: strong
+  - id: r52
+    term1Id: bank
+    term2Id: reserves
+    type: proportional
+    bidirectional: true
+    description: 은행이 지급준비금을 보유함
+    reverseDescription: 지급준비금은 은행이 중앙은행에 예치하는 자금
+    strength: strong
+  - id: r53
+    term1Id: quantitative-easing
+    term2Id: fed-assets
+    type: proportional
+    description: 양적완화 시 연준이 자산을 매입하여 연준보유 자산이 증가함
+    strength: strong
+  - id: r54
+    term1Id: quantitative-tightening
+    term2Id: fed-assets
+    type: inverse
+    description: 양적긴축 시 연준이 자산을 매각하여 연준보유 자산이 감소함
+    strength: strong
+  - id: r55
+    term1Id: fed-balance-sheet
+    term2Id: fed-assets
+    type: proportional
+    description: 연준보유 자산은 연준 대차대조표의 자산 측을 구성함
+    strength: strong
+  - id: r56
+    term1Id: tariff
+    term2Id: trade-deficit
+    type: inverse
+    description: 관세 인상은 수입을 감소시켜 무역적자를 줄이는 효과
+    strength: medium
+  - id: r57
+    term1Id: tariff
+    term2Id: trade-surplus
+    type: proportional
+    description: 관세 인상은 수입 감소로 무역흑자 확대에 기여할 수 있음
+    strength: medium
+  - id: r58
+    term1Id: trade-deficit
+    term2Id: gdp
+    type: inverse
+    description: 무역적자가 크면 GDP 성장에 부정적 영향을 줄 수 있음
+    strength: medium
+  - id: r59
+    term1Id: trade-surplus
+    term2Id: gdp
+    type: proportional
+    description: 무역흑자는 GDP 성장에 긍정적 기여를 함
+    strength: medium
+  - id: r60
+    term1Id: trade-deficit
+    term2Id: trade-surplus
+    type: inverse
+    bidirectional: true
+    description: 무역적자와 무역흑자는 상반된 무역 균형 상태
+    reverseDescription: 무역흑자와 무역적자는 상반된 무역 균형 상태
+    strength: strong
+  - id: r61
+    term1Id: strong-dollar
+    term2Id: weak-dollar
+    type: inverse
+    bidirectional: true
+    description: 강달러와 약달러는 상반된 달러 가치 상태
+    reverseDescription: 약달러와 강달러는 상반된 달러 가치 상태
+    strength: strong
+  - id: r62
+    term1Id: strong-dollar
+    term2Id: exchange-rate
+    type: correlation
+    description: 강달러는 달러 강세를 의미하며 환율에 영향을 줌
+    strength: strong
+  - id: r63
+    term1Id: weak-dollar
+    term2Id: exchange-rate
+    type: correlation
+    description: 약달러는 달러 약세를 의미하며 환율에 영향을 줌
+    strength: strong
+  - id: r64
+    term1Id: strong-dollar
+    term2Id: trade-deficit
+    type: proportional
+    description: 강달러는 수출 경쟁력을 약화시켜 무역적자 확대 가능성
+    strength: medium
+  - id: r65
+    term1Id: weak-dollar
+    term2Id: trade-surplus
+    type: proportional
+    description: 약달러는 수출 경쟁력을 강화시켜 무역흑자 확대 가능성
+    strength: medium
+  - id: r66
+    term1Id: tax-cut
+    term2Id: tax-increase
+    type: inverse
+    bidirectional: true
+    description: 감세와 증세는 상반된 세금 정책
+    reverseDescription: 증세와 감세는 상반된 세금 정책
+    strength: strong
+  - id: r67
+    term1Id: tax-cut
+    term2Id: consumption
+    type: proportional
+    description: 감세는 가처분소득을 증가시켜 소비를 촉진함
+    strength: medium
+  - id: r68
+    term1Id: tax-cut
+    term2Id: investment
+    type: proportional
+    description: 감세는 기업의 투자 비용을 낮춰 투자를 촉진함
+    strength: medium
+  - id: r69
+    term1Id: tax-cut
+    term2Id: gdp
+    type: proportional
+    description: 감세는 소비와 투자 증가를 통해 GDP 성장을 촉진함
+    strength: medium
+  - id: r70
+    term1Id: tax-increase
+    term2Id: consumption
+    type: inverse
+    description: 증세는 가처분소득을 감소시켜 소비를 위축시킬 수 있음
+    strength: medium
+  - id: r71
+    term1Id: tax-increase
+    term2Id: investment
+    type: inverse
+    description: 증세는 기업의 투자 비용을 높여 투자를 위축시킬 수 있음
+    strength: medium
+  - id: r72
+    term1Id: korean-won
+    term2Id: exchange-rate
+    type: correlation
+    description: 원화는 환율의 기준 통화 중 하나
+    strength: strong
+  - id: r73
+    term1Id: chinese-yuan
+    term2Id: exchange-rate
+    type: correlation
+    description: 위안화는 환율의 기준 통화 중 하나
+    strength: strong
+  - id: r74
+    term1Id: japanese-yen
+    term2Id: exchange-rate
+    type: correlation
+    description: 엔화는 환율의 기준 통화 중 하나
+    strength: strong
+  - id: r75
+    term1Id: euro
+    term2Id: exchange-rate
+    type: correlation
+    description: 유로는 환율의 기준 통화 중 하나
+    strength: strong
+  - id: r76
+    term1Id: strong-dollar
+    term2Id: korean-won
+    type: correlation
+    description: 강달러는 원화 대비 달러 강세를 의미
+    strength: medium
+  - id: r77
+    term1Id: strong-dollar
+    term2Id: chinese-yuan
+    type: correlation
+    description: 강달러는 위안화 대비 달러 강세를 의미
+    strength: medium
+  - id: r78
+    term1Id: strong-dollar
+    term2Id: japanese-yen
+    type: correlation
+    description: 강달러는 엔화 대비 달러 강세를 의미
+    strength: medium
+  - id: r79
+    term1Id: strong-dollar
+    term2Id: euro
+    type: correlation
+    description: 강달러는 유로 대비 달러 강세를 의미
+    strength: medium
+  - id: r80
+    term1Id: weak-dollar
+    term2Id: korean-won
+    type: correlation
+    description: 약달러는 원화 대비 달러 약세를 의미
+    strength: medium
+  - id: r81
+    term1Id: weak-dollar
+    term2Id: chinese-yuan
+    type: correlation
+    description: 약달러는 위안화 대비 달러 약세를 의미
+    strength: medium
+  - id: r82
+    term1Id: weak-dollar
+    term2Id: japanese-yen
+    type: correlation
+    description: 약달러는 엔화 대비 달러 약세를 의미
+    strength: medium
+  - id: r83
+    term1Id: weak-dollar
+    term2Id: euro
+    type: correlation
+    description: 약달러는 유로 대비 달러 약세를 의미
+    strength: medium
+  - id: r84
+    term1Id: deflation
+    term2Id: inflation
+    type: inverse
+    bidirectional: true
+    description: 디플레이션과 인플레이션은 상반된 물가 변동 현상
+    reverseDescription: 인플레이션과 디플레이션은 상반된 물가 변동 현상
+    strength: strong
+  - id: r85
+    term1Id: cpi
+    term2Id: inflation
+    type: proportional
+    description: CPI가 상승하면 인플레이션 압력이 증가함
+    strength: strong
+  - id: r86
+    term1Id: cpi
+    term2Id: deflation
+    type: inverse
+    description: CPI가 하락하면 디플레이션 압력이 증가함
+    strength: strong
+  - id: r87
+    term1Id: nominal-gdp
+    term2Id: real-gdp
+    type: correlation
+    bidirectional: true
+    description: 명목 GDP는 실질 GDP에 인플레이션을 반영한 값
+    reverseDescription: 실질 GDP는 명목 GDP에서 인플레이션을 제거한 값
+    strength: strong
+  - id: r88
+    term1Id: nominal-gdp
+    term2Id: inflation
+    type: proportional
+    description: 인플레이션이 높을수록 명목 GDP가 더 크게 증가함
+    strength: medium
+  - id: r89
+    term1Id: real-gdp
+    term2Id: inflation
+    type: correlation
+    description: 실질 GDP는 인플레이션을 제거하여 실제 경제 성장을 측정함
+    strength: medium
+  - id: r90
+    term1Id: gdp
+    term2Id: nominal-gdp
+    type: correlation
+    description: GDP는 일반적으로 명목 GDP를 의미함
+    strength: strong
+  - id: r91
+    term1Id: gdp
+    term2Id: real-gdp
+    type: correlation
+    description: 경제 성장률은 주로 실질 GDP 기준으로 측정됨
+    strength: strong
+  - id: r92
+    term1Id: stock-market
+    term2Id: interest-rate
+    type: inverse
+    description: 금리가 상승하면 주식시장에 부정적 영향을 줌
+    strength: medium
+  - id: r93
+    term1Id: stock-market
+    term2Id: gdp
+    type: proportional
+    description: GDP가 증가하면 주식시장이 상승하는 경향
+    strength: medium
+  - id: r94
+    term1Id: bond-market
+    term2Id: bond-price
+    type: correlation
+    description: 채권시장에서 채권가격이 결정됨
+    strength: strong
+  - id: r95
+    term1Id: bond-market
+    term2Id: interest-rate
+    type: correlation
+    description: 채권시장에서 금리가 형성됨
+    strength: strong
+  - id: r96
+    term1Id: bond-market
+    term2Id: government-bond
+    type: correlation
+    description: 채권시장에서 국채가 거래됨
+    strength: strong
+  - id: r97
+    term1Id: commodity-market
+    term2Id: inflation
+    type: proportional
+    description: 원자재 가격 상승은 인플레이션 압력을 증가시킴
+    strength: medium
+  - id: r98
+    term1Id: household-debt
+    term2Id: interest-rate
+    type: proportional
+    description: 금리가 상승하면 가계부채 부담이 증가함
+    strength: strong
+  - id: r99
+    term1Id: household-debt
+    term2Id: consumption
+    type: inverse
+    description: 가계부채가 증가하면 소비가 위축될 수 있음
+    strength: medium
+  - id: r100
+    term1Id: net-interest-margin
+    term2Id: interest-rate
+    type: proportional
+    description: 금리가 상승하면 예대마진이 확대될 수 있음
+    strength: medium
+  - id: r101
+    term1Id: net-interest-margin
+    term2Id: bank
+    type: correlation
+    description: 예대마진은 은행의 주요 수익원임
+    strength: strong
+  - id: r102
+    term1Id: deflation
+    term2Id: money-supply
+    type: inverse
+    description: 통화량이 감소하면 디플레이션 압력이 증가함
+    strength: medium
+  - id: r103
+    term1Id: deflation
+    term2Id: consumption
+    type: inverse
+    description: 디플레이션은 소비를 위축시킬 수 있음
+    strength: medium
+  - id: r104
+    term1Id: deflation
+    term2Id: investment
+    type: inverse
+    description: 디플레이션은 투자를 위축시킬 수 있음
+    strength: medium
+  - id: r105
+    term1Id: cpi
+    term2Id: money-supply
+    type: proportional
+    description: 통화량이 증가하면 CPI가 상승하는 경향
+    strength: medium
+  - id: r106
+    term1Id: cpi
+    term2Id: consumption
+    type: correlation
+    description: 소비가 증가하면 CPI 상승 압력이 증가함
+    strength: medium
+  - id: r107
+    term1Id: stock-market
+    term2Id: investment
+    type: correlation
+    description: 주식시장은 투자의 주요 수단임
+    strength: strong
+  - id: r108
+    term1Id: stock-market
+    term2Id: inflation
+    type: correlation
+    description: 인플레이션이 주식시장에 영향을 줌
+    strength: medium
+  - id: r109
+    term1Id: stock-market
+    term2Id: consumption
+    type: correlation
+    description: 주식시장 상승은 소비 증가에 기여할 수 있음
+    strength: medium
+  - id: r110
+    term1Id: bond-market
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: 채권시장에서 장기금리가 형성됨
+    strength: strong
+  - id: r111
+    term1Id: bond-market
+    term2Id: quantitative-easing
+    type: correlation
+    description: 양적완화는 채권시장에 직접적인 영향을 줌
+    strength: strong
+  - id: r112
+    term1Id: commodity-market
+    term2Id: exchange-rate
+    type: correlation
+    description: 환율 변동이 원자재 가격에 영향을 줌
+    strength: medium
+  - id: r113
+    term1Id: commodity-market
+    term2Id: strong-dollar
+    type: inverse
+    description: 강달러는 원자재 가격에 하락 압력을 줌
+    strength: medium
+  - id: r114
+    term1Id: commodity-market
+    term2Id: weak-dollar
+    type: proportional
+    description: 약달러는 원자재 가격에 상승 압력을 줌
+    strength: medium
+  - id: r115
+    term1Id: household-debt
+    term2Id: gdp
+    type: correlation
+    description: 가계부채가 GDP에 영향을 줌
+    strength: medium
+  - id: r116
+    term1Id: household-debt
+    term2Id: investment
+    type: inverse
+    description: 가계부채가 증가하면 투자가 감소할 수 있음
+    strength: medium
+  - id: r117
+    term1Id: net-interest-margin
+    term2Id: market-interest-rate
+    type: correlation
+    description: 시중금리가 예대마진에 영향을 줌
+    strength: medium
+  - id: r118
+    term1Id: real-gdp
+    term2Id: consumption
+    type: proportional
+    description: 실질 GDP가 증가하면 소비가 증가함
+    strength: strong
+  - id: r119
+    term1Id: real-gdp
+    term2Id: investment
+    type: proportional
+    description: 실질 GDP가 증가하면 투자가 증가함
+    strength: strong
+  - id: r120
+    term1Id: nominal-gdp
+    term2Id: consumption
+    type: proportional
+    description: 명목 GDP가 증가하면 소비가 증가함
+    strength: strong
+  - id: r121
+    term1Id: nominal-gdp
+    term2Id: investment
+    type: proportional
+    description: 명목 GDP가 증가하면 투자가 증가함
+    strength: strong

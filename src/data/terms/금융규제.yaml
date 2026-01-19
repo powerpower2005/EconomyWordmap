@@ -1,0 +1,13 @@
+terms:
+  - id: capital-adequacy-ratio
+    name: 자기자본비율 (Capital Adequacy Ratio)
+    description: 은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제의 핵심 지표
+    category: 금융규제
+  - id: leverage-ratio
+    name: 레버리지비율 (Leverage Ratio)
+    description: 은행의 자기자본 대비 총자산 비율로 과도한 차입을 제한하는 규제
+    category: 금융규제
+  - id: prudential-regulation
+    name: 건전성 규제 (Prudential Regulation)
+    description: 은행의 자본과 부채 비율을 제한하여 금융 시스템 안정성을 확보하는 규제
+    category: 금융규제

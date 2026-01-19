@@ -1,0 +1,5 @@
+terms:
+  - id: credit-creation
+    name: 신용창조 (Credit Creation)
+    description: 은행이 지급준비금과 자기자본을 기반으로 예금 이상의 대출을 발생시키는 과정
+    category: 통화금융

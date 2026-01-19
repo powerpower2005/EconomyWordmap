@@ -1,0 +1,9 @@
+terms:
+  - id: long-term-interest-rate
+    name: 장기금리 (Long-term Interest Rate)
+    description: 장기 채권을 기준으로 형성되는 금리
+    category: 금리
+  - id: market-interest-rate
+    name: 시중금리 (Market Interest Rate)
+    description: 시장 내에서 실제로 적용되는 대출·예금 금리
+    category: 금리

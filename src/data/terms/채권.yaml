@@ -1,0 +1,13 @@
+terms:
+  - id: government-bond
+    name: 국채 (Government Bond)
+    description: 정부가 재정 조달을 위해 발행하는 채권
+    category: 채권
+  - id: mbs
+    name: MBS (Mortgage-Backed Security)
+    description: 주택담보대출을 기초자산으로 한 유동화 증권
+    category: 채권
+  - id: maturity-redemption
+    name: 만기상환 (Maturity Redemption)
+    description: 채권 만기 도래 시 원금과 이자를 상환하는 과정
+    category: 채권

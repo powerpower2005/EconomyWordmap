@@ -8,37 +8,21 @@ interface FeedbackFormProps {
 
 export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
     subject: '',
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [errors, setErrors] = useState<{ email?: string; message?: string }>({});
-
-  // 이메일 포맷 검증 함수
-  const validateEmail = (email: string): boolean => {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email);
-  };
+  const [errors, setErrors] = useState<{ message?: string }>({});
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
     
     // 실시간 검증
-    if (name === 'email') {
-      if (value && !validateEmail(value)) {
-        setErrors(prev => ({ ...prev, email: '올바른 이메일 형식을 입력해주세요.' }));
-      } else {
-        setErrors(prev => ({ ...prev, email: undefined }));
-      }
-    }
-    
     if (name === 'message') {
-      if (value && value.length < 30) {
-        setErrors(prev => ({ ...prev, message: '피드백 내용은 30자 이상 입력해주세요.' }));
+      if (value && value.length < 50) {
+        setErrors(prev => ({ ...prev, message: '피드백 내용은 50자 이상 입력해주세요.' }));
       } else {
         setErrors(prev => ({ ...prev, message: undefined }));
       }
@@ -49,16 +33,10 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
     e.preventDefault();
     
     // 검증
-    const emailValid = validateEmail(formData.email);
-    const messageValid = formData.message.length >= 30;
-    
-    if (!emailValid) {
-      setErrors(prev => ({ ...prev, email: '올바른 이메일 형식을 입력해주세요.' }));
-      return;
-    }
+    const messageValid = formData.message.length >= 50;
     
     if (!messageValid) {
-      setErrors(prev => ({ ...prev, message: '피드백 내용은 30자 이상 입력해주세요.' }));
+      setErrors(prev => ({ ...prev, message: '피드백 내용은 50자 이상 입력해주세요.' }));
       return;
     }
     
@@ -79,8 +57,8 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
         serviceId,
         templateId,
         {
-          from_name: formData.name,
-          from_email: formData.email,
+          from_name: '익명 사용자',
+          from_email: 'anonymous@feedback.com',
           subject: formData.subject,
           message: formData.message,
         },
@@ -88,7 +66,7 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
       );
 
       setSubmitStatus('success');
-      setFormData({ name: '', email: '', subject: '', message: '' });
+      setFormData({ subject: '', message: '' });
       
       // 3초 후 자동으로 닫기
       setTimeout(() => {
@@ -121,43 +99,6 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
 
         <form onSubmit={handleSubmit} className="p-6 space-y-4">
           <div>
-            <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-              이름 <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              required
-              className="w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-              placeholder="이름을 입력해주세요"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-              이메일 <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              required
-              className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
-                errors.email ? 'border-red-500' : 'border-gray-300'
-              }`}
-              placeholder="your-email@example.com"
-            />
-            {errors.email && (
-              <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-            )}
-          </div>
-
-          <div>
             <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">
               제목 <span className="text-red-500">*</span>
             </label>
@@ -177,7 +118,7 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
             <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
               내용 <span className="text-red-500">*</span>
               <span className="text-xs text-gray-500 ml-2">
-                ({formData.message.length}/30자 이상)
+                ({formData.message.length}/50자 이상)
               </span>
             </label>
             <textarea
@@ -190,14 +131,14 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
               className={`w-full px-3 py-2 border rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 ${
                 errors.message ? 'border-red-500' : 'border-gray-300'
               }`}
-              placeholder="피드백 내용을 30자 이상 입력해주세요"
+              placeholder="기능 개선 제안, 발견한 오류나 틀린 부분, 또는 자유로운 의견을 50자 이상 작성해주세요. 어떤 내용이든 환영합니다!"
             />
             {errors.message && (
               <p className="mt-1 text-sm text-red-600">{errors.message}</p>
             )}
-            {!errors.message && formData.message.length > 0 && formData.message.length < 30 && (
+            {!errors.message && formData.message.length > 0 && formData.message.length < 50 && (
               <p className="mt-1 text-sm text-gray-500">
-                {30 - formData.message.length}자 더 입력해주세요.
+                {50 - formData.message.length}자 더 입력해주세요.
               </p>
             )}
           </div>
@@ -219,9 +160,7 @@ export default function FeedbackForm({ isOpen, onClose }: FeedbackFormProps) {
               type="submit"
               disabled={
                 isSubmitting || 
-                !validateEmail(formData.email) || 
-                formData.message.length < 30 ||
-                !formData.name.trim() ||
+                formData.message.length < 50 ||
                 !formData.subject.trim()
               }
               className="flex-1 bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"

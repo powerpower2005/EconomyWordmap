@@ -1,0 +1,21 @@
+terms:
+  - id: required-reserve-ratio
+    name: 지급준비율 (Required Reserve Ratio)
+    description: 은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율
+    category: 통화정책
+  - id: quantitative-easing
+    name: 양적완화(QE) (Quantitative Easing)
+    description: 중앙은행이 국채나 MBS를 매입하여 장기금리를 낮추고 유동성을 공급하는 정책
+    category: 통화정책
+  - id: quantitative-tightening
+    name: 양적긴축(QT) (Quantitative Tightening)
+    description: 중앙은행이 보유 자산을 축소하여 유동성과 지급준비금을 줄이는 정책
+    category: 통화정책
+  - id: low-interest-policy
+    name: 저금리 정책 (Low Interest Policy)
+    description: 차입과 투자를 유도하기 위해 금리를 낮게 유지하는 정책
+    category: 통화정책
+  - id: fed-assets
+    name: 연준보유 자산 (Fed Assets)
+    description: 연준이 양적완화 등을 통해 보유한 국채, 모기지담보부증권 등의 자산
+    category: 통화정책

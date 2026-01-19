@@ -1,0 +1,13 @@
+terms:
+  - id: treasury
+    name: 재무부 (Treasury)
+    description: 국채 발행과 국가 재정을 담당하는 정부 기관
+    category: 정부
+  - id: tax-cut
+    name: 감세 (Tax Cut)
+    description: 세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적
+    category: 정부
+  - id: tax-increase
+    name: 증세 (Tax Increase)
+    description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적
+    category: 정부

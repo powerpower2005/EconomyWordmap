@@ -1,0 +1,5 @@
+terms:
+  - id: lclor
+    name: 최소 적정 지급준비금(LCLoR) (Lowest Comfortable Level of Reserves)
+    description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준
+    category: 금융안정
