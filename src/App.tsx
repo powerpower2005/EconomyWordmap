@@ -1,8 +1,21 @@
+import { useState } from 'react';
 import Home from './pages/Home';
+import FeedbackForm from './components/FeedbackForm';
 
 function App() {
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* 최상단 우측 고정 피드백 버튼 */}
+      <button
+        onClick={() => setIsFeedbackOpen(true)}
+        className="fixed top-4 right-4 z-50 px-3 py-1.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl text-xs font-semibold transform hover:scale-105"
+        style={{ fontSize: '11px' }}
+      >
+        💬 개발자에게 피드백하기
+      </button>
+      
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-2xl font-bold text-gray-900">
@@ -16,6 +29,10 @@ function App() {
       <main>
         <Home />
       </main>
+      <FeedbackForm 
+        isOpen={isFeedbackOpen} 
+        onClose={() => setIsFeedbackOpen(false)} 
+      />
     </div>
   );
 }
