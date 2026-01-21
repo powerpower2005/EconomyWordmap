@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
 import cytoscape from 'cytoscape';
-import { loadTerms, loadRelations } from '../utils/dataLoader';
+import { loadTerms, loadRelations, getStarRating } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
 
 export interface RelationGraphHandle {
@@ -19,26 +19,15 @@ const relationTypeLabels: Record<RelationType, string> = {
   correlation: '상관관계'
 };
 
-// 카테고리 통합 및 색상 정의
+// 카테고리 색상 정의
 const categoryColors: Record<string, string> = {
   '거시경제': '#3b82f6',
+  '국제경제': '#14b8a6',
   '금융': '#10b981',
   '통화': '#f59e0b',
   '통화정책': '#8b5cf6',
-  '금융안정': '#ef4444',
-  '국제경제': '#14b8a6',
-  '정부': '#64748b'
-};
-
-// 카테고리 매핑 (통합)
-const categoryMapping: Record<string, string> = {
-  '통화금융': '금융',
-  '금리정책': '통화정책',
-  '금리': '금융',
-  '금융시장': '금융',
-  '금융규제': '금융',
-  '중앙은행': '정부',
-  '채권': '금융'
+  '정부': '#64748b',
+  '원자재': '#d97706'
 };
 
 const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
@@ -146,8 +135,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     };
 
     const nodes = terms.map(term => {
-      const originalCategory = term.category || '기타';
-      const mappedCategory = categoryMapping[originalCategory] || originalCategory;
+      const category = term.category || '기타';
       const edgeCount = termEdgeCounts.get(term.id) || 0;
       const sizeLevel = getNodeSizeLevel(edgeCount);
       
@@ -156,8 +144,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           id: term.id,
           label: term.name,
           description: term.description,
-          category: mappedCategory,
-          originalCategory: originalCategory,
+          category: category,
           edgeCount: edgeCount,
           sizeLevel: sizeLevel
         }
@@ -660,13 +647,18 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                 ×
               </button>
             </div>
-            {selectedNode.category && (
-              <div className="mb-4">
+            <div className="mb-4 flex gap-3 items-center flex-wrap">
+              {selectedNode.category && (
                 <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
                   {selectedNode.category}
                 </span>
-              </div>
-            )}
+              )}
+              {selectedNode.stockMarketImportance && (
+                <span className="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-full text-sm border border-yellow-200">
+                  주식시장 중요도: <span className="text-lg">{getStarRating(selectedNode.stockMarketImportance)}</span>
+                </span>
+              )}
+            </div>
             <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-6">
               {selectedNode.description}
             </div>

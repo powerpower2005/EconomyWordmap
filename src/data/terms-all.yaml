@@ -1,150 +1,228 @@
 terms:
   - id: inflation
     name: 인플레이션 (Inflation)
-    description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력이 하락하는 현상
+    description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력이 하락하는 현상으로 적절한 수준에서는 소비·투자를 촉진하고 부채 실질가치를 감소시켜 경제성장의 동력으로 작용
     category: 거시경제
+    stockMarketImportance: 10
 
   - id: deflation
     name: 디플레이션 (Deflation)
-    description: 일반적인 물가 수준이 지속적으로 하락하여 화폐의 실질 구매력이 상승하는 현상
+    description: 일반적인 물가 수준이 지속적으로 하락하여 화폐의 실질 구매력이 상승하는 현상으로 소비·투자 지연과 부채 부담 증가를 초래하여 경기 침체로 이어질 위험
     category: 거시경제
+    stockMarketImportance: 9
 
   - id: interest-rate
     name: 금리 (Interest Rate)
     description: 자금을 빌리거나 빌려줄 때 적용되는 이자의 비율로 소비·투자·환율·자산가격에 영향을 미침
     category: 금융
+    stockMarketImportance: 10
 
   - id: policy-rate
     name: 기준금리 (Policy Rate)
     description: 중앙은행이 통화정책을 위해 설정하는 대표 금리로 시중금리의 기준 역할
     category: 통화정책
+    stockMarketImportance: 10
 
   - id: real-interest-rate
     name: 실질금리 (Real Interest Rate)
     description: 명목금리에서 기대인플레이션을 차감한 금리로 실제 차입 비용을 반영
     category: 거시경제
+    stockMarketImportance: 8
 
   - id: expected-inflation
     name: 기대인플레이션 (Expected Inflation)
-    description: 경제주체가 예상하는 미래 물가상승률로 임금·금리·소비 결정에 영향
+    description: 경제주체가 예상하는 미래 물가상승률로 소비자의 선제적 구매와 기업의 투자·고용 확대를 유도하여 경제성장을 견인하는 핵심 변수
     category: 거시경제
+    stockMarketImportance: 9
 
   - id: gdp
     name: GDP (Gross Domestic Product)
     description: 한 국가에서 일정 기간 동안 생산된 최종 재화와 서비스의 시장 가치 총합
     category: 거시경제
+    stockMarketImportance: 9
 
   - id: nominal-gdp
     name: 명목 GDP (Nominal GDP)
     description: 현재 가격 기준으로 측정한 GDP로 인플레이션 효과를 포함
     category: 거시경제
+    stockMarketImportance: 7
 
   - id: real-gdp
     name: 실질 GDP (Real GDP)
     description: 기준연도 가격으로 측정한 GDP로 물가 변동을 제거한 실제 생산량
     category: 거시경제
+    stockMarketImportance: 9
 
   - id: unemployment
     name: 실업률 (Unemployment Rate)
     description: 경제활동인구 중 일할 의사가 있으나 일자리를 갖지 못한 인구의 비율
     category: 거시경제
+    stockMarketImportance: 8
 
   - id: cpi
     name: CPI 소비자 물가 지수 (Consumer Price Index)
     description: 가계가 소비하는 상품과 서비스의 가격 변동을 측정하는 대표 물가지표
     category: 거시경제
+    stockMarketImportance: 9
 
   - id: exchange-rate
     name: 환율 (Exchange Rate)
     description: 한 국가 통화를 다른 국가 통화로 교환할 때 적용되는 비율
     category: 국제경제
+    stockMarketImportance: 8
 
   - id: money-supply
     name: 통화량 (Money Supply)
     description: 경제 내에서 유통되는 화폐의 총량으로 소비·투자·물가에 영향
     category: 금융
+    stockMarketImportance: 7
 
   - id: base-money
     name: 본원통화(M0) (Base Money)
     description: 중앙은행이 직접 공급하는 현금과 은행의 지급준비금
     category: 통화
+    stockMarketImportance: 5
 
   - id: m2
     name: 광의통화(M2) (M2 Money Supply)
     description: 본원통화와 예금통화를 포함한 광범위한 유동성 지표
     category: 통화
+    stockMarketImportance: 6
 
   - id: reserves
     name: 지급준비금 (Reserves)
     description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제·유동성·규제 목적
     category: 통화
+    stockMarketImportance: 4
 
   - id: required-reserve-ratio
     name: 지급준비율 (Required Reserve Ratio)
     description: 은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율
     category: 통화정책
+    stockMarketImportance: 4
 
   - id: excess-reserves
     name: 초과지준금 (Excess Reserves)
     description: 의무 지급준비금 초과분의 지급준비금으로 미국에서는 2020년 이후 지급준비율 0%로 의미 약화
     category: 통화
+    stockMarketImportance: 3
 
   - id: money-multiplier
     name: 통화승수 (Money Multiplier)
     description: 본원통화가 시중 통화량으로 확대되는 정도로 현실에서는 지급준비·대출수요·규제에 따라 변동
     category: 통화
+    stockMarketImportance: 3
 
   - id: velocity-of-money
     name: 화폐유통속도 (Velocity of Money)
     description: 일정 기간 동안 통화가 재화·서비스 거래에 사용되는 빈도
     category: 거시경제
+    stockMarketImportance: 4
 
   - id: quantitative-easing
     name: 양적완화(QE) (Quantitative Easing)
     description: 중앙은행이 국채·MBS 등을 매입하여 장기금리 인하와 유동성 확대를 유도하는 정책
     category: 통화정책
+    stockMarketImportance: 9
 
   - id: quantitative-tightening
     name: 양적긴축(QT) (Quantitative Tightening)
     description: 중앙은행이 보유 자산을 축소하여 유동성과 지급준비금을 회수하는 정책
     category: 통화정책
+    stockMarketImportance: 8
 
   - id: iorb
     name: IORB (Interest on Reserve Balances)
     description: 중앙은행이 은행의 지급준비금에 지급하는 이자로 단기금리 하단 역할
-    category: 금리정책
+    category: 통화정책
+    stockMarketImportance: 5
 
   - id: lclor
     name: 최소 적정 지급준비금(LCLoR)
     description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준
-    category: 금융안정
+    category: 금융
+    stockMarketImportance: 4
 
   - id: bank
     name: 은행 (Bank)
     description: 예금 수취와 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
     category: 금융
+    stockMarketImportance: 7
 
   - id: credit-creation
     name: 신용창조 (Credit Creation)
     description: 은행이 대출을 통해 예금을 동시에 창출하는 과정
-    category: 통화금융
+    category: 금융
+    stockMarketImportance: 5
 
   - id: capital-adequacy-ratio
     name: 자기자본비율 (Capital Adequacy Ratio)
     description: 은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제 핵심 지표
-    category: 금융규제
+    category: 금융
+    stockMarketImportance: 6
 
   - id: leverage-ratio
     name: 레버리지비율 (Leverage Ratio)
     description: 은행의 자기자본을 총자산으로 나눈 비율로 과도한 차입을 제한하는 비위험가중 규제
-    category: 금융규제
+    category: 금융
+    stockMarketImportance: 6
 
   - id: prudential-regulation
     name: 건전성 규제 (Prudential Regulation)
     description: 금융기관의 자본·유동성·부채를 규제하여 금융시스템 안정성을 확보하는 제도
-    category: 금융규제
+    category: 금융
+    stockMarketImportance: 6
 
   - id: fiscal-policy
     name: 재정정책 (Fiscal Policy)
     description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책
     category: 정부
+    stockMarketImportance: 8
+
+  - id: gold
+    name: 금 (Gold)
+    description: 안전자산으로 여겨지는 귀금속으로 인플레이션 헤지와 포트폴리오 다변화에 활용
+    category: 원자재
+    stockMarketImportance: 7
+
+  - id: silver
+    name: 은 (Silver)
+    description: 귀금속이자 산업용 금속으로 전자·태양광·의료 분야에서 광범위하게 사용
+    category: 원자재
+    stockMarketImportance: 5
+
+  - id: copper
+    name: 구리 (Copper)
+    description: 전기 전도성이 뛰어난 산업용 금속으로 건설·전력·제조업의 경기 선행지표
+    category: 원자재
+    stockMarketImportance: 7
+
+  - id: iron-ore
+    name: 철광석 (Iron Ore)
+    description: 철강 생산의 핵심 원료로 건설·자동차·기계 산업 수요에 따라 가격 변동
+    category: 원자재
+    stockMarketImportance: 5
+
+  - id: consumption
+    name: 소비 (Consumption)
+    description: 가계가 재화와 서비스를 구매하는 경제활동으로 GDP의 가장 큰 구성요소이며 소득·금리·기대인플레이션에 영향을 받음
+    category: 거시경제
+    stockMarketImportance: 8
+
+  - id: investment
+    name: 투자 (Investment)
+    description: 기업이 생산설비·장비를 확충하고 재고를 늘리는 활동으로 금리·수익 기대·기대인플레이션에 따라 변동하며 경제성장의 핵심 동력
+    category: 거시경제
+    stockMarketImportance: 8
+
+  - id: household-debt
+    name: 가계부채 (Household Debt)
+    description: 가계가 금융기관 등으로부터 빌린 부채로 소비 여력과 금융안정에 영향을 미치며 인플레이션에 의해 실질 부담이 경감될 수 있음
+    category: 거시경제
+    stockMarketImportance: 7
+
+  - id: natural-gas
+    name: 천연가스 (Natural Gas)
+    description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향
+    category: 원자재
+    stockMarketImportance: 8

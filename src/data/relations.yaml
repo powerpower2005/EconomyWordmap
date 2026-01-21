@@ -908,3 +908,45 @@ relations:
     type: correlation
     description: "재정정책은 경기·물가·국채발행(수급) 등을 통해 금리 수준에 영향을 줄 수 있음"
     strength: medium
+
+  - id: r130
+    term1Id: inflation
+    term2Id: consumption
+    type: correlation
+    description: "완만한 인플레이션 기대는 소비자에게 '지금 구매하는 것이 유리하다'는 인식을 주어 소비를 촉진하는 경향"
+    strength: medium
+
+  - id: r131
+    term1Id: inflation
+    term2Id: investment
+    type: correlation
+    description: "인플레이션 환경에서 기업은 미래 매출과 이익 증가를 기대하며 설비·장비 투자와 고용을 확대하는 경향"
+    strength: medium
+
+  - id: r132
+    term1Id: expected-inflation
+    term2Id: consumption
+    type: correlation
+    description: "기대인플레이션이 상승하면 소비자는 미래 가격 상승을 예상하여 선제적으로 구매하려는 경향"
+    strength: strong
+
+  - id: r133
+    term1Id: expected-inflation
+    term2Id: investment
+    type: correlation
+    description: "기대인플레이션 상승은 기업의 미래 수익 전망을 개선하여 공장·설비·인력 투자를 촉진하는 경향"
+    strength: strong
+
+  - id: r134
+    term1Id: inflation
+    term2Id: household-debt
+    type: inverse
+    description: "인플레이션은 부채의 실질가치를 감소시켜 채무자의 부담을 경감하는 효과가 있음 (명목 부채는 일정하나 물가 상승으로 실질 부담 감소)"
+    strength: medium
+
+  - id: r135
+    term1Id: gdp
+    term2Id: household-debt
+    type: correlation
+    description: "가계부채 증가율을 GDP 성장률(경상 성장률) 수준으로 관리하면 경제 성장과 물가 상승으로 부채가 자연스럽게 경제에 흡수되는 경향"
+    strength: medium

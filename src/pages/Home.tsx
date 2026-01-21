@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, searchTerms } from '../utils/dataLoader';
+import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, searchTerms, getStarRating, filterTermsByImportance } from '../utils/dataLoader';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
 
@@ -16,7 +16,16 @@ export default function Home() {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const searchInputRef = useRef<HTMLInputElement>(null);
   const [expandedGuideTab, setExpandedGuideTab] = useState<string | null>(null);
-  const [mainTab, setMainTab] = useState<'guide' | 'search' | 'index'>('search');
+  const [mainTab, setMainTab] = useState<'guide' | 'search' | 'index' | 'importance'>('search');
+  const [selectedImportance, setSelectedImportance] = useState<number | null>(null);
+  
+  // 필터 상태
+  const [selectedImportanceFilters, setSelectedImportanceFilters] = useState<Set<number>>(new Set());
+  const [selectedCategoryFilters, setSelectedCategoryFilters] = useState<Set<string>>(new Set());
+  const [showFilters, setShowFilters] = useState<boolean>(false);
+
+  // 카테고리 목록
+  const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재'];
 
   const handleTermClick = (term: Term) => {
     if (graphRef.current) {
@@ -25,15 +34,30 @@ export default function Home() {
   };
 
   useEffect(() => {
-    if (searchQuery.trim().length > 0) {
-      const results = searchTerms(searchQuery);
-      setSearchResults(results.slice(0, 10)); // 최대 10개만 표시
+    let results = searchQuery.trim().length > 0 ? searchTerms(searchQuery) : terms;
+    
+    // 주식시장 중요도 필터 적용
+    if (selectedImportanceFilters.size > 0) {
+      results = results.filter(term => 
+        term.stockMarketImportance && selectedImportanceFilters.has(term.stockMarketImportance)
+      );
+    }
+    
+    // 카테고리 필터 적용
+    if (selectedCategoryFilters.size > 0) {
+      results = results.filter(term => 
+        term.category && selectedCategoryFilters.has(term.category)
+      );
+    }
+    
+    if (searchQuery.trim().length > 0 || selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) {
+      setSearchResults(results.slice(0, 20)); // 필터링 시 최대 20개
       setShowDropdown(true);
     } else {
       setSearchResults([]);
       setShowDropdown(false);
     }
-  }, [searchQuery]);
+  }, [searchQuery, selectedImportanceFilters, selectedCategoryFilters, terms]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -43,6 +67,32 @@ export default function Home() {
     handleTermClick(term);
     setSearchQuery('');
     setShowDropdown(false);
+  };
+
+  const toggleImportanceFilter = (importance: number) => {
+    const newFilters = new Set(selectedImportanceFilters);
+    if (newFilters.has(importance)) {
+      newFilters.delete(importance);
+    } else {
+      newFilters.add(importance);
+    }
+    setSelectedImportanceFilters(newFilters);
+  };
+
+  const toggleCategoryFilter = (category: string) => {
+    const newFilters = new Set(selectedCategoryFilters);
+    if (newFilters.has(category)) {
+      newFilters.delete(category);
+    } else {
+      newFilters.add(category);
+    }
+    setSelectedCategoryFilters(newFilters);
+  };
+
+  const clearAllFilters = () => {
+    setSelectedImportanceFilters(new Set());
+    setSelectedCategoryFilters(new Set());
+    setSearchQuery('');
   };
 
   // 외부 클릭 시 드롭다운 닫기
@@ -101,6 +151,16 @@ export default function Home() {
               용어 인덱스
             </button>
             <button
+              onClick={() => setMainTab('importance')}
+              className={`px-4 py-2 font-medium ${
+                mainTab === 'importance'
+                  ? 'text-blue-600 border-b-2 border-blue-600'
+                  : 'text-gray-600 hover:text-gray-800'
+              }`}
+            >
+              주식시장 중요도
+            </button>
+            <button
               onClick={() => setMainTab('guide')}
               className={`px-4 py-2 font-medium ${
                 mainTab === 'guide'
@@ -115,13 +175,113 @@ export default function Home() {
           {/* 검색 탭 */}
           {mainTab === 'search' && (
             <div>
-              <h2 className="text-xl font-bold text-gray-900 mb-4">용어 검색</h2>
+              <div className="flex items-center justify-between mb-4">
+                <h2 className="text-xl font-bold text-gray-900">용어 검색</h2>
+                <button
+                  onClick={() => setShowFilters(!showFilters)}
+                  className="px-3 py-1 text-sm bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+                >
+                  {showFilters ? '필터 숨기기' : '필터 보기'}
+                </button>
+              </div>
+
+              {/* 필터 섹션 */}
+              {showFilters && (
+                <div className="mb-4 p-4 bg-gray-50 rounded-lg space-y-4">
+                  {/* 주식시장 중요도 필터 */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-700 mb-2">주식시장 중요도</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(importance => (
+                        <button
+                          key={importance}
+                          onClick={() => toggleImportanceFilter(importance)}
+                          className={`px-3 py-1 text-sm rounded-lg border transition-colors ${
+                            selectedImportanceFilters.has(importance)
+                              ? 'bg-yellow-100 border-yellow-400 text-yellow-800'
+                              : 'bg-white border-gray-300 text-gray-600 hover:border-gray-400'
+                          }`}
+                        >
+                          {getStarRating(importance)} ({importance})
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 카테고리 필터 */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-700 mb-2">카테고리</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {categories.map(category => (
+                        <button
+                          key={category}
+                          onClick={() => toggleCategoryFilter(category)}
+                          className={`px-3 py-1 text-sm rounded-lg border transition-colors ${
+                            selectedCategoryFilters.has(category)
+                              ? 'bg-blue-100 border-blue-400 text-blue-800'
+                              : 'bg-white border-gray-300 text-gray-600 hover:border-gray-400'
+                          }`}
+                        >
+                          {category}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* 필터 초기화 버튼 */}
+                  {(selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && (
+                    <div className="flex justify-end">
+                      <button
+                        onClick={clearAllFilters}
+                        className="px-3 py-1 text-sm bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                      >
+                        모든 필터 초기화
+                      </button>
+                    </div>
+                  )}
+                </div>
+              )}
+
+              {/* 활성 필터 표시 */}
+              {(selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && (
+                <div className="mb-3 flex flex-wrap gap-2">
+                  {Array.from(selectedImportanceFilters).map(importance => (
+                    <span
+                      key={`importance-${importance}`}
+                      className="px-2 py-1 bg-yellow-100 text-yellow-800 rounded text-xs flex items-center gap-1"
+                    >
+                      {getStarRating(importance)}
+                      <button
+                        onClick={() => toggleImportanceFilter(importance)}
+                        className="ml-1 hover:text-yellow-900"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                  {Array.from(selectedCategoryFilters).map(category => (
+                    <span
+                      key={`category-${category}`}
+                      className="px-2 py-1 bg-blue-100 text-blue-800 rounded text-xs flex items-center gap-1"
+                    >
+                      {category}
+                      <button
+                        onClick={() => toggleCategoryFilter(category)}
+                        className="ml-1 hover:text-blue-900"
+                      >
+                        ×
+                      </button>
+                    </span>
+                  ))}
+                </div>
+              )}
+
               <div className="relative" ref={searchInputRef}>
                 <input
                   type="text"
                   value={searchQuery}
                   onChange={handleSearchChange}
-                  onFocus={() => searchQuery.trim().length > 0 && setShowDropdown(true)}
+                  onFocus={() => (searchQuery.trim().length > 0 || selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && setShowDropdown(true)}
                   placeholder="용어 이름, 설명, 카테고리로 검색..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                 />
@@ -133,20 +293,80 @@ export default function Home() {
                         onClick={() => handleSearchResultClick(term)}
                         className="w-full px-4 py-3 text-left hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-b-0"
                       >
-                        <div className="font-semibold text-gray-900">{term.name}</div>
-                        {term.category && (
-                          <div className="text-xs text-gray-500 mt-1">{term.category}</div>
-                        )}
-                        <div className="text-sm text-gray-600 mt-1 line-clamp-2">{term.description}</div>
+                        <div className="flex items-start justify-between gap-2">
+                          <div className="flex-1">
+                            <div className="font-semibold text-gray-900">{term.name}</div>
+                            <div className="flex gap-2 items-center mt-1">
+                              {term.category && (
+                                <span className="text-xs text-gray-500">{term.category}</span>
+                              )}
+                              {term.stockMarketImportance && (
+                                <span className="text-xs text-yellow-600">{getStarRating(term.stockMarketImportance)}</span>
+                              )}
+                            </div>
+                            <div className="text-sm text-gray-600 mt-1 line-clamp-2">{term.description}</div>
+                          </div>
+                        </div>
                       </button>
                     ))}
                   </div>
                 )}
-                {showDropdown && searchQuery.trim().length > 0 && searchResults.length === 0 && (
+                {showDropdown && searchResults.length === 0 && (selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0 || searchQuery.trim().length > 0) && (
                   <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 text-center text-gray-500">
                     검색 결과가 없습니다.
                   </div>
                 )}
+              </div>
+            </div>
+          )}
+
+          {/* 주식시장 중요도 탭 */}
+          {mainTab === 'importance' && (
+            <div>
+              <h2 className="text-lg font-bold text-gray-900 mb-3">주식시장 중요도별 용어</h2>
+              <p className="text-sm text-gray-600 mb-4">
+                별 표시로 주식시장에서의 중요도를 나타냅니다. (작은별 2개 = 큰별 1개)
+              </p>
+              <div className="space-y-2 max-h-96 overflow-y-auto">
+                {[10, 9, 8, 7, 6, 5, 4, 3, 2, 1].map(importance => {
+                  const termsWithImportance = filterTermsByImportance(importance);
+                  const isExpanded = selectedImportance === importance;
+                  
+                  if (termsWithImportance.length === 0) return null;
+                  
+                  return (
+                    <div key={importance} className="border rounded">
+                      <button
+                        onClick={() => setSelectedImportance(isExpanded ? null : importance)}
+                        className="w-full px-3 py-2 text-left font-semibold bg-gray-50 hover:bg-gray-100 flex items-center justify-between text-gray-900"
+                      >
+                        <span className="text-lg flex items-center gap-2">
+                          <span className="text-yellow-600">{getStarRating(importance)}</span>
+                          <span className="text-sm text-gray-500">({importance}점)</span>
+                        </span>
+                        <span className="text-xs text-gray-600">({termsWithImportance.length}개)</span>
+                      </button>
+                      {isExpanded && termsWithImportance.length > 0 && (
+                        <div className="p-2 space-y-1">
+                          {termsWithImportance.map(term => (
+                            <button
+                              key={term.id}
+                              onClick={() => handleTermClick(term)}
+                              className="w-full text-left px-3 py-2 text-sm rounded text-gray-800 hover:bg-blue-50 hover:text-blue-600 transition-colors flex items-start gap-2"
+                            >
+                              <div className="flex-1">
+                                <div className="font-semibold">{term.name}</div>
+                                {term.category && (
+                                  <div className="text-xs text-gray-500 mt-1">{term.category}</div>
+                                )}
+                              </div>
+                            </button>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

@@ -5,6 +5,7 @@ export interface Term {
   name: string;
   description: string;
   category?: string;
+  stockMarketImportance?: number; // 1-10, stock market importance rating
 }
 
 export interface Relation {

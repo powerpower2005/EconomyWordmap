@@ -156,3 +156,20 @@ export const getEnglishIndex = (): Record<string, Term[]> => {
   
   return index;
 };
+
+// 주식시장 중요도를 별로 변환하는 함수
+// 1-10 스케일: 작은별 2개 = 큰별 1개
+// 예: 1=☆, 2=★, 3=★☆, 4=★★, 5=★★☆, ..., 10=★★★★★
+export const getStarRating = (importance: number): string => {
+  if (!importance || importance < 1 || importance > 10) return '';
+  
+  const bigStars = Math.floor(importance / 2);
+  const smallStar = importance % 2;
+  
+  return '★'.repeat(bigStars) + (smallStar ? '☆' : '');
+};
+
+// 주식시장 중요도로 용어 필터링
+export const filterTermsByImportance = (importance: number): Term[] => {
+  return termsData.terms.filter(term => term.stockMarketImportance === importance);
+};
