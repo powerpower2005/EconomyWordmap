@@ -950,3 +950,80 @@ relations:
     type: correlation
     description: "가계부채 증가율을 GDP 성장률(경상 성장률) 수준으로 관리하면 경제 성장과 물가 상승으로 부채가 자연스럽게 경제에 흡수되는 경향"
     strength: medium
+
+  - id: r136
+    term1Id: gold
+    term2Id: inflation
+    type: correlation
+    description: "금은 전통적인 인플레이션 헤지 자산으로 물가 상승 시 안전자산 수요가 증가하여 가격이 상승하는 경향"
+    strength: strong
+
+  - id: r137
+    term1Id: gold
+    term2Id: interest-rate
+    type: inverse
+    description: "금리 상승 시 금은 이자를 지급하지 않는 자산이므로 기회비용이 증가하여 금 가격이 하락하는 경향"
+    strength: medium
+
+  - id: r138
+    term1Id: gold
+    term2Id: exchange-rate
+    type: inverse
+    description: "금은 달러로 가격이 표시되므로 강달러 시 금 가격이 하락하고 약달러 시 금 가격이 상승하는 경향"
+    strength: medium
+
+  - id: r139
+    term1Id: copper
+    term2Id: gdp
+    type: correlation
+    description: "구리는 건설·제조업에서 광범위하게 사용되어 경기 선행지표로 작용하며 GDP 성장과 함께 수요가 증가하는 경향"
+    strength: strong
+
+  - id: r140
+    term1Id: copper
+    term2Id: real-gdp
+    type: correlation
+    description: "구리 가격은 실물 경제 활동을 반영하여 실질 GDP와 밀접한 상관관계를 보이는 경향"
+    strength: strong
+
+  - id: r141
+    term1Id: natural-gas
+    term2Id: inflation
+    type: correlation
+    description: "천연가스는 주요 에너지원으로 가격 상승 시 생산비용·난방비 증가를 통해 인플레이션 압력을 높이는 경향"
+    strength: strong
+
+  - id: r142
+    term1Id: natural-gas
+    term2Id: cpi
+    type: correlation
+    description: "천연가스 가격은 소비자물가지수의 에너지 부문에 직접 반영되어 CPI에 영향을 주는 경향"
+    strength: medium
+
+  - id: r143
+    term1Id: iron-ore
+    term2Id: gdp
+    type: correlation
+    description: "철광석은 철강 생산의 핵심 원료로 건설·인프라 투자가 활발한 경기 확장기에 수요가 증가하는 경향"
+    strength: medium
+
+  - id: r144
+    term1Id: silver
+    term2Id: inflation
+    type: correlation
+    description: "은은 귀금속이면서 산업용 금속으로 인플레이션 헤지와 산업 수요 증가로 가격이 상승할 수 있는 경향"
+    strength: medium
+
+  - id: r145
+    term1Id: copper
+    term2Id: investment
+    type: correlation
+    description: "구리는 건설·설비 투자의 핵심 소재로 기업 투자 확대 시 수요가 증가하는 경향"
+    strength: medium
+
+  - id: r146
+    term1Id: natural-gas
+    term2Id: exchange-rate
+    type: correlation
+    description: "천연가스는 국제 시장에서 달러로 거래되므로 환율 변동이 수입 비용에 영향을 주는 경향"
+    strength: weak
