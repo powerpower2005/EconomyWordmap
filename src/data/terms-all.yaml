@@ -226,3 +226,9 @@ terms:
     description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향
     category: 원자재
     stockMarketImportance: 8
+
+  - id: pce
+    name: PCE 개인소비지출물가 (Personal Consumption Expenditures)
+    description: 연준이 인플레이션 목표 설정 시 선호하는 물가지표로 가계 소비지출의 가격 변동을 측정하며 CPI보다 넓은 범위와 가중치 변화를 반영
+    category: 거시경제
+    stockMarketImportance: 10

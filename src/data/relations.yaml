@@ -1027,3 +1027,47 @@ relations:
     type: correlation
     description: "천연가스는 국제 시장에서 달러로 거래되므로 환율 변동이 수입 비용에 영향을 주는 경향"
     strength: weak
+
+  - id: r147
+    term1Id: pce
+    term2Id: inflation
+    type: correlation
+    description: "PCE는 인플레이션을 측정하는 핵심 지표로 물가 수준의 변화를 반영하는 경향"
+    strength: strong
+
+  - id: r148
+    term1Id: pce
+    term2Id: cpi
+    type: correlation
+    bidirectional: true
+    description: "PCE와 CPI는 모두 물가를 측정하는 지표로 유사한 움직임을 보이나 측정 방식과 가중치가 다름"
+    reverseDescription: "CPI와 PCE는 모두 물가를 측정하나 PCE는 가중치 변화를 반영하고 CPI는 고정 바스켓 방식을 사용"
+    strength: strong
+
+  - id: r149
+    term1Id: pce
+    term2Id: policy-rate
+    type: correlation
+    description: "연준은 PCE를 주요 인플레이션 지표로 사용하여 기준금리 결정에 반영하는 경향"
+    strength: strong
+
+  - id: r150
+    term1Id: pce
+    term2Id: consumption
+    type: correlation
+    description: "PCE는 개인소비지출의 가격을 측정하므로 소비 패턴과 밀접한 관계가 있는 경향"
+    strength: strong
+
+  - id: r151
+    term1Id: pce
+    term2Id: quantitative-easing
+    type: inverse
+    description: "PCE 상승(인플레이션 압력) 시 연준이 양적완화를 축소하거나 중단하는 경향"
+    strength: medium
+
+  - id: r152
+    term1Id: pce
+    term2Id: interest-rate
+    type: correlation
+    description: "PCE 상승 시 인플레이션 압력으로 금리 인상 압력이 증가하는 경향"
+    strength: strong
