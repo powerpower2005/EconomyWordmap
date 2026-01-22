@@ -318,6 +318,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
     // 각 노드의 속도 저장
     const nodeVelocities = new Map<string, { vx: number; vy: number }>();
+    // 드래그 중인 노드의 이전 위치 저장 (속도 계산용)
+    const dragPreviousPositions = new Map<string, { x: number; y: number; time: number }>();
 
     // 물에 떠다니듯 부드럽게 움직이는 애니메이션
     let isDragging = false;
@@ -334,36 +336,155 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       }
 
       let hasMovement = false;
+      
+      // 먼저 충돌 감지 및 처리 (구슬치기처럼)
+      const nodesArray = Array.from(cy.nodes());
+      for (let i = 0; i < nodesArray.length; i++) {
+        const node1 = nodesArray[i];
+        const node1Id = node1.id();
+        const pos1 = node1.position();
+        const width1 = node1.width();
+        const height1 = node1.height();
+        const radius1 = Math.max(width1, height1) / 2;
+        // 질량 계산: radius^2에 비례 (면적에 비례)
+        const mass1 = radius1 * radius1;
+        
+        if (!nodeVelocities.has(node1Id)) {
+          nodeVelocities.set(node1Id, { vx: 0, vy: 0 });
+        }
+        const vel1 = nodeVelocities.get(node1Id)!;
+        
+        for (let j = i + 1; j < nodesArray.length; j++) {
+          const node2 = nodesArray[j];
+          const node2Id = node2.id();
+          const pos2 = node2.position();
+          const width2 = node2.width();
+          const height2 = node2.height();
+          const radius2 = Math.max(width2, height2) / 2;
+          // 질량 계산: radius^2에 비례 (면적에 비례)
+          const mass2 = radius2 * radius2;
+          
+          if (!nodeVelocities.has(node2Id)) {
+            nodeVelocities.set(node2Id, { vx: 0, vy: 0 });
+          }
+          const vel2 = nodeVelocities.get(node2Id)!;
+          
+          const dx = pos2.x - pos1.x;
+          const dy = pos2.y - pos1.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          const minDistance = radius1 + radius2;
+          
+          // 충돌 감지
+          if (distance > 0 && distance < minDistance) {
+            // 충돌 방향 벡터 정규화
+            const nx = dx / distance;
+            const ny = dy / distance;
+            
+            // 상대 속도
+            const relativeVx = vel2.vx - vel1.vx;
+            const relativeVy = vel2.vy - vel1.vy;
+            
+            // 충돌 방향으로의 상대 속도
+            const relativeSpeed = relativeVx * nx + relativeVy * ny;
+            
+            // 충돌이 발생하는 경우만 처리 (서로 가까워지는 경우)
+            if (relativeSpeed < 0) {
+              // 엣지 연결 여부 확인
+              const edge = node1.edgesWith(node2);
+              const isConnected = edge.length > 0;
+              
+              // 엣지 장력 강도 계산 (연결된 경우)
+              let edgeTensionFactor = 1.0;
+              if (isConnected && edge.length > 0) {
+                const edgeData = edge[0].data();
+                const strength = edgeData.strength || 'medium';
+                // 장력 강도에 따라 충돌 반응 조정
+                // strong: 더 강한 반발력 (1.2배), medium: 기본 (1.0배), weak: 더 약한 반발력 (0.8배)
+                if (strength === 'strong') {
+                  edgeTensionFactor = 1.2;
+                } else if (strength === 'weak') {
+                  edgeTensionFactor = 0.8;
+                }
+              }
+              
+              // 탄성 충돌 계수 (0.8 = 약간의 에너지 손실)
+              const restitution = 0.8 * edgeTensionFactor;
+              
+              // 질량을 고려한 충돌 계산 (구슬치기처럼)
+              // v1' = v1 - (2 * m2 / (m1 + m2)) * (v1 - v2) · n * n
+              // v2' = v2 - (2 * m1 / (m1 + m2)) * (v2 - v1) · n * n
+              const totalMass = mass1 + mass2;
+              const massRatio1 = (2 * mass2) / totalMass;
+              const massRatio2 = (2 * mass1) / totalMass;
+              
+              // 충돌 방향으로의 상대 속도 성분
+              const relativeSpeedNormal = relativeSpeed;
+              
+              // 질량을 고려한 속도 변화
+              const deltaV1 = massRatio1 * relativeSpeedNormal * restitution;
+              const deltaV2 = massRatio2 * relativeSpeedNormal * restitution;
+              
+              // 속도 업데이트 (질량 기반)
+              vel1.vx += deltaV1 * nx;
+              vel1.vy += deltaV1 * ny;
+              vel2.vx -= deltaV2 * nx;
+              vel2.vy -= deltaV2 * ny;
+              
+              // 노드 위치 분리 (겹침 방지)
+              const overlap = minDistance - distance;
+              // 질량에 비례하여 분리 (무거운 노드가 덜 움직임)
+              const massRatio = mass1 / totalMass;
+              const separationX = nx * overlap;
+              const separationY = ny * overlap;
+              
+              node1.position({
+                x: pos1.x - separationX * (1 - massRatio),
+                y: pos1.y - separationY * (1 - massRatio)
+              });
+              node2.position({
+                x: pos2.x + separationX * massRatio,
+                y: pos2.y + separationY * massRatio
+              });
+              
+              hasMovement = true;
+            }
+          }
+        }
+      }
+      
+      // 힘 계산 및 속도 업데이트
       cy.nodes().forEach((node: any) => {
         const nodeId = node.id();
         const pos = node.position();
-        
-        if (!nodeVelocities.has(nodeId)) {
-          nodeVelocities.set(nodeId, { vx: 0, vy: 0 });
-        }
         
         const velocity = nodeVelocities.get(nodeId)!;
         let fx = 0;
         let fy = 0;
 
         // 모든 노드와의 반발력 계산 (노드 지름의 1.5배 이내에서만)
-        // 노드 크기가 다양하므로 평균 크기 사용
-        const nodeDiameter = 120; // 평균 노드 지름
-        const repulsionDistance = nodeDiameter * 1.5; // 반발력 작용 거리 (180)
-        const repulsionStrength = 0.2; // 반발력 강도 (0.5 -> 0.2로 감소)
+        const nodeWidth = node.width();
+        const nodeHeight = node.height();
+        const nodeRadius = Math.max(nodeWidth, nodeHeight) / 2;
+        const repulsionDistance = nodeRadius * 2.5; // 반발력 작용 거리
+        const repulsionStrength = 0.15; // 반발력 강도
         
         cy.nodes().forEach((otherNode: any) => {
           if (otherNode.id() === nodeId) return; // 자기 자신은 제외
           
           const otherPos = otherNode.position();
+          const otherWidth = otherNode.width();
+          const otherHeight = otherNode.height();
+          const otherRadius = Math.max(otherWidth, otherHeight) / 2;
+          const minDistance = nodeRadius + otherRadius;
+          
           const dx = otherPos.x - pos.x;
           const dy = otherPos.y - pos.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
           
-          // 반발력 작용 거리 이내에만 힘 적용
-          if (distance > 0 && distance < repulsionDistance) {
+          // 반발력 작용 거리 이내에서만 힘 적용 (충돌하지 않는 경우)
+          if (distance > minDistance && distance < repulsionDistance) {
             // 거리가 가까울수록 강한 반발력
-            const repulsionForce = repulsionStrength * (1 - distance / repulsionDistance);
+            const repulsionForce = repulsionStrength * (1 - (distance - minDistance) / (repulsionDistance - minDistance));
             const angle = Math.atan2(dy, dx);
             // 반대 방향으로 밀어냄
             fx -= Math.cos(angle) * repulsionForce;
@@ -400,6 +521,14 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         // 속도 업데이트 (댐핑 적용, 더 부드럽게 - 힘을 더 약하게 적용)
         velocity.vx = (velocity.vx * 0.98 + fx * 0.5) * damping;
         velocity.vy = (velocity.vy * 0.98 + fy * 0.5) * damping;
+        
+        // 최대 속도 제한 (너무 빠르게 움직이지 않도록)
+        const maxSpeed = 50;
+        const speed = Math.sqrt(velocity.vx * velocity.vx + velocity.vy * velocity.vy);
+        if (speed > maxSpeed) {
+          velocity.vx = (velocity.vx / speed) * maxSpeed;
+          velocity.vy = (velocity.vy / speed) * maxSpeed;
+        }
 
         // 위치 업데이트 (부드러운 움직임)
         const newX = pos.x + velocity.vx;
@@ -410,8 +539,11 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           hasMovement = true;
           node.position({ x: newX, y: newY });
         } else {
-          velocity.vx = 0;
-          velocity.vy = 0;
+          // 속도가 너무 작으면 점진적으로 감소
+          velocity.vx *= 0.9;
+          velocity.vy *= 0.9;
+          if (Math.abs(velocity.vx) < 0.01) velocity.vx = 0;
+          if (Math.abs(velocity.vy) < 0.01) velocity.vy = 0;
         }
       });
 
@@ -431,8 +563,43 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     cy.on('drag', 'node', function(evt) {
       isDragging = true;
       const draggedNode = evt.target;
-      // 드래그 중인 노드의 속도 초기화
-      nodeVelocities.set(draggedNode.id(), { vx: 0, vy: 0 });
+      const nodeId = draggedNode.id();
+      const currentPos = draggedNode.position();
+      const currentTime = Date.now();
+      
+      // 이전 위치가 있으면 속도 계산
+      const prevPos = dragPreviousPositions.get(nodeId);
+      if (prevPos) {
+        const dt = (currentTime - prevPos.time) / 1000; // 초 단위
+        // 더 넓은 시간 범위 허용 (0.01초 ~ 0.2초)
+        if (dt > 0.001 && dt < 0.2) {
+          const vx = (currentPos.x - prevPos.x) / dt;
+          const vy = (currentPos.y - prevPos.y) / dt;
+          
+          // 최소 속도 임계값 설정 (너무 작은 움직임은 무시)
+          const minSpeed = 5; // 픽셀/초
+          const speed = Math.sqrt(vx * vx + vy * vy);
+          
+          if (speed > minSpeed) {
+            // 속도 저장 (드래그 종료 시 사용)
+            // 드래그 속도를 더 부드럽게 전달하기 위해 약간 감쇠
+            nodeVelocities.set(nodeId, { 
+              vx: vx * 0.9, 
+              vy: vy * 0.9 
+            });
+          } else {
+            // 속도가 너무 작으면 0으로 설정
+            nodeVelocities.set(nodeId, { vx: 0, vy: 0 });
+          }
+        }
+      }
+      
+      // 현재 위치 저장
+      dragPreviousPositions.set(nodeId, {
+        x: currentPos.x,
+        y: currentPos.y,
+        time: currentTime
+      });
       
       if (animationFrameRef.current !== null) {
         cancelAnimationFrame(animationFrameRef.current);
@@ -443,8 +610,24 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     cy.on('dragfree', 'node', function(evt) {
       isDragging = false;
       const draggedNode = evt.target;
-      // 드래그 종료 시 속도 초기화
-      nodeVelocities.set(draggedNode.id(), { vx: 0, vy: 0 });
+      const nodeId = draggedNode.id();
+      
+      // 드래그 종료 시 저장된 속도 사용 (드래그 속도가 전달됨)
+      // 마지막 드래그 속도를 확인하고 적용
+      const currentVelocity = nodeVelocities.get(nodeId);
+      if (!currentVelocity) {
+        nodeVelocities.set(nodeId, { vx: 0, vy: 0 });
+      } else {
+        // 드래그 속도가 충돌에 제대로 반영되도록 보장
+        // 최소 속도 확인 (너무 작으면 0으로)
+        const speed = Math.sqrt(currentVelocity.vx * currentVelocity.vx + currentVelocity.vy * currentVelocity.vy);
+        if (speed < 0.1) {
+          nodeVelocities.set(nodeId, { vx: 0, vy: 0 });
+        }
+      }
+      
+      // 이전 위치 정보 정리
+      dragPreviousPositions.delete(nodeId);
       
       // 드래그 종료 후 물리 시뮬레이션 재시작
       physicsActive = true;
