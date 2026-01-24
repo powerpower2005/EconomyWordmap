@@ -1,7 +1,7 @@
 terms:
   - id: inflation
     name: 인플레이션 (Inflation)
-    description: 일반적인 물가 수준의 지속적인 상승으로, 화폐의 구매력이 하락하는 현상
+    description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력이 하락하는 현상으로, 완만한 수준에서는 가격·임금 경직성을 완화하고 디플레이션 위험을 줄이는 역할을 하나 과도할 경우 경제 불확실성과 실질소득 감소를 초래
     category: 거시경제
   - id: gdp
     name: GDP (Gross Domestic Product)
@@ -21,7 +21,7 @@ terms:
     category: 거시경제
   - id: velocity-of-money
     name: 화폐유통속도 (Velocity of Money)
-    description: 창조된 통화가 실물경제에서 실제로 사용되는 속도
+    description: 창조된 통화가 실물경제에서 실제로 사용되는 속도로 경기 불확실성 증가나 금융위기 시 하락하는 경향이 있으며 통화정책 전달력에 영향을 미침
     category: 거시경제
   - id: deflation
     name: 디플레이션 (Deflation)
@@ -38,4 +38,12 @@ terms:
   - id: real-gdp
     name: 실질 GDP (Real GDP)
     description: 기준 연도의 가격으로 평가한 GDP로 인플레이션을 제거한 실제 생산량
+    category: 거시경제
+  - id: pce
+    name: PCE 개인소비지출물가 (Personal Consumption Expenditures)
+    description: 연준이 인플레이션 목표 설정 시 선호하는 물가지표로 가계 소비지출의 가격 변동을 측정하며 CPI보다 넓은 범위와 가중치 변화를 반영
+    category: 거시경제
+  - id: core-pce
+    name: Core PCE (Core Personal Consumption Expenditures)
+    description: 식품과 에너지를 제외한 PCE로 연준이 인플레이션의 근본 추세를 파악하기 위해 가장 중시하는 핵심 물가지표
     category: 거시경제

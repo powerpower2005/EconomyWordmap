@@ -9,7 +9,7 @@ terms:
     category: 통화정책
   - id: quantitative-tightening
     name: 양적긴축(QT) (Quantitative Tightening)
-    description: 중앙은행이 보유 자산을 축소하여 유동성과 지급준비금을 줄이는 정책
+    description: 중앙은행이 보유 자산을 축소하여 대차대조표를 줄이는 정책으로 유동성과 지급준비금을 감소시켜 금융여건을 긴축적으로 만듦
     category: 통화정책
   - id: low-interest-policy
     name: 저금리 정책 (Low Interest Policy)

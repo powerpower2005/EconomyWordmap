@@ -10,7 +10,7 @@ relations:
     term1Id: interest-rate
     term2Id: investment
     type: inverse
-    description: "금리가 상승하면 자본비용(할인율·차입비용)이 높아져 투자 유인이 약화되는 경향"
+    description: "금리가 상승하면 자본비용(할인율·차입비용)이 높아져 투자 유인이 약화되는 경향. 금리는 미래 현금흐름의 할인율로 작용하여 투자 프로젝트의 현재가치를 결정하는 핵심 요소"
     strength: strong
 
   - id: r3
@@ -122,7 +122,7 @@ relations:
     term1Id: velocity-of-money
     term2Id: inflation
     type: correlation
-    description: "유통속도가 상승하면 동일 통화량에서 명목지출이 늘어 물가 상승 압력으로 이어질 수 있으나, 산출(Y) 변화와 동반될 수 있음"
+    description: "유통속도가 상승하면 동일 통화량에서 명목지출이 늘어 물가 상승 압력으로 이어질 수 있으나, 산출(Y) 변화와 동반될 수 있음. 금융위기나 경기 불확실성 증가 시 유통속도가 하락하여 통화정책 전달력이 약화될 수 있음"
     strength: medium
 
   - id: r19
@@ -689,7 +689,7 @@ relations:
     term1Id: household-debt
     term2Id: interest-rate
     type: correlation
-    description: 금리 상승은 변동금리 부채의 이자부담을 키워 가계부채의 상환 부담을 높일 수 있음
+    description: "금리 상승은 변동금리 부채의 이자부담을 키워 가계부채의 상환 부담을 높일 수 있음. 가계부채는 금리에 매우 민감하며, 금리 상승 시 소비 위축과 금융불안 요인으로 작용할 수 있어 통화정책 전달 경로의 핵심 변수"
     strength: strong
 
   - id: r99
@@ -857,7 +857,7 @@ relations:
     term1Id: policy-rate
     term2Id: interest-rate
     type: correlation
-    description: "기준금리는 시중 단기금리 및 대출·예금금리에 강한 영향을 주는 정책 기준 금리"
+    description: "기준금리는 시중 단기금리 및 대출·예금금리에 강한 영향을 주는 정책 기준 금리. 공개시장조작과 지급준비금 제도(예: IORB)와 결합되어 corridor system 또는 floor system 등 운영체계를 통해 통화정책 신호를 전달"
     strength: strong
 
   - id: r123
@@ -1071,3 +1071,198 @@ relations:
     type: correlation
     description: "PCE 상승 시 인플레이션 압력으로 금리 인상 압력이 증가하는 경향"
     strength: strong
+
+  - id: r153
+    term1Id: sofr
+    term2Id: iorb
+    type: correlation
+    bidirectional: true
+    description: "SOFR은 시장에서 실제 거래되는 무위험 담보 대출 금리로 IORB(연준이 지급하는 준비금 이자율)와 밀접한 관계를 가짐. 일반적으로 SOFR은 IORB보다 약간 낮거나 비슷한 수준에서 형성되며, 이는 은행들이 연준에 준비금을 예치하는 것보다 시장에서 담보 대출을 하는 것이 약간 더 유리할 수 있기 때문"
+    reverseDescription: "IORB는 SOFR의 하한선 역할을 하며, IORB가 상승하면 SOFR도 함께 상승하는 경향. 그러나 SOFR과 IORB 사이에 이격(spread)이 발생할 때는 시장 유동성 부족, 특정 시장 참여자의 자금 조달 어려움 등을 시사하며, 이격이 지속적으로 확대되면 금융시장 스트레스의 조기 경고 신호가 될 수 있음"
+    strength: strong
+
+  - id: r154
+    term1Id: core-pce
+    term2Id: pce
+    type: correlation
+    description: "Core PCE는 PCE에서 변동성이 큰 식품과 에너지를 제외한 지표로, 연준이 인플레이션의 근본 추세를 파악하기 위해 PCE보다 더 중시함"
+    strength: strong
+
+  - id: r155
+    term1Id: core-pce
+    term2Id: inflation
+    type: correlation
+    description: "Core PCE는 연준이 인플레이션 목표(2%)를 설정할 때 사용하는 핵심 지표로, 일시적인 공급 충격(식품·에너지)을 제외하고 근본적인 인플레이션 압력을 측정"
+    strength: strong
+
+  - id: r156
+    term1Id: core-pce
+    term2Id: policy-rate
+    type: correlation
+    description: "연준은 Core PCE를 기준으로 통화정책을 결정하며, Core PCE가 목표치(2%)를 상회하면 기준금리 인상 압력이 증가하고, 하회하면 기준금리 인하 여지가 생김"
+    strength: strong
+
+  - id: r157
+    term1Id: pce
+    term2Id: cpi
+    type: correlation
+    bidirectional: true
+    description: "PCE와 CPI는 모두 물가를 측정하나 연준은 PCE를 더 선호함. 그 이유는 1) PCE는 가중치가 소비 패턴 변화에 따라 자동으로 조정되는 체인 방식(chain-weighted)을 사용하여 더 현실적인 소비 구조를 반영, 2) PCE는 의료비 등 CPI에 포함되지 않는 항목도 포함하여 더 넓은 범위를 커버, 3) PCE는 소비자 직접 구매뿐만 아니라 기업이 소비자를 대신 구매하는 항목(예: 의료보험)도 포함하여 더 포괄적임. 연준은 이러한 이유로 PCE를 인플레이션 목표 설정의 기준으로 사용"
+    reverseDescription: "CPI는 고정 바스켓 방식으로 소비자 관점에서 물가 상승을 더 직접적으로 느끼게 하지만, 연준은 정책 결정 시 PCE를 우선시함. CPI가 PCE보다 높게 나오는 경우가 많은데, 이는 CPI가 주거비(소유주 동등 임대료)를 더 높게 반영하고, PCE는 대체 효과(substitution effect)를 더 잘 반영하기 때문"
+    strength: strong
+
+  - id: r158
+    term1Id: sofr
+    term2Id: interest-rate
+    type: correlation
+    description: "SOFR은 미국 단기 금융시장의 실제 거래 금리로 시장금리의 중요한 기준점 역할을 하며, 대출·파생상품 등 다양한 금융상품의 기준금리로 활용됨"
+    strength: strong
+
+  - id: r159
+    term1Id: sofr
+    term2Id: market-interest-rate
+    type: correlation
+    description: "SOFR은 시장에서 실제 거래되는 담보 대출 금리로 시중금리의 핵심 지표 중 하나"
+    strength: strong
+
+  - id: r160
+    term1Id: tga
+    term2Id: reserves
+    type: inverse
+    description: "TGA(재무부 일반계좌)가 증가하면 재무부가 시장에서 자금을 흡수하여 시장 유동성과 지급준비금이 감소하는 경향. 반대로 TGA가 감소하면 재무부가 자금을 지출하여 시장 유동성과 지급준비금이 증가함"
+    strength: strong
+
+  - id: r161
+    term1Id: tga
+    term2Id: base-money
+    type: correlation
+    description: "TGA 증감은 재무부의 현금 관리 정책에 따라 변동하며, 이는 연준의 지급준비금 공급과 함께 본원통화에 영향을 미침"
+    strength: medium
+
+  - id: r162
+    term1Id: tga
+    term2Id: treasury
+    type: proportional
+    description: "TGA는 재무부가 연준에 보유한 예금 계좌로 재무부의 현금 잔액을 관리하는 핵심 도구"
+    strength: strong
+
+  - id: r163
+    term1Id: qra
+    term2Id: government-bond
+    type: proportional
+    description: "QRA는 재무부가 분기별로 발행할 국채의 규모와 만기 구성을 발표하는 것으로, 시장에 공급될 국채의 양을 결정"
+    strength: strong
+
+  - id: r164
+    term1Id: qra
+    term2Id: bond-price
+    type: correlation
+    description: "QRA 발표는 시장 기대와 다를 경우 국채 공급 전망 변화로 채권가격과 수익률에 즉각적인 영향을 미침. 발행 규모가 예상보다 크면 채권가격 하락(수익률 상승) 압력, 작으면 채권가격 상승(수익률 하락) 압력"
+    strength: medium
+
+  - id: r165
+    term1Id: qra
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: "QRA에서 장기 국채 발행 계획이 예상보다 크면 장기금리 상승 압력이 증가하고, 작으면 장기금리 하락 압력이 생김"
+    strength: medium
+
+  - id: r166
+    term1Id: qra
+    term2Id: treasury
+    type: proportional
+    description: "QRA는 재무부가 분기별로 발행하는 국채 발행 계획을 발표하는 정책 도구"
+    strength: strong
+
+  - id: r167
+    term1Id: core-pce
+    term2Id: cpi
+    type: correlation
+    bidirectional: true
+    description: "Core PCE와 CPI는 모두 물가를 측정하나 Core PCE는 식품·에너지를 제외하고 연준이 더 중시함. Core PCE는 연준의 인플레이션 목표 기준이며, CPI는 소비자가 직접 느끼는 물가 상승을 더 잘 반영"
+    reverseDescription: "CPI는 고정 바스켓 방식으로 소비자 관점의 물가를 측정하지만, 연준은 정책 결정 시 Core PCE를 우선시함. Core PCE가 CPI보다 낮게 나오는 경우가 많은데, 이는 Core PCE가 대체 효과를 반영하고 의료비 등 계산 방식이 다르기 때문"
+    strength: strong
+
+  - id: r168
+    term1Id: tga
+    term2Id: qra
+    type: correlation
+    description: "QRA로 발행 계획이 발표되면 재무부는 자금 조달을 위해 TGA를 활용하며, TGA 잔액은 재무부의 현금 관리 정책과 국채 발행 일정에 따라 변동"
+    strength: medium
+
+  - id: r169
+    term1Id: sofr
+    term2Id: policy-rate
+    type: correlation
+    description: "SOFR은 시장에서 실제 거래되는 무위험 금리로 정책금리(연준 기준금리 범위)의 영향을 받으며, 동시에 시장 유동성을 반영하여 정책금리와 약간의 스프레드를 가질 수 있음"
+    strength: strong
+
+  - id: r170
+    term1Id: sofr
+    term2Id: reserves
+    type: correlation
+    description: "지급준비금이 부족하면 시장 유동성이 긴축되어 SOFR이 상승하는 경향. 반대로 준비금이 풍부하면 SOFR이 하락하거나 IORB에 근접하는 경향"
+    strength: medium
+
+  - id: r171
+    term1Id: tga
+    term2Id: sofr
+    type: correlation
+    description: "TGA가 급격히 증가하면 시장에서 자금이 흡수되어 유동성이 부족해지고 SOFR이 상승하는 압력이 생김. 반대로 TGA가 감소하면 시장 유동성이 증가하여 SOFR이 하락하는 경향"
+    strength: medium
+
+  - id: r172
+    term1Id: qra
+    term2Id: interest-rate
+    type: correlation
+    description: "QRA 발표가 시장 기대와 다를 경우 국채 공급 전망 변화로 금리 전반에 영향을 미침. 특히 장기 국채 발행 계획이 예상보다 크면 장기금리 상승 압력이 증가"
+    strength: medium
+
+  - id: r173
+    term1Id: core-pce
+    term2Id: consumption
+    type: correlation
+    description: "Core PCE는 개인소비지출의 가격을 측정하므로 소비 패턴과 밀접한 관계가 있으며, 소비 구조 변화가 Core PCE의 가중치 조정에 반영됨"
+    strength: strong
+
+  - id: r174
+    term1Id: tga
+    term2Id: lclor
+    type: correlation
+    description: "TGA가 급격히 증가하여 시장 유동성이 부족해지면 지급준비금이 LCLoR에 근접하거나 하회할 위험이 증가하여 금융시장 스트레스가 커질 수 있음"
+    strength: medium
+
+  - id: r175
+    term1Id: velocity-of-money
+    term2Id: deflation
+    type: correlation
+    description: "금융위기나 경기 불확실성 증가 시 화폐유통속도가 하락하여 동일 통화량에서도 명목지출이 감소하고 디플레이션 압력이 커질 수 있음"
+    strength: medium
+
+  - id: r176
+    term1Id: velocity-of-money
+    term2Id: quantitative-easing
+    type: correlation
+    description: "유통속도가 하락하면 통화정책 전달력이 약화되어 QE와 같은 비전통적 통화정책의 필요성이 증가할 수 있음"
+    strength: weak
+
+  - id: r177
+    term1Id: policy-rate
+    term2Id: reserves
+    type: correlation
+    description: "기준금리 운용은 지급준비금 제도와 결합되어 작동하며, floor system에서는 IORB가 기준금리의 하한선 역할을 하여 준비금 수준과 함께 단기금리를 유도"
+    strength: strong
+
+  - id: r178
+    term1Id: interest-rate
+    term2Id: stock-market
+    type: correlation
+    description: "금리는 미래 현금흐름의 할인율로 작용하여 주식의 현재가치를 결정하는 핵심 요소로, 금리 상승은 할인율 상승을 통해 주식가격에 하방 압력을 가할 수 있음"
+    strength: strong
+
+  - id: r179
+    term1Id: household-debt
+    term2Id: lclor
+    type: correlation
+    description: "가계부채가 높은 상황에서 금리가 급격히 상승하면 소비 위축과 부채 상환 부담 증가로 금융불안 요인이 될 수 있어 금융시스템 안정성(LCLoR 등)에 중요한 변수"
+    strength: medium

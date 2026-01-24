@@ -9,11 +9,11 @@ terms:
     category: 통화
   - id: money-multiplier
     name: 통화승수 (Money Multiplier)
-    description: 본원통화가 시중 통화량으로 확대되는 배율 또는 비율 (1 / 지급준비율)
+    description: 본원통화가 시중 통화량으로 확대되는 이론적 개념으로, 현대 금융시스템에서는 대출수요·자본규제·유동성 규제가 더 중요한 제약 요인
     category: 통화
   - id: excess-reserves
     name: 초과지준금 (Excess Reserves)
-    description: 의무 지급준비금 초과분으로 2020년 이후 개념상 의미가 약화됨
+    description: 의무 지급준비금 초과분의 지급준비금으로, 미국에서는 지급준비율이 0%이나 IORB·유동성 관리 측면에서 여전히 통화정책 운용에 중요한 역할
     category: 통화
   - id: m2
     name: 광의통화(M2) (M2 Money Supply)

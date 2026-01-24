@@ -1,7 +1,7 @@
 terms:
   - id: interest-rate
     name: 금리 (Interest Rate)
-    description: 자금을 빌리거나 빌려줄 때 지불하는 이자의 비율
+    description: 자금을 빌리거나 빌려줄 때 적용되는 이자의 비율로 소비·투자·환율·자산가격에 영향을 미치며 미래 현금흐름의 할인율 역할을 수행하여 실물경제와 금융시장을 연결하는 핵심 가격 신호로 자본비용을 결정
     category: 금융
   - id: money-supply
     name: 통화량 (Money Supply)
@@ -13,7 +13,7 @@ terms:
     category: 금융
   - id: household-debt
     name: 가계부채 (Household Debt)
-    description: 가계가 부담하는 총 부채 규모
+    description: 가계가 금융기관 등으로부터 빌린 부채로 소비 여력과 금융안정에 영향을 미치며 금리 상승 시 소비 위축과 금융불안 요인으로 작용할 수 있고 인플레이션에 의해 실질 부담이 경감될 수 있음
     category: 금융
   - id: net-interest-margin
     name: 예대마진 (Net Interest Margin)

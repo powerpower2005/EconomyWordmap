@@ -34,6 +34,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const cyRef = useRef<cytoscape.Core | null>(null);
   const animationFrameRef = useRef<number | null>(null);
+  const layoutConfigRef = useRef<any>(null);
   const [selectedNode, setSelectedNode] = useState<Term | null>(null);
   const [recommendedTerms, setRecommendedTerms] = useState<Term[]>([]);
   const [randomTerms, setRandomTerms] = useState<Term[]>([]);
@@ -283,25 +284,29 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           }
         }
       ],
-      layout: {
-        name: 'cose',
-        idealEdgeLength: dynamicEdgeLength, // 노드 수에 비례한 엣지 길이
-        nodeOverlap: nodeOverlap, // 노드 수에 비례한 이격
-        refresh: 1,
-        fit: false, // fit을 비활성화하여 줌 레벨을 직접 제어
-        padding: 5, // padding을 최소화하여 더 가깝게 배치
-        randomize: false,
-        componentSpacing: componentSpacing, // 노드 수에 비례한 컴포넌트 간격
-        nodeRepulsion: 2000000,
-        edgeElasticity: 150,
-        nestingFactor: 5,
-        gravity: 0.2,
-        numIter: 200,
-        initialTemp: 100,
-        coolingFactor: 0.95,
-        minTemp: 1.0,
-        animate: false
-      }
+      layout: (() => {
+        const layoutConfig = {
+          name: 'cose',
+          idealEdgeLength: dynamicEdgeLength, // 노드 수에 비례한 엣지 길이
+          nodeOverlap: nodeOverlap, // 노드 수에 비례한 이격
+          refresh: 1,
+          fit: false, // fit을 비활성화하여 줌 레벨을 직접 제어
+          padding: 5, // padding을 최소화하여 더 가깝게 배치
+          randomize: false,
+          componentSpacing: componentSpacing, // 노드 수에 비례한 컴포넌트 간격
+          nodeRepulsion: 2000000,
+          edgeElasticity: 150,
+          nestingFactor: 5,
+          gravity: 0.2,
+          numIter: 200,
+          initialTemp: 100,
+          coolingFactor: 0.95,
+          minTemp: 1.0,
+          animate: false
+        };
+        layoutConfigRef.current = layoutConfig;
+        return layoutConfig;
+      })()
     });
 
     cyRef.current = cy;
@@ -637,6 +642,55 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       }
     });
 
+    // 레이아웃 재실행 함수
+    const handleRelayout = () => {
+      const cy = cyRef.current;
+      if (!cy || !layoutConfigRef.current) return;
+      
+      // 물리 시뮬레이션 일시 중지
+      physicsActive = false;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+      
+      // 모든 노드의 속도를 0으로 초기화
+      cy.nodes().forEach((node: any) => {
+        nodeVelocities.set(node.id(), { vx: 0, vy: 0 });
+      });
+      
+      // 레이아웃 재실행
+      const layout = cy.layout(layoutConfigRef.current);
+      
+      // 레이아웃 완료 후 물리 시뮬레이션 재시작 및 전체보기
+      layout.one('layoutstop', function() {
+        // 모든 노드의 속도를 0으로 초기화
+        cy.nodes().forEach((node: any) => {
+          nodeVelocities.set(node.id(), { vx: 0, vy: 0 });
+        });
+        
+        // 전체보기로 조정 (모든 노드가 화면에 맞게)
+        cy.fit(undefined, 50);
+        
+        // 물리 시뮬레이션 재시작
+        physicsActive = true;
+        stableFrames = 0;
+        if (animationFrameRef.current === null) {
+          updatePhysics();
+        }
+      });
+      
+      layout.run();
+    };
+
+    // 전체보기 함수
+    const handleFitView = () => {
+      const cy = cyRef.current;
+      if (!cy) return;
+      
+      cy.fit(undefined, 50); // padding 50px
+    };
+
     // 레이아웃이 완료된 후에만 물리 시뮬레이션 시작
     cy.one('layoutstop', function() {
       // 초기 줌 레벨 설정 (더욱 확대된 상태 - 모든 노드를 보여줄 필요 없음)
@@ -668,6 +722,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       stableFrames = 0;
       updatePhysics();
     });
+
+    // 함수들을 ref에 저장하여 외부에서 접근 가능하게 함
+    (cy as any).handleRelayout = handleRelayout;
+    (cy as any).handleFitView = handleFitView;
 
     cy.on('tap', 'node', function(evt) {
       const node = evt.target;
@@ -781,10 +839,38 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         </div>
       )}
       <div
-        ref={containerRef}
-        className="w-full border-2 border-gray-200 rounded-lg bg-white mb-4"
+        className="relative w-full border-2 border-gray-200 rounded-lg bg-white mb-4"
         style={{ height: 'calc(100vh - 250px)', minHeight: '600px' }}
-      />
+      >
+        <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+          <button
+            onClick={() => {
+              const cy = cyRef.current;
+              if (cy && (cy as any).handleRelayout) {
+                (cy as any).handleRelayout();
+              }
+            }}
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors"
+          >
+            정렬
+          </button>
+          <button
+            onClick={() => {
+              const cy = cyRef.current;
+              if (cy && (cy as any).handleFitView) {
+                (cy as any).handleFitView();
+              }
+            }}
+            className="px-3 py-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors"
+          >
+            전체보기
+          </button>
+        </div>
+        <div
+          ref={containerRef}
+          className="w-full h-full"
+        />
+      </div>
       <div className="bg-white rounded-lg shadow-lg p-4">
         <div className="flex flex-wrap gap-4 items-center mb-4">
           {Object.entries(relationTypeLabels).map(([type, label]) => (

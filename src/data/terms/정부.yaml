@@ -11,3 +11,11 @@ terms:
     name: 증세 (Tax Increase)
     description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적
     category: 정부
+  - id: qra
+    name: QRA (Quarterly Refunding Announcement)
+    description: 미국 재무부가 분기별로 발행하는 국채 발행 계획 발표로 시장에 공급될 국채 규모와 만기 구성을 알려 시장 기대와 금리에 영향을 미침
+    category: 정부
+  - id: tga
+    name: TGA (Treasury General Account)
+    description: 미국 재무부가 연준에 보유한 예금 계좌로 재무부의 현금 잔액을 관리하며 TGA 증감은 시장 유동성과 지급준비금에 직접적인 영향을 미침
+    category: 정부
