@@ -1266,3 +1266,110 @@ relations:
     type: correlation
     description: "가계부채가 높은 상황에서 금리가 급격히 상승하면 소비 위축과 부채 상환 부담 증가로 금융불안 요인이 될 수 있어 금융시스템 안정성(LCLoR 등)에 중요한 변수"
     strength: medium
+
+  - id: r180
+    term1Id: government-bond
+    term2Id: short-term-bond
+    type: correlation
+    description: "단기채는 국채의 일종으로 만기 1년 이하의 국채를 의미하며 재무부의 단기 자금 조달 수단"
+    strength: strong
+
+  - id: r181
+    term1Id: government-bond
+    term2Id: medium-term-bond
+    type: correlation
+    description: "중기채는 국채의 일종으로 만기 1년 이상 10년 미만의 국채를 의미하며 재무부의 중기 자금 조달 수단"
+    strength: strong
+
+  - id: r182
+    term1Id: government-bond
+    term2Id: long-term-bond
+    type: correlation
+    description: "장기채는 국채의 일종으로 만기 10년 이상의 국채를 의미하며 재무부의 장기 자금 조달과 부채 만기 구조 안정화 수단"
+    strength: strong
+
+  - id: r183
+    term1Id: short-term-bond
+    term2Id: interest-rate
+    type: correlation
+    description: "단기채 수익률은 단기금리 형성에 중요한 역할을 하며 재무부의 단기 자금 조달 비용을 반영"
+    strength: strong
+
+  - id: r184
+    term1Id: medium-term-bond
+    term2Id: interest-rate
+    type: correlation
+    description: "중기채 수익률은 중기금리 곡선 형성에 기여하며 재무부의 중기 자금 조달 비용을 반영"
+    strength: strong
+
+  - id: r185
+    term1Id: long-term-bond
+    term2Id: long-term-interest-rate
+    type: correlation
+    bidirectional: true
+    description: "장기채 수익률은 장기금리 형성의 핵심 지표로 경제 전망, 인플레이션 기대, 통화정책 기대 등을 반영하여 주식시장과 부동산 등 자산가격에 중요한 영향을 미침"
+    reverseDescription: "장기금리는 장기채 수익률로 측정되며, 장기금리가 중요한 이유는 1) 미래 현금흐름의 할인율로 작용하여 주식·부동산 등 자산가격을 결정하는 핵심 요소, 2) 장기 인플레이션 기대와 경제 전망을 반영하는 신호, 3) 통화정책의 장기적 효과를 나타내는 지표, 4) 기업의 장기 투자 결정과 가계의 주택 구매 결정에 직접적인 영향을 미치기 때문"
+    strength: strong
+
+  - id: r186
+    term1Id: long-term-bond
+    term2Id: stock-market
+    type: correlation
+    description: "장기채 금리는 미래 현금흐름의 할인율로 작용하여 주식의 현재가치를 결정하는 핵심 요소로, 장기채 금리 상승은 주식가격에 하방 압력을 가할 수 있음"
+    strength: strong
+
+  - id: r187
+    term1Id: long-term-bond
+    term2Id: inflation
+    type: correlation
+    description: "장기채 금리는 장기 인플레이션 기대를 반영하며, 인플레이션 전망이 상승하면 장기채 금리도 상승하는 경향"
+    strength: strong
+
+  - id: r188
+    term1Id: long-term-bond
+    term2Id: expected-inflation
+    type: correlation
+    description: "장기채 금리는 장기 인플레이션 기대를 직접적으로 반영하는 지표로, 기대인플레이션 상승 시 장기채 금리도 함께 상승"
+    strength: strong
+
+  - id: r189
+    term1Id: long-term-bond
+    term2Id: quantitative-easing
+    type: correlation
+    description: "양적완화는 주로 장기채를 매입하여 장기금리를 낮추고 장기채 가격을 상승시키는 경향"
+    strength: strong
+
+  - id: r190
+    term1Id: long-term-bond
+    term2Id: quantitative-tightening
+    type: correlation
+    description: "양적긴축은 장기채 보유를 축소하여 장기금리 상승 압력을 만들고 장기채 가격 하락 압력을 가할 수 있음"
+    strength: medium
+
+  - id: r191
+    term1Id: treasury
+    term2Id: government-bond
+    type: proportional
+    description: "재무부는 재정 조달을 위해 국채를 발행하며, 재정적자 보전, 인프라 투자, 경기 대응 등 다양한 목적으로 발행"
+    strength: strong
+
+  - id: r192
+    term1Id: qra
+    term2Id: short-term-bond
+    type: correlation
+    description: "QRA는 단기채 발행 계획을 포함하여 발표하며, 단기채 공급 전망이 시장 기대와 다를 경우 단기금리에 영향을 미침"
+    strength: medium
+
+  - id: r193
+    term1Id: qra
+    term2Id: medium-term-bond
+    type: correlation
+    description: "QRA는 중기채 발행 계획을 포함하여 발표하며, 중기채 공급 전망이 시장 기대와 다를 경우 중기금리에 영향을 미침"
+    strength: medium
+
+  - id: r194
+    term1Id: qra
+    term2Id: long-term-bond
+    type: correlation
+    description: "QRA는 장기채 발행 계획을 포함하여 발표하며, 장기채 공급 전망이 시장 기대와 다를 경우 장기금리와 자산가격에 중요한 영향을 미침"
+    strength: strong

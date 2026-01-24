@@ -256,3 +256,27 @@ terms:
     description: 미국 재무부가 연준에 보유한 예금 계좌로 재무부의 현금 잔액을 관리하며 TGA 증감은 시장 유동성과 지급준비금에 직접적인 영향을 미침
     category: 정부
     stockMarketImportance: 7
+
+  - id: government-bond
+    name: 국채 (Government Bond)
+    description: 정부가 재정 조달을 위해 발행하는 채권으로 재정적자 보전, 인프라 투자, 경기 대응 등 다양한 목적으로 발행되며 만기별로 단기채·중기채·장기채로 구분됨
+    category: 채권
+    stockMarketImportance: 8
+
+  - id: short-term-bond
+    name: 단기채 (Short-term Bond)
+    description: 만기가 1년 이하인 국채로 재무부는 단기 자금 조달과 유동성 관리 목적으로 발행하며 단기금리 형성에 중요한 역할
+    category: 채권
+    stockMarketImportance: 6
+
+  - id: medium-term-bond
+    name: 중기채 (Medium-term Bond)
+    description: 만기가 1년 이상 10년 미만인 국채로 재무부는 중기 자금 조달과 만기 구조 조정 목적으로 발행하며 중기금리 곡선 형성에 기여
+    category: 채권
+    stockMarketImportance: 7
+
+  - id: long-term-bond
+    name: 장기채 (Long-term Bond)
+    description: 만기가 10년 이상인 국채로 재무부는 장기 자금 조달과 부채 만기 구조 안정화 목적으로 발행하며 장기금리 형성의 핵심 지표로 경제 전망과 인플레이션 기대를 반영하여 주식시장과 부동산 등 자산가격에 중요한 영향을 미침
+    category: 채권
+    stockMarketImportance: 9
