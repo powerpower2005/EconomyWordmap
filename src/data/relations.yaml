@@ -468,35 +468,35 @@ relations:
     term1Id: tax-cut
     term2Id: consumption
     type: correlation
-    description: "감세는 가처분소득을 늘려 소비를 자극할 수 있으나, 저축·부채상환 증가로 효과가 약해질 수도 있음"
+    description: "감세는 가처분소득을 늘려 소비를 자극할 수 있으나, 저축·부채상환 증가로 효과가 약해질 수도 있음. 감세 분석 시 소비 지표와 함께 재정적자, 국채 금리, 채권 시장 반응을 함께 봐야 함"
     strength: medium
 
   - id: r68
     term1Id: tax-cut
     term2Id: investment
     type: correlation
-    description: "감세(특히 법인세·투자세액공제)는 세후 수익률을 높여 투자를 촉진할 수 있음"
+    description: "감세(특히 법인세·투자세액공제)는 세후 수익률을 높여 투자를 촉진할 수 있음. 감세 분석 시 투자 지표와 함께 재정 건전성, 국채 금리, 채권 시장 반응을 함께 봐야 함"
     strength: medium
 
   - id: r69
     term1Id: tax-cut
     term2Id: gdp
     type: correlation
-    description: "감세는 단기적으로 총수요를 늘려 GDP에 긍정적일 수 있으나, 재정적자·금리·정책 조합에 따라 효과가 달라짐"
+    description: "감세는 단기적으로 총수요를 늘려 GDP에 긍정적일 수 있으나, 재정적자·금리·정책 조합에 따라 효과가 달라짐. 감세 분석 시 GDP와 함께 재정적자, 국채 금리, 재정 건전성 지표(부채/GDP 비율)를 함께 봐야 함"
     strength: medium
 
   - id: r70
     term1Id: tax-increase
     term2Id: consumption
     type: correlation
-    description: "증세는 가처분소득을 줄여 소비를 둔화시킬 수 있으나, 재정지출·분배 효과에 따라 결과는 달라질 수 있음"
+    description: "증세는 가처분소득을 줄여 소비를 둔화시킬 수 있으나, 재정지출·분배 효과에 따라 결과는 달라질 수 있음. 증세 분석 시 소비 지표와 함께 재정적자 축소, 국채 금리, 채권 시장 반응, 재정 건전성 개선을 함께 봐야 함"
     strength: medium
 
   - id: r71
     term1Id: tax-increase
     term2Id: investment
     type: correlation
-    description: "증세는 세후 수익률을 낮춰 투자에 부담이 될 수 있으나, 대상·경기·정책조합에 따라 영향이 달라짐"
+    description: "증세는 세후 수익률을 낮춰 투자에 부담이 될 수 있으나, 대상·경기·정책조합에 따라 영향이 달라짐. 증세 분석 시 투자 지표와 함께 재정 건전성 개선, 국채 금리, 채권 시장 반응을 함께 봐야 함"
     strength: medium
 
   - id: r72
@@ -1373,3 +1373,73 @@ relations:
     type: correlation
     description: "QRA는 장기채 발행 계획을 포함하여 발표하며, 장기채 공급 전망이 시장 기대와 다를 경우 장기금리와 자산가격에 중요한 영향을 미침"
     strength: strong
+
+  - id: r195
+    term1Id: tax-cut
+    term2Id: government-bond
+    type: correlation
+    description: "감세는 재정적자를 확대하여 국채 발행 증가 압력을 만들 수 있으며, 재정 건전성에 대한 우려가 국채 매도(금리 상승)로 이어질 수 있음. 과거 영국 트러스 총리의 감세안 발표로 채권 시장이 붕괴했던 '트러스 쇼크' 사례처럼 감세 분석 시 국채 금리와 채권 시장 반응을 반드시 함께 봐야 함"
+    strength: strong
+
+  - id: r196
+    term1Id: tax-cut
+    term2Id: long-term-bond
+    type: correlation
+    description: "감세로 인한 재정 건전성 우려는 장기채 금리 상승으로 이어질 수 있으며, 이는 주식시장과 부동산 등 자산가격에 하방 압력을 가할 수 있음. 감세 분석 시 장기채 금리와 재정 건전성 지표를 함께 봐야 함"
+    strength: strong
+
+  - id: r197
+    term1Id: tax-cut
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: "감세는 재정 건전성에 대한 우려를 키워 장기금리 상승 압력을 만들 수 있으며, 특히 재정적자가 크게 확대될 경우 장기금리 급등으로 이어질 수 있음. 감세 분석 시 장기금리와 재정 건전성 지표(부채/GDP 비율)를 함께 봐야 함"
+    strength: strong
+
+  - id: r198
+    term1Id: tax-increase
+    term2Id: government-bond
+    type: correlation
+    description: "증세는 재정적자를 축소하여 국채 발행 감소 압력을 만들 수 있으며, 재정 건전성 개선으로 국채 매수(금리 하락) 압력이 생길 수 있음. 증세 분석 시 국채 금리와 채권 시장 반응을 함께 봐야 함"
+    strength: medium
+
+  - id: r199
+    term1Id: tax-increase
+    term2Id: long-term-bond
+    type: correlation
+    description: "증세로 인한 재정 건전성 개선은 장기채 금리 하락 압력을 만들 수 있으나, 경기 둔화 우려와 함께 작용할 수 있어 결과는 복합적임. 증세 분석 시 장기채 금리와 재정 건전성 지표, 경기 지표를 함께 봐야 함"
+    strength: medium
+
+  - id: r200
+    term1Id: tax-increase
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: "증세는 재정 건전성 개선으로 장기금리 하락 압력을 만들 수 있으나, 경기 둔화 우려가 동반될 경우 복합적인 영향을 미침. 증세 분석 시 장기금리와 재정 건전성 지표, 경기 지표를 함께 봐야 함"
+    strength: medium
+
+  - id: r201
+    term1Id: tax-cut
+    term2Id: fiscal-policy
+    type: correlation
+    description: "감세는 확장적 재정정책의 일환으로 총수요를 자극하지만, 재정 건전성에 대한 우려가 국채 금리 상승으로 이어져 역효과를 낼 수 있음. 감세 분석 시 재정정책 방향과 재정 건전성, 국채 금리를 함께 봐야 함"
+    strength: strong
+
+  - id: r202
+    term1Id: tax-increase
+    term2Id: fiscal-policy
+    type: correlation
+    description: "증세는 긴축적 재정정책의 일환으로 재정 건전성을 개선하지만, 총수요를 위축시킬 수 있어 경기 상황과 함께 분석해야 함. 증세 분석 시 재정정책 방향과 재정 건전성, 경기 지표를 함께 봐야 함"
+    strength: strong
+
+  - id: r203
+    term1Id: tax-cut
+    term2Id: bond-market
+    type: correlation
+    description: "감세는 재정 건전성에 대한 우려를 키워 채권시장에서 국채 매도(금리 상승) 압력을 만들 수 있으며, 과거 영국 트러스 쇼크처럼 채권 시장 붕괴로 이어질 수 있음. 감세 분석 시 채권시장 반응을 반드시 함께 봐야 함"
+    strength: strong
+
+  - id: r204
+    term1Id: tax-increase
+    term2Id: bond-market
+    type: correlation
+    description: "증세는 재정 건전성 개선으로 채권시장에서 국채 매수(금리 하락) 압력을 만들 수 있으나, 경기 둔화 우려와 함께 작용할 수 있음. 증세 분석 시 채권시장 반응과 경기 지표를 함께 봐야 함"
+    strength: medium
