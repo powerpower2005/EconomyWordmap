@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 'react';
+import { useEffect, useRef, useState, useMemo, forwardRef, useImperativeHandle } from 'react';
 import cytoscape from 'cytoscape';
 import { loadTerms, loadRelations, getStarRating } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
@@ -19,6 +19,12 @@ const relationTypeLabels: Record<RelationType, string> = {
   inverse: '반비례',
   correlation: '상관관계'
 };
+
+// 사이드바 ABC 정렬용: "한글 (English)"에서 괄호 안 영문을 추출
+function getEnglishName(name: string): string {
+  const m = name.match(/\(([^)]+)\)/);
+  return (m ? m[1] : name).trim();
+}
 
 const relationNatureLabels: Record<string, string> = {
   causal: '인과',
@@ -72,6 +78,9 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const [selectedNode, setSelectedNode] = useState<Term | null>(null);
   const [recommendedTerms, setRecommendedTerms] = useState<Term[]>([]);
   const [randomTerms, setRandomTerms] = useState<Term[]>([]);
+  const [allTerms, setAllTerms] = useState<Term[]>([]);
+  const [showSidebar, setShowSidebar] = useState<boolean>(true);
+  const [sidebarSort, setSidebarSort] = useState<'korean' | 'english'>('korean');
   const termsRef = useRef<Term[]>([]);
 
   const handleNodeClick = (termId: string) => {
@@ -101,6 +110,22 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     }
   };
 
+  // 사이드바에서 단어 클릭 시: 모달은 열지 않고 해당 노드로 이동·하이라이트만
+  const focusNode = (termId: string) => {
+    const cy = cyRef.current;
+    if (!cy) return;
+    const node = cy.getElementById(termId);
+    if (node.length === 0) return;
+    cy.elements().unselect();
+    node.select();
+    cy.animate({
+      center: { eles: node },
+      zoom: 1.5
+    }, {
+      duration: 500
+    });
+  };
+
   // 외부에서 노드 클릭할 수 있도록 함수 노출
   useImperativeHandle(ref, () => ({
     clickNode: handleNodeClick
@@ -111,6 +136,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
     const terms = loadTerms();
     termsRef.current = terms;
+    setAllTerms(terms);
     const relations = loadRelations();
 
     // 추천 단어 계산 (엣지가 많은 노드 상위 5개)
@@ -851,6 +877,17 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     };
   }, []);
 
+  // 사이드바 단어 목록 정렬 (가나다 / ABC)
+  const sortedSidebarTerms = useMemo(() => {
+    const arr = [...allTerms];
+    if (sidebarSort === 'english') {
+      arr.sort((a, b) => getEnglishName(a.name).localeCompare(getEnglishName(b.name), 'en'));
+    } else {
+      arr.sort((a, b) => a.name.localeCompare(b.name, 'ko'));
+    }
+    return arr;
+  }, [allTerms, sidebarSort]);
+
   return (
     <div className="w-full h-full">
       {recommendedTerms.length > 0 && (
@@ -914,9 +951,69 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         </div>
       )}
       <div
-        className="relative w-full border-2 border-gray-200 rounded-lg bg-white mb-4"
+        className="relative w-full border-2 border-gray-200 rounded-lg bg-white mb-4 overflow-hidden"
         style={{ height: 'calc(100vh - 250px)', minHeight: '600px' }}
       >
+        {showSidebar ? (
+          <div className="absolute top-0 left-0 h-full w-56 bg-white/95 backdrop-blur-sm border-r border-gray-200 z-20 flex flex-col">
+            <div className="flex items-center justify-between px-3 py-2 border-b border-gray-200">
+              <span className="text-sm font-semibold text-gray-700">단어 목록 ({sortedSidebarTerms.length})</span>
+              <button
+                onClick={() => setShowSidebar(false)}
+                title="사이드바 숨기기"
+                className="text-gray-400 hover:text-gray-700 text-xl leading-none px-1"
+              >
+                ×
+              </button>
+            </div>
+            <div className="flex gap-1 px-3 py-2 border-b border-gray-200">
+              <button
+                onClick={() => setSidebarSort('korean')}
+                className={`flex-1 px-2 py-1 text-xs rounded transition-colors ${
+                  sidebarSort === 'korean'
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                가나다
+              </button>
+              <button
+                onClick={() => setSidebarSort('english')}
+                className={`flex-1 px-2 py-1 text-xs rounded transition-colors ${
+                  sidebarSort === 'english'
+                    ? 'bg-blue-100 text-blue-700 font-semibold'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                ABC
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto py-1">
+              {sortedSidebarTerms.map(term => (
+                <button
+                  key={term.id}
+                  onClick={() => focusNode(term.id)}
+                  title={term.name}
+                  className={`w-full text-left px-3 py-1.5 text-sm truncate transition-colors ${
+                    selectedNode?.id === term.id
+                      ? 'bg-blue-50 text-blue-700 font-semibold'
+                      : 'text-gray-700 hover:bg-blue-50 hover:text-blue-700'
+                  }`}
+                >
+                  {term.name}
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : (
+          <button
+            onClick={() => setShowSidebar(true)}
+            title="단어 목록 열기"
+            className="absolute top-4 left-4 z-20 px-3 py-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors"
+          >
+            단어 목록
+          </button>
+        )}
         <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
           <button
             onClick={() => {
