@@ -28,7 +28,7 @@ export default function Home() {
   const [updatedWithinDays, setUpdatedWithinDays] = useState<number | null>(null);
 
   // 카테고리 목록
-  const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재', '금리', '채권', '경제이론', '자원·환경'];
+  const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재', '금리', '채권', '경제이론', '자원·환경', '미시경제'];
 
   const handleTermClick = (term: Term) => {
     if (graphRef.current) {

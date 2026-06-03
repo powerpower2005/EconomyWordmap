@@ -1822,3 +1822,231 @@ relations:
     description: "사회도 자연 법칙을 따른다는 자연법 사상이 자유방임론의 철학적 기반"
     strength: medium
     nature: causal
+
+  - id: r252
+    term1Id: classical-economics
+    term2Id: mercantilism
+    type: inverse
+    bidirectional: true
+    description: "고전경제학은 중상주의를 비판하며 시장의 자율 조정과 자유무역을 강조"
+    reverseDescription: "중상주의는 국가 개입을 강조해 고전경제학과 대립한 사상"
+    strength: medium
+
+  - id: r253
+    term1Id: classical-economics
+    term2Id: invisible-hand
+    type: correlation
+    description: "개인의 이기심이 가격을 통해 공익으로 이어진다는 보이지 않는 손이 고전파의 핵심 통찰"
+    strength: strong
+    nature: definitional
+
+  - id: r254
+    term1Id: classical-economics
+    term2Id: division-of-labor
+    type: correlation
+    description: "스미스는 분업과 전문화를 생산성 향상의 원천으로 제시"
+    strength: strong
+    nature: causal
+
+  - id: r255
+    term1Id: classical-economics
+    term2Id: comparative-advantage
+    type: correlation
+    description: "리카도의 비교우위론은 고전경제학의 대표적 무역 이론"
+    strength: strong
+    nature: hierarchical
+
+  - id: r256
+    term1Id: classical-economics
+    term2Id: free-trade
+    type: correlation
+    description: "고전파는 비교우위에 근거해 자유무역을 옹호한 사상적 뿌리"
+    strength: strong
+    nature: causal
+
+  - id: r257
+    term1Id: division-of-labor
+    term2Id: global-value-chain
+    type: correlation
+    description: "분업과 전문화 원리가 여러 나라에 걸친 글로벌 가치사슬의 이론적 기반"
+    strength: medium
+    nature: causal
+
+  - id: r258
+    term1Id: comparative-advantage
+    term2Id: global-value-chain
+    type: correlation
+    description: "비교우위에 따른 특화가 국가 간 분업인 글로벌 가치사슬을 형성"
+    strength: medium
+    nature: causal
+
+  - id: r259
+    term1Id: invisible-hand
+    term2Id: price-mechanism
+    type: correlation
+    description: "보이지 않는 손은 가격 메커니즘을 통해 자원을 배분"
+    strength: strong
+    nature: causal
+
+  - id: r260
+    term1Id: says-law
+    term2Id: keynesian-economics
+    type: inverse
+    bidirectional: true
+    description: "케인즈주의는 공급이 수요를 창출한다는 세이의 법칙을 수요 부족 사례로 반박"
+    reverseDescription: "세이의 법칙은 장기 공급 중심 관점으로 케인즈의 단기 수요관리론과 대립"
+    strength: strong
+
+  - id: r261
+    term1Id: keynesian-economics
+    term2Id: aggregate-demand
+    type: correlation
+    description: "케인즈주의는 단기 경기와 고용을 좌우하는 총수요 관리를 강조"
+    strength: strong
+    nature: causal
+
+  - id: r262
+    term1Id: classical-economics
+    term2Id: says-law
+    type: correlation
+    description: "세이의 법칙은 고전파의 장기 완전고용 균형 전제를 뒷받침"
+    strength: medium
+    nature: hierarchical
+
+  - id: r263
+    term1Id: labor-theory-of-value
+    term2Id: marginal-utility
+    type: inverse
+    bidirectional: true
+    description: "한계효용이론은 다이아몬드-물 역설을 설명하며 노동가치설을 대체"
+    reverseDescription: "노동가치설은 노동량 기준 가치론으로 한계효용이론에 자리를 내줌"
+    strength: medium
+
+  - id: r264
+    term1Id: marginal-utility
+    term2Id: neoclassical-economics
+    type: correlation
+    description: "한계효용에 기반한 한계혁명이 신고전학파를 형성"
+    strength: strong
+    nature: causal
+
+  - id: r265
+    term1Id: malthusianism
+    term2Id: technological-progress
+    type: inverse
+    description: "기술 진보와 생산성 향상이 인구가 빈곤을 부른다는 맬서스 비관론을 반박"
+    strength: medium
+    nature: causal
+
+  - id: r266
+    term1Id: classical-economics
+    term2Id: economic-growth
+    type: correlation
+    description: "고전파는 자본 축적과 생산성 향상을 장기 경제성장의 동력으로 봄"
+    strength: medium
+    nature: causal
+
+  - id: r267
+    term1Id: capital-accumulation
+    term2Id: economic-growth
+    type: proportional
+    description: "자본축적이 생산능력을 늘려 장기 경제성장을 견인"
+    strength: strong
+    nature: causal
+
+  - id: r268
+    term1Id: technological-progress
+    term2Id: economic-growth
+    type: proportional
+    description: "기술 진보가 생산성을 높여 장기 경제성장을 이끄는 핵심 동력"
+    strength: strong
+    nature: causal
+
+  - id: r269
+    term1Id: market-failure
+    term2Id: welfare-economics
+    type: correlation
+    description: "시장 실패에 대한 분석에서 효율과 분배를 다루는 후생경제학이 발전"
+    strength: medium
+    nature: causal
+
+  - id: r270
+    term1Id: externality
+    term2Id: pigovian-tax
+    type: correlation
+    description: "외부효과의 사회적 비용을 유발자에게 부담시켜 교정하는 수단이 피구세"
+    strength: medium
+    nature: policy
+
+  - id: r271
+    term1Id: public-goods
+    term2Id: market-failure
+    type: correlation
+    description: "공공재는 시장이 충분히 공급하지 못하는 시장 실패의 한 유형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r272
+    term1Id: information-asymmetry
+    term2Id: market-failure
+    type: correlation
+    description: "정보 비대칭은 역선택·도덕적 해이를 낳는 시장 실패의 한 유형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r273
+    term1Id: perfect-competition
+    term2Id: monopoly
+    type: inverse
+    bidirectional: true
+    description: "완전경쟁과 독점은 경쟁 구조의 양 극단"
+    reverseDescription: "독점과 완전경쟁은 경쟁 구조의 양 극단"
+    strength: strong
+
+  - id: r274
+    term1Id: oligopoly
+    term2Id: game-theory
+    type: correlation
+    description: "소수 기업의 전략적 상호작용을 다루는 과점 분석에 게임이론이 활용됨"
+    strength: medium
+    nature: causal
+
+  - id: r275
+    term1Id: industrial-organization
+    term2Id: oligopoly
+    type: correlation
+    description: "산업조직론은 완전경쟁을 넘어 독점·과점 등 현실의 시장 구조를 분석"
+    strength: medium
+    nature: hierarchical
+
+  - id: r276
+    term1Id: classical-economics
+    term2Id: neoclassical-economics
+    type: correlation
+    description: "고전경제학은 한계혁명을 거쳐 신고전학파로 계승·정교화됨"
+    strength: medium
+    nature: causal
+
+  - id: r277
+    term1Id: inequality
+    term2Id: keynesian-economics
+    type: correlation
+    description: "고전파가 소홀히 한 분배·불평등 문제는 케인즈 이후 정부 역할 재평가의 배경"
+    strength: weak
+    nature: correlational
+
+  - id: r278
+    term1Id: behavioral-economics
+    term2Id: invisible-hand
+    type: inverse
+    description: "행동경제학은 합리적 이기심 가정의 한계를 지적해 보이지 않는 손의 작동을 제약하는 요인을 부각"
+    strength: weak
+    nature: correlational
+
+  - id: r279
+    term1Id: full-employment
+    term2Id: says-law
+    type: correlation
+    description: "세이의 법칙은 경제가 장기적으로 완전고용 균형에 도달한다는 고전파 가정과 연결"
+    strength: medium
+    nature: causal

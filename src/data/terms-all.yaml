@@ -608,7 +608,7 @@ terms:
   - id: market-failure
     name: 시장 실패 (Market Failure)
     description: 독점·외부효과·공공재·정보 비대칭 등으로 시장이 자원을 효율적으로 배분하지 못하는 상태로, 정부 개입과 산업정책을 정당화하는 핵심 근거이며 극단적 자유방임론의 한계를 보여줌
-    category: 경제이론
+    category: 미시경제
     stockMarketImportance: 5
 
   - id: net-product
@@ -632,7 +632,7 @@ terms:
   - id: externality
     name: 외부효과 (Externality)
     description: 한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형
-    category: 경제이론
+    category: 미시경제
     stockMarketImportance: 4
 
   - id: circular-economy
@@ -662,7 +662,7 @@ terms:
   - id: monopoly
     name: 독점 (Monopoly)
     description: 한 기업이 시장을 지배해 가격과 생산량을 좌우하는 상태로 경쟁을 제한해 소비자 후생을 낮추며 시장 실패의 대표 유형
-    category: 경제이론
+    category: 미시경제
     stockMarketImportance: 5
 
   - id: technological-progress
@@ -688,3 +688,159 @@ terms:
     description: 케네가 농업·제조업·지주·노동자 사이에서 돈과 재화가 어떻게 순환하는지를 처음으로 시각화한 모델로, 최초의 거시경제 순환 모델이자 산업연관분석의 원형
     category: 경제이론
     stockMarketImportance: 2
+
+  - id: classical-economics
+    name: 고전경제학 (Classical Economics)
+    description: 1776년 애덤 스미스의 국부론부터 1870년대 한계혁명 전까지를 가리키는 학파로 스미스·리카도·맬서스·밀이 대표적이며, 중상주의를 비판하고 시장의 자율 조정과 자유무역, 분업과 생산성 성장을 강조한 현대 경제학의 직접적 뿌리. 단기 수요 부족과 시장 실패, 분배 문제를 충분히 다루지 못한 한계가 있음
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: invisible-hand
+    name: 보이지 않는 손 (Invisible Hand)
+    description: 개인이 자기 이익을 추구하면 시장 가격을 통해 자원이 효율적으로 배분되어 사회 전체의 이익으로 이어진다는 애덤 스미스의 통찰로 시장 경제 작동 원리의 핵심이나, 외부효과·독점 등 시장 실패 상황에서는 한계가 있음
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: division-of-labor
+    name: 분업 (Division of Labor)
+    description: 작업을 전문화해 나누면 생산성이 크게 높아진다는 원리로 스미스의 핀 공장 사례로 유명하며, 글로벌 가치사슬과 아웃소싱의 이론적 기반
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: keynesian-economics
+    name: 케인즈주의 (Keynesian Economics)
+    description: 단기에는 가격·임금이 경직적이고 총수요 부족으로 실업이 지속될 수 있어 정부의 적극적 수요 관리가 필요하다는 학파로, 고전파의 시장 자율 조정론과 세이의 법칙을 비판하며 대공황 이후 등장
+    category: 경제이론
+    stockMarketImportance: 5
+
+  - id: neoclassical-economics
+    name: 신고전학파 (Neoclassical Economics)
+    description: 한계혁명 이후 한계효용과 합리적 선택, 수요·공급에 따른 시장 균형을 중시하는 학파로 고전파를 계승·정교화했으며 현대 미시경제학의 주류 기반
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: says-law
+    name: 세이의 법칙 (Say's Law)
+    description: 공급이 스스로 수요를 창출하므로 장기적으로 전반적 과잉생산은 없고 경제는 완전고용 균형으로 수렴한다는 고전파 명제로, 케인즈가 대공황의 수요 부족을 들어 반박
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: labor-theory-of-value
+    name: 노동가치설 (Labor Theory of Value)
+    description: 상품의 가치가 투입된 노동량으로 결정된다는 고전파 가치 이론으로 다이아몬드-물 역설을 설명하지 못해 한계효용이론으로 대체됨
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: marginal-utility
+    name: 한계효용 (Marginal Utility)
+    description: 재화를 한 단위 더 소비할 때 늘어나는 효용으로 소비가 늘수록 체감하며, 한계혁명을 통해 노동가치설을 대체하고 가격 결정을 설명하는 신고전파의 핵심 개념
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: malthusianism
+    name: 맬서스 인구론 (Malthusianism)
+    description: 인구는 기하급수로 늘지만 식량은 산술급수로 늘어 빈곤이 불가피하다는 맬서스의 비관론으로, 기술 진보와 생산성 향상으로 반박된 대표적 사례
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: aggregate-demand
+    name: 총수요 (Aggregate Demand)
+    description: 한 경제에서 일정 기간 재화·서비스에 대한 총지출로 소비·투자·정부지출·순수출의 합이며, 케인즈주의가 단기 경기와 고용을 좌우하는 핵심 변수로 봄
+    category: 거시경제
+    stockMarketImportance: 7
+
+  - id: economic-growth
+    name: 경제성장 (Economic Growth)
+    description: 한 경제의 실질 생산능력이 장기적으로 늘어나는 현상으로 자본축적·노동·생산성·기술 진보가 동력이며 생활수준 향상의 근원
+    category: 거시경제
+    stockMarketImportance: 7
+
+  - id: pigovian-tax
+    name: 피구세 (Pigovian Tax)
+    description: 외부효과로 발생하는 사회적 비용을 유발자에게 부담시켜 시장 실패를 교정하는 세금으로 탄소세가 대표 사례
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: global-value-chain
+    name: 글로벌 가치사슬 (Global Value Chain)
+    description: 하나의 제품이 여러 나라에 걸친 분업으로 설계·생산·조립되는 국제 생산 네트워크로 비교우위와 분업 원리의 현대적 구현이며 공급망 재편의 대상
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: price-mechanism
+    name: 가격 메커니즘 (Price Mechanism)
+    description: 가격이 수요와 공급, 분산된 정보를 반영해 자원 배분을 조정하는 시장의 작동 원리로, 계획경제 대비 시장경제의 효율성 근거
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: perfect-competition
+    name: 완전경쟁 (Perfect Competition)
+    description: 다수의 공급자·수요자, 동질적 상품, 자유로운 진입과 완전한 정보를 전제로 개별 주체가 가격을 좌우하지 못하는 이상적 시장 구조로 미시경제 분석의 기준점
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: oligopoly
+    name: 과점 (Oligopoly)
+    description: 소수의 기업이 시장을 지배하는 구조로 기업 간 전략적 상호작용이 중요해 게임이론으로 분석되며 가격·생산 담합 위험이 있음
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: public-goods
+    name: 공공재 (Public Goods)
+    description: 비배제성과 비경합성을 가져 시장이 충분히 공급하지 못하는 재화로 국방·치안이 대표 사례이며 정부 공급의 근거가 되는 시장 실패 유형
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: information-asymmetry
+    name: 정보 비대칭 (Information Asymmetry)
+    description: 거래 당사자 간 정보 격차로 역선택과 도덕적 해이가 발생해 시장이 비효율적으로 작동하는 시장 실패 유형
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: welfare-economics
+    name: 후생경제학 (Welfare Economics)
+    description: 자원 배분이 사회 후생에 미치는 영향을 분석하고 효율성과 분배를 평가하는 분야로 시장 실패 교정과 정책 정당화의 이론적 틀
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: capital-accumulation
+    name: 자본축적 (Capital Accumulation)
+    description: 생산에 쓰이는 자본을 투자로 늘려가는 과정으로 고전파와 현대 성장이론 모두에서 장기 성장의 핵심 동력
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: inequality
+    name: 불평등 (Inequality)
+    description: 소득과 자산이 구성원 간에 불균등하게 분포된 상태로 고전파가 소홀히 다룬 분배 문제이며 현대 성장·사회 안정 논의의 핵심 의제
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: full-employment
+    name: 완전고용 (Full Employment)
+    description: 경기적 실업이 사라지고 일하려는 사람이 대체로 고용된 상태로 고전파는 시장이 자동으로 도달한다고 보았으나 케인즈는 단기에 미달할 수 있다고 봄
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: game-theory
+    name: 게임이론 (Game Theory)
+    description: 상호 의존적 의사결정에서 전략적 행동을 분석하는 이론으로 과점·협상·정책 경쟁 분석에 쓰이며 산업조직론과 전략적 무역이론의 도구
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: industrial-organization
+    name: 산업조직론 (Industrial Organization)
+    description: 시장 구조와 기업 행동, 성과의 관계를 분석하는 분야로 완전경쟁 가정의 한계를 넘어 독점·과점 등 현실의 경쟁을 다룸
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: institutional-economics
+    name: 제도경제학 (Institutional Economics)
+    description: 법·관습·신뢰 등 제도가 경제 행동과 성과에 미치는 영향을 분석하는 학파로 시장이 도덕적·제도적 기반 위에서 작동한다는 스미스의 통찰을 계승
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: behavioral-economics
+    name: 행동경제학 (Behavioral Economics)
+    description: 사람들이 항상 합리적으로 행동하지는 않는다는 점에 주목해 심리·인지 편향을 경제 분석에 반영하는 분야로, 합리적 이기심 가정의 한계를 보완
+    category: 경제이론
+    stockMarketImportance: 4
