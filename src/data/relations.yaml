@@ -2462,3 +2462,217 @@ relations:
     description: "현재 소비를 미래보다 선호하는 시간선호가 금리의 근본 결정 요인이라는 오스트리아 자본이론"
     strength: medium
     nature: causal
+
+  - id: r331
+    term1Id: stagflation
+    term2Id: phillips-curve
+    type: inverse
+    bidirectional: true
+    description: "스태그플레이션은 인플레이션과 실업이 함께 올라 필립스 곡선의 상충 관계를 깨뜨림"
+    reverseDescription: "필립스 곡선의 인플레-실업 상충 가정이 1970년대 스태그플레이션으로 무너짐"
+    strength: strong
+
+  - id: r332
+    term1Id: phillips-curve
+    term2Id: inflation
+    type: correlation
+    description: "필립스 곡선은 인플레이션을 한 축으로 삼아 실업과의 관계를 나타냄"
+    strength: medium
+    nature: correlational
+
+  - id: r333
+    term1Id: phillips-curve
+    term2Id: unemployment
+    type: inverse
+    description: "단기적으로 실업이 낮으면 인플레이션이 높아진다는 상충 관계"
+    strength: medium
+    nature: correlational
+
+  - id: r334
+    term1Id: natural-rate-of-unemployment
+    term2Id: phillips-curve
+    type: correlation
+    description: "장기 필립스 곡선은 자연실업률 수준에서 수직이 됨"
+    strength: medium
+    nature: causal
+
+  - id: r335
+    term1Id: monetarism
+    term2Id: quantity-theory-of-money
+    type: correlation
+    description: "화폐수량설이 통화주의 이론의 토대"
+    strength: strong
+    nature: hierarchical
+
+  - id: r336
+    term1Id: quantity-theory-of-money
+    term2Id: inflation
+    type: correlation
+    description: "장기적으로 화폐 공급 증가가 물가 상승으로 이어진다는 통화주의 핵심 주장"
+    strength: strong
+    nature: causal
+
+  - id: r337
+    term1Id: quantity-theory-of-money
+    term2Id: velocity-of-money
+    type: correlation
+    description: "유통속도는 MV=PY 항등식의 핵심 변수"
+    strength: medium
+    nature: hierarchical
+
+  - id: r338
+    term1Id: quantity-theory-of-money
+    term2Id: monetary-neutrality
+    type: correlation
+    description: "장기적으로 화폐가 실물에 영향을 주지 않는다는 중립성과 연결"
+    strength: medium
+    nature: causal
+
+  - id: r339
+    term1Id: monetarism
+    term2Id: money-supply
+    type: correlation
+    description: "통화주의는 통화량을 경제 안정의 핵심 변수로 봄"
+    strength: strong
+    nature: causal
+
+  - id: r340
+    term1Id: monetarism
+    term2Id: keynesian-economics
+    type: inverse
+    bidirectional: true
+    description: "통화주의는 인플레이션을 화폐 현상으로 보고 통화량 안정을 강조"
+    reverseDescription: "케인즈주의는 수요 관리에 무게를 둬 화폐 중심의 통화주의와 대립"
+    strength: strong
+
+  - id: r341
+    term1Id: monetarism
+    term2Id: natural-rate-of-unemployment
+    type: correlation
+    description: "실업을 자연율 이하로 낮추면 인플레이션만 오른다는 자연실업률 가설"
+    strength: medium
+    nature: causal
+
+  - id: r342
+    term1Id: monetarism
+    term2Id: monetary-policy-rule
+    type: correlation
+    description: "통화주의는 재량보다 k퍼센트 같은 준칙을 따를 것을 주장"
+    strength: strong
+    nature: causal
+
+  - id: r343
+    term1Id: monetarism
+    term2Id: inflation-targeting
+    type: correlation
+    description: "통화주의의 물가 안정 원칙이 현대 물가안정목표제로 계승"
+    strength: medium
+    nature: causal
+
+  - id: r344
+    term1Id: supply-shock
+    term2Id: stagflation
+    type: correlation
+    description: "오일쇼크 같은 공급 충격이 물가 상승과 경기 침체를 동시에 일으켜 스태그플레이션을 유발"
+    strength: strong
+    nature: causal
+
+  - id: r345
+    term1Id: rational-expectations
+    term2Id: new-classical-economics
+    type: correlation
+    description: "합리적 기대는 새고전파의 핵심 가정"
+    strength: strong
+    nature: hierarchical
+
+  - id: r346
+    term1Id: rational-expectations
+    term2Id: adaptive-expectations
+    type: inverse
+    bidirectional: true
+    description: "합리적 기대는 모든 정보를 즉시 반영한다고 보아 과거 의존적 적응적 기대와 대비"
+    reverseDescription: "적응적 기대는 과거 경험에 의존해 정보를 즉시 반영하는 합리적 기대와 대비"
+    strength: medium
+
+  - id: r347
+    term1Id: rational-expectations
+    term2Id: lucas-critique
+    type: correlation
+    description: "예상된 정책은 효과가 상쇄된다는 루카스 비판의 토대가 합리적 기대"
+    strength: strong
+    nature: causal
+
+  - id: r348
+    term1Id: new-classical-economics
+    term2Id: monetarism
+    type: correlation
+    bidirectional: true
+    description: "새고전파는 합리적 기대로 통화주의의 정책 무력화 논리를 강화하며 계승"
+    reverseDescription: "통화주의는 새고전파의 토대가 되었고 이후 주도권을 새고전파에 내줌"
+    strength: medium
+
+  - id: r349
+    term1Id: permanent-income-hypothesis
+    term2Id: multiplier
+    type: inverse
+    description: "소비가 영구소득을 따른다면 일시적 지출의 승수효과가 약해짐"
+    strength: medium
+    nature: causal
+
+  - id: r350
+    term1Id: time-inconsistency
+    term2Id: monetary-policy-rule
+    type: correlation
+    description: "시간 불일치 문제가 재량보다 규칙이 우월하다는 핵심 논거"
+    strength: medium
+    nature: causal
+
+  - id: r351
+    term1Id: time-inconsistency
+    term2Id: central-bank-independence
+    type: correlation
+    description: "시간 불일치를 막기 위해 중앙은행 독립성으로 신뢰를 확보"
+    strength: medium
+    nature: causal
+
+  - id: r352
+    term1Id: central-bank-independence
+    term2Id: inflation
+    type: inverse
+    description: "독립적인 중앙은행이 정치적 압력을 차단해 물가를 안정시킴"
+    strength: medium
+    nature: causal
+
+  - id: r353
+    term1Id: forward-guidance
+    term2Id: rational-expectations
+    type: correlation
+    description: "포워드 가이던스는 합리적 기대를 활용해 시장 기대를 관리하는 수단"
+    strength: medium
+    nature: causal
+
+  - id: r354
+    term1Id: inflation-targeting
+    term2Id: central-bank
+    type: correlation
+    description: "물가안정목표제는 현대 중앙은행 운영의 기본 틀"
+    strength: medium
+    nature: hierarchical
+
+  - id: r355
+    term1Id: quantitative-easing
+    term2Id: quantity-theory-of-money
+    type: inverse
+    bidirectional: true
+    description: "양적완화로 통화량이 급증해도 유통속도 하락으로 물가가 바로 오르지 않아 단순 화폐수량설과 괴리"
+    reverseDescription: "화폐수량설의 통화량-물가 연결이 양적완화 국면에서는 약하게 나타남"
+    strength: medium
+
+  - id: r356
+    term1Id: new-keynesian-economics
+    term2Id: new-classical-economics
+    type: correlation
+    bidirectional: true
+    description: "뉴케인즈학파는 가격 경직성으로 단기 비중립성을 주장하며 새고전파와 논쟁"
+    reverseDescription: "새고전파는 시장청산을 전제해 뉴케인즈학파의 경직성 주장과 대립"
+    strength: medium

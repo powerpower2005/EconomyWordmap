@@ -1048,3 +1048,99 @@ terms:
     description: 1929년 시작된 세계적 장기 불황으로 대량 실업과 디플레이션을 낳았으며, 오스트리아학파와 케인즈주의의 정면 충돌과 케인즈 혁명의 계기가 됨
     category: 거시경제
     stockMarketImportance: 3
+
+  - id: monetarism
+    name: 통화주의 (Monetarism)
+    description: 인플레이션은 언제 어디서나 화폐적 현상이라고 보고 안정적인 통화량 증가를 강조한 밀턴 프리드먼과 시카고학파의 이론으로 케인즈주의에 맞서 1970년대에 부상
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: quantity-theory-of-money
+    name: 화폐수량설 (Quantity Theory of Money)
+    description: "통화량(M)과 유통속도(V)의 곱이 물가(P)와 실질생산(Y)의 곱과 같다는 MV=PY 항등식에 기반해, 장기적으로 화폐 공급 증가가 물가 상승으로 이어진다고 보는 이론"
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: phillips-curve
+    name: 필립스 곡선 (Phillips Curve)
+    description: 인플레이션과 실업률 사이에 단기적으로 상충 관계가 있다는 곡선으로, 1970년대 스태그플레이션으로 그 안정성이 깨지고 장기에는 수직이라는 수정이 이뤄짐
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: natural-rate-of-unemployment
+    name: 자연실업률 (NAIRU)
+    description: 인플레이션을 가속시키지 않으면서 유지되는 실업률 수준으로, 이보다 낮추려는 부양은 결국 물가만 올린다는 프리드먼의 자연실업률 가설의 핵심
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: inflation-targeting
+    name: 물가안정목표제 (Inflation Targeting)
+    description: 중앙은행이 일정한 물가상승률(흔히 2퍼센트)을 공개 목표로 삼아 통화정책을 운영하는 제도로, 통화량 목표제를 대체한 통화주의의 대표적 현대 유산
+    category: 통화정책
+    stockMarketImportance: 4
+
+  - id: rational-expectations
+    name: 합리적 기대 (Rational Expectations)
+    description: 사람들이 이용 가능한 모든 정보를 활용해 미래를 예측하고 행동한다는 가정으로, 예상된 정책은 효과가 상쇄된다는 새고전파와 루카스 비판의 토대
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: adaptive-expectations
+    name: 적응적 기대 (Adaptive Expectations)
+    description: 사람들이 과거의 경험을 바탕으로 미래를 예측하고 오차를 점진적으로 수정한다는 기대 형성 방식으로, 정보를 즉시 반영하는 합리적 기대와 대비됨
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: new-classical-economics
+    name: 새고전파 (New Classical Economics)
+    description: 합리적 기대와 시장청산을 전제로 예상된 정책은 무력하다고 보는 루카스·사전트 등의 학파로 통화주의를 계승하며 케인즈식 재량 정책을 비판
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: supply-shock
+    name: 공급 충격 (Supply Shock)
+    description: 유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: monetary-policy-rule
+    name: 준칙주의 (Monetary Policy Rule)
+    description: 중앙은행이 재량적 판단 대신 통화량 증가율이나 금리 공식 같은 정해진 규칙을 따라야 한다는 입장으로 프리드먼의 k퍼센트 준칙이 대표적
+    category: 통화정책
+    stockMarketImportance: 3
+
+  - id: permanent-income-hypothesis
+    name: 영구소득가설 (Permanent Income Hypothesis)
+    description: 소비가 일시적 소득이 아니라 평생에 걸친 기대 소득(영구소득)에 따라 결정된다는 프리드먼의 가설로, 일회성 감세나 지원금의 부양 효과가 작다고 봄
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: central-bank-independence
+    name: 중앙은행 독립성 (Central Bank Independence)
+    description: 중앙은행이 정치적 압력에서 벗어나 통화정책을 결정하는 정도로, 정부의 단기 유혹을 차단해 물가 안정과 정책 신뢰를 높이는 장치
+    category: 통화정책
+    stockMarketImportance: 4
+
+  - id: time-inconsistency
+    name: 시간 불일치 (Time Inconsistency)
+    description: 사전에 최적이라고 약속한 정책이 시간이 지나면 어기고 싶은 유인이 생기는 문제로, 재량보다 규칙과 중앙은행 독립성이 필요하다는 핵심 논거
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: monetary-neutrality
+    name: 화폐의 중립성 (Monetary Neutrality)
+    description: 통화량 변화가 장기적으로 물가 같은 명목 변수만 바꾸고 생산·고용 같은 실물 변수에는 영향을 주지 않는다는 명제
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: forward-guidance
+    name: 포워드 가이던스 (Forward Guidance)
+    description: 중앙은행이 앞으로의 금리·정책 방향을 미리 알려 시장의 기대를 관리하는 통화정책 수단으로 합리적 기대 이론과 신뢰의 중요성에 기반
+    category: 통화정책
+    stockMarketImportance: 3
+
+  - id: new-keynesian-economics
+    name: 뉴케인즈학파 (New Keynesian Economics)
+    description: 합리적 기대를 받아들이면서도 가격·임금 경직성 때문에 화폐가 단기에는 실물에 영향을 준다고 보아 정부 개입의 여지를 옹호하는 현대 케인즈 계열 학파
+    category: 경제이론
+    stockMarketImportance: 3
