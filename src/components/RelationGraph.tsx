@@ -188,11 +188,11 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
     // 단계별 크기 정의 (width, height, font-size)
     const sizeByLevel: Record<number, { size: number; fontSize: number }> = {
-      1: { size: 80, fontSize: 12 },
-      2: { size: 100, fontSize: 14 },
-      3: { size: 120, fontSize: 16 },
-      4: { size: 140, fontSize: 18 },
-      5: { size: 160, fontSize: 20 }
+      1: { size: 120, fontSize: 13 },
+      2: { size: 150, fontSize: 14 },
+      3: { size: 180, fontSize: 16 },
+      4: { size: 210, fontSize: 18 },
+      5: { size: 240, fontSize: 20 }
     };
 
     const nodes = terms.map(term => {
@@ -291,7 +291,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             'text-wrap': 'wrap',
             'text-max-width': function(node: any) {
               const level = node.data('sizeLevel') || 3;
-              return `${(sizeByLevel[level]?.size || 120) + 20}px`;
+              // 타원 내부에 글자가 들어오도록 지름의 약 80%로 제한
+              return `${Math.round((sizeByLevel[level]?.size || 180) * 0.8)}px`;
             },
             'border-width': function(node: any) {
               const level = node.data('sizeLevel') || 3;
