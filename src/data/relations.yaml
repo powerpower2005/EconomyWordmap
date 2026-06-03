@@ -2245,3 +2245,220 @@ relations:
     description: "진화경제학은 슘페터의 창조적 파괴를 동태적 변화의 핵심 동력으로 다룸"
     strength: medium
     nature: causal
+
+  - id: r304
+    term1Id: austrian-school
+    term2Id: keynesian-economics
+    type: inverse
+    bidirectional: true
+    description: "오스트리아학파는 불황을 청산 과정으로 보고 개입에 반대"
+    reverseDescription: "케인즈주의는 정부의 적극적 수요 부양을 처방해 시장 자율 청산을 강조하는 오스트리아학파와 대립"
+    strength: strong
+
+  - id: r305
+    term1Id: austrian-school
+    term2Id: austrian-business-cycle
+    type: correlation
+    description: "오스트리아 경기변동이론은 오스트리아학파의 핵심 불황 이론"
+    strength: strong
+    nature: hierarchical
+
+  - id: r306
+    term1Id: austrian-business-cycle
+    term2Id: malinvestment
+    type: correlation
+    description: "인위적 신용 팽창이 말인베스트먼트를 일으킨다고 보는 것이 ABCT의 핵심"
+    strength: strong
+    nature: causal
+
+  - id: r307
+    term1Id: credit-creation
+    term2Id: malinvestment
+    type: correlation
+    description: "은행의 신용 창조가 과잉 팽창하면 자원이 잘못 배분됨"
+    strength: medium
+    nature: causal
+
+  - id: r308
+    term1Id: interest-rate
+    term2Id: malinvestment
+    type: inverse
+    description: "인위적 저금리가 수익성 없는 장기 투자를 유도해 말인베스트먼트를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r309
+    term1Id: malinvestment
+    term2Id: business-cycle
+    type: correlation
+    description: "잘못된 투자의 누적과 청산이 호황·불황 순환을 만든다는 오스트리아적 설명"
+    strength: medium
+    nature: causal
+
+  - id: r310
+    term1Id: malinvestment
+    term2Id: creative-destruction
+    type: correlation
+    description: "불황기 말인베스트먼트 청산은 비효율을 제거하는 창조적 파괴 과정과 맞닿음"
+    strength: medium
+    nature: correlational
+
+  - id: r311
+    term1Id: keynesian-economics
+    term2Id: effective-demand
+    type: correlation
+    description: "유효수요 부족이 불황의 원인이라는 것이 케인즈 진단의 핵심"
+    strength: strong
+    nature: hierarchical
+
+  - id: r312
+    term1Id: effective-demand
+    term2Id: aggregate-demand
+    type: correlation
+    description: "유효수요는 실제 지출로 뒷받침되는 총수요 개념의 토대"
+    strength: medium
+    nature: correlational
+
+  - id: r313
+    term1Id: keynesian-economics
+    term2Id: multiplier
+    type: correlation
+    description: "승수효과는 재정 부양을 정당화하는 케인즈 처방의 핵심 논리"
+    strength: strong
+    nature: hierarchical
+
+  - id: r314
+    term1Id: fiscal-policy
+    term2Id: multiplier
+    type: correlation
+    description: "정부 지출이 승수를 통해 소득과 소비를 연쇄적으로 늘림"
+    strength: strong
+    nature: causal
+
+  - id: r315
+    term1Id: multiplier
+    term2Id: aggregate-demand
+    type: correlation
+    description: "승수효과가 총수요를 처음 지출보다 더 크게 확대"
+    strength: medium
+    nature: causal
+
+  - id: r316
+    term1Id: keynesian-economics
+    term2Id: animal-spirits
+    type: correlation
+    description: "투자와 소비가 심리·기대에 좌우된다는 야성적 충동은 케인즈 이론의 일부"
+    strength: medium
+    nature: causal
+
+  - id: r317
+    term1Id: liquidity-trap
+    term2Id: quantitative-easing
+    type: correlation
+    description: "금리가 0에 가까워 통화정책이 막히면 양적완화 같은 비전통 수단으로 대응"
+    strength: medium
+    nature: causal
+
+  - id: r318
+    term1Id: liquidity-trap
+    term2Id: interest-rate
+    type: inverse
+    description: "금리가 하한에 묶이면 추가 인하가 불가능해 통화정책이 무력해짐"
+    strength: medium
+    nature: correlational
+
+  - id: r319
+    term1Id: great-depression
+    term2Id: keynesian-economics
+    type: correlation
+    description: "대공황의 장기 불황 경험이 케인즈 혁명을 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r320
+    term1Id: great-depression
+    term2Id: austrian-school
+    type: correlation
+    description: "대공황의 원인·처방을 두고 오스트리아학파가 케인즈주의와 정면 충돌"
+    strength: medium
+    nature: correlational
+
+  - id: r321
+    term1Id: stagflation
+    term2Id: keynesian-economics
+    type: inverse
+    description: "1970년대 스태그플레이션이 수요 중심 케인즈주의의 한계를 드러냄"
+    strength: medium
+    nature: causal
+
+  - id: r322
+    term1Id: stagflation
+    term2Id: inflation
+    type: correlation
+    description: "스태그플레이션은 높은 실업과 함께 물가 상승이 동시에 나타나는 상태"
+    strength: medium
+    nature: correlational
+
+  - id: r323
+    term1Id: lucas-critique
+    term2Id: keynesian-economics
+    type: inverse
+    description: "민간이 정책을 예상하고 대응하면 케인즈식 정책 효과가 상쇄된다는 비판"
+    strength: medium
+    nature: causal
+
+  - id: r324
+    term1Id: quantitative-easing
+    term2Id: malinvestment
+    type: correlation
+    description: "양적완화와 장기 저금리가 새로운 자산 버블과 잘못된 투자를 부추긴다는 오스트리아적 비판"
+    strength: medium
+    nature: causal
+
+  - id: r325
+    term1Id: zombie-firm
+    term2Id: interest-rate
+    type: inverse
+    description: "저금리가 이자도 못 갚는 부실기업을 연명시켜 좀비기업을 양산"
+    strength: medium
+    nature: causal
+
+  - id: r326
+    term1Id: zombie-firm
+    term2Id: economic-growth
+    type: inverse
+    description: "좀비기업으로 자원이 묶이면 생산성과 장기 성장이 저하"
+    strength: medium
+    nature: causal
+
+  - id: r327
+    term1Id: government-failure
+    term2Id: fiscal-policy
+    type: correlation
+    description: "재정 부양의 정치적 남용과 적자 누적은 정부 실패의 대표 위험"
+    strength: medium
+    nature: correlational
+
+  - id: r328
+    term1Id: national-debt
+    term2Id: fiscal-policy
+    type: correlation
+    description: "적극적 재정정책이 누적되면 국가부채 증가로 이어짐"
+    strength: medium
+    nature: causal
+
+  - id: r329
+    term1Id: natural-rate-of-interest
+    term2Id: interest-rate
+    type: correlation
+    description: "시장금리가 자연이자율보다 낮으면 과잉투자와 거품의 왜곡 신호가 됨"
+    strength: medium
+    nature: correlational
+
+  - id: r330
+    term1Id: time-preference
+    term2Id: interest-rate
+    type: correlation
+    description: "현재 소비를 미래보다 선호하는 시간선호가 금리의 근본 결정 요인이라는 오스트리아 자본이론"
+    strength: medium
+    nature: causal

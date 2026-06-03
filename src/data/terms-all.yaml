@@ -958,3 +958,93 @@ terms:
     description: 어떤 선택을 위해 포기한 차선의 가치로 한계 분석과 합리적 의사결정의 가장 기초가 되는 개념
     category: 미시경제
     stockMarketImportance: 4
+
+  - id: business-cycle
+    name: 경기순환 (Business Cycle)
+    description: 경제가 확장·정점·수축·저점을 반복하며 호황과 불황을 주기적으로 오가는 변동으로, 그 원인과 대응을 두고 오스트리아학파와 케인즈주의가 정반대로 진단
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: austrian-business-cycle
+    name: 오스트리아 경기변동이론 (ABCT)
+    description: 중앙은행의 인위적 신용 팽창과 저금리가 자원을 장기 투자로 잘못 배분(말인베스트먼트)해 거품과 붕괴를 부른다고 보는 미제스·하이에크의 이론
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: malinvestment
+    name: 말인베스트먼트 (Malinvestment)
+    description: 인위적 저금리가 보낸 잘못된 신호 때문에 수익성 없는 장기 프로젝트에 자원이 과잉 투입되는 현상으로 거품 붕괴와 구조조정의 원인
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: effective-demand
+    name: 유효수요 (Effective Demand)
+    description: 실제 지출로 뒷받침되는 총수요로, 이것이 부족하면 경제가 완전고용 아래에서 정체할 수 있다는 케인즈 진단의 핵심
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: multiplier
+    name: 승수효과 (Multiplier Effect)
+    description: 정부 지출이나 투자가 소득을 늘리고 그 소득이 다시 소비로 이어져 총수요를 처음 지출보다 더 크게 확대시키는 효과
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: liquidity-trap
+    name: 유동성 함정 (Liquidity Trap)
+    description: 금리가 이미 0에 가까워 추가 금리 인하나 통화 공급이 수요를 늘리지 못하고 통화정책이 무력해지는 상태
+    category: 통화정책
+    stockMarketImportance: 3
+
+  - id: stagflation
+    name: 스태그플레이션 (Stagflation)
+    description: 경기 침체로 실업이 높은 동시에 물가가 오르는 현상으로, 수요만 보던 케인즈주의의 한계를 드러낸 1970년대의 난제
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: animal-spirits
+    name: 야성적 충동 (Animal Spirits)
+    description: 투자와 소비가 합리적 계산만이 아니라 불확실성 속의 심리와 기대, 자신감에 크게 좌우된다는 케인즈의 개념
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: government-failure
+    name: 정부 실패 (Government Failure)
+    description: 정부 개입이 정보 부족·정치적 남용·관료적 비효율 때문에 오히려 자원 배분을 악화시키는 현상으로 시장 실패에 대응하는 개념
+    category: 정부
+    stockMarketImportance: 3
+
+  - id: lucas-critique
+    name: 루카스 비판 (Lucas Critique)
+    description: 사람들이 정부 정책을 미리 예상하고 행동을 바꾸면 과거 데이터에 기반한 정책 효과가 상쇄된다는 비판으로 합리적 기대 이론의 핵심
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: zombie-firm
+    name: 좀비기업 (Zombie Firm)
+    description: 영업이익으로 이자도 갚지 못하면서 저금리와 금융 지원에 기대 연명하는 부실기업으로 자원 배분과 생산성을 떨어뜨림
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: natural-rate-of-interest
+    name: 자연이자율 (Natural Rate of Interest)
+    description: 저축과 투자를 일치시켜 경제를 균형으로 이끄는 가상의 금리로, 시장금리가 이보다 낮으면 과잉투자와 거품이 생긴다고 보는 기준
+    category: 금리
+    stockMarketImportance: 2
+
+  - id: national-debt
+    name: 국가부채 (National Debt)
+    description: 정부가 재정 적자를 메우려 빌린 누적 채무로, 적극적 재정정책의 부작용이자 미래 세대의 부담으로 이어질 수 있는 문제
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: time-preference
+    name: 시간선호 (Time Preference)
+    description: 사람들이 미래의 소비보다 현재의 소비를 더 선호하는 정도로, 금리와 자본의 시간 구조를 설명하는 오스트리아 자본이론의 기초
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: great-depression
+    name: 대공황 (Great Depression)
+    description: 1929년 시작된 세계적 장기 불황으로 대량 실업과 디플레이션을 낳았으며, 오스트리아학파와 케인즈주의의 정면 충돌과 케인즈 혁명의 계기가 됨
+    category: 거시경제
+    stockMarketImportance: 3
