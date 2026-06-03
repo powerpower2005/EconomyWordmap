@@ -844,3 +844,117 @@ terms:
     description: 사람들이 항상 합리적으로 행동하지는 않는다는 점에 주목해 심리·인지 편향을 경제 분석에 반영하는 분야로, 합리적 이기심 가정의 한계를 보완
     category: 경제이론
     stockMarketImportance: 4
+
+  - id: marginal-revolution
+    name: 한계혁명 (Marginal Revolution)
+    description: 1870년대 제번스·멩거·발라가 독립적으로 일으킨 경제학 패러다임 전환으로, 가치를 투입 노동·비용으로 보던 고전파의 객관적 가치론을 소비자의 주관적 한계효용으로 설명하는 이론으로 바꾸어 신고전학파와 현대 미시경제학의 출발점이 됨
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: marginal-analysis
+    name: 한계 분석 (Marginal Analysis)
+    description: 의사결정을 마지막 한 단위에서 따지는 분석 방법으로 한계효용·한계비용·한계생산을 비교해 최적을 찾으며, 고용·가격·환경 정책까지 적용되는 현대 경제학의 가장 기본적인 사고 도구
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: supply-and-demand
+    name: 수요·공급 (Supply and Demand)
+    description: 수요(소비자의 한계효용)와 공급(생산자의 한계비용)이 만나는 점에서 가격과 거래량이 결정된다는 마셜의 분석 틀로 현대 미시경제학의 기본 모델
+    category: 미시경제
+    stockMarketImportance: 6
+
+  - id: general-equilibrium
+    name: 일반균형 (General Equilibrium)
+    description: 모든 시장이 서로 영향을 주고받으며 동시에 균형을 이룰 수 있다는 발라의 이론으로 CGE·DSGE 등 현대 정책 모델의 뿌리
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: subjective-value-theory
+    name: 주관적 가치설 (Subjective Theory of Value)
+    description: 재화의 가치가 투입 비용이 아니라 그것을 소비하는 사람의 주관적 평가(효용)에 따라 결정된다는 이론으로 한계혁명의 핵심이며 소비자 주권 사고의 기초
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: diminishing-marginal-utility
+    name: 한계효용 체감의 법칙 (Diminishing Marginal Utility)
+    description: 같은 재화를 한 단위 더 소비할수록 추가로 얻는 만족(한계효용)이 점점 줄어든다는 법칙으로 수요 곡선이 우하향하는 근거이자 다이아몬드-물 역설의 해법
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: marginal-cost
+    name: 한계비용 (Marginal Cost)
+    description: 생산량을 한 단위 더 늘릴 때 추가로 드는 비용으로 공급과 최적 생산량 결정의 핵심 개념이며 가격과 비교해 생산 여부를 판단
+    category: 미시경제
+    stockMarketImportance: 4
+
+  - id: pareto-efficiency
+    name: 파레토 효율 (Pareto Efficiency)
+    description: 다른 누구의 후생도 해치지 않고서는 누군가의 후생을 더 높일 수 없는 자원 배분 상태로 효율의 기준이나 분배·형평성은 말해 주지 않는 개념
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: homo-economicus
+    name: 합리적 경제인 (Homo Economicus)
+    description: 완전한 정보를 가지고 항상 자기 효용을 합리적으로 극대화한다고 가정한 경제 모델 속 인간상으로 신고전 분석의 전제이나 현실의 비합리성을 단순화했다는 비판을 받음
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: bounded-rationality
+    name: 제한된 합리성 (Bounded Rationality)
+    description: 인간이 정보·시간·인지 능력의 한계 때문에 완전한 합리성 대신 만족할 만한 선택에 그친다는 개념으로 사이먼이 제시했으며 행동경제학의 기초
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: diamond-water-paradox
+    name: 다이아몬드-물 역설 (Diamond-Water Paradox)
+    description: 생존에 필수인 물은 싸고 쓸모가 적은 다이아몬드는 비싼 역설로, 노동가치설로는 설명하지 못했으나 희소성에 따른 한계효용 차이로 해결됨
+    category: 미시경제
+    stockMarketImportance: 2
+
+  - id: partial-equilibrium
+    name: 부분균형 (Partial Equilibrium)
+    description: 다른 시장을 일정하다고 보고 한 시장만 떼어 분석하는 마셜식 접근으로, 모든 시장을 동시에 다루는 일반균형과 대비됨
+    category: 미시경제
+    stockMarketImportance: 2
+
+  - id: marginal-product
+    name: 한계생산 (Marginal Product)
+    description: 생산요소를 한 단위 더 투입할 때 늘어나는 산출량으로 기업의 고용·투자 결정과 임금 등 요소 가격 결정의 기초
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: austrian-school
+    name: 오스트리아학파 (Austrian School)
+    description: 멩거에서 비롯되어 주관적 가치와 시장 과정, 분산된 지식, 기업가 정신을 강조하는 학파로 수학적 균형 중심의 주류 신고전파와 방법론에서 갈라짐
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: consumer-sovereignty
+    name: 소비자 주권 (Consumer Sovereignty)
+    description: 무엇을 생산할지를 궁극적으로 소비자의 선택과 지불 의사가 결정한다는 개념으로 주관적 가치론과 시장경제 정당화의 핵심 논거
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: willingness-to-pay
+    name: 지불용의 (Willingness to Pay)
+    description: 소비자가 특정 재화에 지불할 의향이 있는 최대 금액으로 주관적 가치를 화폐로 나타낸 지표이며 가격 책정·수요 분석·환경가치 평가에 쓰임
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: creative-destruction
+    name: 창조적 파괴 (Creative Destruction)
+    description: 혁신이 낡은 기술·기업·산업을 끊임없이 대체하며 경제를 발전시킨다는 슘페터의 개념으로 정태적 균형 분석이 놓친 동태적 변화를 강조
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: evolutionary-economics
+    name: 진화경제학 (Evolutionary Economics)
+    description: 경제를 고정된 균형이 아니라 변이·선택·적응을 거쳐 진화하는 동태적 과정으로 보는 분야로 혁신과 경로의존성을 설명하며 한계혁명의 정태적 한계를 보완
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: opportunity-cost
+    name: 기회비용 (Opportunity Cost)
+    description: 어떤 선택을 위해 포기한 차선의 가치로 한계 분석과 합리적 의사결정의 가장 기초가 되는 개념
+    category: 미시경제
+    stockMarketImportance: 4

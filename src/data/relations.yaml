@@ -2050,3 +2050,198 @@ relations:
     description: "세이의 법칙은 경제가 장기적으로 완전고용 균형에 도달한다는 고전파 가정과 연결"
     strength: medium
     nature: causal
+
+  - id: r280
+    term1Id: marginal-revolution
+    term2Id: classical-economics
+    type: inverse
+    bidirectional: true
+    description: "한계혁명은 고전파의 객관적 노동가치설을 주관적 한계효용설로 뒤집은 패러다임 전환"
+    reverseDescription: "고전경제학은 비용 중심 가치론으로 한계혁명의 수요 중심 전환과 대비됨"
+    strength: medium
+
+  - id: r281
+    term1Id: marginal-revolution
+    term2Id: neoclassical-economics
+    type: correlation
+    description: "한계혁명이 한계효용과 합리적 선택을 토대로 신고전학파를 형성"
+    strength: strong
+    nature: causal
+
+  - id: r282
+    term1Id: marginal-revolution
+    term2Id: marginal-utility
+    type: correlation
+    description: "한계혁명은 한계효용을 가치 결정의 중심 개념으로 도입"
+    strength: strong
+    nature: causal
+
+  - id: r283
+    term1Id: marginal-revolution
+    term2Id: subjective-value-theory
+    type: correlation
+    description: "한계혁명은 가치를 소비자의 주관적 평가로 보는 주관적 가치설로 전환"
+    strength: strong
+    nature: causal
+
+  - id: r284
+    term1Id: subjective-value-theory
+    term2Id: labor-theory-of-value
+    type: inverse
+    bidirectional: true
+    description: "주관적 가치설은 수요·효용 중심으로 노동량 중심의 노동가치설과 대립"
+    reverseDescription: "노동가치설은 투입 비용 중심으로 주관적 가치설과 대립"
+    strength: medium
+
+  - id: r285
+    term1Id: diminishing-marginal-utility
+    term2Id: diamond-water-paradox
+    type: correlation
+    description: "한계효용 체감 법칙이 물은 싸고 다이아몬드는 비싼 역설을 희소성으로 설명"
+    strength: medium
+    nature: causal
+
+  - id: r286
+    term1Id: marginal-utility
+    term2Id: diminishing-marginal-utility
+    type: correlation
+    description: "한계효용 체감은 한계효용 개념의 핵심 법칙"
+    strength: strong
+    nature: hierarchical
+
+  - id: r287
+    term1Id: marginal-analysis
+    term2Id: marginal-cost
+    type: correlation
+    description: "한계비용은 한계 분석에서 생산·공급을 따지는 핵심 도구"
+    strength: medium
+    nature: hierarchical
+
+  - id: r288
+    term1Id: marginal-analysis
+    term2Id: marginal-product
+    type: correlation
+    description: "한계생산은 한계 분석에서 요소 투입을 따지는 핵심 도구"
+    strength: medium
+    nature: hierarchical
+
+  - id: r289
+    term1Id: supply-and-demand
+    term2Id: price-mechanism
+    type: correlation
+    description: "수요와 공급의 교차가 가격 메커니즘을 통해 가격과 거래량을 결정"
+    strength: strong
+    nature: causal
+
+  - id: r290
+    term1Id: marginal-utility
+    term2Id: supply-and-demand
+    type: correlation
+    description: "한계효용 체감이 우하향하는 수요 곡선의 미시적 기초"
+    strength: medium
+    nature: causal
+
+  - id: r291
+    term1Id: marginal-cost
+    term2Id: supply-and-demand
+    type: correlation
+    description: "한계비용이 우상향하는 공급 곡선의 미시적 기초"
+    strength: medium
+    nature: causal
+
+  - id: r292
+    term1Id: general-equilibrium
+    term2Id: neoclassical-economics
+    type: correlation
+    description: "발라의 일반균형 이론은 신고전학파 분석의 핵심 축"
+    strength: medium
+    nature: hierarchical
+
+  - id: r293
+    term1Id: pareto-efficiency
+    term2Id: welfare-economics
+    type: correlation
+    description: "파레토 효율은 후생경제학이 자원 배분을 평가하는 핵심 효율 기준"
+    strength: strong
+    nature: hierarchical
+
+  - id: r294
+    term1Id: pareto-efficiency
+    term2Id: inequality
+    type: correlation
+    description: "파레토 효율은 효율만 따지고 분배를 외면해 극단적 불평등과도 양립할 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r295
+    term1Id: behavioral-economics
+    term2Id: homo-economicus
+    type: inverse
+    bidirectional: true
+    description: "행동경제학은 항상 합리적인 경제인 가정을 편향·휴리스틱 증거로 반박"
+    reverseDescription: "합리적 경제인 가정은 행동경제학이 지적하는 비합리성과 대립"
+    strength: strong
+
+  - id: r296
+    term1Id: bounded-rationality
+    term2Id: homo-economicus
+    type: inverse
+    description: "제한된 합리성은 완전한 합리성을 가정한 합리적 경제인 상을 수정"
+    strength: medium
+    nature: causal
+
+  - id: r297
+    term1Id: behavioral-economics
+    term2Id: bounded-rationality
+    type: correlation
+    description: "행동경제학은 제한된 합리성을 핵심 전제로 삼음"
+    strength: strong
+    nature: causal
+
+  - id: r298
+    term1Id: austrian-school
+    term2Id: neoclassical-economics
+    type: correlation
+    description: "멩거의 주관·과정 중심 흐름과 발라의 수학적 균형 중심 흐름이 한계혁명에서 갈라짐"
+    strength: medium
+    nature: correlational
+
+  - id: r299
+    term1Id: creative-destruction
+    term2Id: general-equilibrium
+    type: inverse
+    description: "혁신에 의한 끊임없는 동태적 변화는 정태적 일반균형 분석의 한계를 드러냄"
+    strength: medium
+    nature: causal
+
+  - id: r300
+    term1Id: consumer-sovereignty
+    term2Id: subjective-value-theory
+    type: correlation
+    description: "소비자의 평가와 선택이 가치를 결정한다는 점에서 소비자 주권은 주관적 가치설에 근거"
+    strength: medium
+    nature: causal
+
+  - id: r301
+    term1Id: opportunity-cost
+    term2Id: marginal-analysis
+    type: correlation
+    description: "포기한 차선의 가치인 기회비용은 한계에서 따지는 합리적 의사결정의 기초"
+    strength: medium
+    nature: hierarchical
+
+  - id: r302
+    term1Id: partial-equilibrium
+    term2Id: general-equilibrium
+    type: correlation
+    description: "마셜의 부분균형과 발라의 일반균형은 분석 범위가 다른 두 접근"
+    strength: medium
+    nature: correlational
+
+  - id: r303
+    term1Id: evolutionary-economics
+    term2Id: creative-destruction
+    type: correlation
+    description: "진화경제학은 슘페터의 창조적 파괴를 동태적 변화의 핵심 동력으로 다룸"
+    strength: medium
+    nature: causal

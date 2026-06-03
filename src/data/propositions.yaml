@@ -110,3 +110,296 @@ propositions:
         detail: "중앙은행이 국채를 매입하거나 자국통화 표시 국채 수요가 강하면 적자에도 금리가 낮게 유지될 수 있다."
         example: "장기 저금리를 유지해 온 일본과 평시의 미국."
     verdict: "시장의 재정 신뢰와 통화정책·안전자산 수요 상황에 따라 결과가 갈리는 조건부 명제다."
+
+  - id: p7
+    statement: "통화가 약세가 되면 수출이 늘어난다"
+    category: 국제경제
+    termIds: [exchange-rate, weak-dollar, trade-surplus, korean-won, inflation]
+    premise: "자국 통화가 약세가 되면 수출품의 외화 표시 가격이 낮아져 가격 경쟁력이 올라가 수출이 늘고 무역수지가 개선된다는 논리에 근거한다."
+    holds:
+      - label: "중기 가격 경쟁력 효과"
+        detail: "시간이 지나 수출 물량이 가격 변화에 반응하면(J커브 후반) 수출이 늘고 무역수지가 개선된다."
+      - label: "글로벌 수요가 견조할 때"
+        detail: "해외 경기가 좋아 수요가 충분하면 환율 약세의 가격 효과가 수출 증가로 잘 이어진다."
+    fails:
+      - label: "J커브 초기"
+        detail: "환율 약세 직후에는 수입 가격이 먼저 올라 단기적으로 무역수지가 오히려 악화될 수 있다."
+      - label: "수입 중간재 의존"
+        detail: "한국처럼 원자재·중간재를 많이 수입하는 구조에서는 약세로 수입 비용이 올라 채산성과 물가를 압박한다."
+      - label: "글로벌 가치사슬"
+        detail: "생산이 여러 나라에 분산된 글로벌 가치사슬에서는 환율 변화가 최종 가격에 잘 전가되지 않아 효과가 제한된다."
+    verdict: "중기적으로 수요가 받쳐줄 때는 성립하지만 J커브 초기, 수입 의존, 글로벌 가치사슬 때문에 즉각적이지 않은 조건부 명제다."
+
+  - id: p8
+    statement: "정부 지출을 늘리면 경기가 살아난다"
+    category: 정부
+    termIds: [fiscal-policy, aggregate-demand, gdp, keynesian-economics, government-bond]
+    premise: "정부 지출이 총수요를 직접 늘리고 소비·투자로 파급되어(재정승수) 생산과 고용이 늘어난다는 케인즈식 논리에 근거한다."
+    holds:
+      - label: "불황과 유휴자원"
+        detail: "실업과 유휴 설비가 많은 불황기에는 재정승수가 커서 지출 확대가 경기를 효과적으로 끌어올린다."
+        example: "2008년 금융위기·2020년 팬데믹 대응 재정 부양."
+      - label: "유동성 함정"
+        detail: "금리가 매우 낮아 통화정책 여력이 없을 때는 재정정책의 효과가 상대적으로 크다."
+    fails:
+      - label: "완전고용 근처의 구축효과"
+        detail: "경기가 이미 과열에 가까우면 정부 차입이 금리를 올려 민간 투자를 밀어내(구축효과) 효과가 줄어든다."
+      - label: "재정 신뢰·부채 우려"
+        detail: "부채가 과도하면 지출 확대가 금리 상승과 신뢰 훼손으로 이어져 역효과를 낼 수 있다."
+    verdict: "경기 국면(유휴자원 여부)에 따라 효과가 크게 달라지는 조건부 명제다."
+
+  - id: p9
+    statement: "최저임금을 올리면 고용이 줄어든다"
+    category: 미시경제
+    termIds: [unemployment, perfect-competition, market-failure, inequality]
+    premise: "완전경쟁 노동시장에서 임금이라는 가격에 하한을 두면 노동 공급이 수요를 초과해 실업이 늘어난다는 수요·공급 논리에 근거한다."
+    holds:
+      - label: "경쟁적 시장과 큰 인상폭"
+        detail: "노동시장이 경쟁적이고 인상폭이 크면 청년·저숙련 일자리에서 고용이 위축될 수 있다."
+    fails:
+      - label: "수요독점 노동시장"
+        detail: "고용주가 임금 결정력을 가진 수요독점 시장에서는 적정 수준의 최저임금 인상이 고용을 줄이지 않거나 오히려 늘릴 수 있다."
+      - label: "소비 진작 효과"
+        detail: "저소득층 소득이 늘면 소비가 증가해 수요가 살아나 고용 감소를 상쇄할 수 있다."
+    verdict: "노동시장 구조와 인상폭에 따라 결과가 갈리며 실증 결과도 혼재된 조건부 명제다."
+
+  - id: p10
+    statement: "양적완화(QE)는 인플레이션을 일으킨다"
+    category: 통화
+    termIds: [quantitative-easing, inflation, money-supply, velocity-of-money, bank]
+    premise: "중앙은행이 자산을 사들여 본원통화를 늘리면 통화량이 늘어 물가가 오른다는 화폐수량설적 논리에 근거한다."
+    holds:
+      - label: "신용·수요로 이어질 때"
+        detail: "풀린 돈이 대출과 지출로 이어지고 수요가 강하면 물가 상승으로 연결된다."
+        example: "2020~2022년 대규모 부양과 공급 차질이 겹친 인플레이션."
+    fails:
+      - label: "지급준비금에 머무를 때"
+        detail: "은행이 늘어난 유동성을 대출로 풀지 않고 지급준비금으로 쌓아두면 물가로 잘 이어지지 않는다."
+        example: "2010년대 미국·유럽의 QE에도 낮게 유지된 물가."
+      - label: "유통속도 하락"
+        detail: "경기 불안과 디레버리징으로 화폐유통속도가 떨어지면 통화 증가가 물가로 전달되지 않는다."
+    verdict: "통화량 증가가 신용·수요로 이어지는지에 달려 있어 항상 인플레이션을 부르지는 않는 조건부 명제다."
+
+  - id: p11
+    statement: "주가는 경기를 선행한다"
+    category: 금융
+    termIds: [stock-market, gdp, economic-growth, investment]
+    premise: "주가는 미래 기업 이익과 경기 기대를 미리 반영하므로 실물 경기보다 앞서 움직인다는 논리에 근거한다."
+    holds:
+      - label: "평균적 선행성"
+        detail: "역사적으로 주식시장은 경기 저점에 앞서 반등하고 고점에 앞서 꺾이는 경향이 있어 선행지표로 쓰인다."
+    fails:
+      - label: "거짓 신호"
+        detail: "주가는 실제보다 자주 경기 전환을 예고해 빗나가며, 침체 없는 조정이나 조정 없는 침체도 나타난다."
+      - label: "유동성 장세"
+        detail: "금리·유동성에 의해 펀더멘털과 무관하게 움직이면 경기와의 연결이 약해진다."
+    verdict: "평균적으로 선행하는 경향은 있으나 잡음과 거짓 신호가 많아 단독으로 신뢰하기 어려운 명제다."
+
+  - id: p12
+    statement: "금리를 내리면 주가가 오른다"
+    category: 금융
+    termIds: [interest-rate, policy-rate, stock-market, investment]
+    premise: "금리가 내리면 미래 현금흐름의 할인율이 낮아져 자산 가치가 오르고 차입·위험선호가 커져 주가에 유리하다는 논리에 근거한다."
+    holds:
+      - label: "경기 정상 국면의 완화"
+        detail: "경기가 크게 나쁘지 않은 상태에서의 금리 인하는 밸류에이션과 위험선호를 높여 주가를 끌어올린다."
+    fails:
+      - label: "침체 신호로서의 인하"
+        detail: "경기 급랭 우려 때문에 다급하게 내리는 인하는 이익 전망 악화로 오히려 주가 하락과 동반될 수 있다."
+      - label: "이미 선반영"
+        detail: "시장이 인하를 미리 반영했다면 실제 인하에도 주가가 더 오르지 않거나 차익실현이 나올 수 있다."
+    verdict: "인하의 배경(경기 상황)에 따라 방향이 갈리는 조건부 명제다."
+
+  - id: p13
+    statement: "국가부채가 많으면 경제성장이 둔화된다"
+    category: 정부
+    termIds: [fiscal-policy, government-bond, economic-growth, long-term-interest-rate]
+    premise: "부채가 늘면 이자 부담과 금리 상승, 미래 증세 우려가 투자와 성장을 짓누른다는 논리에 근거한다."
+    holds:
+      - label: "과도한 부채와 신뢰 위기"
+        detail: "부채가 지나치게 많고 특히 외화 표시일 때는 금리 급등과 신뢰 위기로 성장이 꺾인다."
+    fails:
+      - label: "기축통화·저금리"
+        detail: "자국통화로 빌리고 안전자산 수요가 강한 나라는 높은 부채에도 낮은 금리를 유지하며 성장할 수 있다."
+      - label: "생산적 투자"
+        detail: "부채가 인프라·교육 등 생산성을 높이는 투자에 쓰이면 장기 성장을 오히려 견인할 수 있다."
+    verdict: "부채의 규모뿐 아니라 통화 주권과 부채의 용도(질)에 크게 의존하는 조건부 명제다."
+
+  - id: p14
+    statement: "기술 발전은 일자리를 없앤다"
+    category: 거시경제
+    termIds: [technological-progress, unemployment, manufacturing, economic-growth]
+    premise: "자동화와 기계가 사람의 일을 대체하므로 기술이 발전하면 일자리가 줄어든다는 논리에 근거한다."
+    holds:
+      - label: "단기 전환 비용"
+        detail: "특정 직무와 산업에서는 자동화로 일자리가 사라지고 노동자가 재배치되기까지 마찰적 실업이 생긴다."
+        example: "산업혁명기 러다이트 운동, 제조 자동화로 인한 공장 고용 감소."
+    fails:
+      - label: "장기 일자리 창출"
+        detail: "생산성 향상이 소득과 수요를 늘리고 새로운 산업·직무를 만들어 장기적으로는 고용이 줄지 않는 경향이 있다."
+      - label: "보완 효과"
+        detail: "기술이 사람의 생산성을 높여 보완하는 경우 일자리의 성격이 바뀔 뿐 총량은 유지되거나 늘 수 있다."
+    verdict: "단기적 일자리 대체는 분명하나 장기적으로는 창출 효과가 커, 시점에 따라 평가가 갈리는 명제다."
+
+  - id: p15
+    statement: "세율을 낮추면 세수가 늘어난다"
+    category: 정부
+    termIds: [tax-cut, fiscal-policy, economic-growth]
+    premise: "세율을 낮추면 노동·투자 의욕이 살아나 세원이 커져 오히려 세수가 늘 수 있다는 래퍼곡선 논리에 근거한다."
+    holds:
+      - label: "세율이 매우 높은 구간"
+        detail: "세율이 지나치게 높아 경제활동을 위축시키던 구간에서는 인하가 세원 확대를 통해 세수를 늘릴 수 있다."
+    fails:
+      - label: "일반적 세율 구간"
+        detail: "대부분의 현실적 세율 구간에서는 감세가 세수 감소와 재정적자 확대로 이어진다."
+        example: "1980년대 미국 감세 이후 재정적자 확대."
+    verdict: "현재 세율이 래퍼곡선의 어느 위치에 있느냐에 전적으로 의존하는 조건부 명제다."
+
+  - id: p16
+    statement: "물가가 오르면 실업이 줄어든다(필립스 곡선)"
+    category: 거시경제
+    termIds: [inflation, unemployment, expected-inflation, aggregate-demand]
+    premise: "총수요가 늘면 고용이 늘고 물가도 함께 오르므로 인플레이션과 실업 사이에 단기 트레이드오프가 있다는 논리에 근거한다."
+    holds:
+      - label: "단기 수요 충격 국면"
+        detail: "기대인플레이션이 안정된 단기에는 총수요 변화에 따라 물가와 실업이 반대로 움직이는 관계가 관찰된다."
+    fails:
+      - label: "장기 수직"
+        detail: "장기적으로는 실업이 자연실업률로 회귀해 물가만 오를 뿐 트레이드오프가 사라진다."
+      - label: "스태그플레이션"
+        detail: "공급 충격으로 기대인플레이션이 흔들리면 물가와 실업이 동시에 오르는 스태그플레이션이 나타난다."
+        example: "1970년대 오일쇼크."
+    verdict: "단기에는 성립하지만 장기와 기대 변동, 공급 충격 앞에서는 깨지는 조건부 명제다."
+
+  - id: p17
+    statement: "금은 인플레이션 헤지 수단이다"
+    category: 원자재
+    termIds: [gold, inflation, real-interest-rate, strong-dollar]
+    premise: "금은 화폐가치가 하락할 때 실물 안전자산으로서 가치를 보존해 인플레이션을 방어한다는 논리에 근거한다."
+    holds:
+      - label: "장기·실질금리 하락 국면"
+        detail: "장기적으로, 특히 실질금리가 낮거나 통화 신뢰가 흔들리는 고인플레이션 국면에서 금이 가치를 보존하는 경향이 있다."
+    fails:
+      - label: "실질금리 상승·강달러"
+        detail: "인플레이션이 높아도 실질금리가 오르고 달러가 강해지면 이자 없는 금은 부진할 수 있다."
+        example: "2022년 인플레이션 급등기에도 긴축·강달러로 금값 약세 구간."
+      - label: "단기 변동성"
+        detail: "단기적으로는 위험선호·달러·금리에 휘둘려 물가와의 연결이 약하다."
+    verdict: "장기적 보존 수단이지만 단기에는 실질금리와 달러에 더 민감한 조건부 명제다."
+
+  - id: p18
+    statement: "관세로 보호하면 자국 일자리를 지킬 수 있다"
+    category: 국제경제
+    termIds: [tariff, protectionism, manufacturing, trade-war, consumer-welfare]
+    premise: "수입을 관세로 억제하면 국내 생산과 그 산업의 고용이 보호된다는 보호무역 논리에 근거한다."
+    holds:
+      - label: "보호 대상 산업의 단기 고용"
+        detail: "관세 대상 산업에서는 단기적으로 수입 경쟁이 줄어 고용이 방어될 수 있다."
+    fails:
+      - label: "전후방 산업의 비용 증가"
+        detail: "관세로 원자재·부품 값이 오르면 이를 쓰는 더 큰 산업의 비용과 고용이 악화되어 순고용은 줄 수 있다."
+      - label: "보복 관세"
+        detail: "상대국이 보복하면 수출 산업의 일자리가 줄어 보호 효과가 상쇄된다."
+    verdict: "보호 대상 산업의 일자리는 지킬 수 있어도 전체 고용으로 보면 상충해 순효과가 불확실한 명제다."
+
+  - id: p19
+    statement: "중앙은행이 금리를 올리면 반드시 경기침체가 온다"
+    category: 통화정책
+    termIds: [policy-rate, unemployment, inflation, federal-reserve]
+    premise: "금리 인상이 수요를 위축시키므로 긴축은 결국 경기침체(경착륙)로 이어진다는 논리에 근거한다."
+    holds:
+      - label: "과도하고 급격한 긴축"
+        detail: "물가를 잡기 위해 빠르고 큰 폭으로 긴축하면 수요가 급랭해 침체로 이어진 사례가 많다."
+        example: "1980년대 초 볼커의 고강도 긴축과 경기침체."
+    fails:
+      - label: "연착륙 가능성"
+        detail: "공급 여건 개선이 동반되거나 긴축 속도가 완만하면 침체 없이 물가만 둔화되는 연착륙이 가능하다."
+        example: "1994~1995년, 2023~2024년 연착륙 논쟁."
+    verdict: "긴축의 속도와 공급 여건에 따라 경착륙과 연착륙이 갈리므로 '반드시'는 성립하지 않는 명제다."
+
+  - id: p20
+    statement: "달러가 강해지면 신흥국 경제가 어려워진다"
+    category: 국제경제
+    termIds: [strong-dollar, exchange-rate, korean-won, supply-chain]
+    premise: "달러 강세는 달러 표시 부채의 상환 부담을 키우고 신흥국에서 자본을 유출시켜 금융 불안을 부른다는 논리에 근거한다."
+    holds:
+      - label: "달러부채가 많은 신흥국"
+        detail: "달러 부채가 크고 외환보유가 부족한 신흥국은 강달러 국면에서 상환 부담과 자본유출로 위기에 취약하다."
+        example: "1997년 아시아 외환위기, 2013년 테이퍼 텐트럼."
+    fails:
+      - label: "대외건전성이 양호한 경우"
+        detail: "경상흑자·충분한 외환보유·낮은 달러부채를 가진 나라는 강달러의 충격을 비교적 잘 견딘다."
+    verdict: "신흥국의 대외건전성과 달러부채 수준에 따라 충격의 크기가 크게 달라지는 조건부 명제다."
+
+  - id: p21
+    statement: "상품의 가치는 생산에 들어간 노동·비용으로 결정된다"
+    category: 경제이론
+    termIds: [labor-theory-of-value, subjective-value-theory, marginal-utility, diamond-water-paradox]
+    premise: "투입된 노동량과 생산 비용이 상품의 객관적 가치를 결정한다는 고전파 노동가치설에 근거한다."
+    holds:
+      - label: "장기 경쟁시장의 공급가"
+        detail: "장기 경쟁 균형에서는 생산 비용이 가격의 하한을 형성해 비용과 가격이 비슷하게 수렴하는 경향이 있다."
+    fails:
+      - label: "다이아몬드-물 역설"
+        detail: "생존에 필수인 물은 싸고 쓸모가 적은 다이아몬드는 비싼 현상을 비용만으로는 설명하지 못한다."
+      - label: "희소성과 수요"
+        detail: "가치는 비용뿐 아니라 희소성과 소비자의 주관적 한계효용에 의해 결정되며, 한계혁명이 이를 보였다."
+    verdict: "비용은 공급 측 요인일 뿐 가치는 수요(한계효용)와 함께 결정된다. 비용만으로 가치를 설명하려던 명제는 한계가 분명하다."
+
+  - id: p22
+    statement: "사람은 항상 합리적으로 선택한다"
+    category: 경제이론
+    termIds: [homo-economicus, bounded-rationality, behavioral-economics, marginal-analysis]
+    premise: "사람은 완전한 정보로 자기 효용을 극대화한다는 합리적 경제인 가정에 근거하며, 한계에서의 합리적 계산을 전제한다."
+    holds:
+      - label: "반복적·고액 거래"
+        detail: "결과가 크고 반복 학습이 가능한 상황에서는 사람들이 평균적으로 합리적 선택에 가깝게 행동한다."
+    fails:
+      - label: "인지 편향과 휴리스틱"
+        detail: "현실의 사람은 손실 회피·현상 유지·과신 등 체계적 편향에 휘둘려 합리적 예측에서 벗어난다."
+      - label: "제한된 합리성"
+        detail: "정보·시간·계산 능력의 한계 때문에 최적 대신 만족할 만한 선택에 그친다."
+    verdict: "근사 모델로는 유용하지만 체계적 비합리성이 존재해 행동경제학의 보정이 필요한 조건부 명제다."
+
+  - id: p23
+    statement: "많이 소비할수록 추가 만족은 줄어든다"
+    category: 미시경제
+    termIds: [diminishing-marginal-utility, marginal-utility, consumer-sovereignty]
+    premise: "같은 재화를 한 단위 더 소비할수록 추가로 얻는 만족(한계효용)이 줄어든다는 한계효용 체감 법칙에 근거한다."
+    holds:
+      - label: "대부분의 일반 재화"
+        detail: "음식·물 등 대다수 재화에서 소비가 늘수록 추가 만족이 줄어 수요 곡선이 우하향한다."
+    fails:
+      - label: "중독재와 수집·네트워크재"
+        detail: "중독성 재화나 수집품, 사용자가 늘수록 가치가 커지는 네트워크 재화에서는 한계효용이 오히려 커질 수 있다."
+    verdict: "일반 재화에서는 폭넓게 성립하지만 중독·수집·네트워크 효과가 있는 재화에서는 예외가 있는 명제다."
+
+  - id: p24
+    statement: "시장이 파레토 효율이면 바람직하다"
+    category: 미시경제
+    termIds: [pareto-efficiency, welfare-economics, inequality, market-failure]
+    premise: "누구의 후생도 해치지 않고는 개선이 불가능한 파레토 효율 상태가 자원 배분의 바람직한 기준이라는 논리에 근거한다."
+    holds:
+      - label: "효율 평가 기준"
+        detail: "낭비 없는 자원 배분을 판단하는 명확한 기준으로 유용하다."
+    fails:
+      - label: "분배·형평성 외면"
+        detail: "극단적으로 불평등한 배분도 파레토 효율일 수 있어 효율은 공정성을 보장하지 않는다."
+      - label: "시장 실패"
+        detail: "외부효과·공공재·독점·정보 비대칭이 있으면 시장 균형이 파레토 효율에 미치지 못한다."
+    verdict: "효율의 기준일 뿐 공정성과는 별개이며 시장 실패 앞에서는 달성되지도 않는, 보완이 필요한 명제다."
+
+  - id: p25
+    statement: "가격은 수요와 공급이 만나는 점에서 결정된다"
+    category: 미시경제
+    termIds: [supply-and-demand, price-mechanism, monopoly, information-asymmetry]
+    premise: "소비자의 한계효용에서 나온 수요와 생산자의 한계비용에서 나온 공급이 교차하는 점에서 가격이 정해진다는 마셜의 가위 논리에 근거한다."
+    holds:
+      - label: "경쟁시장"
+        detail: "다수의 참여자와 충분한 정보가 있는 경쟁시장에서는 가격이 수요·공급 균형점으로 잘 수렴한다."
+    fails:
+      - label: "불완전 경쟁"
+        detail: "독점·과점에서는 기업이 가격 결정력을 가져 균형 가격에서 벗어난다."
+      - label: "정보 비대칭과 통제"
+        detail: "정보 비대칭, 가격 통제, 기대 변화가 있으면 단순 수급 균형에서 괴리된다."
+    verdict: "경쟁시장의 기준 모델로 강력하지만 시장 구조와 정보 조건에 따라 수정이 필요한 명제다."
