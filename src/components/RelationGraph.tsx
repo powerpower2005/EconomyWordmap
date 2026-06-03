@@ -3,7 +3,6 @@ import cytoscape from 'cytoscape';
 import { loadTerms, loadRelations, getStarRating } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
 import TermChangelog from './TermChangelog';
-import { getTermUpdatedLabel } from '../utils/termDisplay';
 
 export interface RelationGraphHandle {
   clickNode: (termId: string) => void;
@@ -980,7 +979,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           onClick={() => setSelectedNode(null)}
         >
           <div
-            className="bg-white rounded-lg shadow-xl p-8 max-w-2xl w-full max-h-[80vh] overflow-y-auto"
+            className="bg-white rounded-lg shadow-xl p-8 max-w-4xl w-full max-h-[88vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-start mb-4">
@@ -1008,15 +1007,6 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
               {selectedNode.description}
             </div>
 
-            {(selectedNode.updatedAt || (selectedNode.changelog && selectedNode.changelog.length > 0)) && (
-              <div className="mb-6 pb-6 border-b border-gray-200">
-                {getTermUpdatedLabel(selectedNode) && (
-                  <p className="text-sm text-gray-500 mb-3">{getTermUpdatedLabel(selectedNode)}</p>
-                )}
-                <TermChangelog term={selectedNode} />
-              </div>
-            )}
-            
             {cyRef.current && (() => {
               const node = cyRef.current!.getElementById(selectedNode.id);
               if (node.length === 0) return null;
@@ -1128,6 +1118,13 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                 </div>
               );
             })()}
+
+            {(selectedNode.updatedAt || (selectedNode.changelog && selectedNode.changelog.length > 0)) && (
+              <div className="mt-8 pt-6 border-t border-gray-200">
+                <h3 className="text-base font-bold text-gray-700 mb-2">최근 변경</h3>
+                <TermChangelog term={selectedNode} latestOnly compact />
+              </div>
+            )}
           </div>
         </div>
       )}

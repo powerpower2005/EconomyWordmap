@@ -5,6 +5,8 @@ import { fieldChangePreview, formatTermDate, getTermUpdatedLabel } from '../util
 interface TermChangelogProps {
   term: Term;
   compact?: boolean;
+  // true면 가장 최근 변경 1건만 표시
+  latestOnly?: boolean;
 }
 
 function ChangeDiff({ entry }: { entry: TermChangeEntry }) {
@@ -33,9 +35,10 @@ function ChangeDiff({ entry }: { entry: TermChangeEntry }) {
   );
 }
 
-export default function TermChangelog({ term, compact = false }: TermChangelogProps) {
+export default function TermChangelog({ term, compact = false, latestOnly = false }: TermChangelogProps) {
   const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
-  const changelog = term.changelog ?? [];
+  const fullChangelog = term.changelog ?? [];
+  const changelog = latestOnly ? fullChangelog.slice(0, 1) : fullChangelog;
   const updatedLabel = getTermUpdatedLabel(term);
 
   if (!updatedLabel && changelog.length === 0) {
