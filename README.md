@@ -51,7 +51,7 @@ npm run build
 - [ ] **Settings → Actions → General** → Workflow permissions: **Read and write permissions**
 - [ ] **Settings → Secrets and variables → Actions → Variables**
   - `VITE_BASE` = `/` (커스텀 도메인 필수; 없으면 CI가 `/EconomyWordmap/` 로 빌드되어 깨짐)
-  - `VITE_EMAILJS_*` — 피드백 폼용 ([docs/emailjs-setup.md](docs/emailjs-setup.md))
+  - 피드백은 **GitHub Issues**로 받음 (EmailJS/env 불필요)
 
 ### DNS (`gaemi.dpdns.org` 관리 화면)
 

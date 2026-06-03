@@ -10,7 +10,6 @@
     "validate-data": "node scripts/validate-data.js"
   },
   "dependencies": {
-    "@emailjs/browser": "^4.4.1",
     "cytoscape": "^3.27.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

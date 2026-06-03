@@ -12,7 +12,7 @@ function App() {
         onClick={() => setIsFeedbackOpen(true)}
         className="fixed top-2 right-2 md:top-4 md:right-4 z-50 px-3 py-1.5 md:px-6 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl text-sm md:text-base font-semibold transform hover:scale-105"
       >
-        💬 개발자에게 피드백하기
+        💬 피드백 (GitHub 이슈)
       </button>
       
       <header className="bg-white shadow-sm border-b">
