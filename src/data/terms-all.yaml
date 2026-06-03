@@ -586,3 +586,105 @@ terms:
     description: 첨단 전자·방산·전기차 모터에 필수적인 17종 원소군으로 생산이 특정국에 편중되어 공급망 무기화 위험이 큰 전략 자원
     category: 원자재
     stockMarketImportance: 6
+
+  - id: physiocracy
+    name: 중농주의 (Physiocracy)
+    description: 18세기 프랑스에서 중상주의에 대한 반발로 등장한 경제학파로, 농업과 토지를 모든 부의 원천으로 보고 경제는 자연 질서에 따라 움직이므로 정부 개입을 최소화해야 한다고 주장했으며 케네의 경제표로 대표됨. 순환 흐름과 토지가치세 사상의 선구이나 제조업을 불임적으로 본 한계가 있음
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: laissez-faire
+    name: 자유방임 (Laissez-faire)
+    description: 시장이 자연 질서에 따라 스스로 조정되므로 정부는 개입을 최소화해야 한다는 사상으로 중농주의·고전학파에서 비롯되었으며 규제 완화와 작은 정부론의 뿌리이나, 시장 실패 상황에서는 한계가 지적됨
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: land-value-tax
+    name: 토지가치세 (Land Value Tax)
+    description: 토지에서 발생하는 지대·가치 상승분에 부과하는 세금으로 노동·자본 의욕을 덜 해친다는 장점이 있어 헨리 조지가 주창했으며, 주택 가격·토지 투기·불평등 대응책으로 재조명되나 정확한 가치 평가와 정치적 저항이 과제
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: market-failure
+    name: 시장 실패 (Market Failure)
+    description: 독점·외부효과·공공재·정보 비대칭 등으로 시장이 자원을 효율적으로 배분하지 못하는 상태로, 정부 개입과 산업정책을 정당화하는 핵심 근거이며 극단적 자유방임론의 한계를 보여줌
+    category: 경제이론
+    stockMarketImportance: 5
+
+  - id: net-product
+    name: 순생산물 (Produit Net)
+    description: 투입한 것보다 더 많이 산출되는 잉여를 뜻하는 중농주의의 핵심 개념으로, 케네는 이 잉여가 오직 농업·토지에서만 나온다고 보았음
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: agriculture
+    name: 농업 (Agriculture)
+    description: 식량과 원자재를 생산하는 1차 산업으로 모든 경제 활동의 기초 자원을 공급하며, 기후변화·지정학 위기 속에서 식량 안보와 함께 다시 핵심 의제로 부상
+    category: 자원·환경
+    stockMarketImportance: 4
+
+  - id: food-security
+    name: 식량 안보 (Food Security)
+    description: 모든 국민이 안정적으로 충분한 식량을 확보할 수 있는 상태로, 기후변화·팬데믹·지정학 위기 속에서 농업 생산성과 식량 주권이 국가 전략 과제로 부상
+    category: 자원·환경
+    stockMarketImportance: 4
+
+  - id: externality
+    name: 외부효과 (Externality)
+    description: 한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: circular-economy
+    name: 순환경제 (Circular Economy)
+    description: 자원을 재사용·재활용해 폐기를 줄이고 순환시키는 경제 모델로, 중농주의 경제표의 순환 흐름 관점과 산업연관분석을 사상적 기반으로 삼아 지속가능성 정책의 핵심이 됨
+    category: 자원·환경
+    stockMarketImportance: 3
+
+  - id: georgism
+    name: 조지주의 (Georgism)
+    description: 헨리 조지가 주창한 사상으로 토지에서 생기는 지대만 과세하고 노동·자본 소득의 세금은 줄이자는 토지가치세 단일세론으로, 중농주의의 단일 토지세를 현대적으로 계승
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: input-output-analysis
+    name: 산업연관분석 (Input-Output Analysis)
+    description: 산업 간 투입과 산출의 상호의존 관계를 표로 분석하는 기법으로 레온티에프가 체계화했으며, 케네의 경제표를 현대적으로 발전시킨 거시·순환경제 분석 도구
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: natural-law
+    name: 자연법 (Natural Law)
+    description: 인간 사회도 자연처럼 보편 법칙에 따라 움직인다고 보는 사상으로 중농주의 자유방임론의 철학적 기반이 됨
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: monopoly
+    name: 독점 (Monopoly)
+    description: 한 기업이 시장을 지배해 가격과 생산량을 좌우하는 상태로 경쟁을 제한해 소비자 후생을 낮추며 시장 실패의 대표 유형
+    category: 경제이론
+    stockMarketImportance: 5
+
+  - id: technological-progress
+    name: 기술 진보 (Technological Progress)
+    description: 생산성을 끌어올리는 기술·공정·혁신의 향상으로 장기 경제성장의 핵심 동력이며, 중농주의가 과소평가했던 제조업 생산성 폭발의 원천
+    category: 경제이론
+    stockMarketImportance: 5
+
+  - id: manufacturing
+    name: 제조업 (Manufacturing)
+    description: 원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 되며, 중농주의가 불임적이라 폄하했으나 산업혁명 이후 부의 핵심 원천이 됨
+    category: 거시경제
+    stockMarketImportance: 6
+
+  - id: ecological-economics
+    name: 생태경제학 (Ecological Economics)
+    description: 경제를 자연 생태계의 일부로 보고 자원의 한계와 지속가능성을 중시하는 학문으로, 자연과의 조화를 강조한 중농주의를 사상적 선구로 봄
+    category: 자원·환경
+    stockMarketImportance: 2
+
+  - id: economic-table
+    name: 경제표 (Tableau Économique)
+    description: 케네가 농업·제조업·지주·노동자 사이에서 돈과 재화가 어떻게 순환하는지를 처음으로 시각화한 모델로, 최초의 거시경제 순환 모델이자 산업연관분석의 원형
+    category: 경제이론
+    stockMarketImportance: 2

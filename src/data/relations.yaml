@@ -1668,3 +1668,157 @@ relations:
     description: "제조업의 누적 인과관계(연관 산업·고용 유발)가 제조업 기반 산업정책의 논거"
     strength: weak
     nature: causal
+
+  - id: r233
+    term1Id: physiocracy
+    term2Id: mercantilism
+    type: inverse
+    bidirectional: true
+    description: "중농주의는 금·은 축적을 부로 본 중상주의에 대한 반발로 등장한 대립 학파"
+    reverseDescription: "중상주의는 실물 생산을 강조한 중농주의와 부의 원천을 두고 대립한 사상"
+    strength: medium
+
+  - id: r234
+    term1Id: physiocracy
+    term2Id: laissez-faire
+    type: correlation
+    description: "중농주의는 경제가 자연 질서에 따라 자동 조정되므로 정부 개입을 최소화하는 자유방임을 주장"
+    strength: strong
+    nature: causal
+
+  - id: r235
+    term1Id: physiocracy
+    term2Id: agriculture
+    type: correlation
+    description: "중농주의는 농업과 토지만이 부의 원천이라고 봄"
+    strength: strong
+    nature: causal
+
+  - id: r236
+    term1Id: physiocracy
+    term2Id: net-product
+    type: correlation
+    description: "중농주의는 잉여를 뜻하는 순생산물 개념을 핵심 논리로 제시"
+    strength: medium
+    nature: definitional
+
+  - id: r237
+    term1Id: net-product
+    term2Id: agriculture
+    type: correlation
+    description: "중농주의는 순생산물(잉여)이 오직 농업·토지에서만 나온다고 봄"
+    strength: medium
+    nature: causal
+
+  - id: r238
+    term1Id: physiocracy
+    term2Id: land-value-tax
+    type: correlation
+    description: "잉여는 토지에서 나온다는 인식에서 지대에만 과세하는 단일 토지세 사상이 비롯됨"
+    strength: medium
+    nature: causal
+
+  - id: r239
+    term1Id: land-value-tax
+    term2Id: georgism
+    type: correlation
+    description: "중농주의의 단일 토지세는 헨리 조지의 토지가치세 단일세론으로 계승됨"
+    strength: medium
+    nature: causal
+
+  - id: r240
+    term1Id: laissez-faire
+    term2Id: free-trade
+    type: correlation
+    description: "최소 개입을 지향하는 자유방임 사상은 자유무역과 친화적"
+    strength: medium
+    nature: causal
+
+  - id: r241
+    term1Id: laissez-faire
+    term2Id: industrial-policy
+    type: inverse
+    bidirectional: true
+    description: "자유방임은 정부의 적극적 개입인 산업정책과 대척에 있음"
+    reverseDescription: "산업정책은 정부 개입을 최소화하는 자유방임과 대척에 있음"
+    strength: medium
+
+  - id: r242
+    term1Id: market-failure
+    term2Id: industrial-policy
+    type: correlation
+    description: "독점·외부효과 등 시장 실패가 정부 개입과 산업정책을 정당화하는 핵심 근거"
+    strength: strong
+    nature: causal
+
+  - id: r243
+    term1Id: externality
+    term2Id: market-failure
+    type: correlation
+    description: "외부효과는 시장이 비용·편익을 가격에 반영하지 못하는 시장 실패의 한 유형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r244
+    term1Id: monopoly
+    term2Id: market-failure
+    type: correlation
+    description: "독점은 경쟁을 제한해 효율적 배분을 막는 시장 실패의 한 유형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r245
+    term1Id: agriculture
+    term2Id: food-security
+    type: proportional
+    description: "농업 생산력과 생산성이 식량 안보의 기반"
+    strength: strong
+    nature: causal
+
+  - id: r246
+    term1Id: physiocracy
+    term2Id: circular-economy
+    type: correlation
+    description: "경제표의 순환 흐름 관점은 현대 순환경제 사고의 사상적 선구"
+    strength: weak
+    nature: correlational
+
+  - id: r247
+    term1Id: input-output-analysis
+    term2Id: circular-economy
+    type: correlation
+    description: "산업연관분석은 자원의 산업 간 순환을 분석해 순환경제 정책의 분석 기반이 됨"
+    strength: medium
+    nature: causal
+
+  - id: r248
+    term1Id: physiocracy
+    term2Id: gold
+    type: inverse
+    description: "중농주의는 금·은 축적이 곧 부라는 중상주의 관점을 비판하고 실물 생산을 부로 봄"
+    strength: medium
+    nature: causal
+
+  - id: r249
+    term1Id: technological-progress
+    term2Id: manufacturing
+    type: proportional
+    description: "기술 진보는 제조업 생산성을 끌어올림. 중농주의는 이 가능성을 과소평가"
+    strength: strong
+    nature: causal
+
+  - id: r250
+    term1Id: economic-table
+    term2Id: input-output-analysis
+    type: correlation
+    description: "케네의 경제표는 레온티에프 산업연관분석의 원형"
+    strength: medium
+    nature: causal
+
+  - id: r251
+    term1Id: natural-law
+    term2Id: laissez-faire
+    type: correlation
+    description: "사회도 자연 법칙을 따른다는 자연법 사상이 자유방임론의 철학적 기반"
+    strength: medium
+    nature: causal
