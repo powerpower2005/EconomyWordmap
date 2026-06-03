@@ -1,10 +1,11 @@
-import { Term, Relation, TermWithRelations } from '../types';
+import { Term, Relation, TermWithRelations, Proposition } from '../types';
 import { compareTermsByUpdated, isTermUpdatedWithinDays } from './termDisplay';
 import termsData from '../data/terms.json';
 
 export type TermSortOrder = 'default' | 'updated-desc' | 'updated-asc';
 
 const allTerms = termsData.terms as Term[];
+const allPropositions = ((termsData as { propositions?: Proposition[] }).propositions ?? []) as Proposition[];
 
 export const loadTerms = (): Term[] => {
   return allTerms;
@@ -12,6 +13,14 @@ export const loadTerms = (): Term[] => {
 
 export const loadRelations = (): Relation[] => {
   return termsData.relations as Relation[];
+};
+
+export const loadPropositions = (): Proposition[] => {
+  return allPropositions;
+};
+
+export const getPropositionById = (id: string): Proposition | undefined => {
+  return allPropositions.find(p => p.id === id);
 };
 
 export const getTermById = (id: string): Term | undefined => {

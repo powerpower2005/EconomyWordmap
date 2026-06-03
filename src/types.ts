@@ -68,3 +68,33 @@ export interface TermWithRelations extends Term {
     relation: Relation;
   }>;
 }
+
+// 명제(Proposition): "A이면 B이다" 형태의 경제 명제와
+// 성립하는 경우(holds)·성립하지 않는 경우(fails)를 함께 보여주기 위한 모델
+export interface PropositionCase {
+  // 사례·조건 제목 (예: "수요 견인 인플레이션 국면")
+  label: string;
+  // 논리 설명
+  detail: string;
+  // 실제 역사적 사례 (선택)
+  example?: string;
+}
+
+export interface Proposition {
+  id: string;
+  // 명제 진술 (예: "금리가 오르면 물가가 내려간다")
+  statement: string;
+  category?: string;
+  // 명제와 관련된 용어 id (관계도 탭으로 연결)
+  termIds: string[];
+  // 관련 관계 id (선택)
+  relationIds?: string[];
+  // 일반적으로 그렇게 보는 논리·전제
+  premise: string;
+  // 명제가 성립하는 경우들
+  holds: PropositionCase[];
+  // 명제가 성립하지 않는 경우·한계
+  fails: PropositionCase[];
+  // 한 줄 결론 (조건부 참 등)
+  verdict: string;
+}

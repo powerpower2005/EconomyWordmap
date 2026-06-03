@@ -10,6 +10,7 @@ alwaysApply: false
 
 - Terms: `src/data/terms-all.yaml` (`terms:` list)
 - Relations: `src/data/relations.yaml` (`relations:` list)
+- Propositions (명제 tab): `src/data/propositions.yaml` (`propositions:` list)
 
 Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/terms/*.yaml` (not in build).
 
@@ -33,13 +34,20 @@ Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/term
 - `term1Id` and `term2Id` must exist in `terms-all.yaml` (for **new** edges).
 - Types: `proportional`, `inverse`, `correlation`. Bidirectional: `bidirectional: true` + `reverseDescription`.
 
+## Propositions (명제 tab)
+
+- New ids: last `p###` in `propositions.yaml` + 1.
+- `termIds` must exist in `terms-all.yaml`.
+- Fill both `holds` (성립) and `fails` (한계) — the tab's purpose is to show a claim is conditional, not absolute.
+- Schema (EN): `docs/propositions-schema.md`. Workflow (KO): `docs/agent-propositions-guide.md`.
+
 ## Content language
 
-- YAML `name` / `description` / relation text: **Korean** (with English in parentheses in `name` when applicable).
+- YAML `name` / `description` / relation text / proposition text: **Korean** (with English in parentheses in `name` when applicable).
 - Do not put Korean inside executable code; only in data strings.
 
 ## References
 
-- Schema (EN): `docs/data-schema.md`
+- Schema (EN): `docs/data-schema.md`, `docs/propositions-schema.md`
 - Prompts (KO) + steps (EN): `docs/agent-recipes.md`
 - Categories (KO): `docs/categories.md`

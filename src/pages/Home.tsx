@@ -4,7 +4,12 @@ import { formatTermDate, getLatestChangeSummary } from '../utils/termDisplay';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
 
-export default function Home() {
+interface HomeProps {
+  focusTermId?: string | null;
+  onFocusHandled?: () => void;
+}
+
+export default function Home({ focusTermId = null, onFocusHandled }: HomeProps = {}) {
   const terms = loadTerms();
   const relations = loadRelations();
   const koreanIndex = getKoreanIndex();
@@ -35,6 +40,16 @@ export default function Home() {
       graphRef.current.clickNode(term.id);
     }
   };
+
+  // 명제 탭 등 외부에서 용어로 진입했을 때 해당 노드로 이동
+  useEffect(() => {
+    if (!focusTermId) return;
+    const timer = setTimeout(() => {
+      graphRef.current?.clickNode(focusTermId);
+      onFocusHandled?.();
+    }, 150);
+    return () => clearTimeout(timer);
+  }, [focusTermId, onFocusHandled]);
 
   useEffect(() => {
     let results = queryTerms(searchQuery, terms, { sortOrder, updatedWithinDays });

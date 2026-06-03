@@ -107,11 +107,46 @@ function validate() {
     );
   }
 
-  printResults(errors, warnings, terms.length, relations.length);
+  let propositionCount = 0;
+  const propositionsPath = join(DATA_DIR, 'propositions.yaml');
+  if (fs.existsSync(propositionsPath)) {
+    const propositionsData = loadYaml(propositionsPath);
+    const propositions = propositionsData?.propositions || [];
+    propositionCount = propositions.length;
+    const propositionIdCounts = new Map();
+
+    for (const prop of propositions) {
+      if (!prop.id) {
+        errors.push('Proposition missing id');
+        continue;
+      }
+      propositionIdCounts.set(prop.id, (propositionIdCounts.get(prop.id) || 0) + 1);
+      if (!prop.statement) errors.push(`Proposition "${prop.id}" missing statement`);
+      if (!prop.premise) warnings.push(`Proposition "${prop.id}" missing premise`);
+      if (!Array.isArray(prop.holds) || prop.holds.length === 0)
+        warnings.push(`Proposition "${prop.id}" has no holds (성립) cases`);
+      if (!Array.isArray(prop.fails) || prop.fails.length === 0)
+        warnings.push(`Proposition "${prop.id}" has no fails (한계) cases`);
+      if (!prop.verdict) warnings.push(`Proposition "${prop.id}" missing verdict`);
+
+      const refs = Array.isArray(prop.termIds) ? prop.termIds : [];
+      for (const refId of refs) {
+        if (!termIds.has(refId)) {
+          errors.push(`Proposition "${prop.id}" references unknown termId "${refId}"`);
+        }
+      }
+    }
+
+    for (const [id, count] of propositionIdCounts) {
+      if (count > 1) errors.push(`Duplicate proposition id: ${id} (${count} times)`);
+    }
+  }
+
+  printResults(errors, warnings, terms.length, relations.length, propositionCount);
   process.exit(errors.length > 0 ? 1 : 0);
 }
 
-function printResults(errors, warnings, termCount, relationCount) {
+function printResults(errors, warnings, termCount, relationCount, propositionCount) {
   if (warnings.length) {
     console.warn('⚠️ Warnings:');
     warnings.forEach((w) => console.warn(`  - ${w}`));
@@ -121,7 +156,7 @@ function printResults(errors, warnings, termCount, relationCount) {
     errors.forEach((e) => console.error(`  - ${e}`));
   } else {
     console.log(
-      `✅ Data validation passed (${termCount ?? 0} terms, ${relationCount ?? 0} relations)`
+      `✅ Data validation passed (${termCount ?? 0} terms, ${relationCount ?? 0} relations, ${propositionCount ?? 0} propositions)`
     );
   }
 }

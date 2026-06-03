@@ -19,6 +19,7 @@ Economy term graph app. When adding or editing **terms** or **relations**, follo
 |----|--------|
 | Edit `src/data/terms-all.yaml` | Edit `src/data/terms.json` |
 | Edit `src/data/relations.yaml` | Edit only `src/data/terms/*.yaml` (legacy, not in build) |
+| Edit `src/data/propositions.yaml` (명제 tab) | Edit `src/data/terms.json` |
 
 After **every** data change (add term, edit term, add/edit/delete relation), validate before commit:
 
@@ -41,6 +42,8 @@ For **writing style** (tone, conditional phrasing): read `docs/agent-data-guide.
 |-----|---------|
 | [docs/agent-data-guide.md](docs/agent-data-guide.md) | Main workflow (KO): add term, edit relation, validate, commit |
 | [docs/data-schema.md](docs/data-schema.md) | Term / Relation YAML fields (EN) |
+| [docs/propositions-schema.md](docs/propositions-schema.md) | Proposition (명제 tab) YAML fields (EN) |
+| [docs/agent-propositions-guide.md](docs/agent-propositions-guide.md) | Proposition workflow (KO): add/edit 명제, validate |
 | [docs/agent-recipes.md](docs/agent-recipes.md) | Prompts (KO) + agent steps (EN) |
 | [docs/categories.md](docs/categories.md) | Category list and UI sync (KO) |
 | [docs/add_terms.md](docs/add_terms.md) | Short user-facing pointer (KO) |
@@ -48,6 +51,10 @@ For **writing style** (tone, conditional phrasing): read `docs/agent-data-guide.
 ## Relation IDs
 
 Check the last `id: r###` in `src/data/relations.yaml` and use the next number (e.g. after `r204` use `r205`).
+
+## Proposition IDs
+
+Check the last `id: p###` in `src/data/propositions.yaml` and use the next number (e.g. after `p6` use `p7`). `termIds` must exist in `terms-all.yaml`. See [docs/agent-propositions-guide.md](docs/agent-propositions-guide.md).
 
 ## YAML
 
