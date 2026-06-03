@@ -292,3 +292,297 @@ terms:
     description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적. 증세는 소득세(개인소득세, 법인세), 소비세(부가가치세, 소비세), 자산세 등 다양한 세목에 적용될 수 있으며, 증세 시 재정적자 축소, 국채 금리 하락 가능성, 채권 시장 반응, 재정 건전성 개선, 소비·투자 위축 가능성, 통화정책과의 조합 등을 함께 분석해야 함. 증세는 재정 건전성을 개선하지만 경기 둔화 압력이 될 수 있어 시점과 규모가 중요함
     category: 정부
     stockMarketImportance: 7
+
+  - id: tariff
+    name: 관세 (Tariff)
+    description: 수입품에 부과하는 세금으로 보호무역의 대표적 수단이며 국내 산업 보호와 재정 수입 확보를 목적으로 함. 수입 가격을 높여 국내 생산을 보호할 수 있으나 소비자 가격 상승으로 후생을 낮추고 교역 상대국의 보복관세·무역전쟁을 유발할 수 있어, 무역수지 개선 효과는 환율·내수·공급망 대체에 따라 불확실
+    category: 국제경제
+    stockMarketImportance: 7
+
+  - id: trade-deficit
+    name: 무역적자 (Trade Deficit)
+    description: 한 나라의 수입이 수출보다 많아 순수출(NX)이 음(-)인 상태로 경상수지 적자와 연결됨. 강한 내수와 자본 유입을 반영할 수도, 산업 경쟁력 약화를 반영할 수도 있어 그 자체로 좋고 나쁨을 단정하기 어렵고 환율·자본수지·경기 국면과 함께 해석해야 함
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: trade-surplus
+    name: 무역흑자 (Trade Surplus)
+    description: 한 나라의 수출이 수입보다 많아 순수출(NX)이 양(+)인 상태로 경상수지 흑자와 연결됨. GDP에 기여하고 외화를 축적하는 요인이 되나 과도하면 교역 상대국과의 통상마찰과 통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: federal-reserve
+    name: 연준(Fed) (Federal Reserve)
+    description: 미국의 중앙은행으로 기준금리 결정, 공개시장조작, 양적완화·긴축 등 통화정책과 금융안정을 담당하며 결정과 발언이 글로벌 금리·달러·위험자산 가격에 광범위한 영향을 미침
+    category: 통화정책
+    stockMarketImportance: 10
+
+  - id: central-bank
+    name: 중앙은행 (Central Bank)
+    description: 통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국으로 물가안정과 금융안정을 목표로 기준금리·유동성을 조절하며 최종대부자 기능을 수행
+    category: 통화정책
+    stockMarketImportance: 8
+
+  - id: mbs
+    name: MBS (Mortgage-Backed Security)
+    description: 주택담보대출을 기초자산으로 묶어 발행하는 유동화 증권으로 연준 자산매입의 주요 대상이며 모기지 금리와 주택시장에 영향을 미침
+    category: 채권
+    stockMarketImportance: 6
+
+  - id: treasury
+    name: 재무부 (Treasury)
+    description: 국채 발행과 국가 재정을 담당하는 미국 정부 기관으로 분기 발행계획(QRA)과 TGA 잔액 변동이 국채 수급·시장 유동성·금리에 영향을 미침
+    category: 정부
+    stockMarketImportance: 7
+
+  - id: bond-price
+    name: 채권가격 (Bond Price)
+    description: 채권의 시장 가격으로 시장금리와 반대 방향으로 움직이며 만기·신용위험·수급 여건에 따라 변동하여 금리 기대 변화를 반영
+    category: 금융
+    stockMarketImportance: 7
+
+  - id: long-term-interest-rate
+    name: 장기금리 (Long-term Interest Rate)
+    description: 장기 채권을 기준으로 형성되는 금리로 성장·인플레이션 기대를 반영하며 주택담보대출·기업 투자와 주식 등 자산가격에 영향을 미침
+    category: 금리
+    stockMarketImportance: 8
+
+  - id: market-interest-rate
+    name: 시중금리 (Market Interest Rate)
+    description: 시장에서 실제로 적용되는 대출·예금 금리로 기준금리와 신용·유동성 여건을 함께 반영하여 가계·기업의 실질 자금조달 비용을 결정
+    category: 금리
+    stockMarketImportance: 6
+
+  - id: low-interest-policy
+    name: 저금리 정책 (Low Interest Policy)
+    description: 차입과 투자를 유도하기 위해 기준금리를 낮게 유지하는 통화정책으로 경기 부양에 쓰이나 자산가격 과열·부채 누적 위험을 동반할 수 있어 출구 시점이 중요함
+    category: 통화정책
+    stockMarketImportance: 7
+
+  - id: fed-balance-sheet
+    name: 연준 대차대조표 (Fed Balance Sheet)
+    description: 연준이 보유한 자산과 부채의 총괄 상태로 양적완화 시 확대되고 양적긴축 시 축소되며 시중 유동성과 지급준비금에 직접적인 영향을 미침
+    category: 통화정책
+    stockMarketImportance: 8
+
+  - id: maturity-redemption
+    name: 만기상환 (Maturity Redemption)
+    description: 채권 만기 도래 시 원금을 상환하는 과정으로 재투자 수요와 차환 발행 규모에 따라 시장 금리·유동성에 영향을 미침
+    category: 채권
+    stockMarketImportance: 4
+
+  - id: fed-assets
+    name: 연준보유 자산 (Fed Assets)
+    description: 연준이 양적완화 등을 통해 보유한 국채·MBS 등의 자산으로 연준 대차대조표의 자산 측 핵심 구성이며 규모 변화가 유동성에 영향을 미침
+    category: 통화정책
+    stockMarketImportance: 6
+
+  - id: strong-dollar
+    name: 강달러 (Strong Dollar)
+    description: 달러 가치가 다른 통화 대비 상대적으로 높은 상태로 미국의 수입 물가를 낮추는 반면 수출 경쟁력을 약화시키고 신흥국 자본유출·달러부채 부담을 키울 수 있음
+    category: 국제경제
+    stockMarketImportance: 8
+
+  - id: weak-dollar
+    name: 약달러 (Weak Dollar)
+    description: 달러 가치가 다른 통화 대비 상대적으로 낮은 상태로 미국의 수출 경쟁력을 높이는 반면 수입 물가 상승 압력을 키우며 원자재 가격을 끌어올리는 경향이 있음
+    category: 국제경제
+    stockMarketImportance: 7
+
+  - id: korean-won
+    name: 원화 (Korean Won)
+    description: 대한민국의 공식 통화로 달러 대비 환율이 수출입 경쟁력·수입 물가·외국인 자금 흐름에 영향을 미치며 위험선호 변화에 민감하게 반응
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: chinese-yuan
+    name: 위안화 (Chinese Yuan)
+    description: 중국의 공식 통화로 관리변동환율제 하에서 운용되며 환율 정책과 위안화 국제화 움직임이 글로벌 무역·통상과 신흥국 통화에 영향을 미침
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: japanese-yen
+    name: 엔화 (Japanese Yen)
+    description: 일본의 공식 통화로 안전자산이자 캐리트레이드의 조달 통화로 기능하며 글로벌 위험선호와 미·일 금리차에 민감하게 반응
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: euro
+    name: 유로 (Euro)
+    description: 유럽연합 유로존의 공식 통화로 달러 다음가는 주요 준비통화이며 ECB 통화정책과 유로존 경기에 따라 가치가 변동
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: stock-market
+    name: 주식시장 (Stock Market)
+    description: 주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장이며 위험선호의 대표 지표
+    category: 금융
+    stockMarketImportance: 9
+
+  - id: bond-market
+    name: 채권시장 (Bond Market)
+    description: 채권을 발행·거래하는 시장으로 금리와 신용 위험을 반영하며 정부·기업의 자금조달 통로이자 경기·인플레이션 기대를 가늠하는 핵심 시장
+    category: 금융
+    stockMarketImportance: 8
+
+  - id: commodity-market
+    name: 원자재시장 (Commodity Market)
+    description: 원유·금·곡물 등 원자재를 거래하는 시장으로 인플레이션·경기 사이클·지정학 요인에 민감하며 생산비용을 통해 물가에 영향을 미침
+    category: 금융
+    stockMarketImportance: 7
+
+  - id: net-interest-margin
+    name: 예대마진 (Net Interest Margin)
+    description: 은행의 대출금리와 예금 등 조달금리의 차이로 은행 수익성의 핵심 지표이며 금리 수준·수익률 곡선 기울기에 따라 변동
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: mercantilism
+    name: 중상주의 (Mercantilism)
+    description: 국부를 금·은 등 귀금속 축적으로 보고 수출을 늘리고 수입을 억제하기 위해 국가가 무역에 적극 개입한 17~18세기 경제사상으로, 무역을 한쪽이 이득을 보면 다른 쪽이 손해를 본다는 제로섬으로 보는 관점이 핵심이며 현대 산업정책 논쟁의 사상적 뿌리
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: neo-mercantilism
+    name: 신중상주의 (Neo-mercantilism)
+    description: 금·은 축적 대신 전략 산업의 경쟁력과 무역흑자, 공급망 통제를 목표로 국가가 보조금·관세·산업정책을 동원하는 현대판 중상주의로, 미국의 IRA·CHIPS Act와 중국의 제조 2025 등이 대표 사례
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: industrial-policy
+    name: 산업정책 (Industrial Policy)
+    description: 정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반할 수 있어 수출 규율 등 성과 기준 설계가 중요함
+    category: 정부
+    stockMarketImportance: 7
+
+  - id: protectionism
+    name: 보호무역 (Protectionism)
+    description: 관세·수입 규제·보조금 등으로 국내 산업을 해외 경쟁으로부터 보호하는 무역 기조로, 유치산업 육성이나 고용 보호 명분을 가지나 소비자 가격 상승과 보복·무역전쟁 위험을 동반함
+    category: 국제경제
+    stockMarketImportance: 7
+
+  - id: free-trade
+    name: 자유무역 (Free Trade)
+    description: 관세·수입 규제 등 인위적 장벽을 최소화하여 비교우위에 따른 자유로운 교역을 추구하는 기조로, 전체 후생을 키우는 경향이 있으나 불완전 경쟁과 규모의 경제가 큰 산업에서는 한계가 지적됨
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: comparative-advantage
+    name: 비교우위 (Comparative Advantage)
+    description: 각국이 상대적으로 더 잘 만드는 재화에 특화해 교역하면 전체 생산과 후생이 커진다는 리카도의 이론으로 자유무역의 핵심 근거이나, 동태적 산업 발전이나 불완전 경쟁을 충분히 설명하지 못한다는 비판도 있음
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: subsidy
+    name: 보조금 (Subsidy)
+    description: 정부가 특정 산업·기업·소비에 제공하는 재정 지원으로 산업정책의 대표 수단이며, 전략 산업 육성과 투자 유치에 쓰이나 통상 마찰과 비효율·렌트시킹을 유발할 수 있음
+    category: 정부
+    stockMarketImportance: 7
+
+  - id: infant-industry
+    name: 유치산업 보호론 (Infant Industry Argument)
+    description: 초기 단계의 신생 산업은 규모의 경제와 학습효과를 갖출 때까지 일시적으로 보호해야 장기적으로 경쟁력을 확보할 수 있다는 주장으로 보호무역과 산업정책의 핵심 논거이나, 보호의 영구화와 산업 고착화 위험이 지적됨
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: strategic-trade-theory
+    name: 전략적 무역이론 (Strategic Trade Theory)
+    description: 소수 기업이 지배하는 불완전 경쟁 시장에서는 정부의 보조금·보호가 자국 기업에 초과이윤을 이전시켜 국익이 될 수 있다는 1985년 브랜더-스펜서 이론으로, 보잉 대 에어버스 보조금 논쟁과 반도체 보조금 경쟁의 이론적 배경
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: economies-of-scale
+    name: 규모의 경제 (Economies of Scale)
+    description: 생산량이 늘수록 단위당 비용이 낮아지는 효과로, 이 효과가 큰 산업에서는 선점과 대규모 투자가 경쟁우위를 좌우해 정부의 전략적 개입 논거가 됨
+    category: 경제이론
+    stockMarketImportance: 5
+
+  - id: economic-security
+    name: 경제안보 (Economic Security)
+    description: 전략 물자·핵심 기술의 해외 의존을 줄이고 자국 생산 능력과 공급망 안정을 확보하려는 정책 기조로, 안보와 경제를 연계해 수출통제·리쇼어링·산업정책의 명분이 됨
+    category: 정부
+    stockMarketImportance: 7
+
+  - id: supply-chain
+    name: 공급망 (Supply Chain)
+    description: 원자재 조달부터 생산·유통까지 이어지는 공급 네트워크로, 특정국 의존이 높으면 공급망 무기화 위험에 노출되어 다변화·리쇼어링·우방국 중심 재편의 대상이 됨
+    category: 국제경제
+    stockMarketImportance: 7
+
+  - id: trade-war
+    name: 무역전쟁 (Trade War)
+    description: 한 나라의 관세·수출규제에 상대국이 보복 관세 등으로 맞대응하며 무역 장벽이 연쇄적으로 높아지는 갈등으로, 1930년대 대공황을 악화시킨 사례처럼 양측 모두에 피해를 줄 수 있음
+    category: 국제경제
+    stockMarketImportance: 8
+
+  - id: consumer-welfare
+    name: 소비자 후생 (Consumer Welfare)
+    description: 소비자가 누리는 효용과 실질 구매력으로, 관세·보호로 국내 가격이 오르면 후생이 감소하여 보호무역의 비용을 평가하는 핵심 기준이 됨
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: learning-curve
+    name: 학습곡선 효과 (Learning Curve Effect)
+    description: 생산 경험이 누적될수록 단위 비용이 체계적으로 낮아지는 효과로, 초기 보호·지원이 장기 경쟁력으로 이어질 수 있다는 유치산업 보호론의 근거
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: cumulative-causation
+    name: 누적 인과관계 (Cumulative Causation)
+    description: 한 부문의 성장이 연관 산업·기술·고용을 끌어들여 추가 성장을 부르는 자기강화 과정으로, 제조업 기반 유지와 산업정책의 논거가 됨
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: public-choice-theory
+    name: 공공선택이론 (Public Choice Theory)
+    description: 정치인·관료·이익집단도 자기 이익을 추구한다는 전제로 정부 개입을 분석하는 이론으로, 보조금·보호가 렌트시킹과 정부 실패로 이어질 수 있다는 산업정책 비판의 핵심 근거
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: rent-seeking
+    name: 렌트시킹 (Rent-seeking)
+    description: 새 가치를 창출하지 않고 보조금·독점·규제 특혜 등 기존 이익을 차지하려는 로비·경쟁 활동으로, 보호무역과 산업정책이 키울 수 있는 비효율의 대표 사례
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: import-substitution
+    name: 수입대체 산업화 (Import Substitution)
+    description: 수입품을 국내 생산으로 대체하기 위해 높은 관세·보조금으로 내수 산업을 보호한 발전 전략으로, 20세기 중반 라틴아메리카 등에서 비효율과 경쟁력 저하로 실패한 사례가 많음
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: developmental-state
+    name: 발전국가 모델 (Developmental State)
+    description: 국가가 전략 산업을 선정해 금융·보조금을 집중하되 수출 성과로 규율하며 성장을 주도한 동아시아 발전 모델로, 한국·대만·싱가포르의 고도성장 사례가 대표적
+    category: 경제이론
+    stockMarketImportance: 4
+
+  - id: export-control
+    name: 수출통제 (Export Control)
+    description: 안보·전략적 이유로 특정 기술·물자의 해외 수출을 제한하는 정책으로, 미국의 대중 반도체 장비 수출 통제처럼 공급망 무기화와 경제안보의 수단으로 활용됨
+    category: 정부
+    stockMarketImportance: 7
+
+  - id: state-capacity
+    name: 국가역량 (State Capacity)
+    description: 정책을 효과적으로 설계·집행하고 R&D·인력·인프라 투자와 수출 규율을 함께 실행할 수 있는 국가의 행정·제도 역량으로, 산업정책 성공의 핵심 전제
+    category: 정부
+    stockMarketImportance: 3
+
+  - id: semiconductor
+    name: 반도체 (Semiconductor)
+    description: 전자기기의 두뇌 역할을 하는 핵심 부품으로 AI·전자·방산 전반의 기반이 되며, 공급망 안보와 각국 보조금 경쟁의 중심에 있는 대표적 전략 산업
+    category: 원자재
+    stockMarketImportance: 9
+
+  - id: battery
+    name: 배터리 (Battery)
+    description: 전기차와 에너지저장장치의 핵심 부품으로 리튬 등 핵심 광물 공급망과 연결되며, 각국의 보조금·현지조달 정책 대상이 되는 전략 산업
+    category: 원자재
+    stockMarketImportance: 7
+
+  - id: rare-earths
+    name: 희토류 (Rare Earths)
+    description: 첨단 전자·방산·전기차 모터에 필수적인 17종 원소군으로 생산이 특정국에 편중되어 공급망 무기화 위험이 큰 전략 자원
+    category: 원자재
+    stockMarketImportance: 6

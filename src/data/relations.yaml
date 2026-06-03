@@ -1443,3 +1443,228 @@ relations:
     type: correlation
     description: "증세는 재정 건전성 개선으로 채권시장에서 국채 매수(금리 하락) 압력을 만들 수 있으나, 경기 둔화 우려와 함께 작용할 수 있음. 증세 분석 시 채권시장 반응과 경기 지표를 함께 봐야 함"
     strength: medium
+
+  - id: r205
+    term1Id: mercantilism
+    term2Id: protectionism
+    type: correlation
+    description: "중상주의는 수출을 늘리고 수입을 억제하기 위해 보호무역을 핵심 수단으로 삼는 사상"
+    strength: strong
+    nature: hierarchical
+
+  - id: r206
+    term1Id: mercantilism
+    term2Id: gold
+    type: correlation
+    description: "원형 중상주의는 금·은 등 귀금속의 축적을 국부의 척도로 보았음"
+    strength: medium
+    nature: definitional
+
+  - id: r207
+    term1Id: mercantilism
+    term2Id: trade-surplus
+    type: correlation
+    description: "중상주의는 수출을 늘리고 수입을 줄여 무역흑자를 키우는 것을 핵심 목표로 삼음"
+    strength: medium
+    nature: causal
+
+  - id: r208
+    term1Id: free-trade
+    term2Id: protectionism
+    type: inverse
+    bidirectional: true
+    description: "자유무역과 보호무역은 무역 장벽을 두고 상반된 무역 기조"
+    reverseDescription: "보호무역과 자유무역은 무역 장벽을 두고 상반된 무역 기조"
+    strength: strong
+
+  - id: r209
+    term1Id: comparative-advantage
+    term2Id: free-trade
+    type: correlation
+    description: "비교우위에 따른 특화 이익이 자유무역을 지지하는 핵심 이론적 근거"
+    strength: strong
+    nature: causal
+
+  - id: r210
+    term1Id: learning-curve
+    term2Id: infant-industry
+    type: correlation
+    description: "학습곡선 효과(경험 누적에 따른 비용 하락)가 유치산업 보호론의 핵심 근거"
+    strength: medium
+    nature: causal
+
+  - id: r211
+    term1Id: infant-industry
+    term2Id: protectionism
+    type: correlation
+    description: "유치산업을 일시 보호해야 한다는 논리가 보호무역을 정당화하는 대표 근거"
+    strength: medium
+    nature: causal
+
+  - id: r212
+    term1Id: economies-of-scale
+    term2Id: strategic-trade-theory
+    type: proportional
+    description: "규모의 경제가 클수록 정부의 전략적 개입이 자국 기업에 이익을 줄 가능성이 커짐"
+    strength: medium
+    nature: causal
+
+  - id: r213
+    term1Id: strategic-trade-theory
+    term2Id: subsidy
+    type: correlation
+    description: "불완전 경쟁 시장에서는 보조금이 자국 기업에 초과이윤을 이전시킬 수 있다는 전략적 무역이론의 함의"
+    strength: medium
+    nature: causal
+
+  - id: r214
+    term1Id: industrial-policy
+    term2Id: subsidy
+    type: correlation
+    description: "보조금은 전략 산업을 육성하는 산업정책의 대표적 수단"
+    strength: strong
+    nature: policy
+
+  - id: r215
+    term1Id: protectionism
+    term2Id: tariff
+    type: correlation
+    description: "관세는 수입을 억제하는 보호무역의 대표적 수단"
+    strength: strong
+    nature: hierarchical
+
+  - id: r216
+    term1Id: tariff
+    term2Id: consumer-welfare
+    type: inverse
+    description: "관세는 국내 가격을 올려 소비자 후생을 낮추는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r217
+    term1Id: protectionism
+    term2Id: trade-war
+    type: correlation
+    description: "한 나라의 보호무역 강화가 상대국의 보복을 불러 무역전쟁으로 번질 위험"
+    strength: medium
+    nature: causal
+
+  - id: r218
+    term1Id: trade-war
+    term2Id: tariff
+    type: proportional
+    description: "무역전쟁은 보복 관세의 연쇄적 인상으로 나타남"
+    strength: strong
+    nature: causal
+
+  - id: r219
+    term1Id: protectionism
+    term2Id: rent-seeking
+    type: proportional
+    description: "보호로 얻는 이익을 노린 로비·지대추구가 늘어나는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r220
+    term1Id: public-choice-theory
+    term2Id: rent-seeking
+    type: correlation
+    description: "공공선택이론은 정부 개입이 렌트시킹과 정부 실패로 이어질 수 있음을 설명·비판"
+    strength: medium
+    nature: causal
+
+  - id: r221
+    term1Id: economic-security
+    term2Id: supply-chain
+    type: correlation
+    description: "핵심 물자·기술의 공급망 안정 확보가 경제안보의 핵심 동기"
+    strength: strong
+    nature: causal
+
+  - id: r222
+    term1Id: economic-security
+    term2Id: export-control
+    type: correlation
+    description: "경제안보를 위해 전략 기술·물자의 수출통제를 정책 수단으로 동원"
+    strength: medium
+    nature: policy
+
+  - id: r223
+    term1Id: export-control
+    term2Id: semiconductor
+    type: correlation
+    description: "미국의 대중 반도체 장비 수출통제가 대표적 사례"
+    strength: medium
+    nature: policy
+
+  - id: r224
+    term1Id: export-control
+    term2Id: rare-earths
+    type: correlation
+    description: "희토류 수출통제는 공급망 무기화의 대표적 수단"
+    strength: medium
+    nature: policy
+
+  - id: r225
+    term1Id: neo-mercantilism
+    term2Id: industrial-policy
+    type: correlation
+    description: "신중상주의는 산업정책의 형태로 전략 산업 육성을 추구"
+    strength: strong
+    nature: hierarchical
+
+  - id: r226
+    term1Id: neo-mercantilism
+    term2Id: subsidy
+    type: correlation
+    description: "신중상주의는 보조금을 적극 동원해 전략 산업과 무역흑자를 추구"
+    strength: medium
+    nature: causal
+
+  - id: r227
+    term1Id: subsidy
+    term2Id: semiconductor
+    type: correlation
+    description: "미국 CHIPS Act 등 반도체 산업에 대한 대규모 보조금"
+    strength: medium
+    nature: policy
+
+  - id: r228
+    term1Id: subsidy
+    term2Id: battery
+    type: correlation
+    description: "미국 IRA 등 전기차·배터리 산업에 대한 보조금과 현지조달 조건"
+    strength: medium
+    nature: policy
+
+  - id: r229
+    term1Id: state-capacity
+    term2Id: industrial-policy
+    type: correlation
+    description: "R&D·인력·인프라·수출 규율을 실행할 국가역량이 산업정책 성공의 전제"
+    strength: medium
+    nature: causal
+
+  - id: r230
+    term1Id: developmental-state
+    term2Id: industrial-policy
+    type: correlation
+    description: "동아시아 발전국가 모델은 수출 규율을 결합한 산업정책을 국가가 주도"
+    strength: medium
+    nature: hierarchical
+
+  - id: r231
+    term1Id: import-substitution
+    term2Id: protectionism
+    type: correlation
+    description: "수입대체 산업화는 높은 관세·보조금에 기반한 보호무역형 발전 전략"
+    strength: medium
+    nature: hierarchical
+
+  - id: r232
+    term1Id: cumulative-causation
+    term2Id: industrial-policy
+    type: correlation
+    description: "제조업의 누적 인과관계(연관 산업·고용 유발)가 제조업 기반 산업정책의 논거"
+    strength: weak
+    nature: causal
