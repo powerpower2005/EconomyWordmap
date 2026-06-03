@@ -20,12 +20,16 @@ Economy term graph app. When adding or editing **terms** or **relations**, follo
 | Edit `src/data/terms-all.yaml` | Edit `src/data/terms.json` |
 | Edit `src/data/relations.yaml` | Edit only `src/data/terms/*.yaml` (legacy, not in build) |
 
-After YAML changes:
+After **every** data change (add term, edit term, add/edit/delete relation), validate before commit:
 
 ```bash
-node build-data.js
-npm run validate-data
+node build-data.js        # YAML -> terms.json
+npm run validate-data     # auto checks (fail = exit 1, fix and re-run)
+npm run build             # TypeScript + Vite (before PR)
 ```
+
+`validate-data` auto-catches: duplicate/missing ids, missing term refs, and enums (`type`, `reverseType`, `nature`, `strength`, `reverseStrength`).
+It does **not** catch: duplicate relation pairs, category vocabulary, direction consistency. Check those manually per `docs/agent-data-guide.md` section 4 (자동/수동 검증 + work-type matrix).
 
 Commit to Git so UI **changelog** / **updatedAt** update (`scripts/term-history.js` uses Git history).
 

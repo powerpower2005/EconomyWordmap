@@ -79,6 +79,22 @@ function validate() {
     if (rel.type && !validTypes.includes(rel.type)) {
       errors.push(`Relation "${rel.id}": invalid type "${rel.type}"`);
     }
+    if (rel.reverseType && !validTypes.includes(rel.reverseType)) {
+      errors.push(`Relation "${rel.id}": invalid reverseType "${rel.reverseType}"`);
+    }
+
+    const validNatures = ['causal', 'correlational', 'definitional', 'hierarchical', 'policy'];
+    if (rel.nature && !validNatures.includes(rel.nature)) {
+      errors.push(`Relation "${rel.id}": invalid nature "${rel.nature}"`);
+    }
+
+    const validStrengths = ['weak', 'medium', 'strong'];
+    if (rel.strength && !validStrengths.includes(rel.strength)) {
+      errors.push(`Relation "${rel.id}": invalid strength "${rel.strength}"`);
+    }
+    if (rel.reverseStrength && !validStrengths.includes(rel.reverseStrength)) {
+      errors.push(`Relation "${rel.id}": invalid reverseStrength "${rel.reverseStrength}"`);
+    }
   }
 
   for (const [id, count] of relationIdCounts) {

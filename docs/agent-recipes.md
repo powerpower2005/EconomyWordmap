@@ -44,6 +44,7 @@ terms.json 은 수정하지 말고 YAML만 편집해.
 2. ...
 
 관계는 proportional / inverse / correlation 과 strength를 적절히 설정해.
+인과·정책 관계는 nature(causal/policy 등)와 mechanism 도 가능하면 채워줘.
 ```
 
 ### Agent steps (English)
@@ -80,15 +81,16 @@ terms-all.yaml 만 수정한 뒤 build-data 실행해.
 
 ```
 relations.yaml 의 r### ([용어A] ↔ [용어B]) 관계 설명을 보강해줘.
-양방향이면 reverseDescription 도 검토해.
+양방향이면 reverseDescription 도 검토하고, 가능하면 nature / mechanism / conditions / lag 도 채워줘.
 ```
 
 ### Agent steps (English)
 
 1. `grep "id: r###"` to locate the block.
 2. Update `description` / `reverseDescription`; quote strings if needed.
-3. Run `node build-data.js`.
-4. Commit: `data: enrich r### relation description`
+3. (Optional) Add semantic fields: `nature` (`causal`|`correlational`|`definitional`|`hierarchical`|`policy`), `mechanism`, `conditions`, `lag`. See [data-schema.md](./data-schema.md).
+4. Run `node build-data.js` then `npm run validate-data`.
+5. Commit: `data: enrich r### relation (nature/mechanism)`
 
 ---
 
@@ -163,6 +165,10 @@ Same as R2; merge user context into Korean `description` fields.
 
 - [ ] Did not edit `terms.json`
 - [ ] Did not use `src/data/terms/*.yaml`
-- [ ] No duplicate relation ids
-- [ ] `npm run validate-data` passed
+- [ ] No duplicate relation ids / no duplicate relation pairs (manual)
+- [ ] New `category` exists in vocabulary (`docs/categories.md`)
+- [ ] `npm run validate-data` passed (auto: ids, refs, enums)
+- [ ] Direction (`term1Id -> term2Id`) consistent with description
 - [ ] Git commit done (for changelog)
+
+> Full validation procedure (auto + manual + work-type matrix): `docs/agent-data-guide.md` section 4.

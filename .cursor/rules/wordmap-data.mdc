@@ -18,8 +18,14 @@ Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/term
 1. Read `docs/agent-data-guide.md` (Korean) for task steps and **description writing style**.
 2. Field reference: `docs/data-schema.md` (English).
 3. Edit YAML; quote long descriptions containing `=`, `:`, or `#`.
-4. Run `node build-data.js` and `npm run validate-data`.
+4. Run `node build-data.js` and `npm run validate-data` (fix any error and re-run).
 5. Commit with `data: ...` so changelog / updatedAt apply (`scripts/term-history.js`).
+
+## Validation (after every change)
+
+- Auto (`validate-data`): duplicate/missing ids, missing term refs, enums (`type`, `reverseType`, `nature`, `strength`, `reverseStrength`).
+- Manual (NOT auto-caught): duplicate relation pairs, `category` vocabulary (`docs/categories.md`), `term1Id -> term2Id` direction consistency, bidirectional reverse fields.
+- Per work-type checks: `docs/agent-data-guide.md` section 4.3 matrix.
 
 ## Relations
 

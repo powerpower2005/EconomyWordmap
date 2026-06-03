@@ -21,6 +21,39 @@ const relationTypeLabels: Record<RelationType, string> = {
   correlation: '상관관계'
 };
 
+const relationNatureLabels: Record<string, string> = {
+  causal: '인과',
+  correlational: '상관',
+  definitional: '정의·측정',
+  hierarchical: '계층',
+  policy: '정책 반응'
+};
+
+// 관계의 성격(nature)과 메커니즘·조건·시차를 모달에서 보조 정보로 렌더링
+function renderRelationMeta(edgeData: any) {
+  const nature = edgeData.nature as string;
+  const items: Array<{ label: string; value: string }> = [];
+  if (edgeData.mechanism) items.push({ label: '메커니즘', value: edgeData.mechanism });
+  if (edgeData.conditions) items.push({ label: '조건', value: edgeData.conditions });
+  if (edgeData.lag) items.push({ label: '시차', value: edgeData.lag });
+  if ((!nature || !relationNatureLabels[nature]) && items.length === 0) return null;
+
+  return (
+    <div className="mt-1.5 space-y-1">
+      {nature && relationNatureLabels[nature] && (
+        <span className="inline-block px-2 py-0.5 text-xs rounded bg-gray-100 text-gray-600">
+          {relationNatureLabels[nature]}
+        </span>
+      )}
+      {items.map((it) => (
+        <div key={it.label} className="text-xs text-gray-500">
+          <span className="font-semibold text-gray-600">{it.label}:</span> {it.value}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 // 카테고리 색상 정의
 const categoryColors: Record<string, string> = {
   '거시경제': '#3b82f6',
@@ -187,6 +220,11 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           type: relation.type,
           description: relation.description || '',
           strength: relation.strength || 'medium',
+          // 의미론적 성격·맥락 (선택)
+          nature: relation.nature || '',
+          mechanism: relation.mechanism || '',
+          conditions: relation.conditions || '',
+          lag: relation.lag || '',
           // 양방향 정보
           bidirectional: isBidirectional,
           reverseType: reverseType,
@@ -247,6 +285,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           selector: 'edge',
           style: {
             'width': 5,
+            // nature가 correlational이면 점선, 그 외(인과·정책·정의·계층) 또는 미지정이면 실선
+            'line-style': function(edge: any) {
+              return edge.data('nature') === 'correlational' ? 'dashed' : 'solid';
+            },
             'line-color': function(edge: any) {
               return relationTypeColors[edge.data('type') as RelationType] || '#94a3b8';
             },
@@ -316,6 +358,30 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     // 노드를 드래그 가능하게 설정
     cy.nodes().grabify();
 
+    // 물리 시뮬레이션용 정적 데이터 사전 계산 (매 프레임 Cytoscape 그래프 쿼리 제거)
+    // 노드 크기는 sizeLevel 기반으로 고정이므로 radius/mass는 1회만 계산하면 충분
+    const nodeList = cy.nodes().toArray() as any[];
+    const nodeInfo = new Map<string, { node: any; radius: number; mass: number }>();
+    nodeList.forEach((node: any) => {
+      const radius = Math.max(node.width(), node.height()) / 2;
+      nodeInfo.set(node.id(), { node, radius, mass: radius * radius });
+    });
+
+    // 인접 노드 맵 (스프링 힘 계산용) + 연결 쌍 강도 맵 (충돌 처리용)
+    const adjacency = new Map<string, Array<{ otherId: string }>>();
+    const pairStrength = new Map<string, string>();
+    const pairKey = (a: string, b: string) => (a < b ? `${a}|${b}` : `${b}|${a}`);
+    nodeList.forEach((node: any) => adjacency.set(node.id(), []));
+    cy.edges().forEach((edge: any) => {
+      const s = edge.source().id();
+      const t = edge.target().id();
+      if (s === t) return;
+      const strength = edge.data('strength') || 'medium';
+      adjacency.get(s)?.push({ otherId: t });
+      adjacency.get(t)?.push({ otherId: s });
+      pairStrength.set(pairKey(s, t), strength);
+    });
+
     // 최대 엣지 길이 설정 (노드 수에 비례)
     // idealEdgeLength의 5.625배 (2000 * 5.625 = 11250, 18750 * 0.6 = 11250)
     const maxEdgeLength = dynamicEdgeLength * 5.625;
@@ -332,6 +398,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     let isDragging = false;
     let physicsActive = false; // 초기에는 레이아웃이 완료될 때까지 비활성화
     let stableFrames = 0;
+    // 안정 상태가 이만큼 지속되면 rAF 루프를 멈춰 idle CPU 소모 제거
+    const STABLE_LIMIT = 60;
     
     const updatePhysics = () => {
       if (!cyRef.current || isDragging || !physicsActive) {
@@ -345,31 +413,28 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       let hasMovement = false;
       
       // 먼저 충돌 감지 및 처리 (구슬치기처럼)
-      const nodesArray = Array.from(cy.nodes());
-      for (let i = 0; i < nodesArray.length; i++) {
-        const node1 = nodesArray[i];
+      for (let i = 0; i < nodeList.length; i++) {
+        const node1 = nodeList[i];
         const node1Id = node1.id();
         const pos1 = node1.position();
-        const width1 = node1.width();
-        const height1 = node1.height();
-        const radius1 = Math.max(width1, height1) / 2;
+        const info1 = nodeInfo.get(node1Id)!;
+        const radius1 = info1.radius;
         // 질량 계산: radius^2에 비례 (면적에 비례)
-        const mass1 = radius1 * radius1;
+        const mass1 = info1.mass;
         
         if (!nodeVelocities.has(node1Id)) {
           nodeVelocities.set(node1Id, { vx: 0, vy: 0 });
         }
         const vel1 = nodeVelocities.get(node1Id)!;
         
-        for (let j = i + 1; j < nodesArray.length; j++) {
-          const node2 = nodesArray[j];
+        for (let j = i + 1; j < nodeList.length; j++) {
+          const node2 = nodeList[j];
           const node2Id = node2.id();
           const pos2 = node2.position();
-          const width2 = node2.width();
-          const height2 = node2.height();
-          const radius2 = Math.max(width2, height2) / 2;
+          const info2 = nodeInfo.get(node2Id)!;
+          const radius2 = info2.radius;
           // 질량 계산: radius^2에 비례 (면적에 비례)
-          const mass2 = radius2 * radius2;
+          const mass2 = info2.mass;
           
           if (!nodeVelocities.has(node2Id)) {
             nodeVelocities.set(node2Id, { vx: 0, vy: 0 });
@@ -396,15 +461,14 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             
             // 충돌이 발생하는 경우만 처리 (서로 가까워지는 경우)
             if (relativeSpeed < 0) {
-              // 엣지 연결 여부 확인
-              const edge = node1.edgesWith(node2);
-              const isConnected = edge.length > 0;
+              // 엣지 연결 여부 확인 (사전 계산된 맵 조회)
+              const connStrength = pairStrength.get(pairKey(node1Id, node2Id));
+              const isConnected = connStrength !== undefined;
               
               // 엣지 장력 강도 계산 (연결된 경우)
               let edgeTensionFactor = 1.0;
-              if (isConnected && edge.length > 0) {
-                const edgeData = edge[0].data();
-                const strength = edgeData.strength || 'medium';
+              if (isConnected) {
+                const strength = connStrength || 'medium';
                 // 장력 강도에 따라 충돌 반응 조정
                 // strong: 더 강한 반발력 (1.2배), medium: 기본 (1.0배), weak: 더 약한 반발력 (0.8배)
                 if (strength === 'strong') {
@@ -460,7 +524,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       }
       
       // 힘 계산 및 속도 업데이트
-      cy.nodes().forEach((node: any) => {
+      nodeList.forEach((node: any) => {
         const nodeId = node.id();
         const pos = node.position();
         
@@ -469,19 +533,16 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         let fy = 0;
 
         // 모든 노드와의 반발력 계산 (노드 지름의 1.5배 이내에서만)
-        const nodeWidth = node.width();
-        const nodeHeight = node.height();
-        const nodeRadius = Math.max(nodeWidth, nodeHeight) / 2;
+        const nodeRadius = nodeInfo.get(nodeId)!.radius;
         const repulsionDistance = nodeRadius * 2.5; // 반발력 작용 거리
         const repulsionStrength = 0.15; // 반발력 강도
         
-        cy.nodes().forEach((otherNode: any) => {
-          if (otherNode.id() === nodeId) return; // 자기 자신은 제외
+        nodeList.forEach((otherNode: any) => {
+          const otherId = otherNode.id();
+          if (otherId === nodeId) return; // 자기 자신은 제외
           
           const otherPos = otherNode.position();
-          const otherWidth = otherNode.width();
-          const otherHeight = otherNode.height();
-          const otherRadius = Math.max(otherWidth, otherHeight) / 2;
+          const otherRadius = nodeInfo.get(otherId)!.radius;
           const minDistance = nodeRadius + otherRadius;
           
           const dx = otherPos.x - pos.x;
@@ -499,29 +560,28 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           }
         });
 
-        // 연결된 노드들과의 스프링 힘 계산
-        const connectedNodes = node.neighborhood('node');
-        connectedNodes.forEach((connectedNode: any) => {
-          const edge = node.edgesWith(connectedNode);
-          if (edge.length > 0) {
-            const connectedPos = connectedNode.position();
-            const dx = connectedPos.x - pos.x;
-            const dy = connectedPos.y - pos.y;
-            const distance = Math.sqrt(dx * dx + dy * dy);
+        // 연결된 노드들과의 스프링 힘 계산 (사전 계산된 인접 맵 사용)
+        const neighbors = adjacency.get(nodeId) || [];
+        neighbors.forEach(({ otherId }) => {
+          const connectedNode = nodeInfo.get(otherId)?.node;
+          if (!connectedNode) return;
+          const connectedPos = connectedNode.position();
+          const dx = connectedPos.x - pos.x;
+          const dy = connectedPos.y - pos.y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance > 0) {
+            // 최대 길이 제한
+            const clampedDistance = Math.min(distance, maxEdgeLength);
+            const targetDistance = idealEdgeLength;
+            const distanceDiff = clampedDistance - targetDistance;
             
-            if (distance > 0) {
-              // 최대 길이 제한
-              const clampedDistance = Math.min(distance, maxEdgeLength);
-              const targetDistance = idealEdgeLength;
-              const distanceDiff = clampedDistance - targetDistance;
-              
-              // 거리 차이가 클수록 더 부드럽게 반응
-              const force = distanceDiff * springConstant;
-              
-              const angle = Math.atan2(dy, dx);
-              fx += Math.cos(angle) * force;
-              fy += Math.sin(angle) * force;
-            }
+            // 거리 차이가 클수록 더 부드럽게 반응
+            const force = distanceDiff * springConstant;
+            
+            const angle = Math.atan2(dy, dx);
+            fx += Math.cos(angle) * force;
+            fy += Math.sin(angle) * force;
           }
         });
 
@@ -554,16 +614,33 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         }
       });
 
-      // 안정화 확인 - 움직임이 있으면 카운터 리셋 (물리 시뮬레이션은 계속 유지)
+      // 안정화 확인 - 움직임이 있으면 카운터 리셋, 충분히 안정되면 루프 정지
       if (hasMovement) {
         stableFrames = 0;
       } else {
         stableFrames++;
-        // 물리 시뮬레이션을 계속 활성화하여 부드러운 움직임 유지
-        // stableFrames가 높아도 멈추지 않음
+        // 안정 상태가 STABLE_LIMIT 프레임 지속되면 루프를 멈춰 idle CPU 소모 제거
+        // (드래그/노드 클릭/정렬/전체보기 시 ensurePhysicsRunning으로 재시작)
+        if (stableFrames >= STABLE_LIMIT) {
+          physicsActive = false;
+          if (animationFrameRef.current !== null) {
+            cancelAnimationFrame(animationFrameRef.current);
+            animationFrameRef.current = null;
+          }
+          return;
+        }
       }
 
       animationFrameRef.current = requestAnimationFrame(updatePhysics);
+    };
+
+    // 물리 시뮬레이션 재시작 헬퍼 (정지 상태에서만 다시 가동)
+    const ensurePhysicsRunning = () => {
+      physicsActive = true;
+      stableFrames = 0;
+      if (animationFrameRef.current === null) {
+        updatePhysics();
+      }
     };
 
     // 드래그 중일 때는 물리 시뮬레이션 중지
@@ -637,11 +714,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       dragPreviousPositions.delete(nodeId);
       
       // 드래그 종료 후 물리 시뮬레이션 재시작
-      physicsActive = true;
-      stableFrames = 0;
-      if (animationFrameRef.current === null) {
-        updatePhysics();
-      }
+      ensurePhysicsRunning();
     });
 
     // 레이아웃 재실행 함수
@@ -675,11 +748,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         cy.fit(undefined, 50);
         
         // 물리 시뮬레이션 재시작
-        physicsActive = true;
-        stableFrames = 0;
-        if (animationFrameRef.current === null) {
-          updatePhysics();
-        }
+        ensurePhysicsRunning();
       });
       
       layout.run();
@@ -691,6 +760,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       if (!cy) return;
       
       cy.fit(undefined, 50); // padding 50px
+      ensurePhysicsRunning();
     };
 
     // 레이아웃이 완료된 후에만 물리 시뮬레이션 시작
@@ -720,9 +790,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       });
       
       // 레이아웃 완료 후 즉시 물리 시뮬레이션 시작 (지연 제거)
-      physicsActive = true;
-      stableFrames = 0;
-      updatePhysics();
+      ensurePhysicsRunning();
     });
 
     // 함수들을 ref에 저장하여 외부에서 접근 가능하게 함
@@ -733,20 +801,26 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       const node = evt.target;
       const nodeData = node.data();
       handleNodeClick(nodeData.id);
+      // 클릭 시 센터·줌 애니메이션과 함께 물리 시뮬레이션 재가동
+      ensurePhysicsRunning();
     });
 
     cy.on('tap', 'edge', function(evt) {
       const edge = evt.target;
       const edgeData = edge.data();
       const description = edgeData.description || '';
+      const natureLabel = relationNatureLabels[edgeData.nature as string] || '';
       
       const tooltip = document.createElement('div');
       tooltip.className = 'fixed bg-white border-2 border-gray-300 rounded-lg shadow-lg p-4 z-50 max-w-xs';
       tooltip.innerHTML = `
         <div class="font-bold text-lg mb-2" style="color: ${relationTypeColors[edgeData.type as RelationType]}">
-          ${edgeData.label}
+          ${edgeData.label}${natureLabel ? ` <span class="text-xs font-normal text-gray-500">(${natureLabel})</span>` : ''}
         </div>
         <div class="text-sm text-gray-600 mb-2">${description}</div>
+        ${edgeData.mechanism ? `<div class="text-xs text-gray-500 mb-1"><span class="font-semibold">메커니즘:</span> ${edgeData.mechanism}</div>` : ''}
+        ${edgeData.conditions ? `<div class="text-xs text-gray-500 mb-1"><span class="font-semibold">조건:</span> ${edgeData.conditions}</div>` : ''}
+        ${edgeData.lag ? `<div class="text-xs text-gray-500 mb-1"><span class="font-semibold">시차:</span> ${edgeData.lag}</div>` : ''}
         ${edgeData.strength ? `<div class="text-xs text-gray-500">강도: ${edgeData.strength === 'strong' ? '강함' : edgeData.strength === 'medium' ? '보통' : '약함'}</div>` : ''}
       `;
       document.body.appendChild(tooltip);
@@ -983,6 +1057,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                                 <div className="text-sm text-gray-600">
                                   {edgeData.description || `${selectedNode.name}이(가) ${targetName}에 영향을 줌`}
                                 </div>
+                                {renderRelationMeta(edgeData)}
                               </div>
                               {isBidirectional && (
                                 <div className="border-l-4 pl-4 py-2 ml-4" style={{ borderColor: color, borderStyle: 'dashed' }}>
@@ -1043,6 +1118,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                               <div className="text-sm text-gray-600">
                                 {edgeData.reverseDescription || edgeData.description || `${sourceName}이(가) ${selectedNode.name}에 영향을 줌`}
                               </div>
+                              {renderRelationMeta(edgeData)}
                             </div>
                           );
                         })}

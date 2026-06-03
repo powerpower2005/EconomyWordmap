@@ -49,13 +49,31 @@ terms:
 | `id` | yes | string | `r1`, `r2`, … sequential; never reuse |
 | `term1Id` | yes | string | Source term id |
 | `term2Id` | yes | string | Target term id |
-| `type` | yes | enum | `proportional` \| `inverse` \| `correlation` |
+| `type` | yes | enum | `proportional` \| `inverse` \| `correlation` (direction tendency) |
 | `description` | recommended | string | term1 → term2 |
 | `strength` | recommended | enum | `weak` \| `medium` \| `strong` |
+| `nature` | optional | enum | Semantic nature (see below); orthogonal to `type` |
+| `mechanism` | optional | string | How the relation works (KO prose) |
+| `conditions` | optional | string | When it holds (e.g. `고인플레 국면`) |
+| `lag` | optional | string | Time lag (e.g. `1~2분기 후`) |
 | `bidirectional` | optional | boolean | `true` for two-way arrow |
 | `reverseType` | optional | enum | Reverse direction type |
 | `reverseDescription` | optional | string | term2 → term1 |
 | `reverseStrength` | optional | enum | Reverse strength |
+
+### Relation nature (semantic axis)
+
+`nature` is independent from `type`. `type` encodes direction tendency (used for edge color); `nature` encodes meaning (used for edge line style: `correlational` renders dashed, all others solid).
+
+| `nature` | Meaning | UI label (KO) |
+|----------|---------|----------------|
+| `causal` | A causes B | 인과 |
+| `correlational` | Co-moves, causation not asserted | 상관 |
+| `definitional` | Defines / measures (e.g. CPI measures inflation) | 정의·측정 |
+| `hierarchical` | Parent/child, component-of | 계층 |
+| `policy` | Policy response link | 정책 반응 |
+
+All four of `nature` / `mechanism` / `conditions` / `lag` are optional; existing relations without them keep working. Backfill gradually, starting with key causal chains.
 
 ### Relation types (UI labels)
 
@@ -74,6 +92,10 @@ terms:
     type: correlation
     description: "인플레이션이 상승하면 기준금리 인상 경향(정책 반응)"
     strength: strong
+    nature: policy
+    mechanism: "중앙은행이 물가안정 목표를 위해 정책금리를 조정"
+    conditions: "기대인플레이션이 흔들릴 때 대응 강도 확대"
+    lag: "수개월~수분기"
 ```
 
 ### Bidirectional example (r22)

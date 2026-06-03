@@ -58,7 +58,8 @@
 
 ## 2. 작업 유형별 절차
 
-각 작업은 **Before → Edit → Validate → Commit** 순서를 따릅니다.
+각 작업은 **Before → Edit → Validate → Commit** 순서를 따릅니다.  
+검증 항목은 작업 유형별로 [4.3 검증 매트릭스](#43-작업-유형별-검증-매트릭스)를 따르고, 작업 후 반드시 [4. 검증](#4-검증-작업-후-필수)을 수행합니다.
 
 ### A. 용어 추가
 
@@ -76,7 +77,7 @@
 
 - `grep "id: sofr" src/data/terms-all.yaml` — id 중복 없음 확인
 
-**Validate:** [2.4 검증](#24-검증) 참고.
+**Validate:** [4. 검증](#4-검증-작업-후-필수) 수행. 추가 수동 확인은 [4.3 매트릭스](#43-작업-유형별-검증-매트릭스)의 "용어 추가" 행.
 
 **Commit:** 관계도 추가할 경우 **같은 커밋**에 `relations.yaml` 포함 권장.
 
@@ -87,6 +88,7 @@
 - 해당 `- id:` 블록만 수정 (`name`, `description`, `category`, `stockMarketImportance`)
 - 설명 톤: 단정적 인과보다 **경향**, **조건부**, **함께 분석** (예: `tax-cut`, `tax-increase` 항목 참고)
 - `changelog` / `updatedAt`은 YAML에 **수동으로 넣지 않음** (Git 자동)
+- **Validate:** [4. 검증](#4-검증-작업-후-필수) 수행. `category` 변경 시 [categories.md](./categories.md) 어휘 확인.
 
 ---
 
@@ -96,9 +98,16 @@
 
 1. 파일 **마지막** `- id: r###` 확인 → 다음 번호 사용 (예: r204 다음은 **r205**)
 2. `term1Id`, `term2Id`는 `terms-all.yaml`에 **존재하는 id**
-3. `type`: `proportional` | `inverse` | `correlation`
+3. `type`: `proportional` | `inverse` | `correlation` (방향성 경향 → 엣지 **색**)
 4. `strength`: `weak` | `medium` | `strong` (권장)
 5. 긴 `description`은 **쌍따옴표**로 감싸기
+6. (선택) 의미·맥락 필드로 학습 품질 강화:
+   - `nature`: `causal` | `correlational` | `definitional` | `hierarchical` | `policy` (의미 축 → 엣지 **실선/점선**, `correlational`만 점선)
+   - `mechanism`: 작동 메커니즘 (한국어 산문)
+   - `conditions`: 성립 조건·국면 (예: `고인플레 국면`)
+   - `lag`: 시차 (예: `1~2분기 후`)
+   - 모두 optional이라 기존 관계는 그대로 유효. 핵심 인과 사슬(인플레이션→금리→채권 등)부터 점진 backfill 권장.
+   - 필드 정의: [data-schema.md](./data-schema.md) 참고.
 
 **Before:**
 
@@ -107,12 +116,15 @@ grep "id: r205" src/data/relations.yaml
 grep "id: sofr" src/data/terms-all.yaml
 ```
 
+**Validate:** [4. 검증](#4-검증-작업-후-필수) 수행. 특히 [4.2](#42-수동-검증-자동으로-안-잡힘--에이전트가-직접-확인)의 **중복 관계쌍**·**방향성**을 직접 확인 (자동 검사기가 못 잡음).
+
 ---
 
 ### D. 관계 수정
 
 - 관계 `id`는 **유지**, 필드만 수정 (설명 보강이 가장 흔함)
 - UI 이력 요약 예: `관계 설명 수정`, `관계 유형·관계 설명 수정`
+- **Validate:** [4. 검증](#4-검증-작업-후-필수) + enum(`type`/`nature`/`strength`)·방향성·양방향 필드 정합 확인.
 
 ---
 
@@ -121,6 +133,7 @@ grep "id: sofr" src/data/terms-all.yaml
 - `- id: r###` 블록 전체 제거
 - 그래프에서 엣지 제거, 양쪽 용어에 `관계 삭제` 이력 생성
 - 의도적 삭제인지 작업 메모·커밋 메시지에 명시
+- **Validate:** [4. 검증](#4-검증-작업-후-필수) 수행. 삭제로 **고아 노드**(연결 0개)가 생기는지 확인.
 
 ---
 
@@ -146,24 +159,56 @@ grep "id: sofr" src/data/terms-all.yaml
 
 ---
 
-## 4. 검증
+## 4. 검증 (작업 후 필수)
+
+**모든** 데이터 변경 — 용어 추가, 용어 수정, 관계 추가·수정·삭제 — 후에는 아래 순서로 검증합니다. 건너뛰지 않습니다.
 
 ```bash
-node build-data.js
-npm run validate-data   # id 중복·고아 관계 검사 (권장)
-npm run build           # PR 전 TypeScript·Vite 빌드
+node build-data.js        # YAML → terms.json 변환·병합·이력 적용
+npm run validate-data     # 자동 검사 (4.1)
+npm run build             # PR 전 TypeScript·Vite 빌드
 ```
 
-`validate-data`는 terms-all에 없는 term을 가리키는 **기존 관계**를 경고로만 표시할 수 있습니다(레거시 데이터). **신규** 관계는 반드시 terms-all에 있는 id만 사용하세요.
+### 4.1 자동 검증 (`validate-data`가 잡는 것)
 
-**체크리스트:**
+- term `id` 누락·중복, `name` 누락 (error) / `description` 누락 (warning)
+- relation `id` 누락·중복, `term1Id` / `term2Id` 누락
+- relation이 가리키는 term id가 terms-all에 없음 (**기존**은 warning, **신규**는 반드시 회피)
+- `type` / `reverseType` enum (`proportional` | `inverse` | `correlation`)
+- `nature` enum (`causal` | `correlational` | `definitional` | `hierarchical` | `policy`)
+- `strength` / `reverseStrength` enum (`weak` | `medium` | `strong`)
+
+통과 메시지: `✅ Data validation passed (N terms, M relations)`. error가 있으면 종료 코드 1 → **반드시 수정 후 재검증.**
+
+### 4.2 수동 검증 (자동으로 안 잡힘 — 에이전트가 직접 확인)
+
+| 항목 | 확인 방법 |
+|------|-----------|
+| 중복 관계쌍 | 같은 (`term1Id`, `term2Id`) 조합이 이미 있는지 `grep`. 방향만 바뀐 중복도 점검 |
+| 카테고리 어휘 | 신규 `category`가 [categories.md](./categories.md) 목록에 있는지. 새 값은 임의 생성 금지 — 합의 후 UI 동기화 |
+| 방향성 일관성 | `term1Id → term2Id` 방향이 `description`·`type` 의미와 일치 (RelationGraph outbound/inbound 표시 기준) |
+| 양방향 필드 | `bidirectional: true`면 `reverseDescription` 작성, 필요 시 `reverseType` / `reverseStrength` |
+| nature ↔ 의미 정합 | 정책 대응=`policy`, 정의·측정=`definitional` 등 `nature`가 `description` 의미와 어긋나지 않게 |
+| YAML 인용 | `=`, `:`, `#` 포함 `description`은 `"..."`로 감쌌는지 |
+
+### 4.3 작업 유형별 검증 매트릭스
+
+| 작업 | 자동 (4.1) | 추가 수동 확인 (4.2) |
+|------|-----------|----------------------|
+| 용어 추가 | id 중복·name 누락 | category 어휘, `name`이 `한글 (English)` 형식 |
+| 용어 수정 | — | description 톤(경향·조건부) 유지 |
+| 관계 추가 | id·term 참조·enum | **중복 관계쌍**, 방향성, (선택) nature/mechanism |
+| 관계 수정 | enum | `id` 유지, 방향성·nature 정합, 양방향 필드 |
+| 관계 삭제 | — | 의도적 삭제 명시(커밋 메시지), 고아 노드 발생 여부 |
+
+**최종 체크리스트:**
 
 - [ ] `✅ terms-all.yaml → terms.json 변환 완료`
 - [ ] `✅ relations.yaml → terms.json 병합 완료`
 - [ ] `✅ 용어·관계 변경 이력 적용` (Git 저장소일 때)
-- [ ] 신규 term `id` / relation `id` 중복 없음
-- [ ] `term1Id`, `term2Id`가 terms-all에 존재
-- [ ] YAML 문법 오류 없음
+- [ ] `✅ Data validation passed` (error 0)
+- [ ] 4.2 / 4.3 수동 항목 확인 완료
+- [ ] `npm run build` 통과 (PR 전)
 
 ---
 
