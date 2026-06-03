@@ -545,3 +545,137 @@ propositions:
         detail: "독립성과 신뢰가 높은 중앙은행은 강한 긴축으로 기대를 빠르게 안정시킬 수 있다."
         example: "1979~1982년 폴 볼커의 고금리 정책이 인플레이션 기대를 단기간에 꺾은 사례."
     verdict: "중앙은행의 신뢰성에 따라 기대 안정 속도가 달라지는 조건부 명제다."
+
+  - id: p36
+    statement: "정부의 체계적 정책은 사람들이 미리 예상해 효과가 없다"
+    category: 경제이론
+    termIds: [policy-ineffectiveness, rational-expectations, new-classical-economics, quantitative-easing]
+    premise: "사람들이 합리적 기대로 정부의 체계적 정책을 예상하고 대응하면 효과가 상쇄된다는 새고전파의 정책 무력화 명제에 근거한다."
+    holds:
+      - label: "예고된 평상시 정책"
+        detail: "충분히 예고되고 반복된 통화정책은 기대에 반영되어 실질 변수에 미치는 효과가 제한적이다."
+    fails:
+      - label: "예상 밖 비전통 정책"
+        detail: "2008년과 2020년처럼 예상치 못한 양적완화나 대규모 재정 부양은 실제로 큰 효과를 냈다."
+    verdict: "정책의 예상 가능성과 경기 상황에 따라 갈리며, 극단적 적용은 위기에서 반증된 명제다."
+
+  - id: p37
+    statement: "시장 가격은 이용 가능한 모든 정보를 반영한다"
+    category: 금융
+    termIds: [efficient-market-hypothesis, rational-expectations, herd-behavior, behavioral-economics]
+    premise: "자산 가격이 모든 정보를 즉시 반영해 시장을 꾸준히 이기기 어렵다는 효율적 시장 가설에 근거한다."
+    holds:
+      - label: "유동성 높은 평상시 시장"
+        detail: "거래가 활발한 시장에서는 새 정보가 빠르게 가격에 반영되어 초과수익을 꾸준히 내기 어렵다."
+    fails:
+      - label: "버블과 군중 행동"
+        detail: "군중 행동과 과잉 자신감으로 버블과 붕괴가 반복되어 가격이 정보에서 크게 이탈한다."
+        example: "2008년 서브프라임 버블의 형성과 붕괴."
+    verdict: "평균적으로는 유효하지만 비합리성과 쏠림 앞에서는 무너지는 조건부 명제다."
+
+  - id: p38
+    statement: "과거 데이터로 추정한 모형은 정책이 바뀌어도 신뢰할 수 있다"
+    category: 경제이론
+    termIds: [lucas-critique, rational-expectations, dsge-model]
+    premise: "과거 행동 패턴을 추정한 계량 모형으로 정책 효과를 예측할 수 있다는 전통적 접근에 근거한다."
+    holds:
+      - label: "안정적 정책 체제"
+        detail: "정책 체제가 그대로 유지되는 동안에는 추정된 관계가 비교적 잘 유지된다."
+    fails:
+      - label: "루카스 비판"
+        detail: "정책이 바뀌면 사람들의 기대와 행동이 바뀌어 과거에 추정한 모형 파라미터가 이동한다."
+    verdict: "정책 변화 시에는 신뢰할 수 없어 기대·행동 반응을 명시적으로 반영해야 하는 명제다."
+
+  - id: p39
+    statement: "금융시장은 내버려두면 스스로 안정된다"
+    category: 금융
+    termIds: [efficient-market-hypothesis, financial-instability-hypothesis, leverage-ratio, systemic-risk]
+    premise: "시장이 효율적이고 합리적이면 금융도 자기 교정을 통해 안정을 유지한다는 관점에 근거한다."
+    holds:
+      - label: "평온기"
+        detail: "위기가 없는 평온기에는 차익거래와 가격 조정이 시장을 균형으로 되돌린다."
+    fails:
+      - label: "민스키의 동학"
+        detail: "안정이 길어질수록 부채와 위험 감수가 늘어 금융이 스스로 불안정해지고 시스템 리스크로 번진다."
+        example: "장기 호황 뒤에 터진 2008년 위기."
+    verdict: "평온기에는 그럴듯하나 호황의 자기파괴적 동학을 놓치는 명제다."
+
+  - id: p40
+    statement: "거시경제는 대표적 경제주체 하나로 충분히 설명된다"
+    category: 경제이론
+    termIds: [representative-agent, heterogeneous-agent, dsge-model, inequality]
+    premise: "경제를 평균적인 합리적 주체 한 명으로 단순화해도 핵심을 설명할 수 있다는 모형 가정에 근거한다."
+    holds:
+      - label: "총량 흐름 분석"
+        detail: "총생산·물가 같은 총량 변수의 큰 흐름을 간결하게 분석할 때는 유용하다."
+    fails:
+      - label: "이질성과 불평등"
+        detail: "부채 많은 가계와 은행의 상호작용, 불평등이 위기를 증폭시키는 과정을 담지 못한다."
+        example: "2008년 위기에서 가계·금융기관의 이질적 상호작용이 충격을 키운 사례."
+    verdict: "단순화에는 유용하나 이질성과 분배가 중요한 국면에서는 보완이 필요한 명제다."
+
+  - id: p41
+    statement: "사람은 같은 크기의 이익과 손실을 똑같이 느낀다"
+    category: 경제이론
+    termIds: [prospect-theory, loss-aversion, cognitive-bias, behavioral-economics]
+    premise: "표준 효용이론은 같은 크기의 이득과 손실을 대칭적으로 평가한다고 가정한다."
+    holds:
+      - label: "작고 감정 개입 적은 거래"
+        detail: "금액이 작고 반복적인 거래에서는 이익과 손실을 비교적 대칭적으로 다룬다."
+    fails:
+      - label: "손실 회피"
+        detail: "프로스펙트 이론에 따르면 사람들은 손실의 고통을 이득의 기쁨보다 약 두 배 크게 느낀다."
+    verdict: "손실 회피라는 체계적 편향 때문에 대체로 성립하지 않는 명제다."
+
+  - id: p42
+    statement: "선택 설계(넛지)로 사람들의 더 나은 결정을 유도할 수 있다"
+    category: 정부
+    termIds: [nudge, behavioral-economics, cognitive-bias]
+    premise: "선택의 구조를 바꾸면 강제 없이도 사람들의 행동을 개선할 수 있다는 넛지 이론에 근거한다."
+    holds:
+      - label: "기본값 설계"
+        detail: "연금 자동가입처럼 기본 선택지를 바꾸면 저축률이 크게 오른다."
+    fails:
+      - label: "지속성과 조작 논란"
+        detail: "효과가 일시적이거나 맥락에 의존하고, 정부의 은밀한 조작이라는 비판과 자율성 침해 논란이 따른다."
+    verdict: "특정 영역에선 효과적이나 투명성과 적용 범위에 따라 논란이 남는 조건부 명제다."
+
+  - id: p43
+    statement: "개인이 각자 합리적으로 행동하면 시스템 전체도 안전하다"
+    category: 경제이론
+    termIds: [systemic-risk, herd-behavior, leverage-ratio, financial-instability-hypothesis]
+    premise: "개별 주체가 합리적으로 위험을 관리하면 전체 금융 시스템도 안전하다는 통념에 근거한다."
+    holds:
+      - label: "평상시"
+        detail: "위기가 없는 평상시에는 개별 건전성 규제가 작동해 시스템도 안정적으로 유지된다."
+    fails:
+      - label: "구성의 오류"
+        detail: "모두가 동시에 부채를 줄이고 자산을 팔면 개별적으로 합리적인 행동이 집단적 붕괴를 부른다."
+        example: "2008년 위기의 디레버리징과 투매 악순환."
+    verdict: "개별 합리성과 시스템 안정이 어긋나 거시건전성 감독이 필요함을 보여주는 명제다."
+
+  - id: p44
+    statement: "행동경제학이 주류 경제학을 대체할 수 있다"
+    category: 경제이론
+    termIds: [behavioral-economics, behavioral-finance, dsge-model, rational-expectations]
+    premise: "인간의 비합리성을 다루는 행동경제학이 합리성 가정의 주류 경제학을 대신할 수 있다는 기대에 근거한다."
+    holds:
+      - label: "미시적 설명력"
+        detail: "개인의 편향과 미시적 의사결정을 설명하는 데 주류 모델보다 강력하다."
+    fails:
+      - label: "예측력과 체계의 한계"
+        detail: "편향이 언제 발현될지 예측력이 약하고, 경제 전체를 다루는 통합 거시 이론 체계가 아직 미완이다."
+    verdict: "주류를 대체하기보다 미시적 기초·기대 이론과 결합해 보완하는 단계의 명제다."
+
+  - id: p45
+    statement: "자산 버블은 부풀 때 식별하고 막을 수 있다"
+    category: 금융
+    termIds: [asset-bubble, irrational-exuberance, efficient-market-hypothesis, macroprudential-policy]
+    premise: "버블을 실시간으로 알아채 정책으로 미리 터뜨리거나 막을 수 있다는 기대에 근거한다."
+    holds:
+      - label: "극단적 과열 신호"
+        detail: "밸류에이션과 레버리지가 급증하는 극단적 과열은 거시건전성 정책으로 일부 억제할 수 있다."
+    fails:
+      - label: "사후성과 타이밍"
+        detail: "버블과 정상적 상승의 구분이 사후에야 분명해지고 개입 타이밍을 맞추기가 매우 어렵다."
+    verdict: "사전 식별과 개입은 부분적으로만 가능하며 타이밍이 핵심 난제인 명제다."

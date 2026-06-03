@@ -2676,3 +2676,411 @@ relations:
     description: "뉴케인즈학파는 가격 경직성으로 단기 비중립성을 주장하며 새고전파와 논쟁"
     reverseDescription: "새고전파는 시장청산을 전제해 뉴케인즈학파의 경직성 주장과 대립"
     strength: medium
+
+  - id: r357
+    term1Id: new-classical-economics
+    term2Id: policy-ineffectiveness
+    type: correlation
+    description: "정책 무력화 명제는 새고전파의 핵심 주장"
+    strength: strong
+    nature: causal
+
+  - id: r358
+    term1Id: rational-expectations
+    term2Id: policy-ineffectiveness
+    type: correlation
+    description: "합리적 기대로 예상된 체계적 정책은 효과가 상쇄된다는 논리"
+    strength: strong
+    nature: causal
+
+  - id: r359
+    term1Id: policy-ineffectiveness
+    term2Id: keynesian-economics
+    type: inverse
+    bidirectional: true
+    description: "정책 무력화 명제는 예상된 재량 정책의 효과를 부정"
+    reverseDescription: "케인즈주의는 재량 정책의 실효성을 주장해 정책 무력화 명제와 대립"
+    strength: strong
+
+  - id: r360
+    term1Id: new-classical-economics
+    term2Id: microfoundations
+    type: correlation
+    description: "거시 모형을 개인 최적화에서 출발시키는 미시적 기초를 강조"
+    strength: strong
+    nature: causal
+
+  - id: r361
+    term1Id: microfoundations
+    term2Id: dsge-model
+    type: correlation
+    description: "미시적 기초가 DSGE 모델의 기본 구조"
+    strength: strong
+    nature: causal
+
+  - id: r362
+    term1Id: real-business-cycle
+    term2Id: dsge-model
+    type: correlation
+    description: "실물경기변동이론이 DSGE 모델의 원형"
+    strength: medium
+    nature: hierarchical
+
+  - id: r363
+    term1Id: real-business-cycle
+    term2Id: business-cycle
+    type: correlation
+    description: "경기변동을 실물 기술 충격으로 설명하는 이론"
+    strength: medium
+    nature: causal
+
+  - id: r364
+    term1Id: representative-agent
+    term2Id: dsge-model
+    type: correlation
+    description: "대표적 경제주체는 전통적 DSGE 모델의 핵심 단순화 가정"
+    strength: medium
+    nature: hierarchical
+
+  - id: r365
+    term1Id: heterogeneous-agent
+    term2Id: representative-agent
+    type: inverse
+    bidirectional: true
+    description: "이질적 행위자 접근은 다양한 주체를 다뤄 평균적 대표주체 가정과 대비"
+    reverseDescription: "대표적 경제주체는 평균 하나로 단순화해 이질적 행위자 접근과 대비"
+    strength: medium
+
+  - id: r366
+    term1Id: rational-expectations
+    term2Id: efficient-market-hypothesis
+    type: correlation
+    description: "효율적 시장 가설은 합리적 기대를 금융시장에 적용한 이론"
+    strength: strong
+    nature: causal
+
+  - id: r367
+    term1Id: efficient-market-hypothesis
+    term2Id: behavioral-economics
+    type: inverse
+    bidirectional: true
+    description: "효율적 시장 가설은 가격이 정보를 합리적으로 반영한다고 봄"
+    reverseDescription: "행동경제학은 인지 편향을 들어 효율적 시장 가설의 합리성 가정을 반박"
+    strength: strong
+
+  - id: r368
+    term1Id: efficient-market-hypothesis
+    term2Id: herd-behavior
+    type: inverse
+    bidirectional: true
+    description: "효율적 시장 가설은 가격이 정보를 정확히 반영한다고 봄"
+    reverseDescription: "군중 행동의 쏠림은 가격을 정보에서 이탈시켜 효율적 시장 가설을 위배"
+    strength: medium
+
+  - id: r369
+    term1Id: global-financial-crisis
+    term2Id: new-classical-economics
+    type: inverse
+    bidirectional: true
+    description: "2008년 위기가 합리적 기대와 시장청산을 전제한 신고전파 모델의 한계를 드러냄"
+    reverseDescription: "신고전파 모델은 금융과 비합리성을 단순화해 2008년 위기를 예측하지 못함"
+    strength: strong
+
+  - id: r370
+    term1Id: global-financial-crisis
+    term2Id: efficient-market-hypothesis
+    type: inverse
+    bidirectional: true
+    description: "서브프라임 버블과 붕괴가 효율적 시장 가설을 정면으로 반증"
+    reverseDescription: "효율적 시장 가설은 버블 형성과 붕괴를 설명하지 못해 2008년에 신뢰를 잃음"
+    strength: strong
+
+  - id: r371
+    term1Id: global-financial-crisis
+    term2Id: herd-behavior
+    type: correlation
+    description: "군중 행동과 과잉 자신감이 버블 형성을 부추겨 위기를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r372
+    term1Id: global-financial-crisis
+    term2Id: leverage-ratio
+    type: correlation
+    description: "과도한 레버리지가 2008년 위기의 핵심 원인"
+    strength: medium
+    nature: causal
+
+  - id: r373
+    term1Id: global-financial-crisis
+    term2Id: shadow-banking
+    type: correlation
+    description: "규제 밖 그림자 금융의 붕괴가 위기를 증폭"
+    strength: medium
+    nature: causal
+
+  - id: r374
+    term1Id: global-financial-crisis
+    term2Id: quantitative-easing
+    type: correlation
+    description: "위기 대응으로 비전통적 통화정책인 양적완화가 도입됨"
+    strength: strong
+    nature: causal
+
+  - id: r375
+    term1Id: global-financial-crisis
+    term2Id: behavioral-economics
+    type: correlation
+    description: "위기로 인간의 비합리성을 다루는 행동경제학이 재조명됨"
+    strength: medium
+    nature: causal
+
+  - id: r376
+    term1Id: financial-instability-hypothesis
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "호황기 부채 누적이 위기를 부른다는 민스키적 설명"
+    strength: medium
+    nature: causal
+
+  - id: r377
+    term1Id: financial-instability-hypothesis
+    term2Id: efficient-market-hypothesis
+    type: inverse
+    bidirectional: true
+    description: "금융은 내재적으로 불안정하다는 민스키의 관점은 시장 효율성 가정과 대립"
+    reverseDescription: "효율적 시장 가설은 금융의 자기교정을 전제해 금융불안정성 가설과 대립"
+    strength: medium
+
+  - id: r378
+    term1Id: shadow-banking
+    term2Id: systemic-risk
+    type: correlation
+    description: "규제 사각의 그림자 금융이 시스템 리스크를 증폭"
+    strength: medium
+    nature: causal
+
+  - id: r379
+    term1Id: leverage-ratio
+    term2Id: systemic-risk
+    type: correlation
+    description: "높은 레버리지가 충격을 연쇄적으로 키워 시스템 리스크를 높임"
+    strength: medium
+    nature: causal
+
+  - id: r380
+    term1Id: financial-accelerator
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "담보 가치 하락이 차입을 옥죄어 충격을 증폭하고 실물 경제로 전이"
+    strength: medium
+    nature: causal
+
+  - id: r381
+    term1Id: tail-risk
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "정규분포를 가정한 위험 모델이 극단 위험을 과소평가해 위기를 키움"
+    strength: medium
+    nature: correlational
+
+  - id: r382
+    term1Id: new-keynesian-economics
+    term2Id: financial-friction
+    type: correlation
+    description: "위기 후 뉴케인즈 모형에 금융 마찰이 적극 반영됨"
+    strength: medium
+    nature: causal
+
+  - id: r383
+    term1Id: policy-ineffectiveness
+    term2Id: inflation-targeting
+    type: correlation
+    description: "정책 무력화 명제가 예측 가능한 규칙 기반 물가안정목표제를 정당화"
+    strength: medium
+    nature: causal
+
+  - id: r384
+    term1Id: behavioral-economics
+    term2Id: prospect-theory
+    type: correlation
+    description: "프로스펙트 이론은 행동경제학의 핵심 이론 토대"
+    strength: strong
+    nature: hierarchical
+
+  - id: r385
+    term1Id: prospect-theory
+    term2Id: loss-aversion
+    type: correlation
+    description: "프로스펙트 이론의 핵심은 손실에 더 민감한 손실 회피"
+    strength: strong
+    nature: causal
+
+  - id: r386
+    term1Id: behavioral-economics
+    term2Id: cognitive-bias
+    type: correlation
+    description: "행동경제학은 다양한 인지 편향을 분석 대상으로 삼음"
+    strength: strong
+    nature: hierarchical
+
+  - id: r387
+    term1Id: cognitive-bias
+    term2Id: overconfidence
+    type: correlation
+    description: "과잉 자신감은 대표적인 인지 편향의 하나"
+    strength: medium
+    nature: hierarchical
+
+  - id: r388
+    term1Id: cognitive-bias
+    term2Id: loss-aversion
+    type: correlation
+    description: "손실 회피는 대표적인 인지 편향의 하나"
+    strength: medium
+    nature: hierarchical
+
+  - id: r389
+    term1Id: behavioral-economics
+    term2Id: mental-accounting
+    type: correlation
+    description: "정신회계는 행동경제학이 밝힌 비합리적 의사결정 패턴"
+    strength: medium
+    nature: causal
+
+  - id: r390
+    term1Id: behavioral-economics
+    term2Id: nudge
+    type: correlation
+    description: "넛지는 행동경제학을 정책 설계에 적용한 대표적 도구"
+    strength: strong
+    nature: causal
+
+  - id: r391
+    term1Id: behavioral-economics
+    term2Id: behavioral-finance
+    type: correlation
+    description: "행동재무학은 행동경제학을 금융시장에 적용한 분야"
+    strength: strong
+    nature: hierarchical
+
+  - id: r392
+    term1Id: behavioral-economics
+    term2Id: animal-spirits
+    type: correlation
+    description: "행동경제학은 투자·소비를 좌우하는 심리인 야성적 충동을 정교화"
+    strength: medium
+    nature: causal
+
+  - id: r393
+    term1Id: behavioral-finance
+    term2Id: efficient-market-hypothesis
+    type: inverse
+    bidirectional: true
+    description: "행동재무학은 모멘텀·과잉반응 같은 이상현상으로 시장의 비효율을 보임"
+    reverseDescription: "효율적 시장 가설은 가격이 정보를 반영한다고 보아 행동재무학의 이상현상 주장과 대립"
+    strength: strong
+
+  - id: r394
+    term1Id: irrational-exuberance
+    term2Id: asset-bubble
+    type: correlation
+    description: "근거 없는 낙관인 비합리적 과열이 자산 버블을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r395
+    term1Id: overconfidence
+    term2Id: asset-bubble
+    type: correlation
+    description: "과잉 자신감이 과도한 위험 추구로 버블 형성을 부추김"
+    strength: medium
+    nature: causal
+
+  - id: r396
+    term1Id: herd-behavior
+    term2Id: asset-bubble
+    type: correlation
+    description: "투자자 쏠림인 군중 행동이 버블을 키우고 붕괴를 증폭"
+    strength: strong
+    nature: causal
+
+  - id: r397
+    term1Id: information-cascade
+    term2Id: herd-behavior
+    type: correlation
+    description: "앞선 선택을 따라가는 정보 캐스케이드가 군중 행동을 유발"
+    strength: medium
+    nature: causal
+
+  - id: r398
+    term1Id: asset-bubble
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "서브프라임 자산 버블의 붕괴가 2008년 위기로 이어짐"
+    strength: strong
+    nature: causal
+
+  - id: r399
+    term1Id: global-financial-crisis
+    term2Id: credit-crunch
+    type: correlation
+    description: "금융위기가 대출 급감인 신용 경색을 일으킴"
+    strength: medium
+    nature: causal
+
+  - id: r400
+    term1Id: credit-crunch
+    term2Id: economic-growth
+    type: inverse
+    description: "신용 경색이 기업·가계 자금을 옥죄어 실물 경제 성장을 침체시킴"
+    strength: medium
+    nature: causal
+
+  - id: r401
+    term1Id: global-financial-crisis
+    term2Id: behavioral-finance
+    type: correlation
+    description: "2008년 위기가 시장 비효율을 다루는 행동재무학의 부상을 이끎"
+    strength: medium
+    nature: causal
+
+  - id: r402
+    term1Id: global-financial-crisis
+    term2Id: macroprudential-policy
+    type: correlation
+    description: "위기가 시스템 전체를 보는 거시건전성 정책의 도입을 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r403
+    term1Id: macroprudential-policy
+    term2Id: systemic-risk
+    type: inverse
+    description: "거시건전성 정책은 레버리지·위험을 규제해 시스템 리스크를 억제"
+    strength: strong
+    nature: causal
+
+  - id: r404
+    term1Id: macroprudential-policy
+    term2Id: leverage-ratio
+    type: inverse
+    description: "LTV·DTI 같은 거시건전성 규제가 과도한 레버리지를 억제"
+    strength: medium
+    nature: causal
+
+  - id: r405
+    term1Id: financial-instability-hypothesis
+    term2Id: macroprudential-policy
+    type: correlation
+    description: "금융은 스스로 불안정해진다는 민스키의 통찰이 거시건전성 정책의 이론적 근거"
+    strength: medium
+    nature: causal
+
+  - id: r406
+    term1Id: bounded-rationality
+    term2Id: behavioral-economics
+    type: correlation
+    description: "제한된 합리성은 행동경제학의 출발 전제"
+    strength: medium
+    nature: causal
