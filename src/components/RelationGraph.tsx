@@ -2,6 +2,8 @@ import { useEffect, useRef, useState, forwardRef, useImperativeHandle } from 're
 import cytoscape from 'cytoscape';
 import { loadTerms, loadRelations, getStarRating } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
+import TermChangelog from './TermChangelog';
+import { getTermUpdatedLabel } from '../utils/termDisplay';
 
 export interface RelationGraphHandle {
   clickNode: (termId: string) => void;
@@ -931,6 +933,15 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-6">
               {selectedNode.description}
             </div>
+
+            {(selectedNode.updatedAt || (selectedNode.changelog && selectedNode.changelog.length > 0)) && (
+              <div className="mb-6 pb-6 border-b border-gray-200">
+                {getTermUpdatedLabel(selectedNode) && (
+                  <p className="text-sm text-gray-500 mb-3">{getTermUpdatedLabel(selectedNode)}</p>
+                )}
+                <TermChangelog term={selectedNode} />
+              </div>
+            )}
             
             {cyRef.current && (() => {
               const node = cyRef.current!.getElementById(selectedNode.id);

@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "node build-data.js && vite",
     "build": "node build-data.js && tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate-data": "node scripts/validate-data.js"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",

@@ -1,8 +1,13 @@
 import { Term, Relation, TermWithRelations } from '../types';
+import { compareTermsByUpdated, isTermUpdatedWithinDays } from './termDisplay';
 import termsData from '../data/terms.json';
 
+export type TermSortOrder = 'default' | 'updated-desc' | 'updated-asc';
+
+const allTerms = termsData.terms as Term[];
+
 export const loadTerms = (): Term[] => {
-  return termsData.terms as Term[];
+  return allTerms;
 };
 
 export const loadRelations = (): Relation[] => {
@@ -10,7 +15,7 @@ export const loadRelations = (): Relation[] => {
 };
 
 export const getTermById = (id: string): Term | undefined => {
-  return termsData.terms.find(term => term.id === id);
+  return allTerms.find(term => term.id === id);
 };
 
 export const getRelationsForTerm = (termId: string): Relation[] => {
@@ -43,12 +48,46 @@ export const getTermWithRelations = (termId: string): TermWithRelations | null =
 
 export const searchTerms = (query: string): Term[] => {
   const lowerQuery = query.toLowerCase();
-  return termsData.terms.filter(
+  return allTerms.filter(
     term => 
       term.name.toLowerCase().includes(lowerQuery) ||
       term.description.toLowerCase().includes(lowerQuery) ||
       (term.category && term.category.toLowerCase().includes(lowerQuery))
   );
+};
+
+export interface TermListOptions {
+  sortOrder?: TermSortOrder;
+  updatedWithinDays?: number | null;
+}
+
+export const filterAndSortTerms = (
+  terms: Term[],
+  options: TermListOptions = {}
+): Term[] => {
+  const { sortOrder = 'default', updatedWithinDays = null } = options;
+  let results = [...terms];
+
+  if (updatedWithinDays != null && updatedWithinDays > 0) {
+    results = results.filter((term) => isTermUpdatedWithinDays(term, updatedWithinDays));
+  }
+
+  if (sortOrder === 'updated-desc') {
+    results.sort((a, b) => compareTermsByUpdated(a, b, false));
+  } else if (sortOrder === 'updated-asc') {
+    results.sort((a, b) => compareTermsByUpdated(a, b, true));
+  }
+
+  return results;
+};
+
+export const queryTerms = (
+  query: string,
+  allTerms: Term[],
+  options: TermListOptions = {}
+): Term[] => {
+  const base = query.trim().length > 0 ? searchTerms(query) : allTerms;
+  return filterAndSortTerms(base, options);
 };
 
 export const getAllRelations = (): Array<{ term1: Term; term2: Term; relation: Relation }> => {
@@ -171,5 +210,5 @@ export const getStarRating = (importance: number): string => {
 
 // 주식시장 중요도로 용어 필터링
 export const filterTermsByImportance = (importance: number): Term[] => {
-  return termsData.terms.filter(term => term.stockMarketImportance === importance);
+  return allTerms.filter(term => term.stockMarketImportance === importance);
 };

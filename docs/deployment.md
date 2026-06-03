@@ -60,14 +60,9 @@
 
 ⚠️ **Private Repository 제한**: Private repo는 GitHub Pro (유료) 필요. 무료 플랜에서는 Public repo만 가능
 
-1. **GitHub Actions 설정 파일 생성**
-   - `.github/workflows/deploy.yml` 파일 생성 (아래 내용 참고)
-
-2. **GitHub 저장소 설정**
-   - Settings → Pages → Source: GitHub Actions 선택
-
-3. **자동 배포**
-   - 코드 푸시 시 자동으로 배포됨
+1. **워크플로** — `.github/workflows/deploy_frontend.yml` (공식 Pages Actions: artifact 업로드 후 deploy)
+2. **GitHub 저장소 설정** — README의 [GitHub Pages 배포](../README.md#github-pages-배포) 체크리스트 참고
+3. **자동 배포** — `main` 브랜치에 프론트/데이터 관련 경로가 변경되면 배포 (`workflow_dispatch`로 수동 실행 가능)
 
 ---
 
@@ -90,45 +85,8 @@
 
 ---
 
-## 📝 GitHub Pages용 GitHub Actions 워크플로우
-
-`.github/workflows/deploy.yml` 파일을 생성하세요:
-
-```yaml
-name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-        
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18'
-          
-      - name: Install dependencies
-        run: npm ci
-        
-      - name: Build
-        run: npm run build
-        
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist
-```
-
 ---
+
 
 ## 🎯 추천 순서
 

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
-import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, searchTerms, getStarRating, filterTermsByImportance } from '../utils/dataLoader';
+import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, getStarRating, filterTermsByImportance, queryTerms, TermSortOrder } from '../utils/dataLoader';
+import { formatTermDate, getLatestChangeSummary } from '../utils/termDisplay';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
 
@@ -23,9 +24,11 @@ export default function Home() {
   const [selectedImportanceFilters, setSelectedImportanceFilters] = useState<Set<number>>(new Set());
   const [selectedCategoryFilters, setSelectedCategoryFilters] = useState<Set<string>>(new Set());
   const [showFilters, setShowFilters] = useState<boolean>(false);
+  const [sortOrder, setSortOrder] = useState<TermSortOrder>('default');
+  const [updatedWithinDays, setUpdatedWithinDays] = useState<number | null>(null);
 
   // 카테고리 목록
-  const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재'];
+  const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재', '금리', '채권'];
 
   const handleTermClick = (term: Term) => {
     if (graphRef.current) {
@@ -34,30 +37,35 @@ export default function Home() {
   };
 
   useEffect(() => {
-    let results = searchQuery.trim().length > 0 ? searchTerms(searchQuery) : terms;
-    
-    // 주식시장 중요도 필터 적용
+    let results = queryTerms(searchQuery, terms, { sortOrder, updatedWithinDays });
+
     if (selectedImportanceFilters.size > 0) {
-      results = results.filter(term => 
+      results = results.filter(term =>
         term.stockMarketImportance && selectedImportanceFilters.has(term.stockMarketImportance)
       );
     }
-    
-    // 카테고리 필터 적용
+
     if (selectedCategoryFilters.size > 0) {
-      results = results.filter(term => 
+      results = results.filter(term =>
         term.category && selectedCategoryFilters.has(term.category)
       );
     }
-    
-    if (searchQuery.trim().length > 0 || selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) {
-      setSearchResults(results.slice(0, 20)); // 필터링 시 최대 20개
+
+    const hasActiveQuery =
+      searchQuery.trim().length > 0 ||
+      selectedImportanceFilters.size > 0 ||
+      selectedCategoryFilters.size > 0 ||
+      sortOrder !== 'default' ||
+      updatedWithinDays != null;
+
+    if (hasActiveQuery) {
+      setSearchResults(results.slice(0, 20));
       setShowDropdown(true);
     } else {
       setSearchResults([]);
       setShowDropdown(false);
     }
-  }, [searchQuery, selectedImportanceFilters, selectedCategoryFilters, terms]);
+  }, [searchQuery, selectedImportanceFilters, selectedCategoryFilters, sortOrder, updatedWithinDays, terms]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -93,6 +101,8 @@ export default function Home() {
     setSelectedImportanceFilters(new Set());
     setSelectedCategoryFilters(new Set());
     setSearchQuery('');
+    setSortOrder('default');
+    setUpdatedWithinDays(null);
   };
 
   // 외부 클릭 시 드롭다운 닫기
@@ -229,7 +239,10 @@ export default function Home() {
                   </div>
 
                   {/* 필터 초기화 버튼 */}
-                  {(selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && (
+                  {(selectedImportanceFilters.size > 0 ||
+                    selectedCategoryFilters.size > 0 ||
+                    sortOrder !== 'default' ||
+                    updatedWithinDays != null) && (
                     <div className="flex justify-end">
                       <button
                         onClick={clearAllFilters}
@@ -242,8 +255,42 @@ export default function Home() {
                 </div>
               )}
 
+              <div className="mb-3 flex flex-wrap items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-semibold text-gray-700 shrink-0">정렬</span>
+                  <select
+                    value={sortOrder}
+                    onChange={(e) => setSortOrder(e.target.value as TermSortOrder)}
+                    className="text-sm border border-gray-300 rounded-lg px-2 py-1.5 text-gray-800 bg-white"
+                  >
+                    <option value="default">이름순 (기본)</option>
+                    <option value="updated-desc">최근 수정순</option>
+                    <option value="updated-asc">오래된 수정순</option>
+                  </select>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="text-sm font-semibold text-gray-700 shrink-0">수정일</span>
+                  <select
+                    value={updatedWithinDays ?? ''}
+                    onChange={(e) => {
+                      const v = e.target.value;
+                      setUpdatedWithinDays(v === '' ? null : Number(v));
+                    }}
+                    className="text-sm border border-gray-300 rounded-lg px-2 py-1.5 text-gray-800 bg-white"
+                  >
+                    <option value="">전체</option>
+                    <option value="7">최근 7일</option>
+                    <option value="30">최근 30일</option>
+                    <option value="90">최근 90일</option>
+                  </select>
+                </div>
+              </div>
+
               {/* 활성 필터 표시 */}
-              {(selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && (
+              {(selectedImportanceFilters.size > 0 ||
+                selectedCategoryFilters.size > 0 ||
+                sortOrder !== 'default' ||
+                updatedWithinDays != null) && (
                 <div className="mb-3 flex flex-wrap gap-2">
                   {Array.from(selectedImportanceFilters).map(importance => (
                     <span
@@ -273,6 +320,22 @@ export default function Home() {
                       </button>
                     </span>
                   ))}
+                  {sortOrder !== 'default' && (
+                    <span className="px-2 py-1 bg-purple-100 text-purple-800 rounded text-xs flex items-center gap-1">
+                      {sortOrder === 'updated-desc' ? '최근 수정순' : '오래된 수정순'}
+                      <button onClick={() => setSortOrder('default')} className="ml-1 hover:text-purple-900">
+                        ×
+                      </button>
+                    </span>
+                  )}
+                  {updatedWithinDays != null && (
+                    <span className="px-2 py-1 bg-green-100 text-green-800 rounded text-xs flex items-center gap-1">
+                      최근 {updatedWithinDays}일 수정
+                      <button onClick={() => setUpdatedWithinDays(null)} className="ml-1 hover:text-green-900">
+                        ×
+                      </button>
+                    </span>
+                  )}
                 </div>
               )}
 
@@ -281,7 +344,14 @@ export default function Home() {
                   type="text"
                   value={searchQuery}
                   onChange={handleSearchChange}
-                  onFocus={() => (searchQuery.trim().length > 0 || selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0) && setShowDropdown(true)}
+                  onFocus={() =>
+                    (searchQuery.trim().length > 0 ||
+                      selectedImportanceFilters.size > 0 ||
+                      selectedCategoryFilters.size > 0 ||
+                      sortOrder !== 'default' ||
+                      updatedWithinDays != null) &&
+                    setShowDropdown(true)
+                  }
                   placeholder="용어 이름, 설명, 카테고리로 검색..."
                   className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900"
                 />
@@ -305,13 +375,27 @@ export default function Home() {
                               )}
                             </div>
                             <div className="text-sm text-gray-600 mt-1 line-clamp-2">{term.description}</div>
+                            {term.updatedAt && (
+                              <div className="text-xs text-gray-500 mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5">
+                                <span>{formatTermDate(term.updatedAt)} 수정</span>
+                                {getLatestChangeSummary(term) && (
+                                  <span className="text-purple-700">{getLatestChangeSummary(term)}</span>
+                                )}
+                              </div>
+                            )}
                           </div>
                         </div>
                       </button>
                     ))}
                   </div>
                 )}
-                {showDropdown && searchResults.length === 0 && (selectedImportanceFilters.size > 0 || selectedCategoryFilters.size > 0 || searchQuery.trim().length > 0) && (
+                {showDropdown &&
+                  searchResults.length === 0 &&
+                  (selectedImportanceFilters.size > 0 ||
+                    selectedCategoryFilters.size > 0 ||
+                    searchQuery.trim().length > 0 ||
+                    sortOrder !== 'default' ||
+                    updatedWithinDays != null) && (
                   <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 text-center text-gray-500">
                     검색 결과가 없습니다.
                   </div>

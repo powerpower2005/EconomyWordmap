@@ -1,0 +1,39 @@
+---
+description: Wordmap term/relation YAML editing (terms-all, relations) — rules in English
+globs: src/data/**/*.yaml
+alwaysApply: false
+---
+
+# Wordmap data files
+
+## Source of truth
+
+- Terms: `src/data/terms-all.yaml` (`terms:` list)
+- Relations: `src/data/relations.yaml` (`relations:` list)
+
+Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/terms/*.yaml` (not in build).
+
+## Workflow
+
+1. Read `docs/agent-data-guide.md` (Korean) for task steps and **description writing style**.
+2. Field reference: `docs/data-schema.md` (English).
+3. Edit YAML; quote long descriptions containing `=`, `:`, or `#`.
+4. Run `node build-data.js` and `npm run validate-data`.
+5. Commit with `data: ...` so changelog / updatedAt apply (`scripts/term-history.js`).
+
+## Relations
+
+- New ids: last `r###` in `relations.yaml` + 1.
+- `term1Id` and `term2Id` must exist in `terms-all.yaml` (for **new** edges).
+- Types: `proportional`, `inverse`, `correlation`. Bidirectional: `bidirectional: true` + `reverseDescription`.
+
+## Content language
+
+- YAML `name` / `description` / relation text: **Korean** (with English in parentheses in `name` when applicable).
+- Do not put Korean inside executable code; only in data strings.
+
+## References
+
+- Schema (EN): `docs/data-schema.md`
+- Prompts (KO) + steps (EN): `docs/agent-recipes.md`
+- Categories (KO): `docs/categories.md`

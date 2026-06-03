@@ -37,28 +37,71 @@ npm run dev
 npm run build
 ```
 
+## GitHub Pages 배포
+
+워크플로: [`.github/workflows/deploy_frontend.yml`](.github/workflows/deploy_frontend.yml) (`main` push 또는 **Actions → Run workflow**)
+
+**서비스 URL (커스텀 도메인):** `https://economy-word.gaemi.dpdns.org/`  
+**백업 (GitHub 기본):** `https://powerpower2005.github.io/EconomyWordmap/`
+
+### GitHub에서 직접 설정할 항목
+
+- [ ] **Settings → Pages** → Build and deployment: **GitHub Actions**
+- [ ] **Settings → Pages** → **Custom domain:** `economy-word.gaemi.dpdns.org` → DNS 확인 후 **Enforce HTTPS**
+- [ ] **Settings → Actions → General** → Workflow permissions: **Read and write permissions**
+- [ ] **Settings → Secrets and variables → Actions → Variables**
+  - `VITE_BASE` = `/` (커스텀 도메인 필수; 없으면 CI가 `/EconomyWordmap/` 로 빌드되어 깨짐)
+  - `VITE_EMAILJS_*` — 피드백 폼용 ([docs/emailjs-setup.md](docs/emailjs-setup.md))
+
+### DNS (`gaemi.dpdns.org` 관리 화면)
+
+| Type | Host / Name | Value / Target |
+|------|-------------|----------------|
+| **CNAME** | `economy-word` | `powerpower2005.github.io` |
+
+호스트 입력란이 FQDN이면 `economy-word.gaemi.dpdns.org` 로 넣는 UI도 있습니다. 전파 후 GitHub Pages에서 DNS check가 통과해야 합니다.
+
+Private 저장소는 GitHub Pages 무료 플랜에서 제한될 수 있습니다. Public이 아니면 Pro 등 플랜을 확인하세요.
+
+로컬 빌드 (커스텀 도메인과 동일 base):
+
+```bash
+# PowerShell
+$env:VITE_BASE="/"; npm run build
+npm run preview
+```
+
 ## 데이터 구조
 
-용어와 관계 데이터는 `src/data/terms.json` 파일에서 관리됩니다.
+**편집 (소스):**
+
+| 파일 | 내용 |
+|------|------|
+| `src/data/terms-all.yaml` | 용어 목록 |
+| `src/data/relations.yaml` | 용어 간 관계 |
+
+**생성물:** `src/data/terms.json` — `node build-data.js` 또는 `npm run dev` / `npm run build` 시 자동 생성. **직접 수정하지 마세요.**
+
+```bash
+node build-data.js      # YAML → JSON + Git 기반 변경 이력
+npm run validate-data   # id 중복·고아 관계 검사
+```
+
+에이전트·기여자 가이드: [AGENTS.md](AGENTS.md) (EN 규칙) · [docs/agent-data-guide.md](docs/agent-data-guide.md) (KO 절차) · [docs/agent-recipes.md](docs/agent-recipes.md) (프롬프트 KO / 단계 EN)
 
 ### 용어 (Term)
-- `id`: 고유 식별자
-- `name`: 용어명 (영문 병기 가능, 예: "인플레이션 (Inflation)")
+- `id`: 고유 식별자 (kebab-case)
+- `name`: 용어명 (예: "인플레이션 (Inflation)")
 - `description`: 설명
 - `category`: 카테고리 (선택)
 - `stockMarketImportance`: 주식시장 중요도 1-10 (선택)
+- `updatedAt`, `changelog`: 빌드 시 Git 이력에서 자동 부여 (UI 변경 이력)
 
 ### 관계 (Relation)
-- `id`: 고유 식별자
-- `term1Id`: 첫 번째 용어 ID
-- `term2Id`: 두 번째 용어 ID
-- `type`: 관계 유형 (proportional/inverse/correlation)
-- `description`: 관계 설명 (선택)
-- `strength`: 관계 강도 (weak/medium/strong, 선택)
-- `bidirectional`: 양방향 관계 여부 (선택)
-- `reverseType`: 역방향 관계 타입 (양방향일 때, 선택)
-- `reverseDescription`: 역방향 관계 설명 (양방향일 때, 선택)
-- `reverseStrength`: 역방향 관계 강도 (양방향일 때, 선택)
+- `id`: `r1`, `r2`, … (신규는 파일 마지막 번호 + 1)
+- `term1Id`, `term2Id`: 용어 ID (terms-all에 존재해야 함)
+- `type`: proportional / inverse / correlation
+- `description`, `strength`, `bidirectional`, `reverseDescription` 등 — [docs/data-schema.md](docs/data-schema.md)
 
 ## 주요 기능
 
@@ -93,15 +136,9 @@ npm run build
 
 ## 카테고리
 
-7개의 주요 카테고리로 용어를 분류합니다:
+주요 카테고리 (전체·동기화: [docs/categories.md](docs/categories.md)):
 
-- 📊 거시경제 (GDP, 인플레이션, 실업률 등)
-- 🌍 국제경제 (환율 등)
-- 💰 금융 (은행, 신용창조, 규제 등)
-- 💵 통화 (본원통화, M2, 지급준비금 등)
-- 🏦 통화정책 (기준금리, 양적완화 등)
-- 🏛️ 정부 (재정정책 등)
-- 📦 원자재 (금, 은, 구리, 천연가스 등)
+- 거시경제, 국제경제, 금융, 통화, 통화정책, 정부, 원자재, 금리, 채권
 
 ## 최근 업데이트 (2024.01)
 

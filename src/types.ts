@@ -1,11 +1,28 @@
 export type RelationType = 'proportional' | 'inverse' | 'correlation';
 
+export interface TermFieldChange {
+  field: 'name' | 'description' | 'category' | 'stockMarketImportance' | 'relation';
+  label: string;
+  before: string;
+  after: string;
+}
+
+export interface TermChangeEntry {
+  date: string;
+  commit?: string;
+  message?: string;
+  summary: string;
+  changes: TermFieldChange[];
+}
+
 export interface Term {
   id: string;
   name: string;
   description: string;
   category?: string;
   stockMarketImportance?: number; // 1-10, stock market importance rating
+  updatedAt?: string;
+  changelog?: TermChangeEntry[];
 }
 
 export interface Relation {
