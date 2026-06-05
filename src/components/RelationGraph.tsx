@@ -310,7 +310,16 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         {
           selector: 'edge',
           style: {
-            'width': 5,
+            // 관계 강도(strength)에 따라 선 두께를 다르게: 강함=굵게, 보통, 약함=얇게
+            'width': function(edge: any) {
+              const s = edge.data('strength') || 'medium';
+              return s === 'strong' ? 7 : s === 'weak' ? 2.5 : 4.5;
+            },
+            // 강도에 따라 진하기(투명도)도 조절: 강함=진하게, 약함=흐리게
+            'line-opacity': function(edge: any) {
+              const s = edge.data('strength') || 'medium';
+              return s === 'strong' ? 1 : s === 'weak' ? 0.55 : 0.85;
+            },
             // nature가 correlational이면 점선, 그 외(인과·정책·정의·계층) 또는 미지정이면 실선
             'line-style': function(edge: any) {
               return edge.data('nature') === 'correlational' ? 'dashed' : 'solid';
@@ -349,7 +358,12 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         {
           selector: 'edge:selected',
           style: {
-            'width': 5,
+            // 선택 시 강조: 강도별 두께에 가산하고 완전 불투명
+            'width': function(edge: any) {
+              const s = edge.data('strength') || 'medium';
+              return (s === 'strong' ? 7 : s === 'weak' ? 2.5 : 4.5) + 3;
+            },
+            'line-opacity': 1,
             'opacity': 1
           }
         }
@@ -1055,6 +1069,21 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
               <span className="text-sm text-gray-600">{label}</span>
             </div>
           ))}
+          <div className="flex items-center gap-3 ml-2 pl-4 border-l border-gray-200">
+            {[
+              { label: '강함', h: 7, opacity: 1 },
+              { label: '보통', h: 4.5, opacity: 0.85 },
+              { label: '약함', h: 2.5, opacity: 0.55 }
+            ].map(({ label, h, opacity }) => (
+              <div key={label} className="flex items-center gap-1.5">
+                <div
+                  className="w-5 rounded-full bg-gray-500"
+                  style={{ height: `${h}px`, opacity }}
+                />
+                <span className="text-sm text-gray-600">{label}</span>
+              </div>
+            ))}
+          </div>
         </div>
         <div className="border-t pt-4">
           <div className="text-sm font-semibold text-gray-700 mb-2">카테고리:</div>
