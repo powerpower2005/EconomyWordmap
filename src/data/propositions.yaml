@@ -679,3 +679,97 @@ propositions:
       - label: "사후성과 타이밍"
         detail: "버블과 정상적 상승의 구분이 사후에야 분명해지고 개입 타이밍을 맞추기가 매우 어렵다."
     verdict: "사전 식별과 개입은 부분적으로만 가능하며 타이밍이 핵심 난제인 명제다."
+
+  - id: p46
+    statement: "세율을 낮추면 세수가 오히려 늘어난다"
+    category: 정부
+    termIds: [laffer-curve, tax-cut, supply-side-economics, national-debt]
+    premise: "세율과 세수의 관계가 비선형이라는 래퍼 곡선에 근거해 감세가 세수를 늘릴 수 있다고 본다."
+    holds:
+      - label: "세율이 너무 높은 경우"
+        detail: "현재 세율이 세수를 극대화하는 지점보다 높은 금지 영역에 있으면 인하가 생산과 세수를 함께 늘릴 수 있다."
+    fails:
+      - label: "이미 낮은 세율"
+        detail: "세율이 극대점 왼쪽에 있으면 인하는 곧바로 세수 감소로 이어지며 레이건 시대처럼 재정적자가 커진다."
+        example: "레이건·트럼프 감세 후 실제로는 재정적자가 확대됨."
+    verdict: "현재 세율의 위치에 따라 달라지는 조건부 명제이며 항상 성립하지는 않는다."
+
+  - id: p47
+    statement: "감세는 장기 경제 성장을 촉진한다"
+    category: 경제이론
+    termIds: [supply-side-economics, tax-cut, economic-growth, trickle-down-effect]
+    premise: "세율을 낮추면 노동·투자·창업 유인이 살아나 공급 측 성장으로 이어진다는 공급주의에 근거한다."
+    holds:
+      - label: "공급 측 유인 회복"
+        detail: "과도한 세 부담이 생산 의욕을 꺾고 있을 때는 감세가 투자와 노동 공급을 늘려 성장에 기여한다."
+    fails:
+      - label: "트리클다운 미작동"
+        detail: "추가 소득이 소비·투자보다 저축으로 향하거나 단기 수요가 부족하면 성장 효과는 약하고 불평등만 심화될 수 있다."
+    verdict: "구조와 국면에 따라 효과가 갈리며 분배·단기 수요 문제를 함께 봐야 하는 명제다."
+
+  - id: p48
+    statement: "공급을 늘리면 인플레이션을 잡을 수 있다"
+    category: 거시경제
+    termIds: [aggregate-supply, inflation, supply-shock, disinflation, tariff]
+    premise: "값싼 에너지 등으로 총공급을 늘리면 수요를 짓누르지 않고도 물가를 잡는 인플레이션 없는 호황이 가능하다는 발상이다."
+    holds:
+      - label: "공급견인 물가 하락"
+        detail: "에너지 증산 등 총공급 확대는 공급 충격의 반대로 작동해 물가를 끌어내리는 디스인플레이션 경로를 연다."
+    fails:
+      - label: "수요견인·비용상승 상쇄"
+        detail: "물가 상승이 수요 견인이거나, 같은 정부의 관세가 비용을 밀어 올리면 공급 측 물가 인하 효과가 상쇄된다."
+    verdict: "물가 상승의 원인과 동시에 쓰이는 다른 정책에 따라 달라지는 조건부 명제다."
+
+  - id: p49
+    statement: "관세와 감세를 함께 쓰면 물가 효과가 상쇄된다"
+    category: 거시경제
+    termIds: [supply-side-economics, neo-mercantilism, tariff, tax-cut, inflation]
+    premise: "감세·규제완화·에너지 증산(공급주의)은 디스인플레이션, 관세(신중상주의)는 비용 상승 인플레이션으로 정반대 방향이라는 점에 근거한다."
+    holds:
+      - label: "두 힘의 충돌"
+        detail: "한 손의 공급 확대가 물가를 낮추고 다른 손의 관세가 물가를 높여 서로 일부 상쇄되며 물가 경로가 모호해진다."
+        example: "감세·에너지 증산과 관세를 함께 추진하는 현 미국 정책의 내적 긴장."
+    fails:
+      - label: "한쪽의 우세"
+        detail: "관세 인상 폭이 크거나 에너지 비용까지 오르면 인플레이션 경로가 우세해 상쇄가 무너진다."
+    verdict: "두 힘의 상대적 크기에 따라 물가와 중앙은행 대응이 갈리는 레짐 의존적 명제다."
+
+  - id: p50
+    statement: "규제를 풀면 경제가 더 빨리 성장한다"
+    category: 정부
+    termIds: [deregulation, economic-growth, supply-side-economics, market-failure]
+    premise: "규제 비용을 줄이면 공급과 투자 유인이 살아나 생산성과 성장이 높아진다는 공급주의에 근거한다."
+    holds:
+      - label: "과잉 규제 해소"
+        detail: "불필요한 규제가 비용과 진입장벽을 키우고 있을 때는 완화가 투자와 혁신, 성장을 촉진한다."
+    fails:
+      - label: "시장 실패 방치"
+        detail: "외부효과·시스템 위험 등 시장 실패가 있는 영역에서 규제를 풀면 안전·환경·금융 건전성 악화로 더 큰 비용을 부를 수 있다."
+        example: "금융 규제 완화가 누적된 뒤 터진 2008년 위기."
+    verdict: "규제의 성격과 시장 실패 여부에 따라 효과가 갈리는 조건부 명제다."
+
+  - id: p51
+    statement: "총수요를 늘리면 경제가 성장한다"
+    category: 거시경제
+    termIds: [aggregate-demand, aggregate-supply, inflation, full-employment]
+    premise: "지출을 늘려 총수요를 키우면 산출과 고용이 늘어난다는 케인즈식 수요관리에 근거한다."
+    holds:
+      - label: "유휴 자원이 있을 때"
+        detail: "불황으로 생산설비와 노동이 놀고 있을 때는 총수요 확대가 물가를 크게 자극하지 않고 산출을 늘린다."
+    fails:
+      - label: "완전고용 부근"
+        detail: "경제가 완전고용에 가까우면 총공급이 한계에 부딪혀 추가 수요는 산출보다 물가만 끌어올린다."
+    verdict: "총공급 여력(경기 국면)에 따라 성장이 되기도, 물가만 오르기도 하는 조건부 명제다."
+
+  - id: p52
+    statement: "재정정책으로 경기를 안정시킬 수 있다"
+    category: 정부
+    termIds: [fiscal-policy, aggregate-demand, multiplier, national-debt]
+    premise: "정부가 지출과 조세로 총수요를 조절해 경기 변동을 완화할 수 있다는 케인즈주의에 근거한다."
+    holds:
+      - label: "깊은 불황·유동성 함정"
+        detail: "통화정책이 무력한 깊은 불황에서는 정부 지출의 승수효과가 총수요를 떠받쳐 경기를 회복시킨다."
+    fails:
+      - label: "시차·부채·구축효과"
+        detail: "집행 시차와 정치적 왜곡이 있고, 국가부채 누적과 금리 상승으로 민간 투자를 밀어내면 효과가 약해진다."
+    verdict: "경기 국면과 재정 여력에 따라 효과가 달라지는 조건부 명제다."

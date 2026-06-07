@@ -3285,3 +3285,70 @@ relations:
     bidirectional: true
     reverseType: correlation
     reverseDescription: "감세·규제완화(공급 확대)와 관세(공급 위축)가 물가에 정반대로 작용"
+
+  - id: r431
+    term1Id: aggregate-demand
+    term2Id: aggregate-supply
+    type: correlation
+    description: "총수요와 총공급이 만나는 점에서 물가와 산출(GDP)이 동시에 결정되는 거시경제의 기본 틀"
+    strength: strong
+    nature: causal
+    bidirectional: true
+    reverseType: correlation
+    reverseDescription: "총공급이 총수요를 받쳐주지 못하면 물가가 오르고 산출이 제약됨"
+
+  - id: r432
+    term1Id: aggregate-demand
+    term2Id: inflation
+    type: proportional
+    description: "총수요가 공급 능력을 웃돌면 수요견인 인플레이션이 발생"
+    strength: strong
+    nature: causal
+
+  - id: r433
+    term1Id: aggregate-demand
+    term2Id: gdp
+    type: proportional
+    description: "단기에는 총수요의 크기가 실제 산출(GDP)을 좌우"
+    strength: strong
+    nature: causal
+
+  - id: r434
+    term1Id: aggregate-supply
+    term2Id: economic-growth
+    type: proportional
+    description: "노동·자본·생산성으로 결정되는 총공급의 확대가 장기 경제성장의 토대"
+    strength: strong
+    nature: causal
+
+  - id: r435
+    term1Id: fiscal-policy
+    term2Id: aggregate-demand
+    type: proportional
+    description: "정부 지출·조세는 총수요를 직접 조절하는 케인즈식 수요관리 수단"
+    strength: strong
+    nature: policy
+
+  - id: r436
+    term1Id: disinflation
+    term2Id: expected-inflation
+    type: proportional
+    description: "디스인플레이션이 자리잡으면 기대인플레이션이 낮은 수준에 안착(앵커링)"
+    strength: medium
+    nature: causal
+
+  - id: r437
+    term1Id: corporate-tax
+    term2Id: stock-market
+    type: inverse
+    description: "법인세 인하는 기업의 세후 이익을 늘려 주가에 긍정적으로 작용"
+    strength: strong
+    nature: causal
+
+  - id: r438
+    term1Id: full-employment
+    term2Id: inflation
+    type: proportional
+    description: "완전고용에 가까워질수록 노동시장이 과열되어 임금·물가 상승 압력이 커짐(필립스 곡선 직관)"
+    strength: medium
+    nature: causal
