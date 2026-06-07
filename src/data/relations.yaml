@@ -3084,3 +3084,204 @@ relations:
     description: "제한된 합리성은 행동경제학의 출발 전제"
     strength: medium
     nature: causal
+
+  - id: r407
+    term1Id: supply-side-economics
+    term2Id: classical-economics
+    type: correlation
+    description: "공급주의는 시장의 자율과 생산 측 유인을 중시하는 고전파적 흐름에 속하는 한 갈래"
+    strength: strong
+    nature: hierarchical
+
+  - id: r408
+    term1Id: supply-side-economics
+    term2Id: keynesian-economics
+    type: correlation
+    description: "공급(생산 유인) 중심의 공급주의와 수요관리 중심의 케인즈주의가 성장 동인을 두고 정면 대립"
+    strength: strong
+    nature: correlational
+    bidirectional: true
+    reverseType: correlation
+    reverseDescription: "케인즈주의의 수요관리 정책에 대한 반발로 공급주의가 부상"
+
+  - id: r409
+    term1Id: supply-side-economics
+    term2Id: monetarism
+    type: correlation
+    description: "통화주의와 거의 같은 시기에 같은 케인즈주의를 겨냥한 고전파 진영의 두 갈래"
+    strength: strong
+    nature: correlational
+    bidirectional: true
+    reverseType: correlation
+    reverseDescription: "통화량 대신 세금·규제에 초점을 둔 점이 통화주의와 다름"
+
+  - id: r410
+    term1Id: supply-side-economics
+    term2Id: laffer-curve
+    type: correlation
+    description: "래퍼 곡선은 감세가 세수를 늘릴 수 있다는 공급주의의 상징적 논리"
+    strength: strong
+    nature: definitional
+
+  - id: r411
+    term1Id: supply-side-economics
+    term2Id: tax-cut
+    type: correlation
+    description: "감세는 생산·투자 유인을 살리려는 공급주의의 대표 정책수단"
+    strength: strong
+    nature: policy
+
+  - id: r412
+    term1Id: supply-side-economics
+    term2Id: deregulation
+    type: correlation
+    description: "규제 완화는 공급 측 비용을 줄이려는 공급주의의 또 다른 핵심 수단"
+    strength: strong
+    nature: policy
+
+  - id: r413
+    term1Id: supply-side-economics
+    term2Id: aggregate-supply
+    type: correlation
+    description: "공급주의는 장기 성장을 총공급(노동·자본·생산성) 확대에서 찾는다"
+    strength: strong
+    nature: causal
+
+  - id: r414
+    term1Id: reaganomics
+    term2Id: supply-side-economics
+    type: correlation
+    description: "레이거노믹스는 공급주의를 현실 정책으로 구현한 대표 사례"
+    strength: strong
+    nature: hierarchical
+
+  - id: r415
+    term1Id: reaganomics
+    term2Id: national-debt
+    type: proportional
+    description: "감세 후 지출을 줄이지 않아 레이건 시대 재정적자와 국가부채가 크게 늘어남"
+    strength: strong
+    nature: causal
+
+  - id: r416
+    term1Id: laffer-curve
+    term2Id: tax-cut
+    type: correlation
+    description: "세율과 세수의 비선형 관계는 감세 주장의 핵심 근거"
+    strength: medium
+    nature: correlational
+
+  - id: r417
+    term1Id: laffer-curve
+    term2Id: dynamic-scoring
+    type: correlation
+    description: "세율 변화의 행동·성장 효과를 반영하자는 동적 분석은 래퍼 곡선의 문제의식을 잇는다"
+    strength: medium
+    nature: correlational
+
+  - id: r418
+    term1Id: dynamic-scoring
+    term2Id: fiscal-policy
+    type: correlation
+    description: "동적 재정 분석은 세제·재정정책의 효과를 평가하는 방식에 영향을 줌"
+    strength: medium
+    nature: correlational
+
+  - id: r419
+    term1Id: trickle-down-effect
+    term2Id: supply-side-economics
+    type: correlation
+    description: "감세 혜택이 아래로 흘러내린다는 트리클다운은 공급주의 정당화의 핵심 가정"
+    strength: medium
+    nature: correlational
+
+  - id: r420
+    term1Id: trickle-down-effect
+    term2Id: inequality
+    type: proportional
+    description: "트리클다운이 자동으로 작동하지 않으면 감세가 오히려 불평등을 심화시킬 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r421
+    term1Id: corporate-tax
+    term2Id: investment
+    type: inverse
+    description: "법인세 인하는 세후 수익성을 높여 기업의 투자·설비 유인을 키움"
+    strength: strong
+    nature: causal
+
+  - id: r422
+    term1Id: corporate-tax
+    term2Id: tax-cut
+    type: correlation
+    description: "법인세 인하는 공급주의가 선호하는 대표적 감세"
+    strength: medium
+    nature: hierarchical
+
+  - id: r423
+    term1Id: full-expensing
+    term2Id: investment
+    type: proportional
+    description: "전액 즉시상각은 투자의 세후 수익성을 높여 설비투자를 앞당김"
+    strength: medium
+    nature: causal
+
+  - id: r424
+    term1Id: deregulation
+    term2Id: economic-growth
+    type: proportional
+    description: "규제 완화는 공급과 생산성을 높여 성장에 기여할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r425
+    term1Id: supply-shock
+    term2Id: aggregate-supply
+    type: inverse
+    description: "유가 급등 같은 공급 충격은 총공급을 위축시켜 물가 상승과 경기 둔화를 부른다"
+    strength: strong
+    nature: causal
+
+  - id: r426
+    term1Id: aggregate-supply
+    term2Id: inflation
+    type: inverse
+    description: "총공급 확대(값싼 에너지 등)는 물가를 끌어내리는 인플레이션 킬러로 작동"
+    strength: medium
+    nature: causal
+
+  - id: r427
+    term1Id: disinflation
+    term2Id: inflation
+    type: inverse
+    description: "디스인플레이션은 인플레이션율이 둔화되는 국면으로 물가 상승세 자체가 꺾이는 상태"
+    strength: strong
+    nature: definitional
+
+  - id: r428
+    term1Id: disinflation
+    term2Id: interest-rate
+    type: proportional
+    description: "디스인플레이션이 확인되면 중앙은행의 금리 인하 여지가 넓어짐"
+    strength: medium
+    nature: policy
+
+  - id: r429
+    term1Id: capital-gains-tax
+    term2Id: stock-market
+    type: inverse
+    description: "자본이득세 인상은 매도·실현 유인과 투자 매력을 낮춰 주식시장에 부정적으로 작용할 수 있음"
+    strength: medium
+    nature: policy
+
+  - id: r430
+    term1Id: supply-side-economics
+    term2Id: neo-mercantilism
+    type: correlation
+    description: "자유무역을 떠받드는 공급주의와 관세로 공급을 옥죄는 신중상주의가 현 미국 정책 안에서 동거하며 긴장"
+    strength: strong
+    nature: correlational
+    bidirectional: true
+    reverseType: correlation
+    reverseDescription: "감세·규제완화(공급 확대)와 관세(공급 위축)가 물가에 정반대로 작용"

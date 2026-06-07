@@ -1306,3 +1306,69 @@ terms:
     description: 금융기관이 위험을 회피해 대출을 급격히 줄이면서 신용이 마르는 상태로 2008년 위기에서 금융 충격이 실물 경제로 전이되는 핵심 경로
     category: 금융
     stockMarketImportance: 4
+
+  - id: supply-side-economics
+    name: 공급주의 (Supply-Side Economics)
+    description: 1970년대 후반 케인즈주의의 수요관리 정책에 맞서 등장한 학파로 성장의 원동력을 수요가 아니라 생산·투자·노동의 공급 측 유인에서 찾아 감세와 규제 완화를 강조했으며 레이거노믹스의 이론적 기반이 됨. 고전파적 흐름에 속하며 학문적 완결성보다 정책 독트린의 성격이 강하나 현대 정책을 실제로 움직이는 살아있는 사조
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: laffer-curve
+    name: 래퍼 곡선 (Laffer Curve)
+    description: 세율이 0이거나 100퍼센트면 세수가 모두 0이 되므로 그 사이에 세수를 극대화하는 지점이 있고 세율이 그보다 높으면 인하해야 생산과 세수가 함께 늘 수 있다는 공급주의의 상징적 논리로, 감세 주장의 근거이나 세수 증가가 항상 실현되지는 않는 한계가 있음
+    category: 경제이론
+    stockMarketImportance: 3
+
+  - id: reaganomics
+    name: 레이거노믹스 (Reaganomics)
+    description: 1980년대 로널드 레이건 행정부가 추진한 대규모 감세·규제 완화·작은 정부 노선으로 공급주의를 현실 정책으로 구현했으나 지출은 줄지 않아 재정적자와 국가부채가 크게 늘어난 한계도 함께 보여준 정책 레짐
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: trickle-down-effect
+    name: 트리클다운 효과 (Trickle-down Effect)
+    description: 고소득층과 기업에 대한 감세 혜택이 투자와 고용을 거쳐 저소득층에게도 흘러내린다는 공급주의의 가정으로, 추가 소득이 소비·투자보다 저축으로 향하면 자동으로 작동하지 않아 불평등 심화 비판을 받음
+    category: 경제이론
+    stockMarketImportance: 2
+
+  - id: dynamic-scoring
+    name: 동적 재정 분석 (Dynamic Scoring)
+    description: 세제 변화를 평가할 때 세율 변화가 유발하는 경제주체의 행동 변화와 성장 효과까지 반영하는 분석 방식으로 세수를 고정적으로 추정하는 정적 분석과 대비되며 래퍼 곡선의 문제의식을 정책 평가에 잇는다
+    category: 정부
+    stockMarketImportance: 2
+
+  - id: corporate-tax
+    name: 법인세 (Corporate Tax)
+    description: 기업의 이익에 부과하는 세금으로 세후 이익·투자 여력·주가에 직접 영향을 미치며 인하는 투자와 본사 유치 유인을 키우지만 재정수입 감소와 분배 논쟁을 부르는 대표적 감세 대상
+    category: 정부
+    stockMarketImportance: 6
+
+  - id: deregulation
+    name: 규제 완화 (Deregulation)
+    description: 기업 활동에 대한 규제와 그 비용을 줄여 공급과 투자 유인을 높이려는 정책으로 공급주의의 핵심 수단이며 에너지·금융·핀테크 등 특정 산업의 비용 구조와 주가를 빠르게 바꿀 수 있으나 안전·환경·건전성 약화 위험을 동반함
+    category: 정부
+    stockMarketImportance: 5
+
+  - id: aggregate-supply
+    name: 총공급 (Aggregate Supply)
+    description: 한 경제가 일정 기간 생산·공급하려는 재화와 서비스의 총량으로 노동·자본·생산성과 생산비용에 좌우되며 총수요와 만나 물가와 산출을 결정하고 공급 충격 시 물가와 경기를 동시에 흔든다
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: capital-gains-tax
+    name: 자본이득세 (Capital Gains Tax)
+    description: 주식·부동산 등 자산을 팔아 얻은 차익에 부과하는 세금으로 투자자의 매도·실현 시점과 위험 감수 의향에 직접 영향을 미치며 세율 변화가 거래와 자산 가격에 단기 충격을 줄 수 있음
+    category: 정부
+    stockMarketImportance: 5
+
+  - id: disinflation
+    name: 디스인플레이션 (Disinflation)
+    description: 물가가 하락하는 디플레이션과 달리 물가상승률 자체가 둔화되는 현상으로 인플레이션이 정점을 지나 목표로 수렴하는 국면을 가리키며 중앙은행의 금리 인하 여지와 시장 기대를 좌우하는 핵심 화두
+    category: 거시경제
+    stockMarketImportance: 7
+
+  - id: full-expensing
+    name: 즉시상각 (Full Expensing)
+    description: 기업이 설비·장비 투자액을 여러 해에 걸쳐 나누지 않고 당해에 전액 비용으로 처리하도록 허용하는 세제로 투자의 세후 수익성을 높여 설비투자를 앞당기는 공급 측 유인책이며 2025년 감세법에서 부활함
+    category: 정부
+    stockMarketImportance: 4
