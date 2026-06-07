@@ -225,9 +225,11 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     const componentSpacing = Math.max(400, 200 * (nodeCount / 50)); // 컴포넌트 간 간격도 증가
 
     // 엣지 생성 (양방향이면 하나의 엣지로, 단방향이면 한쪽 화살표만)
+    // id -> Term 조회를 O(1)로 (find() 의 O(E*N) 제거)
+    const termById = new Map(terms.map(t => [t.id, t]));
     const edges = relations.map(relation => {
-      const term1 = terms.find(t => t.id === relation.term1Id);
-      const term2 = terms.find(t => t.id === relation.term2Id);
+      const term1 = termById.get(relation.term1Id);
+      const term2 = termById.get(relation.term2Id);
       
       if (!term1 || !term2) return null;
 
@@ -264,6 +266,11 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     const cy = cytoscape({
       container: containerRef.current,
       elements: [...nodes, ...edges],
+      // 대형 그래프 렌더 최적화: 뷰포트 조작 중 엣지 숨김 + 텍스처 캐시로 팬/줌 부드럽게
+      hideEdgesOnViewport: true,
+      textureOnViewport: true,
+      pixelRatio: 1,
+      motionBlur: false,
       style: [
         {
           selector: 'node',
@@ -304,7 +311,9 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
               return categoryColors[category] || '#6366f1';
             },
             'border-style': 'solid',
-            'shape': 'ellipse'
+            'shape': 'ellipse',
+            // 멀리 줌아웃 시 라벨 렌더 생략 (대량 텍스트 렌더 비용 절감)
+            'min-zoomed-font-size': 8
           }
         },
         {
@@ -434,6 +443,38 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     // 드래그 중인 노드의 이전 위치 저장 (속도 계산용)
     const dragPreviousPositions = new Map<string, { x: number; y: number; time: number }>();
 
+    // ── 공간 분할 그리드 ──────────────────────────────────────────────
+    // 충돌/반발력은 작용 반경(최대 ≈ maxRadius*2.5 = 120*2.5 = 300px) 밖에서는
+    // 항상 0이므로, 전체 노드쌍(O(N^2))을 검사할 필요가 없다.
+    // 셀 크기 = 최대 작용 반경으로 잡고 각 노드는 자기 셀 + 인접 8칸(3x3)만 검사 → 평균 O(N).
+    const gridCellSize = 300;
+    const buildSpatialGrid = () => {
+      const grid = new Map<string, number[]>();
+      for (let i = 0; i < nodeList.length; i++) {
+        const p = nodeList[i].position();
+        const key = Math.floor(p.x / gridCellSize) + ',' + Math.floor(p.y / gridCellSize);
+        const cell = grid.get(key);
+        if (cell) cell.push(i);
+        else grid.set(key, [i]);
+      }
+      return grid;
+    };
+    // 3x3 인접 셀의 노드 인덱스를 모은다 (할당 최소화를 위해 스크래치 배열 재사용).
+    const neighborScratch: number[] = [];
+    const collectNeighbors = (grid: Map<string, number[]>, px: number, py: number) => {
+      neighborScratch.length = 0;
+      const cx = Math.floor(px / gridCellSize);
+      const cy = Math.floor(py / gridCellSize);
+      for (let gx = cx - 1; gx <= cx + 1; gx++) {
+        for (let gy = cy - 1; gy <= cy + 1; gy++) {
+          const cell = grid.get(gx + ',' + gy);
+          if (!cell) continue;
+          for (let k = 0; k < cell.length; k++) neighborScratch.push(cell[k]);
+        }
+      }
+      return neighborScratch;
+    };
+
     // 물에 떠다니듯 부드럽게 움직이는 애니메이션
     let isDragging = false;
     let physicsActive = false; // 초기에는 레이아웃이 완료될 때까지 비활성화
@@ -452,7 +493,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
 
       let hasMovement = false;
       
-      // 먼저 충돌 감지 및 처리 (구슬치기처럼)
+      // 먼저 충돌 감지 및 처리 (구슬치기처럼) - 공간 그리드로 인접 노드만 검사
+      const collisionGrid = buildSpatialGrid();
       for (let i = 0; i < nodeList.length; i++) {
         const node1 = nodeList[i];
         const node1Id = node1.id();
@@ -467,7 +509,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         }
         const vel1 = nodeVelocities.get(node1Id)!;
         
-        for (let j = i + 1; j < nodeList.length; j++) {
+        const collisionCandidates = collectNeighbors(collisionGrid, pos1.x, pos1.y);
+        for (let c = 0; c < collisionCandidates.length; c++) {
+          const j = collisionCandidates[c];
+          if (j <= i) continue; // 각 노드쌍을 한 번만 처리 (자기 자신 포함 제외)
           const node2 = nodeList[j];
           const node2Id = node2.id();
           const pos2 = node2.position();
@@ -563,7 +608,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         }
       }
       
-      // 힘 계산 및 속도 업데이트
+      // 힘 계산 및 속도 업데이트 - 충돌로 위치가 바뀌었으니 그리드 재구성
+      const forceGrid = buildSpatialGrid();
       nodeList.forEach((node: any) => {
         const nodeId = node.id();
         const pos = node.position();
@@ -572,14 +618,16 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         let fx = 0;
         let fy = 0;
 
-        // 모든 노드와의 반발력 계산 (노드 지름의 1.5배 이내에서만)
+        // 인접 노드와의 반발력 계산 (작용 거리 = 노드 지름의 2.5배 이내)
         const nodeRadius = nodeInfo.get(nodeId)!.radius;
         const repulsionDistance = nodeRadius * 2.5; // 반발력 작용 거리
         const repulsionStrength = 0.15; // 반발력 강도
         
-        nodeList.forEach((otherNode: any) => {
+        const repulsionCandidates = collectNeighbors(forceGrid, pos.x, pos.y);
+        for (let c = 0; c < repulsionCandidates.length; c++) {
+          const otherNode = nodeList[repulsionCandidates[c]];
           const otherId = otherNode.id();
-          if (otherId === nodeId) return; // 자기 자신은 제외
+          if (otherId === nodeId) continue; // 자기 자신은 제외
           
           const otherPos = otherNode.position();
           const otherRadius = nodeInfo.get(otherId)!.radius;
@@ -598,7 +646,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             fx -= Math.cos(angle) * repulsionForce;
             fy -= Math.sin(angle) * repulsionForce;
           }
-        });
+        }
 
         // 연결된 노드들과의 스프링 힘 계산 (사전 계산된 인접 맵 사용)
         const neighbors = adjacency.get(nodeId) || [];
