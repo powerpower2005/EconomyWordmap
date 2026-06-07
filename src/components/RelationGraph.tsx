@@ -126,6 +126,28 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     });
   };
 
+  // 랜덤 단어 하나를 골라 그래프에서 위치를 잡고 상세를 열기
+  const pickRandomTerm = () => {
+    const terms = termsRef.current;
+    if (terms.length === 0) return;
+    const term = terms[Math.floor(Math.random() * terms.length)];
+    setSelectedNode(term);
+    const cy = cyRef.current;
+    if (cy) {
+      const node = cy.getElementById(term.id);
+      if (node.length > 0) {
+        cy.elements().unselect();
+        node.select();
+        cy.animate({
+          center: { eles: node },
+          zoom: 1.5
+        }, {
+          duration: 500
+        });
+      }
+    }
+  };
+
   // 외부에서 노드 클릭할 수 있도록 함수 노출
   useImperativeHandle(ref, () => ({
     clickNode: handleNodeClick
@@ -1081,6 +1103,13 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           </button>
         )}
         <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+          <button
+            onClick={pickRandomTerm}
+            title="아무 단어나 하나 골라 보여주기"
+            className="px-3 py-2 bg-blue-600 text-white border border-blue-600 rounded-lg shadow-md hover:bg-blue-700 text-sm font-medium transition-colors"
+          >
+            🎲 랜덤 단어
+          </button>
           <button
             onClick={() => {
               const cy = cyRef.current;
