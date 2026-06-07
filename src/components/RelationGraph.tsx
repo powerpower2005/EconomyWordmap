@@ -67,8 +67,21 @@ const categoryColors: Record<string, string> = {
   '통화': '#f59e0b',
   '통화정책': '#8b5cf6',
   '정부': '#64748b',
-  '원자재': '#d97706'
+  '원자재': '#d97706',
+  '금리': '#ec4899',
+  '채권': '#0ea5e9',
+  '경제이론': '#c026d3',
+  '자원·환경': '#84cc16',
+  '미시경제': '#f97316'
 };
+
+type ViewMode = 'free' | 'category' | 'importance';
+
+const VIEW_MODES: Array<{ id: ViewMode; label: string }> = [
+  { id: 'free', label: '관계망' },
+  { id: 'category', label: '카테고리' },
+  { id: 'importance', label: '중요도' }
+];
 
 const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -81,7 +94,15 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
   const [allTerms, setAllTerms] = useState<Term[]>([]);
   const [showSidebar, setShowSidebar] = useState<boolean>(true);
   const [sidebarSort, setSidebarSort] = useState<'korean' | 'english'>('korean');
+  const [viewMode, setViewMode] = useState<ViewMode>('free');
+  const [focusMode, setFocusMode] = useState<boolean>(false);
   const termsRef = useRef<Term[]>([]);
+  // cytoscape 콜백 내부에서 최신 모드를 읽기 위한 ref 미러
+  const viewModeRef = useRef<ViewMode>('free');
+  const focusModeRef = useRef<boolean>(false);
+
+  useEffect(() => { viewModeRef.current = viewMode; }, [viewMode]);
+  useEffect(() => { focusModeRef.current = focusMode; }, [focusMode]);
 
   const handleNodeClick = (termId: string) => {
     const cy = cyRef.current;
@@ -92,21 +113,28 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     
     const clickedTerm = termsRef.current.find(t => t.id === termId);
     if (!clickedTerm) return;
-    
-    // 노드 확대
-    cy.animate({
-      center: { eles: node },
-      zoom: 1.2
-    }, {
-      duration: 500
-    });
-    
+
+    const cyAny = cy as any;
+
     if (selectedNode && selectedNode.id === clickedTerm.id) {
       setSelectedNode(null);
-      // 원래 위치로 복귀
-      cy.fit();
+      if (focusModeRef.current) {
+        cyAny.clearFocus?.();
+      } else {
+        cy.fit();
+      }
     } else {
       setSelectedNode(clickedTerm);
+      if (focusModeRef.current) {
+        cyAny.applyFocus?.(clickedTerm.id);
+      } else {
+        cy.animate({
+          center: { eles: node },
+          zoom: 1.2
+        }, {
+          duration: 500
+        });
+      }
     }
   };
 
@@ -118,6 +146,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     if (node.length === 0) return;
     cy.elements().unselect();
     node.select();
+    if (focusModeRef.current) {
+      (cy as any).applyFocus?.(termId);
+      return;
+    }
     cy.animate({
       center: { eles: node },
       zoom: 1.5
@@ -138,13 +170,46 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       if (node.length > 0) {
         cy.elements().unselect();
         node.select();
-        cy.animate({
-          center: { eles: node },
-          zoom: 1.5
-        }, {
-          duration: 500
-        });
+        if (focusModeRef.current) {
+          (cy as any).applyFocus?.(term.id);
+        } else {
+          cy.animate({
+            center: { eles: node },
+            zoom: 1.5
+          }, {
+            duration: 500
+          });
+        }
       }
+    }
+  };
+
+  // 보기 모드 전환 (관계망 / 카테고리 / 중요도)
+  const changeViewMode = (mode: ViewMode) => {
+    setViewMode(mode);
+    viewModeRef.current = mode;
+    const cy = cyRef.current as any;
+    if (!cy) return;
+    // 모드 전환 시 포커스(이웃만 보기)는 해제해 혼동 방지
+    if (focusModeRef.current) {
+      setFocusMode(false);
+      focusModeRef.current = false;
+      cy.clearFocus?.();
+    }
+    cy.runViewMode?.(mode);
+  };
+
+  // 포커스 모드(선택 노드의 이웃만 표시) 토글
+  const toggleFocusMode = () => {
+    const next = !focusModeRef.current;
+    setFocusMode(next);
+    focusModeRef.current = next;
+    const cy = cyRef.current as any;
+    if (!cy) return;
+    if (next) {
+      if (selectedNode) cy.applyFocus?.(selectedNode.id);
+    } else {
+      cy.clearFocus?.();
     }
   };
 
@@ -748,7 +813,9 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     };
 
     // 물리 시뮬레이션 재시작 헬퍼 (정지 상태에서만 다시 가동)
+    // 클러스터/동심원 모드나 포커스(이웃만 보기) 상태에서는 배치를 고정해야 하므로 가동하지 않음
     const ensurePhysicsRunning = () => {
+      if (viewModeRef.current !== 'free' || focusModeRef.current) return;
       physicsActive = true;
       stableFrames = 0;
       if (animationFrameRef.current === null) {
@@ -906,9 +973,106 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
       ensurePhysicsRunning();
     });
 
+    // ── 클러스터/동심원 보기 모드 ─────────────────────────────────────
+    const stopPhysicsLoop = () => {
+      physicsActive = false;
+      if (animationFrameRef.current !== null) {
+        cancelAnimationFrame(animationFrameRef.current);
+        animationFrameRef.current = null;
+      }
+      nodeList.forEach((n: any) => nodeVelocities.set(n.id(), { vx: 0, vy: 0 }));
+    };
+
+    // 한 클러스터의 노드들을 중심점 주변에 황금각 나선(phyllotaxis)으로 고르게 배치
+    const placeInCluster = (group: any[], cx: number, cyc: number, spacing: number) => {
+      const golden = Math.PI * (3 - Math.sqrt(5));
+      group.forEach((n: any, idx: number) => {
+        if (idx === 0) {
+          n.position({ x: cx, y: cyc });
+          return;
+        }
+        const r = spacing * Math.sqrt(idx);
+        const theta = idx * golden;
+        n.position({ x: cx + r * Math.cos(theta), y: cyc + r * Math.sin(theta) });
+      });
+    };
+
+    // 카테고리별로 묶어 큰 원 위에 군집 배치
+    const layoutByCategory = () => {
+      stopPhysicsLoop();
+      const groups = new Map<string, any[]>();
+      nodeList.forEach((n: any) => {
+        const c = n.data('category') || '기타';
+        if (!groups.has(c)) groups.set(c, []);
+        groups.get(c)!.push(n);
+      });
+      const keys = [...groups.keys()];
+      const k = Math.max(2, keys.length);
+      const spacing = 300;
+      let maxCount = 0;
+      groups.forEach(g => { if (g.length > maxCount) maxCount = g.length; });
+      const maxClusterR = spacing * Math.sqrt(Math.max(1, maxCount));
+      // 인접 군집이 겹치지 않도록 중심 원의 반지름을 군집 크기에 맞춰 산정
+      const R = Math.max(3500, (maxClusterR + spacing) / Math.sin(Math.PI / k));
+      keys.forEach((c, i) => {
+        const ang = (2 * Math.PI * i) / keys.length;
+        placeInCluster(groups.get(c)!, R * Math.cos(ang), R * Math.sin(ang), spacing);
+      });
+      cy.fit(undefined, 80);
+    };
+
+    // 주식시장 중요도(1~10)별 동심원 배치: 중요할수록 중심
+    const layoutByImportance = () => {
+      stopPhysicsLoop();
+      const layout = cy.layout({
+        name: 'concentric',
+        fit: false,
+        animate: false,
+        minNodeSpacing: 40,
+        avoidOverlap: true,
+        startAngle: Math.PI * 1.5,
+        concentric: (node: any) => node.data('importance') || 0,
+        levelWidth: () => 1
+      } as any);
+      layout.one('layoutstop', () => { cy.fit(undefined, 80); });
+      layout.run();
+    };
+
+    const runViewMode = (mode: ViewMode) => {
+      if (mode === 'category') layoutByCategory();
+      else if (mode === 'importance') layoutByImportance();
+      else handleRelayout();
+    };
+
+    // ── 포커스(이웃만 보기) ───────────────────────────────────────────
+    const applyFocus = (nodeId: string) => {
+      const node = cy.getElementById(nodeId);
+      if (node.length === 0) return;
+      stopPhysicsLoop();
+      const hood = node.closedNeighborhood();
+      const ids = new Set<string>(hood.map((e: any) => e.id()));
+      cy.batch(() => {
+        cy.elements().forEach((el: any) => {
+          el.style('display', ids.has(el.id()) ? 'element' : 'none');
+        });
+      });
+      cy.elements().unselect();
+      node.select();
+      cy.fit(hood, 80);
+    };
+
+    const clearFocus = () => {
+      cy.batch(() => { cy.elements().style('display', 'element'); });
+      cy.fit(undefined, 50);
+      ensurePhysicsRunning();
+    };
+
     // 함수들을 ref에 저장하여 외부에서 접근 가능하게 함
     (cy as any).handleRelayout = handleRelayout;
     (cy as any).handleFitView = handleFitView;
+    (cy as any).runViewMode = runViewMode;
+    (cy as any).applyFocus = applyFocus;
+    (cy as any).clearFocus = clearFocus;
 
     cy.on('tap', 'node', function(evt) {
       const node = evt.target;
@@ -1102,7 +1266,39 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             단어 목록
           </button>
         )}
-        <div className="absolute top-4 right-4 flex flex-col gap-2 z-10">
+        <div className="absolute top-4 right-4 flex flex-col gap-2 z-10 items-end">
+          {/* 보기 모드: 관계망 / 카테고리 / 중요도 */}
+          <div className="flex bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden text-sm">
+            {VIEW_MODES.map(m => (
+              <button
+                key={m.id}
+                onClick={() => changeViewMode(m.id)}
+                title={
+                  m.id === 'free' ? '관계 중심 자유 배치' :
+                  m.id === 'category' ? '카테고리별로 묶어 보기' :
+                  '주식시장 중요도 동심원 (중요할수록 중심)'
+                }
+                className={`px-3 py-2 font-medium transition-colors ${
+                  viewMode === m.id
+                    ? 'bg-blue-600 text-white'
+                    : 'text-gray-700 hover:bg-gray-50'
+                }`}
+              >
+                {m.label}
+              </button>
+            ))}
+          </div>
+          <button
+            onClick={toggleFocusMode}
+            title="선택한 단어와 직접 연결된 이웃만 보기"
+            className={`px-3 py-2 rounded-lg shadow-md text-sm font-medium border transition-colors ${
+              focusMode
+                ? 'bg-amber-500 text-white border-amber-500 hover:bg-amber-600'
+                : 'bg-white text-gray-700 border-gray-300 hover:bg-gray-50'
+            }`}
+          >
+            {focusMode ? '이웃만 보기 ✓' : '이웃만 보기'}
+          </button>
           <button
             onClick={pickRandomTerm}
             title="아무 단어나 하나 골라 보여주기"
@@ -1112,11 +1308,10 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           </button>
           <button
             onClick={() => {
-              const cy = cyRef.current;
-              if (cy && (cy as any).handleRelayout) {
-                (cy as any).handleRelayout();
-              }
+              const cy = cyRef.current as any;
+              cy?.runViewMode?.(viewModeRef.current);
             }}
+            title="현재 보기 모드로 다시 배치"
             className="px-3 py-2 bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-50 text-sm font-medium text-gray-700 transition-colors"
           >
             정렬
