@@ -596,20 +596,28 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                 {expandedGuideTab === 'basic' && (
                   <div className="p-4 space-y-3 text-gray-700">
                     <div>
-                      <h4 className="font-semibold mb-2">• 노드(원) 클릭</h4>
-                      <p className="text-sm text-gray-600 ml-4">그래프의 노드를 클릭하면 해당 용어의 상세 정보가 모달로 표시됩니다. 그래프가 자동으로 해당 노드로 이동하고 확대됩니다.</p>
+                      <h4 className="font-semibold mb-2">• 노드(원) 클릭 → 답 카드</h4>
+                      <p className="text-sm text-gray-600 ml-4">노드를 클릭하면 그 용어의 <span className="font-medium">답 카드</span>가 열립니다. 이 용어가 무엇을 움직이고(영향 주는) 무엇이 이 용어를 움직이는지(영향 받는)를, 영향이 큰 순서로 보여줍니다. 카드 안의 다른 용어를 클릭하면 그 용어의 카드로 계속 이어서 탐색할 수 있습니다.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">• 보기 모드 (관계망 / 카테고리 / 중요도)</h4>
+                      <p className="text-sm text-gray-600 ml-4">그래프 우측 상단에서 배치 방식을 바꿀 수 있습니다. <span className="font-medium">관계망</span>은 관계 중심 자유 배치, <span className="font-medium">카테고리</span>는 같은 분야끼리 묶어 보기, <span className="font-medium">중요도</span>는 주식시장 중요도가 높을수록 중심에 모이는 동심원 배치입니다.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">• 이웃만 보기 (집중 탐색)</h4>
+                      <p className="text-sm text-gray-600 ml-4">"이웃만 보기"를 켜고 단어를 고르면 그 단어와 직접 연결된 이웃만 남기고 나머지는 숨겨 한 주제에 집중할 수 있습니다. 다시 누르면 전체로 돌아옵니다.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">• 랜덤 단어 / 추천·랜덤 목록</h4>
+                      <p className="text-sm text-gray-600 ml-4">"🎲 랜덤 단어" 버튼은 아무 단어나 하나 골라 보여줍니다. 그래프 위의 추천 단어(관계가 많은 상위 단어)와 랜덤 단어 목록을 클릭해도 해당 노드로 바로 이동합니다.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">• 엣지(선) 클릭</h4>
-                      <p className="text-sm text-gray-600 ml-4">노드 사이의 연결선을 클릭하면 해당 관계의 정보가 툴팁으로 표시됩니다.</p>
+                      <p className="text-sm text-gray-600 ml-4">노드 사이의 연결선을 클릭하면 해당 관계의 정보(방향·강도·시차 등)가 툴팁으로 표시됩니다.</p>
                     </div>
                     <div>
                       <h4 className="font-semibold mb-2">• 그래프 이동 및 확대/축소</h4>
-                      <p className="text-sm text-gray-600 ml-4">노드를 드래그하여 그래프를 이동할 수 있고, 마우스 휠을 사용하여 확대/축소할 수 있습니다.</p>
-                    </div>
-                    <div>
-                      <h4 className="font-semibold mb-2">• 추천 단어 활용</h4>
-                      <p className="text-sm text-gray-600 ml-4">그래프 위에 표시된 추천 단어(엣지가 많은 상위 5개)를 클릭하면 해당 노드로 바로 이동합니다.</p>
+                      <p className="text-sm text-gray-600 ml-4">노드를 드래그하여 그래프를 이동할 수 있고, 마우스 휠로 확대/축소할 수 있습니다. "정렬"은 현재 보기 모드로 다시 배치, "전체보기"는 전체가 화면에 들어오도록 맞춥니다.</p>
                     </div>
                   </div>
                 )}
@@ -685,20 +693,24 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                 {expandedGuideTab === 'relation' && (
                   <div className="p-4 space-y-3 text-gray-700">
                     <div>
-                      <h4 className="font-semibold mb-2">• 관계 정보 확인</h4>
-                      <p className="text-sm text-gray-600 ml-4">노드를 클릭하여 열린 모달에서 "영향을 주는 관계"와 "영향을 받는 관계" 섹션을 확인할 수 있습니다.</p>
+                      <h4 className="font-semibold mb-2">• 방향성으로 읽기 (같은/반대 방향)</h4>
+                      <p className="text-sm text-gray-600 ml-4">답 카드의 관계는 방향으로 표현됩니다. <span className="text-blue-700 font-medium">같은 방향</span>은 한쪽이 오르면 다른 쪽도 오르고(비례), <span className="text-red-700 font-medium">반대 방향</span>은 한쪽이 오르면 다른 쪽이 내립니다(반비례). <span className="text-purple-700 font-medium">함께 움직임</span>은 같이 움직이되 방향은 상황에 따라 달라지는 상관관계입니다.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">• 관계 단어 클릭</h4>
-                      <p className="text-sm text-gray-600 ml-4">모달에서 관계가 있는 단어(파란색 버튼으로 표시)를 클릭하면 해당 용어의 상세 정보로 이동합니다. 이를 통해 관련 용어들을 연속적으로 탐색할 수 있습니다.</p>
+                      <h4 className="font-semibold mb-2">• 영향 큰 순 · 강도 · 시차</h4>
+                      <p className="text-sm text-gray-600 ml-4">관계는 영향이 큰 순서로 정렬되며, "영향 큼/보통/작음" 강도 뱃지와, 효과가 나타나기까지 걸리는 시차 정보가 함께 표시됩니다.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">• 관계 타입 이해</h4>
-                      <p className="text-sm text-gray-600 ml-4">비례(파란색), 반비례(빨간색), 상관관계(보라색)로 관계가 구분되어 표시됩니다. 그래프 아래의 범례에서 각 색상의 의미를 확인할 수 있습니다.</p>
+                      <h4 className="font-semibold mb-2">• 관계 단어 클릭으로 이어 보기</h4>
+                      <p className="text-sm text-gray-600 ml-4">답 카드에서 관계가 있는 단어(파란색 버튼)를 클릭하면 그 용어의 답 카드로 이동합니다. 꼬리에 꼬리를 물고 관련 용어를 탐색할 수 있습니다.</p>
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">• 양방향 관계</h4>
-                      <p className="text-sm text-gray-600 ml-4">양방향 화살표(⇄)로 표시된 관계는 두 용어가 서로 영향을 주고받는 관계입니다.</p>
+                      <h4 className="font-semibold mb-2">• 양방향 관계 (서로 영향 ⇄)</h4>
+                      <p className="text-sm text-gray-600 ml-4">"서로 영향" 섹션(⇄)의 관계는 두 용어가 서로 영향을 주고받는 관계입니다.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">• 관련 명제로 깊이 보기</h4>
+                      <p className="text-sm text-gray-600 ml-4">답 카드 아래 "이 용어가 등장하는 명제"에서, 그 주장이 <span className="text-green-700 font-medium">언제 성립</span>하고 <span className="text-red-700 font-medium">언제 깨지는지</span>(전제·사례·한계·결론)를 펼쳐 볼 수 있습니다.</p>
                     </div>
                   </div>
                 )}

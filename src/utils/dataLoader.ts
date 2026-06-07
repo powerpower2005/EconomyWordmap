@@ -23,6 +23,11 @@ export const getPropositionById = (id: string): Proposition | undefined => {
   return allPropositions.find(p => p.id === id);
 };
 
+// 특정 용어가 등장하는(termIds에 포함된) 명제 목록
+export const getPropositionsByTermId = (termId: string): Proposition[] => {
+  return allPropositions.filter(p => p.termIds.includes(termId));
+};
+
 export const getTermById = (id: string): Term | undefined => {
   return allTerms.find(term => term.id === id);
 };

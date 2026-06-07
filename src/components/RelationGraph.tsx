@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState, useMemo, forwardRef, useImperativeHandle } from 'react';
 import cytoscape from 'cytoscape';
-import { loadTerms, loadRelations, getStarRating } from '../utils/dataLoader';
+import { loadTerms, loadRelations } from '../utils/dataLoader';
 import { RelationType, Term } from '../types';
-import TermChangelog from './TermChangelog';
+import TermCard from './TermCard';
 
 export interface RelationGraphHandle {
   clickNode: (termId: string) => void;
@@ -33,31 +33,6 @@ const relationNatureLabels: Record<string, string> = {
   hierarchical: '계층',
   policy: '정책 반응'
 };
-
-// 관계의 성격(nature)과 메커니즘·조건·시차를 모달에서 보조 정보로 렌더링
-function renderRelationMeta(edgeData: any) {
-  const nature = edgeData.nature as string;
-  const items: Array<{ label: string; value: string }> = [];
-  if (edgeData.mechanism) items.push({ label: '메커니즘', value: edgeData.mechanism });
-  if (edgeData.conditions) items.push({ label: '조건', value: edgeData.conditions });
-  if (edgeData.lag) items.push({ label: '시차', value: edgeData.lag });
-  if ((!nature || !relationNatureLabels[nature]) && items.length === 0) return null;
-
-  return (
-    <div className="mt-1.5 space-y-1">
-      {nature && relationNatureLabels[nature] && (
-        <span className="inline-block px-2 py-0.5 text-xs rounded bg-gray-100 text-gray-600">
-          {relationNatureLabels[nature]}
-        </span>
-      )}
-      {items.map((it) => (
-        <div key={it.label} className="text-xs text-gray-500">
-          <span className="font-semibold text-gray-600">{it.label}:</span> {it.value}
-        </div>
-      ))}
-    </div>
-  );
-}
 
 // 카테고리 색상 정의
 const categoryColors: Record<string, string> = {
@@ -1393,140 +1368,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                 ×
               </button>
             </div>
-            <div className="mb-4 flex gap-3 items-center flex-wrap">
-              {selectedNode.category && (
-                <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
-                  {selectedNode.category}
-                </span>
-              )}
-              {selectedNode.stockMarketImportance && (
-                <span className="px-3 py-1 bg-yellow-50 text-yellow-800 rounded-full text-sm border border-yellow-200">
-                  주식시장 중요도: <span className="text-lg">{getStarRating(selectedNode.stockMarketImportance)}</span>
-                </span>
-              )}
-            </div>
-            <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-6">
-              {selectedNode.description}
-            </div>
-
-            {cyRef.current && (() => {
-              const node = cyRef.current!.getElementById(selectedNode.id);
-              if (node.length === 0) return null;
-              
-              const outboundEdges = node.outgoers('edge');
-              const inboundEdges = node.incomers('edge');
-              
-              return (
-                <div className="space-y-6">
-                  {outboundEdges.length > 0 && (
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">
-                        {selectedNode.name}이(가) 영향을 주는 관계
-                      </h3>
-                      <div className="space-y-3">
-                        {outboundEdges.map((edge: any) => {
-                          const edgeData = edge.data();
-                          const targetNode = cyRef.current!.getElementById(edgeData.target);
-                          const targetName = targetNode.data('label');
-                          const targetId = targetNode.data('id');
-                          const relationType = edgeData.type;
-                          const color = relationTypeColors[relationType as RelationType];
-                          const isBidirectional = edgeData.bidirectional === true;
-                          
-                          return (
-                            <div key={edgeData.id} className="space-y-2">
-                              <div className="border-l-4 pl-4 py-2" style={{ borderColor: color }}>
-                                <div className="font-semibold text-gray-800 mb-1">
-                                  <span style={{ color }}>{relationTypeLabels[relationType as RelationType]}</span>
-                                  {isBidirectional ? ' ⇄ ' : ' → '}
-                                  <button
-                                    onClick={() => handleNodeClick(targetId)}
-                                    className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
-                                  >
-                                    {targetName}
-                                  </button>
-                                </div>
-                                <div className="text-sm text-gray-600">
-                                  {edgeData.description || `${selectedNode.name}이(가) ${targetName}에 영향을 줌`}
-                                </div>
-                                {renderRelationMeta(edgeData)}
-                              </div>
-                              {isBidirectional && (
-                                <div className="border-l-4 pl-4 py-2 ml-4" style={{ borderColor: color, borderStyle: 'dashed' }}>
-                                  <div className="font-semibold text-gray-800 mb-1 text-sm">
-                                    <button
-                                      onClick={() => handleNodeClick(targetId)}
-                                      className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
-                                    >
-                                      {targetName}
-                                    </button>
-                                    {' → '}
-                                    <span style={{ color }}>{relationTypeLabels[edgeData.reverseType as RelationType]}</span>
-                                    {' → '}
-                                    {selectedNode.name}
-                                  </div>
-                                  <div className="text-sm text-gray-600">
-                                    {edgeData.reverseDescription || `${targetName}이(가) ${selectedNode.name}에 영향을 줌`}
-                                  </div>
-                                </div>
-                              )}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                  
-                  {inboundEdges.length > 0 && (
-                    <div>
-                      <h3 className="text-xl font-bold text-gray-800 mb-3">
-                        {selectedNode.name}에 영향을 주는 관계
-                      </h3>
-                      <div className="space-y-3">
-                        {inboundEdges.map((edge: any) => {
-                          const edgeData = edge.data();
-                          const sourceNode = cyRef.current!.getElementById(edgeData.source);
-                          const sourceName = sourceNode.data('label');
-                          const sourceId = sourceNode.data('id');
-                          const relationType = edgeData.type;
-                          const color = relationTypeColors[relationType as RelationType];
-                          const isBidirectional = edgeData.bidirectional === true;
-                          
-                          // 양방향 엣지인 경우 이미 outbound에서 표시했으므로 스킵
-                          if (isBidirectional) return null;
-                          
-                          return (
-                            <div key={edgeData.id} className="border-l-4 pl-4 py-2" style={{ borderColor: color }}>
-                              <div className="font-semibold text-gray-800 mb-1">
-                                <button
-                                  onClick={() => handleNodeClick(sourceId)}
-                                  className="px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 hover:text-blue-900 font-semibold transition-colors cursor-pointer border border-blue-200 hover:border-blue-300"
-                                >
-                                  {sourceName}
-                                </button>
-                                {' → '}
-                                <span style={{ color }}>{relationTypeLabels[relationType as RelationType]}</span>
-                              </div>
-                              <div className="text-sm text-gray-600">
-                                {edgeData.reverseDescription || edgeData.description || `${sourceName}이(가) ${selectedNode.name}에 영향을 줌`}
-                              </div>
-                              {renderRelationMeta(edgeData)}
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
-              );
-            })()}
-
-            {(selectedNode.updatedAt || (selectedNode.changelog && selectedNode.changelog.length > 0)) && (
-              <div className="mt-8 pt-6 border-t border-gray-200">
-                <h3 className="text-base font-bold text-gray-700 mb-2">최근 변경</h3>
-                <TermChangelog term={selectedNode} latestOnly compact />
-              </div>
-            )}
+            <TermCard term={selectedNode} onOpenTerm={handleNodeClick} />
           </div>
         </div>
       )}
