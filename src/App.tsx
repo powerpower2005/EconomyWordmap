@@ -7,7 +7,7 @@ type MainView = 'graph' | 'propositions';
 
 function App() {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-  const [view, setView] = useState<MainView>('graph');
+  const [view, setView] = useState<MainView>('propositions');
   const [focusTermId, setFocusTermId] = useState<string | null>(null);
 
   const openTermInGraph = (termId: string) => {
@@ -28,23 +28,13 @@ function App() {
       <header className="bg-white shadow-sm border-b">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <h1 className="text-2xl font-bold text-gray-900">
-            경제 용어 관계 사전
+            경제 명제 · 용어 관계 사전
           </h1>
           <p className="text-sm text-gray-600 mt-1">
-            경제 용어 간의 관계를 시각화하고, 경제 명제의 성립 조건과 한계를 탐색하세요
+            경제 명제가 언제 성립하고 언제 깨지는지 조건과 한계로 이해하고, 용어 관계도로 그 배경을 탐색하세요
           </p>
-          {/* 최상위 탭 */}
+          {/* 최상위 탭 (명제를 앞에 배치) */}
           <nav className="flex gap-2 mt-4">
-            <button
-              onClick={() => setView('graph')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'graph'
-                  ? 'text-blue-600 border-blue-600'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              관계도
-            </button>
             <button
               onClick={() => setView('propositions')}
               className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
@@ -54,6 +44,16 @@ function App() {
               }`}
             >
               명제
+            </button>
+            <button
+              onClick={() => setView('graph')}
+              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
+                view === 'graph'
+                  ? 'text-blue-600 border-blue-600'
+                  : 'text-gray-500 border-transparent hover:text-gray-700'
+              }`}
+            >
+              관계도
             </button>
           </nav>
         </div>
