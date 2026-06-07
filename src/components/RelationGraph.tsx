@@ -207,7 +207,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           description: term.description,
           category: category,
           edgeCount: edgeCount,
-          sizeLevel: sizeLevel
+          sizeLevel: sizeLevel,
+          importance: term.stockMarketImportance || 0
         }
       };
     });
@@ -286,8 +287,9 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
               return sizeByLevel[level]?.size || 120;
             },
             'font-size': function(node: any) {
-              const level = node.data('sizeLevel') || 3;
-              return `${sizeByLevel[level]?.fontSize || 16}px`;
+              // 글자 크기를 중요도(1-10)에 비례시켜, 줌아웃 시 라벨이 중요도 순으로 정리되게 함
+              const imp = node.data('importance') || 0;
+              return `${12 + imp}px`;
             },
             'font-weight': 'bold',
             'color': '#ffffff',
@@ -312,8 +314,9 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
             },
             'border-style': 'solid',
             'shape': 'ellipse',
-            // 멀리 줌아웃 시 라벨 렌더 생략 (대량 텍스트 렌더 비용 절감)
-            'min-zoomed-font-size': 8
+            // 멀리 줌아웃하면 글자가 작은(=중요도 낮은) 노드부터 라벨 생략 → 핵심만 깔끔히, 텍스트 렌더도 절감.
+            // 평상~줌인 단계에서는 모두 표시되고, 한 영역을 확대하면 그 안의 라벨이 다시 나타남.
+            'min-zoomed-font-size': 6
           }
         },
         {
@@ -348,7 +351,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
                 ? (relationTypeColors[edge.data('type') as RelationType] || '#94a3b8')
                 : 'transparent';
             },
-            'curve-style': 'bezier',
+            'curve-style': 'straight',
             'color': function(edge: any) {
               return relationTypeColors[edge.data('type') as RelationType] || '#94a3b8';
             },
@@ -391,7 +394,7 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
           edgeElasticity: 150,
           nestingFactor: 5,
           gravity: 0.2,
-          numIter: 200,
+          numIter: 150,
           initialTemp: 100,
           coolingFactor: 0.95,
           minTemp: 1.0,
@@ -479,8 +482,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
     let isDragging = false;
     let physicsActive = false; // 초기에는 레이아웃이 완료될 때까지 비활성화
     let stableFrames = 0;
-    // 안정 상태가 이만큼 지속되면 rAF 루프를 멈춰 idle CPU 소모 제거
-    const STABLE_LIMIT = 60;
+    // 안정 상태가 이만큼 지속되면 rAF 루프를 멈춰 idle CPU 소모 제거 (값이 작을수록 더 빨리 멈춤)
+    const STABLE_LIMIT = 30;
     
     const updatePhysics = () => {
       if (!cyRef.current || isDragging || !physicsActive) {
@@ -689,8 +692,8 @@ const RelationGraph = forwardRef<RelationGraphHandle>((_props, ref) => {
         const newX = pos.x + velocity.vx;
         const newY = pos.y + velocity.vy;
 
-        // 움직임이 있는지 확인
-        if (Math.abs(velocity.vx) > 0.05 || Math.abs(velocity.vy) > 0.05 || Math.abs(fx) > 0.01 || Math.abs(fy) > 0.01) {
+        // 움직임이 있는지 확인 (임계값이 높을수록 더 빨리 '안정'으로 판정해 루프를 일찍 멈춤)
+        if (Math.abs(velocity.vx) > 0.1 || Math.abs(velocity.vy) > 0.1 || Math.abs(fx) > 0.02 || Math.abs(fy) > 0.02) {
           hasMovement = true;
           node.position({ x: newX, y: newY });
         } else {
