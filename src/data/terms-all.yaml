@@ -9,7 +9,7 @@ terms:
     name: 디플레이션 (Deflation)
     description: 일반적인 물가 수준이 지속적으로 하락하여 화폐의 실질 구매력이 상승하는 현상으로 소비·투자 지연과 부채 부담 증가를 초래하여 경기 침체로 이어질 위험
     category: 거시경제
-    stockMarketImportance: 9
+    stockMarketImportance: 8
 
   - id: interest-rate
     name: 금리 (Interest Rate)
@@ -27,13 +27,13 @@ terms:
     name: 실질금리 (Real Interest Rate)
     description: 명목금리에서 기대인플레이션을 차감한 금리로 실제 차입 비용을 반영
     category: 거시경제
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: expected-inflation
     name: 기대인플레이션 (Expected Inflation)
     description: 경제주체가 예상하는 미래 물가상승률로 임금·가격 결정, 소비·투자 판단에 영향을 미치며 중앙은행의 신뢰성과 통화정책 효과성에 핵심적인 변수로 앙커링(anchoring) 개념과 밀접한 관련
     category: 거시경제
-    stockMarketImportance: 9
+    stockMarketImportance: 8
 
   - id: gdp
     name: GDP (Gross Domestic Product)
@@ -45,13 +45,13 @@ terms:
     name: 명목 GDP (Nominal GDP)
     description: 현재 가격 기준으로 측정한 GDP로 인플레이션 효과를 포함
     category: 거시경제
-    stockMarketImportance: 7
+    stockMarketImportance: 5
 
   - id: real-gdp
     name: 실질 GDP (Real GDP)
     description: 기준연도 가격으로 측정한 GDP로 물가 변동을 제거한 실제 생산량
     category: 거시경제
-    stockMarketImportance: 9
+    stockMarketImportance: 8
 
   - id: unemployment
     name: 실업률 (Unemployment Rate)
@@ -63,7 +63,7 @@ terms:
     name: CPI 소비자 물가 지수 (Consumer Price Index)
     description: 가계가 소비하는 상품과 서비스의 가격 변동을 측정하는 대표 물가지표
     category: 거시경제
-    stockMarketImportance: 9
+    stockMarketImportance: 10
 
   - id: exchange-rate
     name: 환율 (Exchange Rate)
@@ -75,7 +75,7 @@ terms:
     name: 통화량 (Money Supply)
     description: 경제 내에서 유통되는 화폐의 총량으로 소비·투자·물가에 영향
     category: 금융
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: base-money
     name: 본원통화(M0) (Base Money)
@@ -87,97 +87,97 @@ terms:
     name: 광의통화(M2) (M2 Money Supply)
     description: 본원통화와 예금통화를 포함한 광범위한 유동성 지표
     category: 통화
-    stockMarketImportance: 6
+    stockMarketImportance: 4
 
   - id: reserves
     name: 지급준비금 (Reserves)
     description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제·유동성·규제 목적
     category: 통화
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: required-reserve-ratio
     name: 지급준비율 (Required Reserve Ratio)
     description: 은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율
     category: 통화정책
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: excess-reserves
     name: 초과지준금 (Excess Reserves)
     description: 의무 지급준비금 초과분의 지급준비금으로, 미국에서는 지급준비율이 0%이나 IORB·유동성 관리 측면에서 여전히 통화정책 운용에 중요한 역할
     category: 통화
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: money-multiplier
     name: 통화승수 (Money Multiplier)
     description: 본원통화가 시중 통화량으로 확대되는 이론적 개념으로, 현대 금융시스템에서는 대출수요·자본규제·유동성 규제가 더 중요한 제약 요인
     category: 통화
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: velocity-of-money
     name: 화폐유통속도 (Velocity of Money)
     description: 일정 기간 동안 통화가 재화·서비스 거래에 사용되는 빈도로 경기 불확실성 증가나 금융위기 시 하락하는 경향이 있으며 통화정책 전달력에 영향을 미침
     category: 거시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: quantitative-easing
     name: 양적완화(QE) (Quantitative Easing)
     description: 중앙은행이 국채·MBS 등을 매입하여 장기금리 인하와 유동성 확대를 유도하는 정책
     category: 통화정책
-    stockMarketImportance: 9
+    stockMarketImportance: 8
 
   - id: quantitative-tightening
     name: 양적긴축(QT) (Quantitative Tightening)
     description: 중앙은행이 보유 자산을 축소하여 대차대조표를 줄이는 정책으로 유동성과 지급준비금을 감소시켜 금융여건을 긴축적으로 만듦
     category: 통화정책
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: iorb
     name: IORB (Interest on Reserve Balances)
     description: 중앙은행이 은행의 지급준비금에 지급하는 이자로 단기금리 하단 역할
     category: 통화정책
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: lclor
     name: 최소 적정 지급준비금(LCLoR)
     description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준
     category: 금융
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: bank
     name: 은행 (Bank)
     description: 예금 수취와 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
     category: 금융
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: credit-creation
     name: 신용창조 (Credit Creation)
     description: 은행이 대출을 통해 예금을 동시에 창출하는 과정
     category: 금융
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: capital-adequacy-ratio
     name: 자기자본비율 (Capital Adequacy Ratio)
     description: 은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제 핵심 지표
     category: 금융
-    stockMarketImportance: 6
+    stockMarketImportance: 4
 
   - id: leverage-ratio
     name: 레버리지비율 (Leverage Ratio)
     description: 은행의 자기자본을 총자산으로 나눈 비율로 과도한 차입을 제한하는 비위험가중 규제
     category: 금융
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: prudential-regulation
     name: 건전성 규제 (Prudential Regulation)
     description: 금융기관의 자본·유동성·부채를 규제하여 금융시스템 안정성을 확보하는 제도
     category: 금융
-    stockMarketImportance: 6
+    stockMarketImportance: 4
 
   - id: fiscal-policy
     name: 재정정책 (Fiscal Policy)
     description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책
     category: 정부
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: gold
     name: 금 (Gold)
@@ -189,67 +189,67 @@ terms:
     name: 은 (Silver)
     description: 귀금속이자 산업용 금속으로 전자·태양광·의료 분야에서 광범위하게 사용
     category: 원자재
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: copper
     name: 구리 (Copper)
     description: 전기 전도성이 뛰어난 산업용 금속으로 건설·전력·제조업의 경기 선행지표
     category: 원자재
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: iron-ore
     name: 철광석 (Iron Ore)
     description: 철강 생산의 핵심 원료로 건설·자동차·기계 산업 수요에 따라 가격 변동
     category: 원자재
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: consumption
     name: 소비 (Consumption)
     description: 가계가 재화와 서비스를 구매하는 경제활동으로 GDP의 가장 큰 구성요소이며 소득·금리·기대인플레이션에 영향을 받음
     category: 거시경제
-    stockMarketImportance: 8
+    stockMarketImportance: 6
 
   - id: investment
     name: 투자 (Investment)
     description: 기업이 생산설비·장비를 확충하고 재고를 늘리는 활동으로 금리·수익 기대·기대인플레이션에 따라 변동하며 경제성장의 핵심 동력
     category: 거시경제
-    stockMarketImportance: 8
+    stockMarketImportance: 6
 
   - id: household-debt
     name: 가계부채 (Household Debt)
     description: 가계가 금융기관 등으로부터 빌린 부채로 소비 여력과 금융안정에 영향을 미치며 금리 상승 시 소비 위축과 금융불안 요인으로 작용할 수 있고 인플레이션에 의해 실질 부담이 경감될 수 있음
     category: 거시경제
-    stockMarketImportance: 7
+    stockMarketImportance: 5
 
   - id: natural-gas
     name: 천연가스 (Natural Gas)
     description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향
     category: 원자재
-    stockMarketImportance: 8
+    stockMarketImportance: 6
 
   - id: pce
     name: PCE 개인소비지출물가 (Personal Consumption Expenditures)
     description: 연준이 인플레이션 목표 설정 시 선호하는 물가지표로 가계 소비지출의 가격 변동을 측정하며 CPI보다 넓은 범위와 가중치 변화를 반영
     category: 거시경제
-    stockMarketImportance: 10
+    stockMarketImportance: 8
 
   - id: core-pce
     name: Core PCE (Core Personal Consumption Expenditures)
     description: 식품과 에너지를 제외한 PCE로 연준이 인플레이션의 근본 추세를 파악하기 위해 가장 중시하는 핵심 물가지표
     category: 거시경제
-    stockMarketImportance: 10
+    stockMarketImportance: 9
 
   - id: sofr
     name: SOFR (Secured Overnight Financing Rate)
     description: 미국 국채를 담보로 한 하루짜리 대출 금리로 신용리스크가 거의 없으며, LIBOR를 대체하는 대표적인 무위험 기준금리
     category: 금리
-    stockMarketImportance: 9
+    stockMarketImportance: 6
 
   - id: qra
     name: QRA (Quarterly Refunding Announcement)
     description: 미국 재무부가 분기별로 발행하는 국채 발행 계획 발표로 시장에 공급될 국채 규모와 만기 구성을 알려 시장 기대와 금리에 영향을 미침
     category: 정부
-    stockMarketImportance: 8
+    stockMarketImportance: 6
 
   - id: tga
     name: TGA (Treasury General Account)
@@ -267,31 +267,31 @@ terms:
     name: 단기채 (Short-term Bond)
     description: 만기가 1년 이하인 국채로 재무부는 단기 자금 조달과 유동성 관리 목적으로 발행하며 단기금리 형성에 중요한 역할
     category: 채권
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: medium-term-bond
     name: 중기채 (Medium-term Bond)
     description: 만기가 1년 이상 10년 미만인 국채로 재무부는 중기 자금 조달과 만기 구조 조정 목적으로 발행하며 중기금리 곡선 형성에 기여
     category: 채권
-    stockMarketImportance: 7
+    stockMarketImportance: 5
 
   - id: long-term-bond
     name: 장기채 (Long-term Bond)
     description: 만기가 10년 이상인 국채로 재무부는 장기 자금 조달과 부채 만기 구조 안정화 목적으로 발행하며 장기금리 형성의 핵심 지표로 경제 전망과 인플레이션 기대를 반영하여 주식시장과 부동산 등 자산가격에 중요한 영향을 미침
     category: 채권
-    stockMarketImportance: 9
+    stockMarketImportance: 7
 
   - id: tax-cut
     name: 감세 (Tax Cut)
     description: 세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적. 감세는 소득세(개인소득세, 법인세), 소비세(부가가치세, 소비세), 자산세 등 다양한 세목에 적용될 수 있으며, 감세 시 재정적자 확대, 국채 금리 상승, 채권 시장 반응, 재정 건전성 지표(부채/GDP 비율), 통화정책과의 조합 등을 함께 분석해야 함. 과거 영국 트러스 총리의 감세안 발표로 채권 시장이 붕괴했던 '트러스 쇼크' 사례처럼 재정 건전성에 대한 우려가 국채 매도(금리 상승)로 이어질 수 있음
     category: 정부
-    stockMarketImportance: 8
+    stockMarketImportance: 6
 
   - id: tax-increase
     name: 증세 (Tax Increase)
     description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적. 증세는 소득세(개인소득세, 법인세), 소비세(부가가치세, 소비세), 자산세 등 다양한 세목에 적용될 수 있으며, 증세 시 재정적자 축소, 국채 금리 하락 가능성, 채권 시장 반응, 재정 건전성 개선, 소비·투자 위축 가능성, 통화정책과의 조합 등을 함께 분석해야 함. 증세는 재정 건전성을 개선하지만 경기 둔화 압력이 될 수 있어 시점과 규모가 중요함
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 5
 
   - id: tariff
     name: 관세 (Tariff)
@@ -303,13 +303,13 @@ terms:
     name: 무역적자 (Trade Deficit)
     description: 한 나라의 수입이 수출보다 많아 순수출(NX)이 음(-)인 상태로 경상수지 적자와 연결됨. 강한 내수와 자본 유입을 반영할 수도, 산업 경쟁력 약화를 반영할 수도 있어 그 자체로 좋고 나쁨을 단정하기 어렵고 환율·자본수지·경기 국면과 함께 해석해야 함
     category: 국제경제
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: trade-surplus
     name: 무역흑자 (Trade Surplus)
     description: 한 나라의 수출이 수입보다 많아 순수출(NX)이 양(+)인 상태로 경상수지 흑자와 연결됨. GDP에 기여하고 외화를 축적하는 요인이 되나 과도하면 교역 상대국과의 통상마찰과 통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함
     category: 국제경제
-    stockMarketImportance: 6
+    stockMarketImportance: 4
 
   - id: federal-reserve
     name: 연준(Fed) (Federal Reserve)
@@ -321,25 +321,25 @@ terms:
     name: 중앙은행 (Central Bank)
     description: 통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국으로 물가안정과 금융안정을 목표로 기준금리·유동성을 조절하며 최종대부자 기능을 수행
     category: 통화정책
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: mbs
     name: MBS (Mortgage-Backed Security)
     description: 주택담보대출을 기초자산으로 묶어 발행하는 유동화 증권으로 연준 자산매입의 주요 대상이며 모기지 금리와 주택시장에 영향을 미침
     category: 채권
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: treasury
     name: 재무부 (Treasury)
     description: 국채 발행과 국가 재정을 담당하는 미국 정부 기관으로 분기 발행계획(QRA)과 TGA 잔액 변동이 국채 수급·시장 유동성·금리에 영향을 미침
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: bond-price
     name: 채권가격 (Bond Price)
     description: 채권의 시장 가격으로 시장금리와 반대 방향으로 움직이며 만기·신용위험·수급 여건에 따라 변동하여 금리 기대 변화를 반영
     category: 금융
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: long-term-interest-rate
     name: 장기금리 (Long-term Interest Rate)
@@ -357,31 +357,31 @@ terms:
     name: 저금리 정책 (Low Interest Policy)
     description: 차입과 투자를 유도하기 위해 기준금리를 낮게 유지하는 통화정책으로 경기 부양에 쓰이나 자산가격 과열·부채 누적 위험을 동반할 수 있어 출구 시점이 중요함
     category: 통화정책
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: fed-balance-sheet
     name: 연준 대차대조표 (Fed Balance Sheet)
     description: 연준이 보유한 자산과 부채의 총괄 상태로 양적완화 시 확대되고 양적긴축 시 축소되며 시중 유동성과 지급준비금에 직접적인 영향을 미침
     category: 통화정책
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: maturity-redemption
     name: 만기상환 (Maturity Redemption)
     description: 채권 만기 도래 시 원금을 상환하는 과정으로 재투자 수요와 차환 발행 규모에 따라 시장 금리·유동성에 영향을 미침
     category: 채권
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: fed-assets
     name: 연준보유 자산 (Fed Assets)
     description: 연준이 양적완화 등을 통해 보유한 국채·MBS 등의 자산으로 연준 대차대조표의 자산 측 핵심 구성이며 규모 변화가 유동성에 영향을 미침
     category: 통화정책
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: strong-dollar
     name: 강달러 (Strong Dollar)
     description: 달러 가치가 다른 통화 대비 상대적으로 높은 상태로 미국의 수입 물가를 낮추는 반면 수출 경쟁력을 약화시키고 신흥국 자본유출·달러부채 부담을 키울 수 있음
     category: 국제경제
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: weak-dollar
     name: 약달러 (Weak Dollar)
@@ -393,13 +393,13 @@ terms:
     name: 원화 (Korean Won)
     description: 대한민국의 공식 통화로 달러 대비 환율이 수출입 경쟁력·수입 물가·외국인 자금 흐름에 영향을 미치며 위험선호 변화에 민감하게 반응
     category: 국제경제
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: chinese-yuan
     name: 위안화 (Chinese Yuan)
     description: 중국의 공식 통화로 관리변동환율제 하에서 운용되며 환율 정책과 위안화 국제화 움직임이 글로벌 무역·통상과 신흥국 통화에 영향을 미침
     category: 국제경제
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: japanese-yen
     name: 엔화 (Japanese Yen)
@@ -435,31 +435,31 @@ terms:
     name: 예대마진 (Net Interest Margin)
     description: 은행의 대출금리와 예금 등 조달금리의 차이로 은행 수익성의 핵심 지표이며 금리 수준·수익률 곡선 기울기에 따라 변동
     category: 금융
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: mercantilism
     name: 중상주의 (Mercantilism)
     description: 국부를 금·은 등 귀금속 축적으로 보고 수출을 늘리고 수입을 억제하기 위해 국가가 무역에 적극 개입한 17~18세기 경제사상으로, 무역을 한쪽이 이득을 보면 다른 쪽이 손해를 본다는 제로섬으로 보는 관점이 핵심이며 현대 산업정책 논쟁의 사상적 뿌리
     category: 국제경제
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: neo-mercantilism
     name: 신중상주의 (Neo-mercantilism)
     description: 금·은 축적 대신 전략 산업의 경쟁력과 무역흑자, 공급망 통제를 목표로 국가가 보조금·관세·산업정책을 동원하는 현대판 중상주의로, 미국의 IRA·CHIPS Act와 중국의 제조 2025 등이 대표 사례
     category: 국제경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: industrial-policy
     name: 산업정책 (Industrial Policy)
     description: 정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반할 수 있어 수출 규율 등 성과 기준 설계가 중요함
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: protectionism
     name: 보호무역 (Protectionism)
     description: 관세·수입 규제·보조금 등으로 국내 산업을 해외 경쟁으로부터 보호하는 무역 기조로, 유치산업 육성이나 고용 보호 명분을 가지나 소비자 가격 상승과 보복·무역전쟁 위험을 동반함
     category: 국제경제
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: free-trade
     name: 자유무역 (Free Trade)
@@ -471,37 +471,37 @@ terms:
     name: 비교우위 (Comparative Advantage)
     description: 각국이 상대적으로 더 잘 만드는 재화에 특화해 교역하면 전체 생산과 후생이 커진다는 리카도의 이론으로 자유무역의 핵심 근거이나, 동태적 산업 발전이나 불완전 경쟁을 충분히 설명하지 못한다는 비판도 있음
     category: 국제경제
-    stockMarketImportance: 5
+    stockMarketImportance: 3
 
   - id: subsidy
     name: 보조금 (Subsidy)
     description: 정부가 특정 산업·기업·소비에 제공하는 재정 지원으로 산업정책의 대표 수단이며, 전략 산업 육성과 투자 유치에 쓰이나 통상 마찰과 비효율·렌트시킹을 유발할 수 있음
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 5
 
   - id: infant-industry
     name: 유치산업 보호론 (Infant Industry Argument)
     description: 초기 단계의 신생 산업은 규모의 경제와 학습효과를 갖출 때까지 일시적으로 보호해야 장기적으로 경쟁력을 확보할 수 있다는 주장으로 보호무역과 산업정책의 핵심 논거이나, 보호의 영구화와 산업 고착화 위험이 지적됨
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: strategic-trade-theory
     name: 전략적 무역이론 (Strategic Trade Theory)
     description: 소수 기업이 지배하는 불완전 경쟁 시장에서는 정부의 보조금·보호가 자국 기업에 초과이윤을 이전시켜 국익이 될 수 있다는 1985년 브랜더-스펜서 이론으로, 보잉 대 에어버스 보조금 논쟁과 반도체 보조금 경쟁의 이론적 배경
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: economies-of-scale
     name: 규모의 경제 (Economies of Scale)
     description: 생산량이 늘수록 단위당 비용이 낮아지는 효과로, 이 효과가 큰 산업에서는 선점과 대규모 투자가 경쟁우위를 좌우해 정부의 전략적 개입 논거가 됨
     category: 경제이론
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: economic-security
     name: 경제안보 (Economic Security)
     description: 전략 물자·핵심 기술의 해외 의존을 줄이고 자국 생산 능력과 공급망 안정을 확보하려는 정책 기조로, 안보와 경제를 연계해 수출통제·리쇼어링·산업정책의 명분이 됨
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: supply-chain
     name: 공급망 (Supply Chain)
@@ -513,109 +513,109 @@ terms:
     name: 무역전쟁 (Trade War)
     description: 한 나라의 관세·수출규제에 상대국이 보복 관세 등으로 맞대응하며 무역 장벽이 연쇄적으로 높아지는 갈등으로, 1930년대 대공황을 악화시킨 사례처럼 양측 모두에 피해를 줄 수 있음
     category: 국제경제
-    stockMarketImportance: 8
+    stockMarketImportance: 7
 
   - id: consumer-welfare
     name: 소비자 후생 (Consumer Welfare)
     description: 소비자가 누리는 효용과 실질 구매력으로, 관세·보호로 국내 가격이 오르면 후생이 감소하여 보호무역의 비용을 평가하는 핵심 기준이 됨
     category: 거시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 3
 
   - id: learning-curve
     name: 학습곡선 효과 (Learning Curve Effect)
     description: 생산 경험이 누적될수록 단위 비용이 체계적으로 낮아지는 효과로, 초기 보호·지원이 장기 경쟁력으로 이어질 수 있다는 유치산업 보호론의 근거
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: cumulative-causation
     name: 누적 인과관계 (Cumulative Causation)
     description: 한 부문의 성장이 연관 산업·기술·고용을 끌어들여 추가 성장을 부르는 자기강화 과정으로, 제조업 기반 유지와 산업정책의 논거가 됨
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: public-choice-theory
     name: 공공선택이론 (Public Choice Theory)
     description: 정치인·관료·이익집단도 자기 이익을 추구한다는 전제로 정부 개입을 분석하는 이론으로, 보조금·보호가 렌트시킹과 정부 실패로 이어질 수 있다는 산업정책 비판의 핵심 근거
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: rent-seeking
     name: 렌트시킹 (Rent-seeking)
     description: 새 가치를 창출하지 않고 보조금·독점·규제 특혜 등 기존 이익을 차지하려는 로비·경쟁 활동으로, 보호무역과 산업정책이 키울 수 있는 비효율의 대표 사례
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: import-substitution
     name: 수입대체 산업화 (Import Substitution)
     description: 수입품을 국내 생산으로 대체하기 위해 높은 관세·보조금으로 내수 산업을 보호한 발전 전략으로, 20세기 중반 라틴아메리카 등에서 비효율과 경쟁력 저하로 실패한 사례가 많음
     category: 국제경제
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: developmental-state
     name: 발전국가 모델 (Developmental State)
     description: 국가가 전략 산업을 선정해 금융·보조금을 집중하되 수출 성과로 규율하며 성장을 주도한 동아시아 발전 모델로, 한국·대만·싱가포르의 고도성장 사례가 대표적
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: export-control
     name: 수출통제 (Export Control)
     description: 안보·전략적 이유로 특정 기술·물자의 해외 수출을 제한하는 정책으로, 미국의 대중 반도체 장비 수출 통제처럼 공급망 무기화와 경제안보의 수단으로 활용됨
     category: 정부
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: state-capacity
     name: 국가역량 (State Capacity)
     description: 정책을 효과적으로 설계·집행하고 R&D·인력·인프라 투자와 수출 규율을 함께 실행할 수 있는 국가의 행정·제도 역량으로, 산업정책 성공의 핵심 전제
     category: 정부
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: semiconductor
     name: 반도체 (Semiconductor)
     description: 전자기기의 두뇌 역할을 하는 핵심 부품으로 AI·전자·방산 전반의 기반이 되며, 공급망 안보와 각국 보조금 경쟁의 중심에 있는 대표적 전략 산업
     category: 원자재
-    stockMarketImportance: 9
+    stockMarketImportance: 8
 
   - id: battery
     name: 배터리 (Battery)
     description: 전기차와 에너지저장장치의 핵심 부품으로 리튬 등 핵심 광물 공급망과 연결되며, 각국의 보조금·현지조달 정책 대상이 되는 전략 산업
     category: 원자재
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: rare-earths
     name: 희토류 (Rare Earths)
     description: 첨단 전자·방산·전기차 모터에 필수적인 17종 원소군으로 생산이 특정국에 편중되어 공급망 무기화 위험이 큰 전략 자원
     category: 원자재
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: physiocracy
     name: 중농주의 (Physiocracy)
     description: 18세기 프랑스에서 중상주의에 대한 반발로 등장한 경제학파로, 농업과 토지를 모든 부의 원천으로 보고 경제는 자연 질서에 따라 움직이므로 정부 개입을 최소화해야 한다고 주장했으며 케네의 경제표로 대표됨. 순환 흐름과 토지가치세 사상의 선구이나 제조업을 불임적으로 본 한계가 있음
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 1
 
   - id: laissez-faire
     name: 자유방임 (Laissez-faire)
     description: 시장이 자연 질서에 따라 스스로 조정되므로 정부는 개입을 최소화해야 한다는 사상으로 중농주의·고전학파에서 비롯되었으며 규제 완화와 작은 정부론의 뿌리이나, 시장 실패 상황에서는 한계가 지적됨
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: land-value-tax
     name: 토지가치세 (Land Value Tax)
     description: 토지에서 발생하는 지대·가치 상승분에 부과하는 세금으로 노동·자본 의욕을 덜 해친다는 장점이 있어 헨리 조지가 주창했으며, 주택 가격·토지 투기·불평등 대응책으로 재조명되나 정확한 가치 평가와 정치적 저항이 과제
     category: 정부
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: market-failure
     name: 시장 실패 (Market Failure)
     description: 독점·외부효과·공공재·정보 비대칭 등으로 시장이 자원을 효율적으로 배분하지 못하는 상태로, 정부 개입과 산업정책을 정당화하는 핵심 근거이며 극단적 자유방임론의 한계를 보여줌
     category: 미시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: net-product
     name: 순생산물 (Produit Net)
     description: 투입한 것보다 더 많이 산출되는 잉여를 뜻하는 중농주의의 핵심 개념으로, 케네는 이 잉여가 오직 농업·토지에서만 나온다고 보았음
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: agriculture
     name: 농업 (Agriculture)
@@ -633,37 +633,37 @@ terms:
     name: 외부효과 (Externality)
     description: 한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: circular-economy
     name: 순환경제 (Circular Economy)
     description: 자원을 재사용·재활용해 폐기를 줄이고 순환시키는 경제 모델로, 중농주의 경제표의 순환 흐름 관점과 산업연관분석을 사상적 기반으로 삼아 지속가능성 정책의 핵심이 됨
     category: 자원·환경
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: georgism
     name: 조지주의 (Georgism)
     description: 헨리 조지가 주창한 사상으로 토지에서 생기는 지대만 과세하고 노동·자본 소득의 세금은 줄이자는 토지가치세 단일세론으로, 중농주의의 단일 토지세를 현대적으로 계승
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: input-output-analysis
     name: 산업연관분석 (Input-Output Analysis)
     description: 산업 간 투입과 산출의 상호의존 관계를 표로 분석하는 기법으로 레온티에프가 체계화했으며, 케네의 경제표를 현대적으로 발전시킨 거시·순환경제 분석 도구
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: natural-law
     name: 자연법 (Natural Law)
     description: 인간 사회도 자연처럼 보편 법칙에 따라 움직인다고 보는 사상으로 중농주의 자유방임론의 철학적 기반이 됨
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: monopoly
     name: 독점 (Monopoly)
     description: 한 기업이 시장을 지배해 가격과 생산량을 좌우하는 상태로 경쟁을 제한해 소비자 후생을 낮추며 시장 실패의 대표 유형
     category: 미시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: technological-progress
     name: 기술 진보 (Technological Progress)
@@ -675,79 +675,79 @@ terms:
     name: 제조업 (Manufacturing)
     description: 원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 되며, 중농주의가 불임적이라 폄하했으나 산업혁명 이후 부의 핵심 원천이 됨
     category: 거시경제
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: ecological-economics
     name: 생태경제학 (Ecological Economics)
     description: 경제를 자연 생태계의 일부로 보고 자원의 한계와 지속가능성을 중시하는 학문으로, 자연과의 조화를 강조한 중농주의를 사상적 선구로 봄
     category: 자원·환경
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: economic-table
     name: 경제표 (Tableau Économique)
     description: 케네가 농업·제조업·지주·노동자 사이에서 돈과 재화가 어떻게 순환하는지를 처음으로 시각화한 모델로, 최초의 거시경제 순환 모델이자 산업연관분석의 원형
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: classical-economics
     name: 고전경제학 (Classical Economics)
     description: 1776년 애덤 스미스의 국부론부터 1870년대 한계혁명 전까지를 가리키는 학파로 스미스·리카도·맬서스·밀이 대표적이며, 중상주의를 비판하고 시장의 자율 조정과 자유무역, 분업과 생산성 성장을 강조한 현대 경제학의 직접적 뿌리. 단기 수요 부족과 시장 실패, 분배 문제를 충분히 다루지 못한 한계가 있음
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: invisible-hand
     name: 보이지 않는 손 (Invisible Hand)
     description: 개인이 자기 이익을 추구하면 시장 가격을 통해 자원이 효율적으로 배분되어 사회 전체의 이익으로 이어진다는 애덤 스미스의 통찰로 시장 경제 작동 원리의 핵심이나, 외부효과·독점 등 시장 실패 상황에서는 한계가 있음
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: division-of-labor
     name: 분업 (Division of Labor)
     description: 작업을 전문화해 나누면 생산성이 크게 높아진다는 원리로 스미스의 핀 공장 사례로 유명하며, 글로벌 가치사슬과 아웃소싱의 이론적 기반
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: keynesian-economics
     name: 케인즈주의 (Keynesian Economics)
     description: 단기에는 가격·임금이 경직적이고 총수요 부족으로 실업이 지속될 수 있어 정부의 적극적 수요 관리가 필요하다는 학파로, 고전파의 시장 자율 조정론과 세이의 법칙을 비판하며 대공황 이후 등장
     category: 경제이론
-    stockMarketImportance: 5
+    stockMarketImportance: 3
 
   - id: neoclassical-economics
     name: 신고전학파 (Neoclassical Economics)
     description: 한계혁명 이후 한계효용과 합리적 선택, 수요·공급에 따른 시장 균형을 중시하는 학파로 고전파를 계승·정교화했으며 현대 미시경제학의 주류 기반
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: says-law
     name: 세이의 법칙 (Say's Law)
     description: 공급이 스스로 수요를 창출하므로 장기적으로 전반적 과잉생산은 없고 경제는 완전고용 균형으로 수렴한다는 고전파 명제로, 케인즈가 대공황의 수요 부족을 들어 반박
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: labor-theory-of-value
     name: 노동가치설 (Labor Theory of Value)
     description: 상품의 가치가 투입된 노동량으로 결정된다는 고전파 가치 이론으로 다이아몬드-물 역설을 설명하지 못해 한계효용이론으로 대체됨
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: marginal-utility
     name: 한계효용 (Marginal Utility)
     description: 재화를 한 단위 더 소비할 때 늘어나는 효용으로 소비가 늘수록 체감하며, 한계혁명을 통해 노동가치설을 대체하고 가격 결정을 설명하는 신고전파의 핵심 개념
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: malthusianism
     name: 맬서스 인구론 (Malthusianism)
     description: 인구는 기하급수로 늘지만 식량은 산술급수로 늘어 빈곤이 불가피하다는 맬서스의 비관론으로, 기술 진보와 생산성 향상으로 반박된 대표적 사례
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: aggregate-demand
     name: 총수요 (Aggregate Demand)
     description: 한 경제에서 일정 기간 재화·서비스에 대한 총지출로 소비·투자·정부지출·순수출의 합이며, 케인즈주의가 단기 경기와 고용을 좌우하는 핵심 변수로 봄
     category: 거시경제
-    stockMarketImportance: 7
+    stockMarketImportance: 6
 
   - id: economic-growth
     name: 경제성장 (Economic Growth)
@@ -759,85 +759,85 @@ terms:
     name: 피구세 (Pigovian Tax)
     description: 외부효과로 발생하는 사회적 비용을 유발자에게 부담시켜 시장 실패를 교정하는 세금으로 탄소세가 대표 사례
     category: 정부
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: global-value-chain
     name: 글로벌 가치사슬 (Global Value Chain)
     description: 하나의 제품이 여러 나라에 걸친 분업으로 설계·생산·조립되는 국제 생산 네트워크로 비교우위와 분업 원리의 현대적 구현이며 공급망 재편의 대상
     category: 국제경제
-    stockMarketImportance: 6
+    stockMarketImportance: 5
 
   - id: price-mechanism
     name: 가격 메커니즘 (Price Mechanism)
     description: 가격이 수요와 공급, 분산된 정보를 반영해 자원 배분을 조정하는 시장의 작동 원리로, 계획경제 대비 시장경제의 효율성 근거
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: perfect-competition
     name: 완전경쟁 (Perfect Competition)
     description: 다수의 공급자·수요자, 동질적 상품, 자유로운 진입과 완전한 정보를 전제로 개별 주체가 가격을 좌우하지 못하는 이상적 시장 구조로 미시경제 분석의 기준점
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: oligopoly
     name: 과점 (Oligopoly)
     description: 소수의 기업이 시장을 지배하는 구조로 기업 간 전략적 상호작용이 중요해 게임이론으로 분석되며 가격·생산 담합 위험이 있음
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: public-goods
     name: 공공재 (Public Goods)
     description: 비배제성과 비경합성을 가져 시장이 충분히 공급하지 못하는 재화로 국방·치안이 대표 사례이며 정부 공급의 근거가 되는 시장 실패 유형
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: information-asymmetry
     name: 정보 비대칭 (Information Asymmetry)
     description: 거래 당사자 간 정보 격차로 역선택과 도덕적 해이가 발생해 시장이 비효율적으로 작동하는 시장 실패 유형
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: welfare-economics
     name: 후생경제학 (Welfare Economics)
     description: 자원 배분이 사회 후생에 미치는 영향을 분석하고 효율성과 분배를 평가하는 분야로 시장 실패 교정과 정책 정당화의 이론적 틀
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: capital-accumulation
     name: 자본축적 (Capital Accumulation)
     description: 생산에 쓰이는 자본을 투자로 늘려가는 과정으로 고전파와 현대 성장이론 모두에서 장기 성장의 핵심 동력
     category: 거시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: inequality
     name: 불평등 (Inequality)
     description: 소득과 자산이 구성원 간에 불균등하게 분포된 상태로 고전파가 소홀히 다룬 분배 문제이며 현대 성장·사회 안정 논의의 핵심 의제
     category: 거시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: full-employment
     name: 완전고용 (Full Employment)
     description: 경기적 실업이 사라지고 일하려는 사람이 대체로 고용된 상태로 고전파는 시장이 자동으로 도달한다고 보았으나 케인즈는 단기에 미달할 수 있다고 봄
     category: 거시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 4
 
   - id: game-theory
     name: 게임이론 (Game Theory)
     description: 상호 의존적 의사결정에서 전략적 행동을 분석하는 이론으로 과점·협상·정책 경쟁 분석에 쓰이며 산업조직론과 전략적 무역이론의 도구
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: industrial-organization
     name: 산업조직론 (Industrial Organization)
     description: 시장 구조와 기업 행동, 성과의 관계를 분석하는 분야로 완전경쟁 가정의 한계를 넘어 독점·과점 등 현실의 경쟁을 다룸
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: institutional-economics
     name: 제도경제학 (Institutional Economics)
     description: 법·관습·신뢰 등 제도가 경제 행동과 성과에 미치는 영향을 분석하는 학파로 시장이 도덕적·제도적 기반 위에서 작동한다는 스미스의 통찰을 계승
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: behavioral-economics
     name: 행동경제학 (Behavioral Economics)
@@ -849,13 +849,13 @@ terms:
     name: 한계혁명 (Marginal Revolution)
     description: 1870년대 제번스·멩거·발라가 독립적으로 일으킨 경제학 패러다임 전환으로, 가치를 투입 노동·비용으로 보던 고전파의 객관적 가치론을 소비자의 주관적 한계효용으로 설명하는 이론으로 바꾸어 신고전학파와 현대 미시경제학의 출발점이 됨
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 1
 
   - id: marginal-analysis
     name: 한계 분석 (Marginal Analysis)
     description: 의사결정을 마지막 한 단위에서 따지는 분석 방법으로 한계효용·한계비용·한계생산을 비교해 최적을 찾으며, 고용·가격·환경 정책까지 적용되는 현대 경제학의 가장 기본적인 사고 도구
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: supply-and-demand
     name: 수요·공급 (Supply and Demand)
@@ -867,37 +867,37 @@ terms:
     name: 일반균형 (General Equilibrium)
     description: 모든 시장이 서로 영향을 주고받으며 동시에 균형을 이룰 수 있다는 발라의 이론으로 CGE·DSGE 등 현대 정책 모델의 뿌리
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: subjective-value-theory
     name: 주관적 가치설 (Subjective Theory of Value)
     description: 재화의 가치가 투입 비용이 아니라 그것을 소비하는 사람의 주관적 평가(효용)에 따라 결정된다는 이론으로 한계혁명의 핵심이며 소비자 주권 사고의 기초
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: diminishing-marginal-utility
     name: 한계효용 체감의 법칙 (Diminishing Marginal Utility)
     description: 같은 재화를 한 단위 더 소비할수록 추가로 얻는 만족(한계효용)이 점점 줄어든다는 법칙으로 수요 곡선이 우하향하는 근거이자 다이아몬드-물 역설의 해법
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 2
 
   - id: marginal-cost
     name: 한계비용 (Marginal Cost)
     description: 생산량을 한 단위 더 늘릴 때 추가로 드는 비용으로 공급과 최적 생산량 결정의 핵심 개념이며 가격과 비교해 생산 여부를 판단
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: pareto-efficiency
     name: 파레토 효율 (Pareto Efficiency)
     description: 다른 누구의 후생도 해치지 않고서는 누군가의 후생을 더 높일 수 없는 자원 배분 상태로 효율의 기준이나 분배·형평성은 말해 주지 않는 개념
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: homo-economicus
     name: 합리적 경제인 (Homo Economicus)
     description: 완전한 정보를 가지고 항상 자기 효용을 합리적으로 극대화한다고 가정한 경제 모델 속 인간상으로 신고전 분석의 전제이나 현실의 비합리성을 단순화했다는 비판을 받음
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: bounded-rationality
     name: 제한된 합리성 (Bounded Rationality)
@@ -909,31 +909,31 @@ terms:
     name: 다이아몬드-물 역설 (Diamond-Water Paradox)
     description: 생존에 필수인 물은 싸고 쓸모가 적은 다이아몬드는 비싼 역설로, 노동가치설로는 설명하지 못했으나 희소성에 따른 한계효용 차이로 해결됨
     category: 미시경제
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: partial-equilibrium
     name: 부분균형 (Partial Equilibrium)
     description: 다른 시장을 일정하다고 보고 한 시장만 떼어 분석하는 마셜식 접근으로, 모든 시장을 동시에 다루는 일반균형과 대비됨
     category: 미시경제
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: marginal-product
     name: 한계생산 (Marginal Product)
     description: 생산요소를 한 단위 더 투입할 때 늘어나는 산출량으로 기업의 고용·투자 결정과 임금 등 요소 가격 결정의 기초
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: austrian-school
     name: 오스트리아학파 (Austrian School)
     description: 멩거에서 비롯되어 주관적 가치와 시장 과정, 분산된 지식, 기업가 정신을 강조하는 학파로 수학적 균형 중심의 주류 신고전파와 방법론에서 갈라짐
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: consumer-sovereignty
     name: 소비자 주권 (Consumer Sovereignty)
     description: 무엇을 생산할지를 궁극적으로 소비자의 선택과 지불 의사가 결정한다는 개념으로 주관적 가치론과 시장경제 정당화의 핵심 논거
     category: 미시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: willingness-to-pay
     name: 지불용의 (Willingness to Pay)
@@ -945,19 +945,19 @@ terms:
     name: 창조적 파괴 (Creative Destruction)
     description: 혁신이 낡은 기술·기업·산업을 끊임없이 대체하며 경제를 발전시킨다는 슘페터의 개념으로 정태적 균형 분석이 놓친 동태적 변화를 강조
     category: 경제이론
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: evolutionary-economics
     name: 진화경제학 (Evolutionary Economics)
     description: 경제를 고정된 균형이 아니라 변이·선택·적응을 거쳐 진화하는 동태적 과정으로 보는 분야로 혁신과 경로의존성을 설명하며 한계혁명의 정태적 한계를 보완
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: opportunity-cost
     name: 기회비용 (Opportunity Cost)
     description: 어떤 선택을 위해 포기한 차선의 가치로 한계 분석과 합리적 의사결정의 가장 기초가 되는 개념
     category: 미시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: business-cycle
     name: 경기순환 (Business Cycle)
@@ -969,25 +969,25 @@ terms:
     name: 오스트리아 경기변동이론 (ABCT)
     description: 중앙은행의 인위적 신용 팽창과 저금리가 자원을 장기 투자로 잘못 배분(말인베스트먼트)해 거품과 붕괴를 부른다고 보는 미제스·하이에크의 이론
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: malinvestment
     name: 말인베스트먼트 (Malinvestment)
     description: 인위적 저금리가 보낸 잘못된 신호 때문에 수익성 없는 장기 프로젝트에 자원이 과잉 투입되는 현상으로 거품 붕괴와 구조조정의 원인
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: effective-demand
     name: 유효수요 (Effective Demand)
     description: 실제 지출로 뒷받침되는 총수요로, 이것이 부족하면 경제가 완전고용 아래에서 정체할 수 있다는 케인즈 진단의 핵심
     category: 거시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: multiplier
     name: 승수효과 (Multiplier Effect)
     description: 정부 지출이나 투자가 소득을 늘리고 그 소득이 다시 소비로 이어져 총수요를 처음 지출보다 더 크게 확대시키는 효과
     category: 거시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 3
 
   - id: liquidity-trap
     name: 유동성 함정 (Liquidity Trap)
@@ -999,7 +999,7 @@ terms:
     name: 스태그플레이션 (Stagflation)
     description: 경기 침체로 실업이 높은 동시에 물가가 오르는 현상으로, 수요만 보던 케인즈주의의 한계를 드러낸 1970년대의 난제
     category: 거시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 5
 
   - id: animal-spirits
     name: 야성적 충동 (Animal Spirits)
@@ -1011,13 +1011,13 @@ terms:
     name: 정부 실패 (Government Failure)
     description: 정부 개입이 정보 부족·정치적 남용·관료적 비효율 때문에 오히려 자원 배분을 악화시키는 현상으로 시장 실패에 대응하는 개념
     category: 정부
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: lucas-critique
     name: 루카스 비판 (Lucas Critique)
     description: 사람들이 정부 정책을 미리 예상하고 행동을 바꾸면 과거 데이터에 기반한 정책 효과가 상쇄된다는 비판으로 합리적 기대 이론의 핵심
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: zombie-firm
     name: 좀비기업 (Zombie Firm)
@@ -1029,19 +1029,19 @@ terms:
     name: 자연이자율 (Natural Rate of Interest)
     description: 저축과 투자를 일치시켜 경제를 균형으로 이끄는 가상의 금리로, 시장금리가 이보다 낮으면 과잉투자와 거품이 생긴다고 보는 기준
     category: 금리
-    stockMarketImportance: 2
+    stockMarketImportance: 3
 
   - id: national-debt
     name: 국가부채 (National Debt)
     description: 정부가 재정 적자를 메우려 빌린 누적 채무로, 적극적 재정정책의 부작용이자 미래 세대의 부담으로 이어질 수 있는 문제
     category: 정부
-    stockMarketImportance: 4
+    stockMarketImportance: 5
 
   - id: time-preference
     name: 시간선호 (Time Preference)
     description: 사람들이 미래의 소비보다 현재의 소비를 더 선호하는 정도로, 금리와 자본의 시간 구조를 설명하는 오스트리아 자본이론의 기초
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: great-depression
     name: 대공황 (Great Depression)
@@ -1053,13 +1053,13 @@ terms:
     name: 통화주의 (Monetarism)
     description: 인플레이션은 언제 어디서나 화폐적 현상이라고 보고 안정적인 통화량 증가를 강조한 밀턴 프리드먼과 시카고학파의 이론으로 케인즈주의에 맞서 1970년대에 부상
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: quantity-theory-of-money
     name: 화폐수량설 (Quantity Theory of Money)
     description: "통화량(M)과 유통속도(V)의 곱이 물가(P)와 실질생산(Y)의 곱과 같다는 MV=PY 항등식에 기반해, 장기적으로 화폐 공급 증가가 물가 상승으로 이어진다고 보는 이론"
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: phillips-curve
     name: 필립스 곡선 (Phillips Curve)
@@ -1083,37 +1083,37 @@ terms:
     name: 합리적 기대 (Rational Expectations)
     description: 사람들이 이용 가능한 모든 정보를 활용해 미래를 예측하고 행동한다는 가정으로, 예상된 정책은 효과가 상쇄된다는 새고전파와 루카스 비판의 토대
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: adaptive-expectations
     name: 적응적 기대 (Adaptive Expectations)
     description: 사람들이 과거의 경험을 바탕으로 미래를 예측하고 오차를 점진적으로 수정한다는 기대 형성 방식으로, 정보를 즉시 반영하는 합리적 기대와 대비됨
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: new-classical-economics
     name: 새고전파 (New Classical Economics)
     description: 합리적 기대와 시장청산을 전제로 예상된 정책은 무력하다고 보는 루카스·사전트 등의 학파로 통화주의를 계승하며 케인즈식 재량 정책을 비판
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: supply-shock
     name: 공급 충격 (Supply Shock)
     description: 유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음
     category: 거시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 5
 
   - id: monetary-policy-rule
     name: 준칙주의 (Monetary Policy Rule)
     description: 중앙은행이 재량적 판단 대신 통화량 증가율이나 금리 공식 같은 정해진 규칙을 따라야 한다는 입장으로 프리드먼의 k퍼센트 준칙이 대표적
     category: 통화정책
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: permanent-income-hypothesis
     name: 영구소득가설 (Permanent Income Hypothesis)
     description: 소비가 일시적 소득이 아니라 평생에 걸친 기대 소득(영구소득)에 따라 결정된다는 프리드먼의 가설로, 일회성 감세나 지원금의 부양 효과가 작다고 봄
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: central-bank-independence
     name: 중앙은행 독립성 (Central Bank Independence)
@@ -1125,25 +1125,25 @@ terms:
     name: 시간 불일치 (Time Inconsistency)
     description: 사전에 최적이라고 약속한 정책이 시간이 지나면 어기고 싶은 유인이 생기는 문제로, 재량보다 규칙과 중앙은행 독립성이 필요하다는 핵심 논거
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: monetary-neutrality
     name: 화폐의 중립성 (Monetary Neutrality)
     description: 통화량 변화가 장기적으로 물가 같은 명목 변수만 바꾸고 생산·고용 같은 실물 변수에는 영향을 주지 않는다는 명제
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: forward-guidance
     name: 포워드 가이던스 (Forward Guidance)
     description: 중앙은행이 앞으로의 금리·정책 방향을 미리 알려 시장의 기대를 관리하는 통화정책 수단으로 합리적 기대 이론과 신뢰의 중요성에 기반
     category: 통화정책
-    stockMarketImportance: 3
+    stockMarketImportance: 4
 
   - id: new-keynesian-economics
     name: 뉴케인즈학파 (New Keynesian Economics)
     description: 합리적 기대를 받아들이면서도 가격·임금 경직성 때문에 화폐가 단기에는 실물에 영향을 준다고 보아 정부 개입의 여지를 옹호하는 현대 케인즈 계열 학파
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: global-financial-crisis
     name: 글로벌 금융위기 (2008)
@@ -1155,7 +1155,7 @@ terms:
     name: 정책 무력화 명제 (Policy Ineffectiveness)
     description: 사람들이 정부의 체계적 정책을 미리 예상하고 대응하면 그 효과가 상쇄된다는 새고전파의 명제로, 예측 가능한 규칙 기반 정책의 근거가 됨
     category: 경제이론
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: efficient-market-hypothesis
     name: 효율적 시장 가설 (EMH)
@@ -1167,19 +1167,19 @@ terms:
     name: 미시적 기초 (Microfoundations)
     description: 거시경제 모형을 개인과 기업의 최적화 행동에서 출발해 쌓아 올려야 한다는 방법론으로, 합리적 기대와 함께 현대 DSGE 모델의 기본 구조
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: dsge-model
     name: DSGE 모델 (DSGE Model)
     description: 미시적 기초와 합리적 기대를 토대로 경제 전체의 동태적 균형을 분석하는 동태확률일반균형 모형으로 1990년대 이후 주류 거시경제학의 표준 도구
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: real-business-cycle
     name: 실물경기변동이론 (RBC)
     description: 경기변동이 화폐가 아니라 생산성 같은 실물 기술 충격에서 비롯된다고 보는 프레스콧 등의 이론으로 DSGE 모델의 원형
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: herd-behavior
     name: 군중 행동 (Herd Behavior)
@@ -1197,7 +1197,7 @@ terms:
     name: 시스템 리스크 (Systemic Risk)
     description: 한 금융기관이나 시장의 충격이 연쇄적으로 전체 금융 시스템으로 번지는 위험으로, 개별 위험과 달리 시스템 전체의 붕괴를 초래할 수 있음
     category: 금융
-    stockMarketImportance: 4
+    stockMarketImportance: 5
 
   - id: shadow-banking
     name: 그림자 금융 (Shadow Banking)
@@ -1215,25 +1215,25 @@ terms:
     name: 대표적 경제주체 (Representative Agent)
     description: 경제 전체를 평균적인 한 명의 합리적 주체로 단순화해 분석하는 모형 가정으로, 가계·은행·기업의 이질성과 상호작용을 담지 못하는 한계가 있음
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: heterogeneous-agent
     name: 이질적 행위자 (Heterogeneous Agent)
     description: 소득·부채·정보가 서로 다른 다양한 경제주체를 명시적으로 다루는 접근으로, 불평등과 금융 불안정이 위기를 키우는 과정을 설명하기 위해 대표주체 모형을 보완
     category: 경제이론
-    stockMarketImportance: 2
+    stockMarketImportance: 1
 
   - id: tail-risk
     name: 테일 리스크 (Tail Risk)
     description: 확률이 매우 낮지만 발생하면 막대한 손실을 주는 극단적 위험으로, 정규분포를 가정한 위험 모델이 2008년에 크게 과소평가함
     category: 금융
-    stockMarketImportance: 3
+    stockMarketImportance: 4
 
   - id: financial-friction
     name: 금융 마찰 (Financial Friction)
     description: 정보 비대칭이나 담보 제약 때문에 자금이 매끄럽게 중개되지 못하는 현상으로, 2008년 이후 거시 모형에 적극 반영되기 시작한 요소
     category: 금융
-    stockMarketImportance: 3
+    stockMarketImportance: 2
 
   - id: prospect-theory
     name: 프로스펙트 이론 (Prospect Theory)
@@ -1287,7 +1287,7 @@ terms:
     name: 자산 버블 (Asset Bubble)
     description: 자산 가격이 내재가치에서 크게 벗어나 비정상적으로 부풀었다가 붕괴하는 현상으로 군중 심리와 과잉 자신감, 레버리지가 결합해 반복적으로 발생
     category: 금융
-    stockMarketImportance: 5
+    stockMarketImportance: 6
 
   - id: irrational-exuberance
     name: 비합리적 과열 (Irrational Exuberance)

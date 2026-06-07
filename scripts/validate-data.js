@@ -37,6 +37,14 @@ function validate() {
     termIds.add(term.id);
     if (!term.name) errors.push(`Term "${term.id}" missing name`);
     if (!term.description) warnings.push(`Term "${term.id}" missing description`);
+    if (term.stockMarketImportance !== undefined) {
+      const imp = term.stockMarketImportance;
+      if (!Number.isInteger(imp) || imp < 1 || imp > 10) {
+        errors.push(`Term "${term.id}": stockMarketImportance must be an integer 1-10 (got ${imp})`);
+      }
+    } else {
+      warnings.push(`Term "${term.id}" missing stockMarketImportance`);
+    }
   }
 
   for (const [id, count] of termIdCounts) {

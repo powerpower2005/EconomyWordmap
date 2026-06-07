@@ -18,7 +18,7 @@ Source files: `src/data/terms-all.yaml`, `src/data/relations.yaml`
 | `name` | yes | string | `한글 (English)` |
 | `description` | yes | string | Long text; use `"..."` in YAML when needed |
 | `category` | recommended | string | See [categories.md](./categories.md) |
-| `stockMarketImportance` | optional | 1–10 | Stock market importance (star UI) |
+| `stockMarketImportance` | optional | 1–10 | Stock market importance (star UI). Score per the rubric in [AGENTS.md](../AGENTS.md#stock-market-importance-scoring-rubric): how directly the term moves prices / is used in real investing, not academic significance. 9-10 live market-wide drivers, 7-8 core macro variables, 5-6 indirect, 3-4 background concepts, 1-2 pure theory/history. |
 
 ### Build-time only (do not author in YAML)
 

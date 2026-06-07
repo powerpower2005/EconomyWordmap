@@ -41,6 +41,11 @@ Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/term
 - Fill both `holds` (성립) and `fails` (한계) — the tab's purpose is to show a claim is conditional, not absolute.
 - Schema (EN): `docs/propositions-schema.md`. Workflow (KO): `docs/agent-propositions-guide.md`.
 
+## Stock market importance
+
+- `stockMarketImportance` (integer 1-10) = how directly the term moves prices / is used in real investing, **not** academic significance. Assign to every new term.
+- Bands: 9-10 live market-wide drivers, 7-8 core macro variables, 5-6 indirect, 3-4 background concepts, 1-2 pure theory/history. Full rubric: `AGENTS.md` (Stock market importance section).
+
 ## Content language
 
 - YAML `name` / `description` / relation text / proposition text: **Korean** (with English in parentheses in `name` when applicable).
