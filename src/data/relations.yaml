@@ -276,13 +276,6 @@ relations:
     description: "일부 국가(예: 미국)에서는 QE가 MBS 매입을 포함할 수 있음"
     strength: medium
 
-  - id: r40
-    term1Id: treasury
-    term2Id: government-bond
-    type: proportional
-    description: 재무부는 재정 조달을 위해 국채를 발행
-    strength: strong
-
   - id: r41
     term1Id: government-bond
     term2Id: bond-price
@@ -642,13 +635,6 @@ relations:
     type: correlation
     description: 경제성장률은 일반적으로 실질 GDP 증가율로 측정
     strength: strong
-
-  - id: r92
-    term1Id: stock-market
-    term2Id: interest-rate
-    type: correlation
-    description: "금리 상승은 할인율 상승과 대체투자 매력 증가로 주식에 부담이 될 수 있으나, 성장·물가·이익 전망에 따라 달라짐"
-    strength: medium
 
   - id: r93
     term1Id: stock-market
@@ -1033,15 +1019,6 @@ relations:
     term2Id: inflation
     type: correlation
     description: "PCE는 인플레이션을 측정하는 핵심 지표로 물가 수준의 변화를 반영하는 경향"
-    strength: strong
-
-  - id: r148
-    term1Id: pce
-    term2Id: cpi
-    type: correlation
-    bidirectional: true
-    description: "PCE와 CPI는 모두 물가를 측정하는 지표로 유사한 움직임을 보이나 측정 방식과 가중치가 다름"
-    reverseDescription: "CPI와 PCE는 모두 물가를 측정하나 PCE는 가중치 변화를 반영하고 CPI는 고정 바스켓 방식을 사용"
     strength: strong
 
   - id: r149
@@ -3077,14 +3054,6 @@ relations:
     strength: medium
     nature: causal
 
-  - id: r406
-    term1Id: bounded-rationality
-    term2Id: behavioral-economics
-    type: correlation
-    description: "제한된 합리성은 행동경제학의 출발 전제"
-    strength: medium
-    nature: causal
-
   - id: r407
     term1Id: supply-side-economics
     term2Id: classical-economics
@@ -3350,5 +3319,253 @@ relations:
     term2Id: inflation
     type: proportional
     description: "완전고용에 가까워질수록 노동시장이 과열되어 임금·물가 상승 압력이 커짐(필립스 곡선 직관)"
+    strength: medium
+    nature: causal
+
+  - id: r439
+    term1Id: fiscal-policy
+    term2Id: crowding-out-effect
+    type: correlation
+    description: "확장적 재정정책은 금리 상승을 통해 민간 투자를 밀어내는 구축효과를 부를 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r440
+    term1Id: crowding-out-effect
+    term2Id: investment
+    type: inverse
+    description: "구축효과가 작동하면 정부 차입이 금리를 올려 민간 투자를 위축시킴"
+    strength: strong
+    nature: causal
+
+  - id: r441
+    term1Id: crowding-out-effect
+    term2Id: interest-rate
+    type: proportional
+    description: "정부의 대규모 차입은 자금 수요를 키워 금리를 끌어올림"
+    strength: medium
+    nature: causal
+
+  - id: r442
+    term1Id: national-debt
+    term2Id: crowding-out-effect
+    type: proportional
+    description: "국가부채 누적과 국채 발행 증가가 구축효과를 키울 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r443
+    term1Id: yield-curve
+    term2Id: recession
+    type: correlation
+    description: "수익률 곡선의 장단기 역전은 경기침체를 예고하는 대표적 선행지표"
+    strength: strong
+    nature: causal
+
+  - id: r444
+    term1Id: yield-curve
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: "수익률 곡선은 장기금리와 단기금리의 관계로 그려지며 장기금리가 그 핵심 축"
+    strength: medium
+    nature: definitional
+
+  - id: r445
+    term1Id: yield-curve
+    term2Id: interest-rate
+    type: correlation
+    description: "수익률 곡선의 단기 구간은 중앙은행 기준금리에 크게 좌우됨"
+    strength: medium
+    nature: causal
+
+  - id: r446
+    term1Id: business-cycle
+    term2Id: recession
+    type: correlation
+    description: "경기침체는 경기순환의 수축 국면에 해당"
+    strength: strong
+    nature: hierarchical
+
+  - id: r447
+    term1Id: recession
+    term2Id: unemployment
+    type: proportional
+    description: "경기침체는 생산 위축으로 실업을 늘림"
+    strength: strong
+    nature: causal
+
+  - id: r448
+    term1Id: recession
+    term2Id: gdp
+    type: inverse
+    description: "경기침체기에는 실질 GDP가 감소"
+    strength: strong
+    nature: causal
+
+  - id: r449
+    term1Id: recession
+    term2Id: stock-market
+    type: inverse
+    description: "경기침체 우려는 기업 이익 전망 악화로 주가를 끌어내림"
+    strength: strong
+    nature: causal
+
+  - id: r450
+    term1Id: unemployment
+    term2Id: economic-growth
+    type: inverse
+    description: "성장과 실업은 반대로 움직이는 경향이 있음(오쿤의 법칙)"
+    strength: medium
+    nature: causal
+
+  - id: r451
+    term1Id: unemployment
+    term2Id: consumption
+    type: inverse
+    description: "실업 증가는 가계 소득과 소비를 위축시킴"
+    strength: medium
+    nature: causal
+
+  - id: r452
+    term1Id: business-cycle
+    term2Id: stock-market
+    type: correlation
+    description: "주가는 경기순환의 국면과 기대를 선반영하며 함께 움직임"
+    strength: medium
+    nature: causal
+
+  - id: r453
+    term1Id: federal-reserve
+    term2Id: policy-rate
+    type: proportional
+    description: "연준은 FOMC에서 대표 금리인 기준금리(정책금리)를 결정"
+    strength: strong
+    nature: policy
+
+  - id: r454
+    term1Id: federal-reserve
+    term2Id: quantitative-easing
+    type: correlation
+    description: "연준은 국채·MBS를 매입하는 양적완화로 장기금리를 낮추고 유동성을 공급"
+    strength: strong
+    nature: policy
+
+  - id: r455
+    term1Id: federal-reserve
+    term2Id: fed-balance-sheet
+    type: proportional
+    description: "연준의 자산 매입·축소가 대차대조표 규모를 결정"
+    strength: strong
+    nature: causal
+
+  - id: r456
+    term1Id: federal-reserve
+    term2Id: inflation-targeting
+    type: correlation
+    description: "연준은 2퍼센트 물가안정목표를 기준으로 통화정책을 운영"
+    strength: medium
+    nature: policy
+
+  - id: r457
+    term1Id: federal-reserve
+    term2Id: stock-market
+    type: correlation
+    description: "연준의 금리·유동성 결정과 발언이 위험자산 가격을 크게 움직임"
+    strength: strong
+    nature: causal
+
+  - id: r458
+    term1Id: federal-reserve
+    term2Id: money-supply
+    type: proportional
+    description: "연준의 통화정책이 시중 통화량 증감을 좌우"
+    strength: medium
+    nature: causal
+
+  - id: r459
+    term1Id: supply-chain
+    term2Id: inflation
+    type: correlation
+    description: "공급망 차질은 생산·물류 비용을 높여 물가 상승 압력으로 작용"
+    strength: medium
+    nature: causal
+
+  - id: r460
+    term1Id: supply-chain
+    term2Id: global-value-chain
+    type: correlation
+    description: "공급망은 여러 나라에 걸친 분업인 글로벌 가치사슬로 구현됨"
+    strength: medium
+    nature: hierarchical
+
+  - id: r461
+    term1Id: supply-chain
+    term2Id: manufacturing
+    type: correlation
+    description: "제조업 생산은 안정적인 부품·원자재 공급망에 의존"
+    strength: medium
+    nature: causal
+
+  - id: r462
+    term1Id: manufacturing
+    term2Id: economic-growth
+    type: proportional
+    description: "제조업의 생산성과 혁신은 장기 경제성장의 핵심 축"
+    strength: medium
+    nature: causal
+
+  - id: r463
+    term1Id: manufacturing
+    term2Id: industrial-policy
+    type: correlation
+    description: "제조업 육성은 산업정책의 주요 대상"
+    strength: medium
+    nature: policy
+
+  - id: r464
+    term1Id: ecological-economics
+    term2Id: externality
+    type: correlation
+    description: "생태경제학은 환경오염 같은 외부효과의 비용을 경제 분석에 내부화하려 함"
+    strength: medium
+    nature: causal
+
+  - id: r465
+    term1Id: ecological-economics
+    term2Id: circular-economy
+    type: correlation
+    description: "자원의 한계와 순환을 중시하는 생태경제학은 순환경제의 사상적 토대"
+    strength: medium
+    nature: hierarchical
+
+  - id: r466
+    term1Id: institutional-economics
+    term2Id: market-failure
+    type: correlation
+    description: "제도경제학은 제도가 시장 실패를 보완하거나 악화시키는 방식을 분석"
+    strength: medium
+    nature: correlational
+
+  - id: r467
+    term1Id: institutional-economics
+    term2Id: economic-growth
+    type: correlation
+    description: "재산권·법치 등 제도의 질이 장기 경제성장을 좌우한다고 봄"
+    strength: medium
+    nature: causal
+
+  - id: r468
+    term1Id: willingness-to-pay
+    term2Id: subjective-value-theory
+    type: correlation
+    description: "지불용의는 재화의 주관적 가치를 화폐로 드러낸 지표"
+    strength: medium
+    nature: definitional
+
+  - id: r469
+    term1Id: willingness-to-pay
+    term2Id: diminishing-marginal-utility
+    type: correlation
+    description: "한계효용이 체감하므로 추가 단위에 대한 지불용의도 점차 낮아짐"
     strength: medium
     nature: causal

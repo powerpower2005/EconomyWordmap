@@ -773,3 +773,30 @@ propositions:
       - label: "시차·부채·구축효과"
         detail: "집행 시차와 정치적 왜곡이 있고, 국가부채 누적과 금리 상승으로 민간 투자를 밀어내면 효과가 약해진다."
     verdict: "경기 국면과 재정 여력에 따라 효과가 달라지는 조건부 명제다."
+
+  - id: p53
+    statement: "수익률 곡선이 역전되면 경기침체가 온다"
+    category: 거시경제
+    termIds: [yield-curve, recession, business-cycle, interest-rate]
+    premise: "장기금리가 단기금리보다 낮아지는 장단기 역전이 경기침체를 예고한다는 경험칙에 근거한다."
+    holds:
+      - label: "강한 선행 신호"
+        detail: "과거 미국의 침체 대부분이 장단기 금리 역전 뒤에 나타나 신뢰도 높은 선행지표로 쓰인다."
+    fails:
+      - label: "시차와 거짓 신호"
+        detail: "역전과 침체 사이 시차가 길고 들쭉날쭉하며, 양적완화 등으로 곡선이 왜곡되면 신호가 약해진다."
+        example: "2022년 역전 이후 침체 시점을 둘러싼 논쟁."
+    verdict: "방향성은 강하지만 시점과 신뢰도가 국면에 따라 달라지는 조건부 명제다."
+
+  - id: p54
+    statement: "정부가 빚을 내 지출하면 민간 투자가 줄어든다"
+    category: 거시경제
+    termIds: [crowding-out-effect, fiscal-policy, national-debt, investment, interest-rate]
+    premise: "정부 차입이 금리를 올려 민간 투자를 밀어낸다는 구축효과에 근거한다."
+    holds:
+      - label: "완전고용·자금 제약"
+        detail: "경제가 완전고용에 가깝고 저축이 제한적이면 정부 차입이 금리를 올려 민간 투자를 구축한다."
+    fails:
+      - label: "불황·유동성 함정"
+        detail: "유휴자원이 많고 금리가 0에 가까운 불황에서는 구축효과가 약하고 오히려 민간 투자를 끌어들이는 효과가 나타날 수 있다."
+    verdict: "경기 국면과 자금 사정에 따라 강도가 달라지는 조건부 명제다."
