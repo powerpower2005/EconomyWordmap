@@ -3569,3 +3569,1515 @@ relations:
     description: "한계효용이 체감하므로 추가 단위에 대한 지불용의도 점차 낮아짐"
     strength: medium
     nature: causal
+
+  - id: r470
+    term1Id: credit-spread
+    term2Id: interest-rate
+    type: correlation
+    description: "가산금리는 기준금리에 더해져 차입자의 실제 적용 금리를 형성"
+    strength: strong
+    nature: hierarchical
+
+  - id: r471
+    term1Id: credit-rating
+    term2Id: credit-spread
+    type: inverse
+    description: "신용등급이 낮을수록 부도위험 보상으로 가산금리가 커짐"
+    strength: strong
+    nature: causal
+
+  - id: r472
+    term1Id: business-condition-index
+    term2Id: business-cycle
+    type: correlation
+    description: "경기동향지수는 경기순환의 국면과 전환점을 측정하는 지표"
+    strength: strong
+    nature: definitional
+
+  - id: r473
+    term1Id: business-condition-index
+    term2Id: recession
+    type: correlation
+    description: "선행지수의 하락이 경기침체 진입을 예고"
+    strength: medium
+    nature: correlational
+
+  - id: r474
+    term1Id: trade-surplus
+    term2Id: current-account
+    type: correlation
+    description: "상품·서비스 수지가 경상수지의 핵심 구성요소"
+    strength: strong
+    nature: hierarchical
+
+  - id: r475
+    term1Id: current-account
+    term2Id: exchange-rate
+    type: correlation
+    description: "경상수지 흑자는 외화 유입으로 자국 통화 강세 요인"
+    strength: medium
+    nature: causal
+
+  - id: r476
+    term1Id: employment-rate
+    term2Id: unemployment
+    type: inverse
+    description: "고용률과 실업률은 노동시장을 보완적으로 측정하나 완전한 역수는 아님"
+    strength: medium
+    nature: correlational
+
+  - id: r477
+    term1Id: employment-rate
+    term2Id: full-employment
+    type: correlation
+    description: "고용률이 높은 상태가 완전고용에 가까움"
+    strength: medium
+    nature: correlational
+
+  - id: r478
+    term1Id: fixed-rate
+    term2Id: interest-rate
+    type: correlation
+    description: "고정금리는 금리 적용 방식의 하나로 시장금리 변동과 무관하게 고정"
+    strength: medium
+    nature: hierarchical
+
+  - id: r479
+    term1Id: fixed-rate
+    term2Id: variable-rate
+    type: inverse
+    description: "고정금리와 변동금리는 금리 변동 위험을 누가 지느냐가 상반된 방식"
+    strength: strong
+    nature: definitional
+
+  - id: r480
+    term1Id: inflation
+    term2Id: misery-index
+    type: proportional
+    description: "물가상승률이 고통지수의 한 축을 구성"
+    strength: strong
+    nature: definitional
+
+  - id: r481
+    term1Id: unemployment
+    term2Id: misery-index
+    type: proportional
+    description: "실업률이 고통지수의 다른 한 축을 구성"
+    strength: strong
+    nature: definitional
+
+  - id: r482
+    term1Id: goldilocks-economy
+    term2Id: inflation
+    type: correlation
+    description: "골디락스 경제는 낮고 안정된 물가를 동반"
+    strength: medium
+    nature: correlational
+
+  - id: r483
+    term1Id: goldilocks-economy
+    term2Id: stock-market
+    type: correlation
+    description: "과열도 침체도 아닌 골디락스 국면은 위험자산에 우호적"
+    strength: medium
+    nature: causal
+
+  - id: r484
+    term1Id: supply-elasticity
+    term2Id: supply-and-demand
+    type: correlation
+    description: "공급탄력성은 공급곡선의 가격 반응성(기울기)을 나타냄"
+    strength: strong
+    nature: definitional
+
+  - id: r485
+    term1Id: supply-elasticity
+    term2Id: demand-elasticity
+    type: correlation
+    description: "공급탄력성과 수요탄력성은 가격 변화에 대한 양측 반응을 측정"
+    strength: medium
+    nature: definitional
+
+  - id: r486
+    term1Id: short-selling
+    term2Id: stock-market
+    type: correlation
+    description: "공매도는 주가 하락에 베팅하는 매매로 가격발견과 유동성에 영향"
+    strength: medium
+    nature: causal
+
+  - id: r487
+    term1Id: hedge-fund
+    term2Id: short-selling
+    type: correlation
+    description: "공매도는 헤지펀드의 대표적 운용 전략"
+    strength: medium
+    nature: correlational
+
+  - id: r488
+    term1Id: national-debt
+    term2Id: national-solvency
+    type: inverse
+    description: "국가부채가 과도하면 채무 상환 능력에 대한 신뢰가 약화"
+    strength: strong
+    nature: causal
+
+  - id: r489
+    term1Id: national-solvency
+    term2Id: credit-rating
+    type: proportional
+    description: "국가의 지불능력이 국가 신용등급을 좌우"
+    strength: strong
+    nature: causal
+
+  - id: r490
+    term1Id: gold-standard
+    term2Id: gold
+    type: correlation
+    description: "금본위제는 화폐 가치를 일정량의 금에 고정"
+    strength: strong
+    nature: definitional
+
+  - id: r491
+    term1Id: gold-standard
+    term2Id: central-bank
+    type: correlation
+    description: "금본위제는 통화발행을 금 보유에 묶어 중앙은행의 재량을 제약"
+    strength: medium
+    nature: causal
+
+  - id: r492
+    term1Id: banking-commerce-separation
+    term2Id: bank
+    type: correlation
+    description: "금산분리는 산업자본의 은행 지배를 막는 규제"
+    strength: medium
+    nature: policy
+
+  - id: r493
+    term1Id: ipo
+    term2Id: stock-market
+    type: correlation
+    description: "IPO로 기업이 주식시장에 새로 상장되어 거래됨"
+    strength: strong
+    nature: causal
+
+  - id: r494
+    term1Id: investment-bank
+    term2Id: ipo
+    type: correlation
+    description: "투자은행이 IPO의 인수·주관을 담당"
+    strength: strong
+    nature: causal
+
+  - id: r495
+    term1Id: reserve-currency
+    term2Id: foreign-reserves
+    type: correlation
+    description: "각국이 기축통화를 중심으로 외환을 보유"
+    strength: strong
+    nature: causal
+
+  - id: r496
+    term1Id: reserve-currency
+    term2Id: exchange-rate
+    type: correlation
+    description: "기축통화에 대한 수요가 환율 형성의 기준이 됨"
+    strength: medium
+    nature: correlational
+
+  - id: r497
+    term1Id: short-term-bond
+    term2Id: money-market
+    type: correlation
+    description: "단기채는 단기금융시장에서 거래되는 핵심 상품"
+    strength: strong
+    nature: hierarchical
+
+  - id: r498
+    term1Id: money-market
+    term2Id: sofr
+    type: correlation
+    description: "단기금융시장의 실제 거래금리가 SOFR로 대표됨"
+    strength: medium
+    nature: definitional
+
+  - id: r499
+    term1Id: trade-dependency
+    term2Id: economic-security
+    type: correlation
+    description: "대외의존도가 높을수록 외부 충격·공급망 위험에 노출"
+    strength: medium
+    nature: causal
+
+  - id: r500
+    term1Id: substitute-goods
+    term2Id: supply-and-demand
+    type: correlation
+    description: "대체재 가격 변화가 해당 재화의 수요를 이동시킴"
+    strength: medium
+    nature: causal
+
+  - id: r501
+    term1Id: substitute-goods
+    term2Id: demand-elasticity
+    type: proportional
+    description: "대체재가 많을수록 수요가 가격에 탄력적으로 반응"
+    strength: medium
+    nature: causal
+
+  - id: r502
+    term1Id: double-dip
+    term2Id: recession
+    type: correlation
+    description: "더블딥은 회복 후 다시 침체에 빠지는 이중 경기침체"
+    strength: strong
+    nature: hierarchical
+
+  - id: r503
+    term1Id: decoupling
+    term2Id: business-cycle
+    type: correlation
+    description: "디커플링은 국가 간 경기 동조화가 깨지는 현상"
+    strength: medium
+    nature: correlational
+
+  - id: r504
+    term1Id: debt-ratio
+    term2Id: leverage-effect
+    type: proportional
+    description: "부채비율이 높을수록 레버리지 효과가 확대됨"
+    strength: strong
+    nature: causal
+
+  - id: r505
+    term1Id: leverage-effect
+    term2Id: systemic-risk
+    type: proportional
+    description: "과도한 레버리지가 동시 청산을 유발해 시스템 위험을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r506
+    term1Id: bond-price
+    term2Id: yield-to-maturity
+    type: inverse
+    description: "채권 가격이 오르면 만기수익률은 하락"
+    strength: strong
+    nature: definitional
+
+  - id: r507
+    term1Id: coupon-rate
+    term2Id: yield-to-maturity
+    type: correlation
+    description: "표면금리와 매입 가격이 함께 만기수익률을 결정"
+    strength: medium
+    nature: definitional
+
+  - id: r508
+    term1Id: microcredit
+    term2Id: inequality
+    type: inverse
+    description: "소액금융이 빈곤층 자립을 도와 불평등 완화에 기여"
+    strength: weak
+    nature: causal
+
+  - id: r509
+    term1Id: sunk-cost
+    term2Id: opportunity-cost
+    type: correlation
+    description: "매몰비용과 달리 기회비용은 합리적 의사결정에서 고려해야 함"
+    strength: medium
+    nature: definitional
+
+  - id: r510
+    term1Id: sunk-cost
+    term2Id: bounded-rationality
+    type: correlation
+    description: "매몰비용에 집착하는 행동이 합리성의 한계를 보여줌"
+    strength: medium
+    nature: causal
+
+  - id: r511
+    term1Id: nominal-interest-rate
+    term2Id: real-interest-rate
+    type: correlation
+    description: "명목금리에서 기대인플레이션을 빼면 실질금리가 됨"
+    strength: strong
+    nature: definitional
+
+  - id: r512
+    term1Id: expected-inflation
+    term2Id: nominal-interest-rate
+    type: proportional
+    description: "기대인플레이션이 오르면 명목금리가 함께 오르는 경향(피셔 효과)"
+    strength: strong
+    nature: causal
+
+  - id: r513
+    term1Id: credit-rating
+    term2Id: junk-bond
+    type: inverse
+    description: "신용등급이 투자적격 미만이면 정크본드로 분류"
+    strength: strong
+    nature: definitional
+
+  - id: r514
+    term1Id: credit-rating
+    term2Id: government-bond
+    type: correlation
+    description: "국가 신용등급이 국채 조달금리와 수요를 좌우"
+    strength: medium
+    nature: causal
+
+  - id: r515
+    term1Id: cpi
+    term2Id: price-index
+    type: correlation
+    description: "CPI는 대표적인 물가지수의 하나"
+    strength: strong
+    nature: hierarchical
+
+  - id: r516
+    term1Id: price-index
+    term2Id: inflation
+    type: proportional
+    description: "물가지수의 상승률이 곧 인플레이션"
+    strength: strong
+    nature: definitional
+
+  - id: r517
+    term1Id: mutual-fund
+    term2Id: etf
+    type: correlation
+    description: "ETF는 거래소에서 거래되는 펀드로 뮤추얼펀드와 유사하나 매매 방식이 다름"
+    strength: medium
+    nature: definitional
+
+  - id: r518
+    term1Id: mutual-fund
+    term2Id: stock-market
+    type: correlation
+    description: "펀드로 모인 자금이 주식시장에 유입"
+    strength: medium
+    nature: causal
+
+  - id: r519
+    term1Id: bank-run
+    term2Id: bank
+    type: inverse
+    description: "예금 대량인출은 건전한 은행도 유동성 부족으로 무너뜨림"
+    strength: strong
+    nature: causal
+
+  - id: r520
+    term1Id: bank-run
+    term2Id: systemic-risk
+    type: proportional
+    description: "뱅크런이 다른 은행으로 번지면 시스템 위기로 확산"
+    strength: strong
+    nature: causal
+
+  - id: r521
+    term1Id: bank-run
+    term2Id: liquidity
+    type: inverse
+    description: "대량 인출이 은행 유동성을 급격히 고갈시킴"
+    strength: medium
+    nature: causal
+
+  - id: r522
+    term1Id: veblen-effect
+    term2Id: supply-and-demand
+    type: inverse
+    description: "베블런 효과는 가격이 오를수록 수요가 느는 수요법칙의 예외"
+    strength: medium
+    nature: correlational
+
+  - id: r523
+    term1Id: variable-rate
+    term2Id: household-debt
+    type: proportional
+    description: "변동금리 비중이 높으면 금리 인상이 가계부채 부담으로 빠르게 전이"
+    strength: medium
+    nature: causal
+
+  - id: r524
+    term1Id: variable-rate
+    term2Id: interest-rate
+    type: correlation
+    description: "변동금리는 시장금리 변동을 주기적으로 반영"
+    strength: medium
+    nature: definitional
+
+  - id: r525
+    term1Id: value-added
+    term2Id: gdp
+    type: proportional
+    description: "GDP는 모든 생산단계의 부가가치 합으로 계산됨"
+    strength: strong
+    nature: definitional
+
+  - id: r526
+    term1Id: mbs
+    term2Id: cdo
+    type: correlation
+    description: "CDO는 MBS 등 채권을 묶어 위험도별로 재구성한 구조화 증권"
+    strength: medium
+    nature: hierarchical
+
+  - id: r527
+    term1Id: cdo
+    term2Id: global-financial-crisis
+    type: proportional
+    description: "서브프라임 CDO의 부실이 2008년 위기를 키움"
+    strength: strong
+    nature: causal
+
+  - id: r528
+    term1Id: spv
+    term2Id: cdo
+    type: correlation
+    description: "SPV가 자산을 분리해 CDO 등 구조화 증권을 발행"
+    strength: medium
+    nature: causal
+
+  - id: r529
+    term1Id: fountain-effect
+    term2Id: trickle-down-effect
+    type: inverse
+    description: "분수효과는 낙수효과와 반대로 저소득층 소득 증대를 강조"
+    strength: medium
+    nature: correlational
+
+  - id: r530
+    term1Id: income-led-growth
+    term2Id: fountain-effect
+    type: correlation
+    description: "소득주도성장은 분수효과를 정책으로 구현한 기조"
+    strength: strong
+    nature: correlational
+
+  - id: r531
+    term1Id: income-led-growth
+    term2Id: consumption
+    type: proportional
+    description: "가계 소득 증대가 소비를 늘린다는 정책 논리"
+    strength: medium
+    nature: causal
+
+  - id: r532
+    term1Id: big-mac-index
+    term2Id: exchange-rate
+    type: correlation
+    description: "빅맥지수로 구매력평가 기준 통화의 고평가·저평가를 가늠"
+    strength: medium
+    nature: definitional
+
+  - id: r533
+    term1Id: etf
+    term2Id: stock-index
+    type: correlation
+    description: "ETF는 주가지수 등을 추종해 분산투자를 제공"
+    strength: strong
+    nature: definitional
+
+  - id: r534
+    term1Id: etf
+    term2Id: stock-market
+    type: correlation
+    description: "ETF 매매와 자금 유출입이 주식시장에 영향"
+    strength: medium
+    nature: correlational
+
+  - id: r535
+    term1Id: circuit-breaker
+    term2Id: stock-market
+    type: correlation
+    description: "주가 급락 시 거래를 멈춰 시장 공포를 진정시키는 제도"
+    strength: medium
+    nature: policy
+
+  - id: r536
+    term1Id: circuit-breaker
+    term2Id: herd-behavior
+    type: inverse
+    description: "쏠림에 의한 패닉 매도를 일시 차단"
+    strength: medium
+    nature: causal
+
+  - id: r537
+    term1Id: futures
+    term2Id: derivatives
+    type: correlation
+    description: "선물은 파생금융상품의 대표적 한 종류"
+    strength: strong
+    nature: hierarchical
+
+  - id: r538
+    term1Id: futures
+    term2Id: commodity-market
+    type: correlation
+    description: "원자재 선물이 원자재시장 가격발견의 핵심"
+    strength: medium
+    nature: correlational
+
+  - id: r539
+    term1Id: demand-elasticity
+    term2Id: supply-and-demand
+    type: correlation
+    description: "수요탄력성은 수요곡선의 가격 반응성(기울기)을 나타냄"
+    strength: strong
+    nature: definitional
+
+  - id: r540
+    term1Id: swap
+    term2Id: derivatives
+    type: correlation
+    description: "스왑은 미래 현금흐름을 교환하는 파생상품의 한 종류"
+    strength: strong
+    nature: hierarchical
+
+  - id: r541
+    term1Id: currency-swap
+    term2Id: swap
+    type: correlation
+    description: "통화스왑은 통화를 교환하는 스왑의 한 형태"
+    strength: strong
+    nature: hierarchical
+
+  - id: r542
+    term1Id: synergy
+    term2Id: mergers-acquisitions
+    type: correlation
+    description: "시너지 기대가 인수합병의 주요 동기"
+    strength: strong
+    nature: causal
+
+  - id: r543
+    term1Id: bond-with-warrant
+    term2Id: convertible-bond
+    type: correlation
+    description: "둘 다 주식 연계 채권이나 BW는 신주인수권을 따로 분리할 수 있음"
+    strength: medium
+    nature: definitional
+
+  - id: r544
+    term1Id: inflation
+    term2Id: real-wage
+    type: inverse
+    description: "물가가 오르면 명목임금이 그대로일 때 실질임금이 하락"
+    strength: strong
+    nature: causal
+
+  - id: r545
+    term1Id: real-wage
+    term2Id: consumption
+    type: proportional
+    description: "실질임금이 늘면 구매력이 커져 소비가 증가"
+    strength: medium
+    nature: causal
+
+  - id: r546
+    term1Id: agriculture
+    term2Id: agflation
+    type: correlation
+    description: "농산물 가격 급등이 애그플레이션을 일으킴"
+    strength: strong
+    nature: causal
+
+  - id: r547
+    term1Id: agflation
+    term2Id: inflation
+    type: proportional
+    description: "애그플레이션이 식품 물가를 통해 전반적 물가를 끌어올림"
+    strength: strong
+    nature: causal
+
+  - id: r548
+    term1Id: agflation
+    term2Id: food-security
+    type: correlation
+    description: "농산물 가격 급등이 식량 안보 위협으로 이어질 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r549
+    term1Id: certificate-of-deposit
+    term2Id: money-market
+    type: correlation
+    description: "양도성예금증서(CD)는 단기금융시장에서 거래되는 상품"
+    strength: strong
+    nature: hierarchical
+
+  - id: r550
+    term1Id: cma
+    term2Id: money-market
+    type: correlation
+    description: "CMA는 단기금융시장 상품에 투자해 수익을 내는 계좌"
+    strength: strong
+    nature: hierarchical
+
+  - id: r551
+    term1Id: engels-law
+    term2Id: consumption
+    type: correlation
+    description: "소득 수준에 따른 식료품비 비중 변화를 설명"
+    strength: weak
+    nature: correlational
+
+  - id: r552
+    term1Id: reverse-mortgage
+    term2Id: household-debt
+    type: correlation
+    description: "역모기지론은 주택을 담보로 한 가계대출의 한 형태"
+    strength: weak
+    nature: hierarchical
+
+  - id: r553
+    term1Id: loan-deposit-ratio
+    term2Id: bank
+    type: correlation
+    description: "예대율은 은행의 유동성·건전성을 보여주는 지표"
+    strength: medium
+    nature: definitional
+
+  - id: r554
+    term1Id: loan-deposit-ratio
+    term2Id: liquidity
+    type: inverse
+    description: "예대율이 너무 높으면 은행의 유동성 여력이 줄어듦"
+    strength: medium
+    nature: causal
+
+  - id: r555
+    term1Id: option
+    term2Id: derivatives
+    type: correlation
+    description: "옵션은 권리를 거래하는 파생금융상품의 한 종류"
+    strength: strong
+    nature: hierarchical
+
+  - id: r556
+    term1Id: call-option
+    term2Id: option
+    type: correlation
+    description: "콜옵션은 살 권리를 뜻하는 옵션의 한 종류"
+    strength: strong
+    nature: hierarchical
+
+  - id: r557
+    term1Id: foreign-reserves
+    term2Id: exchange-rate
+    type: correlation
+    description: "외환보유액을 활용해 환율 급변을 방어"
+    strength: strong
+    nature: causal
+
+  - id: r558
+    term1Id: currency-swap
+    term2Id: foreign-reserves
+    type: correlation
+    description: "위기 시 통화스왑이 부족한 외환보유를 보완하는 안전장치"
+    strength: medium
+    nature: causal
+
+  - id: r559
+    term1Id: workout
+    term2Id: zombie-firm
+    type: correlation
+    description: "워크아웃은 부실(좀비)기업의 회생·정리를 다루는 절차"
+    strength: medium
+    nature: correlational
+
+  - id: r560
+    term1Id: junk-bond
+    term2Id: principal-risk
+    type: proportional
+    description: "고위험 채권일수록 원금 손실 위험이 큼"
+    strength: medium
+    nature: causal
+
+  - id: r561
+    term1Id: liquidity
+    term2Id: stock-market
+    type: proportional
+    description: "시중 유동성이 풍부하면 위험자산 가격이 상승하는 경향"
+    strength: strong
+    nature: causal
+
+  - id: r562
+    term1Id: quantitative-easing
+    term2Id: liquidity
+    type: proportional
+    description: "양적완화가 자산 매입으로 시중 유동성을 공급"
+    strength: strong
+    nature: causal
+
+  - id: r563
+    term1Id: liquidity
+    term2Id: credit-crunch
+    type: inverse
+    description: "유동성이 갑자기 고갈되면 신용 경색이 발생"
+    strength: strong
+    nature: causal
+
+  - id: r564
+    term1Id: dual-currency-bond
+    term2Id: exchange-rate
+    type: correlation
+    description: "발행·상환 통화가 달라 환율 변동에 원리금이 노출됨"
+    strength: weak
+    nature: causal
+
+  - id: r565
+    term1Id: voluntary-unemployment
+    term2Id: unemployment
+    type: correlation
+    description: "자발적 실업은 실업의 한 유형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r566
+    term1Id: voluntary-unemployment
+    term2Id: natural-rate-of-unemployment
+    type: correlation
+    description: "자발적 실업이 자연실업률을 구성하는 요소"
+    strength: medium
+    nature: correlational
+
+  - id: r567
+    term1Id: term-spread
+    term2Id: yield-curve
+    type: correlation
+    description: "장단기금리차는 수익률 곡선의 기울기를 수치로 나타낸 것"
+    strength: strong
+    nature: definitional
+
+  - id: r568
+    term1Id: term-spread
+    term2Id: recession
+    type: inverse
+    description: "장단기금리차가 줄거나 역전되면 경기침체 신호로 해석됨"
+    strength: strong
+    nature: correlational
+
+  - id: r569
+    term1Id: otc-market
+    term2Id: stock-market
+    type: correlation
+    description: "장외시장은 거래소 밖에서 증권을 거래하는 시장"
+    strength: medium
+    nature: definitional
+
+  - id: r570
+    term1Id: convertible-bond
+    term2Id: stock-market
+    type: correlation
+    description: "주가가 오르면 주식 전환으로 추가 수익을 노릴 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r571
+    term1Id: junk-bond
+    term2Id: credit-spread
+    type: proportional
+    description: "정크본드는 높은 가산금리(신용스프레드)를 제공"
+    strength: medium
+    nature: causal
+
+  - id: r572
+    term1Id: zero-interest-rate-policy
+    term2Id: low-interest-policy
+    type: correlation
+    description: "제로금리정책은 저금리 정책의 극단적 형태"
+    strength: strong
+    nature: hierarchical
+
+  - id: r573
+    term1Id: zero-interest-rate-policy
+    term2Id: policy-rate
+    type: inverse
+    description: "제로금리정책은 기준금리를 0에 가깝게 낮춤"
+    strength: strong
+    nature: policy
+
+  - id: r574
+    term1Id: zero-interest-rate-policy
+    term2Id: liquidity-trap
+    type: correlation
+    description: "제로금리 하에서는 통화정책이 무력해지는 유동성 함정 우려가 커짐"
+    strength: medium
+    nature: causal
+
+  - id: r575
+    term1Id: stock-index
+    term2Id: stock-market
+    type: correlation
+    description: "주가지수는 주식시장 전체의 흐름을 대표하는 지표"
+    strength: strong
+    nature: definitional
+
+  - id: r576
+    term1Id: tax-burden-ratio
+    term2Id: fiscal-policy
+    type: correlation
+    description: "조세부담률은 재정정책의 수단이자 결과로 나타남"
+    strength: medium
+    nature: correlational
+
+  - id: r577
+    term1Id: tax-increase
+    term2Id: tax-burden-ratio
+    type: proportional
+    description: "증세가 조세부담률을 높임"
+    strength: medium
+    nature: causal
+
+  - id: r578
+    term1Id: eps
+    term2Id: stock-market
+    type: proportional
+    description: "주당순이익이 높을수록 주가 상승 요인"
+    strength: strong
+    nature: causal
+
+  - id: r579
+    term1Id: corporate-tax
+    term2Id: eps
+    type: inverse
+    description: "법인세 인하가 세후 순이익(EPS)을 높임"
+    strength: medium
+    nature: causal
+
+  - id: r580
+    term1Id: margin-requirement
+    term2Id: futures
+    type: correlation
+    description: "선물거래 시 계약 이행을 담보하기 위해 증거금을 예치"
+    strength: strong
+    nature: definitional
+
+  - id: r581
+    term1Id: margin-requirement
+    term2Id: leverage-effect
+    type: inverse
+    description: "증거금률이 낮을수록 적은 돈으로 큰 포지션을 잡아 레버리지가 커짐"
+    strength: medium
+    nature: causal
+
+  - id: r582
+    term1Id: holding-company
+    term2Id: mergers-acquisitions
+    type: correlation
+    description: "지주회사 체제 전환이 지배구조 재편·M&A의 수단이 됨"
+    strength: weak
+    nature: correlational
+
+  - id: r583
+    term1Id: chicken-game
+    term2Id: game-theory
+    type: correlation
+    description: "치킨게임은 게임이론의 대표적 갈등 상황 사례"
+    strength: strong
+    nature: hierarchical
+
+  - id: r584
+    term1Id: chicken-game
+    term2Id: oligopoly
+    type: correlation
+    description: "과점 기업 간 출혈 경쟁이 치킨게임 양상으로 전개됨"
+    strength: medium
+    nature: correlational
+
+  - id: r585
+    term1Id: oligopoly
+    term2Id: cartel
+    type: correlation
+    description: "소수 기업이 경쟁하는 과점에서 담합(카르텔)이 형성되기 쉬움"
+    strength: medium
+    nature: causal
+
+  - id: r586
+    term1Id: cartel
+    term2Id: monopoly
+    type: correlation
+    description: "담합은 시장을 사실상 독점처럼 작동하게 만듦"
+    strength: medium
+    nature: correlational
+
+  - id: r587
+    term1Id: cartel
+    term2Id: consumer-welfare
+    type: inverse
+    description: "담합이 가격을 끌어올려 소비자 후생을 해침"
+    strength: medium
+    nature: causal
+
+  - id: r588
+    term1Id: investment-bank
+    term2Id: mergers-acquisitions
+    type: correlation
+    description: "투자은행이 인수합병의 자문·중개를 담당"
+    strength: strong
+    nature: causal
+
+  - id: r589
+    term1Id: spv
+    term2Id: shadow-banking
+    type: correlation
+    description: "SPV가 규제 밖 자금 중개인 그림자금융의 통로로 쓰임"
+    strength: medium
+    nature: correlational
+
+  - id: r590
+    term1Id: derivatives
+    term2Id: systemic-risk
+    type: proportional
+    description: "복잡하게 얽힌 파생상품이 시스템 위험을 키울 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r591
+    term1Id: devaluation
+    term2Id: exchange-rate
+    type: correlation
+    description: "평가절하는 자국 통화의 대외가치(환율)를 인위적으로 낮춤"
+    strength: strong
+    nature: causal
+
+  - id: r592
+    term1Id: devaluation
+    term2Id: trade-surplus
+    type: proportional
+    description: "평가절하가 수출 가격 경쟁력을 높여 무역흑자를 유도"
+    strength: medium
+    nature: causal
+
+  - id: r593
+    term1Id: hedge-fund
+    term2Id: derivatives
+    type: correlation
+    description: "헤지펀드가 파생상품을 적극 활용해 수익·위험을 조정"
+    strength: medium
+    nature: correlational
+
+  - id: r594
+    term1Id: currency-manipulator
+    term2Id: exchange-rate
+    type: correlation
+    description: "환율조작국은 인위적으로 환율에 개입하는 국가"
+    strength: strong
+    nature: causal
+
+  - id: r595
+    term1Id: currency-manipulator
+    term2Id: trade-surplus
+    type: correlation
+    description: "과도한 무역흑자가 환율조작국 지정의 주요 기준 중 하나"
+    strength: medium
+    nature: correlational
+
+  - id: r596
+    term1Id: mergers-acquisitions
+    term2Id: stock-market
+    type: correlation
+    description: "M&A 발표가 인수·피인수 기업의 주가에 큰 영향"
+    strength: medium
+    nature: causal
+
+  - id: r597
+    term1Id: liquidity
+    term2Id: money-market
+    type: correlation
+    description: "기업·금융기관이 단기금융시장에서 유동성을 조달"
+    strength: medium
+    nature: correlational
+
+  - id: r598
+    term1Id: hedge-fund
+    term2Id: leverage-effect
+    type: proportional
+    description: "헤지펀드가 레버리지를 적극 활용해 수익과 위험을 함께 키움"
+    strength: medium
+    nature: causal
+
+  - id: r599
+    term1Id: mutual-fund
+    term2Id: hedge-fund
+    type: correlation
+    description: "공모로 운용되는 뮤추얼펀드와 달리 헤지펀드는 사모로 규제가 느슨함"
+    strength: medium
+    nature: definitional
+
+  - id: r600
+    term1Id: margin-requirement
+    term2Id: option
+    type: correlation
+    description: "옵션 매도 등 위험 포지션에도 증거금이 요구됨"
+    strength: medium
+    nature: definitional
+
+  - id: r601
+    term1Id: convertible-bond
+    term2Id: bond-market
+    type: correlation
+    description: "전환사채는 채권시장에서 거래되는 주식 연계 채권"
+    strength: medium
+    nature: hierarchical
+
+  - id: r602
+    term1Id: junk-bond
+    term2Id: bond-market
+    type: correlation
+    description: "정크본드는 채권시장에서 고위험·고금리로 거래되는 채권"
+    strength: medium
+    nature: hierarchical
+
+  - id: r603
+    term1Id: reserve-currency
+    term2Id: strong-dollar
+    type: correlation
+    description: "기축통화에 대한 구조적 수요가 달러 강세를 뒷받침"
+    strength: medium
+    nature: causal
+
+  - id: r604
+    term1Id: gold-standard
+    term2Id: inflation
+    type: inverse
+    description: "금본위제는 통화량을 금 보유에 묶어 인플레이션을 억제"
+    strength: medium
+    nature: causal
+
+  - id: r605
+    term1Id: current-account
+    term2Id: trade-deficit
+    type: correlation
+    description: "상품·서비스 적자가 경상수지 적자의 핵심 요인"
+    strength: medium
+    nature: hierarchical
+
+  - id: r606
+    term1Id: devaluation
+    term2Id: inflation
+    type: proportional
+    description: "평가절하가 수입물가를 올려 인플레이션 압력으로 작용"
+    strength: medium
+    nature: causal
+
+  - id: r607
+    term1Id: liquidity
+    term2Id: asset-bubble
+    type: proportional
+    description: "과잉 유동성이 자산으로 몰리며 버블을 부추김"
+    strength: medium
+    nature: causal
+
+  - id: r608
+    term1Id: zero-interest-rate-policy
+    term2Id: quantitative-easing
+    type: correlation
+    description: "금리를 더 낮출 수 없는 제로금리 한계에서 양적완화로 이행"
+    strength: medium
+    nature: policy
+
+  - id: r609
+    term1Id: term-spread
+    term2Id: policy-rate
+    type: correlation
+    description: "기준금리 인상이 단기금리를 끌어올려 장단기 금리차를 좁히거나 역전시킴"
+    strength: medium
+    nature: causal
+
+  - id: r610
+    term1Id: stock-index
+    term2Id: business-cycle
+    type: correlation
+    description: "주가지수가 기업 이익 기대를 통해 경기 국면을 선반영"
+    strength: medium
+    nature: correlational
+
+  - id: r611
+    term1Id: short-selling
+    term2Id: asset-bubble
+    type: inverse
+    description: "공매도가 과열 자산의 가격 발견을 도와 버블 형성을 억제"
+    strength: medium
+    nature: causal
+
+  - id: r612
+    term1Id: ipo
+    term2Id: investment
+    type: correlation
+    description: "IPO로 조달한 자금이 기업의 설비·연구 투자로 쓰임"
+    strength: medium
+    nature: causal
+
+  - id: r613
+    term1Id: etf
+    term2Id: liquidity
+    type: correlation
+    description: "거래 편의가 높은 ETF가 시장 유동성을 끌어올림"
+    strength: medium
+    nature: correlational
+
+  - id: r614
+    term1Id: foreign-reserves
+    term2Id: national-solvency
+    type: proportional
+    description: "넉넉한 외환보유액이 대외 채무 상환 능력을 뒷받침"
+    strength: medium
+    nature: causal
+
+  - id: r615
+    term1Id: credit-spread
+    term2Id: recession
+    type: proportional
+    description: "신용 스프레드가 급격히 벌어지면 경기침체·신용 위축의 신호로 읽힘"
+    strength: medium
+    nature: correlational
+
+  - id: r616
+    term1Id: credit-spread
+    term2Id: credit-crunch
+    type: proportional
+    description: "가산금리 급등은 자금 조달을 어렵게 해 신용 경색으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r617
+    term1Id: holding-company
+    term2Id: banking-commerce-separation
+    type: correlation
+    description: "금산분리가 산업자본 지주회사의 은행 소유·지배를 제한"
+    strength: weak
+    nature: correlational
+
+  - id: r618
+    term1Id: investment-bank
+    term2Id: shadow-banking
+    type: correlation
+    description: "투자은행의 일부 자금중개 활동이 규제 밖 그림자금융과 맞닿음"
+    strength: medium
+    nature: correlational
+
+  - id: r619
+    term1Id: mergers-acquisitions
+    term2Id: monopoly
+    type: proportional
+    description: "대형 인수합병이 시장 집중을 높여 독점 우려를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r620
+    term1Id: mergers-acquisitions
+    term2Id: economies-of-scale
+    type: proportional
+    description: "합병으로 생산·관리 규모를 키워 규모의 경제를 추구"
+    strength: medium
+    nature: causal
+
+  - id: r621
+    term1Id: reverse-mortgage
+    term2Id: liquidity
+    type: correlation
+    description: "역모기지로 묶여 있던 주택 자산을 현금흐름으로 전환"
+    strength: weak
+    nature: causal
+
+  - id: r622
+    term1Id: employment-rate
+    term2Id: consumption
+    type: proportional
+    description: "고용 확대가 가계 소득을 늘려 소비를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r623
+    term1Id: misery-index
+    term2Id: recession
+    type: proportional
+    description: "고통지수 급등이 경기침체기와 겹쳐 나타남"
+    strength: medium
+    nature: correlational
+
+  - id: r624
+    term1Id: double-dip
+    term2Id: fiscal-policy
+    type: correlation
+    description: "회복 초기 성급한 재정 긴축이 더블딥을 유발할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r625
+    term1Id: goldilocks-economy
+    term2Id: recession
+    type: inverse
+    description: "골디락스는 침체와 반대되는 안정적 호황 국면"
+    strength: medium
+    nature: correlational
+
+  - id: r626
+    term1Id: decoupling
+    term2Id: trade-dependency
+    type: inverse
+    description: "대외의존도가 낮을수록 해외 경기와 디커플링될 여지가 큼"
+    strength: weak
+    nature: correlational
+
+  - id: r627
+    term1Id: geopolitical-risk
+    term2Id: stock-market
+    type: inverse
+    description: "지정학 리스크 급등은 단기적으로 위험자산 가격을 끌어내림"
+    strength: strong
+    nature: causal
+
+  - id: r628
+    term1Id: geopolitical-risk
+    term2Id: crude-oil
+    type: proportional
+    description: "지정학 리스크가 공급 차질 우려로 유가를 끌어올림"
+    strength: strong
+    nature: causal
+
+  - id: r629
+    term1Id: geopolitical-risk
+    term2Id: safe-haven-asset
+    type: proportional
+    description: "위기 시 안전자산 선호가 강해져 금·국채·달러로 자금이 몰림"
+    strength: strong
+    nature: causal
+
+  - id: r630
+    term1Id: geopolitical-risk
+    term2Id: risk-off
+    type: proportional
+    description: "지정학 리스크가 위험회피 심리를 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r631
+    term1Id: geopolitical-risk
+    term2Id: risk-premium
+    type: proportional
+    description: "지정학 충격이 일시적 위험 프리미엄을 높임"
+    strength: medium
+    nature: causal
+
+  - id: r632
+    term1Id: geopolitical-risk
+    term2Id: supply-shock
+    type: proportional
+    description: "전쟁·분쟁이 원자재·물류의 공급 충격을 유발"
+    strength: medium
+    nature: causal
+
+  - id: r633
+    term1Id: geopolitical-risk
+    term2Id: economic-security
+    type: correlation
+    description: "지정학 리스크 부각이 핵심 물자·공급망의 경제안보 의제를 키움"
+    strength: medium
+    nature: correlational
+
+  - id: r634
+    term1Id: safe-haven-asset
+    term2Id: gold
+    type: correlation
+    description: "금은 위기 시 가치가 보존되는 대표적 안전자산"
+    strength: strong
+    nature: hierarchical
+
+  - id: r635
+    term1Id: safe-haven-asset
+    term2Id: government-bond
+    type: correlation
+    description: "미국 국채는 신용·유동성이 높은 대표적 안전자산"
+    strength: strong
+    nature: hierarchical
+
+  - id: r636
+    term1Id: safe-haven-asset
+    term2Id: strong-dollar
+    type: correlation
+    description: "위기 시 달러가 안전자산으로 선호되어 강세를 보임"
+    strength: medium
+    nature: causal
+
+  - id: r637
+    term1Id: risk-off
+    term2Id: safe-haven-asset
+    type: proportional
+    description: "위험회피 국면에 자금이 안전자산으로 이동"
+    strength: strong
+    nature: causal
+
+  - id: r638
+    term1Id: risk-on
+    term2Id: risk-off
+    type: inverse
+    description: "위험 선호와 위험 회피는 시장 심리의 상반된 국면"
+    strength: strong
+    nature: definitional
+
+  - id: r639
+    term1Id: risk-off
+    term2Id: stock-market
+    type: inverse
+    description: "위험회피는 주식 등 위험자산 매도로 이어져 주가를 끌어내림"
+    strength: strong
+    nature: causal
+
+  - id: r640
+    term1Id: risk-on
+    term2Id: stock-market
+    type: proportional
+    description: "위험 선호 국면에 위험자산인 주식으로 자금이 유입"
+    strength: strong
+    nature: causal
+
+  - id: r641
+    term1Id: risk-off
+    term2Id: capital-flight
+    type: proportional
+    description: "위험회피가 신흥국에서의 자본 유출을 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r642
+    term1Id: risk-off
+    term2Id: strong-dollar
+    type: proportional
+    description: "위험회피 자금이 달러로 몰려 달러 강세를 부름"
+    strength: medium
+    nature: causal
+
+  - id: r643
+    term1Id: capital-flight
+    term2Id: korean-won
+    type: inverse
+    description: "외국인 자금 이탈이 원화 약세 압력으로 작용"
+    strength: medium
+    nature: causal
+
+  - id: r644
+    term1Id: capital-flight
+    term2Id: stock-market
+    type: inverse
+    description: "대규모 자본 유출이 주가를 끌어내림"
+    strength: strong
+    nature: causal
+
+  - id: r645
+    term1Id: capital-flight
+    term2Id: exchange-rate
+    type: proportional
+    description: "자본 유출이 자국 통화 약세(환율 상승) 압력을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r646
+    term1Id: valuation
+    term2Id: stock-market
+    type: proportional
+    description: "밸류에이션 수준이 주가의 고평가·저평가를 좌우"
+    strength: strong
+    nature: causal
+
+  - id: r647
+    term1Id: valuation
+    term2Id: eps
+    type: correlation
+    description: "주가를 EPS 등 이익으로 나눠 밸류에이션을 산출"
+    strength: medium
+    nature: definitional
+
+  - id: r648
+    term1Id: interest-rate
+    term2Id: valuation
+    type: inverse
+    description: "금리 상승이 미래 이익 할인율을 높여 멀티플(밸류에이션)을 압축"
+    strength: strong
+    nature: causal
+
+  - id: r649
+    term1Id: pbr
+    term2Id: valuation
+    type: correlation
+    description: "PBR은 자산 대비 가격을 보는 대표적 밸류에이션 지표"
+    strength: strong
+    nature: hierarchical
+
+  - id: r650
+    term1Id: pbr
+    term2Id: stock-market
+    type: correlation
+    description: "PBR이 1보다 낮으면 장부가치 대비 저평가된 주식으로 해석"
+    strength: medium
+    nature: definitional
+
+  - id: r651
+    term1Id: risk-premium
+    term2Id: stock-market
+    type: inverse
+    description: "요구 위험 프리미엄이 오르면 할인율 상승으로 주가가 하락"
+    strength: medium
+    nature: causal
+
+  - id: r652
+    term1Id: risk-premium
+    term2Id: credit-spread
+    type: correlation
+    description: "신용 스프레드(가산금리)는 채권시장의 위험 프리미엄을 반영"
+    strength: medium
+    nature: definitional
+
+  - id: r653
+    term1Id: crude-oil
+    term2Id: inflation
+    type: proportional
+    description: "유가 상승이 생산·운송 비용을 통해 전반적 물가를 끌어올림"
+    strength: strong
+    nature: causal
+
+  - id: r654
+    term1Id: crude-oil
+    term2Id: commodity-market
+    type: correlation
+    description: "원유는 원자재시장에서 거래량·영향력이 가장 큰 품목"
+    strength: strong
+    nature: hierarchical
+
+  - id: r655
+    term1Id: crude-oil
+    term2Id: trade-deficit
+    type: proportional
+    description: "원유 수입국은 유가 상승 시 수입액이 늘어 무역수지가 악화"
+    strength: medium
+    nature: causal
+
+  - id: r656
+    term1Id: crude-oil
+    term2Id: stagflation
+    type: proportional
+    description: "유가 급등이 공급 충격으로 작용해 스태그플레이션을 유발"
+    strength: medium
+    nature: causal
+
+  - id: r657
+    term1Id: crude-oil
+    term2Id: natural-gas
+    type: correlation
+    description: "원유와 천연가스 가격이 에너지 시장에서 함께 움직이는 경향"
+    strength: medium
+    nature: correlational
+
+  - id: r658
+    term1Id: geopolitical-risk
+    term2Id: trade-war
+    type: correlation
+    description: "지정학 갈등이 관세·수출통제 등 무역전쟁으로 번지기도 함"
+    strength: medium
+    nature: correlational

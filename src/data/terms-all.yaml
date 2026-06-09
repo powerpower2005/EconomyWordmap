@@ -1390,3 +1390,531 @@ terms:
     description: 경제활동이 위축되어 실질 GDP가 줄고 실업이 늘며 소비·투자가 감소하는 경기순환의 수축 국면으로 통상 실질 GDP가 두 분기 연속 감소하는 상태를 가리키며 주식·신용 시장에 큰 충격을 줌
     category: 거시경제
     stockMarketImportance: 6
+
+  - id: credit-spread
+    name: 가산금리 (Credit Spread)
+    description: 기준금리에 차입자의 신용위험에 따라 덧붙이는 추가 금리로 신용도가 낮을수록 커지며 신용 위험의 가격을 나타냄
+    category: 금리
+    stockMarketImportance: 4
+
+  - id: business-condition-index
+    name: 경기동향지수 (Composite Index)
+    description: 경기가 확장·수축 중 어느 국면인지 종합적으로 보여주는 지표로 선행·동행·후행 지수로 나뉘어 경기 흐름과 전환점을 판단하는 데 쓰임
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: current-account
+    name: 경상수지 (Current Account)
+    description: 한 나라가 일정 기간 상품·서비스 수출입과 소득·이전 거래로 벌어들이고 지출한 외화의 차이로 흑자면 외화가 유입되고 적자면 유출되며 환율·외채와 직결됨
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: employment-rate
+    name: 고용률 (Employment Rate)
+    description: 15세 이상 생산가능인구 중 실제 취업자가 차지하는 비율로 구직 단념자의 영향을 받는 실업률을 보완해 고용 상황을 더 폭넓게 보여줌
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: fixed-rate
+    name: 고정금리 (Fixed Rate)
+    description: 약정 기간 동안 시장금리가 변해도 이자율이 고정되는 대출·채권 방식으로 금리 상승 위험을 차입자가 피할 수 있음
+    category: 금리
+    stockMarketImportance: 4
+
+  - id: misery-index
+    name: 고통지수 (Misery Index)
+    description: 물가상승률과 실업률을 더한 값으로 국민이 체감하는 경제적 고통의 크기를 가늠하는 지표
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: goldilocks-economy
+    name: 골디락스 경제 (Goldilocks Economy)
+    description: 물가가 안정된 가운데 경기 과열도 침체도 아닌 적절한 성장세가 이어지는 이상적 경제 상태
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: supply-elasticity
+    name: 공급탄력성 (Price Elasticity of Supply)
+    description: 가격이 변할 때 공급량이 얼마나 민감하게 변하는지 나타내는 지표로 생산 조정이 쉬울수록 탄력적
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: short-selling
+    name: 공매도 (Short Selling)
+    description: 주식을 빌려 먼저 판 뒤 가격이 내리면 싸게 되사 갚아 차익을 얻는 매매 기법으로 가격 하락에 베팅함
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: national-solvency
+    name: 국가지불능력 (National Solvency)
+    description: 국가가 채무를 정상적으로 상환할 수 있는 능력으로 이 신뢰가 무너지면 국가 부도로 이어질 수 있음
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: gold-standard
+    name: 금본위제 (Gold Standard)
+    description: 화폐 가치를 일정량의 금에 고정하고 금과의 교환을 보장하던 통화제도로 통화량이 금 보유에 묶여 1970년대 이후 폐기됨
+    category: 통화
+    stockMarketImportance: 3
+
+  - id: banking-commerce-separation
+    name: 금산분리 (Separation of Banking and Commerce)
+    description: 산업자본이 은행을 소유·지배하지 못하게 막는 규제로 은행이 특정 기업의 사금고가 되는 것을 방지함
+    category: 금융
+    stockMarketImportance: 2
+
+  - id: ipo
+    name: 기업공개 (IPO)
+    description: 비상장 기업이 주식을 일반 투자자에게 공개 매각하고 거래소에 상장하는 절차
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: reserve-currency
+    name: 기축통화 (Reserve Currency)
+    description: 국제 무역·금융 거래와 각국 외환보유의 중심이 되는 통화로 미국 달러가 대표적이며 발행국에 큰 특권을 부여함
+    category: 통화
+    stockMarketImportance: 5
+
+  - id: money-market
+    name: 단기금융시장 (Money Market)
+    description: 만기 1년 이내의 단기 자금을 거래하는 시장으로 기업·금융기관의 유동성 조절과 단기금리 형성의 장
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: trade-dependency
+    name: 대외의존도 (Trade Dependency)
+    description: 국민경제에서 무역(수출과 수입)이 차지하는 비중으로 높을수록 해외 경기·환율 변동에 민감함
+    category: 국제경제
+    stockMarketImportance: 3
+
+  - id: substitute-goods
+    name: 대체재 (Substitute Goods)
+    description: 한 재화의 가격이 오르면 대신 소비가 늘어나는 서로 대체 가능한 재화
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: double-dip
+    name: 더블딥 (Double Dip)
+    description: 경기가 침체에서 잠시 회복하는 듯하다가 다시 침체에 빠지는 이중 침체 현상
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: decoupling
+    name: 디커플링 (Decoupling)
+    description: 한 나라나 자산의 경기·시장 흐름이 다른 나라와 동조하지 않고 따로 움직이는 현상
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: leverage-effect
+    name: 레버리지 효과 (Leverage Effect)
+    description: 빌린 자금을 지렛대로 활용해 자기자본 대비 투자 수익률을 키우는 효과로 손실도 함께 확대되는 양날의 칼
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: yield-to-maturity
+    name: 만기수익률 (Yield to Maturity)
+    description: 채권을 만기까지 보유할 때 얻는 연평균 수익률로 채권 가격이 오르면 낮아지는 채권 투자의 핵심 수익 지표
+    category: 채권
+    stockMarketImportance: 5
+
+  - id: microcredit
+    name: 마이크로크레디트 (Microcredit)
+    description: 담보가 없는 저소득층에게 소액을 빌려줘 창업·자립을 돕는 소액금융
+    category: 금융
+    stockMarketImportance: 2
+
+  - id: sunk-cost
+    name: 매몰비용 (Sunk Cost)
+    description: 이미 지출해 회수할 수 없는 비용으로 합리적 의사결정에서는 고려하지 말아야 함
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: nominal-interest-rate
+    name: 명목금리 (Nominal Interest Rate)
+    description: 물가 변동을 반영하지 않은 표면상의 금리로 명목금리에서 기대인플레이션을 빼면 실질금리가 됨
+    category: 금리
+    stockMarketImportance: 5
+
+  - id: credit-rating
+    name: 신용등급 (Credit Rating)
+    description: 무디스·S&P·피치 같은 신용평가사가 국가·기업의 채무 상환 능력을 등급으로 평가한 것으로 조달 금리와 투자 가능 여부를 좌우함
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: price-index
+    name: 물가지수 (Price Index)
+    description: 여러 상품·서비스의 가격을 가중평균해 물가 수준의 변화를 나타낸 지표로 CPI·PPI·PCE 등이 이에 속함
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: mutual-fund
+    name: 뮤추얼펀드 (Mutual Fund)
+    description: 다수 투자자의 자금을 모아 전문 운용사가 주식·채권 등에 분산투자하고 수익을 배분하는 집합투자기구
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: bank-run
+    name: 뱅크런 (Bank Run)
+    description: 은행 부실 우려로 예금자들이 한꺼번에 예금을 인출하려는 사태로 건전한 은행도 유동성 부족으로 무너질 수 있음
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: veblen-effect
+    name: 베블런 효과 (Veblen Effect)
+    description: 가격이 비쌀수록 과시 욕구 때문에 오히려 수요가 늘어나는 현상
+    category: 미시경제
+    stockMarketImportance: 2
+
+  - id: variable-rate
+    name: 변동금리 (Variable Rate)
+    description: 시장금리에 연동되어 주기적으로 이자율이 바뀌는 대출 방식으로 금리 상승기에는 상환 부담이 커짐
+    category: 금리
+    stockMarketImportance: 4
+
+  - id: value-added
+    name: 부가가치 (Value Added)
+    description: 생산 과정에서 새로 더해진 가치로 산출액에서 중간투입물 비용을 뺀 것이며 GDP는 모든 생산단계의 부가가치 합으로 계산됨
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: cdo
+    name: 부채담보부증권 (CDO)
+    description: 여러 대출·채권을 묶어 위험도별로 잘게 나눠 발행한 구조화 증권으로 2008년 금융위기 확산의 핵심 매개였음
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: debt-ratio
+    name: 부채비율 (Debt Ratio)
+    description: 자기자본 대비 부채의 비율로 높을수록 재무 위험이 크며 기업 건전성 판단의 기본 지표
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: fountain-effect
+    name: 분수효과 (Fountain Effect)
+    description: 저소득층의 소득과 소비를 늘리면 그 수요가 경제 전체로 퍼져 성장을 이끈다는 주장으로 낙수효과와 대비됨
+    category: 거시경제
+    stockMarketImportance: 2
+
+  - id: big-mac-index
+    name: 빅맥지수 (Big Mac Index)
+    description: 각국 빅맥 가격을 비교해 구매력평가 기준으로 통화의 고평가·저평가를 가늠하는 비공식 환율 지표
+    category: 국제경제
+    stockMarketImportance: 2
+
+  - id: etf
+    name: 상장지수펀드 (ETF)
+    description: 지수나 자산을 추종하도록 만들어 거래소에서 주식처럼 사고팔 수 있는 펀드로 분산투자와 매매 편의를 결합함
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: circuit-breaker
+    name: 서킷브레이커 (Circuit Breaker)
+    description: 주가가 급락하면 시장의 과열·공포를 식히기 위해 일시적으로 거래를 중단하는 제도
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: futures
+    name: 선물거래 (Futures)
+    description: 미래 특정 시점에 정해진 가격으로 기초자산을 사고팔기로 미리 약정하는 표준화된 파생상품 거래
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: income-led-growth
+    name: 소득주도성장 (Income-led Growth)
+    description: 가계 임금·소득을 늘려 소비와 총수요를 키우고 이를 통해 성장을 도모하는 정책 기조
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: demand-elasticity
+    name: 수요탄력성 (Price Elasticity of Demand)
+    description: 가격이 변할 때 수요량이 얼마나 민감하게 변하는지 나타내는 지표로 필수재는 비탄력적이고 사치재는 탄력적
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: swap
+    name: 스왑 (Swap)
+    description: 두 당사자가 미래의 현금흐름(금리·통화 등)을 서로 교환하기로 하는 파생상품 계약
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: synergy
+    name: 시너지 (Synergy)
+    description: 둘 이상이 결합해 개별 합보다 큰 효과를 내는 것으로 인수합병의 핵심 명분
+    category: 금융
+    stockMarketImportance: 2
+
+  - id: bond-with-warrant
+    name: 신주인수권부사채 (Bond with Warrant)
+    description: 정해진 가격에 신주를 인수할 수 있는 권리가 붙은 채권으로 채권은 그대로 두고 신주인수권만 따로 행사·거래할 수 있음
+    category: 채권
+    stockMarketImportance: 3
+
+  - id: real-wage
+    name: 실질임금 (Real Wage)
+    description: 명목임금을 물가로 나눠 실제 구매력으로 환산한 임금으로 물가 상승이 임금 상승을 앞지르면 실질임금은 하락함
+    category: 거시경제
+    stockMarketImportance: 4
+
+  - id: agflation
+    name: 애그플레이션 (Agflation)
+    description: 농산물 가격 상승이 전반적인 물가 상승을 이끄는 현상으로 기후·작황·에너지 가격에 민감함
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: certificate-of-deposit
+    name: 양도성예금증서 (CD)
+    description: 제3자에게 양도할 수 있는 무기명 정기예금증서로 단기 자금 조달·운용 수단
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: cma
+    name: 어음관리계좌 (CMA)
+    description: 하루만 맡겨도 이자가 붙고 입출금이 자유로운 증권사 계좌로 단기 자금 보관에 쓰임
+    category: 금융
+    stockMarketImportance: 2
+
+  - id: engels-law
+    name: 엥겔의 법칙 (Engel's Law)
+    description: 소득이 낮을수록 가계 지출에서 식료품비가 차지하는 비중(엥겔계수)이 높아진다는 경험 법칙
+    category: 미시경제
+    stockMarketImportance: 2
+
+  - id: reverse-mortgage
+    name: 역모기지론 (Reverse Mortgage)
+    description: 주택을 담보로 맡기고 매달 연금처럼 생활비를 받는 대출로 노후 소득원으로 활용됨
+    category: 금융
+    stockMarketImportance: 2
+
+  - id: loan-deposit-ratio
+    name: 예대율 (Loan-Deposit Ratio)
+    description: 은행의 예금 대비 대출 비율로 너무 높으면 유동성 위험이 커져 건전성 규제의 대상이 됨
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: option
+    name: 옵션 (Option)
+    description: 미래에 정해진 가격으로 기초자산을 사거나 팔 수 있는 권리를 거래하는 파생상품으로 살 권리는 콜, 팔 권리는 풋
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: foreign-reserves
+    name: 외환보유액 (Foreign Reserves)
+    description: 중앙은행·정부가 대외 지급과 환율 방어를 위해 보유한 외화·금 등 대외 지급준비 자산
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: workout
+    name: 워크아웃 (Workout)
+    description: 부실 위기 기업을 살리기 위해 채권단이 채무 조정·만기 연장 등으로 구조조정하는 절차
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: principal-risk
+    name: 원금리스크 (Principal Risk)
+    description: 투자 원금을 회수하지 못할 위험으로 기대수익이 높은 상품일수록 일반적으로 더 큼
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: liquidity
+    name: 유동성 (Liquidity)
+    description: 자산을 가치 손실 없이 빠르게 현금으로 바꿀 수 있는 정도 또는 시장에 풀린 자금의 양으로 자산 가격과 위기 대응에 핵심적
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: dual-currency-bond
+    name: 이중통화채 (Dual Currency Bond)
+    description: 발행·이자 지급 통화와 원금 상환 통화가 서로 다른 채권으로 환율 변동에 노출됨
+    category: 채권
+    stockMarketImportance: 1
+
+  - id: voluntary-unemployment
+    name: 자발적 실업 (Voluntary Unemployment)
+    description: 일자리가 있어도 임금·근로조건이 맞지 않아 스스로 취업하지 않는 실업으로 자연실업률의 한 구성요소
+    category: 거시경제
+    stockMarketImportance: 3
+
+  - id: term-spread
+    name: 장단기금리차 (Term Spread)
+    description: 장기금리와 단기금리의 차이로 이 폭이 줄거나 역전되면 경기 둔화·침체 신호로 해석됨
+    category: 금리
+    stockMarketImportance: 6
+
+  - id: otc-market
+    name: 장외시장 (OTC Market)
+    description: 거래소 밖에서 당사자 간 협상으로 증권을 거래하는 시장으로 비상장주·채권·파생상품이 거래됨
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: convertible-bond
+    name: 전환사채 (Convertible Bond)
+    description: 일정 조건에서 발행기업의 주식으로 전환할 수 있는 권리가 붙은 채권으로 이자 수익과 주가 상승 기회를 함께 노림
+    category: 채권
+    stockMarketImportance: 4
+
+  - id: junk-bond
+    name: 정크본드 (Junk Bond)
+    description: 신용등급이 투자적격 미만인 고위험 채권으로 부도 위험이 큰 대신 높은 금리를 제공함
+    category: 채권
+    stockMarketImportance: 4
+
+  - id: zero-interest-rate-policy
+    name: 제로금리정책 (Zero Interest Rate Policy)
+    description: 기준금리를 0퍼센트에 가깝게 낮춰 차입과 투자·소비를 자극하는 통화정책으로 경기 침체·디플레이션 대응에 쓰임
+    category: 통화정책
+    stockMarketImportance: 6
+
+  - id: stock-index
+    name: 주가지수 (Stock Index)
+    description: 다수 종목의 가격을 종합해 시장 전체의 흐름을 보여주는 지표로 코스피·S&P500 등이 대표적
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: tax-burden-ratio
+    name: 조세부담률 (Tax Burden Ratio)
+    description: 국민소득이나 GDP 대비 조세 총액의 비율로 국민이 부담하는 세금 수준을 보여줌
+    category: 정부
+    stockMarketImportance: 3
+
+  - id: eps
+    name: 주당순이익 (EPS)
+    description: 기업의 순이익을 발행주식 수로 나눈 값으로 주식 1주가 벌어들인 이익을 나타내며 주가 평가의 기본 지표
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: margin-requirement
+    name: 증거금 (Margin Requirement)
+    description: 주식·파생상품 거래 시 계약 이행을 담보하기 위해 미리 예치하는 보증금
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: holding-company
+    name: 지주회사 (Holding Company)
+    description: 다른 회사의 주식을 보유해 지배하는 것을 주된 목적으로 하는 회사
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: chicken-game
+    name: 치킨게임 (Chicken Game)
+    description: 양측이 양보 없이 충돌로 치닫는 게임이론 상황으로 끝까지 가면 모두 큰 손실을 입음
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: cartel
+    name: 카르텔 (Cartel)
+    description: 같은 산업의 기업들이 가격·생산량을 담합해 경쟁을 제한하는 협정으로 소비자 후생을 해쳐 대체로 불법
+    category: 미시경제
+    stockMarketImportance: 3
+
+  - id: call-option
+    name: 콜옵션 (Call Option)
+    description: 기초자산을 정해진 가격에 살 수 있는 권리로 가격 상승 시 이익을 보며 옵션의 한 종류
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: currency-swap
+    name: 통화스왑 (Currency Swap)
+    description: 두 나라나 거래자가 서로의 통화를 약정 환율로 교환했다가 되갚기로 하는 계약으로 국가 간에는 외환위기를 막는 안전장치로 쓰임
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: investment-bank
+    name: 투자은행 (Investment Bank)
+    description: 예금 대신 주식·채권 발행 주관, 인수합병 자문, 자기매매 등으로 수익을 얻는 금융기관
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: spv
+    name: 특수목적기구 (SPV)
+    description: 특정 사업이나 자산 유동화를 위해 한시적으로 설립하는 명목상 회사로 위험·자산을 모기업과 분리함
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: derivatives
+    name: 파생금융상품 (Derivatives)
+    description: 주식·금리·환율·원자재 등 기초자산의 가치 변동에 따라 가격이 결정되는 금융상품으로 선물·옵션·스왑이 대표적
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: devaluation
+    name: 평가절하 (Devaluation)
+    description: 자국 통화의 대외 가치를 낮추는 것으로 수출 가격 경쟁력을 높이지만 수입물가 상승과 외채 부담 증가를 동반함
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: coupon-rate
+    name: 표면금리 (Coupon Rate)
+    description: 채권 액면에 명시된 고정 이자율로 발행 시 약정한 이표 지급의 기준이 되며 만기수익률과 구분됨
+    category: 채권
+    stockMarketImportance: 3
+
+  - id: hedge-fund
+    name: 헤지펀드 (Hedge Fund)
+    description: 소수 투자자의 자금을 모아 공매도·레버리지·파생상품 등 공격적 전략으로 절대수익을 추구하는 사모 펀드
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: currency-manipulator
+    name: 환율조작국 (Currency Manipulator)
+    description: 수출 확대 등을 위해 인위적으로 환율에 개입한다고 미국이 지정하는 국가로 무역 갈등의 쟁점이 됨
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: mergers-acquisitions
+    name: M&A (Mergers and Acquisitions)
+    description: 기업이 다른 기업을 합치거나 사들이는 합병·인수로 사업 확장·시너지·구조조정의 수단
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: geopolitical-risk
+    name: 지정학적 리스크 (Geopolitical Risk)
+    description: 전쟁·테러·외교 갈등 등 정치·군사적 사건이 경제와 시장에 불확실성을 더하는 위험으로 단기적으로 위험자산을 끌어내리고 안전자산·유가를 밀어 올리며, GPR 지수 등으로 계량화됨
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: safe-haven-asset
+    name: 안전자산 (Safe-haven Asset)
+    description: 위기나 시장 불안기에 가치가 비교적 안정적이어서 자금이 몰리는 자산으로 금·미국 국채·달러가 대표적
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: risk-on
+    name: 위험 선호 (Risk-on)
+    description: 투자자들이 위험을 감수하고 주식·신흥국 자산 등 위험자산을 선호하는 시장 심리 국면
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: risk-off
+    name: 위험 회피 (Risk-off)
+    description: 불확실성이 커져 투자자들이 위험자산을 팔고 안전자산으로 갈아타는 시장 심리 국면
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: valuation
+    name: 밸류에이션 (Valuation)
+    description: 기업이나 자산의 가치를 이익·자산 등 기초지표 대비 평가한 수준으로 멀티플이 높으면 고평가, 낮으면 저평가로 보며 금리에 민감하게 변함
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: pbr
+    name: 주가순자산비율 (PBR)
+    description: 주가를 주당순자산으로 나눈 값으로 1보다 낮으면 장부가치보다 싸게 거래되는 저평가 신호로 해석됨
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: crude-oil
+    name: 원유 (Crude Oil)
+    description: 가장 중요한 1차 에너지원이자 원자재로 브렌트·WTI 가격이 기준이 되며 가격 급등은 물가·무역수지·기업 비용에 광범위한 충격을 줌
+    category: 원자재
+    stockMarketImportance: 7
+
+  - id: capital-flight
+    name: 자본 유출 (Capital Flight)
+    description: 위험 회피나 불안으로 외국인·국내 자금이 한 나라에서 대거 빠져나가는 현상으로 통화 약세와 자산 가격 하락을 동반
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: risk-premium
+    name: 위험 프리미엄 (Risk Premium)
+    description: 위험을 감수하는 대가로 투자자가 무위험 수익률 위에 요구하는 추가 기대수익으로 불확실성이 커지면 상승해 자산 가격을 끌어내림
+    category: 금융
+    stockMarketImportance: 5
