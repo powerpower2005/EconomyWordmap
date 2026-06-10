@@ -5473,3 +5473,296 @@ relations:
     description: "RSI의 과매수·과매도가 심리 과열·위축을 시사"
     strength: weak
     nature: correlational
+
+  - id: r708
+    term1Id: bank
+    term2Id: financial-intermediation
+    type: correlation
+    description: "은행은 돈의 공급과 수요를 잇는 금융 중개기관"
+    strength: strong
+    nature: definitional
+
+  - id: r709
+    term1Id: financial-intermediation
+    term2Id: savings
+    type: correlation
+    description: "잉여 저축을 예금으로 흡수해 자금을 모음"
+    strength: medium
+    nature: causal
+
+  - id: r710
+    term1Id: financial-intermediation
+    term2Id: loan
+    type: correlation
+    description: "흡수한 자금을 필요한 곳에 대출로 공급"
+    strength: medium
+    nature: causal
+
+  - id: r711
+    term1Id: loan
+    term2Id: deposit
+    type: proportional
+    bidirectional: true
+    description: "대출이 실행되면 그만큼의 예금이 동시에 창출됨"
+    reverseDescription: "예금은 대출의 회계적 반대편으로 둘은 동전의 양면"
+    strength: strong
+    nature: definitional
+
+  - id: r712
+    term1Id: credit-creation
+    term2Id: deposit
+    type: proportional
+    description: "은행의 신용창출이 예금을 새로 만들어냄"
+    strength: strong
+    nature: causal
+
+  - id: r713
+    term1Id: fractional-reserve-banking
+    term2Id: credit-creation
+    type: proportional
+    description: "예금 일부만 지급준비로 두는 제도가 신용창출을 가능하게 함"
+    strength: strong
+    nature: causal
+
+  - id: r714
+    term1Id: fractional-reserve-banking
+    term2Id: money-multiplier
+    type: proportional
+    description: "지급준비금 일부만 보유해 통화승수가 작동함"
+    strength: strong
+    nature: causal
+
+  - id: r715
+    term1Id: fractional-reserve-banking
+    term2Id: money-supply
+    type: proportional
+    description: "신용창출을 통해 시중 통화량을 늘림"
+    strength: medium
+    nature: causal
+
+  - id: r716
+    term1Id: fractional-reserve-banking
+    term2Id: reserves
+    type: correlation
+    description: "받은 예금의 일부만 지급준비금으로 보유"
+    strength: medium
+    nature: definitional
+
+  - id: r717
+    term1Id: banking-license
+    term2Id: bank
+    type: correlation
+    description: "은행업 인가가 자본금 이상으로 신용을 창출할 권한을 부여"
+    strength: medium
+    nature: definitional
+
+  - id: r718
+    term1Id: banking-license
+    term2Id: fractional-reserve-banking
+    type: correlation
+    description: "인가가 부분지급준비 영업을 합법화함"
+    strength: medium
+    nature: policy
+
+  - id: r719
+    term1Id: disposable-income
+    term2Id: savings
+    type: proportional
+    description: "가처분소득에서 소비를 뺀 나머지가 저축"
+    strength: strong
+    nature: definitional
+
+  - id: r720
+    term1Id: disposable-income
+    term2Id: consumption
+    type: proportional
+    description: "가처분소득이 늘면 소비 여력이 커짐"
+    strength: strong
+    nature: causal
+
+  - id: r721
+    term1Id: savings
+    term2Id: deposit
+    type: proportional
+    description: "저축이 은행 예금으로 유입"
+    strength: medium
+    nature: causal
+
+  - id: r722
+    term1Id: savings
+    term2Id: investment
+    type: proportional
+    description: "저축이 투자의 재원이 됨"
+    strength: medium
+    nature: causal
+
+  - id: r723
+    term1Id: credit-creation
+    term2Id: economic-growth
+    type: proportional
+    description: "신용창출이 기업·가계의 자금 수요를 채워 성장을 촉진"
+    strength: medium
+    nature: causal
+
+  - id: r724
+    term1Id: deposit
+    term2Id: money-supply
+    type: correlation
+    description: "예금은 광의통화(M2)의 핵심 구성요소"
+    strength: medium
+    nature: hierarchical
+
+  - id: r725
+    term1Id: central-bank
+    term2Id: lender-of-last-resort
+    type: correlation
+    description: "중앙은행이 위기 시 최종 대부자 기능을 수행"
+    strength: strong
+    nature: definitional
+
+  - id: r726
+    term1Id: lender-of-last-resort
+    term2Id: discount-window
+    type: correlation
+    description: "재할인 창구는 최종 대부자 기능의 대표적 실행 수단"
+    strength: strong
+    nature: definitional
+
+  - id: r727
+    term1Id: discount-window
+    term2Id: liquidity
+    type: proportional
+    description: "재할인 창구가 은행에 단기 유동성을 공급"
+    strength: strong
+    nature: causal
+
+  - id: r728
+    term1Id: lender-of-last-resort
+    term2Id: bank
+    type: correlation
+    description: "위기에 빠진 은행에 중앙은행이 자금을 꽂아 시스템 붕괴를 막음"
+    strength: medium
+    nature: policy
+
+  - id: r729
+    term1Id: too-big-to-fail
+    term2Id: bailout
+    type: proportional
+    description: "망하게 둘 수 없는 규모일수록 구제금융 기대가 커짐"
+    strength: strong
+    nature: causal
+
+  - id: r730
+    term1Id: bailout
+    term2Id: moral-hazard
+    type: proportional
+    description: "구제받을 거란 기대가 손실의 사회화로 이어져 도덕적 해이를 키움"
+    strength: strong
+    nature: causal
+
+  - id: r731
+    term1Id: too-big-to-fail
+    term2Id: moral-hazard
+    type: proportional
+    description: "대마불사 기대가 과도한 위험 추구를 부추김"
+    strength: strong
+    nature: causal
+
+  - id: r732
+    term1Id: moral-hazard
+    term2Id: global-financial-crisis
+    type: proportional
+    description: "축적된 금융권의 도덕적 해이가 2008년 글로벌 금융위기로 폭발"
+    strength: strong
+    nature: causal
+
+  - id: r733
+    term1Id: bailout
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "위기 대응 과정에서 대규모 공적 구제금융이 동원됨"
+    strength: medium
+    nature: policy
+
+  - id: r734
+    term1Id: bis
+    term2Id: basel-accords
+    type: correlation
+    description: "국제결제은행이 바젤 규제 기준을 마련"
+    strength: strong
+    nature: definitional
+
+  - id: r735
+    term1Id: basel-accords
+    term2Id: prudential-regulation
+    type: correlation
+    description: "바젤은 대표적인 은행 건전성 규제 체계"
+    strength: strong
+    nature: definitional
+
+  - id: r736
+    term1Id: basel-accords
+    term2Id: capital-adequacy-ratio
+    type: correlation
+    description: "바젤 규제의 핵심 장치가 자기자본비율(BIS 비율)"
+    strength: strong
+    nature: hierarchical
+
+  - id: r737
+    term1Id: risk-weighted-assets
+    term2Id: capital-adequacy-ratio
+    type: inverse
+    description: "위험가중자산이 분모이므로 커질수록 자기자본비율은 낮아짐"
+    strength: strong
+    nature: definitional
+
+  - id: r738
+    term1Id: basel-accords
+    term2Id: credit-creation
+    type: inverse
+    description: "자본규제 충족을 위해 투자를 줄이면 신용창출이 위축됨"
+    strength: medium
+    nature: causal
+    conditions: "은행이 증자 대신 자산 축소로 규제를 맞출 때"
+
+  - id: r739
+    term1Id: capital-adequacy-ratio
+    term2Id: loan
+    type: inverse
+    description: "비율을 맞추려 부채(예금)와 대출을 줄이는 선택을 하는 경향"
+    strength: medium
+    nature: correlational
+    conditions: "자기자본 확충이 어려운 국면"
+
+  - id: r740
+    term1Id: gsib
+    term2Id: systemic-risk
+    type: proportional
+    description: "시스템적 중요 은행의 부실은 시스템 리스크의 핵심 경로"
+    strength: strong
+    nature: causal
+
+  - id: r741
+    term1Id: gsib
+    term2Id: basel-accords
+    type: correlation
+    description: "G-SIB은 추가 자본 등 더 강한 바젤 규제를 적용받음"
+    strength: medium
+    nature: policy
+
+  - id: r742
+    term1Id: credit-creation
+    term2Id: money-multiplier
+    type: proportional
+    description: "은행의 적극적 신용창출이 통화승수를 높임"
+    strength: strong
+    nature: causal
+
+  - id: r743
+    term1Id: money-multiplier
+    term2Id: inflation
+    type: proportional
+    description: "통화승수 상승으로 돈의 유통속도가 빨라지면 물가 상승 압력으로 작동"
+    strength: medium
+    nature: causal
+    conditions: "실물 수요가 뒷받침될 때"

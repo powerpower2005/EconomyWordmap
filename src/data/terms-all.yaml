@@ -2086,3 +2086,99 @@ terms:
     description: 매수·매도세가 반복적으로 부딪쳐 가격이 잘 멈추거나 되돌아가는 구간
     category: 금융
     stockMarketImportance: 3
+
+  - id: financial-intermediation
+    name: 금융 중개 (Financial Intermediation)
+    description: 돈의 공급(저축)과 수요(차입)를 이어주는 은행의 핵심 기능으로 잉여 자금을 예금으로 흡수해 대출로 공급함
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: deposit
+    name: 예금 (Deposit)
+    description: 은행이 보관·상환 책임을 지는 부채이자 신용창출의 결과로 생기는 돈으로 광의통화의 핵심 구성요소
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: loan
+    name: 대출 (Loan)
+    description: 은행이 차입자에게 자금을 빌려주는 여신으로 실행과 동시에 같은 금액의 예금을 창출하는, 예금과 동전의 양면인 거래
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: fractional-reserve-banking
+    name: 부분지급준비제도 (Fractional Reserve Banking)
+    description: 은행이 받은 예금의 일부만 지급준비금으로 두고 나머지로 대출·신용을 창출하도록 허용하는 제도로 통화승수의 토대
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: savings
+    name: 저축 (Savings)
+    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: disposable-income
+    name: 가처분소득 (Disposable Income)
+    description: 소득에서 세금·사회보험료 등을 뺀, 가계가 실제로 소비하거나 저축할 수 있는 소득
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: banking-license
+    name: 은행업 인가 (Banking License)
+    description: 자본금 이상으로 신용을 창출할 수 있도록 국가가 은행에 부여하는 면허로 성장에 필요한 자금 공급을 합법화함
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: lender-of-last-resort
+    name: 최종 대부자 (Lender of Last Resort)
+    description: 은행이 유동성 위기에 빠졌을 때 중앙은행이 마지막으로 자금을 공급해 시스템 붕괴를 막는 기능
+    category: 통화정책
+    stockMarketImportance: 5
+
+  - id: discount-window
+    name: 재할인 창구 (Discount Window)
+    description: 은행이 담보를 맡기고 중앙은행에서 단기 자금을 빌리는 유동성 지원 창구로 최종 대부자 기능의 대표 수단
+    category: 통화정책
+    stockMarketImportance: 4
+
+  - id: moral-hazard
+    name: 도덕적 해이 (Moral Hazard)
+    description: 손실은 사회·국가에 떠넘기고 이익만 추구하도록 유인이 왜곡된 상태로 금융기관의 과도한 위험 추구를 부추김
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: bailout
+    name: 구제금융 (Bailout)
+    description: 부실에 빠진 금융기관·기업을 정부·중앙은행이 공적 자금으로 구제하는 것으로 손실의 사회화 논란을 낳음
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: too-big-to-fail
+    name: 대마불사 (Too Big to Fail)
+    description: 규모가 너무 커서 망하게 두면 시스템 전체가 위태로워 결국 구제받는다는 기대로 도덕적 해이의 핵심 원인
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: basel-accords
+    name: 바젤 규제 (Basel Accords)
+    description: BIS가 마련한 국제 은행 건전성 규제 기준으로 자기자본비율(BIS 비율) 등을 통해 과도한 신용창출을 억제함
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: risk-weighted-assets
+    name: 위험가중자산 (Risk-Weighted Assets)
+    description: 자산별 위험도에 가중치를 적용해 합산한 규제용 자산으로 자기자본비율(BIS 비율)의 분모가 됨
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: gsib
+    name: 시스템적 중요 은행 (G-SIB)
+    description: 부실 시 세계 금융시스템에 큰 충격을 주어 추가 자본 등 더 강한 규제를 받는 글로벌 핵심 은행
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: bis
+    name: 국제결제은행 (BIS)
+    description: 각국 중앙은행 간 결제를 중개하고 바젤 규제 등 국제 은행 건전성 기준을 마련하는 국제기구
+    category: 금융
+    stockMarketImportance: 3
