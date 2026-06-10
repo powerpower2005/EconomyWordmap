@@ -5081,3 +5081,395 @@ relations:
     description: "지정학 갈등이 관세·수출통제 등 무역전쟁으로 번지기도 함"
     strength: medium
     nature: correlational
+
+  - id: r659
+    term1Id: debt-to-gdp
+    term2Id: debt-monetization
+    type: proportional
+    description: "부채비율이 감당하기 어려운 수준이면 화폐화로 메우려는 유혹이 커짐"
+    strength: medium
+    nature: causal
+
+  - id: r660
+    term1Id: debt-monetization
+    term2Id: inflation
+    type: proportional
+    description: "부채의 화폐화가 통화량을 늘려 인플레이션을 유발"
+    strength: strong
+    nature: causal
+
+  - id: r661
+    term1Id: financial-repression
+    term2Id: real-interest-rate
+    type: inverse
+    description: "금리를 물가 아래로 눌러 실질금리를 마이너스로 만듦"
+    strength: medium
+    nature: causal
+
+  - id: r662
+    term1Id: financial-repression
+    term2Id: debt-to-gdp
+    type: inverse
+    description: "낮은 실질금리로 정부의 실질 부채 부담을 서서히 줄임"
+    strength: medium
+    nature: causal
+
+  - id: r663
+    term1Id: inflation-tax
+    term2Id: national-debt
+    type: inverse
+    description: "인플레이션이 명목부채의 실질 가치를 깎아 부담을 줄임"
+    strength: medium
+    nature: causal
+
+  - id: r664
+    term1Id: inflation-tax
+    term2Id: inflation
+    type: correlation
+    description: "인플레이션 조세는 물가 상승이 부과하는 보이지 않는 세금"
+    strength: medium
+    nature: definitional
+
+  - id: r665
+    term1Id: deleveraging
+    term2Id: debt-to-gdp
+    type: inverse
+    description: "디레버리징이 부채비율을 낮춤"
+    strength: medium
+    nature: causal
+
+  - id: r666
+    term1Id: deleveraging
+    term2Id: economic-growth
+    type: inverse
+    description: "부채 축소 과정이 수요를 줄여 단기 성장을 위축"
+    strength: medium
+    nature: causal
+
+  - id: r667
+    term1Id: fiat-currency
+    term2Id: currency-debasement
+    type: proportional
+    description: "발행 재량이 큰 법정화폐는 과잉 발행 시 가치 훼손 위험을 안음"
+    strength: medium
+    nature: causal
+
+  - id: r668
+    term1Id: currency-debasement
+    term2Id: gold
+    type: proportional
+    description: "화폐가치 훼손 우려가 금 같은 실물자산 선호를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r669
+    term1Id: currency-debasement
+    term2Id: inflation
+    type: proportional
+    description: "통화 구매력 하락이 물가 상승으로 나타남"
+    strength: medium
+    nature: correlational
+
+  - id: r670
+    term1Id: big-government
+    term2Id: fiscal-policy
+    type: proportional
+    description: "큰 정부는 재정 지출·개입을 확대"
+    strength: medium
+    nature: causal
+
+  - id: r671
+    term1Id: big-government
+    term2Id: national-debt
+    type: proportional
+    description: "정부 역할 확대가 지출·부채 증가로 이어짐"
+    strength: medium
+    nature: causal
+
+  - id: r672
+    term1Id: new-cold-war
+    term2Id: big-government
+    type: proportional
+    description: "신냉전이 안보·산업 개입으로 정부 역할을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r673
+    term1Id: new-cold-war
+    term2Id: industrial-policy
+    type: proportional
+    description: "기술 패권 경쟁이 자국 산업 육성 정책을 촉발"
+    strength: medium
+    nature: causal
+
+  - id: r674
+    term1Id: new-cold-war
+    term2Id: economic-security
+    type: proportional
+    description: "진영 대립이 공급망·핵심물자의 경제안보 의제를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r675
+    term1Id: capital-expenditure
+    term2Id: economic-growth
+    type: proportional
+    description: "설비투자가 생산능력을 늘려 성장을 끌어올림"
+    strength: medium
+    nature: causal
+
+  - id: r676
+    term1Id: capital-expenditure
+    term2Id: investment
+    type: correlation
+    description: "설비투자는 총투자의 핵심 구성요소"
+    strength: medium
+    nature: hierarchical
+
+  - id: r677
+    term1Id: populism
+    term2Id: national-debt
+    type: proportional
+    description: "포퓰리즘 부양이 재정적자와 국가부채를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r678
+    term1Id: populism
+    term2Id: big-government
+    type: proportional
+    description: "포퓰리즘이 재분배·개입을 늘려 정부 역할을 키움"
+    strength: medium
+    nature: correlational
+
+  - id: r679
+    term1Id: beta
+    term2Id: stock-market
+    type: proportional
+    description: "베타는 시장 전체 움직임에 연동된 수익·위험"
+    strength: strong
+    nature: definitional
+
+  - id: r680
+    term1Id: alpha
+    term2Id: beta
+    type: correlation
+    description: "알파는 시장(베타)을 초과해 얻는 수익"
+    strength: medium
+    nature: definitional
+
+  - id: r681
+    term1Id: market-regime
+    term2Id: beta
+    type: correlation
+    description: "안정적 레짐에서는 베타(지수추종)만으로도 수익을 얻기 쉬움"
+    strength: medium
+    nature: correlational
+
+  - id: r682
+    term1Id: market-regime
+    term2Id: stagflation
+    type: correlation
+    description: "변혁기 레짐은 스태그플레이션 양상으로 나타나기 쉬움"
+    strength: weak
+    nature: correlational
+
+  - id: r683
+    term1Id: political-cycle
+    term2Id: fiscal-policy
+    type: correlation
+    description: "선거 일정이 재정 부양·긴축의 타이밍에 영향"
+    strength: medium
+    nature: causal
+
+  - id: r684
+    term1Id: political-cycle
+    term2Id: stock-market
+    type: correlation
+    description: "선거 전 부양 기대와 후 긴축이 증시 흐름에 영향"
+    strength: medium
+    nature: correlational
+
+  - id: r685
+    term1Id: political-cycle
+    term2Id: populism
+    type: correlation
+    description: "선거 경쟁이 포퓰리즘 정책을 부추김"
+    strength: medium
+    nature: correlational
+
+  - id: r686
+    term1Id: credit-cycle
+    term2Id: asset-bubble
+    type: proportional
+    description: "신용 팽창 국면이 자산 버블을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r687
+    term1Id: credit-cycle
+    term2Id: credit-crunch
+    type: correlation
+    description: "신용 사이클의 수축 국면이 신용 경색으로 나타남"
+    strength: medium
+    nature: correlational
+
+  - id: r688
+    term1Id: credit-cycle
+    term2Id: business-cycle
+    type: correlation
+    description: "신용의 팽창·수축이 경기순환과 맞물려 진행"
+    strength: medium
+    nature: correlational
+
+  - id: r689
+    term1Id: per
+    term2Id: valuation
+    type: correlation
+    description: "PER은 이익 대비 가격을 보는 대표적 밸류에이션 지표"
+    strength: strong
+    nature: hierarchical
+
+  - id: r690
+    term1Id: per
+    term2Id: eps
+    type: correlation
+    description: "PER은 주가를 주당순이익(EPS)으로 나눈 값"
+    strength: strong
+    nature: definitional
+
+  - id: r691
+    term1Id: dcf
+    term2Id: intrinsic-value
+    type: correlation
+    description: "DCF로 미래 현금흐름을 할인해 내재가치를 추정"
+    strength: strong
+    nature: causal
+
+  - id: r692
+    term1Id: margin-of-safety
+    term2Id: intrinsic-value
+    type: correlation
+    description: "내재가치 대비 싸게 사는 가격 폭이 안전마진"
+    strength: medium
+    nature: definitional
+
+  - id: r693
+    term1Id: margin-of-safety
+    term2Id: value-investing
+    type: correlation
+    description: "안전마진은 가치투자의 핵심 원칙"
+    strength: medium
+    nature: hierarchical
+
+  - id: r694
+    term1Id: value-investing
+    term2Id: intrinsic-value
+    type: correlation
+    description: "가치투자는 내재가치보다 싼 자산을 사는 전략"
+    strength: medium
+    nature: definitional
+
+  - id: r695
+    term1Id: relative-valuation
+    term2Id: valuation
+    type: correlation
+    description: "상대가치평가는 배수 비교로 가치를 가늠하는 밸류에이션 방법"
+    strength: strong
+    nature: hierarchical
+
+  - id: r696
+    term1Id: relative-valuation
+    term2Id: per
+    type: correlation
+    description: "PER 등 배수로 유사기업과 비교해 상대가치를 평가"
+    strength: medium
+    nature: definitional
+
+  - id: r697
+    term1Id: sector-rotation
+    term2Id: business-cycle
+    type: correlation
+    description: "경기 국면에 따라 강세 섹터가 바뀌며 자금이 이동"
+    strength: medium
+    nature: correlational
+
+  - id: r698
+    term1Id: sector-rotation
+    term2Id: stock-market
+    type: correlation
+    description: "섹터 간 자금 이동이 시장 주도주를 바꿈"
+    strength: medium
+    nature: correlational
+
+  - id: r699
+    term1Id: repo-market
+    term2Id: liquidity
+    type: proportional
+    description: "레포 시장이 담보부 초단기 자금으로 시스템 유동성을 공급"
+    strength: strong
+    nature: causal
+
+  - id: r700
+    term1Id: repo-market
+    term2Id: money-market
+    type: correlation
+    description: "레포는 단기금융시장의 핵심 자금조달 수단"
+    strength: medium
+    nature: hierarchical
+
+  - id: r701
+    term1Id: repo-market
+    term2Id: sofr
+    type: correlation
+    description: "레포 거래금리가 SOFR로 대표됨"
+    strength: medium
+    nature: definitional
+
+  - id: r702
+    term1Id: market-sentiment
+    term2Id: herd-behavior
+    type: correlation
+    description: "심리가 한쪽으로 쏠리면 군중 행동으로 증폭"
+    strength: medium
+    nature: causal
+
+  - id: r703
+    term1Id: market-sentiment
+    term2Id: irrational-exuberance
+    type: proportional
+    description: "과열된 투자심리가 비합리적 과열로 치달음"
+    strength: medium
+    nature: causal
+
+  - id: r704
+    term1Id: market-sentiment
+    term2Id: stock-market
+    type: correlation
+    description: "낙관·비관 심리가 단기 주가를 흔듦"
+    strength: medium
+    nature: causal
+
+  - id: r705
+    term1Id: technical-analysis
+    term2Id: rsi
+    type: correlation
+    description: "RSI는 기술적 분석에서 쓰는 모멘텀 지표"
+    strength: medium
+    nature: hierarchical
+
+  - id: r706
+    term1Id: technical-analysis
+    term2Id: support-resistance
+    type: correlation
+    description: "지지·저항은 기술적 분석의 기본 개념"
+    strength: medium
+    nature: hierarchical
+
+  - id: r707
+    term1Id: rsi
+    term2Id: market-sentiment
+    type: correlation
+    description: "RSI의 과매수·과매도가 심리 과열·위축을 시사"
+    strength: weak
+    nature: correlational

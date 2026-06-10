@@ -1918,3 +1918,171 @@ terms:
     description: 위험을 감수하는 대가로 투자자가 무위험 수익률 위에 요구하는 추가 기대수익으로 불확실성이 커지면 상승해 자산 가격을 끌어내림
     category: 금융
     stockMarketImportance: 5
+
+  - id: market-regime
+    name: 시장 레짐 (Market Regime)
+    description: 일정 기간 시장과 자산 가격을 지배하는 거시 환경의 성격으로 평화·변혁, 인플레·디플레, 완화·긴축 등으로 구분되며 어떤 레짐인지에 따라 유효한 투자 전략이 달라짐
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: debt-to-gdp
+    name: GDP 대비 부채비율 (Debt-to-GDP)
+    description: 정부부채를 GDP로 나눈 비율로 국가부채의 지속가능성과 상환 부담을 가늠하는 핵심 지표
+    category: 정부
+    stockMarketImportance: 6
+
+  - id: debt-monetization
+    name: 부채의 화폐화 (Debt Monetization)
+    description: 중앙은행이 국채를 사들여 사실상 정부부채를 통화 발행으로 메우는 것으로 인플레이션을 유발할 수 있음
+    category: 통화정책
+    stockMarketImportance: 5
+
+  - id: financial-repression
+    name: 금융 억압 (Financial Repression)
+    description: 금리를 인플레이션보다 낮게 억눌러 채권 보유자의 희생으로 정부의 실질 부채 부담을 줄이는 정책
+    category: 통화정책
+    stockMarketImportance: 4
+
+  - id: inflation-tax
+    name: 인플레이션 조세 (Inflation Tax)
+    description: 인플레이션이 화폐와 명목채권의 실질 가치를 깎아 사실상 보유자에게 부과되는 보이지 않는 세금
+    category: 통화
+    stockMarketImportance: 4
+
+  - id: deleveraging
+    name: 디레버리징 (Deleveraging)
+    description: 경제주체가 과도한 부채를 줄이는 과정으로 긴축·디폴트·인플레이션 경로로 진행되며 단기적으로 성장을 위축시킴
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: fiat-currency
+    name: 법정화폐 (Fiat Currency)
+    description: 금 같은 실물 담보 없이 정부 신뢰와 법적 강제력으로 통용되는 화폐로 발행 재량이 큰 만큼 가치 훼손 위험을 안음
+    category: 통화
+    stockMarketImportance: 4
+
+  - id: currency-debasement
+    name: 화폐가치 훼손 (Currency Debasement)
+    description: 과도한 발행·인플레이션으로 통화의 구매력이 구조적으로 떨어지는 현상으로 금·실물자산 선호를 키움
+    category: 통화
+    stockMarketImportance: 4
+
+  - id: big-government
+    name: 큰 정부 (Big Government)
+    description: 재정·규제·산업개입을 통해 경제에서 정부 역할이 비대해지는 상태로 신냉전·AI 전환기에 강화되는 경향
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: new-cold-war
+    name: 신냉전 (New Cold War)
+    description: 미국과 중국을 중심으로 기술·무역·안보 패권을 다투는 진영 대립 구도로 공급망 재편과 산업정책을 촉발
+    category: 국제경제
+    stockMarketImportance: 4
+
+  - id: capital-expenditure
+    name: 설비투자 (Capex)
+    description: 기업·정부가 설비·인프라·연구개발에 투입하는 자본지출로 AI·에너지 전환기에 대규모로 요구됨
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: populism
+    name: 포퓰리즘 (Populism)
+    description: 표심을 겨냥해 단기 부양·재분배를 앞세우는 정치 행태로 재정규율을 약화시켜 부채·인플레 압력을 키우기 쉬움
+    category: 정부
+    stockMarketImportance: 4
+
+  - id: beta
+    name: 베타 (Beta)
+    description: 시장 전체의 움직임에 연동된 수익·위험으로 지수추종처럼 시장 방향만 따라가도 얻는 리스크 기반 수익
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: alpha
+    name: 알파 (Alpha)
+    description: 시장(베타)을 초과해 얻는 수익으로 종목 선택·타이밍 등 운용 능력에서 나오는 초과 성과
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: political-cycle
+    name: 정치 사이클 (Political Cycle)
+    description: 선거 일정에 맞춰 정책과 시장이 움직이는 주기로 선거 전 부양과 선거 후 긴축·후유증이 반복되는 경향
+    category: 정부
+    stockMarketImportance: 5
+
+  - id: credit-cycle
+    name: 신용 사이클 (Credit Cycle)
+    description: 신용(대출·레버리지)의 팽창과 수축이 자산 가격과 경기를 좌우하며 반복되는 주기
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: per
+    name: 주가수익비율 (PER)
+    description: 주가를 주당순이익으로 나눈 값으로 이익 대비 주가 수준을 보는 대표 밸류에이션 지표
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: dcf
+    name: 현금흐름할인법 (DCF)
+    description: 기업의 미래 현금흐름을 적정 할인율로 현재가치로 환산해 내재가치를 추정하는 가치평가 방법
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: intrinsic-value
+    name: 내재가치 (Intrinsic Value)
+    description: 자산이 창출할 미래 가치에 근거한 본질적 가치로 시장 가격과 다를 수 있으며 가치투자의 기준이 됨
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: margin-of-safety
+    name: 안전마진 (Margin of Safety)
+    description: 내재가치보다 충분히 낮은 가격에 사 추정 오차와 위험을 흡수하는 가치투자 원칙
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: relative-valuation
+    name: 상대가치평가 (Relative Valuation)
+    description: PER·PBR 등 배수를 유사기업과 비교해 상대적 고평가·저평가를 판단하는 평가 방법
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: sector-rotation
+    name: 섹터 로테이션 (Sector Rotation)
+    description: 경기 국면과 매크로 변화에 따라 자금이 산업(섹터) 간 이동하는 현상으로 경기 흐름의 단서가 되기도 함
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: value-investing
+    name: 가치투자 (Value Investing)
+    description: 내재가치보다 싸게 거래되는 자산을 사 안전마진을 확보하는 투자 철학
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: repo-market
+    name: 레포 시장 (Repo Market)
+    description: 국채 등을 담보로 초단기 자금을 빌리고 빌려주는 환매조건부 시장으로 금융시스템 유동성의 핵심 배관
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: market-sentiment
+    name: 투자 심리 (Market Sentiment)
+    description: 시장 참여자들의 낙관·비관 정도로 과열·공포의 극단은 흔히 역발상 신호로 쓰임
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: technical-analysis
+    name: 기술적 분석 (Technical Analysis)
+    description: 과거 가격·거래량 패턴과 지표로 향후 가격 흐름을 가늠하는 분석 기법
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: rsi
+    name: RSI (Relative Strength Index)
+    description: 일정 기간 상승·하락 폭을 비교해 과매수·과매도를 보는 모멘텀 지표
+    category: 금융
+    stockMarketImportance: 3
+
+  - id: support-resistance
+    name: 지지·저항 (Support and Resistance)
+    description: 매수·매도세가 반복적으로 부딪쳐 가격이 잘 멈추거나 되돌아가는 구간
+    category: 금융
+    stockMarketImportance: 3
