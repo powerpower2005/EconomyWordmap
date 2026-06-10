@@ -24,6 +24,8 @@ export interface TermChangeEntry {
   date: string;
   commit?: string;
   message?: string;
+  // 'term': 용어 자체(이름·설명·카테고리·중요도·신규 등록), 'relation': 관계 변경
+  kind?: 'term' | 'relation';
   summary: string;
   changes: TermFieldChange[];
 }
@@ -34,7 +36,10 @@ export interface Term {
   description: string;
   category?: string;
   stockMarketImportance?: number; // 1-10, stock market importance rating
+  // 용어 자체(이름·설명·카테고리·중요도·신규 등록)의 최신 변경일
   updatedAt?: string;
+  // 이 용어에 연결된 관계의 최신 변경일 (용어 자체 수정과 분리)
+  relationsUpdatedAt?: string;
   changelog?: TermChangeEntry[];
 }
 

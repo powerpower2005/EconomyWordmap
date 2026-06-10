@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, getStarRating, filterTermsByImportance, queryTerms, TermSortOrder } from '../utils/dataLoader';
-import { formatTermDate, getLatestChangeSummary } from '../utils/termDisplay';
+import { formatTermDate, getLatestTermChangeSummary } from '../utils/termDisplay';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
 
@@ -390,11 +390,16 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                               )}
                             </div>
                             <div className="text-sm text-gray-600 mt-1 line-clamp-2">{term.description}</div>
-                            {term.updatedAt && (
+                            {(term.updatedAt || term.relationsUpdatedAt) && (
                               <div className="text-xs text-gray-500 mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5">
-                                <span>{formatTermDate(term.updatedAt)} 수정</span>
-                                {getLatestChangeSummary(term) && (
-                                  <span className="text-purple-700">{getLatestChangeSummary(term)}</span>
+                                {term.updatedAt && (
+                                  <span>용어 수정 {formatTermDate(term.updatedAt)}</span>
+                                )}
+                                {term.relationsUpdatedAt && (
+                                  <span className="text-gray-400">관계 변경 {formatTermDate(term.relationsUpdatedAt)}</span>
+                                )}
+                                {getLatestTermChangeSummary(term) && (
+                                  <span className="text-purple-700">{getLatestTermChangeSummary(term)}</span>
                                 )}
                               </div>
                             )}

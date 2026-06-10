@@ -10,7 +10,18 @@ export function formatTermDate(iso?: string): string | null {
 export function getTermUpdatedLabel(term: Term): string | null {
   const formatted = formatTermDate(term.updatedAt);
   if (!formatted) return null;
-  return `마지막 수정 ${formatted}`;
+  return `용어 수정 ${formatted}`;
+}
+
+export function getTermRelationsUpdatedLabel(term: Term): string | null {
+  const formatted = formatTermDate(term.relationsUpdatedAt);
+  if (!formatted) return null;
+  return `관계 변경 ${formatted}`;
+}
+
+export function getLatestTermChangeSummary(term: Term): string | null {
+  const latestTerm = term.changelog?.find((e) => e.kind !== 'relation');
+  return latestTerm?.summary ?? null;
 }
 
 export function compareTermsByUpdated(a: Term, b: Term, ascending: boolean): number {

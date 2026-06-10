@@ -1,6 +1,12 @@
 import { useState } from 'react';
 import { Term, TermChangeEntry } from '../types';
-import { fieldChangePreview, formatTermDate, getTermUpdatedLabel } from '../utils/termDisplay';
+import {
+  fieldChangePreview,
+  formatTermDate,
+  getLatestTermChangeSummary,
+  getTermRelationsUpdatedLabel,
+  getTermUpdatedLabel,
+} from '../utils/termDisplay';
 
 interface TermChangelogProps {
   term: Term;
@@ -40,8 +46,10 @@ export default function TermChangelog({ term, compact = false, latestOnly = fals
   const fullChangelog = term.changelog ?? [];
   const changelog = latestOnly ? fullChangelog.slice(0, 1) : fullChangelog;
   const updatedLabel = getTermUpdatedLabel(term);
+  const relationsLabel = getTermRelationsUpdatedLabel(term);
+  const termSummary = getLatestTermChangeSummary(term);
 
-  if (!updatedLabel && changelog.length === 0) {
+  if (!updatedLabel && !relationsLabel && changelog.length === 0) {
     return (
       <p className="text-sm text-gray-500">Git 이력에 기록된 수정 내역이 없습니다.</p>
     );
@@ -49,11 +57,19 @@ export default function TermChangelog({ term, compact = false, latestOnly = fals
 
   return (
     <div className={compact ? 'space-y-2' : 'space-y-3'}>
-      {updatedLabel && (
+      {(updatedLabel || relationsLabel) && (
         <p className="text-sm text-gray-600">
-          <span className="font-medium text-gray-800">{updatedLabel}</span>
-          {changelog[0]?.summary && (
-            <span className="text-gray-500"> · {changelog[0].summary}</span>
+          {updatedLabel && (
+            <>
+              <span className="font-medium text-gray-800">{updatedLabel}</span>
+              {termSummary && <span className="text-gray-500"> · {termSummary}</span>}
+            </>
+          )}
+          {relationsLabel && (
+            <span className="text-gray-400">
+              {updatedLabel ? ' · ' : ''}
+              {relationsLabel}
+            </span>
           )}
         </p>
       )}

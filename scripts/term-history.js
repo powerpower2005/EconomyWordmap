@@ -224,6 +224,7 @@ function collectTermFileHistory(historyById) {
           date,
           commit: shortHash,
           message,
+          kind: 'term',
           summary: '신규 등록',
           changes: [
             {
@@ -244,6 +245,7 @@ function collectTermFileHistory(historyById) {
         date,
         commit: shortHash,
         message,
+        kind: 'term',
         summary: buildFieldSummary(changes, false, false, '', ''),
         changes,
       });
@@ -276,6 +278,7 @@ function collectRelationFileHistory(historyById, termNames) {
             date,
             commit: shortHash,
             message,
+            kind: 'relation',
             summary: '관계 추가',
             changes: [
               {
@@ -305,6 +308,7 @@ function collectRelationFileHistory(historyById, termNames) {
           date,
           commit: shortHash,
           message,
+          kind: 'relation',
           summary: summary.startsWith('관계') ? summary : `관계 ${summary}`,
           changes: labeledChanges,
         });
@@ -321,6 +325,7 @@ function collectRelationFileHistory(historyById, termNames) {
           date,
           commit: shortHash,
           message,
+          kind: 'relation',
           summary: '관계 삭제',
           changes: [
             {
@@ -347,8 +352,11 @@ function finalizeHistory(historyById) {
     });
 
     const changelog = entries.slice(0, MAX_CHANGELOG_ENTRIES);
+    const latestTerm = entries.find((e) => e.kind === 'term');
+    const latestRelation = entries.find((e) => e.kind === 'relation');
     meta[id] = {
-      updatedAt: changelog[0]?.date || undefined,
+      updatedAt: latestTerm?.date || undefined,
+      relationsUpdatedAt: latestRelation?.date || undefined,
       changelog,
     };
   }
@@ -358,7 +366,8 @@ function finalizeHistory(historyById) {
 
 /**
  * Git history for terms-all.yaml + relations.yaml → per-term updatedAt + changelog.
- * @returns {Record<string, { updatedAt: string, changelog: object[] }>}
+ * updatedAt: 용어 자체(필드/신규) 최신 변경일, relationsUpdatedAt: 관계 최신 변경일.
+ * @returns {Record<string, { updatedAt?: string, relationsUpdatedAt?: string, changelog: object[] }>}
  */
 export function generateTermHistory() {
   if (!isGitRepo()) {
@@ -382,6 +391,7 @@ export function applyTermHistoryToTerms(terms, historyMeta) {
     return {
       ...term,
       updatedAt: meta.updatedAt,
+      relationsUpdatedAt: meta.relationsUpdatedAt,
       changelog: meta.changelog,
     };
   });

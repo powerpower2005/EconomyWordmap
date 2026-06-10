@@ -5766,3 +5766,84 @@ relations:
     strength: medium
     nature: causal
     conditions: "실물 수요가 뒷받침될 때"
+
+  - id: r744
+    term1Id: central-bank
+    term2Id: open-market-operations
+    type: correlation
+    description: "중앙은행이 채권을 사고팔아 통화량과 금리를 조절하는 핵심 수단"
+    strength: strong
+    nature: definitional
+
+  - id: r745
+    term1Id: open-market-operations
+    term2Id: policy-rate
+    type: correlation
+    description: "공개시장조작으로 단기금리를 기준금리 목표 범위 안으로 유도"
+    strength: strong
+    nature: policy
+
+  - id: r746
+    term1Id: open-market-operations
+    term2Id: reserves
+    type: correlation
+    description: "채권 매입은 지급준비금을 늘리고 매도는 줄임"
+    strength: strong
+    nature: causal
+
+  - id: r747
+    term1Id: reverse-repo
+    term2Id: reserves
+    type: inverse
+    description: "역레포로 시중 자금을 흡수하면 그만큼 지급준비금이 감소"
+    strength: medium
+    nature: causal
+
+  - id: r748
+    term1Id: reverse-repo
+    term2Id: policy-rate
+    type: correlation
+    description: "역레포 금리가 단기금리의 하단을 떠받치는 역할"
+    strength: medium
+    nature: policy
+
+  - id: r749
+    term1Id: reverse-repo
+    term2Id: repo-market
+    type: correlation
+    description: "역레포는 환매조건부 거래를 통해 단기자금 시장과 직접 연결됨"
+    strength: medium
+    nature: hierarchical
+
+  - id: r750
+    term1Id: quantitative-easing
+    term2Id: reserves
+    type: proportional
+    description: "QE로 매입한 자산 대금이 은행의 지급준비금 계좌로 유입돼 지준금이 급증"
+    strength: strong
+    nature: causal
+
+  - id: r751
+    term1Id: quantitative-tightening
+    term2Id: reserves
+    type: inverse
+    description: "QT로 보유자산을 줄이면 그 대금만큼 지급준비금이 감소"
+    strength: strong
+    nature: causal
+
+  - id: r752
+    term1Id: iorb
+    term2Id: reserves
+    type: proportional
+    description: "지준금에 매력적인 이자가 붙을수록 은행이 돈을 적치할 유인이 커져 지준금이 온존"
+    strength: medium
+    nature: causal
+
+  - id: r753
+    term1Id: iorb
+    term2Id: credit-creation
+    type: inverse
+    description: "리스크 없는 IORB 이자가 매력적이면 위험을 감수하는 신용창출 유인이 약해짐"
+    strength: medium
+    nature: causal
+    conditions: "IORB가 시장 대출 수익률 대비 충분히 높을 때"

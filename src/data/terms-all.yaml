@@ -2182,3 +2182,15 @@ terms:
     description: 각국 중앙은행 간 결제를 중개하고 바젤 규제 등 국제 은행 건전성 기준을 마련하는 국제기구
     category: 금융
     stockMarketImportance: 3
+
+  - id: open-market-operations
+    name: 공개시장조작 (Open Market Operations)
+    description: 중앙은행이 국채 등을 사고팔아 지급준비금 잔액과 단기금리를 조절하는 핵심 통화정책 수단
+    category: 통화정책
+    stockMarketImportance: 5
+
+  - id: reverse-repo
+    name: 역레포 (ON RRP)
+    description: 연준이 채권을 담보로 시중의 단기 자금을 흡수하는 창구로 단기금리의 하단을 떠받치고 지급준비금을 조절함
+    category: 통화정책
+    stockMarketImportance: 4
