@@ -1,9 +1,10 @@
 import { useState } from 'react';
 import Home from './pages/Home';
 import Propositions from './pages/Propositions';
+import MarketDashboard from './pages/MarketDashboard';
 import FeedbackForm from './components/FeedbackForm';
 
-type MainView = 'graph' | 'propositions';
+type MainView = 'graph' | 'propositions' | 'market';
 
 function App() {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
@@ -55,6 +56,16 @@ function App() {
             >
               관계도
             </button>
+            <button
+              onClick={() => setView('market')}
+              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
+                view === 'market'
+                  ? 'text-emerald-600 border-emerald-600'
+                  : 'text-gray-500 border-transparent hover:text-gray-700'
+              }`}
+            >
+              시장 지표
+            </button>
           </nav>
         </div>
       </header>
@@ -66,6 +77,7 @@ function App() {
         <div className={view === 'propositions' ? '' : 'hidden'}>
           <Propositions onOpenTerm={openTermInGraph} />
         </div>
+        {view === 'market' && <MarketDashboard />}
       </main>
       <FeedbackForm
         isOpen={isFeedbackOpen}
