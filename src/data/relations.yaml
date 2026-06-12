@@ -6029,3 +6029,126 @@ relations:
     description: "Great Society 프로그램은 1960년대 확장적 재정정책의 핵심 지출 축"
     strength: strong
     nature: causal
+
+  - id: r775
+    term1Id: savings
+    term2Id: trade-deficit
+    type: inverse
+    description: "가계 저축이 부족하고 투자·재정 지출이 국내 자본을 흡수하면 무역(경상)적자가 확대되기 쉬움"
+    strength: medium
+    nature: causal
+    conditions: "저축 부족·재정적자·자본 유입이 동반될 때"
+
+  - id: r776
+    term1Id: savings
+    term2Id: interest-rate
+    type: inverse
+    description: "저축이 부족하면 자금 수요 대비 공급이 줄어 금리 상승 압력이 커질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r777
+    term1Id: interest-rate
+    term2Id: strong-dollar
+    type: proportional
+    description: "상대적으로 높은 금리가 해외 자본을 끌어와 달러 수요·강세를 키울 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r778
+    term1Id: tax-cut
+    term2Id: trade-deficit
+    type: correlation
+    description: "감세로 재정적자가 커지고 금리·달러 강세가 동반되면 무역적자 확대 압력이 커질 수 있음"
+    strength: weak
+    nature: causal
+    conditions: "지출을 줄이지 않고 저축이 부족할 때"
+
+  - id: r779
+    term1Id: defense-spending
+    term2Id: national-debt
+    type: proportional
+    description: "국방·안보 지출 확대가 재정적자를 키워 국가부채 누적을 가속할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r780
+    term1Id: trade-war
+    term2Id: risk-off
+    type: correlation
+    description: "관세·보복 무역분쟁이 지정학·성장 불안을 키워 위험회피 심리를 자극할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r781
+    term1Id: trade-war
+    term2Id: strong-dollar
+    type: correlation
+    description: "무역분쟁이 위험회피·안전자산 수요를 키워 달러 강세를 부를 수 있어, 관세로 무역적자를 줄이려 해도 역효과가 날 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "지정학 긴장·안전자산 선호가 동반될 때"
+
+  - id: r782
+    term1Id: geopolitical-risk
+    term2Id: strong-dollar
+    type: correlation
+    description: "지정학 리스크가 커지면 달러·미국채 등 안전자산 선호로 달러 강세 압력이 커질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r783
+    term1Id: weak-dollar
+    term2Id: trade-deficit
+    type: inverse
+    description: "약달러는 수출 경쟁력을 높여 무역적자 축소 요인이 될 수 있으나, 재정·저축·수입 구조에 따라 효과는 제한적"
+    strength: medium
+    nature: causal
+
+  - id: r784
+    term1Id: reshoring
+    term2Id: manufacturing
+    type: correlation
+    description: "리쇼어링은 본국 제조업 생산·고용 회복을 목표로 하는 공급망·산업정책"
+    strength: medium
+    nature: causal
+
+  - id: r785
+    term1Id: reshoring
+    term2Id: industrial-policy
+    type: correlation
+    description: "리쇼어링은 보조금·관세·규제 등 산업정책과 결합해 추진되는 경우가 많음"
+    strength: medium
+    nature: policy
+
+  - id: r786
+    term1Id: twin-deficit
+    term2Id: trade-deficit
+    type: correlation
+    description: "쌍둥이 적자는 무역(경상)적자와 재정적자가 동시에 확대되는 상태"
+    strength: strong
+    nature: definitional
+
+  - id: r787
+    term1Id: twin-deficit
+    term2Id: fiscal-policy
+    type: correlation
+    description: "쌍둥이 적자는 확장적 재정정책·재정적자와 무역적자가 겹치는 국면을 가리킴"
+    strength: strong
+    nature: definitional
+
+  - id: r788
+    term1Id: plaza-accord
+    term2Id: weak-dollar
+    type: correlation
+    description: "플라자 합의는 G5의 개입으로 단기간 달러 약세를 유도한 환율 협정"
+    strength: medium
+    nature: policy
+
+  - id: r789
+    term1Id: plaza-accord
+    term2Id: devaluation
+    type: correlation
+    description: "플라자 합의는 주요국 통화 절상·달러 절하(평가절하)를 목표로 한 협상"
+    strength: medium
+    nature: policy

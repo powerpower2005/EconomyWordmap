@@ -84,23 +84,99 @@ Wordmap teaches economics for **stock investors**, not for a university syllabus
 
 **market & news signals → rate transmission → risk & second-order drivers → theory & history → propositions (conditional judgment)**
 
-Grow new terms, relations, and propositions **along these stages** rather than by academic category or importance score alone.
+Grow new terms, relations, propositions, and **learn sections** along this arc — not by academic category or importance score alone.
 
-### Learning UX (when a Learn tab exists)
+### Learn UI model (sections + parts)
 
-Stages organize content; they do **not** lock navigation.
+The Learn tab uses **thematic sections** in `src/data/curriculum.yaml` (`curriculum.version: 2`). Each section is **one readable article**, not a stack of cards.
+
+| Layer | Role |
+|-------|------|
+| **Section** | One investor question (e.g. “How is the value of my cash determined?”) |
+| **Section `body`** | Opening narrative — hook, roadmap, optional compressed story (Markdown) |
+| **Part** | One chapter inside the section (numbered title + optional subtitle) |
+| **Part `body`** | Continuous prose for that chapter (Markdown) |
+| **Part `termIds` / `propositionIds`** | Graph depth — shown **collapsed** below the prose (“용어·명제 N개”) |
+
+**Canonical example:** section `sec-money-value` in `curriculum.yaml` — copy its shape, not its topic.
+
+### Authoring a new section (agents)
+
+**File:** `src/data/curriculum.yaml` only. **Renderer:** `src/components/MarkdownProse.tsx` (`react-markdown`) in `src/pages/Learning.tsx`.
+
+#### YAML skeleton
+
+```yaml
+curriculum:
+  version: 2
+  intro: "..."
+  sections:
+    - id: sec-your-slug          # unique, kebab-case
+      order: 2                   # display order (unique per section)
+      title: "한글 섹션 제목"
+      subtitle: "부제 (선택)"
+      learnerQuestion: "English one-liner for authors (optional)"
+      body: |
+        Opening paragraphs in **Markdown**. One story thread.
+        Blank line between paragraphs.
+      parts:
+        - id: part-your-slug
+          title: "1. 파트 제목"
+          subtitle: "짧은 부제 (선택)"
+          body: |
+            Continuous prose. Weave examples into paragraphs — do not split into cards.
+            End with **정리:** one short takeaway + investor habits in the same flow.
+          termIds: [existing-term-id, ...]
+          propositionIds: [p42, ...]   # optional
+```
+
+#### Do / Don't (format)
+
+| Do | Don't |
+|----|--------|
+| Write **`body`** as **continuous Markdown prose** (paragraphs separated by blank lines) | Split content into `hook`, `overview`, `episode`, `examples`, `takeaway`, `investorActions` — **deprecated**; legacy fields may still render but avoid for new work |
+| Use `**bold**` for emphasis; `###` / `####` sparingly for in-flow subheads | Rely on UI cards, colored boxes, or “example object” blocks — the UI no longer embeds them |
+| Weave **historical episodes** and **investor actions** into sentences or a short bullet list **inside `body`** | Label blocks like “투자자 메모”, “한 편의 이야기”, “예시 카드” as separate data structures |
+| Put **`termIds` / `propositionIds`** only at the part bottom — readers expand after reading | Front-load term lists or interrupt every paragraph with graph links |
+| One **narrative thread** per section; parts should read like consecutive chapters | Reset tone every part with disconnected “임베딩” snippets |
+| End each part with **`**정리:**`** (or equivalent closing paragraph) tying mechanism → portfolio | End with a detached slogan box |
+
+#### Narrative checklist (before merge)
+
+1. **Read aloud** — does it sound like one article, not a form with fields?
+2. **Section `body`** — concrete hook (person/portfolio), roadmap of parts, optional “one week / one scene” preview.
+3. **Each part `body`** — mechanism in plain Korean → 1–2 historical or recent episodes **in prose** → **정리** with what to watch/do.
+4. **Transitions** — last sentence of part N should logically lead to part N+1 (same section).
+5. **Terms** — every `termId` should appear in or clearly relate to that part’s story; add **relations** if the graph path is thin.
+6. **Propositions** — prefer `propositionIds` that exercise terms from this part; add missing propositions when the cluster is dense.
+7. **Dedupe** — search `curriculum.yaml` so the same term is not duplicated across sections without reason.
+8. **Validate** — `node build-data.js && npm run validate-data && npm run build`.
+
+#### Suggested section topics (backlog)
+
+Use [thematic expansion order](#investor-learning-path-curriculum) above — map to **new sections**, not old stage numbers:
+
+| Priority | Section theme | Learner question (draft) |
+|----------|---------------|---------------------------|
+| Done | Money & purchasing power | “Why does my cash buy less?” → `sec-money-value` |
+| Next | Market & valuation | “What am I actually buying when I buy a stock?” |
+| Then | Macro dashboard | “What did today’s CPI/GDP headline mean?” |
+| Then | Rate transmission | “Why did stocks move on the Fed?” |
+| Then | Fiscal, FX, risk | “What else can swamp my thesis?” |
+| Later | Theory & history | “When does the usual story break?” |
+
+Propositions stay in `propositions.yaml`; link them from relevant parts via `propositionIds`.
+
+### Learning UX
+
+Sections organize content; they do **not** lock navigation.
 
 | Principle | Do | Don't |
 |-----------|-----|--------|
-| **Stages** | Six buckets (1–6) with a *suggested* default order for newcomers | Force users through every item in strict sequence |
-| **Within a stage** | Browse any term in that stage; optional “recommended next” hints | Block access until prior lessons are “complete” |
-| **Across stages** | Show soft guidance (“stage 2 is easier after skimming stage 1”) | Hard prerequisites or progress gates |
-| **Progress** | Optional bookmarks / “seen” markers only | Required completion % to unlock later stages |
-| **Depth** | Link out to graph, propositions, market tab from any item | One long linear lesson queue |
-
-**Suggested path** = default sort and onboarding copy, not curriculum law. Learners may jump to stage 4 or 6 first if that matches their question.
-
-`src/data/curriculum.yaml` lists **stage membership and suggested order**, not mandatory locks.
+| **Sections** | Thematic buckets with a *suggested* order on the index | Force strict completion before opening another section |
+| **Within a section** | Read prose top-to-bottom; expand terms/propositions when curious | Show prose as fragmented cards or mandatory quizzes |
+| **Progress** | Optional bookmarks on terms/propositions | Required completion % to unlock |
+| **Depth** | Link out to graph, propositions, market tab from collapsed refs | Replace narrative with raw term lists |
 
 ### vs academic order
 
@@ -110,85 +186,74 @@ Stages organize content; they do **not** lock navigation.
 | Build abstractions first | Build motivation first (“why this moves my portfolio”) |
 | Theory gets equal weight | Theory comes after live mechanisms |
 
-### Six stages
-
-| Stage | Goal | Learner question |
-|-------|------|------------------|
-| **1 — Market** | What is being priced; basic toolkit | “What am I actually buying?” |
-| **2 — Macro dashboard** | Headline indicators in daily news | “What did today’s data mean?” |
-| **3 — Rate transmission** | Central bank → yields → valuations | “Why did stocks move on the Fed?” |
-| **4 — Fiscal, international, risk** | Second-order, regime, tail risks | “What else can swamp my thesis?” |
-| **5 — Theory, micro, history** | Frameworks and past episodes | “When does the usual story break?” |
-| **6 — Propositions** | Conditional claims (`holds` / `fails`) | “Under what conditions is this true?” |
-
-### `stockMarketImportance` and stage are independent
+### `stockMarketImportance` and learn placement
 
 - **Importance** = how often the term hits live markets / portfolios (filter & priority for *relevance*).
-- **Stage** = which **bucket** the term belongs in for the Learn UI (organize & suggest), **not** a mandatory sequence number.
+- **Section/part membership** = which **story** the term supports in the Learn UI — independent of importance score.
 
-Examples: `inflation` and `cpi` score 10 but belong in **stage 2**, not stage 1. `valuation` and `dcf` score 5–6 but belong in **stage 1**. `keynesian-economics` may score 3 but stays in **stage 5**.
+Example: `inflation` and `cpi` score 10 and belong in the macro/money **story**, not “because they score high”. `keynesian-economics` may score 3 and still appear in a later theory section.
 
-Do **not** sort stages or lessons by importance alone. Within a stage, a *suggested* order may differ from importance (e.g. `stock-market` before `dcf`).
+Do **not** order section prose by importance alone. Order by **mechanism and reader need**.
 
 ### Curriculum review and supplement (required)
 
-Whenever you **add or materially edit** a term, relation, or proposition, **review and supplement learning coverage in the same task** — do not treat Learn as a separate follow-up.
+Whenever you **add or materially edit** a term, relation, proposition, or **learn section**, **review and supplement in the same task** — do not treat Learn as a follow-up ticket.
 
 Two parts — do **both** when applicable:
 
-1. **Review** — Does existing learning material still fit? Re-stage, re-link, or trim anchors if the edit changed meaning or placement.
-2. **Supplement** — If the Learn path has a **gap**, **add** what is missing in this PR (or same session): terms, relations, propositions, anchor/`curriculum.yaml` entries, suggested-order notes. Review-only with no follow-up is not enough when something should be added.
+1. **Review** — Does existing section prose still fit? Update `body` text, `termIds`, or part order if meaning changed.
+2. **Supplement** — Gap in story or graph? Add terms, relations, propositions, or a new part/section in the **same PR/session**.
 
 | Change | Review | Supplement (add when missing) |
 |--------|--------|-------------------------------|
-| **Term** added/edited | Stage 1–5 correct? Still linked to stage hub? Anchor list still accurate? | New term belongs in a stage bucket → add to `src/data/curriculum.yaml` `termIds` (suggested order) and anchor list below if hub-worthy. No path from hub → **add relation(s)**. Investor-relevant (importance ≥ 5) but no stage → assign before merge. Thin stage 1–3 → prefer **new edges** over unrelated stage-5 theory. |
-| **Relation** added/edited | Which stage cluster(s) does it affect? Cross-stage bridge still valid? | Cluster still hard to enter from a random term → **add** bridge edge to anchor. New mechanism between stages → **add** explicit cross-stage link. |
-| **Proposition** added/edited | Stage 6 mapping and exercised stages (1–4) still correct? `termIds` + graph context sufficient? | Dense term+relation cluster with **no** matching proposition → **add** proposition. Claim needs terms not yet related → **add relation(s)** or term first. |
+| **Term** added/edited | Should it appear in a section part’s `termIds`? Relation path from section hub terms? | Add to appropriate part; **add relation(s)** to hub cluster if thin. Importance ≥ 5 with no learn mention → assign to a section. |
+| **Relation** added/edited | Which section narrative does it support? | Cluster hard to reach from prose hubs → **bridge edge**. New cross-mechanism link → mention in part `body` + terms. |
+| **Proposition** added/edited | Relevant part’s `propositionIds`? | Dense cluster with no proposition → **add proposition**. Claim needs new terms → add terms/relations first. |
+| **Section / part** added/edited | Single thread? Markdown renders? No card-style fragments? | Missing terms/relations/propositions referenced in prose → add data + ids. |
 
-**Cross-check (any data PR):**
+**Cross-check (any learn/data PR):**
 
-1. **Gap analysis** — For touched stages: missing anchor, orphan term in a stage, missing bridge, missing stage-6 proposition?
-2. If review finds a gap → **supplement in the same change** (term / relation / proposition / anchor list / `curriculum.yaml`), not a later ticket.
-3. Search anchor lists for affected ids — update suggested order or hub membership when you add.
-4. Re-read [Known gaps](#known-gaps-periodic-review) when `terms-all.yaml` grows by ~20 terms; **close gaps by adding**, not only noting them.
+1. Gap analysis — orphan terms in `termIds`, missing bridges, prose mentions a mechanism with no graph edge?
+2. If gap found → **supplement in the same change**, not a later ticket.
+3. Re-read [Known gaps](#known-gaps-periodic-review) when `terms-all.yaml` grows by ~20 terms.
 
-Mention learning impact in commit messages when non-obvious, e.g. `data: add earnings term (stage 1 anchor)`, `data: add r### bridge for stage 3 learn path`, `data: add p### for inflation–rates cluster`.
+Commit examples: `learn: add sec-valuation section (markdown prose)`, `data: add r### bridge for sec-money-value part 3`, `data: add p### for inflation–rates cluster`.
 
-### Anchor terms (draft map — review when data grows)
+### Hub terms by theme (draft — use when placing parts)
 
-Use as hubs when placing new content; within a stage, expand via **relations** to neighbors before jumping stages.
+Expand via **relations** from these hubs before jumping to unrelated theory.
 
-**Stage 1 — Market:** `stock-market`, `stock-index`, `valuation`, `eps`, `per`, `pbr`, `etf`, `risk-on`, `risk-off`, `market-sentiment`
+**Market & valuation (future sec):** `stock-market`, `stock-index`, `valuation`, `eps`, `per`, `pbr`, `etf`, `risk-on`, `risk-off`, `market-sentiment`
 
-**Stage 2 — Macro dashboard:** `gdp`, `real-gdp`, `unemployment`, `inflation`, `cpi`, `pce`, `core-pce`, `expected-inflation`, `economic-growth`, `recession`, `business-cycle`
+**Macro dashboard:** `gdp`, `real-gdp`, `unemployment`, `inflation`, `cpi`, `pce`, `core-pce`, `expected-inflation`, `economic-growth`, `recession`, `business-cycle`
 
-**Stage 3 — Rate transmission:** `interest-rate`, `policy-rate`, `federal-reserve`, `central-bank`, `government-bond`, `bond-market`, `yield-curve`, `long-term-interest-rate`, `quantitative-easing`, `quantitative-tightening`, `bond-price`, `term-spread`
+**Rate transmission:** `interest-rate`, `policy-rate`, `federal-reserve`, `central-bank`, `government-bond`, `bond-market`, `yield-curve`, `long-term-interest-rate`, `quantitative-easing`, `quantitative-tightening`, `bond-price`, `term-spread`
 
-**Stage 4 — Fiscal, international, risk:** `fiscal-policy`, `exchange-rate`, `yield-curve` (revisit with spreads), `trade-war`, `tariff`, `supply-chain`, `strong-dollar`, `weak-dollar`, `asset-bubble`, `systemic-risk`, `liquidity`, `geopolitical-risk`, `safe-haven-asset`, `national-debt`, `sector-rotation`
+**Fiscal, international, risk:** `fiscal-policy`, `exchange-rate`, `trade-war`, `tariff`, `supply-chain`, `strong-dollar`, `weak-dollar`, `asset-bubble`, `systemic-risk`, `liquidity`, `geopolitical-risk`, `safe-haven-asset`, `national-debt`, `sector-rotation`
 
-**Stage 5 — Theory, micro, history:** `supply-and-demand`, `aggregate-demand`, `aggregate-supply`, `efficient-market-hypothesis`, `phillips-curve`, `keynesian-economics`, `behavioral-finance`, `great-depression`, `global-financial-crisis`, `stagflation` — plus `경제이론` / `미시경제` terms at importance 1–4
+**Theory, micro, history:** `supply-and-demand`, `aggregate-demand`, `aggregate-supply`, `efficient-market-hypothesis`, `phillips-curve`, `keynesian-economics`, `behavioral-finance`, `great-depression`, `global-financial-crisis`, `stagflation`
 
-**Stage 6 — Propositions:** add/edit in `propositions.yaml`; prefer claims that tie **two or more terms from stages 1–4**. Tag mentally by stage when authoring; full stage metadata in YAML is **not** required yet.
+**Propositions:** prefer claims tying **two or more terms** from live-mechanism sections; link via part `propositionIds`.
 
-### Adding or extending content (agents)
+### Adding or extending learn content (agents)
 
-1. **Pick a stage** from the learner question (table above). If unclear, default to the **earliest** stage that fits.
-2. **Dedupe** per “Finding existing data”; prefer linking an existing term into the stage hub over near-duplicates.
-3. Set **`stockMarketImportance`** by the rubric above (relevance), independent of stage.
-4. **Relations:** connect new terms to that stage’s anchor hub (and cross-stage links only when the mechanism is explicit, e.g. stage-2 `inflation` → stage-3 `policy-rate`).
-5. **Gap check:** thin anchors (few edges) in stages 1–3 are higher priority than new stage-5 theory.
-6. **Propositions:** after a stage-1–4 cluster is relation-dense, add a conditional proposition for stage 6.
-7. **Curriculum review & supplement:** complete [Curriculum review and supplement](#curriculum-review-and-supplement-required) — review **and** add missing learn-path content in the same task when gaps exist.
+1. **Pick or create a section** from the learner question ([suggested topics](#suggested-section-topics-backlog)).
+2. **Dedupe** per “Finding existing data”; link existing terms instead of near-duplicates.
+3. **Draft `body` prose first** (section + parts), then attach `termIds` / `propositionIds`.
+4. Set **`stockMarketImportance`** on any new terms (rubric above).
+5. **Relations:** connect new terms to that section’s hub cluster.
+6. **Propositions:** when a part’s term cluster is relation-dense, add/link conditional propositions.
+7. **Validate & read in UI** — confirm Markdown (bold, lists) renders; no `**` literals visible.
 
 ### Known gaps (periodic review)
 
-- Stage buckets and suggested order: `src/data/curriculum.yaml` (merged to `terms.json` on build). Keep anchors in this doc in sync when editing stages. No per-term `curriculumStage` field on terms.
-- Learn UI must follow [Learning UX](#learning-ux-when-a-learn-tab-exists): staged browse + suggested order, **no** forced linear progression.
-- Stage 1 lacks a dedicated `earnings` term (`eps` partially covers it).
-- Stage 3–4 bond/rate plumbing (`sofr`, `repo-market`, `m2`) is rich but should stay **after** headline anchors, not before `interest-rate` / `federal-reserve`.
-- Stage 5 is large (~130 terms at importance 1–4); graph paths from stage 3 hubs are uneven — prefer **relation links backward** from theory terms to macro anchors when editing.
+- Section structure and prose: `src/data/curriculum.yaml` (merged to `terms.json` on build). Reference implementation: `sec-money-value`.
+- Learn UI: article layout + collapsed term/proposition refs — **no** embedded example/investor cards for new content.
+- Only **one** section shipped; backlog includes valuation, macro dashboard, rates, risk, theory sections.
+- Stage 1 lacks a dedicated `earnings` term (`eps` partially covers it) — address in a future market section.
+- Bond/rate plumbing (`sofr`, `repo-market`, `m2`) belongs **after** headline anchors in narrative order, not before `interest-rate` / `federal-reserve`.
 
-Re-run anchor coverage when `terms-all.yaml` grows significantly (e.g. +20 terms).
+Re-run hub coverage when `terms-all.yaml` grows significantly (e.g. +20 terms).
 
 ## Documentation
 
@@ -202,7 +267,7 @@ Re-run anchor coverage when `terms-all.yaml` grows significantly (e.g. +20 terms
 | [docs/categories.md](docs/categories.md) | Category list and UI sync (KO) |
 | [docs/add_terms.md](docs/add_terms.md) | Short user-facing pointer (KO) |
 
-Investor curriculum (stage order, anchors, expansion rules): **this file**, [Investor learning path](#investor-learning-path-curriculum).
+Investor curriculum (section/part prose, anchors, expansion rules): **this file**, [Investor learning path](#investor-learning-path-curriculum) and [Authoring a new section](#authoring-a-new-section-agents).
 
 ## Relation IDs
 

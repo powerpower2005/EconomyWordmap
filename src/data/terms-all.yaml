@@ -335,6 +335,18 @@ terms:
     category: 국제경제
     stockMarketImportance: 4
 
+  - id: twin-deficit
+    name: 쌍둥이 적자 (Twin Deficits)
+    description: "재정적자와 무역(경상)적자가 동시에 확대되는 상태로, 가계 저축 부족·재정 확장·금리 상승·달러 강세·해외 자본 유입이 겹치면 나타날 수 있음. 레이건 시대와 이후 미국 등에서 논의되며, 강달러·관세만으로 무역적자를 해결하기 어렵다는 분석의 출발점이 되기도 함"
+    category: 국제경제
+    stockMarketImportance: 6
+
+  - id: reshoring
+    name: 리쇼어링 (Reshoring)
+    description: 해외로 이전했던 생산·공급망을 본국으로 되돌리는 정책·기업 전략으로, 관세·보조금·경제안보 논리와 결합해 제조업 고용 회복을 목표로 하나 공급망 비용·인건비·생산성 제약으로 효과는 산업·국면마다 다름
+    category: 국제경제
+    stockMarketImportance: 6
+
   - id: federal-reserve
     name: 연준(Fed) (Federal Reserve)
     description: 미국의 중앙은행으로 기준금리 결정, 공개시장조작, 양적완화·긴축 등 통화정책과 금융안정을 담당하며 결정과 발언이 글로벌 금리·달러·위험자산 가격에 광범위한 영향을 미침
@@ -1883,6 +1895,12 @@ terms:
     category: 국제경제
     stockMarketImportance: 4
 
+  - id: plaza-accord
+    name: 플라자 합의 (Plaza Accord)
+    description: "1985년 G5가 달러 절하를 유도하기로 합의한 환율 협정으로, 단기간 달러 약세를 이끌었으나 장기 무역적자 해소에는 한계가 있었고 이후 「제2의 플라자」 논의의 역사적 선례가 됨"
+    category: 국제경제
+    stockMarketImportance: 4
+
   - id: coupon-rate
     name: 표면금리 (Coupon Rate)
     description: 채권 액면에 명시된 고정 이자율로 발행 시 약정한 이표 지급의 기준이 되며 만기수익률과 구분됨
@@ -2155,7 +2173,7 @@ terms:
 
   - id: savings
     name: 저축 (Savings)
-    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨
+    description: "가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음"
     category: 거시경제
     stockMarketImportance: 5
 
