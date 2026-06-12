@@ -2,13 +2,14 @@ import { useState } from 'react';
 import Home from './pages/Home';
 import Propositions from './pages/Propositions';
 import MarketDashboard from './pages/MarketDashboard';
+import Learning from './pages/Learning';
 import FeedbackForm from './components/FeedbackForm';
 
-type MainView = 'graph' | 'propositions' | 'market';
+type MainView = 'learning' | 'graph' | 'propositions' | 'market';
 
 function App() {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
-  const [view, setView] = useState<MainView>('propositions');
+  const [view, setView] = useState<MainView>('learning');
   const [focusTermId, setFocusTermId] = useState<string | null>(null);
 
   const openTermInGraph = (termId: string) => {
@@ -34,8 +35,17 @@ function App() {
           <p className="text-sm text-gray-600 mt-1">
             경제 명제가 언제 성립하고 언제 깨지는지 조건과 한계로 이해하고, 용어 관계도로 그 배경을 탐색하세요
           </p>
-          {/* 최상위 탭 (명제를 앞에 배치) */}
-          <nav className="flex gap-2 mt-4">
+          <nav className="flex gap-2 mt-4 flex-wrap">
+            <button
+              onClick={() => setView('learning')}
+              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
+                view === 'learning'
+                  ? 'text-violet-600 border-violet-600'
+                  : 'text-gray-500 border-transparent hover:text-gray-700'
+              }`}
+            >
+              학습
+            </button>
             <button
               onClick={() => setView('propositions')}
               className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
@@ -70,7 +80,13 @@ function App() {
         </div>
       </header>
       <main>
-        {/* 관계도와 명제 탭을 모두 마운트해 두고 CSS로 전환 (그래프 상태 유지) */}
+        <div className={view === 'learning' ? '' : 'hidden'}>
+          <Learning
+            onOpenTerm={openTermInGraph}
+            onOpenMarket={() => setView('market')}
+            onOpenAllPropositions={() => setView('propositions')}
+          />
+        </div>
         <div className={view === 'graph' ? '' : 'hidden'}>
           <Home focusTermId={focusTermId} onFocusHandled={() => setFocusTermId(null)} />
         </div>

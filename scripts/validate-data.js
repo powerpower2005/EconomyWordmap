@@ -150,11 +150,66 @@ function validate() {
     }
   }
 
-  printResults(errors, warnings, terms.length, relations.length, propositionCount);
+  let curriculumStageCount = 0;
+  const curriculumPath = join(DATA_DIR, 'curriculum.yaml');
+  const propositionIds = new Set();
+  if (fs.existsSync(propositionsPath)) {
+    const propositionsData = loadYaml(propositionsPath);
+    for (const prop of propositionsData?.propositions || []) {
+      if (prop.id) propositionIds.add(prop.id);
+    }
+  }
+
+  if (fs.existsSync(curriculumPath)) {
+    const curriculumData = loadYaml(curriculumPath);
+    const curriculum = curriculumData?.curriculum;
+    if (!curriculum?.stages || !Array.isArray(curriculum.stages)) {
+      errors.push('curriculum.yaml: curriculum.stages must be an array');
+    } else {
+      curriculumStageCount = curriculum.stages.length;
+      const seenTermInCurriculum = new Map();
+      const stageOrders = new Set();
+
+      for (const stage of curriculum.stages) {
+        if (!stage.id) errors.push('Curriculum stage missing id');
+        if (stage.order !== undefined) {
+          if (stageOrders.has(stage.order)) {
+            errors.push(`Curriculum duplicate stage order: ${stage.order}`);
+          }
+          stageOrders.add(stage.order);
+        }
+        if (!stage.title) warnings.push(`Curriculum stage "${stage.id}" missing title`);
+
+        const termRefs = Array.isArray(stage.termIds) ? stage.termIds : [];
+        for (const refId of termRefs) {
+          if (!termIds.has(refId)) {
+            errors.push(`Curriculum stage "${stage.id}" references unknown termId "${refId}"`);
+          }
+          const prev = seenTermInCurriculum.get(refId);
+          if (prev && prev !== stage.id) {
+            warnings.push(
+              `Term "${refId}" appears in curriculum stages "${prev}" and "${stage.id}" (prefer one stage)`
+            );
+          } else if (!prev) {
+            seenTermInCurriculum.set(refId, stage.id);
+          }
+        }
+
+        const propRefs = Array.isArray(stage.propositionIds) ? stage.propositionIds : [];
+        for (const refId of propRefs) {
+          if (!propositionIds.has(refId)) {
+            errors.push(`Curriculum stage "${stage.id}" references unknown propositionId "${refId}"`);
+          }
+        }
+      }
+    }
+  }
+
+  printResults(errors, warnings, terms.length, relations.length, propositionCount, curriculumStageCount);
   process.exit(errors.length > 0 ? 1 : 0);
 }
 
-function printResults(errors, warnings, termCount, relationCount, propositionCount) {
+function printResults(errors, warnings, termCount, relationCount, propositionCount, curriculumStageCount) {
   if (warnings.length) {
     console.warn('⚠️ Warnings:');
     warnings.forEach((w) => console.warn(`  - ${w}`));
@@ -163,8 +218,10 @@ function printResults(errors, warnings, termCount, relationCount, propositionCou
     console.error('❌ Validation failed:');
     errors.forEach((e) => console.error(`  - ${e}`));
   } else {
+    const curriculumPart =
+      curriculumStageCount > 0 ? `, ${curriculumStageCount} curriculum stages` : '';
     console.log(
-      `✅ Data validation passed (${termCount ?? 0} terms, ${relationCount ?? 0} relations, ${propositionCount ?? 0} propositions)`
+      `✅ Data validation passed (${termCount ?? 0} terms, ${relationCount ?? 0} relations, ${propositionCount ?? 0} propositions${curriculumPart})`
     );
   }
 }

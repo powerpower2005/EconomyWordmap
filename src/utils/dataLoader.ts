@@ -1,4 +1,4 @@
-import { Term, Relation, TermWithRelations, Proposition } from '../types';
+import { Term, Relation, TermWithRelations, Proposition, Curriculum } from '../types';
 import { compareTermsByUpdated, isTermUpdatedWithinDays } from './termDisplay';
 import termsData from '../data/terms.json';
 
@@ -17,6 +17,15 @@ export const loadRelations = (): Relation[] => {
 
 export const loadPropositions = (): Proposition[] => {
   return allPropositions;
+};
+
+export const loadCurriculum = (): Curriculum | null => {
+  const raw = (termsData as { curriculum?: Curriculum }).curriculum;
+  if (!raw?.stages?.length) return null;
+  return {
+    ...raw,
+    stages: [...raw.stages].sort((a, b) => a.order - b.order),
+  };
 };
 
 export const getPropositionById = (id: string): Proposition | undefined => {

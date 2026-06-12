@@ -46,6 +46,20 @@ export function convertYamlToJson() {
     }
   }
 
+  if (fs.existsSync(join(dataDir, 'curriculum.yaml'))) {
+    const yamlContent = fs.readFileSync(join(dataDir, 'curriculum.yaml'), 'utf8');
+    const curriculumData = yaml.load(yamlContent);
+
+    if (fs.existsSync(join(dataDir, 'terms.json'))) {
+      const termsData = JSON.parse(fs.readFileSync(join(dataDir, 'terms.json'), 'utf8'));
+      const merged = { ...termsData, ...curriculumData };
+      fs.writeFileSync(join(dataDir, 'terms.json'), JSON.stringify(merged, null, 2), 'utf8');
+      console.log('✅ curriculum.yaml → terms.json 병합 완료');
+    } else {
+      fs.writeFileSync(join(dataDir, 'terms.json'), JSON.stringify(curriculumData, null, 2), 'utf8');
+    }
+  }
+
   if (fs.existsSync(join(dataDir, 'terms.json'))) {
     const termsData = JSON.parse(fs.readFileSync(join(dataDir, 'terms.json'), 'utf8'));
     const historyMeta = generateTermHistory();

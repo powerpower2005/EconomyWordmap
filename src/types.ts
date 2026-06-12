@@ -85,6 +85,22 @@ export interface PropositionCase {
   example?: string;
 }
 
+export interface CurriculumStage {
+  id: string;
+  order: number;
+  title: string;
+  subtitle?: string;
+  learnerQuestion?: string;
+  termIds: string[];
+  propositionIds?: string[];
+}
+
+export interface Curriculum {
+  version: number;
+  intro?: string;
+  stages: CurriculumStage[];
+}
+
 export interface Proposition {
   id: string;
   // 명제 진술 (예: "금리가 오르면 물가가 내려간다")

@@ -1,0 +1,124 @@
+# Investor learning path — stage buckets + suggested term order (not forced).
+# Canonical rules: AGENTS.md § Investor learning path
+curriculum:
+  version: 1
+  intro: "단계는 권장 학습 묶음입니다. 순서를 강제하지 않으며, 궁금한 항목부터 열어도 됩니다."
+  stages:
+    - id: s1-market
+      order: 1
+      title: "시장"
+      subtitle: "내가 사는 게 뭔지"
+      learnerQuestion: "What am I actually buying?"
+      termIds:
+        - stock-market
+        - stock-index
+        - etf
+        - valuation
+        - eps
+        - per
+        - pbr
+        - risk-on
+        - risk-off
+        - market-sentiment
+
+    - id: s2-macro
+      order: 2
+      title: "매크로 대시보드"
+      subtitle: "뉴스에 나오는 숫자"
+      learnerQuestion: "What did today's data mean?"
+      termIds:
+        - gdp
+        - real-gdp
+        - economic-growth
+        - recession
+        - unemployment
+        - inflation
+        - cpi
+        - pce
+        - core-pce
+        - expected-inflation
+        - disinflation
+        - deflation
+        - business-cycle
+
+    - id: s3-rates
+      order: 3
+      title: "금리 전달"
+      subtitle: "Fed 뉴스가 주가에 닿는 경로"
+      learnerQuestion: "Why did stocks move on the Fed?"
+      termIds:
+        - interest-rate
+        - policy-rate
+        - real-interest-rate
+        - long-term-interest-rate
+        - federal-reserve
+        - central-bank
+        - quantitative-easing
+        - quantitative-tightening
+        - government-bond
+        - bond-market
+        - bond-price
+        - yield-curve
+        - term-spread
+
+    - id: s4-risk
+      order: 4
+      title: "재정·국제·리스크"
+      subtitle: "2차 파급과 꼬리 위험"
+      learnerQuestion: "What else can swamp my thesis?"
+      termIds:
+        - fiscal-policy
+        - national-debt
+        - tax-cut
+        - exchange-rate
+        - strong-dollar
+        - weak-dollar
+        - trade-war
+        - tariff
+        - supply-chain
+        - liquidity
+        - asset-bubble
+        - systemic-risk
+        - geopolitical-risk
+        - safe-haven-asset
+        - sector-rotation
+
+    - id: s5-theory
+      order: 5
+      title: "이론·역사"
+      subtitle: "언제 통설이 깨지는지"
+      learnerQuestion: "When does the usual story break?"
+      termIds:
+        - supply-and-demand
+        - aggregate-demand
+        - aggregate-supply
+        - phillips-curve
+        - keynesian-economics
+        - efficient-market-hypothesis
+        - behavioral-finance
+        - great-depression
+        - global-financial-crisis
+        - stagflation
+
+    - id: s6-propositions
+      order: 6
+      title: "명제"
+      subtitle: "조건부로 판단하기"
+      learnerQuestion: "Under what conditions is this true?"
+      termIds: []
+      propositionIds:
+        - p11
+        - p12
+        - p16
+        - p19
+        - p1
+        - p6
+        - p10
+        - p13
+        - p5
+        - p7
+        - p15
+        - p17
+        - p20
+        - p8
+        - p4
