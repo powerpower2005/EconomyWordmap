@@ -6152,3 +6152,68 @@ relations:
     description: "플라자 합의는 주요국 통화 절상·달러 절하(평가절하)를 목표로 한 협상"
     strength: medium
     nature: policy
+
+  - id: r790
+    term1Id: technological-progress
+    term2Id: unemployment
+    type: correlation
+    description: "기술 진보·자동화가 특정 산업의 고용을 줄이는 경향이 있으나, 장기적으로는 새 일자리 창출로 상쇄될 수도 있음"
+    strength: medium
+    nature: causal
+    conditions: "자본집약·자동화가 빠른 산업·직무"
+
+  - id: r791
+    term1Id: manufacturing
+    term2Id: unemployment
+    type: inverse
+    description: "제조업 고용이 위축되면 실업 압력이 커지는 경향(생산성 향상으로 산출과 고용이 어긋날 수 있음)"
+    strength: medium
+    nature: causal
+
+  - id: r792
+    term1Id: global-financial-crisis
+    term2Id: manufacturing
+    type: correlation
+    description: "2008년 금융위기가 제조업 생산·고용을 타 업종보다 크게 위축시킴"
+    strength: medium
+    nature: causal
+
+  - id: r793
+    term1Id: capital-accumulation
+    term2Id: manufacturing
+    type: proportional
+    description: "설비·공장 등 자본축적이 제조업 생산능력과 자본집약도를 높임"
+    strength: medium
+    nature: causal
+
+  - id: r794
+    term1Id: protectionism
+    term2Id: reshoring
+    type: correlation
+    description: "보호무역·관세가 해외 생산 대신 국내 생산(리쇼어링)을 유인하는 정책 채널"
+    strength: medium
+    nature: policy
+
+  - id: r795
+    term1Id: tariff
+    term2Id: reshoring
+    type: correlation
+    description: "수입 관세가 본국 생산·공급망 복귀(리쇼어링) 인센티브를 강화할 수 있음"
+    strength: medium
+    nature: policy
+
+  - id: r796
+    term1Id: reshoring
+    term2Id: unemployment
+    type: inverse
+    description: "리쇼어링이 본국 제조업 고용 회복에 기여할 수 있으나 생산성·인건비 제약으로 효과는 제한적일 수 있음"
+    strength: weak
+    nature: causal
+
+  - id: r797
+    term1Id: reshoring
+    term2Id: trade-deficit
+    type: inverse
+    description: "국내 생산·조달이 늘면 수입이 줄어 무역적자 축소에 기여할 수 있으나 비용·대체 수입에 따라 효과는 불확실"
+    strength: weak
+    nature: causal

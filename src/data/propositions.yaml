@@ -23,7 +23,7 @@ propositions:
   - id: p2
     statement: "자유무역은 모두에게 이득이다"
     category: 국제경제
-    termIds: [free-trade, comparative-advantage, consumer-welfare, trade-war, strategic-trade-theory, inequality]
+    termIds: [free-trade, comparative-advantage, consumer-welfare, trade-war, strategic-trade-theory, inequality, manufacturing]
     premise: "비교우위에 따라 각국이 잘하는 분야에 특화하면 전체 생산과 후생이 커지고 소비자 가격이 낮아진다는 포지티브섬 논리에 근거한다."
     holds:
       - label: "국가 전체의 후생"
@@ -242,6 +242,9 @@ propositions:
         detail: "생산성 향상이 소득과 수요를 늘리고 새로운 산업·직무를 만들어 장기적으로는 고용이 줄지 않는 경향이 있다."
       - label: "보완 효과"
         detail: "기술이 사람의 생산성을 높여 보완하는 경우 일자리의 성격이 바뀔 뿐 총량은 유지되거나 늘 수 있다."
+      - label: "글로벌 제조 고용 추세"
+        detail: "중국·인도 등에서도 제조업 고용 비중이 하락하면 특정국 탓만으로 일자리 감소를 설명하기 어렵다."
+        example: "전 세계 제조업 고용이 산출 증가와 함께 정체·감소하는 공통 패턴."
     verdict: "단기적 일자리 대체는 분명하나 장기적으로는 창출 효과가 커, 시점에 따라 평가가 갈리는 명제다."
 
   - id: p16
@@ -279,7 +282,7 @@ propositions:
   - id: p18
     statement: "관세로 보호하면 자국 일자리를 지킬 수 있다"
     category: 국제경제
-    termIds: [tariff, protectionism, manufacturing, trade-war, consumer-welfare]
+    termIds: [tariff, protectionism, manufacturing, trade-war, consumer-welfare, reshoring]
     premise: "수입을 관세로 억제하면 국내 생산과 그 산업의 고용이 보호된다는 보호무역 논리에 근거한다."
     holds:
       - label: "보호 대상 산업의 단기 고용"
@@ -2094,7 +2097,7 @@ propositions:
   - id: p142
     statement: "관세·무역분쟁이 오히려 무역적자를 키울 수 있다"
     category: 국제경제
-    termIds: [tariff, trade-war, trade-deficit, strong-dollar, geopolitical-risk, risk-off, protectionism]
+    termIds: [tariff, trade-war, trade-deficit, strong-dollar, geopolitical-risk, risk-off, protectionism, manufacturing, reshoring]
     premise: "관세로 수입을 줄이려 해도 무역분쟁이 지정학·성장 불안을 키우면 위험회피 자금이 달러로 몰려 강달러가 되고, 수출 경쟁력·수입 구조 때문에 무역적자가 오히려 커질 수 있다는 역설적 논리에 근거한다."
     holds:
       - label: "분쟁→risk-off→강달러"
@@ -2110,7 +2113,7 @@ propositions:
   - id: p143
     statement: "감세·관세·재정적자 확대가 의도와 달리 강달러·무역적자를 악화시킬 수 있다"
     category: 국제경제
-    termIds: [tax-cut, tariff, twin-deficit, trade-deficit, strong-dollar, neo-mercantilism, national-debt]
+    termIds: [tax-cut, tariff, twin-deficit, trade-deficit, strong-dollar, neo-mercantilism, national-debt, manufacturing, reshoring]
     premise: "감세와 관세를 동시에 쓰며 재정적자를 키우면 금리·달러 강세 압력이 커질 수 있고, 관세의 비용·보복 효과와 겹치면 무역적자 개선 의도와 반대 결과가 날 수 있다는 논리에 근거한다."
     holds:
       - label: "재정적자·금리·달러"
@@ -2141,3 +2144,40 @@ propositions:
       - label: "경쟁적 절하·금리"
         detail: "상대국도 절하하거나 금리 차가 달러를 다시 끌어올리면 효과가 사라진다."
     verdict: "단기 조정에는 도움이 되지만, 쌍둥이 적자·저축 구조를 바꾸지 않으면 지속 해소는 어려운 조건부 명제다."
+
+  - id: p145
+    statement: "제조업 생산성 향상이 제조업 고용을 줄인다"
+    category: 거시경제
+    termIds: [manufacturing, technological-progress, unemployment, capital-accumulation, economic-growth]
+    premise: "자본집약·자동화·기술 진보로 같은 인력으로 더 많이 생산할 수 있으면 산출은 늘어도 고용 인원은 줄어드는 경향이 있다는 생산성 논리에 근거한다."
+    holds:
+      - label: "자본집약·자동화"
+        detail: "설비·장비 투자가 늘면 인력 대비 산출이 커져 제조업 고용이 정체되거나 감소할 수 있다."
+        example: "미국 제조업: 고용은 감소했으나 산출은 지속 증가."
+      - label: "직무 고숙련화"
+        detail: "신규 제조 일자리의 기술 문턱이 올라가면 생산성은 오르나 고용 창출력은 약해질 수 있다."
+    fails:
+      - label: "경기 회복·수요 급증"
+        detail: "제조 수요가 크게 늘면 단기적으로 고용도 함께 늘 수 있다."
+        example: "판데믹 이후 일부 제조업 보복적 고용 증가."
+      - label: "리쇼어링·보호무역"
+        detail: "생산 거점이 본국으로 돌아오면 일부 고용이 회복될 수 있으나 생산성 제약으로 과거 수준 회복은 제한적일 수 있다."
+    verdict: "구조적 생산성 향상 국면에서는 성립하지만, 경기·정책 충격 앞에서는 약하거나 단기적으로 깨지는 조건부 명제다."
+
+  - id: p146
+    statement: "리쇼어링·보호무역으로 제조업 일자리가 대규모 회복된다"
+    category: 국제경제
+    termIds: [reshoring, protectionism, tariff, manufacturing, unemployment, trade-deficit, industrial-policy]
+    premise: "관세·보조금·산업정책으로 생산을 본국으로 끌어들이면 제조업 고용이 크게 늘어난다는 보호무역·리쇼어링 논리에 근거한다."
+    holds:
+      - label: "위기 후 여력·정책 결합"
+        detail: "제조업 고용이 과도하게 줄었던 뒤 보호무역과 산업정책이 겹치면 일부 고용 회복 여지가 있다."
+        example: "2008년 이후 제조업 고용 회복 논의, CHIPS Act 등 국내 투자 유인."
+    fails:
+      - label: "생산성·인건비 제약"
+        detail: "자동화·고숙련화로 일자리당 산출이 커지면 고용 증가 폭은 제한된다."
+      - label: "글로벌 트렌드"
+        detail: "선진국·중국·인도에서도 제조업 고용 비중이 하락하는 구조적 흐름이 있어 미국만 예외적으로 확대되기 어렵다."
+      - label: "무역수지·비용"
+        detail: "리쇼어링이 비용을 올리거나 무역적자 개선에 기여하지 못하면 정책 지속성이 약해진다."
+    verdict: "일부 고용 회복은 가능하나 대규모·지속 회복을 단정하기 어려운 조건부 명제다."
