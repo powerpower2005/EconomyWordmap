@@ -85,20 +85,80 @@ export interface PropositionCase {
   example?: string;
 }
 
-export interface CurriculumStage {
+export interface CurriculumExample {
+  title: string;
+  body: string;
+  period?: string;
+}
+
+export interface CurriculumAssetComparisonRow {
+  asset: string;
+  phase2020: string;
+  phase2022: string;
+}
+
+export interface CurriculumAssetComparison {
+  title: string;
+  lead?: string;
+  rows: CurriculumAssetComparisonRow[];
+  takeaway?: string;
+  investorActions?: string[];
+}
+
+export interface CurriculumKoreaPathStep {
+  title: string;
+  body: string;
+}
+
+export interface CurriculumKoreaPath {
+  title: string;
+  subtitle?: string;
+  lead?: string;
+  steps: CurriculumKoreaPathStep[];
+  takeaway?: string;
+  investorActions?: string[];
+  termIds?: string[];
+  propositionIds?: string[];
+}
+
+export interface CurriculumPart {
+  id: string;
+  title: string;
+  subtitle?: string;
+  /** 파트 도입 — 예시로 질문을 던지는 짧은 내러티브 */
+  lead?: string;
+  examples?: CurriculumExample[];
+  /** 파트를 마치며 남기는 한 줄 */
+  takeaway?: string;
+  /** 투자자 행동 가이드 (불릿) */
+  investorActions?: string[];
+  termIds: string[];
+  propositionIds?: string[];
+}
+
+export interface CurriculumSection {
   id: string;
   order: number;
   title: string;
   subtitle?: string;
   learnerQuestion?: string;
-  termIds: string[];
-  propositionIds?: string[];
+  /** 섹션 전체 흐름 소개 */
+  overview?: string;
+  /** 독자를 끌어들이는 첫 장면 (구체적 예시) */
+  hook?: string;
+  /** 한 편의 연속 스토리 (예: CPI 한 주) */
+  episode?: CurriculumExample;
+  /** 같은 거시 환경, 다른 자산 비교 */
+  assetComparison?: CurriculumAssetComparison;
+  /** 한국 투자자 전달 경로 */
+  koreaPath?: CurriculumKoreaPath;
+  parts: CurriculumPart[];
 }
 
 export interface Curriculum {
   version: number;
   intro?: string;
-  stages: CurriculumStage[];
+  sections: CurriculumSection[];
 }
 
 export interface Proposition {

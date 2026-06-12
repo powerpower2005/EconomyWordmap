@@ -150,7 +150,7 @@ function validate() {
     }
   }
 
-  let curriculumStageCount = 0;
+  let curriculumSectionCount = 0;
   const curriculumPath = join(DATA_DIR, 'curriculum.yaml');
   const propositionIds = new Set();
   if (fs.existsSync(propositionsPath)) {
@@ -163,53 +163,63 @@ function validate() {
   if (fs.existsSync(curriculumPath)) {
     const curriculumData = loadYaml(curriculumPath);
     const curriculum = curriculumData?.curriculum;
-    if (!curriculum?.stages || !Array.isArray(curriculum.stages)) {
-      errors.push('curriculum.yaml: curriculum.stages must be an array');
+    if (!curriculum?.sections || !Array.isArray(curriculum.sections)) {
+      errors.push('curriculum.yaml: curriculum.sections must be an array');
     } else {
-      curriculumStageCount = curriculum.stages.length;
+      curriculumSectionCount = curriculum.sections.length;
       const seenTermInCurriculum = new Map();
-      const stageOrders = new Set();
+      const sectionOrders = new Set();
 
-      for (const stage of curriculum.stages) {
-        if (!stage.id) errors.push('Curriculum stage missing id');
-        if (stage.order !== undefined) {
-          if (stageOrders.has(stage.order)) {
-            errors.push(`Curriculum duplicate stage order: ${stage.order}`);
+      for (const section of curriculum.sections) {
+        if (!section.id) errors.push('Curriculum section missing id');
+        if (section.order !== undefined) {
+          if (sectionOrders.has(section.order)) {
+            errors.push(`Curriculum duplicate section order: ${section.order}`);
           }
-          stageOrders.add(stage.order);
+          sectionOrders.add(section.order);
         }
-        if (!stage.title) warnings.push(`Curriculum stage "${stage.id}" missing title`);
+        if (!section.title) warnings.push(`Curriculum section "${section.id}" missing title`);
 
-        const termRefs = Array.isArray(stage.termIds) ? stage.termIds : [];
-        for (const refId of termRefs) {
-          if (!termIds.has(refId)) {
-            errors.push(`Curriculum stage "${stage.id}" references unknown termId "${refId}"`);
-          }
-          const prev = seenTermInCurriculum.get(refId);
-          if (prev && prev !== stage.id) {
-            warnings.push(
-              `Term "${refId}" appears in curriculum stages "${prev}" and "${stage.id}" (prefer one stage)`
-            );
-          } else if (!prev) {
-            seenTermInCurriculum.set(refId, stage.id);
-          }
+        const parts = Array.isArray(section.parts) ? section.parts : [];
+        if (parts.length === 0) {
+          errors.push(`Curriculum section "${section.id}" must have at least one part`);
         }
 
-        const propRefs = Array.isArray(stage.propositionIds) ? stage.propositionIds : [];
-        for (const refId of propRefs) {
-          if (!propositionIds.has(refId)) {
-            errors.push(`Curriculum stage "${stage.id}" references unknown propositionId "${refId}"`);
+        for (const part of parts) {
+          if (!part.id) errors.push(`Curriculum section "${section.id}" has a part missing id`);
+          if (!part.title) warnings.push(`Curriculum part "${part.id}" missing title`);
+
+          const termRefs = Array.isArray(part.termIds) ? part.termIds : [];
+          for (const refId of termRefs) {
+            if (!termIds.has(refId)) {
+              errors.push(`Curriculum part "${part.id}" references unknown termId "${refId}"`);
+            }
+            const prev = seenTermInCurriculum.get(refId);
+            if (prev && prev !== section.id) {
+              warnings.push(
+                `Term "${refId}" appears in curriculum sections "${prev}" and "${section.id}" (prefer one section)`
+              );
+            } else if (!prev) {
+              seenTermInCurriculum.set(refId, section.id);
+            }
+          }
+
+          const propRefs = Array.isArray(part.propositionIds) ? part.propositionIds : [];
+          for (const refId of propRefs) {
+            if (!propositionIds.has(refId)) {
+              errors.push(`Curriculum part "${part.id}" references unknown propositionId "${refId}"`);
+            }
           }
         }
       }
     }
   }
 
-  printResults(errors, warnings, terms.length, relations.length, propositionCount, curriculumStageCount);
+  printResults(errors, warnings, terms.length, relations.length, propositionCount, curriculumSectionCount);
   process.exit(errors.length > 0 ? 1 : 0);
 }
 
-function printResults(errors, warnings, termCount, relationCount, propositionCount, curriculumStageCount) {
+function printResults(errors, warnings, termCount, relationCount, propositionCount, curriculumSectionCount) {
   if (warnings.length) {
     console.warn('⚠️ Warnings:');
     warnings.forEach((w) => console.warn(`  - ${w}`));
@@ -219,7 +229,7 @@ function printResults(errors, warnings, termCount, relationCount, propositionCou
     errors.forEach((e) => console.error(`  - ${e}`));
   } else {
     const curriculumPart =
-      curriculumStageCount > 0 ? `, ${curriculumStageCount} curriculum stages` : '';
+      curriculumSectionCount > 0 ? `, ${curriculumSectionCount} curriculum sections` : '';
     console.log(
       `✅ Data validation passed (${termCount ?? 0} terms, ${relationCount ?? 0} relations, ${propositionCount ?? 0} propositions${curriculumPart})`
     );

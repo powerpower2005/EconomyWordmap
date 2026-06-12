@@ -183,7 +183,7 @@ propositions:
   - id: p11
     statement: "주가는 경기를 선행한다"
     category: 금융
-    termIds: [stock-market, gdp, economic-growth, investment]
+    termIds: [stock-market, gdp, economic-growth, investment, recession]
     premise: "주가는 미래 기업 이익과 경기 기대를 미리 반영하므로 실물 경기보다 앞서 움직인다는 논리에 근거한다."
     holds:
       - label: "평균적 선행성"
@@ -240,20 +240,6 @@ propositions:
       - label: "보완 효과"
         detail: "기술이 사람의 생산성을 높여 보완하는 경우 일자리의 성격이 바뀔 뿐 총량은 유지되거나 늘 수 있다."
     verdict: "단기적 일자리 대체는 분명하나 장기적으로는 창출 효과가 커, 시점에 따라 평가가 갈리는 명제다."
-
-  - id: p15
-    statement: "세율을 낮추면 세수가 늘어난다"
-    category: 정부
-    termIds: [tax-cut, fiscal-policy, economic-growth]
-    premise: "세율을 낮추면 노동·투자 의욕이 살아나 세원이 커져 오히려 세수가 늘 수 있다는 래퍼곡선 논리에 근거한다."
-    holds:
-      - label: "세율이 매우 높은 구간"
-        detail: "세율이 지나치게 높아 경제활동을 위축시키던 구간에서는 인하가 세원 확대를 통해 세수를 늘릴 수 있다."
-    fails:
-      - label: "일반적 세율 구간"
-        detail: "대부분의 현실적 세율 구간에서는 감세가 세수 감소와 재정적자 확대로 이어진다."
-        example: "1980년대 미국 감세 이후 재정적자 확대."
-    verdict: "현재 세율이 래퍼곡선의 어느 위치에 있느냐에 전적으로 의존하는 조건부 명제다."
 
   - id: p16
     statement: "물가가 오르면 실업이 줄어든다(필립스 곡선)"
@@ -464,20 +450,6 @@ propositions:
       - label: "루카스 비판"
         detail: "사람들이 정책을 미리 예상하고 행동을 바꾸면 기대했던 승수효과가 줄어든다."
     verdict: "경기 국면과 자원 여유에 따라 승수 크기가 크게 달라지는 명제다."
-
-  - id: p30
-    statement: "통화량을 늘리면 물가가 오른다"
-    category: 통화
-    termIds: [money-supply, inflation, liquidity-trap, quantitative-easing]
-    premise: "화폐 공급 증가가 화폐가치를 떨어뜨려 물가를 끌어올린다는 화폐수량설 직관에 근거한다."
-    holds:
-      - label: "완전고용·장기"
-        detail: "생산이 한계에 이른 장기에는 늘어난 통화가 지출로 풀려 물가 상승으로 이어진다."
-    fails:
-      - label: "유동성 함정과 디플레 압력"
-        detail: "수요가 위축된 국면에서는 늘어난 돈이 지출로 가지 않아 물가가 잘 오르지 않는다."
-        example: "2010년대 선진국의 대규모 양적완화에도 낮게 유지된 물가."
-    verdict: "경제 국면과 화폐 유통속도에 따라 성립 여부가 갈리는 조건부 명제다."
 
   - id: p31
     statement: "실업을 낮추려 경기를 부양하면 결국 인플레이션만 오른다"
@@ -777,14 +749,17 @@ propositions:
   - id: p53
     statement: "수익률 곡선이 역전되면 경기침체가 온다"
     category: 거시경제
-    termIds: [yield-curve, recession, business-cycle, interest-rate]
+    termIds: [yield-curve, term-spread, recession, business-cycle, interest-rate]
     premise: "장기금리가 단기금리보다 낮아지는 장단기 역전이 경기침체를 예고한다는 경험칙에 근거한다."
     holds:
       - label: "강한 선행 신호"
-        detail: "과거 미국의 침체 대부분이 장단기 금리 역전 뒤에 나타나 신뢰도 높은 선행지표로 쓰인다."
+        detail: "역사적으로 장단기 금리 역전 뒤 일정 시차를 두고 경기침체가 따라온 사례가 많아 신뢰도 높은 선행지표로 쓰인다."
+        example: "미국 국채 10년-2년 금리 역전 후 침체가 뒤따른 여러 사례."
     fails:
+      - label: "기간 프리미엄·정책 왜곡"
+        detail: "양적완화 등으로 장기금리가 인위적으로 눌리면 역전이 침체가 아닌 정책 효과를 반영할 수 있다."
       - label: "시차와 거짓 신호"
-        detail: "역전과 침체 사이 시차가 길고 들쭉날쭉하며, 양적완화 등으로 곡선이 왜곡되면 신호가 약해진다."
+        detail: "역전과 침체 사이 시차가 길고 들쭉날쭉하며, 역전이 와도 침체가 비껴가는 경우가 있다."
         example: "2022년 역전 이후 침체 시점을 둘러싼 논쟁."
     verdict: "방향성은 강하지만 시점과 신뢰도가 국면에 따라 달라지는 조건부 명제다."
 
@@ -1270,22 +1245,6 @@ propositions:
         detail: "정부의 현금 지원이 소득 공백을 메우면 소비가 크게 줄지 않는다."
     verdict: "안전망·저축·이전지출이 약할수록 강하게 성립하는 조건부 명제다."
 
-  - id: p85
-    statement: "주가는 경기를 미리 반영해서 움직인다"
-    category: 금융
-    termIds: [business-cycle, stock-market, recession]
-    premise: "주가는 미래 이익 기대를 현재가치로 반영하므로 실제 경기지표보다 앞서 경기 국면을 선반영한다는 논리에 근거한다."
-    holds:
-      - label: "기대가 가격을 주도할 때"
-        detail: "투자자들이 경기 전망을 가격에 빠르게 반영하는 국면에서는 주가가 경기를 선행한다."
-        example: "경기 바닥을 확인하기 전에 주가가 먼저 반등한 사례."
-    fails:
-      - label: "잘못된 기대(거짓 신호)"
-        detail: "선반영된 기대가 빗나가면 침체 없는 하락, 또는 그 반대의 거짓 신호가 나온다."
-      - label: "유동성·심리 교란"
-        detail: "유동성이나 쏠림이 가격을 좌우하면 경기와의 연결이 약해진다."
-    verdict: "기대가 가격을 주도할 때 성립하지만, 거짓 신호와 유동성 교란이 잦은 조건부 명제다."
-
   - id: p86
     statement: "저금리가 오래 지속되면 좀비기업이 늘어난다"
     category: 금융
@@ -1348,22 +1307,6 @@ propositions:
       - label: "범용·대체 가능 품목"
         detail: "범용 반도체처럼 공급원이 많은 품목은 통제 효과가 작다."
     verdict: "대체가 어려운 핵심 기술일수록 성립하지만, 자급·우회로가 마련되면 효과가 약해지는 조건부 명제다."
-
-  - id: p90
-    statement: "장단기 금리가 역전되면 경기침체가 온다"
-    category: 금융
-    termIds: [term-spread, yield-curve, recession]
-    premise: "장기금리가 단기금리보다 낮아지는 역전은 시장이 향후 금리 인하(경기 둔화)를 예상한다는 뜻이라, 경기침체의 선행 신호로 해석된다는 경험적 논리에 근거한다."
-    holds:
-      - label: "과거 반복된 선행 패턴"
-        detail: "역사적으로 장단기 금리 역전 뒤 일정 시차를 두고 경기침체가 따라온 사례가 많다."
-        example: "미국 국채 10년-2년 금리 역전 후 침체가 뒤따른 여러 사례."
-    fails:
-      - label: "기간 프리미엄 왜곡"
-        detail: "양적완화 등으로 장기금리가 인위적으로 눌리면 역전이 침체가 아닌 정책 효과를 반영할 수 있다."
-      - label: "시차·거짓 신호"
-        detail: "역전과 침체 사이 시차가 길고 들쭉날쭉해, 역전이 와도 침체가 비껴가는 경우가 있다."
-    verdict: "선행 신호로서 신뢰도가 높지만, 정책 왜곡과 긴 시차 탓에 시점·강도는 어긋날 수 있는 조건부 명제다."
 
   - id: p91
     statement: "시중에 돈이 풀리면 자산 가격이 오른다"
@@ -1967,3 +1910,162 @@ propositions:
       - label: "점진적 정상화"
         detail: "재정·통화가 서서히 정상화되면 심리가 단계적으로 식어 급락을 피할 수 있다."
     verdict: "과열·쏠림이 극단일수록 성립하는, 역사적 버블-붕괴 패턴을 설명하는 조건부 명제다."
+
+  - id: p131
+    statement: "재무부 TGA 잔고가 늘면 시중 유동성이 줄어든다"
+    category: 통화정책
+    termIds: [tga, reserves, liquidity, sofr, base-money]
+    relationIds: [r160, r171]
+    premise: "TGA(재무부 일반계좌)는 연준에 있는 재무부 예금으로, 잔고가 늘면 재무부가 시장에서 자금을 흡수해 지급준비금과 시중 유동성이 줄어드는 경향이 있다는 재정 플러mbing 논리에 근거한다."
+    holds:
+      - label: "TGA 급증·국채 발행 흡수"
+        detail: "세수·국채 발행 자금이 TGA에 쌓이면 은행 지급준비금과 단기금융시장 유동성이 동시에 줄어 SOFR 등 단기금리가 오르는 압력이 생긴다."
+    fails:
+      - label: "TGA 감소·재정 지출"
+        detail: "재무부가 TGA를 줄여 지출하거나 국채 만기 자금을 풀면 시장 유동성이 오히려 늘어난다."
+      - label: "QT·역레포 등 상쇄"
+        detail: "연준 QT 축소나 역레포 등 다른 유동성 공급이 TGA 흡수를 상쇄하면 순효과가 약해진다."
+    verdict: "재정 현금 관리와 국채 발행 일정에 따라 갈리며, Fed 정책만큼 눈에 띄지 않아도 시장 유동성을 움직이는 조건부 명제다."
+
+  - id: p132
+    statement: "레포 금리(SOFR)가 급등하면 금융 유동성이 경색된다"
+    category: 통화정책
+    termIds: [sofr, repo-market, liquidity, reserves, interest-rate]
+    relationIds: [r171, r701]
+    premise: "SOFR은 레포 시장의 실제 거래 금리로, 급등은 담보부 단기자금이 비싸지고 지급준비금이 부족해졌다는 신호라 금융시스템 유동성 경색으로 이어질 수 있다는 논리에 근거한다."
+    holds:
+      - label: "지준금 부족·TGA 흡수"
+        detail: "TGA 증가나 QT로 지급준비금이 줄어 레포 금리가 IORB를 크게 상회하면 은행·브로커의 단기 조달이 어려워져 유동성 스트레스가 커진다."
+    fails:
+      - label: "일시적 수급 요인"
+        detail: "분기말·세금 납부 등 일시적 수요로 SOFR이 튀었다가 곧 정상화되면 구조적 경색으로 보기 어렵다."
+      - label: "연준 개입"
+        detail: "역레포·SRF 등 연준 유동성 공급이 빠르게 작동하면 SOFR 급등이 장기화되지 않는다."
+    verdict: "지준금·TGA·QT와 연동된 급등일수록 성립하지만, 일시적 수급이나 정책 개입 앞에서는 약해지는 조건부 명제다."
+
+  - id: p133
+    statement: "국채 발행 계획(QRA)이 예상보다 크면 장기금리가 오른다"
+    category: 채권
+    termIds: [qra, long-term-bond, bond-price, long-term-interest-rate, government-bond]
+    relationIds: [r165, r194]
+    premise: "QRA는 재무부가 분기별 국채 발행 규모·만기 구성을 발표하는데, 시장 기대보다 공급이 크면 채권 가격이 눌리고 장기금리가 오른다는 수급 논리에 근거한다."
+    holds:
+      - label: "발행 서프라이즈(예상 초과)"
+        detail: "장기물 발행이 예상보다 크게 늘어나면 수요가 따라가지 못해 장기금리가 즉시 상승하는 경우가 많다."
+    fails:
+      - label: "예상 범위·선반영"
+        detail: "발행 계획이 이미 시장에 반영되어 있으면 QRA 발표 후 금리 변동이 제한적이다."
+      - label: "경기 둔화·안전자산 수요"
+        detail: "침체 우려로 국채 수요가 강하면 발행 증가에도 장기금리가 크게 오르지 않을 수 있다."
+    verdict: "발행 서프라이즈와 시장 수요의 균형에 따라 갈리며, 재정적자 자체(p6)와는 별개의 수급·일정 축을 다루는 조건부 명제다."
+
+  - id: p134
+    statement: "위험 선호 국면에는 성장주·신흥국이 더 오른다"
+    category: 금융
+    termIds: [risk-on, stock-market, korean-won, sector-rotation, risk-off]
+    premise: "위험 선호가 커지면 투자자가 변동성이 큰 성장주·신흥국 자산으로 자금을 옮기고, 위험 회피 국면과 반대로 움직인다는 시장 심리 논리에 근거한다."
+    holds:
+      - label: "완화적 통화·경기 확장"
+        detail: "금리 인하 기대나 경기 회복 국면에서 위험 선호가 살아나면 성장주·신흥국 주식과 통화가 동반 강세를 보이는 경우가 많다."
+    fails:
+      - label: "펀더멘털 악화 동반"
+        detail: "위험 선호가 살아도 기업 이익 전망이 크게 나빠지면 성장주는 오히려 부진할 수 있다."
+      - label: "지정학·유동성 충격"
+        detail: "갑작스러운 위기는 risk-on을 risk-off로 빠르게 전환시켜 신흥국이 더 크게 하락한다."
+    verdict: "거시 환경이 안정적일수록 성립하지만, 충격과 펀더멘털 앞에서는 risk-off로 빠르게 전환되는 조건부 명제다."
+
+  - id: p135
+    statement: "경기·금리 국면이 바뀌면 강세 섹터도 바뀐다"
+    category: 금융
+    termIds: [sector-rotation, business-cycle, interest-rate, stock-market]
+    premise: "경기 확장·침체와 금리 상승·하락에 따라 기업 이익과 밸류에이션에 유리한 업종이 달라져 자금이 섹터 간 이동한다는 섹터 로테이션 논리에 근거한다."
+    holds:
+      - label: "금리 급등·인플레 국면"
+        detail: "금리가 빠르게 오르면 성장주·테크에서 금융·에너지·가치주로, 또는 방어주로 자금이 이동하는 경향이 있다."
+      - label: "경기 회복 초기"
+        detail: "침체 바닥에서 회복이 시작되면 경기민감주·소재·산업재가 선행하는 패턴이 자주 나타난다."
+    fails:
+      - label: "쏠림·테마 장세"
+        detail: "AI·반도체 등 특정 테마가 지배하면 거시 국면과 무관하게 한 섹터만 장기간 강세일 수 있다."
+      - label: "저금리 장기화"
+        detail: "금리가 낮게 고정되면 성장주 쏠림이 지속되어 전통적 로테이션이 약해진다."
+    verdict: "거시 변수가 가격을 주도할 때 성립하지만, 테마·쏠림 장세 앞에서는 약해지는 조건부 명제다."
+
+  - id: p136
+    statement: "PBR 1 미만이면 무조건 싸다"
+    category: 금융
+    termIds: [pbr, valuation, stock-market, interest-rate]
+    premise: "PBR(주가순자산비율)이 1 미만이면 시장가가 장부 순자산보다 낮아 저평가라는 통념에 근거한다."
+    holds:
+      - label: "일시적 공포·유동성 경색"
+        detail: "시장 전체 패닉으로 우량주까지 PBR 1 미만으로 눌릴 때는 평균 회귀 여지가 있다."
+        example: "2008년 금융위기·2020년 3월 급락기 일부 종목."
+    fails:
+      - label: "구조적 쇠퇴·ROE 악화"
+        detail: "자산 가치가 실제로 줄거나 수익성이 낮으면 PBR 1 미만이 정당화된 가격일 수 있다."
+      - label: "금리·밸류에이션 환경"
+        detail: "금리가 높고 성장 기대가 낮은 국면에서는 PBR 1 미만도 '싸다'가 아니라 '적정'일 수 있다."
+    verdict: "일시적 공포에는 신호가 되지만, 펀더멘털·금리 컨텍스트 없이 절대 기준으로 쓰기 어려운 조건부 명제다."
+
+  - id: p137
+    statement: "달러는 기축통화라 무역·금융 불균형을 흡수한다"
+    category: 국제경제
+    termIds: [reserve-currency, strong-dollar, exchange-rate, fiscal-policy]
+    relationIds: [r764]
+    premise: "달러는 세계 무역·금융의 결제·보유 통화로 구조적 수요가 있어, 미국의 대외·재정 불균형을 다른 통화보다 오래 버틸 수 있다는 기축통화 논리에 근거한다."
+    holds:
+      - label: "안전자산·결제 수요"
+        detail: "위기·무역 결제·외환보유 수요가 달러를 끌어올려 재정적자가 있어도 조달비용이 상대적으로 낮게 유지되는 경향이 있다."
+    fails:
+      - label: "과도한 재정·신뢰 훼손"
+        detail: "재정 건전성에 대한 신뢰가 크게 흔들리면 기축통화 지위만으로는 금리·달러가 방어되지 않을 수 있다."
+        example: "2022년 영국 트러스 쇼크(기축통화국은 아니나 조달 신뢰 붕괴 사례)."
+      - label: "대체 통화·탈달러화"
+        detail: "장기적으로 결제·보유 다변화가 진행되면 흡수 능력이 약해질 수 있다."
+    verdict: "구조적 수요 덕에 단기·중기에는 성립하지만, 신뢰 훼손과 탈달러화 앞에서는 한계가 있는 조건부 명제다."
+
+  - id: p138
+    statement: "세율을 올리면 소비와 투자가 위축되어 경기가 둔화된다"
+    category: 정부
+    termIds: [tax-increase, fiscal-policy, aggregate-demand, consumption]
+    premise: "증세는 가계·기업의 가처분 소득을 줄여 소비와 투자를 위축시키고 총수요를 눌러 경기를 둔화시킨다는 케인즈식 논리에 근거한다."
+    holds:
+      - label: "완전고용·과열 국면"
+        detail: "경기가 과열에 가까울 때 증세는 수요를 식혀 물가 압력을 완화하는 데 기여할 수 있다."
+    fails:
+      - label: "재정 신뢰·중장기 개혁"
+        detail: "재정 건전성을 회복한다는 신뢰를 주는 증세는 장기금리를 낮추고 투자를 살릴 수 있다."
+      - label: "소득 재분배·승수"
+        detail: "저소득층에 돌아가는 지출과 함께 쓰이면 증세의 위축 효과가 일부 상쇄될 수 있다."
+    verdict: "경기 국면과 재정 신뢰에 따라 둔화·안정 효과가 갈리는, p8(지출 확대)의 대칭 조건부 명제다."
+
+  - id: p139
+    statement: "원자재 가격이 오르면 인플레이션 압력이 커진다"
+    category: 원자재
+    termIds: [commodity-market, inflation, crude-oil, supply-shock]
+    premise: "에너지·금속·농산물 등 원자재는 생산·운송 비용에 직접 반영되어 물가를 끌어올리는 공급 측 압력으로 작용한다는 논리에 근거한다."
+    holds:
+      - label: "에너지·식량 급등"
+        detail: "유가·곡물 등 핵심 원자재가 급등하면 수입·제조 비용이 올라 CPI·PCE에 빠르게 전가되는 경우가 많다."
+        example: "2022년 유가 급등과 물가 상승."
+    fails:
+      - label: "수요 약세·마진 흡수"
+        detail: "경기 둔화로 수요가 약하면 기업이 원자재 비용을 가격에 전가하지 못해 물가 효과가 제한된다."
+      - label: "통화 강세·보조금"
+        detail: "달러 강세나 에너지 보조금이 비용 상승을 흡수하면 국내 물가 압력이 완화된다."
+    verdict: "수요가 받쳐주고 전가가 될 때 성립하지만, 수요 약세·정책 완충 앞에서는 약해지는 조건부 명제다."
+
+  - id: p140
+    statement: "ETF 자금 유입이 늘면 추종 지수·시장이 오른다"
+    category: 금융
+    termIds: [etf, stock-index, stock-market, liquidity]
+    premise: "ETF는 지수·섹터를 추종해 패시브 자금을 모으고, 순유입 시 추종 종목을 매수해 지수와 시장 수급에 영향을 준다는 논리에 근거한다."
+    holds:
+      - label: "대규모 순유입·쏠림"
+        detail: "S&P500·나스닥 ETF 등에 자금이 몰리면 대형주·지수 구성 종목이 동반 상승하는 경향이 있다."
+    fails:
+      - label: "순유출·리밸런싱"
+        detail: "금리 급등 등으로 ETF에서 자금이 빠지면 지수가 실적보다 크게 하락할 수 있다."
+      - label: "지수 외 종목"
+        detail: "ETF 비중이 낮은 중소형·비지수 종목은 유입 효과를 거의 받지 못한다."
+    verdict: "패시브 자금이 지수를 주도하는 국면에서는 성립하지만, 유출·비지수 종목 앞에서는 약해지는 조건부 명제다."

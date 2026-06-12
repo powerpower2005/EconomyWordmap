@@ -6,7 +6,7 @@ import {
   getPropositionById,
   getPropositionsByTermId,
 } from '../utils/dataLoader';
-import { CurriculumStage } from '../types';
+import { CurriculumExample, CurriculumPart, CurriculumSection } from '../types';
 import PropositionBody from '../components/PropositionBody';
 import { loadBookmarks, toggleBookmark } from '../utils/learningProgress';
 
@@ -18,14 +18,14 @@ interface LearningProps {
 
 export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositions }: LearningProps) {
   const curriculum = loadCurriculum();
-  const [selectedStageId, setSelectedStageId] = useState<string | null>(null);
+  const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
   const [expandedTermId, setExpandedTermId] = useState<string | null>(null);
   const [expandedPropId, setExpandedPropId] = useState<string | null>(null);
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => loadBookmarks());
 
-  const selectedStage = useMemo(
-    () => curriculum?.stages.find(s => s.id === selectedStageId) ?? null,
-    [curriculum, selectedStageId]
+  const selectedSection = useMemo(
+    () => curriculum?.sections.find(s => s.id === selectedSectionId) ?? null,
+    [curriculum, selectedSectionId]
   );
 
   if (!curriculum) {
@@ -40,95 +40,83 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
     setBookmarks(toggleBookmark(id, bookmarks));
   };
 
-  if (selectedStage) {
-    const isPropositionStage = (selectedStage.propositionIds?.length ?? 0) > 0;
-    const stageTerms = selectedStage.termIds
-      .map(tid => getTermById(tid))
-      .filter((t): t is NonNullable<typeof t> => t != null);
-    const stagePropositions = (selectedStage.propositionIds ?? [])
-      .map(pid => getPropositionById(pid))
-      .filter((p): p is NonNullable<typeof p> => p != null);
-
+  if (selectedSection) {
     return (
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <button
           type="button"
           onClick={() => {
-            setSelectedStageId(null);
+            setSelectedSectionId(null);
             setExpandedTermId(null);
             setExpandedPropId(null);
           }}
           className="text-sm text-blue-600 hover:text-blue-800 mb-4"
         >
-          ← 전체 단계
+          ← 전체 섹션
         </button>
 
         <div className="mb-6">
           <div className="flex items-baseline gap-2 flex-wrap">
             <span className="text-xs font-semibold text-violet-600 bg-violet-50 px-2 py-0.5 rounded">
-              {selectedStage.order}단계
+              섹션 {selectedSection.order}
             </span>
-            <h2 className="text-2xl font-bold text-gray-900">{selectedStage.title}</h2>
+            <h2 className="text-2xl font-bold text-gray-900">{selectedSection.title}</h2>
           </div>
-          {selectedStage.subtitle && (
-            <p className="text-gray-600 mt-1">{selectedStage.subtitle}</p>
+          {selectedSection.subtitle && (
+            <p className="text-gray-600 mt-1">{selectedSection.subtitle}</p>
+          )}
+          {selectedSection.hook && (
+            <div className="mt-4 rounded-xl border border-violet-100 bg-violet-50/60 px-4 py-3">
+              <p className="text-xs font-semibold text-violet-700 mb-2">시작 — 한 장면으로</p>
+              <p className="text-sm text-gray-800 leading-relaxed whitespace-pre-line">{selectedSection.hook}</p>
+            </div>
+          )}
+          {selectedSection.overview && (
+            <p className="text-sm text-gray-600 leading-relaxed mt-3 whitespace-pre-line">{selectedSection.overview}</p>
+          )}
+          {selectedSection.episode && (
+            <div className="mt-4">
+              <ExampleCard example={selectedSection.episode} variant="episode" />
+            </div>
           )}
           <p className="text-sm text-amber-800 bg-amber-50 border border-amber-100 rounded-lg px-3 py-2 mt-3">
-            아래 순서는 <strong>권장</strong>입니다. 원하는 항목부터 열어도 됩니다.
+            각 파트는 <strong>예시 → 용어·명제</strong> 순입니다. 순서는 권장일 뿐입니다.
           </p>
-          {selectedStage.order === 2 && onOpenMarket && (
+          {selectedSection.id === 'sec-money-value' && onOpenMarket && (
             <button
               type="button"
               onClick={onOpenMarket}
               className="mt-3 text-sm px-3 py-1.5 rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-200 hover:bg-emerald-100"
             >
-              시장 지표 탭에서 차트 보기 →
+              시장 지표 탭에서 CPI·금리 차트 보기 →
             </button>
           )}
         </div>
 
-        <div className="space-y-2">
-          {isPropositionStage
-            ? stagePropositions.map((prop, index) => (
-                <PropositionRow
-                  key={prop.id}
-                  index={index}
-                  proposition={prop}
-                  expanded={expandedPropId === prop.id}
-                  bookmarked={bookmarks.has(prop.id)}
-                  onToggle={() => setExpandedPropId(expandedPropId === prop.id ? null : prop.id)}
-                  onBookmark={() => handleBookmark(prop.id)}
-                  onOpenTerm={onOpenTerm}
-                />
-              ))
-            : stageTerms.map((term, index) => (
-                <TermRow
-                  key={term.id}
-                  index={index}
-                  term={term}
-                  expanded={expandedTermId === term.id}
-                  bookmarked={bookmarks.has(term.id)}
-                  onToggle={() => setExpandedTermId(expandedTermId === term.id ? null : term.id)}
-                  onBookmark={() => handleBookmark(term.id)}
-                  onOpenTerm={onOpenTerm}
-                />
-              ))}
+        <div className="space-y-10">
+          {selectedSection.parts.map(part => (
+            <PartBlock
+              key={part.id}
+              part={part}
+              expandedTermId={expandedTermId}
+              expandedPropId={expandedPropId}
+              bookmarks={bookmarks}
+              onToggleTerm={termId => setExpandedTermId(expandedTermId === termId ? null : termId)}
+              onToggleProp={propId => setExpandedPropId(expandedPropId === propId ? null : propId)}
+              onBookmark={handleBookmark}
+              onOpenTerm={onOpenTerm}
+            />
+          ))}
         </div>
 
-        {isPropositionStage && onOpenAllPropositions && (
+        {onOpenAllPropositions && (
           <button
             type="button"
             onClick={onOpenAllPropositions}
-            className="mt-6 text-sm text-indigo-600 hover:text-indigo-800"
+            className="mt-8 text-sm text-indigo-600 hover:text-indigo-800"
           >
             명제 탭에서 전체 보기 →
           </button>
-        )}
-
-        {!isPropositionStage && selectedStage.order === 5 && (
-          <p className="mt-6 text-sm text-gray-500">
-            이론·미시·역사 용어는 관계도에서 카테고리(경제이론, 미시경제)로 더 탐색할 수 있습니다.
-          </p>
         )}
       </div>
     );
@@ -137,23 +125,22 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-6">
-        <h2 className="text-2xl font-bold text-gray-900">투자자 학습 경로</h2>
+        <h2 className="text-2xl font-bold text-gray-900">투자자 학습</h2>
         <p className="text-sm text-gray-600 mt-1">
-          시장 → 매크로 → 금리 → 리스크 → 이론 → 명제 순으로 <span className="font-medium">권장</span>합니다.
-          단계와 항목은 자유롭게 선택하세요.
+          주제별 <span className="font-medium">섹션</span>으로 묶었습니다. 순서는 권장일 뿐이며 자유롭게 선택하세요.
         </p>
         {curriculum.intro && (
           <p className="text-sm text-gray-500 mt-2">{curriculum.intro}</p>
         )}
       </div>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {curriculum.stages.map(stage => (
-          <StageCard
-            key={stage.id}
-            stage={stage}
-            bookmarkCount={countStageBookmarks(stage, bookmarks)}
-            onSelect={() => setSelectedStageId(stage.id)}
+      <div className="grid gap-4 sm:grid-cols-2">
+        {curriculum.sections.map(section => (
+          <SectionCard
+            key={section.id}
+            section={section}
+            bookmarkCount={countSectionBookmarks(section, bookmarks)}
+            onSelect={() => setSelectedSectionId(section.id)}
           />
         ))}
       </div>
@@ -161,25 +148,26 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   );
 }
 
-function countStageBookmarks(stage: CurriculumStage, bookmarks: Set<string>): number {
-  const ids = [
-    ...stage.termIds,
-    ...(stage.propositionIds ?? []),
-  ];
+function countSectionBookmarks(section: CurriculumSection, bookmarks: Set<string>): number {
+  const ids = section.parts.flatMap(part => [...part.termIds, ...(part.propositionIds ?? [])]);
   return ids.filter(id => bookmarks.has(id)).length;
 }
 
-function StageCard({
-  stage,
+function countPartItems(part: CurriculumPart): number {
+  return part.termIds.length + (part.propositionIds?.length ?? 0);
+}
+
+function SectionCard({
+  section,
   bookmarkCount,
   onSelect,
 }: {
-  stage: CurriculumStage;
+  section: CurriculumSection;
   bookmarkCount: number;
   onSelect: () => void;
 }) {
-  const itemCount =
-    stage.propositionIds?.length ?? stage.termIds.length;
+  const partCount = section.parts.length;
+  const itemCount = section.parts.reduce((sum, part) => sum + countPartItems(part), 0);
 
   return (
     <button
@@ -187,18 +175,163 @@ function StageCard({
       onClick={onSelect}
       className="text-left bg-white rounded-xl shadow border border-gray-100 p-5 hover:border-violet-300 hover:shadow-md transition-all"
     >
-      <div className="text-xs font-bold text-violet-600 mb-1">{stage.order}단계</div>
-      <h3 className="text-lg font-bold text-gray-900">{stage.title}</h3>
-      {stage.subtitle && (
-        <p className="text-sm text-gray-600 mt-1">{stage.subtitle}</p>
+      <div className="text-xs font-bold text-violet-600 mb-1">섹션 {section.order}</div>
+      <h3 className="text-lg font-bold text-gray-900">{section.title}</h3>
+      {section.subtitle && (
+        <p className="text-sm text-gray-600 mt-1">{section.subtitle}</p>
+      )}
+      {section.hook && (
+        <p className="text-sm text-gray-500 mt-2 line-clamp-2">{section.hook.trim().split('\n')[0]}</p>
       )}
       <div className="flex gap-3 mt-3 text-xs text-gray-500">
+        <span>{partCount}개 파트</span>
         <span>{itemCount}개 항목</span>
         {bookmarkCount > 0 && (
           <span className="text-amber-600">★ {bookmarkCount} 북마크</span>
         )}
       </div>
     </button>
+  );
+}
+
+function PartBlock({
+  part,
+  expandedTermId,
+  expandedPropId,
+  bookmarks,
+  onToggleTerm,
+  onToggleProp,
+  onBookmark,
+  onOpenTerm,
+}: {
+  part: CurriculumPart;
+  expandedTermId: string | null;
+  expandedPropId: string | null;
+  bookmarks: Set<string>;
+  onToggleTerm: (termId: string) => void;
+  onToggleProp: (propId: string) => void;
+  onBookmark: (id: string) => void;
+  onOpenTerm: (id: string) => void;
+}) {
+  const terms = part.termIds
+    .map(tid => getTermById(tid))
+    .filter((t): t is NonNullable<typeof t> => t != null);
+  const propositions = (part.propositionIds ?? [])
+    .map(pid => getPropositionById(pid))
+    .filter((p): p is NonNullable<typeof p> => p != null);
+
+  if (terms.length === 0 && propositions.length === 0 && !part.lead && !part.examples?.length) return null;
+
+  let rowIndex = 0;
+
+  return (
+    <section className="rounded-xl border border-gray-200 bg-gray-50/40 p-4 sm:p-5">
+      <div className="mb-4">
+        <h3 className="text-lg font-bold text-gray-900">{part.title}</h3>
+        {part.subtitle && <p className="text-sm text-gray-600 mt-0.5">{part.subtitle}</p>}
+        {part.lead && (
+          <p className="text-sm text-gray-700 leading-relaxed mt-3 whitespace-pre-line">{part.lead}</p>
+        )}
+      </div>
+
+      {part.examples && part.examples.length > 0 && (
+        <div className="space-y-3 mb-5">
+          {part.examples.map(example => (
+            <ExampleCard key={example.title} example={example} />
+          ))}
+        </div>
+      )}
+
+      {part.takeaway && (
+        <p className="text-sm font-medium text-violet-900 bg-violet-50 border border-violet-100 rounded-lg px-3 py-2 mb-4">
+          ↳ {part.takeaway}
+        </p>
+      )}
+
+      {part.investorActions && part.investorActions.length > 0 && (
+        <InvestorActionsBlock actions={part.investorActions} />
+      )}
+
+      {(terms.length > 0 || propositions.length > 0) && (
+        <>
+          <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-2">
+            더 깊게 — 용어 &amp; 명제
+          </p>
+          <div className="space-y-2">
+            {terms.map(term => {
+              const index = rowIndex++;
+              return (
+                <TermRow
+                  key={term.id}
+                  index={index}
+                  term={term}
+                  expanded={expandedTermId === term.id}
+                  bookmarked={bookmarks.has(term.id)}
+                  onToggle={() => onToggleTerm(term.id)}
+                  onBookmark={() => onBookmark(term.id)}
+                  onOpenTerm={onOpenTerm}
+                />
+              );
+            })}
+            {propositions.map(prop => {
+              const index = rowIndex++;
+              return (
+                <PropositionRow
+                  key={prop.id}
+                  index={index}
+                  proposition={prop}
+                  expanded={expandedPropId === prop.id}
+                  bookmarked={bookmarks.has(prop.id)}
+                  onToggle={() => onToggleProp(prop.id)}
+                  onBookmark={() => onBookmark(prop.id)}
+                  onOpenTerm={onOpenTerm}
+                />
+              );
+            })}
+          </div>
+        </>
+      )}
+    </section>
+  );
+}
+
+function ExampleCard({
+  example,
+  variant = 'default',
+}: {
+  example: CurriculumExample;
+  variant?: 'default' | 'episode';
+}) {
+  const borderClass =
+    variant === 'episode'
+      ? 'border-violet-200 bg-violet-50/40'
+      : 'border-amber-100 bg-white';
+  const label = variant === 'episode' ? '한 편의 이야기' : null;
+
+  return (
+    <div className={`rounded-lg border shadow-sm px-4 py-3 ${borderClass}`}>
+      {label && <p className="text-xs font-semibold text-violet-700 mb-2">{label}</p>}
+      <div className="flex flex-wrap items-baseline gap-2 mb-1.5">
+        <h4 className="font-semibold text-gray-900 text-sm">{example.title}</h4>
+        {example.period && (
+          <span className="text-xs text-amber-700 bg-amber-50 px-2 py-0.5 rounded">{example.period}</span>
+        )}
+      </div>
+      <p className="text-sm text-gray-700 leading-relaxed whitespace-pre-line">{example.body}</p>
+    </div>
+  );
+}
+
+function InvestorActionsBlock({ actions }: { actions: string[] }) {
+  return (
+    <div className="mb-5 rounded-lg border border-emerald-200 bg-emerald-50/50 px-4 py-3">
+      <p className="text-xs font-semibold text-emerald-800 mb-2">투자자 메모 — 이렇게 행동</p>
+      <ul className="space-y-1.5 text-sm text-gray-800 list-disc list-inside leading-relaxed">
+        {actions.map(action => (
+          <li key={action}>{action}</li>
+        ))}
+      </ul>
+    </div>
   );
 }
 
@@ -306,10 +439,11 @@ function PropositionRow({
   onOpenTerm: (id: string) => void;
 }) {
   return (
-    <div className="bg-white rounded-lg border border-gray-100 overflow-hidden">
+    <div className="bg-white rounded-lg border border-indigo-100 overflow-hidden">
       <div className="flex items-start gap-2 px-4 py-3">
         <span className="text-xs text-gray-400 w-6 shrink-0 mt-1">{index + 1}</span>
         <button type="button" onClick={onToggle} className="flex-1 text-left min-w-0">
+          <div className="text-xs text-indigo-600 font-medium mb-0.5">명제</div>
           <div className="font-semibold text-gray-900">{proposition.statement}</div>
           {!expanded && (
             <p className="text-sm text-gray-500 line-clamp-1 mt-0.5">{proposition.verdict}</p>

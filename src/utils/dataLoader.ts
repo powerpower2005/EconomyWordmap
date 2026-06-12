@@ -21,10 +21,10 @@ export const loadPropositions = (): Proposition[] => {
 
 export const loadCurriculum = (): Curriculum | null => {
   const raw = (termsData as { curriculum?: Curriculum }).curriculum;
-  if (!raw?.stages?.length) return null;
+  if (!raw?.sections?.length) return null;
   return {
     ...raw,
-    stages: [...raw.stages].sort((a, b) => a.order - b.order),
+    sections: [...raw.sections].sort((a, b) => a.order - b.order),
   };
 };
 

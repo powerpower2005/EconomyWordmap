@@ -1,162 +1,348 @@
-# Investor learning path — stage buckets + suggested term order (not forced).
-# Canonical rules: AGENTS.md § Investor learning path
+# Investor learning path — thematic sections with narrative + examples.
 curriculum:
-  version: 1
-  intro: "단계는 권장 학습 묶음입니다. 순서를 강제하지 않으며, 궁금한 항목부터 열어도 됩니다."
-  stages:
-    - id: s1-market
+  version: 2
+  intro: "각 섹션은 실제 사례부터 시작합니다. 예시 → 용어 → 명제 순으로 펼쳐 보세요."
+  sections:
+    - id: sec-money-value
       order: 1
-      title: "시장"
-      subtitle: "내가 사는 게 뭔지"
-      learnerQuestion: "What am I actually buying?"
-      termIds:
-        - stock-market
-        - stock-index
-        - etf
-        - valuation
-        - eps
-        - per
-        - pbr
-        - risk-on
-        - risk-off
-        - market-sentiment
+      title: "내 돈의 가치는 어떻게 정해지는가"
+      subtitle: "구매력 · 은행 · 연준 · 유동성"
+      learnerQuestion: "Why does the purchasing power of my cash change?"
+      hook: |
+        2021년 초 통장에 1,000만 원이 있었다. 2024년에도 잔고는 1,000만 원 그대로다.
+        그런데 같은 돈으로 살 수 있는 것은 분명 줄었다 — 외식 한 번, 주유, 마트 장보기 모두 비싸졌다.
+        숫자는 그대로인데 「가치」가 달라진 이유를, 은행·연준·유동성이라는 실제 메커니즘으로 따라가 본다.
+      overview: |
+        돈의 「가치」는 환율처럼 눈에 보이는 숫자가 아니라 **같은 돈으로 살 수 있는 양(구매력)** 이다.
+        이 섹션은 하나의 줄기로 이어진다 — **물가·실질 → 은행 → 연준 → 한국 투자자 전달 → 재정 견제 → 유동성 → 같은 거시·다른 자산 → 통제 실패**.
+        각 파트의 예시와 **투자자 메모**를 먼저 읽고, 아래 용어·명제로 깊이를 더하면 된다.
+      episode:
+        title: "한 주간 — CPI 발표에서 내 계좌까지"
+        period: "2022년 전형적 한 주"
+        body: |
+          **화요일 새벽(한국 시간)** — 미국 CPI가 **예상보다 높게** 나온다. 시장은 「연준이 더 올릴 것」으로 재가격한다.
+          **수요일** — 연준 위원 발언·점도표가 **고금리 유지** 쪽으로 읽힌다. 성장주·채권 ETF가 함께 출렁인다.
+          **목~금** — 「금리 ↑ → 할인율 ↑」 경로로 **밸류에이션 높은 종목**이 더 크게 조정된다. 통장·MMF 이자는 아직 그대로인데 **주식·채권 계좌**는 이미 반응했다.
 
-    - id: s2-macro
-      order: 2
-      title: "매크로 대시보드"
-      subtitle: "뉴스에 나오는 숫자"
-      learnerQuestion: "What did today's data mean?"
-      termIds:
-        - gdp
-        - real-gdp
-        - economic-growth
-        - recession
-        - unemployment
-        - inflation
-        - cpi
-        - pce
-        - core-pce
-        - expected-inflation
-        - disinflation
-        - deflation
-        - business-cycle
+          **투자자가 느끼는 것:** 「나는 아무것도 안 했는데 왜 계좌만 줄었지?」
+          **실제로 일어난 것:** CPI 하나가 **연준 기대 → 금리 → 자산 가격**으로 **5일 안에** 전달된 것이다. 이 섹션 전체가 이 한 주를 길게 풀어 쓴 것이다.
+      parts:
+        - id: part-purchasing-power
+          title: "1. 돈의 가치 = 구매력"
+          subtitle: "통장 잔고 숫자 ≠ 실제 살 수 있는 양"
+          lead: |
+            「인플레이션 3%」는 추상적 숫자처럼 들리지만, 체감은 이렇게 온다.
+            작년에 1만 원이면 되던 점심이 올해 1만 500원이 되면, **예금 잔고는 그대로인데 가치만 33% 줄어든 것**과 같다.
+          examples:
+            - title: "2022~2023 미국 — CPI가 예상을 깨고 나올 때마다"
+              period: "2022~2023"
+              body: |
+                2022년 미국 CPI는 한동안 **예상치를 크게 웃돌며** 발표됐다.
+                시장은 「연준이 더 세게 금리를 올리겠구나」라고 해석했고, 그날 주식·채권이 함께 출렁였다.
+                포인트: **물가 숫자 하나가 연준 행동 기대를 바꾸고, 자산 가격까지 흔든다** — 이게 「돈의 가치」가 시장에 닿는 첫 관문이다.
+            - title: "기대인플레이션이 풀리면 — 1970년대 교훈"
+              period: "1970년대"
+              body: |
+                사람들이 「앞으로도 물가가 오를 것」이라고 **굳게 믿기 시작**하면, 임금 협상·임대료·가격 설정에 미리 반영된다.
+                연준이 금리를 올려도 **이미 오를 예정인 가격**을 막기 어려워진다.
+                반대로 2020년대 일부 국면처럼 기대가 **목표에 고정(anchored)** 되어 있으면, 일시적 물가 충격이 영구화되지 않을 수 있다.
+            - title: "명목 4% vs 물가 5% — 실질로는 잃는다"
+              period: "2022~2023"
+              body: |
+                예금·MMF **명목 이자**가 4%여도 CPI가 5%면 **실질 구매력은 여전히 줄어든다**.
+                **실질금리(명목 금리 − 물가)** 가 마이너스인 동안 통장·예금 비중을 「안전하니까」만 보고 늘리면 **조용히 가치가 깎인다**.
+                2022년 후반~2023년 초 미국은 금리를 올렸지만 **실질금리가 한동안 마이너스**에 머문 구간이 있었다.
+          takeaway: "돈의 가치는 통장 숫자가 아니라 **물가와 기대**가 정한다. **명목 이자만 보지 말고 실질**로 생각한다."
+          investorActions:
+            - "수익·이자를 **명목이 아니라 실질(물가 빼기)** 로 계산한다."
+            - "실질금리가 마이너스인데 **현금·예금 비중만** 늘리지 않는다 — 단기채·MMF 등 **금리를 따라가는 그릇**을 검토한다."
+            - "CPI·PCE 발표일은 **금리 기대가 바뀌는 날**로 캘린더에 표시한다."
+          termIds:
+            - inflation
+            - expected-inflation
+            - disinflation
+            - cpi
+            - money-supply
+            - real-interest-rate
+          propositionIds:
+            - p4
+            - p60
+            - p81
 
-    - id: s3-rates
-      order: 3
-      title: "금리 전달"
-      subtitle: "Fed 뉴스가 주가에 닿는 경로"
-      learnerQuestion: "Why did stocks move on the Fed?"
-      termIds:
-        - interest-rate
-        - policy-rate
-        - real-interest-rate
-        - long-term-interest-rate
-        - federal-reserve
-        - central-bank
-        - quantitative-easing
-        - quantitative-tightening
-        - base-money
-        - reserves
-        - fed-assets
-        - iorb
-        - floor-system
-        - lclor
-        - money-multiplier
-        - credit-creation
-        - government-bond
-        - bond-market
-        - bond-price
-        - yield-curve
-        - term-spread
+        - id: part-banks
+          title: "2. 은행의 역할 — 돈은 어디서 생기나"
+          subtitle: "현금 인출이 아니라, 대출과 동시에 창출"
+          lead: |
+            「은행에 돈을 맡긴다」고만 생각하기 쉽지만, 현대 경제에서 **새 돈의 상당 부분은 은행 대출과 동시에 생긴다**.
+            주택담보대출 3억 원이 실행되면, 차주 계좌에 **3억 원 예금이 동시에 생기는** 구조다.
+          examples:
+            - title: "주담대 실행 — 대출 = 예금의 동전 양면"
+              period: "일상"
+              body: |
+                A가 은행에서 주택담보대출을 받으면, A 통장에 입금액이 찍힌다.
+                은행 전체로 보면 **대출과 예금이 함께 늘어난다** — 금고에서 현금을 꺼내 준 게 아니다.
+                그래서 「통화량」은 중앙은행만이 아니라 **은행의 신용창출**에 크게 의존한다.
+            - title: "2008년 이전 — 신용이 과도하게 풀릴 때"
+              period: "2000년대"
+              body: |
+                저금리·느슨한 대출이 이어지면, 부동산·주식 등 **자산 가격을 부추기는 신용**이 쌓인다.
+                바젤 규제(자기자본비율)는 「은행이 감당할 수 있는 만큼만 빌려라」는 속도 제한장치다.
+                규제를 맞추기 위해 **증자 대신 대출을 줄이는** 은행도 많다 — p116이 설명하는 그림.
+          takeaway: "은행은 예금을 보관하는 금고가 아니라, **인가받은 신용창출 기관**이다. 돈의 양은 여기서 출발한다."
+          termIds:
+            - bank
+            - deposit
+            - loan
+            - credit-creation
+            - fractional-reserve-banking
+            - capital-adequacy-ratio
+            - basel-accords
+          propositionIds:
+            - p109
+            - p110
+            - p111
+            - p112
+            - p113
+            - p116
 
-    - id: s4-risk
-      order: 4
-      title: "재정·국제·리스크"
-      subtitle: "2차 파급과 꼬리 위험"
-      learnerQuestion: "What else can swamp my thesis?"
-      termIds:
-        - fiscal-policy
-        - fiscal-dominance
-        - national-debt
-        - tax-cut
-        - defense-spending
-        - great-society
-        - exchange-rate
-        - reserve-currency
-        - bretton-woods-system
-        - strong-dollar
-        - weak-dollar
-        - trade-war
-        - tariff
-        - supply-chain
-        - liquidity
-        - asset-bubble
-        - systemic-risk
-        - geopolitical-risk
-        - safe-haven-asset
-        - sector-rotation
+        - id: part-fed
+          title: "3. 연준의 역할 — 물가와 금리"
+          subtitle: "「2% 인플레」 목표와 기준금리"
+          lead: |
+            연준(Fed)은 **물가 안정(약 2% 인플레)** 을 최우선 목표 중 하나로 삼는다.
+            물가가 목표를 넘으면 **기준금리(policy rate)를 올려** 차입·투자·소비를 식히려 한다 — 전달은 즉각적이지 않다.
+          examples:
+            - title: "2022~2023 — CPI → 금리 인상 연쇄"
+              period: "2022~2023"
+              body: |
+                물가가 높게 나오자 연준은 2022년부터 **공격적으로 기준금리를 인상**했다.
+                시장은 「금리 ↑ → 미래 현금흐름 할인율 ↑ → 성장주 밸류에이션 ↓」 식으로 주식을 재가격했다.
+                동시에 **채권 가격은 하락**(금리와 역관계) — p58.
+                단, 「침체 우려 때문에 내리는 금리」는 오히려 주식에 악재일 수 있다 — p12.
+            - title: "디스인플레이션 확인 후 — 2024년대 인하 논의"
+              period: "2024~"
+              body: |
+                물가 **상승률**이 꺾여 디스인플레이션이 확인되면, 연준은 금리 인하 여지를 검토한다 — p82.
+                다만 **기대인플레이션이 여전히 높거나** 고용·자산이 과열되면, 물가가 잠잠해도 인하를 미룬다.
+          takeaway: "연준은 **물가 신호에 반응해 금리**를 움직인다. 투자자에게는 「왜 올렸/내렸는가(배경)」가 방향만큼 중요하다."
+          termIds:
+            - federal-reserve
+            - central-bank
+            - policy-rate
+            - interest-rate
+            - inflation-targeting
+            - government-bond
+            - bond-market
+          propositionIds:
+            - p1
+            - p59
+            - p58
+            - p82
 
-    - id: s5-theory
-      order: 5
-      title: "이론·역사"
-      subtitle: "언제 통설이 깨지는지"
-      learnerQuestion: "When does the usual story break?"
-      termIds:
-        - supply-and-demand
-        - aggregate-demand
-        - aggregate-supply
-        - phillips-curve
-        - keynesian-economics
-        - multiplier
-        - monetarism
-        - supply-shock
-        - central-bank-independence
-        - go-go-years
-        - nifty-fifty
-        - efficient-market-hypothesis
-        - behavioral-finance
-        - great-depression
-        - global-financial-crisis
-        - stagflation
+        - id: part-korea-investor
+          title: "4. 한국 투자자 — Fed 뉴스가 원·코스피까지"
+          subtitle: "미국 CPI → 달러·원 → 수입물가·외국인"
+          lead: |
+            미국 Fed·CPI 이야기만으로 끝나면 **국내 포트폴리오**와 연결이 끊긴다.
+            한국 투자자에게는 **3단 전달**이 자주 보인다.
+          examples:
+            - title: "1단 — Fed·미국 CPI"
+              period: "2022~2023"
+              body: |
+                미국 CPI 서프라이즈 → **연준 긴축 기대** → 글로벌 **금리·할인율** 재가격.
+                미국 자산(채권·성장주)부터 움직이고, **달러 강세** 압력이 커진다.
+            - title: "2단 — 달러·원화"
+              period: "2022"
+              body: |
+                미국 **금리↑ + 위험회피** → **강달러·약원**(원/달러 1,220 → 1,400대).
+                원화 약세는 **수입 에너지·원자재**의 원화 가격을 올려 **국내 물가**에도 압력 — p64.
+            - title: "3단 — 코스피·외국인"
+              period: "2022"
+              body: |
+                **위험회피** + **외국인 자금 이탈** → 코스피 급락·원화 동반 약세 — p101.
+                「미국만 보면 되지」가 아니라 **환율·외국인 수급**까지 한 묶음으로 본다.
+          takeaway: "Fed 뉴스 → **달러/원 → 수입물가·외국인**까지 이어지면, 국내 주식·현금 가치를 같이 해석해야 한다."
+          investorActions:
+            - "미국 CPI·FOMC 다음 날 **원/달러·코스피·외국인 순매수**를 함께 본다."
+            - "원화 약세 국면에서는 **수입 의존·에너지 비중** 큰 업종·지표(유가)를 체크한다."
+            - "달러 자산(미국 ETF·주식) 보유 시 **주가 수익 + 환율**을 분리해서 기록한다."
+          termIds:
+            - korean-won
+            - exchange-rate
+            - strong-dollar
+            - inflation
+            - stock-market
+            - risk-off
+          propositionIds:
+            - p64
+            - p101
+            - p20
 
-    - id: s6-propositions
-      order: 6
-      title: "명제"
-      subtitle: "조건부로 판단하기"
-      learnerQuestion: "Under what conditions is this true?"
-      termIds: []
-      propositionIds:
-        - p11
-        - p12
-        - p16
-        - p19
-        - p1
-        - p6
-        - p10
-        - p13
-        - p5
-        - p7
-        - p15
-        - p17
-        - p20
-        - p8
-        - p4
-        - p26
-        - p31
-        - p35
-        - p59
-        - p113
-        - p117
-        - p118
-        - p119
-        - p120
-        - p121
-        - p122
-        - p123
-        - p124
-        - p125
-        - p126
-        - p127
-        - p128
-        - p129
-        - p130
+        - id: part-checks
+          title: "5. 견제 — 재정이 통화를 흔들 때"
+          subtitle: "재무부 · TGA · 재정 우위"
+          lead: |
+            연준만이 아니다. **재무부의 지출·국채 발행·TGA(일반계좌)** 도 시중 유동성을 빼거나 더한다.
+            재정이 과열되면 연준이 물가를 잡기 **어려워지는(재정 우위)** 구도도 생긴다.
+          examples:
+            - title: "2022년 영국 트러스 쇼크 — 재정이 신뢰를 깨면"
+              period: "2022-09"
+              body: |
+                대규모 **감세** 발표 후 영국 국채가 급락(금리 급등)했다 — p6.
+                「재정이 지속 가능한가?」에 대한 **신뢰 붕괴**가 조달 비용을 올린 사례다.
+                기축통화국(미국)은 버티기 쉽지만, **신뢰가 흔들리면** 같은 메커니즘이 작동한다.
+            - title: "TGA 급증 — 시장에서 현금이 빠져나갈 때"
+              period: "2022~2023"
+              body: |
+                재무부 TGA 잔고가 **크게 늘면** 세수·국채 자금이 연준 계정에 묶여 **지급준비금·유동성이 줄어든다** — p131.
+                단기금융시장(SOFR)이 튀는 날, TGA·국채 발행 일정을 함께 보는 이유다.
+            - title: "1960~70년대 — 재정 확장 뒤 스태그플레이션"
+              period: "1960~1970"
+              body: |
+                전쟁·복지 **재정 확장**이 물가·임금 **기대를 누적**시킨 뒤, 1973·79년 **오일쇼크**와 겹치며
+                「물가↑ + 실업↑」 스태그플레이션이 터졌다 — p128.
+                연준은 **재정 압력** 속에서 긴축 속도를 조절하기 어려웠다 — p129.
+          takeaway: "돈의 가치는 **통화정책만의 문제가 아니다**. 재정·TGA·국채 수급이 유동성과 기대를 동시에 흔든다."
+          termIds:
+            - fiscal-policy
+            - fiscal-dominance
+            - central-bank-independence
+            - national-debt
+            - tga
+            - treasury
+          propositionIds:
+            - p6
+            - p129
+            - p131
+            - p128
+
+        - id: part-liquidity-control
+          title: "6. 유동성 통제 — QE · 지준금 · SOFR"
+          subtitle: "눈에 안 보이는 배관이 자산 가격까지 연결"
+          lead: |
+            2008년 이후 연준은 **지급준비금(reserves)** 이 풍부한 「floor system」에서 단기금리를 유도한다.
+            QE는 자산을 사들여 **지준금을 늘리고**, QT는 반대로 **줄인다**. IORB는 은행이 돈을 **대출 vs 적치**할 유인을 정한다.
+          examples:
+            - title: "2020년 3월 — 팬데믹 QE와 지준금 폭증"
+              period: "2020"
+              body: |
+                연준이 국채·MBS를 대량 매입하며 **지급준비금이 급증**했다 — p120.
+                은행이 전부를 대출로 풀지 않고 **지준금에 쌓아두면**, 물가로 바로 이어지지 않을 수 있다 — p10, p4.
+                그럼에도 이후 **2020~22년 유동성·수요**가 겹치며 인플레이션이 커졌다.
+            - title: "2022~ — QT와 SOFR"
+              period: "2022~"
+              body: |
+                QT로 지준금을 줄이면 **유동성 회수** 압력이 생긴다 — p56, p124.
+                TGA·국채 **QRA 발행 서프라이즈**가 크면 장기금리가 올라 채권·주식에 부담 — p133.
+                SOFR(레포 금리)가 **급등**하면 단기 자금 시장이 경색됐다는 신호 — p132.
+            - title: "지준금이 너무 빨리 줄면 — LCLoR 리스크"
+              period: "2019·2023"
+              body: |
+                2019년 9월 **레포 시장 스트레스**, 2023년 일부 **QT 속도 논쟁**처럼,
+                지준금이 **최소 적정 수준(LCLoR)** 아래로 내려가면 단기금리가 예상 밖으로 튈 수 있다 — p123.
+          takeaway: "연준의 「레버」는 기준금리만이 아니다. **지준금·IORB·QT·TGA·QRA**가 한 묶음으로 움직인다."
+          termIds:
+            - base-money
+            - reserves
+            - iorb
+            - floor-system
+            - quantitative-easing
+            - quantitative-tightening
+            - fed-assets
+            - repo-market
+            - sofr
+            - qra
+            - lclor
+          propositionIds:
+            - p10
+            - p56
+            - p120
+            - p121
+            - p123
+            - p124
+            - p132
+            - p133
+
+        - id: part-same-macro-assets
+          title: "7. 같은 거시, 다른 자산 — 1,000만 원의 표현"
+          subtitle: "예금 · 채권 · 주식은 같은 Fed 뉴스에 다르게 반응"
+          lead: |
+            섹션 시작의 **1,000만 원**을 「어디에 두었느냐」에 따라 2020~23 **같은 거시**에도 결과가 갈린다.
+            돈의 가치는 **현금만**이 아니라 **자산 형태**로도 표현된다.
+          examples:
+            - title: "통장·예금·MMF"
+              period: "2020 vs 2022~23"
+              body: |
+                **2020~21:** 이자는 낮지만 **원금은 안전**, QE 국면에서 **주식 대비 기회비용** 큼.
+                **2022~23:** 명목 이자는 오르지만 **실질은 마이너스**일 수 있고, CPI 주간에는 **주식보다 덜** 출렁임.
+            - title: "장기 국채 ETF"
+              period: "2020 vs 2022~23"
+              body: |
+                **2020~21:** QE·금리↓ → **채권 가격↑**, 「안전자산」으로 돈이 몰림.
+                **2022~23:** 금리 급등 → **채권 가격 급락**(듀레이션) — p58. 「안전하니까 채권」만으로는 부족했던 국면.
+            - title: "성장주·주식 ETF"
+              period: "2020 vs 2022~23"
+              body: |
+                **2020~21:** 유동성·저금리 → **밸류에이션↑**, p91.
+                **2022~23:** 할인율↑ → **고PER·성장주**가 더 크게 조정 — p102.
+          takeaway: "**같은 Fed·CPI**라도 자산별 전달 경로가 다르다. 현금·채권·주식을 **한 줄기**로 같이 본다."
+          investorActions:
+            - "금리 **급등기**에 장기채 「이제 싸다」 **성급 매수**를 경계한다 — 듀레이션(p58)을 먼저 본다."
+            - "유동성 **완화(2020형)** 국면: 현금 **기회비용** 큼 / **긴축(2022형)** 국면: 현금·단기채 **옵션 가치** ↑."
+            - "포트폴리오를 **현금·채권·주식** 세 그릇으로 나눠, Fed 레짐이 바뀔 때 **비중만** 조절하는 연습을 한다(전량 현금화 X)."
+          termIds:
+            - stock-market
+            - bond-market
+            - government-bond
+            - bond-price
+            - liquidity
+            - money-market
+            - savings
+          propositionIds:
+            - p58
+            - p91
+            - p102
+            - p12
+
+        - id: part-failures
+          title: "8. 통제가 실패할 때"
+          subtitle: "유동성 함정 · 뱅크런 · Too big to fail"
+          lead: |
+            설계된 메커니즘도 **국면과 심리**에 따라 무너진다.
+            「금리를 내리면 경기가 살아난다」가 통하지 않는 **유동성 함정**, 한 은행의 불신이 **전체로 번지는** 뱅크런,
+            **구제 기대**가 위험 감수를 키우는 도덕적 해이까지 — 돈의 가치와 금융 안정이 같이 흔들리는 지점이다.
+          examples:
+            - title: "2023년 3월 — SVB와 지역은행 뱅크런"
+              period: "2023-03"
+              body: |
+                한 지역은행의 **예금 인출 사태**가 다른 은행으로 **불신이 전염**되며 연쇄 이탈 — p94.
+                예금보험·연준 **유동성 공급**이 작동해 전체 붕괴는 막았지만, 「은행 돈도 안전하지 않을 수 있다」는 기억이 남았다.
+            - title: "2008년 — 레버리지 버블이 시스템으로"
+              period: "2008"
+              body: |
+                주택담보 **신용·레버리지** 버블이 터지며 **디레버리징** 악순환 — p77, p43.
+                「개별 은행은 건전하다」고 해도 **동시에 줄이면** 시스템 전체가 무너진다.
+                **Too big to fail** 기대가 **도덕적 해이**를 키웠다는 비판 — p115.
+            - title: "1990년대 일본 — 유동성 함정"
+              period: "1990~"
+              body: |
+                금리를 **0% 근처**까지 내려도 신용·수요가 살아나지 않는 **유동성 함정** — p28.
+                「통화를 풀면 물가가 오른다」는 직관이 **약해지는** 대표 국면.
+          takeaway: "메커니즘을 알아도 **실패 모드**를 알아야 한다. 뱅크런·시스템 리스크·유동성 함정은 「내 돈의 가치」를 갑자기 바꾼다."
+          investorActions:
+            - "예금을 **한 은행·한 형태**에만 몰지 않는다 — SVB(p94) 이후 **FDIC/예금보험 한도**를 확인한다."
+            - "브로커 **현금·MMF·단기채**는 은행 예금과 **다른 그릇**임을 구분한다."
+            - "「금리 내리면 다 오른다」 **유동성 함정** 국면(p28)을 기억하고, 레짐을 먼저 본다."
+          termIds:
+            - liquidity-trap
+            - bank-run
+            - too-big-to-fail
+            - moral-hazard
+            - systemic-risk
+            - global-financial-crisis
+          propositionIds:
+            - p28
+            - p43
+            - p77
+            - p94
+            - p115
