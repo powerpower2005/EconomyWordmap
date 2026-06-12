@@ -29,6 +29,7 @@ Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/term
 - Manual (NOT auto-caught): duplicate relation pairs, `category` vocabulary (`docs/categories.md`), `term1Id -> term2Id` direction consistency, bidirectional reverse fields.
 - Per work-type checks: `docs/agent-data-guide.md` section 4.3 matrix.
 - Before adding/supplementing: search existing data for dupes + gaps (both endpoint ids of a pair, in either order). See `AGENTS.md` "Finding existing data".
+- Article/column topic review: reply in four tiers (필수 / 보강 / 선택 / 제외) per `AGENTS.md` "Content / topic review — answer format".
 
 ## Relations
 
