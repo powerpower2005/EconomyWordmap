@@ -91,9 +91,9 @@ terms:
 
   - id: reserves
     name: 지급준비금 (Reserves)
-    description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제·유동성·규제 목적
+    description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제·유동성·규제 목적. 2008년 이후 QE로 풍부해지면서 연준과 은행 간 거래 매개이자 본원통화의 핵심 축이 되었고, FRED상 연준보유 자산과 거의 동행하며 2020년대에는 주가와의 상관도 커진 유동성 변수
     category: 통화
-    stockMarketImportance: 3
+    stockMarketImportance: 6
 
   - id: required-reserve-ratio
     name: 지급준비율 (Required Reserve Ratio)
@@ -103,7 +103,7 @@ terms:
 
   - id: excess-reserves
     name: 초과지준금 (Excess Reserves)
-    description: 의무 지급준비금 초과분의 지급준비금으로, 미국에서는 지급준비율이 0%이나 IORB·유동성 관리 측면에서 여전히 통화정책 운용에 중요한 역할
+    description: 의무 지급준비금 초과분의 지급준비금. 2020년 미국 지급준비율 0% 이후 ‘초과’ 개념은 사실상 사라지고 전액 IORB 대상이 되었으나, IORB·유동성 관리 측면에서 지급준비금 운용은 여전히 중요
     category: 통화
     stockMarketImportance: 2
 
@@ -133,13 +133,19 @@ terms:
 
   - id: iorb
     name: IORB (Interest on Reserve Balances)
-    description: 중앙은행이 은행의 지급준비금에 지급하는 이자로 단기금리 하단 역할
+    description: 연준이 은행 지급준비금에 지급하는 이자. 2008년 GFC 이후 floor system 도입과 함께 IOER로 시작했고 2020년 지준율 0% 이후 IORB로 명칭·적용 범위가 확대됨. 풍부지준 환경에서 단기금리 하단(바닥)을 형성하며 기준금리와 연동
     category: 통화정책
     stockMarketImportance: 4
 
+  - id: floor-system
+    name: Floor System (Floor System)
+    description: 2008년 이후 연준이 채택한 금리 통제 체계로, 풍부한 지급준비금 환경에서 IORB가 단기금리 하단을 형성하고 공개시장조작보다 준비금 이자가 핵심 수단이 되는 방식. corridor system(2008년 이전)과 대비
+    category: 통화정책
+    stockMarketImportance: 3
+
   - id: lclor
     name: 최소 적정 지급준비금(LCLoR)
-    description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준
+    description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준. 연준은 abundant(풍부)에서 ample(충분) 수준으로 지준금을 줄여가며 LCLoR 근접 시 QT 속도 조절을 검토
     category: 금융
     stockMarketImportance: 2
 
@@ -175,9 +181,15 @@ terms:
 
   - id: fiscal-policy
     name: 재정정책 (Fiscal Policy)
-    description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책
+    description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책. 1960년대 미국처럼 성장·진보·냉전 경쟁 목표로 확장적 재정(감세·Great Society·국방 지출)이 이어지면 통화정책보다 우선할 때 재정 우위(fiscal dominance)가 나타날 수 있음
     category: 정부
     stockMarketImportance: 7
+
+  - id: fiscal-dominance
+    name: 재정 우위 (Fiscal Dominance)
+    description: 정부의 재정정책(지출·감세·전쟁·복지)이 중앙은행 통화정책보다 우선해, 물가가 높아도 금리 인상 등 긴축이 제한되는 상태. 1960년대 미국은 연준이 무게중심을 유지했으나 재정 확장이 앞서 70년대 인플레 기대 누적의 배경이 됨
+    category: 정부
+    stockMarketImportance: 4
 
   - id: gold
     name: 금 (Gold)
@@ -283,9 +295,21 @@ terms:
 
   - id: tax-cut
     name: 감세 (Tax Cut)
-    description: 세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적. 감세는 소득세(개인소득세, 법인세), 소비세(부가가치세, 소비세), 자산세 등 다양한 세목에 적용될 수 있으며, 감세 시 재정적자 확대, 국채 금리 상승, 채권 시장 반응, 재정 건전성 지표(부채/GDP 비율), 통화정책과의 조합 등을 함께 분석해야 함. 과거 영국 트러스 총리의 감세안 발표로 채권 시장이 붕괴했던 '트러스 쇼크' 사례처럼 재정 건전성에 대한 우려가 국채 매도(금리 상승)로 이어질 수 있음
+    description: "세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적. 1964년 Kennedy-Johnson 감세처럼 성장 국면에서도 시행되면 총수요·재정적자를 키워 물가 압력을 누적시킬 수 있음. 감세 시 재정적자·국채 금리·통화정책 조합을 함께 봐야 하며, 재정 건전성 우려가 국채 매도(금리 상승)로 이어질 수 있음(영국 트러스 쇼크 등)"
     category: 정부
     stockMarketImportance: 6
+
+  - id: great-society
+    name: Great Society (Great Society)
+    description: 1960년대 존슨 행정부의 빈곤 퇴치·교육·의료·민권 확대 등 대규모 복지·사회 프로그램 묶음으로 재정 지출을 크게 늘려 케인즈식 확장 재정의 한 축을 이룸
+    category: 정부
+    stockMarketImportance: 2
+
+  - id: defense-spending
+    name: 국방 지출 (Defense Spending)
+    description: 군사·안보·우주 경쟁 등을 위한 정부 지출로, 베트남전 참전기처럼 급증하면 재정적자·총수요·인플레 압력을 키우고 달러·기축통화 체제에도 부담을 줄 수 있음
+    category: 정부
+    stockMarketImportance: 3
 
   - id: tax-increase
     name: 증세 (Tax Increase)
@@ -373,7 +397,7 @@ terms:
 
   - id: fed-assets
     name: 연준보유 자산 (Fed Assets)
-    description: 연준이 양적완화 등을 통해 보유한 국채·MBS 등의 자산으로 연준 대차대조표의 자산 측 핵심 구성이며 규모 변화가 유동성에 영향을 미침
+    description: 연준이 양적완화 등을 통해 보유한 국채·MBS 등의 자산으로 연준 대차대조표의 자산 측 핵심 구성. QE·QT에 따라 규모가 변하며 매입·매도 대금이 지급준비금 계좌로 이체되어 FRED상 지급준비금과 거의 동행
     category: 통화정책
     stockMarketImportance: 5
 
@@ -997,7 +1021,7 @@ terms:
 
   - id: stagflation
     name: 스태그플레이션 (Stagflation)
-    description: 경기 침체로 실업이 높은 동시에 물가가 오르는 현상으로, 수요만 보던 케인즈주의의 한계를 드러낸 1970년대의 난제
+    description: 경기 침체로 실업이 높은 동시에 물가가 오르는 현상. 1970년대 오일쇼크가 촉발했으나, 1960년대 확장 재정·감세·전쟁 지출로 쌓인 수요 인플레와 임금-물가 기대가 먼저 형성된 뒤 공급 충격과 겹치며 폭발한 사례로도 해석됨
     category: 거시경제
     stockMarketImportance: 5
 
@@ -1289,6 +1313,18 @@ terms:
     category: 금융
     stockMarketImportance: 6
 
+  - id: go-go-years
+    name: Go-Go Years (Go-Go Years)
+    description: 1960년대 중반 미국 주식시장의 장기 강세 국면으로, 확장적 재정·성장 낙관·기술주 열풍이 겹치다 1960년대 말 급락으로 마무리된 역사적 상승장
+    category: 금융
+    stockMarketImportance: 4
+
+  - id: nifty-fifty
+    name: Nifty Fifty (Nifty Fifty)
+    description: 1960~70년대 Go-Go Years를 대표한 대형 성장·기술주 50종 쏠림 현상으로, '한 번 사면 영원히' 심리가 밸류에이션을 과도하게 부풀렸다가 이후 조정을 받음
+    category: 금융
+    stockMarketImportance: 4
+
   - id: irrational-exuberance
     name: 비합리적 과열 (Irrational Exuberance)
     description: 투자자들이 근거 없는 낙관에 휩싸여 자산 가격을 과도하게 끌어올리는 상태로 로버트 실러가 시장의 비효율성을 설명하며 널리 알린 표현
@@ -1453,9 +1489,15 @@ terms:
 
   - id: gold-standard
     name: 금본위제 (Gold Standard)
-    description: 화폐 가치를 일정량의 금에 고정하고 금과의 교환을 보장하던 통화제도로 통화량이 금 보유에 묶여 1970년대 이후 폐기됨
+    description: 화폐 가치를 일정량의 금에 고정하고 금과의 교환을 보장하던 통화제도. 브레튼우즈 체계(1944~1971)는 달러-금 태환과 고정환율로 변형된 금본위제였으나, 1960년대 달러 과잉 공급·런던 골드풀 해체 뒤 1970년대에 사실상 폐기됨
     category: 통화
     stockMarketImportance: 3
+
+  - id: bretton-woods-system
+    name: 브레튼우즈 체계 (Bretton Woods System)
+    description: 1944년 이후 국제 통화질서로, 달러를 금에 고정하고 다른 통화는 달러에 고정환율을 유지. 미국이 기축통화를 발행하는 대가로 금 태환을 보장했으나, 1960년대 확장 재정·약달러 압력으로 런던 골드풀이 해체되고 1971년 닉슨 쇼크로 붕괴
+    category: 국제경제
+    stockMarketImportance: 4
 
   - id: banking-commerce-separation
     name: 금산분리 (Separation of Banking and Commerce)
@@ -1471,7 +1513,7 @@ terms:
 
   - id: reserve-currency
     name: 기축통화 (Reserve Currency)
-    description: 국제 무역·금융 거래와 각국 외환보유의 중심이 되는 통화로 미국 달러가 대표적이며 발행국에 큰 특권을 부여함
+    description: 국제 무역·금융 거래와 각국 외환보유의 중심이 되는 통화로 미국 달러가 대표적이며 발행국에 큰 특권(트리핀 딜레마)을 부여함. 1960년대 확장 재정·달러 공급 증가는 브레튼우즈 체계의 금 태환 신뢰를 약화시키는 압력으로 작용
     category: 통화
     stockMarketImportance: 5
 
@@ -2095,7 +2137,7 @@ terms:
 
   - id: deposit
     name: 예금 (Deposit)
-    description: 은행이 보관·상환 책임을 지는 부채이자 신용창출의 결과로 생기는 돈으로 광의통화의 핵심 구성요소
+    description: 은행이 보관·상환 책임을 지는 부채이자 신용창출의 결과로 생기는 돈(bank money)으로 광의통화의 핵심 구성요소
     category: 금융
     stockMarketImportance: 5
 

@@ -5847,3 +5847,185 @@ relations:
     strength: medium
     nature: causal
     conditions: "IORB가 시장 대출 수익률 대비 충분히 높을 때"
+
+  - id: r754
+    term1Id: fed-assets
+    term2Id: reserves
+    type: proportional
+    bidirectional: true
+    description: "연준이 자산을 매입(QE)하면 대금이 지급준비금 계좌로 유입되어 지준금이 늘고, 매도·만기상환(QT)하면 은행이 지준금으로 대금을 지불해 지준금이 줄어드는 경향"
+    reverseDescription: "지급준비금 규모는 연준 자산 매입·매각의 결제 매개로, FRED상 연준보유 자산과 거의 동행"
+    strength: strong
+    nature: causal
+
+  - id: r755
+    term1Id: reserves
+    term2Id: stock-market
+    type: correlation
+    description: "2008년 QE 이후 풍부지준 레짐에서는 지급준비금 증가와 주가가 추세적으로 함께 움직이는 경향이 강해짐"
+    strength: medium
+    nature: correlational
+    conditions: "2008년 이후 QE·풍부지준 레짐, 특히 2020년대"
+
+  - id: r756
+    term1Id: quantitative-tightening
+    term2Id: inflation
+    type: inverse
+    description: "QT로 지준금을 줄이면 민간 신용창출·통화승수 확대에 따른 인플레 재점화 압력을 완화하는 데 기여할 수 있음"
+    strength: medium
+    nature: policy
+    conditions: "은행이 규제를 충족하고 신용창출에 적극 나서는 국면"
+
+  - id: r757
+    term1Id: iorb
+    term2Id: policy-rate
+    type: correlation
+    bidirectional: true
+    description: "floor system 하에서 IORB는 기준금리와 연동되며 단기금리 하단을 형성해, IORB 인상은 기준금리를 높게 유지하는 것과 유사한 긴축 신호"
+    reverseDescription: "기준금리 인상·유지는 IORB를 통해 지준금 이자 유인을 높여 신용창출 속도를 조절"
+    strength: strong
+    nature: policy
+
+  - id: r758
+    term1Id: credit-creation
+    term2Id: velocity-of-money
+    type: proportional
+    description: "은행 신용창출이 늘고 자금이 빠르게 순환하면 화폐유통속도가 올라가 경기·물가에 동시에 영향을 줄 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "실물 수요가 뒷받침될 때"
+
+  - id: r759
+    term1Id: floor-system
+    term2Id: iorb
+    type: correlation
+    description: "floor system에서는 IORB가 단기금리 하단을 형성하는 핵심 정책 수단"
+    strength: strong
+    nature: definitional
+
+  - id: r760
+    term1Id: floor-system
+    term2Id: reserves
+    type: correlation
+    description: "floor system은 QE 이후 풍부해진 지급준비금 환경에서 작동하며, 준비금 수준과 IORB가 함께 단기금리를 유도"
+    strength: strong
+    nature: hierarchical
+
+  - id: r761
+    term1Id: fiscal-policy
+    term2Id: stagflation
+    type: correlation
+    description: "완전고용에 가까운 국면에서 확장적 재정·감세·전쟁 지출이 이어지면 물가·임금 기대가 누적되어 이후 공급 충격과 겹칠 때 스태그플레이션으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "잠재성장률을 넘는 확장 재정이 지속될 때"
+
+  - id: r762
+    term1Id: fiscal-policy
+    term2Id: central-bank-independence
+    type: inverse
+    description: "재정 확장·적자·전쟁 지출이 우선되면 중앙은행의 물가 대응(금리 인상)이 정치·재정 부담으로 제한될 수 있음(재정 우위)"
+    strength: medium
+    nature: causal
+
+  - id: r763
+    term1Id: fiscal-policy
+    term2Id: weak-dollar
+    type: correlation
+    description: "확장적 재정·적자 누적·대규모 지출은 달러 공급·대외 불균형을 키워 달러 약세 압력으로 작용할 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "재정적자·대외수지 악화가 동반될 때"
+
+  - id: r764
+    term1Id: bretton-woods-system
+    term2Id: reserve-currency
+    type: correlation
+    bidirectional: true
+    description: "브레튼우즈 체계는 달러를 기축통화로 두고 금 태환·고정환율을 유지하는 국제 질서"
+    reverseDescription: "기축통화 발행국의 재정·통화 정책은 브레튼우즈형 고정환율·금 태환 약속과 긴장 관계"
+    strength: strong
+    nature: definitional
+
+  - id: r765
+    term1Id: bretton-woods-system
+    term2Id: weak-dollar
+    type: correlation
+    description: "확장 재정·달러 과잉 공급은 금 태환 신뢰를 약화시켜 브레튼우즈 체계에 균열을 내고 달러 약세 압력을 키움"
+    strength: medium
+    nature: causal
+    conditions: "1960년대형 재정·통화 확장"
+
+  - id: r766
+    term1Id: fiscal-policy
+    term2Id: stock-market
+    type: correlation
+    description: "확장적 재정·감세·성장 낙관이 겹치면 주식시장 장기 강세와 과열(예: 1960년대 Go-Go Years)로 이어질 수 있음"
+    strength: medium
+    nature: correlational
+    conditions: "저금리·성장 기대가 뒷받침될 때"
+
+  - id: r767
+    term1Id: geopolitical-risk
+    term2Id: fiscal-policy
+    type: correlation
+    description: "냉전·전쟁·안보 경쟁은 국방·우주 등 재정 지출 확대로 이어져 총수요와 적자를 키움"
+    strength: medium
+    nature: causal
+
+  - id: r768
+    term1Id: bretton-woods-system
+    term2Id: gold
+    type: correlation
+    description: "브레튼우즈 체계는 달러를 금에 고정(금 태환)하고 다른 통화는 달러에 연동"
+    strength: strong
+    nature: definitional
+
+  - id: r769
+    term1Id: fiscal-policy
+    term2Id: expected-inflation
+    type: proportional
+    description: "과열 국면에서 확장 재정이 지속되면 임금·물가 기대가 누적되어 이후 물가 안정이 어려워질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "완전고용 근처·임금-물가 연동이 강할 때"
+
+  - id: r770
+    term1Id: fiscal-dominance
+    term2Id: central-bank-independence
+    type: inverse
+    description: "재정 우위가 강하면 중앙은행이 물가를 잡기 위한 긴축을 충분히 밀어붙이기 어려움"
+    strength: strong
+    nature: causal
+
+  - id: r771
+    term1Id: defense-spending
+    term2Id: fiscal-policy
+    type: proportional
+    description: "국방·전쟁·안보 지출은 재정정책의 확장 축으로 총수요와 적자를 키움"
+    strength: strong
+    nature: causal
+
+  - id: r772
+    term1Id: go-go-years
+    term2Id: stock-market
+    type: correlation
+    description: "1960년대 Go-Go Years는 확장 재정·성장 낙관 아래 이어진 장기 주식 강세 국면"
+    strength: medium
+    nature: correlational
+
+  - id: r773
+    term1Id: nifty-fifty
+    term2Id: asset-bubble
+    type: correlation
+    description: "Nifty Fifty 쏠림은 성장주에 대한 과도한 낙관으로 밸류에이션 과열·버블 성격을 띰"
+    strength: medium
+    nature: correlational
+
+  - id: r774
+    term1Id: great-society
+    term2Id: fiscal-policy
+    type: proportional
+    description: "Great Society 프로그램은 1960년대 확장적 재정정책의 핵심 지출 축"
+    strength: strong
+    nature: causal

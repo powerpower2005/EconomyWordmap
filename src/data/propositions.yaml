@@ -1855,3 +1855,115 @@ propositions:
       - label: "충분한 완충 · 점진적 만기상환"
         detail: "지준금이 여전히 풍부하고 매도 대신 만기상환 방식으로 천천히 줄이면 충격 위험은 제한된다."
     verdict: "지준금이 LCLoR에 근접하는 국면에서 성립하는, QT 리스크를 경계하는 전망적 명제다."
+
+  - id: p124
+    statement: "양적긴축으로 지급준비금을 줄이면 민간 신용·통화승수 확대에 따른 인플레 재점화를 억제할 수 있다"
+    category: 통화정책
+    termIds: [quantitative-tightening, reserves, credit-creation, inflation, money-multiplier]
+    relationIds: [r751, r756, r742, r743]
+    premise: "은행이 규제를 충족하고 신용창출에 적극 나서면 통화승수와 유통속도가 올라 물가 압력이 커질 수 있는데, QT로 지준금(민간 신용의 씨앗)을 줄이면 그 여력을 제한해 인플레 재점화를 막을 수 있다는 논리에 근거한다."
+    holds:
+      - label: "규제 충족 + 신용 재개 국면"
+        detail: "핵심 은행이 요건을 채운 뒤 대출을 늘리려 할 때 QT로 지준금을 줄이면 신용·승수 확대 속도를 완화해 물가 압력을 억제할 수 있다."
+    fails:
+      - label: "QT 과속 · LCLoR 근접"
+        detail: "지준금을 너무 빠르게 줄이면 유동성 충격·금단현상이 먼저 터져 경기·시장 안정이 깨질 수 있다."
+      - label: "신용 위축 지속"
+        detail: "은행이 여전히 소극적이면 지준금 축소만으로는 물가 압력 완화 효과가 제한적이다."
+    verdict: "신용 재개가 우려되는 국면에서 성립하나, QT 속도와 LCLoR 리스크를 함께 봐야 하는 조건부 명제다."
+
+  - id: p125
+    statement: "2008년 이후 지급준비금 증가는 주식 등 위험자산과 더 강한 양의 상관을 보인다"
+    category: 통화정책
+    termIds: [reserves, stock-market, quantitative-easing, base-money, fed-assets]
+    relationIds: [r755, r754, r750]
+    premise: "QE로 본원통화·지준금 비중이 커지면서 2008년 이전에는 미미했던 지급준비금과 자산시장의 연동이 강해졌고, 2020년대 팬데믹 QE 이후에는 상관이 더욱 커졌다는 관찰에 근거한다."
+    holds:
+      - label: "QE·풍부지준 레짐"
+        detail: "연준 자산 매입으로 지준금이 늘면 유동성 기대가 위험자산 가격을 끌어올리는 경향이 강해진다."
+        example: "2008년 이후 지급준비금 YoY와 S&P500 YoY의 양의 상관, 2022~2024년 상관 계수 약 0.87."
+    fails:
+      - label: "2008년 이전 · 유동성 스트레스"
+        detail: "지준금이 통화정책 여유분이 아니던 시기나 급격한 QT·금융 스트레스 국면에서는 상관이 약해지거나 역전될 수 있다."
+        example: "2008년 이전 지급준비금과 S&P500 YoY의 약한 음의 상관(약 -0.35)."
+    verdict: "QE 이후 레짐에서 성립하는 관찰이며, 레짐 전환·스트레스 시에는 약해지는 조건부 명제다."
+
+  - id: p126
+    statement: "IORB 인상과 양적긴축을 병행하면 지급준비금 감소 속도와 신용창출을 동시에 조절할 수 있다"
+    category: 통화정책
+    termIds: [iorb, quantitative-tightening, reserves, credit-creation, policy-rate]
+    relationIds: [r757, r751, r753]
+    premise: "QT만으로 지준금을 줄이면 금단현상 위험이 있고, IORB만으로는 지준금 규모 자체는 유지되므로, 두 수단을 병행하면 지준금 축소(QT)와 신용창출 속도 조절(IORB·기준금리)을 나눠 가며 긴축할 수 있다는 논리에 근거한다."
+    holds:
+      - label: "풍부→충분 지준금 전환기"
+        detail: "지준금이 abundant에서 ample로 줄어드는 구간에서 QT 속도와 IORB·기준금리를 함께 조절하면 유동성 충격 없이 신용 확대를 억제할 수 있다."
+    fails:
+      - label: "LCLoR 근접 · QT 과속"
+        detail: "지준금이 이미 빠듯하면 IORB를 높여도 단기자금 시장 스트레스를 막기 어렵다."
+      - label: "신용 수요 부진"
+        detail: "대출수요가 약하면 IORB·QT 병행의 실질 효과가 제한적이다."
+    verdict: "풍부지준에서 점진적 긴축을 설계할 때 성립하는, 정책 조합을 설명하는 조건부 명제다."
+
+  - id: p127
+    statement: "완전고용에 가까운 국면에서 확장적 재정·감세를 이어가면 물가 상승 압력이 누적된다"
+    category: 정부
+    termIds: [fiscal-policy, tax-cut, inflation, aggregate-demand, phillips-curve]
+    relationIds: [r128, r761, r769]
+    premise: "유휴 자원이 적은 국면에서 정부 지출·감세가 총수요를 계속 늘리면 필립스 곡선상 실업 개선 여지는 줄고 물가·임금 기대만 쌓인다는 케인즈식 논리의 반대편에 근거한다."
+    holds:
+      - label: "과열·잠재성장률 초과 부양"
+        detail: "1960년대처럼 감세·복지·전쟁 지출이 겹치면 단기 성장 뒤 물가 압력이 누적된다."
+        example: "1964 Kennedy-Johnson 감세, Great Society, 베트남전 국방 지출 확대."
+    fails:
+      - label: "깊은 불황·유휴자원"
+        detail: "실업과 유휴 설비가 많으면 재정 확장이 주로 고용·산출을 늘리고 물가 효과는 제한적이다."
+    verdict: "경기 국면에 따라 갈리며, 60→70년대 전환을 설명하는 조건부 명제다."
+
+  - id: p128
+    statement: "60년대에 쌓인 물가·임금 기대가 70년대 공급 충격과 겹치면 스태그플레이션으로 폭발하기 쉽다"
+    category: 거시경제
+    termIds: [inflation, expected-inflation, stagflation, supply-shock, fiscal-policy]
+    relationIds: [r761, r769]
+    premise: "수요 측에서 미리 쌓인 인플레이션 기대와 임금-물가 연동이 공급 충격(유가 등)과 만나면, 중앙은행이 금리를 올려도 물가·실업이 함께 악화되는 스태그플레이션이 나타난다는 1970년대 해석에 근거한다."
+    holds:
+      - label: "기대 누적 + 공급 충격"
+        detail: "60년대 확장 재정으로 형성된 기대 위에 70년대 오일쇼크가 겹치면 필립스 트레이드오프가 깨진다."
+        example: "1960년대 물가 누적 뒤 1973·1979년 오일쇼크와 스태그플레이션."
+    fails:
+      - label: "기대 안정·독립적 긴축"
+        detail: "중앙은행 신뢰가 높고 기대가 낮게 고정되어 있으면 공급 충격도 일시적 물가 상승으로 그칠 수 있다."
+        example: "1979~1982년 볼커 긴축으로 기대를 꺾은 사례."
+    verdict: "수요 측 누적과 공급 충격이 겹칠 때 성립하는, 60→70년대 연쇄를 설명하는 조건부 명제다."
+
+  - id: p129
+    statement: "재정 우위 국면에서는 연준이 물가를 잡기 위한 긴축을 충분히 밀어붙이기 어렵다"
+    category: 통화정책
+    termIds: [fiscal-dominance, fiscal-policy, central-bank-independence, policy-rate, inflation]
+    relationIds: [r762, r770]
+    premise: "정부의 확장 재정·적자·전쟁 지출이 우선되면 중앙은행이 금리를 충분히 올려 물가를 잡기 어렵고, 재정 부담·금융안정 우려가 긴축을 지연시킨다는 논리에 근거한다."
+    holds:
+      - label: "재정 확장·적자 누적"
+        detail: "재정이 성장·복지·전쟁을 앞세우면 연준도 긴축 속도·강도에 제약을 받는다."
+        example: "1960년대 미국: 재정 확장 속 연준의 점진적 긴축."
+    fails:
+      - label: "강한 중앙은행 독립·위기"
+        detail: "독립성과 신뢰가 매우 높고 인플레이션이 위기 수준이면 강한 긴축이 가능하다."
+        example: "1979~1982년 볼커 연준."
+    verdict: "재정 우선순위가 높을수록 성립하는, fiscal dominance를 설명하는 조건부 명제다."
+
+  - id: p130
+    statement: "장기 재정 확장과 과열 심리가 겹치면 주식 장기 상승 후 급락으로 이어질 수 있다"
+    category: 금융
+    termIds: [fiscal-policy, stock-market, asset-bubble, go-go-years, nifty-fifty]
+    relationIds: [r766, r772, r773]
+    premise: "확장적 재정·감세·성장 낙관이 장기간 이어지면 투자 심리가 과열되고(Nifty Fifty 등) 밸류에이션이 부풀었다가 긴축·금리 인상·심리 전환과 함께 급락할 수 있다는 자산시장 역사에 근거한다."
+    holds:
+      - label: "장기 강세·쏠림"
+        detail: "Go-Go Years처럼 성장주·대형주 쏠림이 극에 달하면 조정 폭이 커질 수 있다."
+        example: "1960년대 중반~후반 강세 뒤 1960년대 말·1970년대 초 주식 급락."
+    fails:
+      - label: "실적·금리 뒷받침"
+        detail: "기업 이익이 밸류에이션을 따라잡고 금리가 낮게 유지되면 조정 없이 이어질 수 있다."
+      - label: "점진적 정상화"
+        detail: "재정·통화가 서서히 정상화되면 심리가 단계적으로 식어 급락을 피할 수 있다."
+    verdict: "과열·쏠림이 극단일수록 성립하는, 역사적 버블-붕괴 패턴을 설명하는 조건부 명제다."
