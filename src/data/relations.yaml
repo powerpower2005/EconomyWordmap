@@ -6340,3 +6340,35 @@ relations:
     description: "중앙은행 기준금리 인상 국면은 Go-Go Years식 장기 강세·과열을 끝내거나 조정으로 이끌 수 있음"
     strength: medium
     nature: causal
+
+  - id: r812
+    term1Id: strong-dollar
+    term2Id: interest-rate
+    type: correlation
+    description: "미국 금리 상승(금리 차 확대)이 달러 자산 수요를 키워 강달러 압력으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r813
+    term1Id: crude-oil
+    term2Id: interest-rate
+    type: correlation
+    description: "유가 급등이 인플레이션 압력을 키우면 연준이 금리 인상으로 대응하는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r814
+    term1Id: commodity-market
+    term2Id: interest-rate
+    type: correlation
+    description: "원자재 가격 상승이 물가·기대인플레이션을 자극하면 중앙은행이 금리를 올리는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r815
+    term1Id: safe-haven-asset
+    term2Id: interest-rate
+    type: correlation
+    description: "인플레 대응 금리 인상이면 국채 가격이 하락해 안전자산 역할이 약해질 수 있고, 침체 우려로 인한 인하면 국채·금이 동반 강세일 수 있음 — 배경에 따라 달라짐"
+    strength: medium
+    nature: correlational
