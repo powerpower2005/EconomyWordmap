@@ -6217,3 +6217,68 @@ relations:
     description: "국내 생산·조달이 늘면 수입이 줄어 무역적자 축소에 기여할 수 있으나 비용·대체 수입에 따라 효과는 불확실"
     strength: weak
     nature: causal
+
+  - id: r798
+    term1Id: unit-labor-cost
+    term2Id: inflation
+    type: proportional
+    description: "단위 노동 비용이 올라가면 기업이 생산비를 가격에 반영해 물가 상승 압력이 커지는 경향"
+    strength: medium
+    nature: causal
+    conditions: "임금–물가 연동·가격 전가 여지가 있을 때"
+
+  - id: r799
+    term1Id: wage-price-spiral
+    term2Id: expected-inflation
+    type: proportional
+    bidirectional: true
+    description: "임금–물가 스파이럴이 강해지면 임금·가격 설정에 미래 물가 상승이 반영되어 기대인플레이션이 끌어올려짐"
+    reverseDescription: "기대인플레이션이 높아지면 임금·가격 인상 요구가 강해져 스파이럴을 강화"
+    strength: strong
+    nature: causal
+
+  - id: r800
+    term1Id: unemployment
+    term2Id: natural-rate-of-unemployment
+    type: correlation
+    bidirectional: true
+    description: "실제 실업률이 자연실업률 추정치 아래로 내려가면(음의 실업률 갭) 노동시장 과열·임금·물가 압력이 커지는 경향"
+    reverseDescription: "실제 실업률이 자연실업률보다 높으면(양의 갭) 유휴 자원이 많아 물가 압력은 상대적으로 약해지는 경향"
+    strength: medium
+    nature: causal
+    conditions: "필립스 곡선·임금–물가 연동이 살아 있을 때"
+
+  - id: r801
+    term1Id: unit-labor-cost
+    term2Id: technological-progress
+    type: inverse
+    description: "노동 생산성(기술 진보)이 빠르게 개선되면 같은 임금 상승률에서도 단위 노동 비용 상승을 완화하거나 낮출 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r802
+    term1Id: wage-price-spiral
+    term2Id: real-wage
+    type: correlation
+    bidirectional: true
+    description: "물가 상승으로 실질임금이 깎이면 명목임금 인상 압력이 커져 임금–물가 스파이럴의 한 축이 됨"
+    reverseDescription: "실질임금 하락이 이어지면 임금 협상·가격 인상 요구가 강해져 스파이럴을 자극"
+    strength: medium
+    nature: causal
+
+  - id: r803
+    term1Id: credit-crunch
+    term2Id: policy-rate
+    type: inverse
+    description: "긴축 과정에서 신용 경색 우려·경험이 커지면 중앙은행이 추가 금리 인상을 지연·완화하는 경향"
+    strength: medium
+    nature: policy
+    conditions: "금융안정 우려가 물가 대응보다 우선될 때"
+
+  - id: r804
+    term1Id: credit-crunch
+    term2Id: federal-reserve
+    type: correlation
+    description: "연준이 긴축 중 신용 경색을 경험하면 이후 물가 대응(긴축 속도)에 더 신중해질 수 있음"
+    strength: medium
+    nature: policy

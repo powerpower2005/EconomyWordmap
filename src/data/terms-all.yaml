@@ -31,7 +31,7 @@ terms:
 
   - id: expected-inflation
     name: 기대인플레이션 (Expected Inflation)
-    description: 경제주체가 예상하는 미래 물가상승률로 임금·가격 결정, 소비·투자 판단에 영향을 미치며 중앙은행의 신뢰성과 통화정책 효과성에 핵심적인 변수로 앙커링(anchoring) 개념과 밀접한 관련
+    description: "경제주체가 예상하는 미래 물가상승률로 임금·가격 결정, 소비·투자 판단에 영향을 미치며 중앙은행의 신뢰성과 통화정책 효과성에 핵심적인 변수로 앙커링(anchoring) 개념과 밀접한 관련. 1960년대처럼 헤드라인 물가는 낮아도 임금·가격 설정에 반영되는 추세(기저)가 먼저 올라가면 앵커링이 약해져(de-anchoring) 억제 요인이 사라질 때 급등할 수 있음"
     category: 거시경제
     stockMarketImportance: 8
 
@@ -181,7 +181,7 @@ terms:
 
   - id: fiscal-policy
     name: 재정정책 (Fiscal Policy)
-    description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책. 1960년대 미국처럼 성장·진보·냉전 경쟁 목표로 확장적 재정(감세·Great Society·국방 지출)이 이어지면 통화정책보다 우선할 때 재정 우위(fiscal dominance)가 나타날 수 있음
+    description: "정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책. 1960년대 미국처럼 성장·진보·냉전 경쟁 목표로 확장적 재정(감세·Great Society·국방 지출)이 이어지면 통화정책보다 우선할 때 재정 우위(fiscal dominance)가 나타날 수 있음. 재정 impetus(지출·세제 변화가 실질 GDP 성장에 미치는 1차 기여)로 보면 1964년 이후 미국은 수년간 확장 효과가 이어졌으나, 2020–21년 대규모 부양은 규모는 크더라도 효과가 상당 부분 단기에 그친 사례로 대비됨"
     category: 정부
     stockMarketImportance: 7
 
@@ -1135,7 +1135,7 @@ terms:
 
   - id: supply-shock
     name: 공급 충격 (Supply Shock)
-    description: 유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음
+    description: "유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음. 코로나 이후 공급망·에너지 등 상대가격 재조정형 물가는 1960년대형 임금–비용 스파이럴과 메커니즘이 달라, 동일한 '인플레 재발' 경고로 단순 대응하기 어렵다는 해석도 있음"
     category: 거시경제
     stockMarketImportance: 5
 
@@ -2254,3 +2254,15 @@ terms:
     description: 연준이 채권을 담보로 시중의 단기 자금을 흡수하는 창구로 단기금리의 하단을 떠받치고 지급준비금을 조절함
     category: 통화정책
     stockMarketImportance: 4
+
+  - id: wage-price-spiral
+    name: 임금–물가 스파이럴 (Wage–Price Spiral)
+    description: "명목임금 인상이 생산비용·물가를 올리고, 물가 상승이 다시 임금 인상 요구를 촉발하는 상호 강화(feedback) 루프. 1960년대 후반 미국처럼 임금–물가 연동과 기대인플레이션이 맞물리면 헤드라인 물가는 낮아도 기저 압력이 누적될 수 있음"
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: unit-labor-cost
+    name: 단위 노동 비용 (Unit Labor Cost)
+    description: "한 단위 산출을 만드는 데 드는 노동 비용으로, 명목임금 상승률에서 노동 생산성 상승률을 뺀 값(추세·단위 노동 비용)과 밀접. 임금이 생산성을 지속적으로 웃돌면 기업이 가격에 전가하기 쉬워 광범위한 인플레이션 압력으로 이어질 수 있음"
+    category: 거시경제
+    stockMarketImportance: 5
