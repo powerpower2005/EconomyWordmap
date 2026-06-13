@@ -157,16 +157,74 @@ The Learn tab uses **thematic sections** in `src/data/curriculum.yaml` (`curricu
 | **Section** | One investor question (e.g. “How is the value of my cash determined?”) |
 | **Section `body`** | Opening narrative — hook, roadmap, optional compressed story (Markdown) |
 | **Part** | One chapter inside the section (numbered title + optional subtitle) |
-| **Part `body`** | Continuous prose for that chapter (Markdown) |
+| **Part `body`** | Continuous prose **or dialogue script** for that chapter (Markdown) |
 | **Part `termIds` / `propositionIds`** | Graph depth — shown **collapsed** below the prose (“용어·명제 N개”) |
 
-**Canonical example:** section `sec-money-value` in `curriculum.yaml` — copy its shape, not its topic.
+**Canonical example:** section `sec-money-value` in `curriculum.yaml` — copy its **shape** (parts, collapsed refs, one thread), not necessarily its topic or format.
+
+**Renderer:** `src/components/MarkdownProse.tsx` — plain Markdown plus optional **dialogue** (`**Alice:**`) and **comic panel breaks** (`---`).
+
+### Dialogue format (optional — `sec-money-value` style)
+
+Sections may be written as **character dialogue** (manga/comic script) instead of third-person prose. Prose-only sections remain valid for future topics.
+
+#### Characters
+
+| Rule | Detail |
+|------|--------|
+| **Minimum** | **2** named speakers per section (e.g. learner + explainer) |
+| **Maximum** | No fixed cap — add speakers when the story needs a distinct voice |
+| **Names** | **English** only in the `**Name:**` label (`Alice`, `Bob`, `Charlie`, `Dana`, …) |
+| **Not required** | Every character in every part — use only who the beat needs |
+| **Suggested roles** | **Alice**-type = beginner questions; **Bob**-type = mechanism; optional guest = historical episode or niche angle |
+
+UI assigns a **consistent color per speaker** (preset for common names; hash fallback for new names).
+
+#### Comic panels (`---`)
+
+Use a Markdown horizontal rule on its own line between **cuts** — one visual panel per beat.
+
+| One cut usually covers | Example |
+|------------------------|---------|
+| Opening question + first answer | Alice asks, Bob defines purchasing power |
+| One episode or time jump | `*2022년, CPI 발표일*` then 2–4 lines of dialogue |
+| Mechanism block | Bob explains transmission in one back-and-forth |
+| **정리** (takeaway) | Last cut — investor habit, any speaker |
+
+**Do:** 2–6 dialogue lines per cut, then `---`, then next beat. **Don't:** wall of dialogue without breaks; one cut spanning an entire part.
+
+#### Markdown conventions
+
+```yaml
+body: |
+  *2021년 초. Scene-setting in italic — not a speaker line.*
+
+  **Alice:** Question in Korean. **Bold** for emphasis inside dialogue.
+
+  **Bob:** Mechanism answer. Weave one historical beat into the line when it fits.
+
+  ---
+
+  *Optional second scene label*
+
+  **Charlie:** Optional guest — only when this part needs a distinct episode voice.
+
+  **Bob:** **정리하면** — takeaway + what to watch in the portfolio.
+```
+
+| Element | Syntax | Renders as |
+|---------|--------|------------|
+| Speaker line | `**EnglishName:**` at start of paragraph | Colored dialogue bubble + name badge |
+| Scene / time | `*italic line*` on its own paragraph | Muted scene caption (not a character) |
+| Panel break | `---` on its own line | Dashed “cut” divider |
+| Takeaway | `**정리하면**` or `**정리:**` inside any speaker’s line | Same bubble style; content unchanged |
+| Plain prose | Paragraph without `**Name:**` | Normal paragraph (still allowed) |
 
 ### Authoring a new section (agents)
 
 **File:** `src/data/curriculum.yaml` only. **Renderer:** `src/components/MarkdownProse.tsx` (`react-markdown`) in `src/pages/Learning.tsx`.
 
-#### YAML skeleton
+#### YAML skeleton (prose)
 
 ```yaml
 curriculum:
@@ -192,23 +250,62 @@ curriculum:
           propositionIds: [p42, ...]   # optional
 ```
 
+#### YAML skeleton (dialogue + panels)
+
+```yaml
+      body: |
+        *Hook scene in italic.*
+
+        **Alice:** Learner question.
+
+        **Bob:** Roadmap of parts in one thread.
+
+        ---
+        *Compressed episode (optional).*
+
+        **Alice:** Follow-up confusion.
+
+        **Bob:** Mechanism chain in plain Korean.
+      parts:
+        - id: part-example
+          title: "1. ..."
+          body: |
+            **Alice:** ...
+
+            **Bob:** ...
+
+            ---
+
+            *2022년, CPI 발표일*
+
+            **Bob:** One episode woven into dialogue.
+
+            ---
+
+            **Bob:** **정리하면** — mechanism → portfolio habit.
+          termIds: [...]
+```
+
 #### Do / Don't (format)
 
 | Do | Don't |
 |----|--------|
-| Write **`body`** as **continuous Markdown prose** (paragraphs separated by blank lines) | Split content into `hook`, `overview`, `episode`, `examples`, `takeaway`, `investorActions` — **deprecated**; legacy fields may still render but avoid for new work |
-| Use `**bold**` for emphasis; `###` / `####` sparingly for in-flow subheads | Rely on UI cards, colored boxes, or “example object” blocks — the UI no longer embeds them |
-| Weave **historical episodes** and **investor actions** into sentences or a short bullet list **inside `body`** | Label blocks like “투자자 메모”, “한 편의 이야기”, “예시 카드” as separate data structures |
+| Write **`body`** as **continuous Markdown** (prose **or** `**Name:**` dialogue) | Split content into `hook`, `overview`, `episode`, `examples`, `takeaway`, `investorActions` — **deprecated** |
+| **Dialogue:** English speaker labels; **2+** characters; guests only when needed | Force a fixed trio (Alice/Bob/Charlie) in every part |
+| **Panels:** separate beats with `---`; 2–6 lines per cut | One part = one giant cut with no dividers |
+| Use `*italic*` for scene/time; `**bold**` for emphasis inside lines | Korean names in `**화자:**` labels (UI only styles `**EnglishName:**`) |
+| Use `**bold**` for emphasis; `###` / `####` sparingly for in-flow subheads | UI cards, colored boxes, or “example object” blocks |
+| Weave **historical episodes** and **investor actions** into dialogue or prose | Label blocks like “투자자 메모”, “한 편의 이야기”, “예시 카드” as separate data structures |
 | Put **`termIds` / `propositionIds`** only at the part bottom — readers expand after reading | Front-load term lists or interrupt every paragraph with graph links |
-| One **narrative thread** per section; parts should read like consecutive chapters | Reset tone every part with disconnected “임베딩” snippets |
-| End each part with **`**정리:**`** (or equivalent closing paragraph) tying mechanism → portfolio | End with a detached slogan box |
+| One **narrative thread** per section; parts like consecutive chapters | Reset tone every part with disconnected snippets |
+| End each part with **정리** (any speaker) tying mechanism → portfolio | End with a detached slogan box |
 
 #### Narrative checklist (before merge)
 
-1. **Read aloud** — does it sound like one article, not a form with fields?
-2. **Section `body`** — concrete hook (person/portfolio), roadmap of parts, optional “one week / one scene” preview.
-3. **Each part `body`** — mechanism in plain Korean → 1–2 historical or recent episodes **in prose** → **정리** with what to watch/do.
-4. **Transitions** — last sentence of part N should logically lead to part N+1 (same section).
+1. **Read aloud** — does it sound like one story (conversation or article), not a form with fields?
+2. **Section `body`** — concrete hook, roadmap of parts, optional compressed episode; use `---` between cuts if dialogue.
+3. **Each part `body`** — mechanism in plain Korean → 1–2 episodes → **정리**; dialogue parts use panel breaks between beats.
+4. **Transitions** — last line of part N should logically lead to part N+1 (same section).
 5. **Terms** — every `termId` should appear in or clearly relate to that part’s story; add **relations** if the graph path is thin.
 6. **Propositions** — prefer `propositionIds` that exercise terms from this part; add missing propositions when the cluster is dense.
 7. **Dedupe** — search `curriculum.yaml` so the same term is not duplicated across sections without reason.
