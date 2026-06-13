@@ -6282,3 +6282,61 @@ relations:
     description: "연준이 긴축 중 신용 경색을 경험하면 이후 물가 대응(긴축 속도)에 더 신중해질 수 있음"
     strength: medium
     nature: policy
+
+  - id: r805
+    term1Id: capitulation
+    term2Id: market-sentiment
+    type: proportional
+    description: "항복 매도는 투자 심리가 극단적 공포·포기로 치달은 상태"
+    strength: strong
+    nature: definitional
+
+  - id: r806
+    term1Id: capitulation
+    term2Id: stock-market
+    type: correlation
+    description: "대규모 항복 매도가 겹치면 단기 조정의 저점을 형성하는 경우가 많으나, 항복 없이도 바닥이 올 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r807
+    term1Id: great-society
+    term2Id: inflation
+    type: proportional
+    description: "Great Society 등 대규모 복지·사회 프로그램은 총수요를 키워 물가 상승 압력을 누적시킬 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "완전고용에 가까운 국면에서 지속될 때"
+
+  - id: r808
+    term1Id: defense-spending
+    term2Id: inflation
+    type: proportional
+    description: "국방·전쟁 지출 확대는 총수요와 재정적자를 키워 물가 압력을 높일 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "잠재성장률을 넘는 수준으로 지속될 때"
+
+  - id: r809
+    term1Id: great-society
+    term2Id: defense-spending
+    type: correlation
+    description: "1960년대 미국처럼 복지·사회 프로그램과 국방·전쟁 지출이 동시에 확대되면 재정·물가 압력이 겹침"
+    strength: medium
+    nature: correlational
+
+  - id: r810
+    term1Id: go-go-years
+    term2Id: interest-rate
+    type: inverse
+    description: "Go-Go Years 강세 국면 뒤 단기·시장 금리 급등(인플레 대응)이 조정·심리 전환을 촉발할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r811
+    term1Id: go-go-years
+    term2Id: policy-rate
+    type: inverse
+    description: "중앙은행 기준금리 인상 국면은 Go-Go Years식 장기 강세·과열을 끝내거나 조정으로 이끌 수 있음"
+    strength: medium
+    nature: causal
