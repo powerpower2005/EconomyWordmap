@@ -11,6 +11,8 @@ import MarkdownProse from '../components/MarkdownProse';
 import PropositionBody from '../components/PropositionBody';
 import { loadBookmarks, toggleBookmark } from '../utils/learningProgress';
 
+export type LearnBodyFormat = 'dialogue' | 'prose';
+
 interface LearningProps {
   onOpenTerm: (termId: string) => void;
   onOpenMarket?: () => void;
@@ -20,6 +22,7 @@ interface LearningProps {
 export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositions }: LearningProps) {
   const curriculum = loadCurriculum();
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
+  const [learnFormat, setLearnFormat] = useState<LearnBodyFormat>('dialogue');
   const [expandedTermId, setExpandedTermId] = useState<string | null>(null);
   const [expandedPropId, setExpandedPropId] = useState<string | null>(null);
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => loadBookmarks());
@@ -42,7 +45,12 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   };
 
   if (selectedSection) {
-    const sectionBody = resolveSectionBody(selectedSection);
+    const showDialogue = sectionHasFormat(selectedSection, 'dialogue');
+    const showProse = sectionHasFormat(selectedSection, 'prose');
+    const activeFormat: LearnBodyFormat =
+      learnFormat === 'prose' && showProse ? 'prose' : showDialogue ? 'dialogue' : 'prose';
+    const sectionBody = resolveSectionBody(selectedSection, activeFormat);
+    const markdownMode = activeFormat;
 
     return (
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -69,7 +77,13 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
             )}
           </header>
 
-          {sectionBody && <MarkdownProse source={sectionBody} className="mb-10" />}
+          {(showDialogue && showProse) && (
+            <LearnFormatToggle format={activeFormat} onChange={setLearnFormat} className="mb-8" />
+          )}
+
+          {sectionBody && (
+            <MarkdownProse source={sectionBody} className="mb-10" mode={markdownMode} />
+          )}
 
           {selectedSection.id === 'sec-money-value' && onOpenMarket && (
             <p className="mb-10 text-sm">
@@ -88,6 +102,8 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
               <PartBlock
                 key={part.id}
                 part={part}
+                format={activeFormat}
+                markdownMode={markdownMode}
                 expandedTermId={expandedTermId}
                 expandedPropId={expandedPropId}
                 bookmarks={bookmarks}
@@ -141,7 +157,12 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   );
 }
 
-function resolveSectionBody(section: CurriculumSection): string {
+function resolveSectionBody(section: CurriculumSection, format: LearnBodyFormat): string {
+  if (format === 'dialogue') {
+    if (section.bodyDialogue?.trim()) return section.bodyDialogue.trim();
+  } else if (section.bodyProse?.trim()) {
+    return section.bodyProse.trim();
+  }
   if (section.body?.trim()) return section.body.trim();
 
   const chunks: string[] = [];
@@ -155,7 +176,12 @@ function resolveSectionBody(section: CurriculumSection): string {
   return chunks.join('\n\n');
 }
 
-function resolvePartBody(part: CurriculumPart): string {
+function resolvePartBody(part: CurriculumPart, format: LearnBodyFormat): string {
+  if (format === 'dialogue') {
+    if (part.bodyDialogue?.trim()) return part.bodyDialogue.trim();
+  } else if (part.bodyProse?.trim()) {
+    return part.bodyProse.trim();
+  }
   if (part.body?.trim()) return part.body.trim();
 
   const chunks: string[] = [];
@@ -174,6 +200,62 @@ function resolvePartBody(part: CurriculumPart): string {
   }
 
   return chunks.join('\n\n');
+}
+
+function sectionHasFormat(section: CurriculumSection, format: LearnBodyFormat): boolean {
+  if (format === 'dialogue') {
+    if (section.bodyDialogue?.trim()) return true;
+    return section.parts.some(
+      p => !!(p.bodyDialogue?.trim() || (p.body?.trim() && !p.bodyProse?.trim()))
+    );
+  }
+  if (section.bodyProse?.trim()) return true;
+  return section.parts.some(p => !!p.bodyProse?.trim());
+}
+
+function LearnFormatToggle({
+  format,
+  onChange,
+  className = '',
+}: {
+  format: LearnBodyFormat;
+  onChange: (format: LearnBodyFormat) => void;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`inline-flex rounded-lg border border-gray-200 bg-gray-50 p-1 text-sm ${className}`}
+      role="tablist"
+      aria-label="읽기 방식"
+    >
+      <button
+        type="button"
+        role="tab"
+        aria-selected={format === 'dialogue'}
+        onClick={() => onChange('dialogue')}
+        className={`rounded-md px-4 py-2 font-medium transition-colors ${
+          format === 'dialogue'
+            ? 'bg-white text-violet-700 shadow-sm'
+            : 'text-gray-600 hover:text-gray-900'
+        }`}
+      >
+        대화로
+      </button>
+      <button
+        type="button"
+        role="tab"
+        aria-selected={format === 'prose'}
+        onClick={() => onChange('prose')}
+        className={`rounded-md px-4 py-2 font-medium transition-colors ${
+          format === 'prose'
+            ? 'bg-white text-violet-700 shadow-sm'
+            : 'text-gray-600 hover:text-gray-900'
+        }`}
+      >
+        설명으로
+      </button>
+    </div>
+  );
 }
 
 function countSectionBookmarks(section: CurriculumSection, bookmarks: Set<string>): number {
@@ -196,7 +278,7 @@ function SectionCard({
 }) {
   const partCount = section.parts.length;
   const itemCount = section.parts.reduce((sum, part) => sum + countPartItems(part), 0);
-  const preview = resolveSectionBody(section).split('\n').find(line => line.trim()) ?? '';
+  const preview = resolveSectionBody(section, 'dialogue').split('\n').find(line => line.trim()) ?? '';
 
   return (
     <button
@@ -225,6 +307,8 @@ function SectionCard({
 
 function PartBlock({
   part,
+  format,
+  markdownMode,
   expandedTermId,
   expandedPropId,
   bookmarks,
@@ -234,6 +318,8 @@ function PartBlock({
   onOpenTerm,
 }: {
   part: CurriculumPart;
+  format: LearnBodyFormat;
+  markdownMode: LearnBodyFormat;
   expandedTermId: string | null;
   expandedPropId: string | null;
   bookmarks: Set<string>;
@@ -242,7 +328,7 @@ function PartBlock({
   onBookmark: (id: string) => void;
   onOpenTerm: (id: string) => void;
 }) {
-  const body = resolvePartBody(part);
+  const body = resolvePartBody(part, format);
   const terms = part.termIds
     .map(tid => getTermById(tid))
     .filter((t): t is NonNullable<typeof t> => t != null);
@@ -260,7 +346,7 @@ function PartBlock({
       <h2 className="text-xl font-bold text-gray-900">{part.title}</h2>
       {part.subtitle && <p className="text-sm text-gray-500 mt-1">{part.subtitle}</p>}
 
-      {body && <MarkdownProse source={body} className="mt-4" />}
+      {body && <MarkdownProse source={body} className="mt-4" mode={markdownMode} />}
 
       {refCount > 0 && (
         <details className="mt-6 group">

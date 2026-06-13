@@ -48,7 +48,7 @@ Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/term
 
 - `stockMarketImportance` (integer 1-10) = how directly the term moves prices / is used in real investing, **not** academic significance. Assign to every new term.
 - Bands: 9-10 live market-wide drivers, 7-8 core macro variables, 5-6 indirect, 3-4 background concepts, 1-2 pure theory/history. Full rubric: `AGENTS.md` (Stock market importance section).
-- **Curriculum** (investor path, not textbook): **sections + parts** in `curriculum.yaml` (`version: 2`) — continuous Markdown `body` (prose **or** `**EnglishName:**` dialogue + `---` panel breaks); terms/propositions collapsed below each part. Canonical example: `sec-money-value`. Authoring guide: `AGENTS.md` → [Dialogue format](#dialogue-format-optional--sec-money-value-style), [Authoring a new section](#authoring-a-new-section-agents). On every term/relation/proposition change: **review and supplement** learn path (same task). Importance score ≠ section placement.
+- **Curriculum** (investor path, not textbook): **sections + parts** in `curriculum.yaml` (`version: 2`) — optional **`bodyDialogue` + `bodyProse`** per section/part (Learn UI tabs: 대화로 / 설명으로); terms/propositions collapsed below each part. Canonical example: `sec-money-value`. Authoring: [Dual read modes](#dual-read-modes-dialogue--prose), [Dialogue format](#dialogue-format-optional--sec-money-value-style). On every term/relation/proposition change: **review and supplement** learn path (same task).
 
 ## Content language
 

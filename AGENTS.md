@@ -155,9 +155,8 @@ The Learn tab uses **thematic sections** in `src/data/curriculum.yaml` (`curricu
 | Layer | Role |
 |-------|------|
 | **Section** | One investor question (e.g. “How is the value of my cash determined?”) |
-| **Section `body`** | Opening narrative — hook, roadmap, optional compressed story (Markdown) |
-| **Part** | One chapter inside the section (numbered title + optional subtitle) |
-| **Part `body`** | Continuous prose **or dialogue script** for that chapter (Markdown) |
+| **Section `bodyDialogue` / `bodyProse`** | Opening — dialogue (default tab) or explanatory prose |
+| **Part `bodyDialogue` / `bodyProse`** | Chapter narrative — same `termIds` under both tabs |
 | **Part `termIds` / `propositionIds`** | Graph depth — shown **collapsed** below the prose (“용어·명제 N개”) |
 
 **Canonical example:** section `sec-money-value` in `curriculum.yaml` — copy its **shape** (parts, collapsed refs, one thread), not necessarily its topic or format.
@@ -189,9 +188,38 @@ Use a Markdown horizontal rule on its own line between **cuts** — one visual p
 | Opening question + first answer | Alice asks, Bob defines purchasing power |
 | One episode or time jump | `*2022년, CPI 발표일*` then 2–4 lines of dialogue |
 | Mechanism block | Bob explains transmission in one back-and-forth |
-| **정리** (takeaway) | Last cut — investor habit, any speaker |
+| Takeaway (in-world) | Alice asks 「그래서 뭘 보면 돼?」; Bob answers in plain Korean — no lecture label |
 
 **Do:** 2–6 dialogue lines per cut, then `---`, then next beat. **Don't:** wall of dialogue without breaks; one cut spanning an entire part.
+
+#### In-world voice (no fourth wall)
+
+Characters live **inside** the story. They do **not** know the Learn UI, part numbers, collapsed term lists, or how the reader navigates.
+
+| Do (in dialogue) | Don't (breaks immersion) |
+|------------------|---------------------------|
+| Alice asks; Bob answers in plain Korean | 「이 섹션 N파트는…」, 「아래에서」, 「위에서 봤듯이」 |
+| Scene jumps via `*2022년 3월*` or Alice memory | 「목차」, 「로드맵」, 「여덟 파트」 나열 |
+| Bob explains because Alice is confused | 「학습」, 「용어·명제」, 「그래프에서」 |
+| End a beat with Alice follow-up + Bob habit tip | `**정리:**` / `**정리하면**` as a **section label** (textbook tone) |
+| 「첫째·둘째·셋째」 only if Alice explicitly asked for steps | Numbered outline monologue with no interruption |
+
+**Natural closers** — prefer Alice prompting the wrap-up:
+
+```yaml
+**Alice:** 그래서 내가 뭘 바꿔야 해?
+**Bob:** 실질금리 보면서 예금만 늘리지 말고…
+```
+
+Not:
+
+```yaml
+**Bob:** **정리하면** — 돈의 가치는…
+```
+
+Prose-only sections may still use `**정리:**` at the end of a part `body`; **dialogue sections should not** — use conversation instead.
+
+**Read-aloud test:** if a line sounds like the author talking to the reader, rewrite it as Alice/Bob talking to each other.
 
 #### Markdown conventions
 
@@ -209,7 +237,9 @@ body: |
 
   **Charlie:** Optional guest — only when this part needs a distinct episode voice.
 
-  **Bob:** **정리하면** — takeaway + what to watch in the portfolio.
+  **Alice:** 그래서 뭘 보면 돼?
+
+  **Bob:** Takeaway + portfolio habit in the same voice as the rest of the scene.
 ```
 
 | Element | Syntax | Renders as |
@@ -217,8 +247,54 @@ body: |
 | Speaker line | `**EnglishName:**` at start of paragraph | Colored dialogue bubble + name badge |
 | Scene / time | `*italic line*` on its own paragraph | Muted scene caption (not a character) |
 | Panel break | `---` on its own line | Dashed “cut” divider |
-| Takeaway | `**정리하면**` or `**정리:**` inside any speaker’s line | Same bubble style; content unchanged |
+| Takeaway | Alice question → Bob answer (no `**정리:**` label in dialogue) | Same bubble style |
 | Plain prose | Paragraph without `**Name:**` | Normal paragraph (still allowed) |
+
+### Dual read modes (dialogue + prose)
+
+The Learn UI can show **two sub-tabs** per section when both bodies exist: **대화로** (default) and **설명으로**.
+
+| Field | UI tab | Authoring |
+|-------|--------|-----------|
+| `bodyDialogue` / part `bodyDialogue` | **대화로** | In-world dialogue + `---` panels; [In-world voice](#in-world-voice-no-fourth-wall) rules |
+| `bodyProse` / part `bodyProse` | **설명으로** | Continuous prose for readers who want density; `**정리:**`, numbered steps, part roadmap **allowed** |
+| `body` (legacy) | Fallback if dual fields missing | Migrate to `bodyDialogue` + `bodyProse` when both tones are needed |
+
+**Same part** shares `title`, `subtitle`, `termIds`, `propositionIds` — only the narrative surface changes.
+
+#### Sync rules (both bodies required when dual)
+
+1. **Same facts** — dates, rates, episode names, mechanism chain must match across dialogue and prose.
+2. **Same `termIds`** — one list per part; both bodies should mention or clearly relate to those terms.
+3. **Dialogue** — no fourth wall; Alice prompts takeaways.
+4. **Prose** — may use 「첫째·둘째」, `**정리:**`, eight-part roadmap in section intro; reader chose “설명으로”.
+5. If only one tone fits a future section, ship **`bodyProse` only** or **`bodyDialogue` only** — UI hides the missing tab.
+
+#### YAML skeleton (dual mode — canonical for `sec-money-value`)
+
+```yaml
+      bodyDialogue: |
+        *2021년 초. Alice의 통장에 1,000만 원이 있다.*
+        **Alice:** ...
+        **Bob:** ...
+        ---
+        *2022년 어느 주...*
+      bodyProse: |
+        2021년 초 통장에 1,000만 원이 있었다. ...
+        아래 여덟 파트는 한 줄기로 이어진다 — ...
+      parts:
+        - id: part-example
+          title: "1. ..."
+          bodyDialogue: |
+            **Alice:** ...
+            ---
+            **Bob:** ...
+          bodyProse: |
+            연속 산문. **정리:** 투자자 습관.
+          termIds: [...]
+```
+
+**Renderer:** `Learning.tsx` — `LearnBodyFormat` toggle; `MarkdownProse` `mode="dialogue" | "prose"` (prose disables speaker bubbles and “cut” dividers).
 
 ### Authoring a new section (agents)
 
@@ -236,14 +312,14 @@ curriculum:
       title: "한글 섹션 제목"
       subtitle: "부제 (선택)"
       learnerQuestion: "English one-liner for authors (optional)"
-      body: |
+      bodyProse: |
         Opening paragraphs in **Markdown**. One story thread.
         Blank line between paragraphs.
       parts:
         - id: part-your-slug
           title: "1. 파트 제목"
           subtitle: "짧은 부제 (선택)"
-          body: |
+          bodyProse: |
             Continuous prose. Weave examples into paragraphs — do not split into cards.
             End with **정리:** one short takeaway + investor habits in the same flow.
           termIds: [existing-term-id, ...]
@@ -253,12 +329,12 @@ curriculum:
 #### YAML skeleton (dialogue + panels)
 
 ```yaml
-      body: |
+      bodyDialogue: |
         *Hook scene in italic.*
 
         **Alice:** Learner question.
 
-        **Bob:** Roadmap of parts in one thread.
+        **Bob:** Answer in scene — not a part list or UI roadmap.
 
         ---
         *Compressed episode (optional).*
@@ -269,7 +345,7 @@ curriculum:
       parts:
         - id: part-example
           title: "1. ..."
-          body: |
+          bodyDialogue: |
             **Alice:** ...
 
             **Bob:** ...
@@ -282,7 +358,9 @@ curriculum:
 
             ---
 
-            **Bob:** **정리하면** — mechanism → portfolio habit.
+            **Alice:** 그래서 뭘 보면 돼?
+
+            **Bob:** Mechanism → portfolio habit, in character.
           termIds: [...]
 ```
 
@@ -290,21 +368,23 @@ curriculum:
 
 | Do | Don't |
 |----|--------|
-| Write **`body`** as **continuous Markdown** (prose **or** `**Name:**` dialogue) | Split content into `hook`, `overview`, `episode`, `examples`, `takeaway`, `investorActions` — **deprecated** |
+| Write **`bodyDialogue`** / **`bodyProse`** (or legacy `body`) as continuous Markdown | Split content into deprecated card fields |
+| **Dual mode:** keep facts & `termIds` in sync; dialogue = in-world, prose = dense | Let dialogue and prose drift to different mechanisms or dates |
 | **Dialogue:** English speaker labels; **2+** characters; guests only when needed | Force a fixed trio (Alice/Bob/Charlie) in every part |
+| **In-world:** characters talk to each other; Alice prompts takeaways | Fourth-wall lines (섹션/파트/아래/용어·명제/학습), `**정리하면**` labels in dialogue |
 | **Panels:** separate beats with `---`; 2–6 lines per cut | One part = one giant cut with no dividers |
 | Use `*italic*` for scene/time; `**bold**` for emphasis inside lines | Korean names in `**화자:**` labels (UI only styles `**EnglishName:**`) |
 | Use `**bold**` for emphasis; `###` / `####` sparingly for in-flow subheads | UI cards, colored boxes, or “example object” blocks |
 | Weave **historical episodes** and **investor actions** into dialogue or prose | Label blocks like “투자자 메모”, “한 편의 이야기”, “예시 카드” as separate data structures |
 | Put **`termIds` / `propositionIds`** only at the part bottom — readers expand after reading | Front-load term lists or interrupt every paragraph with graph links |
 | One **narrative thread** per section; parts like consecutive chapters | Reset tone every part with disconnected snippets |
-| End each part with **정리** (any speaker) tying mechanism → portfolio | End with a detached slogan box |
+| End each part with **in-world takeaway** (Alice asks → Bob answers) tying mechanism → portfolio | End with `**정리:**` / numbered outline / detached slogan in dialogue sections |
 
 #### Narrative checklist (before merge)
 
-1. **Read aloud** — does it sound like one story (conversation or article), not a form with fields?
-2. **Section `body`** — concrete hook, roadmap of parts, optional compressed episode; use `---` between cuts if dialogue.
-3. **Each part `body`** — mechanism in plain Korean → 1–2 episodes → **정리**; dialogue parts use panel breaks between beats.
+1. **Read aloud** — does it sound like two people talking, not an author briefing the reader?
+2. **Section `body`** — concrete hook, optional compressed episode; **no part catalog** in dialogue; use `---` between cuts.
+3. **Each part `body`** — mechanism in plain Korean → 1–2 episodes → Alice follow-up + Bob habit tip; panel breaks between beats.
 4. **Transitions** — last line of part N should logically lead to part N+1 (same section).
 5. **Terms** — every `termId` should appear in or clearly relate to that part’s story; add **relations** if the graph path is thin.
 6. **Propositions** — prefer `propositionIds` that exercise terms from this part; add missing propositions when the cluster is dense.

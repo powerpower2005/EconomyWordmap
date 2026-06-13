@@ -4,6 +4,8 @@ import ReactMarkdown from 'react-markdown';
 interface MarkdownProseProps {
   source: string;
   className?: string;
+  /** dialogue = speaker bubbles; prose = plain paragraphs only */
+  mode?: 'dialogue' | 'prose';
 }
 
 const SPEAKER_PRESET: Record<string, { bubble: string; label: string }> = {
@@ -79,14 +81,19 @@ function PanelBreak() {
   );
 }
 
-export default function MarkdownProse({ source, className = '' }: MarkdownProseProps) {
+export default function MarkdownProse({ source, className = '', mode = 'dialogue' }: MarkdownProseProps) {
   if (!source.trim()) return null;
+
+  const dialogueMode = mode === 'dialogue';
 
   return (
     <div className={`learn-prose text-[15px] text-gray-800 leading-[1.75] ${className}`}>
       <ReactMarkdown
         components={{
           p: ({ children }) => {
+            if (!dialogueMode) {
+              return <p className="mb-4 last:mb-0">{children}</p>;
+            }
             const nodes = Children.toArray(children);
             const speaker = nodes.length > 0 ? getSpeakerLabel(nodes[0]) : null;
             if (speaker) {
@@ -97,11 +104,14 @@ export default function MarkdownProse({ source, className = '' }: MarkdownProseP
             return <p className="mb-4 last:mb-0">{children}</p>;
           },
           strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
-          em: ({ children }) => (
-            <em className="not-italic text-sm text-gray-500 before:content-['—_'] after:content-['_—']">
-              {children}
-            </em>
-          ),
+          em: ({ children }) =>
+            dialogueMode ? (
+              <em className="not-italic text-sm text-gray-500 before:content-['—_'] after:content-['_—']">
+                {children}
+              </em>
+            ) : (
+              <em className="italic text-gray-600">{children}</em>
+            ),
           h3: ({ children }) => (
             <h3 className="text-base font-semibold text-gray-900 mt-6 mb-2 first:mt-0">{children}</h3>
           ),
@@ -111,7 +121,12 @@ export default function MarkdownProse({ source, className = '' }: MarkdownProseP
           ul: ({ children }) => <ul className="mb-4 list-disc space-y-1.5 pl-5 last:mb-0">{children}</ul>,
           ol: ({ children }) => <ol className="mb-4 list-decimal space-y-1.5 pl-5 last:mb-0">{children}</ol>,
           li: ({ children }) => <li>{children}</li>,
-          hr: () => <PanelBreak />,
+          hr: () =>
+            dialogueMode ? (
+              <PanelBreak />
+            ) : (
+              <hr className="my-6 border-gray-200" />
+            ),
           blockquote: ({ children }) => (
             <blockquote className="mb-4 border-l-2 border-gray-300 pl-4 text-sm italic text-gray-600 last:mb-0">
               {children}

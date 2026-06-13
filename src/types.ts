@@ -125,7 +125,11 @@ export interface CurriculumPart {
   id: string;
   title: string;
   subtitle?: string;
-  /** 연속 내러티브 본문 (Markdown) */
+  /** 대화형 본문 (Markdown, `**Name:**`) */
+  bodyDialogue?: string;
+  /** 설명형 연속 산문 (Markdown) */
+  bodyProse?: string;
+  /** @deprecated bodyDialogue / bodyProse 사용 */
   body?: string;
   /** @deprecated body로 통합 — 구 데이터 호환용 */
   lead?: string;
@@ -142,7 +146,11 @@ export interface CurriculumSection {
   title: string;
   subtitle?: string;
   learnerQuestion?: string;
-  /** 섹션 도입·흐름 안내 (Markdown) */
+  /** 섹션 도입 — 대화형 (Markdown, `**Name:**`) */
+  bodyDialogue?: string;
+  /** 섹션 도입 — 설명형 연속 산문 (Markdown) */
+  bodyProse?: string;
+  /** @deprecated bodyDialogue / bodyProse 사용 */
   body?: string;
   /** @deprecated body로 통합 — 구 데이터 호환용 */
   overview?: string;
