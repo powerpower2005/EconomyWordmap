@@ -6372,3 +6372,139 @@ relations:
     description: "인플레 대응 금리 인상이면 국채 가격이 하락해 안전자산 역할이 약해질 수 있고, 침체 우려로 인한 인하면 국채·금이 동반 강세일 수 있음 — 배경에 따라 달라짐"
     strength: medium
     nature: correlational
+
+  - id: r816
+    term1Id: deleveraging
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "2008년처럼 과잉 부채·자산 버블 붕괴 뒤 디레버리징 악순환이 글로벌 금융위기의 핵심 전개 과정"
+    strength: strong
+    nature: causal
+
+  - id: r817
+    term1Id: deleveraging
+    term2Id: liquidity-trap
+    type: correlation
+    description: "디레버리징 국면에서는 금리가 0%에 가까워도 부채 부담이 커서 금리 인하만으로는 신용·수요가 살아나지 않을 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r818
+    term1Id: credit-cycle
+    term2Id: policy-rate
+    type: correlation
+    description: "단기 신용 사이클의 확장·수축은 중앙은행의 금리 인상·인하로 주로 조절됨"
+    strength: strong
+    nature: policy
+
+  - id: r819
+    term1Id: long-term-debt-cycle
+    term2Id: credit-cycle
+    type: proportional
+    description: "단기 신용 사이클이 반복되며 부채가 누적되어 장기 부채 사이클을 형성"
+    strength: medium
+    nature: causal
+
+  - id: r820
+    term1Id: credit-creation
+    term2Id: aggregate-demand
+    type: proportional
+    description: "신용 창출이 차입자의 지출을 늘려 총수요를 확대"
+    strength: medium
+    nature: causal
+
+  - id: r821
+    term1Id: credit-creation
+    term2Id: consumption
+    type: proportional
+    description: "신용을 통해 가계·기업이 당장 소비·지출을 앞당길 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r822
+    term1Id: deleveraging
+    term2Id: credit-crunch
+    type: proportional
+    description: "디레버리징 과정에서 차입자 신용도 하락과 담보 가치 축소가 신용 경색을 심화"
+    strength: strong
+    nature: causal
+
+  - id: r823
+    term1Id: deleveraging
+    term2Id: financial-accelerator
+    type: correlation
+    description: "자산 가격 하락과 부채 상환 압력이 금융 가속기를 거꾸로 작동시켜 충격을 증폭"
+    strength: medium
+    nature: causal
+
+  - id: r824
+    term1Id: deleveraging
+    term2Id: asset-bubble
+    type: inverse
+    description: "과잉 부채로 부풀린 자산 버블이 붕괴하면서 디레버리징이 시작되는 경우가 많음"
+    strength: medium
+    nature: causal
+
+  - id: r825
+    term1Id: quantitative-easing
+    term2Id: deleveraging
+    type: correlation
+    description: "디레버리징 국면에서 QE가 신용 축소를 통화량·자산가격으로 상쇄하려는 정책 수단"
+    strength: medium
+    nature: policy
+
+  - id: r826
+    term1Id: fiscal-policy
+    term2Id: deleveraging
+    type: correlation
+    description: "디레버리징 시 정부 지출·부양이 소득을 보전하고, 중앙은행과 협력하면 부담 조정에 도움"
+    strength: medium
+    nature: policy
+
+  - id: r827
+    term1Id: technological-progress
+    term2Id: credit-cycle
+    type: inverse
+    description: "장기적으로는 생산성이 성장을 이끌지만, 단기 경기 스윙은 신용·부채 사이클이 더 크게 좌우"
+    strength: medium
+    nature: correlational
+
+  - id: r828
+    term1Id: debt-burden
+    term2Id: long-term-debt-cycle
+    type: proportional
+    description: "부채 부담이 수십 년에 걸쳐 누적되다 정점에 도달하면 장기 부채 사이클의 전환점"
+    strength: medium
+    nature: causal
+
+  - id: r829
+    term1Id: debt-burden
+    term2Id: deleveraging
+    type: proportional
+    description: "부채 부담이 감당 한도를 넘으면 지출·차입 축소를 통한 디레버리징이 시작됨"
+    strength: strong
+    nature: causal
+
+  - id: r830
+    term1Id: debt-burden
+    term2Id: household-debt
+    type: correlation
+    description: "가계부채는 국가·기업과 함께 거시 부채 부담의 핵심 구성"
+    strength: medium
+    nature: hierarchical
+
+  - id: r831
+    term1Id: long-term-debt-cycle
+    term2Id: deleveraging
+    type: correlation
+    description: "장기 부채 사이클의 정점 이후 디레버리징 국면으로 전환"
+    strength: strong
+    nature: causal
+
+  - id: r832
+    term1Id: financial-instability-hypothesis
+    term2Id: long-term-debt-cycle
+    type: correlation
+    description: "호황기 부채 누적이 장기 부채 사이클 정점으로 이어진다는 민스키적 설명"
+    strength: medium
+    nature: correlational

@@ -2306,3 +2306,55 @@ propositions:
       - label: "인플레 재가속"
         detail: "물가가 다시 가속하면 추가 긴축 기대로 반등이 끊길 수 있다."
     verdict: "긴축 강도·금융 안정·물가 경로에 따라 갈리는, '침체 공포 ≠ 주가 바닥'을 설명하는 조건부 명제다."
+
+  - id: p154
+    statement: "디레버리징에서 소득 증가율이 부채 이자율보다 높아야 부채 부담이 줄어든다"
+    category: 금융
+    termIds: [deleveraging, debt-burden, economic-growth, interest-rate, quantitative-easing, fiscal-policy]
+    relationIds: [r825, r826, r829]
+    premise: "부채 부담은 부채 잔액·이자 부담을 소득과 비교해 결정되므로, 명목 소득이 이자율만큼(또는 그 이상) 빠르게 늘어야 상대 부담이 줄어든다는 디레버리징 논리에 근거한다."
+    holds:
+      - label: "재정·통화 협력 + 완만한 인플레"
+        detail: "중앙은행이 통화를 보충하고 정부가 소득을 지원해 성장률이 이자율을 넘으면 부채/GDP·부채/소득 비율이 서서히 내려갈 수 있다."
+        example: "2008년 이후 QE와 재정 부양이 결합된 미국·유럽의 점진적 부담 완화."
+    fails:
+      - label: "긴축·디플레이션만"
+        detail: "지출 삭감과 부채 탕감만으로는 소득이 더 빨리 줄어 부담이 악화될 수 있다."
+      - label: "과도한 화폐화"
+        detail: "통화량 증가가 지나치면 인플레이션이 수용 한도를 넘어 불안정을 키운다."
+        example: "1920년대 독일 디레버리징의 초인플레."
+    verdict: "디레버리징 성공 여부는 소득·이자율·정책 조합에 달린 조건부 명제다."
+
+  - id: p155
+    statement: "부채가 소득보다 빠르게 늘면 결국 상환 부담에 압도된다"
+    category: 거시경제
+    termIds: [debt-burden, credit-cycle, long-term-debt-cycle, household-debt, economic-growth]
+    relationIds: [r819, r829]
+    premise: "차입은 지출을 앞당기지만 상환기에는 소비를 줄여야 하므로, 부채 증가율이 소득 증가율을 지속적으로 넘기면 차입·지출이 위축되고 사이클이 반전된다는 부채 사이클 논리에 근거한다."
+    holds:
+      - label: "낙관·자산 버블 국면"
+        detail: "소득과 자산 가격이 함께 오르면 당분간 버티지만, 상환 부담이 소득을 앞서면 디레버리징으로 전환된다."
+        example: "2007년 이전 미국 가계·주택 부채 누적 후 2008년 반전."
+    fails:
+      - label: "생산적 차입·자국통화"
+        detail: "부채가 설비·인프라 등 생산성을 높이는 데 쓰이고 소득이 따라오면 부담이 관리 가능하다."
+      - label: "금융 억압·인플레이션"
+        detail: "실질금리를 낮추거나 인플레이션으로 명목 부채 가치를 깎으면 부담이 상대적으로 줄 수 있다."
+    verdict: "부채의 용도·금리·통화 환경에 따라 시차는 다르지만, 장기적으로는 성립하는 조건부 명제다."
+
+  - id: p156
+    statement: "소득이 생산성보다 빠르게 늘면 경쟁력을 잃는다"
+    category: 거시경제
+    termIds: [technological-progress, economic-growth, unit-labor-cost, inflation]
+    relationIds: [r827]
+    premise: "임금·소득이 생산성 향상 없이 오르면 단위 노동 비용이 올라 가격·수출 경쟁력이 약해진다는 장기 성장 논리에 근거한다."
+    holds:
+      - label: "임금이 생산성을 지속적으로 웃돌 때"
+        detail: "단위 노동 비용 상승이 가격에 전가되면 인플레이션과 경쟁력 약화가 누적된다."
+        example: "1970년대 임금–물가 스파이럴과 제조업 경쟁력 약화."
+    fails:
+      - label: "생산성 동반 상승"
+        detail: "기술 진보와 함께 임금·소득이 오르면 경쟁력을 유지하거나 강화할 수 있다."
+      - label: "단기 수요 부양"
+        detail: "불황기 일시적 소득 지원은 생산성과 단기적으로 어긋나도 장기 경쟁력을 바로 훼손하지 않을 수 있다."
+    verdict: "장기·구조 관점에서는 성립하지만, 단기 경기 정책과는 구분해야 하는 조건부 명제다."

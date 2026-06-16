@@ -1225,7 +1225,7 @@ terms:
 
   - id: financial-instability-hypothesis
     name: 금융불안정성 가설 (Minsky)
-    description: 안정과 호황이 길어질수록 빚과 위험 감수가 늘어 금융 시스템이 스스로 불안정해진다는 하이먼 민스키의 이론으로 2008년 위기 이후 재조명됨
+    description: "안정과 호황이 길어질수록 빚과 위험 감수가 늘어 금융 시스템이 스스로 불안정해진다는 하이먼 민스키의 이론으로, 단기 신용 사이클의 누적이 장기 부채 사이클·디레버리징 정점으로 이어진다는 관점과 맞닿아 2008년 위기 이후 재조명됨"
     category: 경제이론
     stockMarketImportance: 3
 
@@ -1985,6 +1985,12 @@ terms:
     category: 거시경제
     stockMarketImportance: 5
 
+  - id: debt-burden
+    name: 부채 부담 (Debt Burden)
+    description: "부채 규모를 소득(또는 GDP)으로 나눈 비율과 상환액이 소득 증가를 따라가는지를 보는 지표로, 부채가 소득보다 빠르게 늘거나 상환 부담이 소득을 앞서면 차입·지출이 줄어들며 장기 부채 사이클의 정점과 디레버리징으로 이어질 수 있음"
+    category: 거시경제
+    stockMarketImportance: 6
+
   - id: debt-to-gdp
     name: GDP 대비 부채비율 (Debt-to-GDP)
     description: 정부부채를 GDP로 나눈 비율로 국가부채의 지속가능성과 상환 부담을 가늠하는 핵심 지표
@@ -2011,7 +2017,7 @@ terms:
 
   - id: deleveraging
     name: 디레버리징 (Deleveraging)
-    description: 경제주체가 과도한 부채를 줄이는 과정으로 긴축·디폴트·인플레이션 경로로 진행되며 단기적으로 성장을 위축시킴
+    description: "과도한 부채 부담을 줄이는 과정으로, (1) 지출 삭감(긴축), (2) 디폴트·채무 재조정, (3) 세제 등을 통한 부의 재분배, (4) 중앙은행의 통화량 증가(화폐화·QE) 네 경로가 결합됨. 지출 삭감·부채 탕감만으로는 소득이 더 빨리 줄어 부담이 악화될 수 있어, 소득 증가율이 이자율을 넘는 조합과 재정·통화 협력이 관건이며, 일반 경기침체와 달리 금리 인하만으로는 끝나지 않는 경우가 많아 10년 가까운 '잃어버린 10년'으로 이어지기도 함"
     category: 금융
     stockMarketImportance: 5
 
@@ -2071,8 +2077,14 @@ terms:
 
   - id: credit-cycle
     name: 신용 사이클 (Credit Cycle)
-    description: 신용(대출·레버리지)의 팽창과 수축이 자산 가격과 경기를 좌우하며 반복되는 주기
+    description: "약 5~8년 주기로 신용(대출·레버리지)이 팽창·수축하며 지출·물가·경기를 움직이는 단기 부채 사이클로, 확장기에는 신용 창출로 지출·인플레이션이 커지면 중앙은행이 금리를 올리고, 침체기에는 금리 인하로 다시 신용을 살림. 이런 단기 사이클이 수십 년 반복되면 부채가 소득보다 빠르게 쌓여 장기 부채 사이클을 만듦"
     category: 금융
+    stockMarketImportance: 6
+
+  - id: long-term-debt-cycle
+    name: 장기 부채 사이클 (Long-term Debt Cycle)
+    description: "약 75~100년에 걸쳐 단기 신용 사이클이 반복되며 부채가 소득보다 빠르게 누적되다가 부채 부담 정점(peak)에 도달하고 디레버리징으로 전환되는 장기 구조로, 1929·1989·2008년처럼 일반 경기침체와 달리 금리가 0%에 가까워도 회복이 더디고 재정·통화 협력이 필요할 수 있음"
+    category: 거시경제
     stockMarketImportance: 6
 
   - id: per
