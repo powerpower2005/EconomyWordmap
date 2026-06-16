@@ -2358,3 +2358,37 @@ propositions:
       - label: "단기 수요 부양"
         detail: "불황기 일시적 소득 지원은 생산성과 단기적으로 어긋나도 장기 경쟁력을 바로 훼손하지 않을 수 있다."
     verdict: "장기·구조 관점에서는 성립하지만, 단기 경기 정책과는 구분해야 하는 조건부 명제다."
+
+  - id: p157
+    statement: "지급준비율만 올려도 유동성과 물가를 잡을 수 있다"
+    category: 통화정책
+    termIds: [required-reserve-ratio, credit-creation, money-multiplier, money-supply, inflation]
+    relationIds: [r20, r841]
+    premise: "지급준비율을 높이면 은행의 대출·신용창출 여력이 줄어 통화승수와 시중 유동성이 위축되어 물가 압력이 완화된다는 전통적 지급준비율 정책 논리에 근거한다."
+    holds:
+      - label: "지준율이 실질 제약인 체제"
+        detail: "지급준비율이 대출의 속도 제한장치로 작동하고 그림자금융이 작을 때는 지준율 인상이 신용 창출을 직접 줄인다."
+    fails:
+      - label: "그림자금융·대출수요 과잉"
+        detail: "규제 밖 신용과 강한 대출·투기 수요가 있으면 지준율만으로는 유동성을 충분히 틀어막지 못한다."
+        example: "2010년 중국, 지급준비율 19%까지 올렸으나 물가·부동산 압력 지속 후 금리 인상으로 선회."
+      - label: "지준율 0% · 풍부한 준비금"
+        detail: "미국처럼 지준율이 0%이면 자본·유동성 규제와 IORB가 신용을 더 직접 좌우한다."
+    verdict: "지준율이 실질 제약이고 대체 신용 채널이 약할 때만 성립하는 조건부 명제다."
+
+  - id: p158
+    statement: "본원통화가 늘면 M2가 같은 승수만큼 기계적으로 늘어난다"
+    category: 통화
+    termIds: [base-money, money-multiplier, m2, money-supply, credit-creation, quantitative-easing]
+    relationIds: [r8, r10, r837]
+    premise: "교과서식 통화승수(M≈C/r)에 따르면 중앙은행이 본원통화(C)를 늘리면 예금·대출 연쇄를 통해 M2가 고정 배수만큼 확대된다는 논리에 근거한다."
+    holds:
+      - label: "지준율 제약 + 강한 대출수요"
+        detail: "지급준비율이 실질 제약이고 은행·차입자가 적극적으로 대출·예금을 늘리면 본원통화 증가가 M2 확대로 이어진다."
+    fails:
+      - label: "QE·지급준비금 적체"
+        detail: "본원통화가 지급준비금으로 쌓이고 대출수요가 약하면 승수가 낮아져 M2는 기계적으로 따라가지 않는다."
+        example: "2008년 이후 QE로 본원통화·지급준비금 급증 대비 M2 증가율은 더 완만."
+      - label: "규제·유통속도"
+        detail: "자본·유동성 규제, 화폐유통속도 하락, 신용 경색이 있으면 같은 본원통화도 다른 M2 경로를 탄다."
+    verdict: "교과서 승수 모형은 직관용이며, QE·규제·수요 국면에 따라 깨지는 조건부 명제다."

@@ -83,6 +83,12 @@ terms:
     category: 통화
     stockMarketImportance: 5
 
+  - id: m1
+    name: 협의통화(M1) (M1 Money Supply)
+    description: "현금과 요구불예금 등 즉시 지출에 쓰이는 협의통화로, 중앙은행이 M2·M3와 함께 공표하는 통화량 지표 중 가장 좁은 범위"
+    category: 통화
+    stockMarketImportance: 3
+
   - id: m2
     name: 광의통화(M2) (M2 Money Supply)
     description: 본원통화와 예금통화를 포함한 광범위한 유동성 지표
@@ -109,7 +115,7 @@ terms:
 
   - id: money-multiplier
     name: 통화승수 (Money Multiplier)
-    description: 본원통화가 시중 통화량으로 확대되는 이론적 개념으로, 현대 금융시스템에서는 대출수요·자본규제·유동성 규제가 더 중요한 제약 요인
+    description: "본원통화(C)가 예금·대출 연쇄를 거쳐 광의통화(M)로 확대되는 비율(M/C)로, 교과서식 모형에서는 지급준비율 r일 때 M≈C/r(예: r=20%면 1조 본원→5조 통화)처럼 표현되나, 현실에서는 대출수요·은행 심리·자본·유동성 규제·그림자금융 등으로 승수가 크게 달라지고 QE 시에는 오히려 승수가 낮아지기도 함. 유통속도(V)와는 별개 변수"
     category: 통화
     stockMarketImportance: 2
 
@@ -157,7 +163,7 @@ terms:
 
   - id: credit-creation
     name: 신용창조 (Credit Creation)
-    description: 은행이 대출을 통해 예금을 동시에 창출하는 과정
+    description: "중앙은행이 공급한 본원통화가 은행·기업·가계 거래를 거치며 예금(신용화폐)과 대출이 연쇄적으로 늘어나는 과정. 교과서식으로는 지급준비율만큼 남기고 나머지를 대출→예금→재대출하는 예금 승수(M≈C/r)로 설명하고, 현대 은행론에서는 대출 실행과 동시에 예금이 창출되는 회계 구조(대출=예금의 양면)를 강조함. 지급준비율·자본규제·대출수요에 따라 속도와 규모가 달라지며, 그림자금융은 은행 규제 밖에서 같은 기능을 할 수 있음"
     category: 금융
     stockMarketImportance: 4
 
@@ -748,6 +754,12 @@ terms:
     description: 단기에는 가격·임금이 경직적이고 총수요 부족으로 실업이 지속될 수 있어 정부의 적극적 수요 관리가 필요하다는 학파로, 고전파의 시장 자율 조정론과 세이의 법칙을 비판하며 대공황 이후 등장
     category: 경제이론
     stockMarketImportance: 3
+
+  - id: is-lm-model
+    name: IS-LM 모형 (IS-LM Model)
+    description: "금리와 GDP를 동시에 결정하는 케인즈식 연립모형으로, IS(투자·금리와 산출)와 LM(통화공급·금리) 관계를 겹쳐 경기·통화정책 효과를 분석. 1970년대까지 정책 예측에 널리 쓰였으나 루카스 비판 이후 미시적 기초·합리적 기대를 담은 DSGE로 대체됨"
+    category: 경제이론
+    stockMarketImportance: 2
 
   - id: neoclassical-economics
     name: 신고전학파 (Neoclassical Economics)

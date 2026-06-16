@@ -5762,7 +5762,7 @@ relations:
     term1Id: money-multiplier
     term2Id: inflation
     type: proportional
-    description: "통화승수 상승으로 돈의 유통속도가 빨라지면 물가 상승 압력으로 작동"
+    description: "통화승수로 광의통화가 확대되면 명목지출·물가 상승 압력이 커질 수 있음(유통속도와는 별개)"
     strength: medium
     nature: causal
     conditions: "실물 수요가 뒷받침될 때"
@@ -6508,3 +6508,99 @@ relations:
     description: "호황기 부채 누적이 장기 부채 사이클 정점으로 이어진다는 민스키적 설명"
     strength: medium
     nature: correlational
+
+  - id: r833
+    term1Id: is-lm-model
+    term2Id: keynesian-economics
+    type: correlation
+    description: "IS-LM은 케인즈 총수요·통화정책을 연립방정식으로 풀어낸 대표 거시모형"
+    strength: strong
+    nature: hierarchical
+
+  - id: r834
+    term1Id: lucas-critique
+    term2Id: dsge-model
+    type: correlation
+    description: "루카스 비판이 합리적 기대·미시적 기초를 담은 DSGE 표준화를 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r835
+    term1Id: heterogeneous-agent
+    term2Id: dsge-model
+    type: correlation
+    description: "이질적 행위자 모형은 DSGE의 대표자 단순화를 보완해 분배·부채 충격을 다룸"
+    strength: medium
+    nature: correlational
+
+  - id: r836
+    term1Id: rational-expectations
+    term2Id: dsge-model
+    type: correlation
+    description: "합리적 기대 가정이 DSGE 모형의 핵심 전제"
+    strength: strong
+    nature: hierarchical
+
+  - id: r837
+    term1Id: credit-creation
+    term2Id: m2
+    type: proportional
+    description: "신용창조로 늘어난 예금·대출이 M2 등 광의통화 지표에 반영"
+    strength: medium
+    nature: causal
+
+  - id: r838
+    term1Id: monetarism
+    term2Id: credit-creation
+    type: correlation
+    description: "통화주의는 신용·본원통화 확대가 물가·경기에 미치는 영향을 강조"
+    strength: medium
+    nature: correlational
+
+  - id: r839
+    term1Id: quantity-theory-of-money
+    term2Id: credit-creation
+    type: correlation
+    description: "화폐수량설(MV=PY)에서 M에는 신용화폐·예금 창출이 포함됨"
+    strength: medium
+    nature: definitional
+
+  - id: r840
+    term1Id: austrian-business-cycle
+    term2Id: credit-creation
+    type: correlation
+    description: "오스트리아 경기변동이론은 인위적 신용 팽창이 말인베스트먼트·버블을 부른다고 봄"
+    strength: medium
+    nature: causal
+
+  - id: r841
+    term1Id: money-multiplier
+    term2Id: velocity-of-money
+    type: correlation
+    description: "통화승수(M/C)는 돈의 양 확대, 유통속도(V)는 MV=PY에서 별도로 물가·산출에 작용"
+    strength: medium
+    nature: definitional
+
+  - id: r842
+    term1Id: m1
+    term2Id: m2
+    type: correlation
+    description: "M1(현금+요구불예금)은 M2에 포함되는 협의통화 지표"
+    strength: strong
+    nature: hierarchical
+
+  - id: r843
+    term1Id: m1
+    term2Id: money-supply
+    type: correlation
+    description: "M1은 통화량(협의통화)의 대표 지표 중 하나"
+    strength: medium
+    nature: hierarchical
+
+  - id: r844
+    term1Id: lucas-critique
+    term2Id: is-lm-model
+    type: inverse
+    description: "정책 변화 시 행동이 바뀌면 과거 추정 IS-LM 계수가 무의미해진다는 루카스 비판"
+    strength: medium
+    nature: causal
