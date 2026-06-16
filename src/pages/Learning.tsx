@@ -10,6 +10,8 @@ import { CurriculumPart, CurriculumSection } from '../types';
 import MarkdownProse from '../components/MarkdownProse';
 import PropositionBody from '../components/PropositionBody';
 import { loadBookmarks, toggleBookmark } from '../utils/learningProgress';
+import { useLearnedItems } from '../hooks/useLearnedItems';
+import LearnedToggle from '../components/LearnedToggle';
 
 export type LearnBodyFormat = 'dialogue' | 'prose';
 
@@ -26,6 +28,7 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   const [expandedTermId, setExpandedTermId] = useState<string | null>(null);
   const [expandedPropId, setExpandedPropId] = useState<string | null>(null);
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => loadBookmarks());
+  const { isLearned, toggleLearned } = useLearnedItems();
 
   const selectedSection = useMemo(
     () => curriculum?.sections.find(s => s.id === selectedSectionId) ?? null,
@@ -107,6 +110,8 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
                 expandedTermId={expandedTermId}
                 expandedPropId={expandedPropId}
                 bookmarks={bookmarks}
+                isLearned={isLearned}
+                onToggleLearned={toggleLearned}
                 onToggleTerm={termId => setExpandedTermId(expandedTermId === termId ? null : termId)}
                 onToggleProp={propId => setExpandedPropId(expandedPropId === propId ? null : propId)}
                 onBookmark={handleBookmark}
@@ -312,6 +317,8 @@ function PartBlock({
   expandedTermId,
   expandedPropId,
   bookmarks,
+  isLearned,
+  onToggleLearned,
   onToggleTerm,
   onToggleProp,
   onBookmark,
@@ -323,6 +330,8 @@ function PartBlock({
   expandedTermId: string | null;
   expandedPropId: string | null;
   bookmarks: Set<string>;
+  isLearned: (id: string) => boolean;
+  onToggleLearned: (id: string) => void;
   onToggleTerm: (termId: string) => void;
   onToggleProp: (propId: string) => void;
   onBookmark: (id: string) => void;
@@ -364,8 +373,10 @@ function PartBlock({
                   term={term}
                   expanded={expandedTermId === term.id}
                   bookmarked={bookmarks.has(term.id)}
+                  learned={isLearned(term.id)}
                   onToggle={() => onToggleTerm(term.id)}
                   onBookmark={() => onBookmark(term.id)}
+                  onToggleLearned={() => onToggleLearned(term.id)}
                   onOpenTerm={onOpenTerm}
                 />
               );
@@ -379,8 +390,10 @@ function PartBlock({
                   proposition={prop}
                   expanded={expandedPropId === prop.id}
                   bookmarked={bookmarks.has(prop.id)}
+                  learned={isLearned(prop.id)}
                   onToggle={() => onToggleProp(prop.id)}
                   onBookmark={() => onBookmark(prop.id)}
+                  onToggleLearned={() => onToggleLearned(prop.id)}
                   onOpenTerm={onOpenTerm}
                 />
               );
@@ -397,26 +410,39 @@ function TermRow({
   term,
   expanded,
   bookmarked,
+  learned,
   onToggle,
   onBookmark,
+  onToggleLearned,
   onOpenTerm,
 }: {
   index: number;
   term: NonNullable<ReturnType<typeof getTermById>>;
   expanded: boolean;
   bookmarked: boolean;
+  learned: boolean;
   onToggle: () => void;
   onBookmark: () => void;
+  onToggleLearned: () => void;
   onOpenTerm: (id: string) => void;
 }) {
   const relatedProps = getPropositionsByTermId(term.id);
 
   return (
-    <div className="bg-gray-50/80 rounded-lg border border-gray-100 overflow-hidden">
+    <div
+      className={`rounded-lg border overflow-hidden ${
+        learned ? 'bg-emerald-50/60 border-emerald-100' : 'bg-gray-50/80 border-gray-100'
+      }`}
+    >
       <div className="flex items-center gap-2 px-3 py-2.5">
+        <LearnedToggle learned={learned} onToggle={onToggleLearned} size="sm" />
         <span className="text-xs text-gray-400 w-5 shrink-0">{index + 1}</span>
         <button type="button" onClick={onToggle} className="flex-1 text-left min-w-0">
-          <div className="text-sm font-medium text-gray-900 truncate">{term.name}</div>
+          <div
+            className={`text-sm font-medium truncate ${learned ? 'text-gray-600' : 'text-gray-900'}`}
+          >
+            {term.name}
+          </div>
           {!expanded && (
             <p className="text-xs text-gray-500 line-clamp-1 mt-0.5">{term.description}</p>
           )}
@@ -466,25 +492,36 @@ function PropositionRow({
   proposition,
   expanded,
   bookmarked,
+  learned,
   onToggle,
   onBookmark,
+  onToggleLearned,
   onOpenTerm,
 }: {
   index: number;
   proposition: NonNullable<ReturnType<typeof getPropositionById>>;
   expanded: boolean;
   bookmarked: boolean;
+  learned: boolean;
   onToggle: () => void;
   onBookmark: () => void;
+  onToggleLearned: () => void;
   onOpenTerm: (id: string) => void;
 }) {
   return (
-    <div className="bg-indigo-50/40 rounded-lg border border-indigo-100/80 overflow-hidden">
+    <div
+      className={`rounded-lg border overflow-hidden ${
+        learned ? 'bg-emerald-50/50 border-emerald-100' : 'bg-indigo-50/40 border-indigo-100/80'
+      }`}
+    >
       <div className="flex items-start gap-2 px-3 py-2.5">
+        <LearnedToggle learned={learned} onToggle={onToggleLearned} size="sm" className="mt-0.5" />
         <span className="text-xs text-gray-400 w-5 shrink-0 mt-0.5">{index + 1}</span>
         <button type="button" onClick={onToggle} className="flex-1 text-left min-w-0">
           <div className="text-[10px] text-indigo-600 font-medium mb-0.5">명제</div>
-          <div className="text-sm font-medium text-gray-900">{proposition.statement}</div>
+          <div className={`text-sm font-medium ${learned ? 'text-gray-600' : 'text-gray-900'}`}>
+            {proposition.statement}
+          </div>
           {!expanded && (
             <p className="text-xs text-gray-500 line-clamp-1 mt-0.5">{proposition.verdict}</p>
           )}

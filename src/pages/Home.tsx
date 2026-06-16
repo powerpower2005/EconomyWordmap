@@ -3,6 +3,9 @@ import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, getStarRatin
 import { formatTermDate, getLatestTermChangeSummary } from '../utils/termDisplay';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
+import LearnedToggle from '../components/LearnedToggle';
+import { useLearnedItems } from '../hooks/useLearnedItems';
+import { countLearned, filterByLearned, type LearnedFilter } from '../utils/learnedItems';
 
 interface HomeProps {
   focusTermId?: string | null;
@@ -31,6 +34,12 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
   const [showFilters, setShowFilters] = useState<boolean>(false);
   const [sortOrder, setSortOrder] = useState<TermSortOrder>('default');
   const [updatedWithinDays, setUpdatedWithinDays] = useState<number | null>(null);
+  const [learnedFilter, setLearnedFilter] = useState<LearnedFilter>('all');
+  const { learned, isLearned, toggleLearned } = useLearnedItems();
+  const learnedTermCount = countLearned(
+    terms.map(t => t.id),
+    learned
+  );
 
   // 카테고리 목록
   const categories = ['거시경제', '국제경제', '금융', '통화', '통화정책', '정부', '원자재', '금리', '채권', '경제이론', '자원·환경', '미시경제'];
@@ -66,12 +75,15 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
       );
     }
 
+    results = filterByLearned(results, learned, learnedFilter);
+
     const hasActiveQuery =
       searchQuery.trim().length > 0 ||
       selectedImportanceFilters.size > 0 ||
       selectedCategoryFilters.size > 0 ||
       sortOrder !== 'default' ||
-      updatedWithinDays != null;
+      updatedWithinDays != null ||
+      learnedFilter !== 'all';
 
     if (hasActiveQuery) {
       setSearchResults(results.slice(0, 20));
@@ -80,7 +92,7 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
       setSearchResults([]);
       setShowDropdown(false);
     }
-  }, [searchQuery, selectedImportanceFilters, selectedCategoryFilters, sortOrder, updatedWithinDays, terms]);
+  }, [searchQuery, selectedImportanceFilters, selectedCategoryFilters, sortOrder, updatedWithinDays, learnedFilter, learned, terms]);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchQuery(e.target.value);
@@ -118,6 +130,7 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
     setSearchQuery('');
     setSortOrder('default');
     setUpdatedWithinDays(null);
+    setLearnedFilter('all');
   };
 
   // 외부 클릭 시 드롭다운 닫기
@@ -145,6 +158,10 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
           <div className="bg-white rounded-lg shadow px-4 py-2 flex items-center gap-3">
             <div className="text-lg font-bold text-blue-600">{terms.length}</div>
             <div className="text-sm text-gray-600">등록된 용어</div>
+          </div>
+          <div className="bg-white rounded-lg shadow px-4 py-2 flex items-center gap-3">
+            <div className="text-lg font-bold text-emerald-600">{learnedTermCount}</div>
+            <div className="text-sm text-gray-600">배운 용어</div>
           </div>
           <div className="bg-white rounded-lg shadow px-4 py-2 flex items-center gap-3">
             <div className="text-lg font-bold text-green-600">{relations.length}</div>
@@ -253,11 +270,39 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                     </div>
                   </div>
 
+                  {/* 학습 상태 필터 */}
+                  <div>
+                    <h3 className="text-sm font-semibold text-gray-700 mb-2">학습 상태</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {(
+                        [
+                          { value: 'all', label: '전체' },
+                          { value: 'unlearned', label: '미배움' },
+                          { value: 'learned', label: '배움' },
+                        ] as const
+                      ).map(opt => (
+                        <button
+                          key={opt.value}
+                          type="button"
+                          onClick={() => setLearnedFilter(opt.value)}
+                          className={`px-3 py-1 text-sm rounded-lg border transition-colors ${
+                            learnedFilter === opt.value
+                              ? 'bg-emerald-100 border-emerald-400 text-emerald-800'
+                              : 'bg-white border-gray-300 text-gray-600 hover:border-gray-400'
+                          }`}
+                        >
+                          {opt.label}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
                   {/* 필터 초기화 버튼 */}
                   {(selectedImportanceFilters.size > 0 ||
                     selectedCategoryFilters.size > 0 ||
                     sortOrder !== 'default' ||
-                    updatedWithinDays != null) && (
+                    updatedWithinDays != null ||
+                    learnedFilter !== 'all') && (
                     <div className="flex justify-end">
                       <button
                         onClick={clearAllFilters}
@@ -364,7 +409,8 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                       selectedImportanceFilters.size > 0 ||
                       selectedCategoryFilters.size > 0 ||
                       sortOrder !== 'default' ||
-                      updatedWithinDays != null) &&
+                      updatedWithinDays != null ||
+                      learnedFilter !== 'all') &&
                     setShowDropdown(true)
                   }
                   placeholder="용어 이름, 설명, 카테고리로 검색..."
@@ -372,15 +418,31 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                 />
                 {showDropdown && searchResults.length > 0 && (
                   <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg max-h-96 overflow-y-auto">
-                    {searchResults.map(term => (
-                      <button
+                    {searchResults.map(term => {
+                      const termLearned = isLearned(term.id);
+                      return (
+                      <div
                         key={term.id}
-                        onClick={() => handleSearchResultClick(term)}
-                        className="w-full px-4 py-3 text-left hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100 last:border-b-0"
+                        className={`flex items-stretch border-b border-gray-100 last:border-b-0 ${
+                          termLearned ? 'bg-emerald-50/50' : ''
+                        }`}
                       >
+                        <div className="flex items-center px-3">
+                          <LearnedToggle
+                            learned={termLearned}
+                            onToggle={() => toggleLearned(term.id)}
+                            size="sm"
+                          />
+                        </div>
+                        <button
+                          onClick={() => handleSearchResultClick(term)}
+                          className="flex-1 px-4 py-3 text-left hover:bg-blue-50 hover:text-blue-600 transition-colors"
+                        >
                         <div className="flex items-start justify-between gap-2">
                           <div className="flex-1">
-                            <div className="font-semibold text-gray-900">{term.name}</div>
+                            <div className={`font-semibold ${termLearned ? 'text-gray-700' : 'text-gray-900'}`}>
+                              {term.name}
+                            </div>
                             <div className="flex gap-2 items-center mt-1">
                               {term.category && (
                                 <span className="text-xs text-gray-500">{term.category}</span>
@@ -405,8 +467,10 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                             )}
                           </div>
                         </div>
-                      </button>
-                    ))}
+                        </button>
+                      </div>
+                      );
+                    })}
                   </div>
                 )}
                 {showDropdown &&
@@ -415,7 +479,8 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                     selectedCategoryFilters.size > 0 ||
                     searchQuery.trim().length > 0 ||
                     sortOrder !== 'default' ||
-                    updatedWithinDays != null) && (
+                    updatedWithinDays != null ||
+                    learnedFilter !== 'all') && (
                   <div className="absolute z-10 w-full mt-2 bg-white border border-gray-300 rounded-lg shadow-lg p-4 text-center text-gray-500">
                     검색 결과가 없습니다.
                   </div>

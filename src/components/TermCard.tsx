@@ -3,6 +3,8 @@ import { Relation, RelationType, Term } from '../types';
 import { loadRelations, getTermById, getStarRating, getPropositionsByTermId } from '../utils/dataLoader';
 import PropositionBody from './PropositionBody';
 import TermChangelog from './TermChangelog';
+import LearnedToggle from './LearnedToggle';
+import { useLearnedItems } from '../hooks/useLearnedItems';
 
 interface TermCardProps {
   term: Term;
@@ -49,6 +51,8 @@ interface ImpactItem {
 
 export default function TermCard({ term, onOpenTerm }: TermCardProps) {
   const [expandedPropId, setExpandedPropId] = useState<string | null>(null);
+  const { isLearned, toggleLearned } = useLearnedItems();
+  const termLearned = isLearned(term.id);
 
   const { gives, receives, mutual } = useMemo(() => {
     const relations = loadRelations();
@@ -102,6 +106,13 @@ export default function TermCard({ term, onOpenTerm }: TermCardProps) {
     <div>
       {/* 헤더 */}
       <div className="mb-4 flex gap-3 items-center flex-wrap">
+        <LearnedToggle
+          learned={termLearned}
+          onToggle={() => toggleLearned(term.id)}
+        />
+        <span className={`text-sm ${termLearned ? 'text-emerald-700 font-medium' : 'text-gray-500'}`}>
+          {termLearned ? '배움' : '미배움'}
+        </span>
         {term.category && (
           <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm">
             {term.category}
@@ -165,29 +176,45 @@ export default function TermCard({ term, onOpenTerm }: TermCardProps) {
             <div className="space-y-3">
               {relatedPropositions.map(prop => {
                 const isOpen = expandedPropId === prop.id;
+                const propLearned = isLearned(prop.id);
                 return (
-                  <div key={prop.id} className="bg-white rounded-lg border border-gray-200 overflow-hidden">
-                    <button
-                      onClick={() => setExpandedPropId(isOpen ? null : prop.id)}
-                      className="w-full px-4 py-3 text-left flex items-start justify-between gap-3 hover:bg-gray-50 transition-colors"
-                    >
-                      <div className="flex-1">
-                        <div className="flex items-center gap-2 flex-wrap">
-                          {prop.category && (
-                            <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
-                              {prop.category}
+                  <div
+                    key={prop.id}
+                    className={`rounded-lg border overflow-hidden ${
+                      propLearned ? 'bg-emerald-50/40 border-emerald-100' : 'bg-white border-gray-200'
+                    }`}
+                  >
+                    <div className="flex items-start gap-2 px-4 py-3">
+                      <LearnedToggle
+                        learned={propLearned}
+                        onToggle={() => toggleLearned(prop.id)}
+                        size="sm"
+                        className="mt-1"
+                      />
+                      <button
+                        onClick={() => setExpandedPropId(isOpen ? null : prop.id)}
+                        className="flex-1 text-left flex items-start justify-between gap-3 hover:opacity-90 min-w-0"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center gap-2 flex-wrap">
+                            {prop.category && (
+                              <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-50 text-indigo-700 border border-indigo-100">
+                                {prop.category}
+                              </span>
+                            )}
+                            <span className={`font-bold ${propLearned ? 'text-gray-700' : 'text-gray-900'}`}>
+                              {prop.statement}
                             </span>
+                          </div>
+                          {!isOpen && (
+                            <p className="text-sm text-gray-500 mt-1 line-clamp-2">{prop.verdict}</p>
                           )}
-                          <span className="font-bold text-gray-900">{prop.statement}</span>
                         </div>
-                        {!isOpen && (
-                          <p className="text-sm text-gray-500 mt-1 line-clamp-2">{prop.verdict}</p>
-                        )}
-                      </div>
-                      <span className="text-gray-400 mt-1 shrink-0">{isOpen ? '▼' : '▶'}</span>
-                    </button>
+                        <span className="text-gray-400 mt-1 shrink-0">{isOpen ? '▼' : '▶'}</span>
+                      </button>
+                    </div>
                     {isOpen && (
-                      <div className="px-4 pb-4">
+                      <div className="px-4 pb-4 ml-8">
                         <PropositionBody proposition={prop} />
                       </div>
                     )}
