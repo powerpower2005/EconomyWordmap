@@ -6604,3 +6604,77 @@ relations:
     description: "정책 변화 시 행동이 바뀌면 과거 추정 IS-LM 계수가 무의미해진다는 루카스 비판"
     strength: medium
     nature: causal
+
+  - id: r845
+    term1Id: stagflation
+    term2Id: neoliberalism
+    type: correlation
+    description: "1970년대 스태그플레이션이 케인즈식 수요관리의 한계를 드러내며 신자유주의 등장을 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r846
+    term1Id: stagflation
+    term2Id: supply-side-economics
+    type: correlation
+    description: "스태그플레이션에 대한 반동으로 공급 측 유인을 강조하는 공급주의가 부상"
+    strength: medium
+    nature: causal
+
+  - id: r847
+    term1Id: great-depression
+    term2Id: deflation
+    type: correlation
+    description: "대공황은 대량 실업과 함께 심각한 디플레이션을 동반한 장기 불황"
+    strength: strong
+    nature: causal
+
+  - id: r848
+    term1Id: classical-economics
+    term2Id: manufacturing
+    type: correlation
+    description: "산업혁명으로 늘어난 부의 분배 문제가 고전경제학 형성의 역사적 배경"
+    strength: medium
+    nature: causal
+
+  - id: r849
+    term1Id: neoclassical-economics
+    term2Id: says-law
+    type: correlation
+    description: "신고전학파는 초과공급이 가격 하락으로 수요를 끌어올려 균형에 수렴한다는 세이의 법칙을 계승"
+    strength: strong
+    nature: hierarchical
+
+  - id: r850
+    term1Id: laissez-faire
+    term2Id: keynesian-economics
+    type: inverse
+    bidirectional: true
+    description: "시장 자유방임을 지향하는 자유방임론은 정부의 적극적 수요 관리를 옹호하는 케인즈주의와 대립"
+    reverseDescription: "케인즈주의의 정부 개입은 정부 역할을 최소화하는 자유방임론과 대립"
+    strength: strong
+    nature: correlational
+
+  - id: r851
+    term1Id: effective-demand
+    term2Id: great-depression
+    type: correlation
+    description: "대공황은 유효수요 부족으로 경제가 완전고용 아래에서 정체된다는 케인즈 진단의 역사적 사례"
+    strength: strong
+    nature: causal
+
+  - id: r852
+    term1Id: neoliberalism
+    term2Id: inequality
+    type: correlation
+    description: "신자유주의 정책이 자유무역·규제 완화·감세를 확대하며 빈부격차를 키웠다는 비판이 제기됨"
+    strength: medium
+    nature: correlational
+
+  - id: r853
+    term1Id: neoliberalism
+    term2Id: supply-side-economics
+    type: correlation
+    description: "신자유주의는 감세·규제 완화 등 공급주의를 정책 묶음의 핵심 축으로 포함"
+    strength: strong
+    nature: hierarchical
