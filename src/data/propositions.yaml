@@ -1493,7 +1493,7 @@ propositions:
   - id: p102
     statement: "금리가 오르면 고평가 주식이 더 크게 눌린다"
     category: 금융
-    termIds: [interest-rate, valuation, stock-market, eps]
+    termIds: [interest-rate, valuation, stock-market, eps, long-term-interest-rate, commodity-market]
     premise: "금리 상승은 미래 이익의 할인율을 높여 밸류에이션 멀티플을 압축하며, 이익이 먼 미래에 몰린 고평가·성장주가 특히 큰 타격을 받는다는 논리에 근거한다."
     holds:
       - label: "금리 급등 + 고멀티플"
@@ -1503,23 +1503,33 @@ propositions:
         detail: "실적 증가가 금리 상승을 압도하면 고평가 주식도 버틴다."
       - label: "저평가 주식"
         detail: "이미 저PBR로 싼 주식은 금리 상승의 멀티플 압축 효과가 작다."
-    verdict: "금리 상승기에 밸류에이션이 높을수록 강하게 성립하는 조건부 명제다."
+      - label: "실물자산·원자재 대칭"
+        detail: "장기금리 상승이 인플레이션·재정 부담 신호로 읽히면 금·에너지 등 실물자산은 상대적으로 강할 수 있다."
+        example: "장기 부채 사이클 말기·재정 우위 국면의 자산 로테이션."
+    verdict: "금리 상승기에 밸류에이션이 높을수록 강하게 성립하지만, 실물자산 헤지 경로와는 대칭적으로 갈라질 수 있다."
 
   - id: p103
     statement: "정부 부채가 감당 못 할 만큼 커지면 결국 인플레이션으로 푼다"
     category: 통화정책
-    termIds: [debt-to-gdp, debt-monetization, inflation, deleveraging]
+    termIds: [debt-to-gdp, debt-monetization, inflation, deleveraging, long-term-debt-cycle, national-debt]
+    relationIds: [r659, r660, r855, r856]
     premise: "정치 양극화·포퓰리즘 환경에서는 긴축으로 명목부채를 줄이기 어려워, 부채를 화폐화하고 인플레이션으로 실질 가치를 깎는 경로를 택하기 쉽다는 정치경제 논리에 근거한다."
     holds:
       - label: "정치 양극화 + 자국통화 부채"
         detail: "허리띠를 졸라매는 디레버리징이 정치적으로 불가능하고 부채가 자국통화로 표시되면, 화폐화·인플레이션으로 부담을 녹이는 길을 택한다."
         example: "역사적 고부채국의 금융 억압·인플레이션을 통한 부채 축소."
+      - label: "장기 부채 사이클 말기"
+        detail: "GDP 대비 부채비율이 역사적 고점에 근접하고 이자 부담이 커지면 명목 상환보다 실질 가치 희석 경로가 현실적 대안이 됨."
+        example: "2020년대 미국 국가부채 120%대·연간 이자 1조 달러."
     fails:
       - label: "강한 재정규율·독립적 중앙은행"
         detail: "재정 규율이 작동하고 중앙은행이 독립적이면 화폐화 대신 긴축으로 부채를 관리한다."
       - label: "외화표시 부채"
         detail: "부채가 외화로 표시되면 인플레이션으로 실질가치를 줄일 수 없어 디폴트·긴축이 불가피하다."
-    verdict: "긴축이 정치적으로 어렵고 부채가 자국통화일수록 성립하는 조건부 명제다."
+      - label: "생산성 혁명이 분모를 키우는 경우"
+        detail: "기술 진보로 GDP가 빠르게 늘면 같은 명목부채라도 부채비율이 자연스럽게 낮아져 화폐화 압력이 약해질 수 있다."
+        example: "1990년대 IT 혁명기 생산성·성장 동반."
+    verdict: "긴축이 정치적으로 어렵고 부채가 자국통화일수록 성립하지만, 생산성·성장이 분모를 키우면 압력이 완화되는 조건부 명제다."
 
   - id: p104
     statement: "큰 정부·양극화 시대엔 정치 사이클이 시장을 크게 좌우한다"
@@ -1889,17 +1899,22 @@ propositions:
   - id: p129
     statement: "재정 우위 국면에서는 연준이 물가를 잡기 위한 긴축을 충분히 밀어붙이기 어렵다"
     category: 통화정책
-    termIds: [fiscal-dominance, fiscal-policy, central-bank-independence, policy-rate, inflation]
-    relationIds: [r762, r770]
+    termIds: [fiscal-dominance, fiscal-policy, central-bank-independence, policy-rate, inflation, national-debt, long-term-interest-rate]
+    relationIds: [r762, r770, r856, r858, r862]
     premise: "정부의 확장 재정·적자·전쟁 지출이 우선되면 중앙은행이 금리를 충분히 올려 물가를 잡기 어렵고, 재정 부담·금융안정 우려가 긴축을 지연시킨다는 논리에 근거한다."
     holds:
       - label: "재정 확장·적자 누적"
         detail: "재정이 성장·복지·전쟁을 앞세우면 연준도 긴축 속도·강도에 제약을 받는다."
         example: "1960년대 미국: 재정 확장 속 연준의 점진적 긴축."
+      - label: "이자 부담이 국방비를 추월"
+        detail: "국가부채 이자 지급이 커지면 통화정책이 물가보다 정부 이자 부담에 끌려다니기 쉬움."
+        example: "2020년대 미국 연간 이자 지급 1조 달러 돌파."
     fails:
       - label: "강한 중앙은행 독립·위기"
         detail: "독립성과 신뢰가 매우 높고 인플레이션이 위기 수준이면 강한 긴축이 가능하다."
         example: "1979~1982년 볼커 연준."
+      - label: "AI Capex·공급 충격 인플레"
+        detail: "재정 부담과 별개로 AI 설비투자 등 공급 측 지출이 물가를 밀어 올리면 긴축 딜레마가 더 복잡해질 수 있다."
     verdict: "재정 우선순위가 높을수록 성립하는, fiscal dominance를 설명하는 조건부 명제다."
 
   - id: p130
@@ -2451,3 +2466,63 @@ propositions:
       - label: "정책 무력화"
         detail: "예측 가능한 정책은 기대에 선반영되어 효과가 상쇄될 수 있다."
     verdict: "불황·시장 실패에는 유효하지만 스태그플레이션·과열·재정 제약 앞에서는 만능 처방이 아니다."
+
+  - id: p162
+    statement: "AI 생산성 혁명이 GDP를 키워 부채비율을 자연스럽게 낮춘다"
+    category: 거시경제
+    termIds: [artificial-intelligence, technological-progress, debt-to-gdp, economic-growth, aggregate-supply, inequality]
+    relationIds: [r861, r869]
+    premise: "기술 진보로 총생산성이 크게 오르면 GDP(분모)가 빠르게 늘어 명목부채가 같아도 GDP 대비 부채비율이 낮아진다는 '인플레이션 없는 호황' 논리에 근거한다."
+    holds:
+      - label: "광범위한 생산성 전이"
+        detail: "AI가 소프트웨어뿐 아니라 물리 생산·서비스 전반의 효율을 끌어올리면 성장이 부채 부담을 상쇄할 수 있다."
+      - label: "분모 성장이 이자보다 빠를 때"
+        detail: "명목 GDP 성장률이 국채 이자율을 상회하면 부채비율이 구조적으로 완화될 수 있다."
+    fails:
+      - label: "so-so automation"
+        detail: "노동은 대체하지만 총요소생산성 기여가 작으면 일자리만 줄고 파이는 크게 늘지 않아 부채비율 완화 효과가 제한적이다."
+        example: "아세모글루 등의 보수적 TFP 추정(10년 0.5%p)."
+      - label: "과실의 자본 편중"
+        detail: "생산성 이익이 노동이 아니라 AI·인프라 소유 자본에 쏠리면 GDP는 늘어도 양극화가 심화될 수 있다."
+      - label: "명목부채가 더 빠르게 늘 때"
+        detail: "재정 적자·이자 부담이 GDP 성장을 앞서면 생산성 혁명만으로는 부채비율이 내려가지 않는다."
+    verdict: "생산성이 광범위하게 전이되고 성장이 이자를 앞설 때만 성립하는, AI 낙관의 조건부 명제다."
+
+  - id: p163
+    statement: "AI 설비투자가 생산성 전이보다 앞서면 인플레이션 압력이 커진다"
+    category: 거시경제
+    termIds: [ai-capex, artificial-intelligence, inflation, crude-oil, commodity-market, supply-shock, technological-progress]
+    relationIds: [r867, r870]
+    premise: "데이터센터·전력·설비에 대한 AI Capex가 먼저 몰리고 그에 상응하는 생산성 향상이 뒤늦으면, 지출 자체가 에너지·원자재·인력 비용을 끌어올려 인플레이션을 촉발한다는 논리에 근거한다."
+    holds:
+      - label: "Capex 선행·생산성 지연"
+        detail: "LLM·데이터센터 투자가 물리 생산성 전이보다 빠르면 비용 상승이 물가로 전가되기 쉽다."
+        example: "전력·유가·그리드 수요 급증 국면."
+      - label: "재정·민간 투자 동시 확대"
+        detail: "정부 부채 부양과 민간 AI 투자가 겹치면 수요 압력이 더 커진다."
+    fails:
+      - label: "생산성이 동시에 따라올 때"
+        detail: "투자와 함께 총공급·생산성이 빠르게 개선되면 같은 Capex도 물가 압력을 상쇄할 수 있다."
+      - label: "수요 둔화·과잉 설비"
+        detail: "경기 침체로 설비 가동률이 낮으면 Capex가 가격이 아니라 설비 과잉으로 흡수될 수 있다."
+    verdict: "지출이 생산성보다 앞서는 시차가 클수록 성립하는 조건부 명제다."
+
+  - id: p164
+    statement: "장기 금리가 오르면 장기 듀레이션 자산은 약하고 실물자산은 상대적으로 강해진다"
+    category: 금융
+    termIds: [long-term-interest-rate, valuation, stock-market, commodity-market, gold, bond-price, long-term-bond]
+    relationIds: [r858, r862, r864, r865]
+    premise: "장기금리 상승은 먼 미래 현금흐름의 할인율을 높여 고밸류 성장주·장기채를 누르는 동시에, 재정 부담·인플레이션 신호로 읽히면 금·원자재 등 실물자산이 헤지 수단으로 강해질 수 있다는 자산 로테이션 논리에 근거한다."
+    holds:
+      - label: "재정·인플레 신호 동반"
+        detail: "국가부채·이자 부담 우려와 함께 장기금리가 오르면 성장주·장기채는 약하고 실물자산은 상대 강세를 보일 수 있다."
+        example: "장기 부채 사이클 말기·재정 우위 논의 확대 국면."
+      - label: "고밸류·장기 듀레이션"
+        detail: "이익이 먼 미래에 몰린 기술주와 장기 국채는 금리 민감도가 커 낙폭이 클 수 있다."
+    fails:
+      - label: "실적이 금리를 압도"
+        detail: "기업 이익·생산성이 빠르게 개선되면 고밸류 주식도 버틸 수 있다."
+      - label: "디플레이션형 충격"
+        detail: "버블 붕괴로 경기가 급락하면 금리는 오르지만 실물자산도 함께 약해질 수 있다."
+        example: "2008년 초기: 유가·원자재 급락과 동반."
+    verdict: "재정·인플레 신호가 동반될 때 성립하지만, 디플레이션형 충격 앞에서는 약해지는 조건부 명제다."

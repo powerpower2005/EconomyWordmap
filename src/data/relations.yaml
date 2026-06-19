@@ -6678,3 +6678,143 @@ relations:
     description: "신자유주의는 감세·규제 완화 등 공급주의를 정책 묶음의 핵심 축으로 포함"
     strength: strong
     nature: hierarchical
+
+  - id: r854
+    term1Id: long-term-debt-cycle
+    term2Id: national-debt
+    type: proportional
+    description: "장기 부채 사이클 말기로 갈수록 국가부채 규모가 역사적 고점에 근접"
+    strength: strong
+    nature: correlational
+
+  - id: r855
+    term1Id: long-term-debt-cycle
+    term2Id: debt-to-gdp
+    type: proportional
+    description: "단기 신용 사이클이 누적되며 GDP 대비 부채비율이 정점에 도달하는 것이 장기 부채 사이클의 핵심 신호"
+    strength: strong
+    nature: causal
+
+  - id: r856
+    term1Id: fiscal-dominance
+    term2Id: national-debt
+    type: correlation
+    description: "국가부채·이자 부담이 커지면 통화정책이 재정 부담에 끌려 재정 우위가 강화되는 경향"
+    strength: strong
+    nature: causal
+
+  - id: r857
+    term1Id: fiscal-dominance
+    term2Id: debt-to-gdp
+    type: correlation
+    description: "GDP 대비 부채비율이 높을수록 긴축 여력이 줄고 재정 우위가 나타나기 쉬움"
+    strength: medium
+    nature: correlational
+
+  - id: r858
+    term1Id: fiscal-dominance
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: "재정 우위 국면에서는 이자 부담을 줄이기 위해 장기금리 인상이 제한되거나 재정 부담이 금리를 끌어올리는 양력이 작용"
+    strength: medium
+    nature: correlational
+    bidirectional: true
+    reverseType: correlation
+    reverseDescription: "장기금리 상승이 국가부채 이자 비용을 키워 재정 우위 압력을 강화"
+
+  - id: r859
+    term1Id: long-term-debt-cycle
+    term2Id: global-financial-crisis
+    type: correlation
+    description: "2008년 금융위기는 장기 부채 사이클의 청산 시점이었으나 QE로 디레버리징이 연기된 사례로 해석됨"
+    strength: strong
+    nature: causal
+
+  - id: r860
+    term1Id: quantitative-easing
+    term2Id: long-term-debt-cycle
+    type: correlation
+    description: "양적완화는 장기 부채 사이클 정점의 디레버리징을 통화·자산가격으로 상쇄해 연기하는 정책 수단"
+    strength: medium
+    nature: policy
+
+  - id: r861
+    term1Id: technological-progress
+    term2Id: debt-to-gdp
+    type: inverse
+    description: "생산성·GDP 성장이 빠르면 같은 명목부채라도 GDP 대비 부채비율이 낮아지는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r862
+    term1Id: national-debt
+    term2Id: long-term-interest-rate
+    type: proportional
+    description: "국가부채가 늘고 재정 신뢰가 약해지면 장기금리·이자 부담이 함께 상승하는 압력이 커짐"
+    strength: medium
+    nature: causal
+
+  - id: r863
+    term1Id: national-debt
+    term2Id: defense-spending
+    type: correlation
+    description: "국가부채 이자 지급이 국방비를 추월하면 재정 부담의 상징이 바뀌었다는 신호로 해석되기도 함"
+    strength: medium
+    nature: correlational
+
+  - id: r864
+    term1Id: gold
+    term2Id: debt-monetization
+    type: correlation
+    description: "부채 화폐화·인플레이션 우려가 커지면 금이 법정화폐 가치 하락에 대한 헤지로 수요가 늘 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r865
+    term1Id: commodity-market
+    term2Id: debt-monetization
+    type: correlation
+    description: "고부채·화폐화 국면에서 실물자산·원자재가 인플레이션 헤지 수단으로 선호될 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r866
+    term1Id: gold
+    term2Id: inflation-tax
+    type: correlation
+    description: "인플레이션 조세로 화폐·채권 가치가 깎일 때 금이 상대적 피난처로 작용하는 경향"
+    strength: medium
+    nature: correlational
+
+  - id: r867
+    term1Id: crude-oil
+    term2Id: ai-capex
+    type: proportional
+    description: "AI 설비투자 확대가 데이터센터·전력 수요를 끌어올려 에너지·유가에 상향 압력을 줄 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r868
+    term1Id: artificial-intelligence
+    term2Id: ai-capex
+    type: proportional
+    description: "AI 확산은 데이터센터·GPU·전력 등 대규모 설비투자를 동반"
+    strength: strong
+    nature: causal
+
+  - id: r869
+    term1Id: artificial-intelligence
+    term2Id: technological-progress
+    type: correlation
+    description: "AI는 기술 진보의 최전선이나 생산성 기여가 노동 대체와 분리돼 평가될 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r870
+    term1Id: ai-capex
+    term2Id: inflation
+    type: proportional
+    description: "AI 설비투자가 생산성 전이보다 앞서 몰리면 전력·설비·인력 비용을 끌어올려 인플레이션 압력이 될 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "생산성 전이가 늦을 때"
