@@ -6873,3 +6873,156 @@ relations:
     strength: strong
     nature: policy
     bidirectional: true
+
+  - id: r877
+    term1Id: crude-oil
+    term2Id: manufacturing
+    type: inverse
+    description: "저렴한 국내 원유·에너지 공급은 제조업 에너지·운송 원가를 낮출 수 있음"
+    reverseDescription: "유가 급등은 제조업 생산·운송 비용을 올려 마진을 압박할 수 있음"
+    strength: medium
+    nature: causal
+    bidirectional: true
+
+  - id: r878
+    term1Id: natural-gas
+    term2Id: manufacturing
+    type: inverse
+    description: "저렴한 천연가스는 발전·산업 연료 원가를 낮춰 제조업 경쟁력에 기여할 수 있음"
+    reverseDescription: "가스 가격 급등은 전력·열원 비용을 올려 제조업 원가를 압박할 수 있음"
+    strength: medium
+    nature: causal
+    bidirectional: true
+
+  - id: r879
+    term1Id: industrial-policy
+    term2Id: capital-expenditure
+    type: proportional
+    description: "보조금·세제·법안 등 산업정책이 설비·공장 건설 등 자본지출을 끌어올릴 수 있음"
+    strength: medium
+    nature: policy
+
+  - id: r880
+    term1Id: iron-ore
+    term2Id: manufacturing
+    type: proportional
+    description: "철광석은 철강 등 제조업 핵심 소재로 건설·자동차·기계 수요와 연동"
+    strength: medium
+    nature: causal
+
+  - id: r881
+    term1Id: crude-oil
+    term2Id: trade-surplus
+    type: proportional
+    description: "에너지 순수출국은 원유·정제품 수출로 무역흑자·에너지 독립에 기여할 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "순수출·생산 확대 국면"
+
+  - id: r882
+    term1Id: natural-gas
+    term2Id: trade-surplus
+    type: proportional
+    description: "LNG 등 가스 수출 확대는 에너지 무역흑자와 국내 저렴한 연료 공급을 동시에 뒷받침할 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "수출·생산 확대 국면"
+
+  - id: r883
+    term1Id: defense-spending
+    term2Id: manufacturing
+    type: proportional
+    description: "국방·미사일 방어·우주 등 지출은 국내 방위·항공·정밀 제조 수요를 키움"
+    strength: medium
+    nature: policy
+
+  - id: r884
+    term1Id: defense-spending
+    term2Id: economic-security
+    type: correlation
+    description: "방위산업·방어체계 확충은 전략 물자·기술의 국내 생산·조달과 경제안보 의제를 연결"
+    strength: strong
+    nature: policy
+    bidirectional: true
+
+  - id: r885
+    term1Id: reshoring
+    term2Id: technological-progress
+    type: inverse
+    description: "리쇼어링·저부가 제조 강요가 R&D·고부가 역량을 희생하면 생산성·이익이 둔화될 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "기술·R&D 중심 기업이 저부가 생산으로 회귀할 때"
+
+  - id: r886
+    term1Id: tariff
+    term2Id: nearshoring
+    type: inverse
+    description: "광범위한 관세·보호무역은 니어쇼어링·인접국 생산 거점의 비용·정책 불확실성을 키울 수 있음"
+    strength: medium
+    nature: policy
+
+  - id: r887
+    term1Id: deregulation
+    term2Id: nuclear-power
+    type: proportional
+    description: "원전 규제·허가 완화는 신규·연장·SMR 투자 유인을 높일 수 있음"
+    strength: medium
+    nature: policy
+
+  - id: r888
+    term1Id: ai-capex
+    term2Id: natural-gas
+    type: proportional
+    description: "데이터센터·AI 설비투자 확대는 전력·가스 발전 수요를 끌어올릴 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r889
+    term1Id: ai-capex
+    term2Id: nuclear-power
+    type: proportional
+    description: "AI·데이터센터의 기저 전력 수요는 원자력·SMR 등 안정적 대용량 전원 논의를 강화할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r890
+    term1Id: stock-market
+    term2Id: government-bond
+    type: correlation
+    description: "평상시에는 위험·안전자산으로 음의 상관(채권 헤지)을 보이지만, 고인플레·긴축 국면에서는 금리 인상 기대가 주식·국채를 동반 누를 수 있어 양의 상관으로 전환되기도 함"
+    strength: medium
+    nature: causal
+    conditions: "고인플레·중앙은행 긴축·금리 급등 국면"
+
+  - id: r891
+    term1Id: inflation
+    term2Id: bond-price
+    type: inverse
+    description: "인플레이션 압력·긴축 기대가 금리를 올리면 고정금리 채권 가격은 하락하는 경향(국면·선반영에 따라 강도는 다름)"
+    strength: strong
+    nature: causal
+
+  - id: r892
+    term1Id: inflation
+    term2Id: asset-bubble
+    type: correlation
+    description: "만성 인플레·화폐가치 하락 기대가 현금 기피와 헤지 자산 쏠림을 키워 부동산·주식 등 자산 거품을 부풀릴 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r893
+    term1Id: inflation-tax
+    term2Id: household-debt
+    type: inverse
+    description: "인플레이션이 명목 가계부채의 실질 부담을 깎아, 성장·물가와 함께 부채를 경제에 흡수하는 효과가 있음"
+    strength: medium
+    nature: causal
+
+  - id: r894
+    term1Id: currency-debasement
+    term2Id: inflation-tax
+    type: correlation
+    description: "화폐가치 훼손은 현금·명목채권 보유자에게 인플레이션 조세와 같은 실질 손실을 부과하는 효과"
+    strength: strong
+    nature: definitional

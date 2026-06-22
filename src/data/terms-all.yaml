@@ -1,7 +1,7 @@
 terms:
   - id: inflation
     name: 인플레이션 (Inflation)
-    description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력이 하락하는 현상으로, 완만한 수준에서는 가격·임금 경직성을 완화하고 디플레이션 위험을 줄이는 역할을 하나 과도할 경우 경제 불확실성과 실질소득 감소를 초래
+    description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력·노동의 대가를 잠식하는 현상으로, 완만한 수준에서는 소비·투자를 촉진하고 디플레이션 위험을 줄이지만 만성화·기대 고착 시 선제 구매·임금-물가 악순환을 키울 수 있어 과도할 경우 실질소득 감소와 경제 불확실성을 초래
     category: 거시경제
     stockMarketImportance: 10
 
@@ -241,7 +241,13 @@ terms:
 
   - id: natural-gas
     name: 천연가스 (Natural Gas)
-    description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향
+    description: "주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향. 미국은 생산 확대로 에너지 순수출국이 되었고, 저렴한 가스는 제조업 원가·전력 공급에 기여할 수 있으나 자본집약·자동화로 고용 창출력은 제한적일 수 있음"
+    category: 원자재
+    stockMarketImportance: 6
+
+  - id: nuclear-power
+    name: 원자력 발전 (Nuclear Power)
+    description: "우라늄 연료로 전력을 생산하는 기저 전력원으로 미국 전력의 상당 비중을 담당. 데이터센터·AI 전력 수요와 노후 원전 규제 이슈 속에서 SMR 등 차세대 원전과 규제 완화가 정책·민간 투자 논의의 중심이며, 석탄·일부 신재생과 달리 양당 지지가 상대적으로 강한 편"
     category: 원자재
     stockMarketImportance: 6
 
@@ -313,9 +319,9 @@ terms:
 
   - id: defense-spending
     name: 국방 지출 (Defense Spending)
-    description: 군사·안보·우주 경쟁 등을 위한 정부 지출로, 베트남전 참전기처럼 급증하면 재정적자·총수요·인플레 압력을 키우고 달러·기축통화 체제에도 부담을 줄 수 있음
+    description: "군사·안보·우주·미사일 방어 등을 위한 정부 지출로, 베트남전 참전기처럼 급증하면 재정적자·총수요·인플레 압력을 키울 수 있음. 방위산업은 자국 생산·조달 중심의 보호무역 성격이 강해 제조업·경제안보 정책과 맞닿으며, 방어체계·우주군 등 장기 예산 확대 논의가 이어질 수 있음"
     category: 정부
-    stockMarketImportance: 3
+    stockMarketImportance: 4
 
   - id: tax-increase
     name: 증세 (Tax Increase)
@@ -356,6 +362,12 @@ terms:
   - id: offshoring
     name: 오프쇼어링 (Offshoring)
     description: 생산·조달을 인건비·비용이 낮은 해외로 이전하는 기업 전략으로, 글로벌 가치사슬 확대와 제조업 고용의 국가 간 재배치를 가져왔으며 리쇼어링·보호무역·경제안보 논의의 반대편 축이 됨
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: nearshoring
+    name: 니어쇼어링 (Nearshoring)
+    description: 생산·조달을 지리적으로 가까운 국가(멕시코 등)로 옮기는 전략으로 물류·인건비·관세 리스크를 줄이려는 목적이 있으나, 광범위한 관세·보호무역 기조가 강해지면 예외국도 불안해져 투자·공장 건설이 지연될 수 있음
     category: 국제경제
     stockMarketImportance: 5
 
@@ -499,7 +511,7 @@ terms:
 
   - id: industrial-policy
     name: 산업정책 (Industrial Policy)
-    description: 정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반할 수 있어 수출 규율 등 성과 기준 설계가 중요함
+    description: "정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반함. IRA·CHIPS 등 대규모 법안은 설비투자를 끌어올릴 수 있고, 수혜 지역이 특정 주에 묶이면 정권 교체 후에도 철회·전면 폐지가 정치적으로 어려울 수 있음"
     category: 정부
     stockMarketImportance: 6
 
@@ -1998,7 +2010,7 @@ terms:
 
   - id: crude-oil
     name: 원유 (Crude Oil)
-    description: 가장 중요한 1차 에너지원이자 원자재로 브렌트·WTI 가격이 기준이 되며 가격 급등은 물가·무역수지·기업 비용에 광범위한 충격을 줌
+    description: "가장 중요한 1차 에너지원이자 원자재로 브렌트·WTI 가격이 기준이 되며 가격 급등은 물가·무역수지·기업 비용에 광범위한 충격을 줌. 미국은 셰일 등으로 생산이 늘어 에너지 순수출국이 되었고, 저렴한 국내 에너지는 제조업 원가·인플레이션 완충에 기여할 수 있으나 정권 레토릭과 실제 생산·투자는 어긋날 수 있음"
     category: 원자재
     stockMarketImportance: 7
 
