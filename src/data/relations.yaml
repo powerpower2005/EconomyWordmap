@@ -6818,3 +6818,58 @@ relations:
     strength: medium
     nature: causal
     conditions: "생산성 전이가 늦을 때"
+
+  - id: r871
+    term1Id: manufacturing
+    term2Id: trade-deficit
+    type: correlation
+    description: "제조업 고용·국내 생산이 늘어도 무역적자가 자동으로 줄지 않으며, 재정·저축·환율 구조에 따라 오히려 확대될 수 있음"
+    reverseDescription: "무역적자 축소가 제조업 고용 회복을 보장하지 않으며, 수입 위축·내수 둔화 등 다른 경로로 나타날 수 있음"
+    strength: weak
+    nature: correlational
+    bidirectional: true
+
+  - id: r872
+    term1Id: reshoring
+    term2Id: crowding-out-effect
+    type: inverse
+    description: "리쇼어링에 한정된 자본·인력을 투입하면 다른 고부가가치 일자리·투자 기회가 줄어드는 기회비용(구축효과)이 생길 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r873
+    term1Id: economic-security
+    term2Id: reshoring
+    type: correlation
+    description: "전략 물자·핵심 제조(철강·알루미늄 등)의 국내 생산 확보가 리쇼어링·산업정책의 명분이 됨"
+    reverseDescription: "리쇼어링·공급망 복귀가 경제안보 의제를 실현하는 정책 수단"
+    strength: medium
+    nature: policy
+    bidirectional: true
+
+  - id: r874
+    term1Id: capital-expenditure
+    term2Id: manufacturing
+    type: proportional
+    description: "제조업 설비·공장 건설 지출이 늘면 생산능력과 자본집약도가 높아지나, 가동 후 고용 창출은 생산성 제약으로 제한될 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "설비가 가동되기 시작한 뒤"
+
+  - id: r875
+    term1Id: capital-accumulation
+    term2Id: technological-progress
+    type: proportional
+    description: "설비·장비 등 자본축적이 생산성·기술 활용을 높이는 핵심 경로"
+    strength: medium
+    nature: causal
+
+  - id: r876
+    term1Id: offshoring
+    term2Id: reshoring
+    type: inverse
+    description: "생산을 해외로 이전(오프쇼어링)하는 것과 본국으로 복귀(리쇼어링)시키는 것은 정책·기업 전략의 반대 방향"
+    reverseDescription: "리쇼어링은 오프쇼어링으로 나간 생산·공급망을 되돌리는 움직임"
+    strength: strong
+    nature: policy
+    bidirectional: true
