@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { loadTerms, loadRelations, getKoreanIndex, getEnglishIndex, getStarRating, filterTermsByImportance, queryTerms, TermSortOrder } from '../utils/dataLoader';
-import { formatTermDate, getLatestTermChangeSummary } from '../utils/termDisplay';
+import { formatTermDate, getLatestTermChangeSummary, stripMarkdownInline } from '../utils/termDisplay';
 import RelationGraph, { RelationGraphHandle } from '../components/RelationGraph';
 import { Term } from '../types';
 import LearnedToggle from '../components/LearnedToggle';
@@ -451,7 +451,7 @@ export default function Home({ focusTermId = null, onFocusHandled }: HomeProps =
                                 <span className="text-xs text-yellow-600">{getStarRating(term.stockMarketImportance)}</span>
                               )}
                             </div>
-                            <div className="text-sm text-gray-600 mt-1 line-clamp-2">{term.description}</div>
+                            <div className="text-sm text-gray-600 mt-1 line-clamp-2">{stripMarkdownInline(term.description)}</div>
                             {(term.updatedAt || term.relationsUpdatedAt) && (
                               <div className="text-xs text-gray-500 mt-1.5 flex flex-wrap gap-x-2 gap-y-0.5">
                                 {term.updatedAt && (

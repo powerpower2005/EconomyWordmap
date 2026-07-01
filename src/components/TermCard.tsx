@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Relation, RelationType, Term } from '../types';
 import { loadRelations, getTermById, getStarRating, getPropositionsByTermId } from '../utils/dataLoader';
+import MarkdownProse from './MarkdownProse';
 import PropositionBody from './PropositionBody';
 import TermChangelog from './TermChangelog';
 import LearnedToggle from './LearnedToggle';
@@ -125,9 +126,11 @@ export default function TermCard({ term, onOpenTerm }: TermCardProps) {
         )}
       </div>
 
-      <div className="text-lg text-gray-700 leading-relaxed whitespace-pre-line mb-6">
-        {term.description}
-      </div>
+      <MarkdownProse
+        source={term.description}
+        mode="prose"
+        className="mb-6 text-lg leading-relaxed text-gray-700"
+      />
 
       <div className="space-y-6">
         {mutual.length > 0 && (

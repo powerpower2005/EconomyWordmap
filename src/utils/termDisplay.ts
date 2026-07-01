@@ -1,5 +1,10 @@
 import { Term, TermChangeEntry } from '../types';
 
+/** List/preview lines: strip inline markdown markers so clamps don't show literal ** */
+export function stripMarkdownInline(text: string): string {
+  return text.replace(/\*\*([^*]+)\*\*/g, '$1').replace(/\*([^*]+)\*/g, '$1');
+}
+
 export function formatTermDate(iso?: string): string | null {
   if (!iso) return null;
   const [y, m, d] = iso.split('-').map(Number);

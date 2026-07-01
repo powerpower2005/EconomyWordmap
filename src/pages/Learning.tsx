@@ -9,6 +9,7 @@ import {
 import { CurriculumPart, CurriculumSection } from '../types';
 import MarkdownProse from '../components/MarkdownProse';
 import PropositionBody from '../components/PropositionBody';
+import { stripMarkdownInline } from '../utils/termDisplay';
 import { loadBookmarks, toggleBookmark } from '../utils/learningProgress';
 import { useLearnedItems } from '../hooks/useLearnedItems';
 import LearnedToggle from '../components/LearnedToggle';
@@ -444,7 +445,7 @@ function TermRow({
             {term.name}
           </div>
           {!expanded && (
-            <p className="text-xs text-gray-500 line-clamp-1 mt-0.5">{term.description}</p>
+            <p className="text-xs text-gray-500 line-clamp-1 mt-0.5">{stripMarkdownInline(term.description)}</p>
           )}
         </button>
         {term.stockMarketImportance != null && (
@@ -470,7 +471,7 @@ function TermRow({
 
       {expanded && (
         <div className="px-3 pb-3 border-t border-gray-100 pt-2 space-y-2">
-          <p className="text-sm text-gray-700 leading-relaxed">{term.description}</p>
+          <MarkdownProse source={term.description} mode="prose" className="text-sm text-gray-700" />
           {relatedProps.length > 0 && (
             <p className="text-xs text-gray-500">관련 명제 {relatedProps.length}개</p>
           )}
