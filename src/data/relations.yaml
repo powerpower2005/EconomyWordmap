@@ -7026,3 +7026,171 @@ relations:
     description: "화폐가치 훼손은 현금·명목채권 보유자에게 인플레이션 조세와 같은 실질 손실을 부과하는 효과"
     strength: strong
     nature: definitional
+
+  - id: r895
+    term1Id: real-gdp
+    term2Id: economic-growth
+    type: correlation
+    description: "경제성장률은 통상 실질 GDP 증가율로 측정·정의됨"
+    strength: strong
+    nature: definitional
+
+  - id: r896
+    term1Id: economic-growth
+    term2Id: valuation
+    type: correlation
+    description: "국가·기업 실질 성장 전망이 미래 이익·현금흐름 기대를 키워 밸류에이션에 영향"
+    strength: medium
+    nature: causal
+
+  - id: r897
+    term1Id: economic-growth
+    term2Id: dcf
+    type: correlation
+    description: "장기 실질 성장률이 DCF 영구성장률(g)의 현실적 상한을 형성"
+    strength: medium
+    nature: causal
+
+  - id: r898
+    term1Id: investment
+    term2Id: gdp
+    type: correlation
+    description: "민간투자(I)는 GDP = C + I + G + NX의 핵심 구성요소"
+    strength: strong
+    nature: hierarchical
+
+  - id: r899
+    term1Id: business-cycle
+    term2Id: real-gdp
+    type: correlation
+    description: "경기순환은 실질 GDP의 확장·수축 국면으로 측정·관찰됨"
+    strength: strong
+    nature: definitional
+
+  - id: r900
+    term1Id: aggregate-demand
+    term2Id: consumption
+    type: correlation
+    description: "총수요 C + I + G + NX 중 가계 소비(C)가 가장 큰 축"
+    strength: strong
+    nature: hierarchical
+
+  - id: r901
+    term1Id: aggregate-demand
+    term2Id: investment
+    type: correlation
+    description: "총수요 C + I + G + NX 중 민간투자(I)가 경기·성장에 민감한 축"
+    strength: strong
+    nature: hierarchical
+
+  - id: r902
+    term1Id: aggregate-demand
+    term2Id: fiscal-policy
+    type: correlation
+    description: "정부 지출·조세(G)는 총수요를 직접 조절하는 정책 수단"
+    strength: strong
+    nature: policy
+
+  - id: r903
+    term1Id: aggregate-demand
+    term2Id: trade-deficit
+    type: correlation
+    description: "순수출(NX)은 수출−수입이며 무역적자는 NX를 낮춰 GDP·총수요에 기여"
+    strength: medium
+    nature: hierarchical
+
+  - id: r904
+    term1Id: credit-destruction
+    term2Id: credit-creation
+    type: inverse
+    description: "채무 상환·부도 시 신용·부채가 동시에 줄어드는 신용파괴는 신용창조의 반대 과정"
+    strength: strong
+    nature: causal
+
+  - id: r905
+    term1Id: credit-destruction
+    term2Id: credit-cycle
+    type: correlation
+    description: "신용 사이클 수축기에는 신용파괴가 지출·자산 가격을 위축"
+    strength: medium
+    nature: causal
+
+  - id: r906
+    term1Id: credit-destruction
+    term2Id: deleveraging
+    type: correlation
+    description: "디레버리징은 신용파괴·부채 상환을 통해 레버리지를 줄이는 과정"
+    strength: strong
+    nature: causal
+
+  - id: r907
+    term1Id: dcf
+    term2Id: interest-rate
+    type: inverse
+    description: "할인율(r)은 금리·리스크 프리미엄에 연동되어 DCF 내재가치를 좌우"
+    strength: strong
+    nature: causal
+
+  - id: r908
+    term1Id: dcf
+    term2Id: valuation
+    type: correlation
+    description: "DCF는 미래 CF를 할인해 밸류에이션·내재가치의 이론적 기준을 제공"
+    strength: strong
+    nature: definitional
+
+  - id: r909
+    term1Id: dcf
+    term2Id: eps
+    type: correlation
+    description: "주당순이익(EPS) 등 이익 지표가 DCF의 현금흐름(CF) 추정 입력"
+    strength: medium
+    nature: correlational
+
+  - id: r910
+    term1Id: recession
+    term2Id: real-gdp
+    type: inverse
+    description: "경기침체기에는 실질 GDP가 감소하거나 성장률이 크게 둔화"
+    strength: strong
+    nature: causal
+
+  - id: r911
+    term1Id: credit-cycle
+    term2Id: deleveraging
+    type: correlation
+    description: "신용 사이클 정점 이후 과잉 부채 조정으로 디레버리징이 시작되는 경우가 많음"
+    strength: medium
+    nature: causal
+
+  - id: r912
+    term1Id: yield-curve
+    term2Id: bank
+    type: inverse
+    description: "장단기 금리차가 역전되면 은행의 대출·예금 금리 마진(수익성)이 악화될 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r913
+    term1Id: economic-growth
+    term2Id: eps
+    type: proportional
+    description: "경기·성장 개선은 기업 이익·EPS 전망을 끌어올리는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r914
+    term1Id: economic-growth
+    term2Id: stock-market
+    type: correlation
+    description: "실질 성장·호황 기대는 기업 실적 전망을 통해 주식시장에 우호적일 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r915
+    term1Id: credit-spread
+    term2Id: business-cycle
+    type: correlation
+    description: "가산금리 확대는 경기순환 수축·신용 위축 국면과 함께 나타나는 경우가 많음"
+    strength: medium
+    nature: correlational

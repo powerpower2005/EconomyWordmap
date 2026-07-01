@@ -873,3 +873,118 @@ curriculum:
             - p166
             - p167
             - p168
+
+    - id: sec-macro-dashboard
+      order: 4
+      title: "오늘의 GDP·경기·신용은 내 주식에 어떻게 닿는가"
+      subtitle: "실질 GDP · DCF · 경기순환 · 신용 사이클"
+      learnerQuestion: "What did today's GDP and cycle headlines mean for my portfolio?"
+      bodyDialogue: |
+        **Alice:** 뉴스에 GDP 성장률, 경기침체, 신용 경색… 매크로가 너무 많아. 내 포트폴리오랑 어떻게 연결돼?
+
+        **Bob:** 한 줄기로 보면 **실물(일·생산)** 과 **금융(신용·금리)** 이 맞물리고, 그게 **기업 이익·할인율**로 주가에 닿아. GDP는 그 실물 쪽의 대표 숫자야.
+
+        ---
+
+        **Alice:** GDP가 오르면 주식도 무조건 오르지?
+
+        **Bob:** 아니. GDP = **C + I + G + NX**로 쪼개서 **누가** 끌어올렸는지, **실질**인지 **명목**인지 봐야 해. DCF로 말하면 **CF(이익)·g(성장)·r(금리)** 셋 중 뭐가 바뀌었는지가 더 직접적이야.
+      bodyProse: |
+        거시 헤드라인은 **실물 경제**(재화·서비스·고용)와 **금융 경제**(신용·부채·금리)가 맞물린 뒤, **기업 이익·할인율**을 통해 주가에 전달된다. GDP는 실물 쪽 대표 지표이며, 지출 항목으로 **GDP = C + I + G + NX**로 쪼갠다.
+
+        주식 밸류에이션의 기본 틀은 DCF다. **IV = CF1/(1+r) + … + 터미널/(r−g)** 형태로, 가치가 오르려면 **CF↑·g↑·r↓** 중 하나 이상이 필요하다. 국가 **실질 성장률**은 g의 현실적 상한을, **경기·신용 국면**은 CF 전망과 r(스프레드·리스크 프리미엄)을 좌우한다.
+
+        아래 두 파트는 **GDP·성장·DCF** → **경기순환·신용 사이클** 순으로 이어진다.
+      parts:
+        - id: part-gdp-dcf
+          title: "1. GDP, 실질 성장, DCF"
+          subtitle: "C + I + G + NX → CF · g · r"
+          bodyDialogue: |
+            **Alice:** GDP랑 실질 GDP 차이가 뭐야?
+
+            **Bob:** **명목 GDP**는 물가 포함, **실질 GDP**는 물가를 뺀 생산량. **경제성장률**은 보통 실질 GDP 증가율로 말해.
+
+            ---
+
+            **Alice:** DCF는 어디에 쓰여?
+
+            **Bob:** 미래 **현금흐름(CF)** 을 **할인율(r)** 로 할인해 **내재가치**를 보는 틀이야. **터미널/(r−g)** 에서 **g**는 장기 성장인데, 한 나라 실질 성장을 크게 넘기 어렵다는 게 현실적 상한이야.
+
+            ---
+
+            **Alice:** 호황이면 뭘 보면 돼?
+
+            **Bob:** 실질 GDP·고용·**EPS** 전망(CF)과 **금리·스프레드**(r). CPI만 보지 말고 **성장 + 금리**를 같이 봐.
+          bodyProse: |
+            **GDP = C + I + G + NX** — I에는 설비·재고 등 민간투자, G에는 이전지출 제외. **실질 GDP**로 물가를 제거한 뒤 **경제성장률**을 본다.
+
+            DCF: **IV = CF1/(1+r) + … + 터미널/(r−g)** (r>g). **CF↑·g↑·r↓**가 가치 상승 요인. **실질 성장률**은 g 상한, **호황/침체**는 CF·스프레드(r)에 직접 닿는다.
+
+            **정리:** GDP 헤드라인은 C·I·G·NX와 **실질/명목**을 구분하고, 포트폴리오는 **EPS(CF)·금리(r)·성장(g)** 로 연결해 읽는다.
+          termIds:
+            - gdp
+            - real-gdp
+            - nominal-gdp
+            - economic-growth
+            - aggregate-demand
+            - consumption
+            - investment
+            - fiscal-policy
+            - trade-deficit
+            - dcf
+            - valuation
+            - eps
+            - interest-rate
+            - credit-spread
+          propositionIds:
+            - p172
+            - p102
+            - p152
+
+        - id: part-cycles
+          title: "2. 경기순환과 신용 사이클"
+          subtitle: "실물 ↔ 금융, 같이 모니터링"
+          bodyDialogue: |
+            **Alice:** 경기침체랑 신용 경색이랑 다른 거야?
+
+            **Bob:** **경기순환**은 실물(실질 GDP·고용) 확장·수축, **신용 사이클**은 대출·레버리지 팽창·수축. 동전 양면처럼 붙어 있지만 **어느 쪽이 먼저 터지는지**는 매번 달라.
+
+            ---
+
+            **Alice:** 신용이 줄면 뭐가 달라져?
+
+            **Bob:** 대출 상환·부도는 **신용파괴** — 구매력과 부채가 같이 줄어. 정점 넘으면 **디레버리징**으로 수요가 위축돼. 반대로 유예·구제만 하면 부채가 **쌓인 채** 갈 수도 있어.
+
+            ---
+
+            **Alice:** 그래서 뭘 보면 돼?
+
+            **Bob:** **실질 GDP·고용**, **가산금리·수익률 곡선**, **신용 사이클** 국면을 **세트**로. 한쪽만 보면 반쯤만 본 거야.
+          bodyProse: |
+            **경기순환**은 실질 GDP·고용의 확장·수축. **신용 사이클**(약 5~8년)은 신용 창조·**신용파괴**·디레버리징의 반복. 둘은 분리할 수 없지만 **선후·주도는 국면마다 다르다**.
+
+            신용 정점 이후 **스프레드 확대**, **수익률 곡선 역전**, 은행 **마진 악화**가 함께 나타날 수 있다. 부채 **유예**는 청산과 달리 명목 부채가 유지·누적될 수 있다.
+
+            **정리:** 실물(GDP·고용)과 금융(스프레드·신용)을 **함께** 추적하고, 침체는 ‘두 분기 GDP’만으로 단정하지 말고 고용·소득을 같이 본다.
+          termIds:
+            - business-cycle
+            - recession
+            - real-gdp
+            - unemployment
+            - credit-cycle
+            - credit-creation
+            - credit-destruction
+            - deleveraging
+            - credit-spread
+            - yield-curve
+            - bank
+            - long-term-debt-cycle
+            - debt-burden
+            - stock-market
+          propositionIds:
+            - p173
+            - p174
+            - p97
+            - p53
+            - p112
+            - p155
