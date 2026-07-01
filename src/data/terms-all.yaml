@@ -37,9 +37,21 @@ terms:
 
   - id: gdp
     name: GDP (Gross Domestic Product)
-    description: "한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다"
+    description: "한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다"
     category: 거시경제
     stockMarketImportance: 9
+
+  - id: national-accounts
+    name: 국민계정 (System of National Accounts)
+    description: "UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 추계하며, 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨"
+    category: 거시경제
+    stockMarketImportance: 5
+
+  - id: beyond-gdp
+    name: Beyond GDP (GDP를 넘어)
+    description: "GDP만으로 국가 번영·후생·지속가능성을 평가하기 어렵다는 문제의식에서 출발한 대안 지표·측정 논의(EU·OECD·Stiglitz 위원회 등)로, 분배·환경·돌봄·행복 등 비시장 가치의 포괄적 반영을 지향"
+    category: 거시경제
+    stockMarketImportance: 3
 
   - id: nominal-gdp
     name: 명목 GDP (Nominal GDP)
@@ -697,7 +709,7 @@ terms:
 
   - id: externality
     name: 외부효과 (Externality)
-    description: 한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형
+    description: "한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형. GDP는 시장 거래만 집계하므로 오염·교통체증 같은 부(-) 외부성은 빠지고, 범죄·질병 대응을 위한 병원·교도소 건설 지출은 역설적으로 GDP를 키울 수 있다"
     category: 미시경제
     stockMarketImportance: 3
 

@@ -2792,3 +2792,56 @@ propositions:
       - label: "비상장·노동 소득이 분모를 키울 때"
         detail: "이익이 상장사에만 쏠리지 않으면 시총/GDP만으로 괴리를 설명하기 어렵다."
     verdict: "세후 이익·자본집약 구조가 강할 때 성립하지만, 정책·분배 변수에 따라 달라지는 조건부 명제다."
+
+  - id: p179
+    statement: "실질 GDP 성장이 곧 국민 후생·행복 향상이다"
+    category: 거시경제
+    termIds: [real-gdp, economic-growth, welfare-economics, inequality, trickle-down-effect, consumer-welfare]
+    relationIds: [r937, r939, r940, r942, r943]
+    premise: "경제성장(실질 GDP)이 늘면 고용·소비·소득이 함께 늘어 대부분의 국민 삶이 나아진다는 '성장=발전' 직관에 근거한다."
+    holds:
+      - label: "고용·소비 확대와 분배 개선"
+        detail: "성장이 일자리·가계소득·중위층 소비를 키우고 불평등이 완화되면 후생·행복 지표도 함께 오르는 경향이 있다."
+        example: "1990년대~2000년대 초 일부 신흥국 고성장기: 빈곤 감소와 중산층 확대."
+    fails:
+      - label: "불평등·가계부채 심화"
+        detail: "총량은 늘어도 소득·부가 상위층에 쏠리거나 가계부채가 커지면 행복·체감 후생은 개선되지 않을 수 있다."
+        example: "GDP 대국인 미국·중국의 높은 소득 불평등과 행복지수 정체."
+      - label: "트리클다운 미작동"
+        detail: "성장 이익이 투자·저축으로만 흘러가면 저소득층 체감은 약하고 불평등만 심화될 수 있다."
+    verdict: "분배·고용·부채 조건에 따라 달라지며, GDP 성장만으로 후생·행복을 단정할 수 없는 조건부 명제다."
+
+  - id: p180
+    statement: "GDP 증가는 환경·사회 비용까지 반영한 '좋은 성장'이다"
+    category: 거시경제
+    termIds: [gdp, economic-growth, externality, ecological-economics, pigovian-tax, beyond-gdp]
+    relationIds: [r938, r941, r947]
+    premise: "시장에서 거래된 부가가치가 늘면 국민 경제가 바람직한 방향으로 발전했다고 볼 수 있다는 GDP 중심 성장 관측에 근거한다."
+    holds:
+      - label: "녹색·효율 성장"
+        detail: "생산성·청정에너지 전환이 함께 이뤄지고 외부성이 내부화(탄소세 등)되면 GDP 증가와 환경·후생 개선이 동행할 수 있다."
+    fails:
+      - label: "부(-) 외부성 누락"
+        detail: "오염·기후·교통체증 비용이 가격에 반영되지 않으면 GDP는 오르지만 사회적 순편익은 작거나 음수일 수 있다."
+        example: "탄소배출 감소(코로나19 봉쇄)는 GDP에는 반영되지 않으나 장기 후생에는 유리."
+      - label: "대응 지출의 역설"
+        detail: "범죄·질병·재난 대응 지출(병원·교도소·복구)은 GDP를 키우지만 근본 위험이 줄었다고 보기 어렵다."
+    verdict: "외부성·분배·비시장 가치를 GDP만으로 판단할 수 없어, '좋은 성장' 여부는 별도 지표·정책과 함께 봐야 하는 조건부 명제다."
+
+  - id: p181
+    statement: "범죄·질병·재난 대응 지출이 늘면 GDP는 오르지만 사회 후생도 같이 오른다"
+    category: 거시경제
+    termIds: [gdp, externality, welfare-economics, consumer-welfare]
+    relationIds: [r938, r940, r943]
+    premise: "정부·민간의 대응 지출(병원·교도소·재난 복구 등)은 최종 재화·서비스 생산으로 GDP에 포함되므로, 지출 증가=사회 복지 개선으로 읽히기 쉽다."
+    holds:
+      - label: "근본 위험 감소와 함께한 투자"
+        detail: "감염병·재난 대응력이 실제로 강화되고 피해·불안이 줄면 지출 증가와 후생 개선이 함께 일어날 수 있다."
+        example: "팬데믹 대응 의료·백신 인프라 확충 후 사망률·경제 충격 완화."
+    fails:
+      - label: "GDP 역설(대응 지출만 증가)"
+        detail: "범죄·질병·교통체증이 늘어 대응 시설·서비스 지출만 커지면 GDP는 오르지만 사회 후생은 악화되거나 정체될 수 있다."
+        example: "교도소·CCTV·담벼락 확대: GDP 기여는 있으나 사회적 자본·안전 체감은 별개."
+      - label: "정부 지출=효능 가정"
+        detail: "GDP는 정부 지출액(산출)만 잡고 수혜자의 실제 효능·분배는 보여 주지 않는다."
+    verdict: "대응 지출의 '양'과 사회 '결과'는 다르게 움직일 수 있어, GDP만으로 후생 판단을 대체할 수 없는 조건부 명제다."
