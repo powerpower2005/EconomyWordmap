@@ -7614,3 +7614,131 @@ relations:
     description: "전략 산업 육성·보조금·규제 완화 등 산업정책은 투자·생산성을 통해 잠재·실질 성장률을 끌어올리려는 정책 수단"
     strength: medium
     nature: policy
+
+  - id: r968
+    term1Id: labor-productivity
+    term2Id: gdp
+    type: proportional
+    description: "노동 생산성이 오르면 같은 투입으로 더 많은 재화·서비스가 생산되어 GDP·산출이 늘어나는 경향"
+    strength: strong
+    nature: causal
+
+  - id: r969
+    term1Id: labor-productivity
+    term2Id: economic-growth
+    type: proportional
+    description: "생산성 개선은 장기 실질 GDP 성장률을 끌어올리는 핵심 공급 동력"
+    strength: strong
+    nature: causal
+
+  - id: r970
+    term1Id: labor-productivity
+    term2Id: potential-growth-rate
+    type: proportional
+    description: "노동 생산성 향상은 잠재 GDP·잠재성장률 추정의 핵심 변수로, 구조적 개선이 지속되면 잠재 성장 여력이 확대"
+    strength: strong
+    nature: causal
+
+  - id: r971
+    term1Id: output-gap
+    term2Id: real-gdp
+    type: correlation
+    description: "아웃풋 갭은 실질 GDP가 잠재 GDP 대비 얼마나 벗어났는지를 나타내는 지표로, 실질 GDP 수준이 직접 입력"
+    strength: strong
+    nature: definitional
+
+  - id: r972
+    term1Id: output-gap
+    term2Id: potential-gdp
+    type: correlation
+    description: "아웃풋 갭은 실질 GDP와 잠재 GDP의 차이(또는 그 비율)로 정의되며, 잠재 GDP는 모델 추정치"
+    strength: strong
+    nature: definitional
+
+  - id: r973
+    term1Id: output-gap
+    term2Id: central-bank
+    type: correlation
+    description: "아웃풋 갭이 양(+)으로 크면 경기 과열로 보아 긴축, 음(−)이면 둔화로 보아 완화 쪽 통화정책 판단에 참고"
+    strength: medium
+    nature: policy
+
+  - id: r974
+    term1Id: output-gap
+    term2Id: policy-rate
+    type: correlation
+    description: "양(+)의 아웃풋 갭이 지속되면 기준금리 인상·유지 등 긴축 압력이, 음(−)이면 인하 여지가 커지는 경향"
+    strength: medium
+    nature: policy
+
+  - id: r975
+    term1Id: potential-growth-rate
+    term2Id: real-gdp
+    type: correlation
+    description: "실질 GDP 성장이 잠재성장률을 상회·하회하는지가 경기 과열·둔화 해석의 기준"
+    strength: medium
+    nature: definitional
+
+  - id: r976
+    term1Id: potential-growth-rate
+    term2Id: economic-growth
+    type: correlation
+    description: "잠재성장률은 장기 경제성장의 지속 가능한 기준선으로, 실제 성장률과 비교해 국면을 나눔"
+    strength: medium
+    nature: definitional
+
+  - id: r977
+    term1Id: technological-progress
+    term2Id: labor-productivity
+    type: proportional
+    description: "기술·공정 혁신은 노동 생산성을 비약적으로 끌어올리는 대표 경로"
+    strength: strong
+    nature: causal
+
+  - id: r978
+    term1Id: capital-accumulation
+    term2Id: labor-productivity
+    type: proportional
+    description: "설비·장비 등 자본의 질·양이 늘면 단위 시간당 산출이 증가해 노동 생산성이 개선되는 경향"
+    strength: strong
+    nature: causal
+
+  - id: r979
+    term1Id: monopoly
+    term2Id: labor-productivity
+    type: inverse
+    description: "독점·과점 시장에서는 생산성 향상 동기가 약해져 장기 생산성·혁신이 둔화될 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r980
+    term1Id: aggregate-supply
+    term2Id: potential-growth-rate
+    type: proportional
+    description: "노동·자본·생산성으로 결정되는 총공급 여력이 잠재성장률·잠재 GDP의 이론적 토대"
+    strength: strong
+    nature: causal
+
+  - id: r981
+    term1Id: potential-gdp
+    term2Id: potential-growth-rate
+    type: correlation
+    description: "잠재성장률은 잠재 GDP 수준의 변화율(추정)로, 수준과 성장률이 한 쌍의 개념"
+    strength: strong
+    nature: definitional
+
+  - id: r982
+    term1Id: human-capital
+    term2Id: labor-productivity
+    type: proportional
+    description: "교육·훈련·경험으로 축적된 숙련도가 오르면 단위 노동당 산출이 증가"
+    strength: strong
+    nature: causal
+
+  - id: r983
+    term1Id: labor-productivity
+    term2Id: potential-gdp
+    type: proportional
+    description: "생산성 개선은 잠재 GDP 수준 추정을 올려 장기 공급 여력을 확대"
+    strength: strong
+    nature: causal

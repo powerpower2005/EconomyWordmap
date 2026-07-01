@@ -751,7 +751,7 @@ terms:
 
   - id: technological-progress
     name: 기술 진보 (Technological Progress)
-    description: 생산성을 끌어올리는 기술·공정·혁신의 향상으로 장기 경제성장의 핵심 동력이며, 중농주의가 과소평가했던 제조업 생산성 폭발의 원천. 1990년대 PC 혁명은 인간 생산성을 보완했으나, AI는 노동 대체 비중이 커 일자리는 줄이면서 총생산성 기여는 제한적일 수 있어(so-so automation) GDP 분모 확대로 부채비율을 낮춘다는 낙관과 분리해 봐야 함
+    description: "생산성을 끌어올리는 기술·공정·혁신의 향상으로 장기 경제성장의 핵심 동력이며, 중농주의가 과소평가했던 제조업 생산성 폭발의 원천. 노동 생산성 지표와는 구분해, 기술·혁신이 산출 효율에 미치는 구조적 변화를 가리킴. 1990년대 PC 혁명은 인간 생산성을 보완했으나, AI는 노동 대체 비중이 커 일자리는 줄이면서 총생산성 기여는 제한적일 수 있어(so-so automation) GDP 분모 확대로 부채비율을 낮춘다는 낙관과 분리해 봐야 함"
     category: 경제이론
     stockMarketImportance: 5
 
@@ -859,9 +859,33 @@ terms:
 
   - id: potential-growth-rate
     name: 잠재성장률 (Potential Growth Rate)
-    description: "자본·노동·생산성 등 공급 여력이 허용하는 지속 가능한 실질 성장률로, 실제 성장이 이를 넘으면 경기 과열·상승 국면, 미치면 둔화·하강 국면으로 해석하는 데 쓰이는 기준선"
+    description: "자본·노동·생산성 등 공급 여력이 허용하는 지속 가능한 실질 성장률로, 여러 가정·모델로 추정되는 기준선이며 잠재 GDP 수준의 연간 증가율에 대응. 실제 성장이 이를 넘으면 경기 과열·상승 국면, 미치면 둔화·하강 국면으로 해석하고, 실질 GDP와 잠재 GDP의 차이는 아웃풋 갭으로 나타남"
     category: 거시경제
     stockMarketImportance: 6
+
+  - id: potential-gdp
+    name: 잠재 GDP (Potential GDP)
+    description: "생산성·노동·자본·정책환경 등 공급 여력을 반영해 한 경제가 지속 가능하게 달성할 수 있다고 추정되는 실질 GDP 수준으로, 모델·가정에 따라 산출되는 추정치. 잠재성장률은 이 수준의 변화율이며, 실질 GDP가 잠재 GDP를 상회·하회하는 정도가 아웃풋 갭의 기준"
+    category: 거시경제
+    stockMarketImportance: 6
+
+  - id: output-gap
+    name: 아웃풋 갭 (Output Gap)
+    description: "실질 GDP가 잠재 GDP를 얼마나 웃도는지(양수) 또는 밑도는지(음수)를 나타내는 지표로, 양(+)이면 경기 과열·가동률 초과, 음(−)이면 둔화·유휴 자원 여력으로 해석. 중앙은행이 통화정책(금리·매파·비둘기 톤) 판단에 참고하는 대표 실물 지표 중 하나"
+    category: 거시경제
+    stockMarketImportance: 6
+
+  - id: labor-productivity
+    name: 노동 생산성 (Labor Productivity)
+    description: "단위 시간당 한 노동자가 생산하는 재화·서비스의 양으로, 적은 투입으로 더 많은 산출을 이끌어 GDP 성장·기업 이익·가계 소득에 직접 연결. 자본(설비·장비)·기술 진보·인적자본(숙련도)·시장 경쟁이 주요 동인이며 잠재 GDP·잠재성장률 추정의 핵심 변수. 기술 진보와 동의어가 아니라 통계청·BLS 등이 별도로 공표하는 거시 지표로 봐야 함"
+    category: 거시경제
+    stockMarketImportance: 6
+
+  - id: human-capital
+    name: 인적자본 (Human Capital)
+    description: "교육·훈련·경험으로 축적된 노동자의 지식·기술·능력으로, 숙련도가 오르면 노동 생산성과 잠재 성장 여력을 높이는 장기 공급 요인"
+    category: 거시경제
+    stockMarketImportance: 4
 
   - id: growth-forecast
     name: 성장률 전망 (Growth Forecast)
@@ -931,7 +955,7 @@ terms:
 
   - id: capital-accumulation
     name: 자본축적 (Capital Accumulation)
-    description: "생산에 쓰이는 자본을 투자로 늘려가는 과정으로 고전파와 현대 성장이론 모두에서 장기 성장의 핵심 동력. 설비·장비 비중이 커지면 자본 집약도가 올라 생산성은 뛰지만 고용 창출력은 약해질 수 있어(미국 제조업: 2010년대 집약도 정체 후 IRA 등 설비투자 재가속) 산출·고용을 분리해 봐야 함"
+    description: "생산에 쓰이는 자본의 질·양을 투자로 늘려가는 과정으로, 단순히 '돈'이 아니라 설비·장비·근무환경·효율적 설비 배치 등이 포함. 고전파와 현대 성장이론 모두에서 장기 성장·노동 생산성의 핵심 동력. 설비·장비 비중이 커지면 자본 집약도가 올라 생산성은 뛰지만 고용 창출력은 약해질 수 있어(미국 제조업: 2010년대 집약도 정체 후 IRA 등 설비투자 재가속) 산출·고용을 분리해 봐야 함"
     category: 거시경제
     stockMarketImportance: 4
 

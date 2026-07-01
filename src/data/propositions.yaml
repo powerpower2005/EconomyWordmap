@@ -2910,8 +2910,8 @@ propositions:
   - id: p185
     statement: "실질 성장(또는 성장 전망)이 잠재성장률을 넘으면 경기 상승 국면에서 주식이 우호적이다"
     category: 거시경제
-    termIds: [potential-growth-rate, economic-growth, growth-forecast, business-cycle, stock-market, real-gdp]
-    relationIds: [r966, r914, r961, r452]
+    termIds: [potential-growth-rate, economic-growth, growth-forecast, business-cycle, stock-market, real-gdp, output-gap]
+    relationIds: [r966, r914, r961, r452, r975, r971]
     premise: "잠재성장률은 공급 여력의 기준선으로, 실제·전망 성장이 이를 상회하면 수요·가동률·이익 기대가 개선되어 주식에 우호적이고, 하회하면 둔화·하강 국면으로 해석된다는 경기국면 논리에 근거한다."
     holds:
       - label: "잠재성장률 상회 확장"
@@ -2923,4 +2923,50 @@ propositions:
         example: "2018년 성장 전망 3%→2.6% 하향과 KOSPI200 조정."
       - label: "금리·외부 충격"
         detail: "무역분쟁·긴축 등으로 금리·위험프리미엄이 먼저 움직이면 성장 국면보다 주가 반응이 앞설 수 있다."
-    verdict: "잠재성장률 대비 실제·전망 성장과 주가는 평균적으로 연동하나, 금리·대외 변수 앞에서는 시차·이격이 생기는 조건부 명제다."
+      - label: "잠재 상회·아웃풋 갭 과열"
+        detail: "실제 성장이 잠재를 크게 넘는 과열 국면에서는 이익 기대는 좋아도 금리 급등·긴축 기대가 선반영되어 주가가 조정될 수 있다."
+        example: "2023~2024년 미국 아웃풋 갭 확대와 연준 매파 발언·고금리 유지 국면."
+    verdict: "잠재성장률 대비 실제·전망 성장과 주가는 평균적으로 연동하나, 아웃풋 갭 과열·금리·대외 변수 앞에서는 시차·이격이 생기는 조건부 명제다."
+
+  - id: p186
+    statement: "아웃풋 갭이 양(+)으로 크면 중앙은행이 긴축(금리 인상·유지·매파 톤) 쪽으로 반응한다"
+    category: 통화정책
+    termIds: [output-gap, central-bank, policy-rate, interest-rate, potential-gdp, real-gdp, federal-reserve, inflation]
+    relationIds: [r973, r974, r971, r972]
+    premise: "실질 GDP가 잠재 GDP를 크게 상회하면 경기 과열·수요 초과·물가 압력 우려가 커지고, 중앙은행은 물가안정 목표 하에 기준금리를 올리거나 높은 수준을 유지하며 매파적 발언을 내놓는 정책 반응 논리에 근거한다."
+    holds:
+      - label: "양(+)의 아웃풋 갭·수요 견인 과열"
+        detail: "가동률이 잠재를 넘어 서면 임금·가격 압력이 쌓일 수 있어 중앙은행이 긴축 신호를 보낸다."
+        example: "2023~2024년 미국 아웃풋 갭 확대와 연준의 고금리 유지·매파 발언."
+      - label: "물가목표제·신뢰 유지"
+        detail: "인플레이션이 목표를 넘은 채 아웃풋 갭이 양(+)이면 금리 인상·유지로 기대를 고정하려는 압력이 커진다."
+    fails:
+      - label: "공급 충격·스태그플레이션"
+        detail: "에너지·공급망 충격으로 물가만 오르고 실물이 약하면 아웃풋 갭 해석과 금리 결정이 엇갈릴 수 있다."
+        example: "1970년대 오일쇼크 스태그플레이션."
+      - label: "금융안정·재정 우위"
+        detail: "부채 부담·금융 불안이 크면 과열 신호에도 금리를 충분히 올리지 못하거나 조기 인하를 검토한다."
+      - label: "잠재 GDP 추정 오차"
+        detail: "잠재 GDP·아웃풋 갭은 모델 추정치라 실제 과열·둔화가 지표와 어긋날 수 있다."
+    verdict: "수요 견인·물가목표제 국면에서는 성립하나, 공급 충격·금융안정·추정 오차 앞에서는 지연·약화되는 조건부 명제다."
+
+  - id: p187
+    statement: "노동 생산성이 구조적으로 개선되면 잠재성장률이 올라간다"
+    category: 거시경제
+    termIds: [labor-productivity, potential-growth-rate, potential-gdp, economic-growth, technological-progress, capital-accumulation, human-capital, aggregate-supply]
+    relationIds: [r970, r977, r978, r982, r983, r980, r981]
+    premise: "잠재 GDP·잠재성장률은 노동·자본·생산성 등 공급 요인의 함수로 추정되며, 생산성이 지속 개선되면 같은 투입으로 더 많이 생산할 수 있어 장기 성장 여력이 확대된다는 공급 성장 논리에 근거한다."
+    holds:
+      - label: "기술·자본·숙련도 동반 개선"
+        detail: "기술 진보·설비투자·인적자본 축적이 함께 오면 노동 생산성과 잠재 성장률이 함께 올라가는 경우가 많다."
+        example: "1990년대 IT 혁명기 생산성·성장 동반."
+      - label: "DCF g 상한 상향"
+        detail: "잠재 성장률이 올라가면 장기 밸류에이션의 현실적 g 가정도 함께 검토된다."
+    fails:
+      - label: "생산성 개선이 분배·수요로 전이되지 않을 때"
+        detail: "생산성 이익이 임금·소비로 이어지지 않으면 실질 성장 체감·수요는 약할 수 있다."
+      - label: "단기 수요·금리 변수"
+        detail: "구조적 생산성 개선은 장기 변수라 단기 GDP·주가는 금리·신용 국면에 더 크게 반응할 수 있다."
+      - label: "측정·추정 시차"
+        detail: "생산성 통계와 잠재 GDP 추정은 개정·시차가 있어 즉시 반영되지 않을 수 있다."
+    verdict: "장기 공급 여력을 설명하는 조건부 명제이며, 단기 시장·분배 변수 앞에서는 체감·가격 반응이 지연·이격될 수 있다."
