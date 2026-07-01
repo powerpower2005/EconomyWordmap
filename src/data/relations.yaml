@@ -7556,3 +7556,61 @@ relations:
     description: "낮은 법인세율·R&D 세액공제는 FDI 유치와 함께 이익 이동·BEPS 논쟁의 출발점이 될 수 있음"
     strength: medium
     nature: correlational
+
+  - id: r961
+    term1Id: growth-forecast
+    term2Id: stock-market
+    type: correlation
+    description: "성장률 전망 상향·하향 개정은 미래 이익·g 가정을 바꿔 주가에 선반영되는 경향"
+    strength: medium
+    nature: causal
+    lag: "주가가 성장률 확인보다 수 분기 선행하는 경우가 많음"
+
+  - id: r962
+    term1Id: trade-war
+    term2Id: economic-growth
+    type: correlation
+    description: "관세·보복 무역분쟁이 수출·투자·성장 기대를 눌러 실질 성장률 전망과 실적을 악화시킬 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r963
+    term1Id: policy-rate
+    term2Id: economic-growth
+    type: correlation
+    description: "기준금리 인상은 차입·투자·수요를 눌러 성장을 둔화시킬 수 있으며, 급격한 긴축은 경기침체 우려를 키움"
+    strength: medium
+    nature: causal
+    conditions: "금리가 수요·신용에 제약을 가할 때"
+
+  - id: r964
+    term1Id: federal-reserve
+    term2Id: economic-growth
+    type: correlation
+    description: "연준 긴축·완화 경로는 글로벌 금융여건을 통해 타국 수출·자본·성장 전망에 파급"
+    strength: medium
+    nature: causal
+
+  - id: r965
+    term1Id: stock-index
+    term2Id: economic-growth
+    type: correlation
+    description: "국가별 주가지수 장기 수익률은 실질 성장률·성장 전망과 연동되는 경우가 많으나 밸류·금리·유동성에 따라 이격될 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r966
+    term1Id: potential-growth-rate
+    term2Id: business-cycle
+    type: correlation
+    description: "실질 성장이 잠재성장률을 넘으면 확장·과열, 미치면 둔화·하강 국면으로 해석하는 기준"
+    strength: medium
+    nature: definitional
+
+  - id: r967
+    term1Id: industrial-policy
+    term2Id: economic-growth
+    type: correlation
+    description: "전략 산업 육성·보조금·규제 완화 등 산업정책은 투자·생산성을 통해 잠재·실질 성장률을 끌어올리려는 정책 수단"
+    strength: medium
+    nature: policy
