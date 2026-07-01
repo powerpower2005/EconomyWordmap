@@ -196,6 +196,8 @@ propositions:
         detail: "주가는 실제보다 자주 경기 전환을 예고해 빗나가며, 침체 없는 조정이나 조정 없는 침체도 나타난다."
       - label: "유동성 장세"
         detail: "금리·유동성에 의해 펀더멘털과 무관하게 움직이면 경기와의 연결이 약해진다."
+      - label: "시총이 GDP를 앞서는 장기 구간"
+        detail: "1980년대 이후처럼 밸류·금리·이익 쏠림으로 시가총액/GDP가 급등하면, 주가·시총이 실질 GDP 성장률과 장기적으로 동행하지 않을 수 있다."
     verdict: "평균적으로 선행하는 경향은 있으나 잡음과 거짓 신호가 많아 단독으로 신뢰하기 어려운 명제다."
 
   - id: p12
@@ -2724,3 +2726,69 @@ propositions:
       - label: "생산성·성장이 분모를 키울 때"
         detail: "소득·GDP가 빠르게 늘면 같은 명목부채라도 부담 비율이 낮아져 '쌓인 채 유지' 체감이 약해질 수 있다."
     verdict: "유예·구제 경로를 택할수록 부채가 명목상 유지·누적될 수 있는 조건부 명제다."
+
+  - id: p175
+    statement: "경제성장(실질 GDP)과 주식시장 시가총액은 장기적으로 비슷하게 성장한다"
+    category: 금융
+    termIds: [economic-growth, real-gdp, market-capitalization, market-cap-to-gdp, stock-market]
+    relationIds: [r916, r923, r914]
+    premise: "실물 생산(GDP)이 늘면 기업 이익·시가총액도 함께 늘어 장기적으로 성장률이 맞물린다는 직관에 근거한다."
+    holds:
+      - label: "이익·밸류가 GDP와 동행"
+        detail: "실질 GDP·EPS가 함께 오르고 밸류에이션이 크게 벌어지지 않으면 시총/GDP가 비교적 안정적일 수 있다."
+    fails:
+      - label: "1985년 이후 선진국"
+        detail: "시가총액/실질 GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 성장한 구간이 관측됨(Kuvshinov·Zimmermann, 2022)."
+        example: "17개 선진국 시총/GDP 비율의 1980년대 이후 상승."
+      - label: "밸류·금리만의 장세"
+        detail: "금리 하락·멀티플 확대만으로 시총이 커지면 GDP 성장과 장기 패리티가 깨진다."
+    verdict: "이익·발행 구조가 안정적일 때는 대략 성립하지만, 밸류·금리 축이 크면 깨지는 조건부 명제다."
+
+  - id: p176
+    statement: "1985년 이후 선진국 시가총액 증가는 순 주식 발행보다 실질 자본이득(주가·밸류)이 주도했다"
+    category: 금융
+    termIds: [market-capitalization, net-equity-issuance, real-capital-gain, valuation, share-buyback, ipo]
+    relationIds: [r919, r920, r935, r936]
+    premise: "시총 변화 = 순 주식 발행 + 실질 자본이득으로 분해할 때, 1985년 이후 주요국에서는 발행 축이 줄고 주가·밸류 축이 시총 증가의 대부분을 차지했다는 실증(Kuvshinov·Zimmermann, 2022)에 근거한다."
+    holds:
+      - label: "1985년 이후 선진국 패널"
+        detail: "순 주식 발행 기여는 축소·음수화되고, 실질 자본이득(푸른 막대)이 시총 상승의 주된 원천."
+        example: "미국 등 상장기업 수 감소·자사주 매입 확대와 병행."
+    fails:
+      - label: "1985년 이전"
+        detail: "신규 상장·유상증자 등 순 발행이 시총 확대의 더 큰 비중을 차지하던 시기."
+      - label: "신흥국 IPO 붐"
+        detail: "대규모 신규상장이 이어지는 시장에서는 발행 축이 다시 커질 수 있다."
+    verdict: "선진국·1985년 이후라는 조건에서 강하게 성립하는, 시대별로 갈리는 조건부 명제다."
+
+  - id: p177
+    statement: "금리가 장기 하락하면 시가총액/GDP 비율이 구조적으로 올라갈 수 있다"
+    category: 금융
+    termIds: [long-term-interest-rate, interest-rate, valuation, dcf, market-cap-to-gdp, real-capital-gain]
+    relationIds: [r925, r926, r907, r923]
+    premise: "장기금리 하락은 DCF 할인율(r)을 낮춰 멀티플·주가를 끌어올리고, GDP보다 시총이 더 빠르게 커질 수 있다는 논리에 근거한다."
+    holds:
+      - label: "1980년대 이후 장기 금리 하락"
+        detail: "세계화·디플레이션 압력과 함께 장기국채 금리가 하락하며 밸류·시총/GDP가 구조적으로 상승."
+    fails:
+      - label: "금리 급등·밸류 압축"
+        detail: "긴축기에 할인율이 올라가면 시총/GDP가 빠르게 조정될 수 있다."
+      - label: "GDP가 이익을 앞설 때"
+        detail: "강한 실물 성장·이익 surge가 금리 효과를 상쇄하면 비율이 오르지 않을 수 있다."
+    verdict: "할인율·밸류 경로가 우세할 때 성립하지만, 금리 역전·실물 서프라이즈 앞에서는 약해지는 조건부 명제다."
+
+  - id: p178
+    statement: "법인세 인하·이자비용 하락은 상장기업 이익 비중을 키워 시가총액/GDP를 끌어올릴 수 있다"
+    category: 금융
+    termIds: [corporate-tax, tax-cut, eps, market-cap-to-gdp, technological-progress, global-value-chain]
+    relationIds: [r930, r931, r932, r933]
+    premise: "법인세·이자비용이 내려가면 상장기업의 세후 이익과 EPS가 GDP 대비 더 빨리 늘고, 기술·세계화가 자본집약 이익을 키우면 시총/GDP 괴리가 커질 수 있다는 논리에 근거한다."
+    holds:
+      - label: "세후 이익·이자비용/GDP 하락"
+        detail: "1985년 이후 상장기업 이익이 GDP에서 차지하는 비중 확대와 맞물려 시총/GDP 상승."
+    fails:
+      - label: "감세 선반영·금리 부작용"
+        detail: "p74처럼 이미 반영됐거나 재정·금리 부담이 이익을 압도하면 효과가 제한적."
+      - label: "비상장·노동 소득이 분모를 키울 때"
+        detail: "이익이 상장사에만 쏠리지 않으면 시총/GDP만으로 괴리를 설명하기 어렵다."
+    verdict: "세후 이익·자본집약 구조가 강할 때 성립하지만, 정책·분배 변수에 따라 달라지는 조건부 명제다."

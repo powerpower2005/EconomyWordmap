@@ -7194,3 +7194,171 @@ relations:
     description: "가산금리 확대는 경기순환 수축·신용 위축 국면과 함께 나타나는 경우가 많음"
     strength: medium
     nature: correlational
+
+  - id: r916
+    term1Id: market-capitalization
+    term2Id: real-gdp
+    type: correlation
+    description: "시가총액/GDP(실질) 비율로 거시 밸류·시장 규모를 실물 경제와 비교"
+    strength: medium
+    nature: definitional
+
+  - id: r917
+    term1Id: market-capitalization
+    term2Id: stock-market
+    type: correlation
+    description: "시가총액은 주식시장 전체 규모를 나타내는 핵심 지표"
+    strength: strong
+    nature: hierarchical
+
+  - id: r918
+    term1Id: market-capitalization
+    term2Id: stock-index
+    type: correlation
+    description: "주가지수 상승은 시가총액·자본이득 축을 움직이는 대표 신호(발행주식 수 변동과 구분 필요)"
+    strength: medium
+    nature: correlational
+
+  - id: r919
+    term1Id: net-equity-issuance
+    term2Id: ipo
+    type: proportional
+    description: "신규상장·유상증자는 순 주식 발행을 늘려 시가총액의 발행 축을 키움"
+    strength: medium
+    nature: causal
+
+  - id: r920
+    term1Id: net-equity-issuance
+    term2Id: share-buyback
+    type: inverse
+    description: "자사주 매입은 순 주식 발행을 줄여 시총의 발행 축을 축소"
+    strength: strong
+    nature: causal
+
+  - id: r921
+    term1Id: net-equity-issuance
+    term2Id: stock-market
+    type: correlation
+    description: "순 주식 발행은 시가총액 변화의 '발행' 축을 직접 설명"
+    strength: medium
+    nature: definitional
+
+  - id: r922
+    term1Id: market-cap-to-gdp
+    term2Id: market-capitalization
+    type: correlation
+    description: "시가총액/GDP = 시가총액 ÷ GDP로 정의"
+    strength: strong
+    nature: definitional
+
+  - id: r923
+    term1Id: market-cap-to-gdp
+    term2Id: real-gdp
+    type: inverse
+    description: "실질 GDP가 분모이므로 같은 시총에서 GDP가 빠르게 오르면 비율은 낮아짐"
+    strength: medium
+    nature: definitional
+
+  - id: r924
+    term1Id: market-cap-to-gdp
+    term2Id: valuation
+    type: proportional
+    description: "밸류·멀티플 확대는 시총을 GDP보다 빠르게 키워 시총/GDP 비율을 끌어올림"
+    strength: medium
+    nature: causal
+
+  - id: r925
+    term1Id: long-term-interest-rate
+    term2Id: valuation
+    type: inverse
+    description: "장기금리 하락은 DCF 할인율을 낮춰 밸류에이션·시총/GDP를 끌어올릴 수 있음"
+    strength: strong
+    nature: causal
+
+  - id: r926
+    term1Id: long-term-interest-rate
+    term2Id: dcf
+    type: inverse
+    description: "장기 무위험금리는 DCF 할인율(r)의 핵심 입력"
+    strength: strong
+    nature: causal
+
+  - id: r927
+    term1Id: interest-rate
+    term2Id: net-equity-issuance
+    type: inverse
+    description: "금리·회사채 조달비용이 낮으면 기업은 주식 발행보다 부채 조달을 선호해 순 발행이 줄어드는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r928
+    term1Id: dividend-yield
+    term2Id: net-equity-issuance
+    type: inverse
+    description: "배당수익률이 높으면 주식 자체 발행·유상증자 유인이 약해지는 경향"
+    strength: medium
+    nature: correlational
+
+  - id: r929
+    term1Id: bond-market
+    term2Id: net-equity-issuance
+    type: inverse
+    description: "채권시장 조달이 유리하면 순 주식 발행은 상대적으로 줄어드는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r930
+    term1Id: corporate-tax
+    term2Id: eps
+    type: inverse
+    description: "법인세율이 낮을수록 세후 이익·EPS가 높아지는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r931
+    term1Id: tax-cut
+    term2Id: eps
+    type: proportional
+    description: "법인세 감세는 세후 이익·EPS를 끌어올릴 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r932
+    term1Id: technological-progress
+    term2Id: eps
+    type: proportional
+    description: "기술·생산성 향상이 이익·EPS 성장을 뒷받침할 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r933
+    term1Id: global-value-chain
+    term2Id: market-cap-to-gdp
+    type: correlation
+    description: "세계화·저비용 노동 활용은 상장 다국적 기업 이익 쏠림을 키워 시총/GDP 괴리를 확대할 수 있음"
+    strength: weak
+    nature: correlational
+
+  - id: r934
+    term1Id: real-capital-gain
+    term2Id: market-capitalization
+    type: proportional
+    description: "실질 자본이득(주가 상승)은 순 발행 없이도 시가총액을 키우는 축"
+    strength: strong
+    nature: causal
+
+  - id: r935
+    term1Id: real-capital-gain
+    term2Id: valuation
+    type: correlation
+    description: "밸류·멀티플 확대는 실질 자본이득·시총 상승의 주요 원천"
+    strength: medium
+    nature: causal
+
+  - id: r936
+    term1Id: dividend-yield
+    term2Id: valuation
+    type: inverse
+    description: "배당수익률이 낮을수록(가격이 상대적으로 높을수록) 밸류에이션이 높다고 해석되는 경우가 많음"
+    strength: weak
+    nature: correlational

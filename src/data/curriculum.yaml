@@ -894,7 +894,7 @@ curriculum:
 
         주식 밸류에이션의 기본 틀은 DCF다. **IV = CF1/(1+r) + … + 터미널/(r−g)** 형태로, 가치가 오르려면 **CF↑·g↑·r↓** 중 하나 이상이 필요하다. 국가 **실질 성장률**은 g의 현실적 상한을, **경기·신용 국면**은 CF 전망과 r(스프레드·리스크 프리미엄)을 좌우한다.
 
-        아래 두 파트는 **GDP·성장·DCF** → **경기순환·신용 사이클** 순으로 이어진다.
+        아래 세 파트는 **GDP·성장·DCF** → **경기순환·신용 사이클** → **시가총액 vs GDP** 순으로 이어진다.
       parts:
         - id: part-gdp-dcf
           title: "1. GDP, 실질 성장, DCF"
@@ -988,3 +988,65 @@ curriculum:
             - p53
             - p112
             - p155
+
+        - id: part-market-cap-gdp
+          title: "3. 시가총액 vs GDP"
+          subtitle: "순 발행 + 자본이득 · 시총/GDP"
+          bodyDialogue: |
+            **Alice:** GDP도 오르는데 주식은 더 많이 오른 것 같아. 착각이야?
+
+            **Bob:** 1980년대 이후 선진국에선 **시가총액/GDP**가 크게 올랐어. GDP와 시총이 **항상 같은 속도**로 자라는 건 아니야.
+
+            ---
+
+            **Alice:** 시총은 뭐 때문에 커져?
+
+            **Bob:** **시총 변화 ≈ 순 주식 발행 + 실질 자본이득(주가)**. 1985년 이후엔 IPO·증자보다 **자사주 매입·주가·밸류** 쪽이 더 컸대.
+
+            ---
+
+            **Alice:** 왜 주가만 많이 올랐어?
+
+            **Bob:** **장기금리↓ → 할인율↓**, **법인세·이자비용↓ → EPS↑**, **기술·세계화 → 상장사 이익 쏠림**이 겹친 해석이야. 금리·밸류만으로도 시총/GDP가 올라갈 수 있어.
+
+            ---
+
+            **Alice:** 그래서 뭘 보면 돼?
+
+            **Bob:** GDP 성장률만 말고 **시총/GDP**, **EPS**, **장기금리**, **순 발행·자사주**를 같이 봐. “경제랑 똑같이 오른다”고 가정하면 위험해.
+          bodyProse: |
+            **시가총액/GDP**(버핏 지표)는 시장 규모를 실질 경제와 비교한다. 1980년대 이후 주요 선진국에서 이 비율이 급등했으며, **GDP 성장 = 시총 성장**이라는 직관과 어긋날 수 있다.
+
+            시총 변화는 **순 주식 발행**(IPO·유상증자 − 자사주·상장폐지)과 **실질 자본이득**(주가·밸류)으로 분해한다. 1985년 이후에는 후자가 시총 증가의 주된 축.
+
+            **장기금리 하락 → 할인율↓ → 밸류↑**, **법인세·이자비용↓ → EPS↑**, **기술·글로벌 가치사슬 → 상장사 이익 쏠림**이 겹치면 시총/GDP가 GDP보다 빠르게 오를 수 있다.
+
+            **정리:** GDP 헤드라인과 **시총/GDP·EPS·장기금리·순발행**을 세트로 본다. p175(성장 패리티)는 **조건부**다.
+          termIds:
+            - market-capitalization
+            - market-cap-to-gdp
+            - real-gdp
+            - economic-growth
+            - net-equity-issuance
+            - share-buyback
+            - real-capital-gain
+            - ipo
+            - valuation
+            - dcf
+            - long-term-interest-rate
+            - interest-rate
+            - eps
+            - corporate-tax
+            - tax-cut
+            - technological-progress
+            - global-value-chain
+            - dividend-yield
+            - stock-market
+            - stock-index
+          propositionIds:
+            - p175
+            - p176
+            - p177
+            - p178
+            - p74
+            - p102

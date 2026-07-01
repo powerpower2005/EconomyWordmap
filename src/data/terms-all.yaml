@@ -481,7 +481,7 @@ terms:
 
   - id: stock-market
     name: 주식시장 (Stock Market)
-    description: 주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장이며 위험선호의 대표 지표
+    description: "주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장. 장기적으로 실질 GDP와 연동되는 경우가 많지만, 1980년대 이후 선진국에서는 시가총액/GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 늘기도 함(밸류·금리·순발행 구조에 따라)"
     category: 금융
     stockMarketImportance: 9
 
@@ -1875,6 +1875,42 @@ terms:
     description: 다수 종목의 가격을 종합해 시장 전체의 흐름을 보여주는 지표로 코스피·S&P500 등이 대표적
     category: 금융
     stockMarketImportance: 6
+
+  - id: market-capitalization
+    name: 시가총액 (Market Capitalization)
+    description: "상장 주식 수 × 주가로 잰 주식시장 규모. 시총 변화는 크게 (1) 순 주식 발행(신규상장·유상증자 − 자사주 매입·상장폐지)과 (2) 실질 자본이득(주가 상승)으로 분해됨"
+    category: 금융
+    stockMarketImportance: 7
+
+  - id: market-cap-to-gdp
+    name: 시가총액/GDP 비율 (Market Cap to GDP)
+    description: "시가총액을 실질(또는 명목) GDP로 나눈 비율로, 버핏 지표로도 불림. GDP 성장과 시총 성장이 얼마나 맞물리는지, 밸류에이션이 역사 대비 높은지 가늠하는 거시·밸류 지표"
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: net-equity-issuance
+    name: 순 주식 발행 (Net Equity Issuance)
+    description: "기간 중 순증가한 주식 발행액(신규상장·유상증자 − 자사주 매입·상환·상장폐지). 양수면 시총을 발행으로 키우고, 음수면 소각·상장 감소로 시총을 줄이는 쪽"
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: share-buyback
+    name: 자사주 매입 (Share Buyback)
+    description: "상장사가 자사 주식을 시장에서 되사들이는 행위로, 순 주식 발행을 줄이거나 마이너스로 만들어 시가총액의 '발행' 축을 축소. 저금리·고밸류 국면에서 배당·CAPEX와 함께 자본 배분 수단"
+    category: 금융
+    stockMarketImportance: 6
+
+  - id: dividend-yield
+    name: 배당수익률 (Dividend Yield)
+    description: "배당금 ÷ 주가(또는 시가총액)로, 주식의 현금 수익률. 높을수록 주식 자체 발행·유상증자 유인이 약해질 수 있음(채권·자사주·사모 대안과 비교)"
+    category: 금융
+    stockMarketImportance: 5
+
+  - id: real-capital-gain
+    name: 실질 자본이득 (Real Capital Gain)
+    description: "물가를 반영해 조정한 주가 상승분. 시가총액 증가 중 순 주식 발행이 아닌 '주가 오름' 축이며, 이익·밸류·금리(할인율) 기대가 반영됨. capital-gains-tax(양도세)와는 별개"
+    category: 금융
+    stockMarketImportance: 5
 
   - id: tax-burden-ratio
     name: 조세부담률 (Tax Burden Ratio)
