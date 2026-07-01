@@ -7450,3 +7450,109 @@ relations:
     description: "Beyond GDP 논의는 GDP의 분배·환경·돌봄·행복 측정 한계를 보완하는 대안 지표 모색"
     strength: medium
     nature: correlational
+
+  - id: r948
+    term1Id: gdp-per-capita
+    term2Id: gdp
+    type: correlation
+    description: "1인당 GDP는 총 GDP를 인구로 나눈 파생 지표로 국가 간 생활수준 비교에 쓰임"
+    strength: strong
+    nature: definitional
+
+  - id: r949
+    term1Id: corporate-tax
+    term2Id: foreign-direct-investment
+    type: inverse
+    description: "법인세율 인하는 세후 수익성을 높여 FDI·본사·설비 유치 유인을 키울 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "언어·시장·인프라 등 비조세 요인이 갖춰진 경우"
+
+  - id: r950
+    term1Id: profit-shifting
+    term2Id: gdp
+    type: proportional
+    description: "IP·SPE 귀속 등 이익 이동은 실물 생산·거주자 소득과 무관하게 GDP·1인당 GDP 통계를 부풀릴 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r951
+    term1Id: profit-shifting
+    term2Id: foreign-direct-investment
+    type: correlation
+    description: "조세회피·SPE 유입은 FDI 통계를 키우지만 실물 설비·고용·분배와 어긋날 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r952
+    term1Id: corporate-tax
+    term2Id: economic-growth
+    type: correlation
+    description: "법인세 인하는 투자·FDI 유인을 통해 성장에 기여할 수 있으나 세수·분배·재정 변수에 따라 효과가 달라짐"
+    strength: medium
+    nature: causal
+
+  - id: r953
+    term1Id: corporate-tax
+    term2Id: gdp
+    type: correlation
+    description: "법인세 인하가 실물 투자·FDI를 끌어 GDP를 키울 수 있으나 이익 이동·SPE 유입만으로는 체감 성장과 어긋날 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r954
+    term1Id: corporate-tax
+    term2Id: national-debt
+    type: proportional
+    description: "법인세 인하가 세수를 줄이고 지출을 같이 줄이지 않으면 재정적자·국가부채 누적 압력이 커질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "지출 동반 감축 없이 감세만 시행할 때"
+
+  - id: r955
+    term1Id: corporate-tax
+    term2Id: fiscal-policy
+    type: correlation
+    description: "법인세율 조정은 재정정책·감세·증세 논쟁의 핵심 수단이며 재정 건전성·성장·유치 효과를 함께 봐야 함"
+    strength: medium
+    nature: policy
+
+  - id: r956
+    term1Id: foreign-direct-investment
+    term2Id: investment
+    type: correlation
+    description: "FDI는 GDP 지출 항목 I(민간투자)의 일부로 설비·본사·연구시설 등 실물·무형 자본 형성에 기여"
+    strength: strong
+    nature: hierarchical
+
+  - id: r957
+    term1Id: foreign-direct-investment
+    term2Id: global-value-chain
+    type: correlation
+    description: "다국적 기업 FDI는 글로벌 가치사슬상 본사·R&D·지역 허브 배치와 맞물려 국제 분업·세제 경쟁의 대상"
+    strength: medium
+    nature: correlational
+
+  - id: r958
+    term1Id: gdp
+    term2Id: disposable-income
+    type: correlation
+    description: "GDP·1인당 GDP가 높아도 이익·소득이 상위층·비거주자에게 쏠리면 가처분소득·체감 생활수준은 뒤처질 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r959
+    term1Id: gdp-per-capita
+    term2Id: disposable-income
+    type: correlation
+    description: "1인당 GDP 순위만으로 국민 가처분소득·소비 수준을 대리할 수 없어 분배·조세 왜곡과 함께 봐야 함"
+    strength: medium
+    nature: correlational
+
+  - id: r960
+    term1Id: profit-shifting
+    term2Id: corporate-tax
+    type: correlation
+    description: "낮은 법인세율·R&D 세액공제는 FDI 유치와 함께 이익 이동·BEPS 논쟁의 출발점이 될 수 있음"
+    strength: medium
+    nature: correlational

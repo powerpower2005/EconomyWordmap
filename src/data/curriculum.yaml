@@ -719,11 +719,15 @@ curriculum:
             - trade-war
             - neo-mercantilism
             - tax-cut
+            - corporate-tax
+            - foreign-direct-investment
+            - profit-shifting
             - geopolitical-risk
             - risk-off
           propositionIds:
             - p142
             - p143
+            - p183
 
         - id: part-reshoring-limits
           title: "3. 리쇼어링과 제조업의 함정"
@@ -1026,6 +1030,8 @@ curriculum:
             - market-capitalization
             - market-cap-to-gdp
             - real-gdp
+            - gdp
+            - gdp-per-capita
             - economic-growth
             - net-equity-issuance
             - share-buyback
@@ -1040,6 +1046,8 @@ curriculum:
             - tax-cut
             - technological-progress
             - global-value-chain
+            - profit-shifting
+            - beyond-gdp
             - dividend-yield
             - stock-market
             - stock-index
@@ -1047,6 +1055,7 @@ curriculum:
             - p175
             - p176
             - p177
+            - p182
             - p178
             - p74
             - p102

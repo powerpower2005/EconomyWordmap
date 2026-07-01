@@ -37,7 +37,7 @@ terms:
 
   - id: gdp
     name: GDP (Gross Domestic Product)
-    description: "한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다"
+    description: "한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다. 다국적 기업의 IP·이익 귀속(profit shifting)과 SPE·조세회피성 자본 유입은 국내 실물 생산·거주자 소득과 무관하게 GDP를 부풀릴 수 있다"
     category: 거시경제
     stockMarketImportance: 9
 
@@ -64,6 +64,12 @@ terms:
     description: 기준연도 가격으로 측정한 GDP로 물가 변동을 제거한 실제 생산량
     category: 거시경제
     stockMarketImportance: 8
+
+  - id: gdp-per-capita
+    name: 1인당 GDP (GDP per Capita)
+    description: "총 GDP를 인구로 나눈 국가 간 생활수준 비교용 지표로 세계은행·IMF 헤드라인 순위에 자주 쓰임. 소규모·개방경제에서는 다국적 기업의 IP·이익 귀속, SPE·조세회피성 FDI로 총량 GDP가 부풀려 1인당 GDP만으로 국민 체감 번영을 판단하기 어려울 수 있어 소비·가처분소득·불평등 지표와 함께 봐야 함"
+    category: 거시경제
+    stockMarketImportance: 7
 
   - id: unemployment
     name: 실업률 (Unemployment Rate)
@@ -863,6 +869,18 @@ terms:
     category: 국제경제
     stockMarketImportance: 5
 
+  - id: foreign-direct-investment
+    name: 외국인직접투자 (Foreign Direct Investment, FDI)
+    description: "해외 기업이 현지에 지분·본사·공장·연구시설 등 지속적 경영권을 두고 투자하는 자본 유입으로 설비·고용·기술 이전과 세수에 기여할 수 있음. 법인세·R&D 세액공제 등 조세 인센티브로 유치되지만 언어·시장·인프라·EU 접근 등 비조세 요인도 크며, 이익 이동·SPE 유입처럼 통계상 FDI·GDP만 늘고 실물 고용·분배가 따라가지 않는 경우를 구분해야 함"
+    category: 국제경제
+    stockMarketImportance: 5
+
+  - id: profit-shifting
+    name: 이익 이동 (Profit Shifting)
+    description: "다국적 기업이 IP·상품·서비스 매출·대출 이자 등을 세율이 낮은 관할 구역으로 옮겨 세부담을 줄이는 BEPS(조세베이스 침식·이익 이동) 전략. IP 귀속·SPE(특수목적기업) 유입이 GDP·FDI 통계를 부풀리면서 국민 소득·고용·분배와 어긋날 수 있어 '레프러콘 경제학' 비유의 핵심 메커니즘"
+    category: 국제경제
+    stockMarketImportance: 4
+
   - id: price-mechanism
     name: 가격 메커니즘 (Price Mechanism)
     description: 가격이 수요와 공급, 분산된 정보를 반영해 자원 배분을 조정하는 시장의 작동 원리로, 계획경제 대비 시장경제의 효율성 근거
@@ -1452,7 +1470,7 @@ terms:
 
   - id: corporate-tax
     name: 법인세 (Corporate Tax)
-    description: 기업의 이익에 부과하는 세금으로 세후 이익·투자 여력·주가에 직접 영향을 미치며 인하는 투자와 본사 유치 유인을 키우지만 재정수입 감소와 분배 논쟁을 부르는 대표적 감세 대상
+    description: "기업의 이익에 부과하는 세금으로 세후 이익·투자 여력·주가에 직접 영향을 미침. 인하는 FDI·본사·설비 유치 유인을 키우지만 세수 감소·재정적자·국채 금리·분배 논쟁을 동반하며, 조세만으로 유치가 결정되지 않고 이익 이동에 악용될 수 있음"
     category: 정부
     stockMarketImportance: 6
 

@@ -675,6 +675,9 @@ propositions:
       - label: "이미 낮은 세율"
         detail: "세율이 극대점 왼쪽에 있으면 인하는 곧바로 세수 감소로 이어지며 레이건 시대처럼 재정적자가 커진다."
         example: "레이건·트럼프 감세 후 실제로는 재정적자가 확대됨."
+      - label: "OECD 내 더 낮은 경쟁국"
+        detail: "법인세만 낮춰도 헝가리(9%) 등 더 낮은 세율국·조세피난처로 자본·이익이 이동하면 세수·유치 효과가 제한된다."
+        example: "아일랜드(12.5%) 대비 헝가리·칠레 등 OECD 저세율국."
     verdict: "현재 세율의 위치에 따라 달라지는 조건부 명제이며 항상 성립하지는 않는다."
 
   - id: p47
@@ -688,7 +691,10 @@ propositions:
     fails:
       - label: "트리클다운 미작동"
         detail: "추가 소득이 소비·투자보다 저축으로 향하거나 단기 수요가 부족하면 성장 효과는 약하고 불평등만 심화될 수 있다."
-    verdict: "구조와 국면에 따라 효과가 갈리며 분배·단기 수요 문제를 함께 봐야 하는 명제다."
+      - label: "통계만 부풀리는 FDI·이익 이동"
+        detail: "법인세 인하가 SPE·IP 귀속 등 조세회피성 자본만 끌어오면 GDP·FDI는 오르지만 고용·가처분소득·분배는 따라가지 않을 수 있다."
+        example: "아일랜드 2015년 24.4% GDP 급등(레프러콘 경제학) vs 실업·소비 지표."
+    verdict: "구조와 국면에 따라 효과가 갈리며 분배·단기 수요·조세 왜곡 문제를 함께 봐야 하는 명제다."
 
   - id: p48
     statement: "공급을 늘리면 인플레이션을 잡을 수 있다"
@@ -2845,3 +2851,40 @@ propositions:
       - label: "정부 지출=효능 가정"
         detail: "GDP는 정부 지출액(산출)만 잡고 수혜자의 실제 효능·분배는 보여 주지 않는다."
     verdict: "대응 지출의 '양'과 사회 '결과'는 다르게 움직일 수 있어, GDP만으로 후생 판단을 대체할 수 없는 조건부 명제다."
+
+  - id: p182
+    statement: "1인당 GDP가 높으면 국민 생활 수준이 높다"
+    category: 거시경제
+    termIds: [gdp-per-capita, gdp, disposable-income, consumption, inequality, profit-shifting, beyond-gdp]
+    relationIds: [r948, r958, r959, r950]
+    premise: "총 생산이 인구로 나뉜 1인당 GDP가 높으면 평균 소득·소비·복지도 함께 높다는 헤드라인 순위 직관에 근거한다."
+    holds:
+      - label: "실물 성장·분배 개선"
+        detail: "고용·임금·가처분소득·소비가 GDP 성장과 함께 늘고 불평등이 완화되면 1인당 GDP와 생활 수준이 방향을 같이 한다."
+    fails:
+      - label: "이익 이동·SPE 왜곡"
+        detail: "IP·SPE 귀속 등으로 GDP·1인당 GDP만 부풀면 국민 소득·소비·실업은 뒤처질 수 있다."
+        example: "아일랜드 1인당 GDP 1위 vs 1인당 실질 개인소비 순위(호노한 논문)."
+      - label: "분배·소규모 개방경제"
+        detail: "인구가 작고 FDI·다국적 이익이 쏠리면 평균(GDP/인구)과 중위·체감 생활수준이 크게 어긋날 수 있다."
+    verdict: "실물 성장·분배 조건에서만 대략 성립하며, 조세 왜곡·불평등이 크면 1인당 GDP만으로 판단할 수 없는 조건부 명제다."
+
+  - id: p183
+    statement: "법인세 인하가 외국인직접투자·본사 유치를 늘린다"
+    category: 정부
+    termIds: [corporate-tax, tax-cut, foreign-direct-investment, investment, profit-shifting, global-value-chain, fiscal-policy]
+    relationIds: [r949, r951, r955, r956, r960]
+    premise: "법인세율이 낮을수록 세후 수익성이 커져 다국적 기업이 본사·설비·R&D 거점을 해당국에 두려는 유인이 강해진다는 조세 경쟁 논리에 근거한다."
+    holds:
+      - label: "비조세 요건·안정적 세제"
+        detail: "영어권·EU 접근·인프라·R&D 세액공제와 함께 낮은 법인세가 장기 유지되면 IT·제약 등 본사·허브 FDI 유치에 기여할 수 있다."
+        example: "아일랜드 12.5% 법인세와 EU 내 IT·제약 본사 클러스터."
+    fails:
+      - label: "세율만으로 결정되지 않음"
+        detail: "독일(25%) 등 더 높은 세율국도 브렉시트 후 금융 FDI를 유치하는 등 시장·규제·인력이 조세를 압도할 수 있다."
+      - label: "조세회피·유령 FDI"
+        detail: "SPE·IP 귀속만 늘면 FDI·GDP 통계는 커져도 실물 고용·세수·분배 이득은 제한적일 수 있다."
+        example: "IMF: 아일랜드 FDI 상당 부분이 조세회피 SPE(논쟁)."
+      - label: "재정·세수 trade-off"
+        detail: "법인세 인하가 세수를 줄이고 지출을 같이 줄이지 않으면 재정·국채 경로가 유치 논리와 충돌할 수 있다."
+    verdict: "조세·시장·인프라가 맞물릴 때 부분적으로 성립하나, 세율 단독·유령 FDI·재정 변수를 함께 봐야 하는 조건부 명제다."
