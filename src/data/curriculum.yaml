@@ -991,13 +991,19 @@ curriculum:
 
             ---
 
+            **Alice:** 「돈맥경화」처럼 통화승수 연쇄가 끊기면?
+
+            **Bob:** **신용 경색**이면 은행이 대출을 줄여 **신용창출**이 막히고, 교과서식 **통화승수**도 낮아져. 그다음 **투자(I)** 가 줄면 GDP = C+I+G+NX에서 실물이 꺾이기 쉬워.
+
+            ---
+
             **Alice:** 그래서 뭘 보면 돼?
 
             **Bob:** **실질 GDP·고용**, **가산금리·수익률 곡선**, **신용 사이클** 국면을 **세트**로. 한쪽만 보면 반쯤만 본 거야.
           bodyProse: |
             **경기순환**은 실질 GDP·고용의 확장·수축. **신용 사이클**(약 5~8년)은 신용 창조·**신용파괴**·디레버리징의 반복. 둘은 분리할 수 없지만 **선후·주도는 국면마다 다르다**.
 
-            신용 정점 이후 **스프레드 확대**, **수익률 곡선 역전**, 은행 **마진 악화**가 함께 나타날 수 있다. 부채 **유예**는 청산과 달리 명목 부채가 유지·누적될 수 있다.
+            신용 정점 이후 **스프레드 확대**, **수익률 곡선 역전**, 은행 **마진 악화**가 함께 나타날 수 있다. **신용 경색**이 지속되면 **신용창출**·**통화승수** 연쇄가 끊기고 **투자(I)** 위축으로 GDP = C+I+G+NX의 실물 경로가 약해진다. 부채 **유예**는 청산과 달리 명목 부채가 유지·누적될 수 있다.
 
             **정리:** 실물(GDP·고용)과 금융(스프레드·신용)을 **함께** 추적하고, 침체는 ‘두 분기 GDP’만으로 단정하지 말고 고용·소득을 같이 본다.
           termIds:
@@ -1009,10 +1015,14 @@ curriculum:
             - credit-cycle
             - credit-creation
             - credit-destruction
+            - credit-crunch
             - deleveraging
             - credit-spread
             - yield-curve
             - bank
+            - financial-accelerator
+            - money-multiplier
+            - investment
             - long-term-debt-cycle
             - debt-burden
             - stock-market
@@ -1023,6 +1033,7 @@ curriculum:
             - p53
             - p112
             - p155
+            - p188
 
         - id: part-market-cap-gdp
           title: "3. 시가총액 vs GDP"

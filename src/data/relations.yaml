@@ -7742,3 +7742,106 @@ relations:
     description: "생산성 개선은 잠재 GDP 수준 추정을 올려 장기 공급 여력을 확대"
     strength: strong
     nature: causal
+
+  - id: r984
+    term1Id: credit-crunch
+    term2Id: credit-creation
+    type: inverse
+    description: "신용 경색이 지속되면 은행의 대출·예금 창출이 위축되어 신용창출 경로가 막힘"
+    strength: strong
+    nature: causal
+
+  - id: r985
+    term1Id: credit-crunch
+    term2Id: investment
+    type: inverse
+    description: "신용 경색으로 외부 자금 조달이 어려워지면 기업·가계 투자가 위축됨"
+    strength: strong
+    nature: causal
+
+  - id: r986
+    term1Id: quantitative-tightening
+    term2Id: credit-crunch
+    type: correlation
+    description: "양적긴축으로 본원통화·유동성이 줄면 은행 여신이 위축되어 신용 경색으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "금융안정 여건이 약하고 대출수요·자본 규제가 함께 작용할 때"
+
+  - id: r987
+    term1Id: financial-accelerator
+    term2Id: credit-crunch
+    type: correlation
+    description: "담보·자산 가치 하락이 차입 여력을 줄이면 금융 가속기가 역방향으로 작동해 신용 경색을 심화"
+    strength: medium
+    nature: causal
+
+  - id: r988
+    term1Id: currency-swap
+    term2Id: liquidity
+    type: proportional
+    description: "중앙은행 간 통화스왑은 외환·단기자금 조달을 보완해 위기 시 시장 유동성을 확보하는 데 쓰임"
+    strength: medium
+    nature: policy
+    conditions: "국제 금융 불안·외화 조달 경색 국면"
+
+  - id: r989
+    term1Id: currency-swap
+    term2Id: credit-crunch
+    type: inverse
+    description: "통화스왑으로 유동성이 확보되면 신용 경색 완화에 기여할 수 있음"
+    strength: medium
+    nature: policy
+    conditions: "외화 조달 경색이 신용 경색의 직접 원인일 때"
+
+  - id: r990
+    term1Id: basel-accords
+    term2Id: credit-crunch
+    type: correlation
+    description: "바젤 등 건전성 규제 강화로 은행이 대출을 줄이면 신용 경색이 심화될 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "은행이 증자 대신 여신 축소로 자본비율을 맞출 때"
+
+  - id: r991
+    term1Id: capital-adequacy-ratio
+    term2Id: credit-crunch
+    type: correlation
+    description: "자기자본비율 요건을 맞추기 위해 대출을 줄이면 신용 경색으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "자기자본 확충이 어려운 국면"
+
+  - id: r992
+    term1Id: bank-run
+    term2Id: credit-crunch
+    type: proportional
+    description: "뱅크런과 은행 부실이 연쇄되면 건전 은행도 여신을 줄여 신용 경색이 확산"
+    strength: strong
+    nature: causal
+
+  - id: r993
+    term1Id: national-debt
+    term2Id: liquidity
+    type: inverse
+    description: "국가부채·국채 만기 부담이 커지면 투자자가 자금을 회수하며 글로벌 유동성이 줄어드는 경향"
+    strength: medium
+    nature: causal
+    conditions: "재정·국채 위기가 해외 은행·펀드의 자금 회수로 번질 때"
+
+  - id: r994
+    term1Id: geopolitical-risk
+    term2Id: liquidity
+    type: inverse
+    description: "지정학·대외 금융 불안이 커지면 위험회피와 자금 회수로 시장 유동성이 줄어드는 경향"
+    strength: medium
+    nature: causal
+
+  - id: r995
+    term1Id: interest-rate
+    term2Id: credit-crunch
+    type: correlation
+    description: "정책·시중 금리 급등이 차입 비용을 올려 신용 경색을 유발·심화할 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "긴축 국면·은행 여신 축소가 함께 나타날 때"

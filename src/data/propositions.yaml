@@ -2498,8 +2498,8 @@ propositions:
   - id: p158
     statement: "본원통화가 늘면 M2가 같은 승수만큼 기계적으로 늘어난다"
     category: 통화
-    termIds: [base-money, money-multiplier, m2, money-supply, credit-creation, quantitative-easing]
-    relationIds: [r8, r10, r837]
+    termIds: [base-money, money-multiplier, m2, money-supply, credit-creation, quantitative-easing, credit-crunch, quantitative-tightening]
+    relationIds: [r8, r10, r837, r986]
     premise: "교과서식 통화승수(M≈C/r)에 따르면 중앙은행이 본원통화(C)를 늘리면 예금·대출 연쇄를 통해 M2가 고정 배수만큼 확대된다는 논리에 근거한다."
     holds:
       - label: "지준율 제약 + 강한 대출수요"
@@ -2510,6 +2510,9 @@ propositions:
         example: "2008년 이후 QE로 본원통화·지급준비금 급증 대비 M2 증가율은 더 완만."
       - label: "규제·유통속도"
         detail: "자본·유동성 규제, 화폐유통속도 하락, 신용 경색이 있으면 같은 본원통화도 다른 M2 경로를 탄다."
+      - label: "통화승수 붕괴·긴축"
+        detail: "본원통화가 줄거나 은행이 대출을 축소하면 예금·대출 연쇄가 끊겨 통화승수가 낮아지고 M2는 기계적으로 따라가지 않는다."
+        example: "양적긴축·신용 경색 국면에서 본원통화 대비 M2 증가율 둔화."
     verdict: "교과서 승수 모형은 직관용이며, QE·규제·수요 국면에 따라 깨지는 조건부 명제다."
 
   - id: p159
@@ -2970,3 +2973,24 @@ propositions:
       - label: "측정·추정 시차"
         detail: "생산성 통계와 잠재 GDP 추정은 개정·시차가 있어 즉시 반영되지 않을 수 있다."
     verdict: "장기 공급 여력을 설명하는 조건부 명제이며, 단기 시장·분배 변수 앞에서는 체감·가격 반응이 지연·이격될 수 있다."
+
+  - id: p188
+    statement: "신용 경색이 지속되면 투자 위축으로 실물 경기가 꺾인다"
+    category: 금융
+    termIds: [credit-crunch, credit-creation, investment, aggregate-demand, recession, gdp, economic-growth]
+    relationIds: [r984, r985, r400]
+    premise: "신용 경색은 은행 대출·신용창출을 막아 기업·가계의 외부 자금 조달을 어렵게 하고, 투자(I) 위축은 GDP = C+I+G+NX에서 총수요·성장을 누르는 경로로 이어진다는 금융 가속·신용 전달 논리에 근거한다."
+    holds:
+      - label: "여신 축소가 광범위할 때"
+        detail: "은행·시장 전반이 대출을 줄이고 가산금리가 벌어지면 투자·고용이 함께 위축되어 침체로 이어지기 쉽다."
+        example: "2008년 금융위기: 신용 경색 후 기업 투자·GDP 성장률 급락."
+      - label: "담보·순자산 가치 하락이 동반될 때"
+        detail: "금융 가속기가 역방향으로 작동하면 차입 여력이 더 줄어 경색이 실물로 빠르게 전이된다."
+    fails:
+      - label: "정책 유동성·통화스왑"
+        detail: "중앙은행 QE·통화스왑 등으로 유동성이 빠르게 보충되면 경색이 완화되어 투자 위축이 짧아질 수 있다."
+      - label: "재정·자기자본 투자"
+        detail: "정부 지출(G)이나 현금 보유 기업의 자기자본 투자가 민간 신용 감소를 상쇄하면 GDP가 바로 꺾이지 않을 수 있다."
+      - label: "수출·수요 회복"
+        detail: "해외 수요가 강하면 순수출(NX)이 투자 감소를 일부 메울 수 있다."
+    verdict: "신용 경로가 실물의 병목일 때 성립하지만, 정책 개입·재정·수출이 상쇄하면 약해지는 조건부 명제다."
