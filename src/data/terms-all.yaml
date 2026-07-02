@@ -55,15 +55,21 @@ terms:
 
   - id: nominal-gdp
     name: 명목 GDP (Nominal GDP)
-    description: 현재 가격 기준으로 측정한 GDP로 인플레이션 효과를 포함
+    description: "당해 연도 시장 가격 × 생산량으로 구한 GDP로 인플레이션 효과를 포함. 물가만 오른 구간에는 생산량·다른 요인 변화 없이도 명목 GDP가 커져, 실질 생산 변화와 구분하기 어렵다는 한계가 있음"
     category: 거시경제
     stockMarketImportance: 5
 
   - id: real-gdp
     name: 실질 GDP (Real GDP)
-    description: 기준연도 가격으로 측정한 GDP로 물가 변동을 제거한 실제 생산량
+    description: "기준연도(불변) 가격 × 생산량으로 구한 GDP로 물가 변동을 제거한 실제 생산량. 경기 변동·경제성장률·성장 전망은 통상 이 실질 GDP 증가율로 측정·비교"
     category: 거시경제
     stockMarketImportance: 8
+
+  - id: gdp-deflator
+    name: GDP 디플레이터 (GDP Deflator)
+    description: "명목 GDP를 실질 GDP로 나눈 물가 지수(×100)로, 해당 연도 국내 생산물 가격 수준 변화를 반영. CPI·PCE와 달리 수출입 가격·투자재·정부 구매 등 GDP 구성 전체의 물가를 포함해 경제 전반의 명목·실질 분해와 물가 추세 판단에 쓰임"
+    category: 거시경제
+    stockMarketImportance: 6
 
   - id: gdp-per-capita
     name: 1인당 GDP (GDP per Capita)
@@ -889,7 +895,7 @@ terms:
 
   - id: growth-forecast
     name: 성장률 전망 (Growth Forecast)
-    description: "경제기관·증권사·국제기구 등이 발표하는 연간·분기 실질 GDP 성장률 예상치로, 전망 상향·하향 개정은 기업 이익·DCF g 가정을 바꿔 주가에 선반영되는 경우가 많음"
+    description: "한국은행·연준·IMF 등 경제기관이 발표하는 실질 GDP 성장률 예상치(연간·분기). 금통위·경제전망과 함께 상·하향 개정되며, 기업 이익·DCF g 가정을 바꿔 주가에 선반영되는 경우가 많음"
     category: 거시경제
     stockMarketImportance: 7
 

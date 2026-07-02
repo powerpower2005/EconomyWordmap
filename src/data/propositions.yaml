@@ -2994,3 +2994,59 @@ propositions:
       - label: "수출·수요 회복"
         detail: "해외 수요가 강하면 순수출(NX)이 투자 감소를 일부 메울 수 있다."
     verdict: "신용 경로가 실물의 병목일 때 성립하지만, 정책 개입·재정·수출이 상쇄하면 약해지는 조건부 명제다."
+
+  - id: p189
+    statement: "경제성장률은 명목 GDP가 아니라 실질 GDP 증가율로 측정한다"
+    category: 거시경제
+    termIds: [economic-growth, real-gdp, nominal-gdp, gdp, inflation, gdp-deflator]
+    relationIds: [r895, r87, r88, r91]
+    premise: "경제성장은 실질 생산능력·산출량의 변화를 뜻하므로, 물가가 포함된 명목 GDP 증가율과 구분해 실질 GDP 증가율로 측정·비교한다는 국민계정·거시 통계 관행에 근거한다."
+    holds:
+      - label: "표준 국민계정·성장률 보도"
+        detail: "통계청·중앙은행·국제기구의 경제성장률·성장 전망은 실질 GDP 기준으로 발표되는 경우가 일반적이다."
+      - label: "DCF·밸류 g 상한"
+        detail: "장기 성장 가정(g)도 실질 GDP·EPS 성장과 맞춰 잡는 것이 현실적이다."
+    fails:
+      - label: "명목 GDP만 보고 판단"
+        detail: "고인플레 구간에서 명목 GDP·명목 성장률만 보면 생산량 변화 없이도 성장이 큰 것처럼 보일 수 있다."
+        example: "물가만 오른 해에 명목 GDP는 크게, 실질 GDP는 완만한 경우."
+      - label: "환율·가격 기준 혼동"
+        detail: "국가·시점별 GDP 디플레이터·기준연도 개정에 따라 실질·명목 비교가 어긋날 수 있다."
+    verdict: "실질 생산 변화를 보려면 명목이 아닌 실질 GDP를 써야 한다는 조건부 명제다."
+
+  - id: p190
+    statement: "GDP 디플레이터는 (명목 GDP ÷ 실질 GDP) × 100으로 경제 전체 물가 수준을 본다"
+    category: 거시경제
+    termIds: [gdp-deflator, nominal-gdp, real-gdp, inflation, price-index, national-accounts]
+    relationIds: [r996, r997, r998, r1004, r1005]
+    premise: "명목 GDP와 실질 GDP의 비율은 해당 연도 GDP 구성 재화·서비스의 평균 가격 수준 변화를 나타내며, 이를 100을 기준으로 한 지수가 GDP 디플레이터라는 국민계정 정의에 근거한다."
+    holds:
+      - label: "기준연도 = 100"
+        detail: "기준연도에는 명목과 실질 GDP가 같아 디플레이터가 100 근처이고, 이후 연도는 명목/실질 비율로 물가 상승을 읽는다."
+      - label: "GDP 전체 물가"
+        detail: "수출입·투자재·정부 구매 등 GDP 전체 가격이 반영되어 CPI와 괴리될 수 있다."
+    fails:
+      - label: "CPI·PCE와 동일시"
+        detail: "소비자 물가지수(CPI)는 가계 소비 바구니 중심이라 디플레이터와 수치·변동률이 다를 수 있다."
+      - label: "측정·개정 시차"
+        detail: "국민계정 개정·기준연도 변경·잠정치 수정으로 디플레이터가 사후에 바뀔 수 있다."
+    verdict: "명목·실질 GDP 분해의 핵심 지표이나, CPI 등 다른 물가 지표와 혼동하면 깨지는 조건부 명제다."
+
+  - id: p191
+    statement: "인플레이션이 높을 때 명목 GDP만 보면 성장을 과대평가할 수 있다"
+    category: 거시경제
+    termIds: [nominal-gdp, real-gdp, inflation, economic-growth, gdp-deflator, gdp]
+    relationIds: [r87, r88, r996, r998]
+    premise: "명목 GDP는 현재 가격을 곱해 산출하므로, 생산량이 같아도 물가가 오르면 명목 GDP가 커진다. 실질 GDP·GDP 디플레이터로 조정해야 실제 생산·성장 변화를 볼 수 있다는 명목·실질 분해 논리에 근거한다."
+    holds:
+      - label: "고인플레·생산량 정체"
+        detail: "물가만 오르고 생산량이 거의 변하지 않으면 명목 GDP는 크게, 실질 GDP는 완만하거나 정체될 수 있다."
+        example: "명목 GDP는 크게 늘었으나 실질 GDP·디플레이터 조정 후 생산 증가는 제한적인 해."
+      - label: "투자·정책 판단"
+        detail: "성장률 전망·DCF g는 실질 기준이므로 명목 GDP 헤드라인만으로 호황을 단정하면 오판하기 쉽다."
+    fails:
+      - label: "저인플레·디플레이션"
+        detail: "물가가 하락하면 명목 GDP가 실질보다 약하게 보일 수 있어 과대평가가 아니라 과소평가 위험이 있다."
+      - label: "생산량·가격 동시 상승"
+        detail: "실물 수요 확대와 물가 상승이 함께면 명목·실질 GDP가 모두 오르며, 명목만 봐도 성장 방향은 맞을 수 있다."
+    verdict: "고인플레·생산 정체 국면에서 특히 성립하며, 실질·디플레이터와 함께 봐야 하는 조건부 명제다."

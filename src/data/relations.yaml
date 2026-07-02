@@ -7845,3 +7845,83 @@ relations:
     strength: medium
     nature: causal
     conditions: "긴축 국면·은행 여신 축소가 함께 나타날 때"
+
+  - id: r996
+    term1Id: gdp-deflator
+    term2Id: nominal-gdp
+    type: correlation
+    description: "GDP 디플레이터는 명목 GDP와 실질 GDP의 비율(×100)로 정의되며, 명목 GDP 변화에 직접 반영"
+    strength: strong
+    nature: definitional
+
+  - id: r997
+    term1Id: gdp-deflator
+    term2Id: real-gdp
+    type: correlation
+    description: "GDP 디플레이터는 명목 GDP를 실질 GDP로 나눈 물가 지수로, 실질 GDP가 분모"
+    strength: strong
+    nature: definitional
+
+  - id: r998
+    term1Id: gdp-deflator
+    term2Id: inflation
+    type: correlation
+    description: "GDP 디플레이터 상승은 경제 전체 물가 수준(인플레이션) 상승을 시사"
+    strength: strong
+    nature: correlational
+
+  - id: r999
+    term1Id: growth-forecast
+    term2Id: real-gdp
+    type: correlation
+    description: "성장률 전망은 통상 실질 GDP 증가율·수준에 대한 기관 예측치"
+    strength: strong
+    nature: definitional
+
+  - id: r1000
+    term1Id: growth-forecast
+    term2Id: economic-growth
+    type: correlation
+    description: "성장률 전망은 경제성장(실질 GDP 증가율)에 대한 전망치로 해석"
+    strength: strong
+    nature: definitional
+
+  - id: r1001
+    term1Id: central-bank
+    term2Id: growth-forecast
+    type: correlation
+    description: "중앙은행은 금통위·경제전망 등에서 실질 GDP 성장률 전망을 발표·개정"
+    strength: strong
+    nature: policy
+
+  - id: r1002
+    term1Id: growth-forecast
+    term2Id: policy-rate
+    type: correlation
+    description: "기준금리 결정과 함께 성장률 전망이 상·하향 개정되는 경우가 많음"
+    strength: medium
+    nature: policy
+
+  - id: r1003
+    term1Id: gdp-deflator
+    term2Id: cpi
+    type: correlation
+    description: "GDP 디플레이터와 CPI는 모두 물가를 보나, 디플레이터는 GDP 전체(수출입·투자재 등) 가격을, CPI는 소비자 바구니를 반영해 괴리될 수 있음"
+    strength: medium
+    nature: correlational
+
+  - id: r1004
+    term1Id: gdp-deflator
+    term2Id: price-index
+    type: correlation
+    description: "GDP 디플레이터는 GDP에 해당하는 재화·서비스 전체의 물가지수"
+    strength: strong
+    nature: hierarchical
+
+  - id: r1005
+    term1Id: national-accounts
+    term2Id: gdp-deflator
+    type: correlation
+    description: "국민계정(SNA) 틀에서 명목·실질 GDP와 GDP 디플레이터가 함께 추계됨"
+    strength: strong
+    nature: hierarchical
