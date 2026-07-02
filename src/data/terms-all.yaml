@@ -4,1483 +4,1236 @@ terms:
     description: 일반적인 물가 수준이 지속적으로 상승하여 화폐의 실질 구매력·노동의 대가를 잠식하는 현상으로, 완만한 수준에서는 소비·투자를 촉진하고 디플레이션 위험을 줄이지만 만성화·기대 고착 시 선제 구매·임금-물가 악순환을 키울 수 있어 과도할 경우 실질소득 감소와 경제 불확실성을 초래
     category: 거시경제
     stockMarketImportance: 10
-
   - id: deflation
     name: 디플레이션 (Deflation)
     description: 일반적인 물가 수준이 지속적으로 하락하여 화폐의 실질 구매력이 상승하는 현상으로 소비·투자 지연과 부채 부담 증가를 초래하여 경기 침체로 이어질 위험
     category: 거시경제
     stockMarketImportance: 8
-
   - id: interest-rate
     name: 금리 (Interest Rate)
     description: 자금을 빌리거나 빌려줄 때 적용되는 이자의 비율로 소비·투자·환율·자산가격에 영향을 미치며 미래 현금흐름의 할인율 역할을 수행하여 실물경제와 금융시장을 연결하는 핵심 가격 신호로 자본비용을 결정
     category: 금융
     stockMarketImportance: 10
-
   - id: policy-rate
     name: 기준금리 (Policy Rate)
     description: 중앙은행이 통화정책을 위해 설정하는 대표 금리로 단기금리 운용의 기준이 되며 공개시장조작·지급준비금 제도와 결합되어 통화정책 신호를 전달하는 핵심 도구로 corridor system 또는 floor system 등 운영체계에 따라 작동
     category: 통화정책
     stockMarketImportance: 10
-
   - id: real-interest-rate
     name: 실질금리 (Real Interest Rate)
     description: 명목금리에서 기대인플레이션을 차감한 금리로 실제 차입 비용을 반영
     category: 거시경제
     stockMarketImportance: 7
-
   - id: expected-inflation
     name: 기대인플레이션 (Expected Inflation)
-    description: "경제주체가 예상하는 미래 물가상승률로 임금·가격 결정, 소비·투자 판단에 영향을 미치며 중앙은행의 신뢰성과 통화정책 효과성에 핵심적인 변수로 앙커링(anchoring) 개념과 밀접한 관련. 1960년대처럼 헤드라인 물가는 낮아도 임금·가격 설정에 반영되는 추세(기저)가 먼저 올라가면 앵커링이 약해져(de-anchoring) 억제 요인이 사라질 때 급등할 수 있음"
+    description: 경제주체가 예상하는 미래 물가상승률로 임금·가격 결정, 소비·투자 판단에 영향을 미치며 중앙은행의 신뢰성과 통화정책 효과성에 핵심적인 변수로 앙커링(anchoring) 개념과 밀접한 관련. 1960년대처럼 헤드라인 물가는 낮아도 임금·가격 설정에 반영되는 추세(기저)가 먼저 올라가면 앵커링이 약해져(de-anchoring) 억제 요인이 사라질 때 급등할 수 있음
     category: 거시경제
     stockMarketImportance: 8
-
   - id: gdp
     name: GDP (Gross Domestic Product)
-    description: "한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다. 다국적 기업의 IP·이익 귀속(profit shifting)과 SPE·조세회피성 자본 유입은 국내 실물 생산·거주자 소득과 무관하게 GDP를 부풀릴 수 있다"
+    description: 한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다. 다국적 기업의 IP·이익 귀속(profit shifting)과 SPE·조세회피성 자본 유입은 국내 실물 생산·거주자 소득과 무관하게 GDP를 부풀릴 수 있다
     category: 거시경제
     stockMarketImportance: 9
-
   - id: national-accounts
     name: 국민계정 (System of National Accounts)
-    description: "UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 추계하며, 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨"
+    description: UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 추계하며, 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨
     category: 거시경제
     stockMarketImportance: 5
-
   - id: beyond-gdp
     name: Beyond GDP (GDP를 넘어)
-    description: "GDP만으로 국가 번영·후생·지속가능성을 평가하기 어렵다는 문제의식에서 출발한 대안 지표·측정 논의(EU·OECD·Stiglitz 위원회 등)로, 분배·환경·돌봄·행복 등 비시장 가치의 포괄적 반영을 지향"
+    description: GDP만으로 국가 번영·후생·지속가능성을 평가하기 어렵다는 문제의식에서 출발한 대안 지표·측정 논의(EU·OECD·Stiglitz 위원회 등)로, 분배·환경·돌봄·행복 등 비시장 가치의 포괄적 반영을 지향
     category: 거시경제
     stockMarketImportance: 3
-
   - id: nominal-gdp
     name: 명목 GDP (Nominal GDP)
-    description: "당해 연도 시장 가격 × 생산량으로 구한 GDP로 인플레이션 효과를 포함. 물가만 오른 구간에는 생산량·다른 요인 변화 없이도 명목 GDP가 커져, 실질 생산 변화와 구분하기 어렵다는 한계가 있음"
+    description: 당해 연도 시장 가격 × 생산량으로 구한 GDP로 인플레이션 효과를 포함. 물가만 오른 구간에는 생산량·다른 요인 변화 없이도 명목 GDP가 커져, 실질 생산 변화와 구분하기 어렵다는 한계가 있음
     category: 거시경제
     stockMarketImportance: 5
-
   - id: real-gdp
     name: 실질 GDP (Real GDP)
-    description: "기준연도(불변) 가격 × 생산량으로 구한 GDP로 물가 변동을 제거한 실제 생산량. 경기 변동·경제성장률·성장 전망은 통상 이 실질 GDP 증가율로 측정·비교"
+    description: 기준연도(불변) 가격 × 생산량으로 구한 GDP로 물가 변동을 제거한 실제 생산량. 경기 변동·경제성장률·성장 전망은 통상 이 실질 GDP 증가율로 측정·비교
     category: 거시경제
     stockMarketImportance: 8
-
   - id: gdp-deflator
     name: GDP 디플레이터 (GDP Deflator)
-    description: "명목 GDP를 실질 GDP로 나눈 물가 지수(×100)로, 해당 연도 국내 생산물 가격 수준 변화를 반영. CPI·PCE와 달리 수출입 가격·투자재·정부 구매 등 GDP 구성 전체의 물가를 포함해 경제 전반의 명목·실질 분해와 물가 추세 판단에 쓰임"
+    description: 명목 GDP를 실질 GDP로 나눈 물가 지수(×100)로, 해당 연도 국내 생산물 가격 수준 변화를 반영. CPI·PCE와 달리 수출입 가격·투자재·정부 구매 등 GDP 구성 전체의 물가를 포함해 경제 전반의 명목·실질 분해와 물가 추세 판단에 쓰임
     category: 거시경제
     stockMarketImportance: 6
-
   - id: gdp-per-capita
     name: 1인당 GDP (GDP per Capita)
-    description: "총 GDP를 인구로 나눈 국가 간 생활수준 비교용 지표로 세계은행·IMF 헤드라인 순위에 자주 쓰임. 소규모·개방경제에서는 다국적 기업의 IP·이익 귀속, SPE·조세회피성 FDI로 총량 GDP가 부풀려 1인당 GDP만으로 국민 체감 번영을 판단하기 어려울 수 있어 소비·가처분소득·불평등 지표와 함께 봐야 함"
+    description: 총 GDP를 인구로 나눈 국가 간 생활수준 비교용 지표로 세계은행·IMF 헤드라인 순위에 자주 쓰임. 소규모·개방경제에서는 다국적 기업의 IP·이익 귀속, SPE·조세회피성 FDI로 총량 GDP가 부풀려 1인당 GDP만으로 국민 체감 번영을 판단하기 어려울 수 있어 소비·가처분소득·불평등 지표와 함께 봐야 함
     category: 거시경제
     stockMarketImportance: 7
-
   - id: unemployment
     name: 실업률 (Unemployment Rate)
     description: 경제활동인구 중 일할 의사가 있으나 일자리를 갖지 못한 인구의 비율
     category: 거시경제
     stockMarketImportance: 8
-
   - id: cpi
     name: CPI 소비자 물가 지수 (Consumer Price Index)
     description: 가계가 소비하는 상품과 서비스의 가격 변동을 측정하는 대표 물가지표
     category: 거시경제
     stockMarketImportance: 10
-
   - id: exchange-rate
     name: 환율 (Exchange Rate)
     description: 한 국가 통화를 다른 국가 통화로 교환할 때 적용되는 비율
     category: 국제경제
     stockMarketImportance: 8
-
   - id: money-supply
     name: 통화량 (Money Supply)
     description: 경제 내에서 유통되는 화폐의 총량으로 소비·투자·물가에 영향
     category: 금융
     stockMarketImportance: 6
-
   - id: base-money
     name: 본원통화(M0) (Base Money)
     description: 중앙은행이 직접 공급하는 현금과 은행의 지급준비금
     category: 통화
     stockMarketImportance: 5
-
   - id: m1
     name: 협의통화(M1) (M1 Money Supply)
-    description: "현금과 요구불예금 등 즉시 지출에 쓰이는 협의통화로, 중앙은행이 M2·M3와 함께 공표하는 통화량 지표 중 가장 좁은 범위"
+    description: 현금과 요구불예금 등 즉시 지출에 쓰이는 협의통화로, 중앙은행이 M2·M3와 함께 공표하는 통화량 지표 중 가장 좁은 범위
     category: 통화
     stockMarketImportance: 3
-
   - id: m2
     name: 광의통화(M2) (M2 Money Supply)
     description: 본원통화와 예금통화를 포함한 광범위한 유동성 지표
     category: 통화
     stockMarketImportance: 4
-
   - id: reserves
     name: 지급준비금 (Reserves)
     description: 은행이 중앙은행 계좌에 보유하는 예치금으로 결제·유동성·규제 목적. 2008년 이후 QE로 풍부해지면서 연준과 은행 간 거래 매개이자 본원통화의 핵심 축이 되었고, FRED상 연준보유 자산과 거의 동행하며 2020년대에는 주가와의 상관도 커진 유동성 변수
     category: 통화
     stockMarketImportance: 6
-
   - id: required-reserve-ratio
     name: 지급준비율 (Required Reserve Ratio)
     description: 은행이 예금 대비 의무적으로 보유해야 하는 지급준비금의 비율
     category: 통화정책
     stockMarketImportance: 3
-
   - id: excess-reserves
     name: 초과지준금 (Excess Reserves)
     description: 의무 지급준비금 초과분의 지급준비금. 2020년 미국 지급준비율 0% 이후 ‘초과’ 개념은 사실상 사라지고 전액 IORB 대상이 되었으나, IORB·유동성 관리 측면에서 지급준비금 운용은 여전히 중요
     category: 통화
     stockMarketImportance: 2
-
   - id: money-multiplier
     name: 통화승수 (Money Multiplier)
     description: "본원통화(C)가 예금·대출 연쇄를 거쳐 광의통화(M)로 확대되는 비율(M/C)로, 교과서식 모형에서는 지급준비율 r일 때 M≈C/r(예: r=20%면 1조 본원→5조 통화)처럼 표현되나, 현실에서는 대출수요·은행 심리·자본·유동성 규제·그림자금융 등으로 승수가 크게 달라지고 QE 시에는 오히려 승수가 낮아지기도 함. 유통속도(V)와는 별개 변수"
     category: 통화
     stockMarketImportance: 2
-
   - id: velocity-of-money
     name: 화폐유통속도 (Velocity of Money)
     description: 일정 기간 동안 통화가 재화·서비스 거래에 사용되는 빈도로 경기 불확실성 증가나 금융위기 시 하락하는 경향이 있으며 통화정책 전달력에 영향을 미침
     category: 거시경제
     stockMarketImportance: 3
-
   - id: quantitative-easing
     name: 양적완화(QE) (Quantitative Easing)
     description: 중앙은행이 국채·MBS 등을 매입하여 장기금리 인하와 유동성 확대를 유도하는 정책
     category: 통화정책
     stockMarketImportance: 8
-
   - id: quantitative-tightening
     name: 양적긴축(QT) (Quantitative Tightening)
     description: 중앙은행이 보유 자산을 축소하여 대차대조표를 줄이는 정책으로 유동성과 지급준비금을 감소시켜 금융여건을 긴축적으로 만듦
     category: 통화정책
     stockMarketImportance: 7
-
   - id: iorb
     name: IORB (Interest on Reserve Balances)
     description: 연준이 은행 지급준비금에 지급하는 이자. 2008년 GFC 이후 floor system 도입과 함께 IOER로 시작했고 2020년 지준율 0% 이후 IORB로 명칭·적용 범위가 확대됨. 풍부지준 환경에서 단기금리 하단(바닥)을 형성하며 기준금리와 연동
     category: 통화정책
     stockMarketImportance: 4
-
   - id: floor-system
     name: Floor System (Floor System)
     description: 2008년 이후 연준이 채택한 금리 통제 체계로, 풍부한 지급준비금 환경에서 IORB가 단기금리 하단을 형성하고 공개시장조작보다 준비금 이자가 핵심 수단이 되는 방식. corridor system(2008년 이전)과 대비
     category: 통화정책
     stockMarketImportance: 3
-
   - id: lclor
     name: 최소 적정 지급준비금(LCLoR)
     description: 금융시스템이 불안정해지지 않기 위한 최소 지급준비금 수준. 연준은 abundant(풍부)에서 ample(충분) 수준으로 지준금을 줄여가며 LCLoR 근접 시 QT 속도 조절을 검토
     category: 금융
     stockMarketImportance: 2
-
   - id: bank
     name: 은행 (Bank)
     description: 예금 수취와 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
     category: 금융
     stockMarketImportance: 6
-
   - id: credit-creation
     name: 신용창조 (Credit Creation)
     description: "중앙은행이 공급한 본원통화가 은행·기업·가계 거래를 거치며 예금(신용화폐)과 대출이 연쇄적으로 늘어나는 과정. 예: 1억원 예금→1억원 대출→수입이 다시 예금화되면 예금·대출 총액이 본원보다 커질 수 있음. 교과서식으로는 지급준비율만큼 남기고 나머지를 대출→예금→재대출하는 예금 승수(M≈C/r)로 설명하고, 현대 은행론에서는 대출 실행과 동시에 예금이 창출되는 회계 구조(대출=예금의 양면)를 강조함. 지급준비율·자본규제·대출수요에 따라 속도와 규모가 달라지며, 그림자금융은 은행 규제 밖에서 같은 기능을 할 수 있음"
     category: 금융
     stockMarketImportance: 4
-
   - id: credit-destruction
     name: 신용파괴 (Credit Destruction)
-    description: "채무 상환·부도·청산 과정에서 신용(구매력)과 부채가 동시에 줄어드는 현상. 신용창조의 반대편으로, 디레버리징·신용 사이클 수축기에 총수요와 자산 가격을 위축시키는 핵심 메커니즘"
+    description: 채무 상환·부도·청산 과정에서 신용(구매력)과 부채가 동시에 줄어드는 현상. 신용창조의 반대편으로, 디레버리징·신용 사이클 수축기에 총수요와 자산 가격을 위축시키는 핵심 메커니즘
     category: 금융
     stockMarketImportance: 5
-
   - id: capital-adequacy-ratio
     name: 자기자본비율 (Capital Adequacy Ratio)
     description: 은행의 자기자본을 위험가중자산으로 나눈 비율로 건전성 규제 핵심 지표
     category: 금융
     stockMarketImportance: 4
-
   - id: leverage-ratio
     name: 레버리지비율 (Leverage Ratio)
     description: 은행의 자기자본을 총자산으로 나눈 비율로 과도한 차입을 제한하는 비위험가중 규제
     category: 금융
     stockMarketImportance: 5
-
   - id: prudential-regulation
     name: 건전성 규제 (Prudential Regulation)
     description: 금융기관의 자본·유동성·부채를 규제하여 금융시스템 안정성을 확보하는 제도
     category: 금융
     stockMarketImportance: 4
-
   - id: fiscal-policy
     name: 재정정책 (Fiscal Policy)
-    description: "정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책. 1960년대 미국처럼 성장·진보·냉전 경쟁 목표로 확장적 재정(감세·Great Society·국방 지출)이 이어지면 통화정책보다 우선할 때 재정 우위(fiscal dominance)가 나타날 수 있음. 인프라·부양 등 명목과 달리 실제로는 복지·사회·소비 지출 비중이 커지는 경우도 많아(1960년대 Great Society, 2020–21년 코로나 대응) 물가·금리 경로를 볼 때 지출 **성격**까지 함께 봐야 함. 재정 impetus(지출·세제 변화가 실질 GDP 성장에 미치는 1차 기여)로 보면 1964년 이후 미국은 수년간 확장 효과가 이어졌으나, 2020–21년 대규모 부양은 규모는 크더라도 효과가 상당 부분 단기에 그친 사례로 대비됨"
+    description: 정부가 지출과 조세를 통해 경기와 경제 구조에 개입하는 정책. 1960년대 미국처럼 성장·진보·냉전 경쟁 목표로 확장적 재정(감세·Great Society·국방 지출)이 이어지면 통화정책보다 우선할 때 재정 우위(fiscal dominance)가 나타날 수 있음. 인프라·부양 등 명목과 달리 실제로는 복지·사회·소비 지출 비중이 커지는 경우도 많아(1960년대 Great Society, 2020–21년 코로나 대응) 물가·금리 경로를 볼 때 지출 **성격**까지 함께 봐야 함. 재정 impetus(지출·세제 변화가 실질 GDP 성장에 미치는 1차 기여)로 보면 1964년 이후 미국은 수년간 확장 효과가 이어졌으나, 2020–21년 대규모 부양은 규모는 크더라도 효과가 상당 부분 단기에 그친 사례로 대비됨
     category: 정부
     stockMarketImportance: 7
-
   - id: fiscal-dominance
     name: 재정 우위 (Fiscal Dominance)
     description: 정부의 재정정책(지출·감세·전쟁·복지)이 중앙은행 통화정책보다 우선해, 물가가 높아도 금리 인상 등 긴축이 제한되는 상태. 국가부채 이자 지급이 국방비를 추월하는 수준에 이르면 통화정책이 물가가 아니라 정부 이자 부담에 끌려다닌다는 신호로 해석되기도 함. 1960년대 미국은 연준이 무게중심을 유지했으나 재정 확장이 앞서 70년대 인플레 기대 누적의 배경이 됨
     category: 정부
     stockMarketImportance: 4
-
   - id: gold
     name: 금 (Gold)
     description: 안전자산으로 여겨지는 귀금속으로 인플레이션 헤지와 포트폴리오 다변화에 활용
     category: 원자재
     stockMarketImportance: 7
-
   - id: silver
     name: 은 (Silver)
     description: 귀금속이자 산업용 금속으로 전자·태양광·의료 분야에서 광범위하게 사용
     category: 원자재
     stockMarketImportance: 4
-
   - id: copper
     name: 구리 (Copper)
     description: 전기 전도성이 뛰어난 산업용 금속으로 건설·전력·제조업의 경기 선행지표
     category: 원자재
     stockMarketImportance: 6
-
   - id: iron-ore
     name: 철광석 (Iron Ore)
     description: 철강 생산의 핵심 원료로 건설·자동차·기계 산업 수요에 따라 가격 변동
     category: 원자재
     stockMarketImportance: 4
-
   - id: consumption
     name: 소비 (Consumption)
     description: 가계가 재화와 서비스를 구매하는 경제활동으로 GDP의 가장 큰 구성요소이며 소득·금리·기대인플레이션에 영향을 받음
     category: 거시경제
     stockMarketImportance: 6
-
   - id: investment
     name: 투자 (Investment)
-    description: "기업이 생산설비·장비·공장을 확충하고 재고를 늘리는 활동으로, GDP = C+I+G+NX 중 **I(민간투자)** 에 해당. 금리·수익 기대·기대인플레이션에 따라 변동하며 **구성요소 가운데 변동성이 가장 크고** 기업이 설비·CapEx 지출을 미루기 쉬워 **전형적 침체에서 먼저 위축**되는 경우가 많음"
+    description: 기업이 생산설비·장비·공장을 확충하고 재고를 늘리는 활동으로, GDP = C+I+G+NX 중 **I(민간투자)** 에 해당. 금리·수익 기대·기대인플레이션에 따라 변동하며 **구성요소 가운데 변동성이 가장 크고** 기업이 설비·CapEx 지출을 미루기 쉬워 **전형적 침체에서 먼저 위축**되는 경우가 많음
     category: 거시경제
     stockMarketImportance: 6
-
   - id: household-debt
     name: 가계부채 (Household Debt)
     description: 가계가 금융기관 등으로부터 빌린 부채로 소비 여력과 금융안정에 영향을 미치며 금리 상승 시 소비 위축과 금융불안 요인으로 작용할 수 있고 인플레이션에 의해 실질 부담이 경감될 수 있음
     category: 거시경제
     stockMarketImportance: 5
-
   - id: natural-gas
     name: 천연가스 (Natural Gas)
-    description: "주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향. 미국은 생산 확대로 에너지 순수출국이 되었고, 저렴한 가스는 제조업 원가·전력 공급에 기여할 수 있으나 자본집약·자동화로 고용 창출력은 제한적일 수 있음"
+    description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향. 미국은 생산 확대로 에너지 순수출국이 되었고, 저렴한 가스는 제조업 원가·전력 공급에 기여할 수 있으나 자본집약·자동화로 고용 창출력은 제한적일 수 있음
     category: 원자재
     stockMarketImportance: 6
-
   - id: nuclear-power
     name: 원자력 발전 (Nuclear Power)
-    description: "우라늄 연료로 전력을 생산하는 기저 전력원으로 미국 전력의 상당 비중을 담당. 데이터센터·AI 전력 수요와 노후 원전 규제 이슈 속에서 SMR 등 차세대 원전과 규제 완화가 정책·민간 투자 논의의 중심이며, 석탄·일부 신재생과 달리 양당 지지가 상대적으로 강한 편"
+    description: 우라늄 연료로 전력을 생산하는 기저 전력원으로 미국 전력의 상당 비중을 담당. 데이터센터·AI 전력 수요와 노후 원전 규제 이슈 속에서 SMR 등 차세대 원전과 규제 완화가 정책·민간 투자 논의의 중심이며, 석탄·일부 신재생과 달리 양당 지지가 상대적으로 강한 편
     category: 원자재
     stockMarketImportance: 6
-
   - id: pce
     name: PCE 개인소비지출물가 (Personal Consumption Expenditures)
     description: 연준이 인플레이션 목표 설정 시 선호하는 물가지표로 가계 소비지출의 가격 변동을 측정하며 CPI보다 넓은 범위와 가중치 변화를 반영
     category: 거시경제
     stockMarketImportance: 8
-
   - id: core-pce
     name: Core PCE (Core Personal Consumption Expenditures)
     description: 식품과 에너지를 제외한 PCE로 연준이 인플레이션의 근본 추세를 파악하기 위해 가장 중시하는 핵심 물가지표
     category: 거시경제
     stockMarketImportance: 9
-
   - id: sofr
     name: SOFR (Secured Overnight Financing Rate)
     description: 미국 국채를 담보로 한 하루짜리 대출 금리로 신용리스크가 거의 없으며, LIBOR를 대체하는 대표적인 무위험 기준금리
     category: 금리
     stockMarketImportance: 6
-
   - id: qra
     name: QRA (Quarterly Refunding Announcement)
     description: 미국 재무부가 분기별로 발행하는 국채 발행 계획 발표로 시장에 공급될 국채 규모와 만기 구성을 알려 시장 기대와 금리에 영향을 미침
     category: 정부
     stockMarketImportance: 6
-
   - id: tga
     name: TGA (Treasury General Account)
     description: 미국 재무부가 연준에 보유한 예금 계좌로 재무부의 현금 잔액을 관리하며 TGA 증감은 시장 유동성과 지급준비금에 직접적인 영향을 미침
     category: 정부
     stockMarketImportance: 7
-
   - id: government-bond
     name: 국채 (Government Bond)
     description: 정부가 재정 조달을 위해 발행하는 채권으로 재정적자 보전, 인프라 투자, 경기 대응 등 다양한 목적으로 발행되며 만기별로 단기채·중기채·장기채로 구분됨
     category: 채권
     stockMarketImportance: 8
-
   - id: short-term-bond
     name: 단기채 (Short-term Bond)
     description: 만기가 1년 이하인 국채로 재무부는 단기 자금 조달과 유동성 관리 목적으로 발행하며 단기금리 형성에 중요한 역할
     category: 채권
     stockMarketImportance: 5
-
   - id: medium-term-bond
     name: 중기채 (Medium-term Bond)
     description: 만기가 1년 이상 10년 미만인 국채로 재무부는 중기 자금 조달과 만기 구조 조정 목적으로 발행하며 중기금리 곡선 형성에 기여
     category: 채권
     stockMarketImportance: 5
-
   - id: long-term-bond
     name: 장기채 (Long-term Bond)
     description: 만기가 10년 이상인 국채로 재무부는 장기 자금 조달과 부채 만기 구조 안정화 목적으로 발행하며 장기금리 형성의 핵심 지표로 경제 전망과 인플레이션 기대를 반영하여 주식시장과 부동산 등 자산가격에 중요한 영향을 미침
     category: 채권
     stockMarketImportance: 7
-
   - id: tax-cut
     name: 감세 (Tax Cut)
-    description: "세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적. 1964년 Kennedy-Johnson 감세처럼 성장 국면에서도 시행되면 총수요·재정적자를 키워 물가 압력을 누적시킬 수 있음. 감세 시 재정적자·국채 금리·통화정책 조합을 함께 봐야 하며, 재정 건전성 우려가 국채 매도(금리 상승)로 이어질 수 있음(영국 트러스 쇼크 등)"
+    description: 세율을 낮추거나 세금을 감면하는 정책으로 소비와 투자 촉진 목적. 1964년 Kennedy-Johnson 감세처럼 성장 국면에서도 시행되면 총수요·재정적자를 키워 물가 압력을 누적시킬 수 있음. 감세 시 재정적자·국채 금리·통화정책 조합을 함께 봐야 하며, 재정 건전성 우려가 국채 매도(금리 상승)로 이어질 수 있음(영국 트러스 쇼크 등)
     category: 정부
     stockMarketImportance: 6
-
   - id: great-society
     name: Great Society (Great Society)
     description: 1960년대 존슨 행정부의 빈곤 퇴치·교육·의료·민권 확대 등 대규모 복지·사회 프로그램 묶음으로 재정 지출을 크게 늘려 케인즈식 확장 재정의 한 축을 이룸
     category: 정부
     stockMarketImportance: 2
-
   - id: defense-spending
     name: 국방 지출 (Defense Spending)
-    description: "군사·안보·우주·미사일 방어 등을 위한 정부 지출로, 베트남전 참전기처럼 급증하면 재정적자·총수요·인플레 압력을 키울 수 있음. 방위산업은 자국 생산·조달 중심의 보호무역 성격이 강해 제조업·경제안보 정책과 맞닿으며, 방어체계·우주군 등 장기 예산 확대 논의가 이어질 수 있음"
+    description: 군사·안보·우주·미사일 방어 등을 위한 정부 지출로, 베트남전 참전기처럼 급증하면 재정적자·총수요·인플레 압력을 키울 수 있음. 방위산업은 자국 생산·조달 중심의 보호무역 성격이 강해 제조업·경제안보 정책과 맞닿으며, 방어체계·우주군 등 장기 예산 확대 논의가 이어질 수 있음
     category: 정부
     stockMarketImportance: 4
-
   - id: tax-increase
     name: 증세 (Tax Increase)
     description: 세율을 높이거나 세금을 증가시키는 정책으로 재정 확충 목적. 증세는 소득세(개인소득세, 법인세), 소비세(부가가치세, 소비세), 자산세 등 다양한 세목에 적용될 수 있으며, 증세 시 재정적자 축소, 국채 금리 하락 가능성, 채권 시장 반응, 재정 건전성 개선, 소비·투자 위축 가능성, 통화정책과의 조합 등을 함께 분석해야 함. 증세는 재정 건전성을 개선하지만 경기 둔화 압력이 될 수 있어 시점과 규모가 중요함
     category: 정부
     stockMarketImportance: 5
-
   - id: tariff
     name: 관세 (Tariff)
     description: 수입품에 부과하는 세금으로 보호무역의 대표적 수단이며 국내 산업 보호와 재정 수입 확보를 목적으로 함. 수입 가격을 높여 국내 생산을 보호할 수 있으나 소비자 가격 상승으로 후생을 낮추고 교역 상대국의 보복관세·무역전쟁을 유발할 수 있어, 무역수지 개선 효과는 환율·내수·공급망 대체에 따라 불확실
     category: 국제경제
     stockMarketImportance: 7
-
   - id: trade-deficit
     name: 무역적자 (Trade Deficit)
     description: 한 나라의 수입이 수출보다 많아 순수출(NX)이 음(-)인 상태로 경상수지 적자와 연결됨. 강한 내수와 자본 유입을 반영할 수도, 산업 경쟁력 약화를 반영할 수도 있어 그 자체로 좋고 나쁨을 단정하기 어렵고 환율·자본수지·경기 국면과 함께 해석해야 함
     category: 국제경제
     stockMarketImportance: 5
-
   - id: trade-surplus
     name: 무역흑자 (Trade Surplus)
     description: 한 나라의 수출이 수입보다 많아 순수출(NX)이 양(+)인 상태로 경상수지 흑자와 연결됨. GDP에 기여하고 외화를 축적하는 요인이 되나 과도하면 교역 상대국과의 통상마찰과 통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함
     category: 국제경제
     stockMarketImportance: 4
-
   - id: twin-deficit
     name: 쌍둥이 적자 (Twin Deficits)
-    description: "재정적자와 무역(경상)적자가 동시에 확대되는 상태로, 가계 저축 부족·재정 확장·금리 상승·달러 강세·해외 자본 유입이 겹치면 나타날 수 있음. 레이건 시대와 이후 미국 등에서 논의되며, 강달러·관세만으로 무역적자를 해결하기 어렵다는 분석의 출발점이 되기도 함"
+    description: 재정적자와 무역(경상)적자가 동시에 확대되는 상태로, 가계 저축 부족·재정 확장·금리 상승·달러 강세·해외 자본 유입이 겹치면 나타날 수 있음. 레이건 시대와 이후 미국 등에서 논의되며, 강달러·관세만으로 무역적자를 해결하기 어렵다는 분석의 출발점이 되기도 함
     category: 국제경제
     stockMarketImportance: 6
-
   - id: reshoring
     name: 리쇼어링 (Reshoring)
     description: 해외로 이전했던 생산·공급망을 본국으로 되돌리는 정책·기업 전략으로, 관세·보조금·경제안보 논리와 결합해 제조업 고용 회복을 목표로 하나 공급망 비용·인건비·생산성 제약으로 효과는 산업·국면마다 다름. 무역흑자국·적자국 모두 제조업 고용이 줄어드는 글로벌 추세 속에서는 일자리를 되찾는다는 논리가 약하고, 설비 규모만큼 무역적자가 비례해 줄지도 않으며 한정된 자원을 쓰면 다른 고부가가치 일자리 기회가 상실될 수 있음. 신규 일자리는 고숙련·자동화 비중이 커질 수 있어 저숙련 고용 회복 규모는 제한적일 수 있음
     category: 국제경제
     stockMarketImportance: 6
-
   - id: offshoring
     name: 오프쇼어링 (Offshoring)
     description: 생산·조달을 인건비·비용이 낮은 해외로 이전하는 기업 전략으로, 글로벌 가치사슬 확대와 제조업 고용의 국가 간 재배치를 가져왔으며 리쇼어링·보호무역·경제안보 논의의 반대편 축이 됨
     category: 국제경제
     stockMarketImportance: 5
-
   - id: nearshoring
     name: 니어쇼어링 (Nearshoring)
     description: 생산·조달을 지리적으로 가까운 국가(멕시코 등)로 옮기는 전략으로 물류·인건비·관세 리스크를 줄이려는 목적이 있으나, 광범위한 관세·보호무역 기조가 강해지면 예외국도 불안해져 투자·공장 건설이 지연될 수 있음
     category: 국제경제
     stockMarketImportance: 5
-
   - id: federal-reserve
     name: 연준(Fed) (Federal Reserve)
     description: 미국의 중앙은행으로 기준금리 결정, 공개시장조작, 양적완화·긴축 등 통화정책과 금융안정을 담당하며 결정과 발언이 글로벌 금리·달러·위험자산 가격에 광범위한 영향을 미침
     category: 통화정책
     stockMarketImportance: 10
-
   - id: central-bank
     name: 중앙은행 (Central Bank)
     description: 통화 발행과 통화정책을 담당하는 국가의 최고 통화 당국으로 물가안정과 금융안정을 목표로 기준금리·유동성을 조절하며 최종대부자 기능을 수행
     category: 통화정책
     stockMarketImportance: 7
-
   - id: mbs
     name: MBS (Mortgage-Backed Security)
     description: 주택담보대출을 기초자산으로 묶어 발행하는 유동화 증권으로 연준 자산매입의 주요 대상이며 모기지 금리와 주택시장에 영향을 미침
     category: 채권
     stockMarketImportance: 5
-
   - id: treasury
     name: 재무부 (Treasury)
     description: 국채 발행과 국가 재정을 담당하는 미국 정부 기관으로 분기 발행계획(QRA)과 TGA 잔액 변동이 국채 수급·시장 유동성·금리에 영향을 미침
     category: 정부
     stockMarketImportance: 6
-
   - id: bond-price
     name: 채권가격 (Bond Price)
     description: 채권의 시장 가격으로 시장금리와 반대 방향으로 움직이며 만기·신용위험·수급 여건에 따라 변동하여 금리 기대 변화를 반영
     category: 금융
     stockMarketImportance: 6
-
   - id: long-term-interest-rate
     name: 장기금리 (Long-term Interest Rate)
     description: 장기 채권을 기준으로 형성되는 금리로 성장·인플레이션 기대를 반영하며 주택담보대출·기업 투자와 주식 등 자산가격에 영향을 미침
     category: 금리
     stockMarketImportance: 8
-
   - id: market-interest-rate
     name: 시중금리 (Market Interest Rate)
     description: 시장에서 실제로 적용되는 대출·예금 금리로 기준금리와 신용·유동성 여건을 함께 반영하여 가계·기업의 실질 자금조달 비용을 결정
     category: 금리
     stockMarketImportance: 6
-
   - id: low-interest-policy
     name: 저금리 정책 (Low Interest Policy)
     description: 차입과 투자를 유도하기 위해 기준금리를 낮게 유지하는 통화정책으로 경기 부양에 쓰이나 자산가격 과열·부채 누적 위험을 동반할 수 있어 출구 시점이 중요함
     category: 통화정책
     stockMarketImportance: 6
-
   - id: fed-balance-sheet
     name: 연준 대차대조표 (Fed Balance Sheet)
     description: 연준이 보유한 자산과 부채의 총괄 상태로 양적완화 시 확대되고 양적긴축 시 축소되며 시중 유동성과 지급준비금에 직접적인 영향을 미침
     category: 통화정책
     stockMarketImportance: 7
-
   - id: maturity-redemption
     name: 만기상환 (Maturity Redemption)
     description: 채권 만기 도래 시 원금을 상환하는 과정으로 재투자 수요와 차환 발행 규모에 따라 시장 금리·유동성에 영향을 미침
     category: 채권
     stockMarketImportance: 3
-
   - id: fed-assets
     name: 연준보유 자산 (Fed Assets)
     description: 연준이 양적완화 등을 통해 보유한 국채·MBS 등의 자산으로 연준 대차대조표의 자산 측 핵심 구성. QE·QT에 따라 규모가 변하며 매입·매도 대금이 지급준비금 계좌로 이체되어 FRED상 지급준비금과 거의 동행
     category: 통화정책
     stockMarketImportance: 5
-
   - id: strong-dollar
     name: 강달러 (Strong Dollar)
     description: 달러 가치가 다른 통화 대비 상대적으로 높은 상태로 미국의 수입 물가를 낮추는 반면 수출 경쟁력을 약화시키고 신흥국 자본유출·달러부채 부담을 키울 수 있음
     category: 국제경제
     stockMarketImportance: 7
-
   - id: weak-dollar
     name: 약달러 (Weak Dollar)
     description: 달러 가치가 다른 통화 대비 상대적으로 낮은 상태로 미국의 수출 경쟁력을 높이는 반면 수입 물가 상승 압력을 키우며 원자재 가격을 끌어올리는 경향이 있음
     category: 국제경제
     stockMarketImportance: 7
-
   - id: korean-won
     name: 원화 (Korean Won)
     description: 대한민국의 공식 통화로 달러 대비 환율이 수출입 경쟁력·수입 물가·외국인 자금 흐름에 영향을 미치며 위험선호 변화에 민감하게 반응
     category: 국제경제
     stockMarketImportance: 5
-
   - id: chinese-yuan
     name: 위안화 (Chinese Yuan)
     description: 중국의 공식 통화로 관리변동환율제 하에서 운용되며 환율 정책과 위안화 국제화 움직임이 글로벌 무역·통상과 신흥국 통화에 영향을 미침
     category: 국제경제
     stockMarketImportance: 5
-
   - id: japanese-yen
     name: 엔화 (Japanese Yen)
     description: 일본의 공식 통화로 안전자산이자 캐리트레이드의 조달 통화로 기능하며 글로벌 위험선호와 미·일 금리차에 민감하게 반응
     category: 국제경제
     stockMarketImportance: 6
-
   - id: euro
     name: 유로 (Euro)
     description: 유럽연합 유로존의 공식 통화로 달러 다음가는 주요 준비통화이며 ECB 통화정책과 유로존 경기에 따라 가치가 변동
     category: 국제경제
     stockMarketImportance: 6
-
   - id: stock-market
     name: 주식시장 (Stock Market)
-    description: "주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장. 장기적으로 실질 GDP와 연동되는 경우가 많지만, 1980년대 이후 선진국에서는 시가총액/GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 늘기도 함(밸류·금리·순발행 구조에 따라)"
+    description: 주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장. 장기적으로 실질 GDP와 연동되는 경우가 많지만, 1980년대 이후 선진국에서는 시가총액/GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 늘기도 함(밸류·금리·순발행 구조에 따라)
     category: 금융
     stockMarketImportance: 9
-
   - id: bond-market
     name: 채권시장 (Bond Market)
     description: 채권을 발행·거래하는 시장으로 금리와 신용 위험을 반영하며 정부·기업의 자금조달 통로이자 경기·인플레이션 기대를 가늠하는 핵심 시장
     category: 금융
     stockMarketImportance: 8
-
   - id: commodity-market
     name: 원자재시장 (Commodity Market)
     description: 원유·금·곡물 등 원자재를 거래하는 시장으로 인플레이션·경기 사이클·지정학 요인에 민감하며 생산비용을 통해 물가에 영향을 미침
     category: 금융
     stockMarketImportance: 7
-
   - id: net-interest-margin
     name: 예대마진 (Net Interest Margin)
     description: 은행의 대출금리와 예금 등 조달금리의 차이로 은행 수익성의 핵심 지표이며 금리 수준·수익률 곡선 기울기에 따라 변동
     category: 금융
     stockMarketImportance: 4
-
   - id: mercantilism
     name: 중상주의 (Mercantilism)
     description: 국부를 금·은 등 귀금속 축적으로 보고 수출을 늘리고 수입을 억제하기 위해 국가가 무역에 적극 개입한 17~18세기 경제사상으로, 무역을 한쪽이 이득을 보면 다른 쪽이 손해를 본다는 제로섬으로 보는 관점이 핵심이며 현대 산업정책 논쟁의 사상적 뿌리
     category: 국제경제
     stockMarketImportance: 2
-
   - id: neo-mercantilism
     name: 신중상주의 (Neo-mercantilism)
     description: 금·은 축적 대신 전략 산업의 경쟁력과 무역흑자, 공급망 통제를 목표로 국가가 보조금·관세·산업정책을 동원하는 현대판 중상주의로, 미국의 IRA·CHIPS Act와 중국의 제조 2025 등이 대표 사례
     category: 국제경제
     stockMarketImportance: 4
-
   - id: industrial-policy
     name: 산업정책 (Industrial Policy)
-    description: "정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반함. IRA·CHIPS 등 대규모 법안은 설비투자를 끌어올릴 수 있고, 수혜 지역이 특정 주에 묶이면 정권 교체 후에도 철회·전면 폐지가 정치적으로 어려울 수 있음"
+    description: 정부가 특정 전략 산업을 육성하기 위해 보조금·세제·R&D 지원·규제 등을 동원하는 정책으로, 시장 실패 보완과 국가 경쟁력 강화를 노리나 자원 배분 왜곡과 렌트시킹 위험을 동반함. IRA·CHIPS 등 대규모 법안은 설비투자를 끌어올릴 수 있고, 수혜 지역이 특정 주에 묶이면 정권 교체 후에도 철회·전면 폐지가 정치적으로 어려울 수 있음
     category: 정부
     stockMarketImportance: 6
-
   - id: protectionism
     name: 보호무역 (Protectionism)
     description: 관세·수입 규제·보조금 등으로 국내 산업을 해외 경쟁으로부터 보호하는 무역 기조로, 유치산업 육성이나 고용 보호 명분을 가지나 소비자 가격 상승과 보복·무역전쟁 위험을 동반함
     category: 국제경제
     stockMarketImportance: 6
-
   - id: free-trade
     name: 자유무역 (Free Trade)
     description: 관세·수입 규제 등 인위적 장벽을 최소화하여 비교우위에 따른 자유로운 교역을 추구하는 기조로, 전체 후생을 키우는 경향이 있으나 불완전 경쟁과 규모의 경제가 큰 산업에서는 한계가 지적됨
     category: 국제경제
     stockMarketImportance: 6
-
   - id: comparative-advantage
     name: 비교우위 (Comparative Advantage)
     description: 각국이 상대적으로 더 잘 만드는 재화에 특화해 교역하면 전체 생산과 후생이 커진다는 리카도의 이론으로 자유무역의 핵심 근거이나, 동태적 산업 발전이나 불완전 경쟁을 충분히 설명하지 못한다는 비판도 있음. 모든 국가가 산업 사다리를 오르려 하면 「낮은 단계 산업에 머물라」는 역할 분담을 강제하기 어려워 세계화 말기에는 정적 비교우위만으로 무역 질서를 설명하기 한계가 있음
     category: 국제경제
     stockMarketImportance: 3
-
   - id: subsidy
     name: 보조금 (Subsidy)
     description: 정부가 특정 산업·기업·소비에 제공하는 재정 지원으로 산업정책의 대표 수단이며, 전략 산업 육성과 투자 유치에 쓰이나 통상 마찰과 비효율·렌트시킹을 유발할 수 있음
     category: 정부
     stockMarketImportance: 5
-
   - id: infant-industry
     name: 유치산업 보호론 (Infant Industry Argument)
     description: 초기 단계의 신생 산업은 규모의 경제와 학습효과를 갖출 때까지 일시적으로 보호해야 장기적으로 경쟁력을 확보할 수 있다는 주장으로 보호무역과 산업정책의 핵심 논거이나, 보호의 영구화와 산업 고착화 위험이 지적됨
     category: 경제이론
     stockMarketImportance: 2
-
   - id: strategic-trade-theory
     name: 전략적 무역이론 (Strategic Trade Theory)
     description: 소수 기업이 지배하는 불완전 경쟁 시장에서는 정부의 보조금·보호가 자국 기업에 초과이윤을 이전시켜 국익이 될 수 있다는 1985년 브랜더-스펜서 이론으로, 보잉 대 에어버스 보조금 논쟁과 반도체 보조금 경쟁의 이론적 배경
     category: 경제이론
     stockMarketImportance: 2
-
   - id: economies-of-scale
     name: 규모의 경제 (Economies of Scale)
     description: 생산량이 늘수록 단위당 비용이 낮아지는 효과로, 이 효과가 큰 산업에서는 선점과 대규모 투자가 경쟁우위를 좌우해 정부의 전략적 개입 논거가 됨
     category: 경제이론
     stockMarketImportance: 4
-
   - id: economic-security
     name: 경제안보 (Economic Security)
     description: 전략 물자·핵심 기술의 해외 의존을 줄이고 자국 생산 능력과 공급망 안정을 확보하려는 정책 기조로, 안보와 경제를 연계해 수출통제·리쇼어링·산업정책의 명분이 됨
     category: 정부
     stockMarketImportance: 6
-
   - id: supply-chain
     name: 공급망 (Supply Chain)
     description: 원자재 조달부터 생산·유통까지 이어지는 공급 네트워크로, 특정국 의존이 높으면 공급망 무기화 위험에 노출되어 다변화·리쇼어링·우방국 중심 재편의 대상이 됨
     category: 국제경제
     stockMarketImportance: 7
-
   - id: trade-war
     name: 무역전쟁 (Trade War)
     description: 한 나라의 관세·수출규제에 상대국이 보복 관세 등으로 맞대응하며 무역 장벽이 연쇄적으로 높아지는 갈등으로, 1930년대 대공황을 악화시킨 사례처럼 양측 모두에 피해를 줄 수 있음
     category: 국제경제
     stockMarketImportance: 7
-
   - id: consumer-welfare
     name: 소비자 후생 (Consumer Welfare)
     description: 소비자가 누리는 효용과 실질 구매력으로, 관세·보호로 국내 가격이 오르면 후생이 감소하여 보호무역의 비용을 평가하는 핵심 기준이 됨
     category: 거시경제
     stockMarketImportance: 3
-
   - id: learning-curve
     name: 학습곡선 효과 (Learning Curve Effect)
     description: 생산 경험이 누적될수록 단위 비용이 체계적으로 낮아지는 효과로, 초기 보호·지원이 장기 경쟁력으로 이어질 수 있다는 유치산업 보호론의 근거
     category: 경제이론
     stockMarketImportance: 2
-
   - id: cumulative-causation
     name: 누적 인과관계 (Cumulative Causation)
     description: 한 부문의 성장이 연관 산업·기술·고용을 끌어들여 추가 성장을 부르는 자기강화 과정으로, 제조업 기반 유지와 산업정책의 논거가 됨
     category: 경제이론
     stockMarketImportance: 2
-
   - id: public-choice-theory
     name: 공공선택이론 (Public Choice Theory)
     description: 정치인·관료·이익집단도 자기 이익을 추구한다는 전제로 정부 개입을 분석하는 이론으로, 보조금·보호가 렌트시킹과 정부 실패로 이어질 수 있다는 산업정책 비판의 핵심 근거
     category: 경제이론
     stockMarketImportance: 2
-
   - id: rent-seeking
     name: 렌트시킹 (Rent-seeking)
     description: 새 가치를 창출하지 않고 보조금·독점·규제 특혜 등 기존 이익을 차지하려는 로비·경쟁 활동으로, 보호무역과 산업정책이 키울 수 있는 비효율의 대표 사례
     category: 경제이론
     stockMarketImportance: 3
-
   - id: import-substitution
     name: 수입대체 산업화 (Import Substitution)
     description: 수입품을 국내 생산으로 대체하기 위해 높은 관세·보조금으로 내수 산업을 보호한 발전 전략으로, 20세기 중반 라틴아메리카 등에서 비효율과 경쟁력 저하로 실패한 사례가 많음
     category: 국제경제
     stockMarketImportance: 2
-
   - id: developmental-state
     name: 발전국가 모델 (Developmental State)
     description: 국가가 전략 산업을 선정해 금융·보조금을 집중하되 수출 성과로 규율하며 성장을 주도한 동아시아 발전 모델로, 한국·대만·싱가포르의 고도성장 사례가 대표적
     category: 경제이론
     stockMarketImportance: 3
-
   - id: export-control
     name: 수출통제 (Export Control)
     description: 안보·전략적 이유로 특정 기술·물자의 해외 수출을 제한하는 정책으로, 미국의 대중 반도체 장비 수출 통제처럼 공급망 무기화와 경제안보의 수단으로 활용됨
     category: 정부
     stockMarketImportance: 6
-
   - id: state-capacity
     name: 국가역량 (State Capacity)
     description: 정책을 효과적으로 설계·집행하고 R&D·인력·인프라 투자와 수출 규율을 함께 실행할 수 있는 국가의 행정·제도 역량으로, 산업정책 성공의 핵심 전제
     category: 정부
     stockMarketImportance: 2
-
   - id: semiconductor
     name: 반도체 (Semiconductor)
     description: 전자기기의 두뇌 역할을 하는 핵심 부품으로 AI·전자·방산 전반의 기반이 되며, 공급망 안보와 각국 보조금 경쟁의 중심에 있는 대표적 전략 산업
     category: 원자재
     stockMarketImportance: 8
-
   - id: battery
     name: 배터리 (Battery)
     description: 전기차와 에너지저장장치의 핵심 부품으로 리튬 등 핵심 광물 공급망과 연결되며, 각국의 보조금·현지조달 정책 대상이 되는 전략 산업
     category: 원자재
     stockMarketImportance: 6
-
   - id: rare-earths
     name: 희토류 (Rare Earths)
     description: 첨단 전자·방산·전기차 모터에 필수적인 17종 원소군으로 생산이 특정국에 편중되어 공급망 무기화 위험이 큰 전략 자원
     category: 원자재
     stockMarketImportance: 5
-
   - id: physiocracy
     name: 중농주의 (Physiocracy)
     description: 18세기 프랑스에서 중상주의에 대한 반발로 등장한 경제학파로, 농업과 토지를 모든 부의 원천으로 보고 경제는 자연 질서에 따라 움직이므로 정부 개입을 최소화해야 한다고 주장했으며 케네의 경제표로 대표됨. 순환 흐름과 토지가치세 사상의 선구이나 제조업을 불임적으로 본 한계가 있음
     category: 경제이론
     stockMarketImportance: 1
-
   - id: laissez-faire
     name: 자유방임 (Laissez-faire)
     description: 시장이 자연 질서에 따라 스스로 조정되므로 정부는 개입을 최소화해야 한다는 사상으로 중농주의·고전학파에서 비롯되었으며 규제 완화와 작은 정부론의 뿌리이나, 시장 실패 상황에서는 한계가 지적됨
     category: 경제이론
     stockMarketImportance: 3
-
   - id: land-value-tax
     name: 토지가치세 (Land Value Tax)
     description: 토지에서 발생하는 지대·가치 상승분에 부과하는 세금으로 노동·자본 의욕을 덜 해친다는 장점이 있어 헨리 조지가 주창했으며, 주택 가격·토지 투기·불평등 대응책으로 재조명되나 정확한 가치 평가와 정치적 저항이 과제
     category: 정부
     stockMarketImportance: 3
-
   - id: market-failure
     name: 시장 실패 (Market Failure)
     description: 독점·외부효과·공공재·정보 비대칭 등으로 시장이 자원을 효율적으로 배분하지 못하는 상태로, 정부 개입과 산업정책을 정당화하는 핵심 근거이며 극단적 자유방임론의 한계를 보여줌
     category: 미시경제
     stockMarketImportance: 4
-
   - id: net-product
     name: 순생산물 (Produit Net)
     description: 투입한 것보다 더 많이 산출되는 잉여를 뜻하는 중농주의의 핵심 개념으로, 케네는 이 잉여가 오직 농업·토지에서만 나온다고 보았음
     category: 경제이론
     stockMarketImportance: 1
-
   - id: agriculture
     name: 농업 (Agriculture)
     description: 식량과 원자재를 생산하는 1차 산업으로 모든 경제 활동의 기초 자원을 공급하며, 기후변화·지정학 위기 속에서 식량 안보와 함께 다시 핵심 의제로 부상
     category: 자원·환경
     stockMarketImportance: 4
-
   - id: food-security
     name: 식량 안보 (Food Security)
     description: 모든 국민이 안정적으로 충분한 식량을 확보할 수 있는 상태로, 기후변화·팬데믹·지정학 위기 속에서 농업 생산성과 식량 주권이 국가 전략 과제로 부상
     category: 자원·환경
     stockMarketImportance: 4
-
   - id: externality
     name: 외부효과 (Externality)
-    description: "한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형. GDP는 시장 거래만 집계하므로 오염·교통체증 같은 부(-) 외부성은 빠지고, 범죄·질병 대응을 위한 병원·교도소 건설 지출은 역설적으로 GDP를 키울 수 있다"
+    description: 한 경제주체의 활동이 시장 가격에 반영되지 않고 제3자에게 이익이나 비용을 주는 현상으로 환경오염이 대표 사례이며 시장 실패의 한 유형. GDP는 시장 거래만 집계하므로 오염·교통체증 같은 부(-) 외부성은 빠지고, 범죄·질병 대응을 위한 병원·교도소 건설 지출은 역설적으로 GDP를 키울 수 있다
     category: 미시경제
     stockMarketImportance: 3
-
   - id: circular-economy
     name: 순환경제 (Circular Economy)
     description: 자원을 재사용·재활용해 폐기를 줄이고 순환시키는 경제 모델로, 중농주의 경제표의 순환 흐름 관점과 산업연관분석을 사상적 기반으로 삼아 지속가능성 정책의 핵심이 됨
     category: 자원·환경
     stockMarketImportance: 2
-
   - id: georgism
     name: 조지주의 (Georgism)
     description: 헨리 조지가 주창한 사상으로 토지에서 생기는 지대만 과세하고 노동·자본 소득의 세금은 줄이자는 토지가치세 단일세론으로, 중농주의의 단일 토지세를 현대적으로 계승
     category: 경제이론
     stockMarketImportance: 1
-
   - id: input-output-analysis
     name: 산업연관분석 (Input-Output Analysis)
     description: 산업 간 투입과 산출의 상호의존 관계를 표로 분석하는 기법으로 레온티에프가 체계화했으며, 케네의 경제표를 현대적으로 발전시킨 거시·순환경제 분석 도구
     category: 경제이론
     stockMarketImportance: 2
-
   - id: natural-law
     name: 자연법 (Natural Law)
     description: 인간 사회도 자연처럼 보편 법칙에 따라 움직인다고 보는 사상으로 중농주의 자유방임론의 철학적 기반이 됨
     category: 경제이론
     stockMarketImportance: 1
-
   - id: monopoly
     name: 독점 (Monopoly)
     description: 한 기업이 시장을 지배해 가격과 생산량을 좌우하는 상태로 경쟁을 제한해 소비자 후생을 낮추며 시장 실패의 대표 유형
     category: 미시경제
     stockMarketImportance: 4
-
   - id: technological-progress
     name: 기술 진보 (Technological Progress)
-    description: "생산성을 끌어올리는 기술·공정·혁신의 향상으로 장기 경제성장의 핵심 동력이며, 중농주의가 과소평가했던 제조업 생산성 폭발의 원천. 노동 생산성 지표와는 구분해, 기술·혁신이 산출 효율에 미치는 구조적 변화를 가리킴. 1990년대 PC 혁명은 인간 생산성을 보완했으나, AI는 노동 대체 비중이 커 일자리는 줄이면서 총생산성 기여는 제한적일 수 있어(so-so automation) GDP 분모 확대로 부채비율을 낮춘다는 낙관과 분리해 봐야 함"
+    description: 생산성을 끌어올리는 기술·공정·혁신의 향상으로 장기 경제성장의 핵심 동력이며, 중농주의가 과소평가했던 제조업 생산성 폭발의 원천. 노동 생산성 지표와는 구분해, 기술·혁신이 산출 효율에 미치는 구조적 변화를 가리킴. 1990년대 PC 혁명은 인간 생산성을 보완했으나, AI는 노동 대체 비중이 커 일자리는 줄이면서 총생산성 기여는 제한적일 수 있어(so-so automation) GDP 분모 확대로 부채비율을 낮춘다는 낙관과 분리해 봐야 함
     category: 경제이론
     stockMarketImportance: 5
-
   - id: artificial-intelligence
     name: 인공지능 (Artificial Intelligence)
     description: 데이터·연산·알고리즘으로 인지·생산 작업을 자동화하는 기술로, LLM 중심의 소프트웨어 혁신과 데이터센터·전력 등 물리 인프라 투자가 동시에 확대되며 장기 부채 사이클 말기의 새 변수로 거론됨
     category: 거시경제
     stockMarketImportance: 6
-
   - id: ai-capex
     name: AI 설비투자 (AI Capex)
     description: 데이터센터·GPU·전력·그리드 등 AI 인프라에 쓰이는 대규모 설비투자로, 생산성 전이보다 먼저 지출이 몰리면 에너지·원자재 수요를 끌어올려 인플레이션 압력이 될 수 있음
     category: 거시경제
     stockMarketImportance: 6
-
   - id: manufacturing
     name: 제조업 (Manufacturing)
     description: 원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 되며, 중농주의가 불임적이라 폄하했으나 산업혁명 이후 부의 핵심 원천이 됨. 생산성·자본집약이 올라가면 산출은 늘어도 고용 인원은 줄거나 정체될 수 있어 산출과 고용을 따로 봐야 함
     category: 거시경제
     stockMarketImportance: 5
-
   - id: ecological-economics
     name: 생태경제학 (Ecological Economics)
     description: 경제를 자연 생태계의 일부로 보고 자원의 한계와 지속가능성을 중시하는 학문으로, 자연과의 조화를 강조한 중농주의를 사상적 선구로 봄
     category: 자원·환경
     stockMarketImportance: 1
-
   - id: economic-table
     name: 경제표 (Tableau Économique)
     description: 케네가 농업·제조업·지주·노동자 사이에서 돈과 재화가 어떻게 순환하는지를 처음으로 시각화한 모델로, 최초의 거시경제 순환 모델이자 산업연관분석의 원형
     category: 경제이론
     stockMarketImportance: 1
-
   - id: classical-economics
     name: 고전경제학 (Classical Economics)
     description: 1776년 애덤 스미스의 국부론부터 1870년대 한계혁명 전까지를 가리키는 학파로 스미스·리카도·맬서스·밀이 대표적이며, 중상주의를 비판하고 시장의 자율 조정과 자유무역, 분업과 생산성 성장을 강조한 현대 경제학의 직접적 뿌리. 토지·노동·자본이라는 생산요소에 따라 부는 근로자에게 임금, 지주에게 지대, 자본가에게 이윤으로 배분된다고 봤으며 산업혁명으로 늘어난 부의 분배가 당대 핵심 쟁점이었음. 단기 수요 부족과 시장 실패, 분배 문제를 충분히 다루지 못한 한계가 있음
     category: 경제이론
     stockMarketImportance: 2
-
   - id: invisible-hand
     name: 보이지 않는 손 (Invisible Hand)
     description: 개인이 자기 이익을 추구하면 시장 가격을 통해 자원이 효율적으로 배분되어 사회 전체의 이익으로 이어진다는 애덤 스미스의 통찰로 시장 경제 작동 원리의 핵심이나, 외부효과·독점 등 시장 실패 상황에서는 한계가 있음
     category: 미시경제
     stockMarketImportance: 3
-
   - id: division-of-labor
     name: 분업 (Division of Labor)
     description: 작업을 전문화해 나누면 생산성이 크게 높아진다는 원리로 스미스의 핀 공장 사례로 유명하며, 글로벌 가치사슬과 아웃소싱의 이론적 기반
     category: 경제이론
     stockMarketImportance: 2
-
   - id: keynesian-economics
     name: 케인즈주의 (Keynesian Economics)
     description: 단기에는 가격·임금이 경직적이고 총수요 부족으로 실업이 지속될 수 있어 정부의 적극적 수요 관리가 필요하다는 학파로, 고전파의 시장 자율 조정론과 세이의 법칙을 비판하며 대공황 이후 등장. 거시경제학이라는 분야를 형성했고 루스벨트의 공공사업·재정 부양이 유효수요를 끌어올리는 대표 사례로 평가됨
     category: 경제이론
     stockMarketImportance: 3
-
   - id: is-lm-model
     name: IS-LM 모형 (IS-LM Model)
-    description: "금리와 GDP를 동시에 결정하는 케인즈식 연립모형으로, IS(투자·금리와 산출)와 LM(통화공급·금리) 관계를 겹쳐 경기·통화정책 효과를 분석. 1970년대까지 정책 예측에 널리 쓰였으나 루카스 비판 이후 미시적 기초·합리적 기대를 담은 DSGE로 대체됨"
+    description: 금리와 GDP를 동시에 결정하는 케인즈식 연립모형으로, IS(투자·금리와 산출)와 LM(통화공급·금리) 관계를 겹쳐 경기·통화정책 효과를 분석. 1970년대까지 정책 예측에 널리 쓰였으나 루카스 비판 이후 미시적 기초·합리적 기대를 담은 DSGE로 대체됨
     category: 경제이론
     stockMarketImportance: 2
-
   - id: neoclassical-economics
     name: 신고전학파 (Neoclassical Economics)
     description: 한계혁명 이후 한계효용과 합리적 선택, 수요·공급에 따른 시장 균형을 중시하는 학파로 고전파를 계승·정교화했으며 현대 미시경제학의 주류 기반
     category: 경제이론
     stockMarketImportance: 2
-
   - id: says-law
     name: 세이의 법칙 (Say's Law)
     description: 공급이 스스로 수요를 창출하므로 장기적으로 전반적 과잉생산은 없고 경제는 완전고용 균형으로 수렴한다는 고전파 명제로, 케인즈가 대공황의 수요 부족을 들어 반박
     category: 경제이론
     stockMarketImportance: 2
-
   - id: labor-theory-of-value
     name: 노동가치설 (Labor Theory of Value)
     description: 상품의 가치가 투입된 노동량으로 결정된다는 고전파 가치 이론으로 다이아몬드-물 역설을 설명하지 못해 한계효용이론으로 대체됨
     category: 경제이론
     stockMarketImportance: 2
-
   - id: marginal-utility
     name: 한계효용 (Marginal Utility)
     description: 재화를 한 단위 더 소비할 때 늘어나는 효용으로 소비가 늘수록 체감하며, 한계혁명을 통해 노동가치설을 대체하고 가격 결정을 설명하는 신고전파의 핵심 개념
     category: 경제이론
     stockMarketImportance: 2
-
   - id: malthusianism
     name: 맬서스 인구론 (Malthusianism)
     description: 인구는 기하급수로 늘지만 식량은 산술급수로 늘어 빈곤이 불가피하다는 맬서스의 비관론으로, 기술 진보와 생산성 향상으로 반박된 대표적 사례
     category: 경제이론
     stockMarketImportance: 2
-
   - id: aggregate-demand
     name: 총수요 (Aggregate Demand)
-    description: "한 경제에서 일정 기간 재화·서비스에 대한 총지출. GDP 지출 항목과 같게 C + I + G + NX(순수출)로 쪼개며, 케인즈주의가 단기 경기와 고용을 좌우하는 핵심 변수로 봄"
+    description: 한 경제에서 일정 기간 재화·서비스에 대한 총지출. GDP 지출 항목과 같게 C + I + G + NX(순수출)로 쪼개며, 케인즈주의가 단기 경기와 고용을 좌우하는 핵심 변수로 봄
     category: 거시경제
     stockMarketImportance: 6
-
   - id: economic-shock
     name: 경제 충격 (Economic Shock)
-    description: "예기치 못게 경제를 자연 성장 추세에서 벗어나게 하는 사건으로, 금융시장 교란·대외·유가·기술·통화긴축 등 다양한 출처에서 올 수 있음. 경기 확장은 '오래 버텨서' 끝나는 것이 아니라 이런 **음(-)의 충격**이 겹칠 때 수축·침체로 전환된다는 관점의 핵심 개념"
+    description: 예기치 못게 경제를 자연 성장 추세에서 벗어나게 하는 사건으로, 금융시장 교란·대외·유가·기술·통화긴축 등 다양한 출처에서 올 수 있음. 경기 확장은 '오래 버텨서' 끝나는 것이 아니라 이런 **음(-)의 충격**이 겹칠 때 수축·침체로 전환된다는 관점의 핵심 개념
     category: 거시경제
     stockMarketImportance: 5
-
   - id: economic-growth
     name: 경제성장 (Economic Growth)
-    description: "한 경제의 실질 생산능력이 장기적으로 늘어나는 현상으로, 통상 실질 GDP 증가율로 측정. 자본축적·노동·생산성·기술 진보가 동력이며, DCF에서 영구성장률(g)의 현실적 상한을 형성해 기업·시장 밸류에이션 전망을 제약. 다른 국가 대비 상대적 둔화가 있으면 해당국 주가지수의 글로벌 대비 상대 수익률이 약해질 수 있음"
+    description: 한 경제의 실질 생산능력이 장기적으로 늘어나는 현상으로, 통상 실질 GDP 증가율로 측정. 자본축적·노동·생산성·기술 진보가 동력이며, DCF에서 영구성장률(g)의 현실적 상한을 형성해 기업·시장 밸류에이션 전망을 제약. 다른 국가 대비 상대적 둔화가 있으면 해당국 주가지수의 글로벌 대비 상대 수익률이 약해질 수 있음
     category: 거시경제
     stockMarketImportance: 7
-
   - id: potential-growth-rate
     name: 잠재성장률 (Potential Growth Rate)
-    description: "자본·노동·생산성 등 공급 여력이 허용하는 지속 가능한 실질 성장률로, 여러 가정·모델로 추정되는 기준선이며 잠재 GDP 수준의 연간 증가율에 대응. 실제 성장이 이를 넘으면 경기 과열·상승 국면, 미치면 둔화·하강 국면으로 해석하고, 실질 GDP와 잠재 GDP의 차이는 아웃풋 갭으로 나타남"
+    description: 자본·노동·생산성 등 공급 여력이 허용하는 지속 가능한 실질 성장률로, 여러 가정·모델로 추정되는 기준선이며 잠재 GDP 수준의 연간 증가율에 대응. 실제 성장이 이를 넘으면 경기 과열·상승 국면, 미치면 둔화·하강 국면으로 해석하고, 실질 GDP와 잠재 GDP의 차이는 아웃풋 갭으로 나타남
     category: 거시경제
     stockMarketImportance: 6
-
   - id: potential-gdp
     name: 잠재 GDP (Potential GDP)
-    description: "생산성·노동·자본·정책환경 등 공급 여력을 반영해 한 경제가 지속 가능하게 달성할 수 있다고 추정되는 실질 GDP 수준으로, 모델·가정에 따라 산출되는 추정치. 잠재성장률은 이 수준의 변화율이며, 실질 GDP가 잠재 GDP를 상회·하회하는 정도가 아웃풋 갭의 기준"
+    description: 생산성·노동·자본·정책환경 등 공급 여력을 반영해 한 경제가 지속 가능하게 달성할 수 있다고 추정되는 실질 GDP 수준으로, 모델·가정에 따라 산출되는 추정치. 잠재성장률은 이 수준의 변화율이며, 실질 GDP가 잠재 GDP를 상회·하회하는 정도가 아웃풋 갭의 기준
     category: 거시경제
     stockMarketImportance: 6
-
   - id: output-gap
     name: 아웃풋 갭 (Output Gap)
-    description: "실질 GDP가 잠재 GDP를 얼마나 웃도는지(양수) 또는 밑도는지(음수)를 나타내는 지표로, 양(+)이면 경기 과열·가동률 초과, 음(−)이면 둔화·유휴 자원 여력으로 해석. 중앙은행이 통화정책(금리·매파·비둘기 톤) 판단에 참고하는 대표 실물 지표 중 하나"
+    description: 실질 GDP가 잠재 GDP를 얼마나 웃도는지(양수) 또는 밑도는지(음수)를 나타내는 지표로, 양(+)이면 경기 과열·가동률 초과, 음(−)이면 둔화·유휴 자원 여력으로 해석. 중앙은행이 통화정책(금리·매파·비둘기 톤) 판단에 참고하는 대표 실물 지표 중 하나
     category: 거시경제
     stockMarketImportance: 6
-
   - id: labor-productivity
     name: 노동 생산성 (Labor Productivity)
-    description: "단위 시간당 한 노동자가 생산하는 재화·서비스의 양으로, 적은 투입으로 더 많은 산출을 이끌어 GDP 성장·기업 이익·가계 소득에 직접 연결. 자본(설비·장비)·기술 진보·인적자본(숙련도)·시장 경쟁이 주요 동인이며 잠재 GDP·잠재성장률 추정의 핵심 변수. 기술 진보와 동의어가 아니라 통계청·BLS 등이 별도로 공표하는 거시 지표로 봐야 함"
+    description: 단위 시간당 한 노동자가 생산하는 재화·서비스의 양으로, 적은 투입으로 더 많은 산출을 이끌어 GDP 성장·기업 이익·가계 소득에 직접 연결. 자본(설비·장비)·기술 진보·인적자본(숙련도)·시장 경쟁이 주요 동인이며 잠재 GDP·잠재성장률 추정의 핵심 변수. 기술 진보와 동의어가 아니라 통계청·BLS 등이 별도로 공표하는 거시 지표로 봐야 함
     category: 거시경제
     stockMarketImportance: 6
-
   - id: human-capital
     name: 인적자본 (Human Capital)
-    description: "교육·훈련·경험으로 축적된 노동자의 지식·기술·능력으로, 숙련도가 오르면 노동 생산성과 잠재 성장 여력을 높이는 장기 공급 요인"
+    description: 교육·훈련·경험으로 축적된 노동자의 지식·기술·능력으로, 숙련도가 오르면 노동 생산성과 잠재 성장 여력을 높이는 장기 공급 요인
     category: 거시경제
     stockMarketImportance: 4
-
   - id: growth-forecast
     name: 성장률 전망 (Growth Forecast)
-    description: "한국은행·연준·IMF 등 경제기관이 발표하는 실질 GDP 성장률 예상치(연간·분기). 금통위·경제전망과 함께 상·하향 개정되며, 기업 이익·DCF g 가정을 바꿔 주가에 선반영되는 경우가 많음"
+    description: 한국은행·연준·IMF 등 경제기관이 발표하는 실질 GDP 성장률 예상치(연간·분기). 금통위·경제전망과 함께 상·하향 개정되며, 기업 이익·DCF g 가정을 바꿔 주가에 선반영되는 경우가 많음
     category: 거시경제
     stockMarketImportance: 7
-
   - id: pigovian-tax
     name: 피구세 (Pigovian Tax)
     description: 외부효과로 발생하는 사회적 비용을 유발자에게 부담시켜 시장 실패를 교정하는 세금으로 탄소세가 대표 사례
     category: 정부
     stockMarketImportance: 3
-
   - id: global-value-chain
     name: 글로벌 가치사슬 (Global Value Chain)
     description: 하나의 제품이 여러 나라에 걸친 분업으로 설계·생산·조립되는 국제 생산 네트워크로 비교우위와 분업 원리의 현대적 구현이며 공급망 재편의 대상
     category: 국제경제
     stockMarketImportance: 5
-
   - id: foreign-direct-investment
     name: 외국인직접투자 (Foreign Direct Investment, FDI)
-    description: "해외 기업이 현지에 지분·본사·공장·연구시설 등 지속적 경영권을 두고 투자하는 자본 유입으로 설비·고용·기술 이전과 세수에 기여할 수 있음. 법인세·R&D 세액공제 등 조세 인센티브로 유치되지만 언어·시장·인프라·EU 접근 등 비조세 요인도 크며, 이익 이동·SPE 유입처럼 통계상 FDI·GDP만 늘고 실물 고용·분배가 따라가지 않는 경우를 구분해야 함"
+    description: 해외 기업이 현지에 지분·본사·공장·연구시설 등 지속적 경영권을 두고 투자하는 자본 유입으로 설비·고용·기술 이전과 세수에 기여할 수 있음. 법인세·R&D 세액공제 등 조세 인센티브로 유치되지만 언어·시장·인프라·EU 접근 등 비조세 요인도 크며, 이익 이동·SPE 유입처럼 통계상 FDI·GDP만 늘고 실물 고용·분배가 따라가지 않는 경우를 구분해야 함
     category: 국제경제
     stockMarketImportance: 5
-
   - id: profit-shifting
     name: 이익 이동 (Profit Shifting)
-    description: "다국적 기업이 IP·상품·서비스 매출·대출 이자 등을 세율이 낮은 관할 구역으로 옮겨 세부담을 줄이는 BEPS(조세베이스 침식·이익 이동) 전략. IP 귀속·SPE(특수목적기업) 유입이 GDP·FDI 통계를 부풀리면서 국민 소득·고용·분배와 어긋날 수 있어 '레프러콘 경제학' 비유의 핵심 메커니즘"
+    description: 다국적 기업이 IP·상품·서비스 매출·대출 이자 등을 세율이 낮은 관할 구역으로 옮겨 세부담을 줄이는 BEPS(조세베이스 침식·이익 이동) 전략. IP 귀속·SPE(특수목적기업) 유입이 GDP·FDI 통계를 부풀리면서 국민 소득·고용·분배와 어긋날 수 있어 '레프러콘 경제학' 비유의 핵심 메커니즘
     category: 국제경제
     stockMarketImportance: 4
-
   - id: price-mechanism
     name: 가격 메커니즘 (Price Mechanism)
     description: 가격이 수요와 공급, 분산된 정보를 반영해 자원 배분을 조정하는 시장의 작동 원리로, 계획경제 대비 시장경제의 효율성 근거
     category: 미시경제
     stockMarketImportance: 3
-
   - id: perfect-competition
     name: 완전경쟁 (Perfect Competition)
     description: 다수의 공급자·수요자, 동질적 상품, 자유로운 진입과 완전한 정보를 전제로 개별 주체가 가격을 좌우하지 못하는 이상적 시장 구조로 미시경제 분석의 기준점
     category: 미시경제
     stockMarketImportance: 2
-
   - id: oligopoly
     name: 과점 (Oligopoly)
     description: 소수의 기업이 시장을 지배하는 구조로 기업 간 전략적 상호작용이 중요해 게임이론으로 분석되며 가격·생산 담합 위험이 있음
     category: 미시경제
     stockMarketImportance: 3
-
   - id: public-goods
     name: 공공재 (Public Goods)
     description: 비배제성과 비경합성을 가져 시장이 충분히 공급하지 못하는 재화로 국방·치안이 대표 사례이며 정부 공급의 근거가 되는 시장 실패 유형
     category: 미시경제
     stockMarketImportance: 2
-
   - id: information-asymmetry
     name: 정보 비대칭 (Information Asymmetry)
     description: 거래 당사자 간 정보 격차로 역선택과 도덕적 해이가 발생해 시장이 비효율적으로 작동하는 시장 실패 유형
     category: 미시경제
     stockMarketImportance: 3
-
   - id: welfare-economics
     name: 후생경제학 (Welfare Economics)
     description: 자원 배분이 사회 후생에 미치는 영향을 분석하고 효율성과 분배를 평가하는 분야로 시장 실패 교정과 정책 정당화의 이론적 틀
     category: 미시경제
     stockMarketImportance: 2
-
   - id: capital-accumulation
     name: 자본축적 (Capital Accumulation)
     description: "생산에 쓰이는 자본의 질·양을 투자로 늘려가는 과정으로, 단순히 '돈'이 아니라 설비·장비·근무환경·효율적 설비 배치 등이 포함. 고전파와 현대 성장이론 모두에서 장기 성장·노동 생산성의 핵심 동력. 설비·장비 비중이 커지면 자본 집약도가 올라 생산성은 뛰지만 고용 창출력은 약해질 수 있어(미국 제조업: 2010년대 집약도 정체 후 IRA 등 설비투자 재가속) 산출·고용을 분리해 봐야 함"
     category: 거시경제
     stockMarketImportance: 4
-
   - id: inequality
     name: 불평등 (Inequality)
     description: 소득과 자산이 구성원 간에 불균등하게 분포된 상태로 고전파가 소홀히 다룬 분배 문제이며 현대 성장·사회 안정 논의의 핵심 의제
     category: 거시경제
     stockMarketImportance: 4
-
   - id: full-employment
     name: 완전고용 (Full Employment)
     description: 경기적 실업이 사라지고 일하려는 사람이 대체로 고용된 상태로 고전파는 시장이 자동으로 도달한다고 보았으나 케인즈는 단기에 미달할 수 있다고 봄
     category: 거시경제
     stockMarketImportance: 4
-
   - id: game-theory
     name: 게임이론 (Game Theory)
     description: 상호 의존적 의사결정에서 전략적 행동을 분석하는 이론으로 과점·협상·정책 경쟁 분석에 쓰이며 산업조직론과 전략적 무역이론의 도구
     category: 미시경제
     stockMarketImportance: 3
-
   - id: industrial-organization
     name: 산업조직론 (Industrial Organization)
     description: 시장 구조와 기업 행동, 성과의 관계를 분석하는 분야로 완전경쟁 가정의 한계를 넘어 독점·과점 등 현실의 경쟁을 다룸
     category: 미시경제
     stockMarketImportance: 2
-
   - id: institutional-economics
     name: 제도경제학 (Institutional Economics)
     description: 법·관습·신뢰 등 제도가 경제 행동과 성과에 미치는 영향을 분석하는 학파로 시장이 도덕적·제도적 기반 위에서 작동한다는 스미스의 통찰을 계승
     category: 경제이론
     stockMarketImportance: 2
-
   - id: behavioral-economics
     name: 행동경제학 (Behavioral Economics)
     description: 사람들이 항상 합리적으로 행동하지는 않는다는 점에 주목해 심리·인지 편향을 경제 분석에 반영하는 분야로, 합리적 이기심 가정의 한계를 보완
     category: 경제이론
     stockMarketImportance: 4
-
   - id: marginal-revolution
     name: 한계혁명 (Marginal Revolution)
     description: 1870년대 제번스·멩거·발라가 독립적으로 일으킨 경제학 패러다임 전환으로, 가치를 투입 노동·비용으로 보던 고전파의 객관적 가치론을 소비자의 주관적 한계효용으로 설명하는 이론으로 바꾸어 신고전학파와 현대 미시경제학의 출발점이 됨
     category: 경제이론
     stockMarketImportance: 1
-
   - id: marginal-analysis
     name: 한계 분석 (Marginal Analysis)
     description: 의사결정을 마지막 한 단위에서 따지는 분석 방법으로 한계효용·한계비용·한계생산을 비교해 최적을 찾으며, 고용·가격·환경 정책까지 적용되는 현대 경제학의 가장 기본적인 사고 도구
     category: 미시경제
     stockMarketImportance: 3
-
   - id: supply-and-demand
     name: 수요·공급 (Supply and Demand)
     description: 수요(소비자의 한계효용)와 공급(생산자의 한계비용)이 만나는 점에서 가격과 거래량이 결정된다는 마셜의 분석 틀로 현대 미시경제학의 기본 모델
     category: 미시경제
     stockMarketImportance: 6
-
   - id: general-equilibrium
     name: 일반균형 (General Equilibrium)
     description: 모든 시장이 서로 영향을 주고받으며 동시에 균형을 이룰 수 있다는 발라의 이론으로 CGE·DSGE 등 현대 정책 모델의 뿌리
     category: 미시경제
     stockMarketImportance: 2
-
   - id: subjective-value-theory
     name: 주관적 가치설 (Subjective Theory of Value)
     description: 재화의 가치가 투입 비용이 아니라 그것을 소비하는 사람의 주관적 평가(효용)에 따라 결정된다는 이론으로 한계혁명의 핵심이며 소비자 주권 사고의 기초
     category: 경제이론
     stockMarketImportance: 2
-
   - id: diminishing-marginal-utility
     name: 한계효용 체감의 법칙 (Diminishing Marginal Utility)
     description: 같은 재화를 한 단위 더 소비할수록 추가로 얻는 만족(한계효용)이 점점 줄어든다는 법칙으로 수요 곡선이 우하향하는 근거이자 다이아몬드-물 역설의 해법
     category: 미시경제
     stockMarketImportance: 2
-
   - id: marginal-cost
     name: 한계비용 (Marginal Cost)
     description: 생산량을 한 단위 더 늘릴 때 추가로 드는 비용으로 공급과 최적 생산량 결정의 핵심 개념이며 가격과 비교해 생산 여부를 판단
     category: 미시경제
     stockMarketImportance: 3
-
   - id: pareto-efficiency
     name: 파레토 효율 (Pareto Efficiency)
     description: 다른 누구의 후생도 해치지 않고서는 누군가의 후생을 더 높일 수 없는 자원 배분 상태로 효율의 기준이나 분배·형평성은 말해 주지 않는 개념
     category: 미시경제
     stockMarketImportance: 2
-
   - id: homo-economicus
     name: 합리적 경제인 (Homo Economicus)
     description: 완전한 정보를 가지고 항상 자기 효용을 합리적으로 극대화한다고 가정한 경제 모델 속 인간상으로 신고전 분석의 전제이나 현실의 비합리성을 단순화했다는 비판을 받음
     category: 경제이론
     stockMarketImportance: 2
-
   - id: bounded-rationality
     name: 제한된 합리성 (Bounded Rationality)
     description: 인간이 정보·시간·인지 능력의 한계 때문에 완전한 합리성 대신 만족할 만한 선택에 그친다는 개념으로 사이먼이 제시했으며 행동경제학의 기초
     category: 경제이론
     stockMarketImportance: 3
-
   - id: diamond-water-paradox
     name: 다이아몬드-물 역설 (Diamond-Water Paradox)
     description: 생존에 필수인 물은 싸고 쓸모가 적은 다이아몬드는 비싼 역설로, 노동가치설로는 설명하지 못했으나 희소성에 따른 한계효용 차이로 해결됨
     category: 미시경제
     stockMarketImportance: 1
-
   - id: partial-equilibrium
     name: 부분균형 (Partial Equilibrium)
     description: 다른 시장을 일정하다고 보고 한 시장만 떼어 분석하는 마셜식 접근으로, 모든 시장을 동시에 다루는 일반균형과 대비됨
     category: 미시경제
     stockMarketImportance: 1
-
   - id: marginal-product
     name: 한계생산 (Marginal Product)
     description: 생산요소를 한 단위 더 투입할 때 늘어나는 산출량으로 기업의 고용·투자 결정과 임금 등 요소 가격 결정의 기초
     category: 미시경제
     stockMarketImportance: 2
-
   - id: austrian-school
     name: 오스트리아학파 (Austrian School)
     description: 멩거에서 비롯되어 주관적 가치와 시장 과정, 분산된 지식, 기업가 정신을 강조하는 학파로 수학적 균형 중심의 주류 신고전파와 방법론에서 갈라짐
     category: 경제이론
     stockMarketImportance: 2
-
   - id: consumer-sovereignty
     name: 소비자 주권 (Consumer Sovereignty)
     description: 무엇을 생산할지를 궁극적으로 소비자의 선택과 지불 의사가 결정한다는 개념으로 주관적 가치론과 시장경제 정당화의 핵심 논거
     category: 미시경제
     stockMarketImportance: 2
-
   - id: willingness-to-pay
     name: 지불용의 (Willingness to Pay)
     description: 소비자가 특정 재화에 지불할 의향이 있는 최대 금액으로 주관적 가치를 화폐로 나타낸 지표이며 가격 책정·수요 분석·환경가치 평가에 쓰임
     category: 미시경제
     stockMarketImportance: 3
-
   - id: creative-destruction
     name: 창조적 파괴 (Creative Destruction)
     description: 혁신이 낡은 기술·기업·산업을 끊임없이 대체하며 경제를 발전시킨다는 슘페터의 개념으로 정태적 균형 분석이 놓친 동태적 변화를 강조
     category: 경제이론
     stockMarketImportance: 3
-
   - id: evolutionary-economics
     name: 진화경제학 (Evolutionary Economics)
     description: 경제를 고정된 균형이 아니라 변이·선택·적응을 거쳐 진화하는 동태적 과정으로 보는 분야로 혁신과 경로의존성을 설명하며 한계혁명의 정태적 한계를 보완
     category: 경제이론
     stockMarketImportance: 1
-
   - id: opportunity-cost
     name: 기회비용 (Opportunity Cost)
     description: 어떤 선택을 위해 포기한 차선의 가치로 한계 분석과 합리적 의사결정의 가장 기초가 되는 개념
     category: 미시경제
     stockMarketImportance: 3
-
   - id: business-cycle
     name: 경기순환 (Business Cycle)
-    description: "실물 경제(재화·서비스·고용)가 **확장·정점·수축·저점**을 거치며 호황과 불황을 오가는 변동으로, 통상 실질 GDP로 측정. 교과서 그림처럼 **규칙적 주기가 아니라** 수축은 2~18개월·확장은 12~128개월 등 **기간이 불규칙**하며, 확장이 오래 이어졌다는 이유만으로 끝나지 않고 **예기치 못한 경제 충격**이 성장 추세를 벗어나게 할 때 전환. 금융의 신용·부채 사이클과 맞물리지만 선후는 국면마다 달라 양쪽을 함께 봐야 함"
+    description: 실물 경제(재화·서비스·고용)가 **확장·정점·수축·저점**을 거치며 호황과 불황을 오가는 변동으로, 통상 실질 GDP로 측정. 교과서 그림처럼 **규칙적 주기가 아니라** 수축은 2~18개월·확장은 12~128개월 등 **기간이 불규칙**하며, 확장이 오래 이어졌다는 이유만으로 끝나지 않고 **예기치 못한 경제 충격**이 성장 추세를 벗어나게 할 때 전환. 금융의 신용·부채 사이클과 맞물리지만 선후는 국면마다 달라 양쪽을 함께 봐야 함
     category: 거시경제
     stockMarketImportance: 5
-
   - id: austrian-business-cycle
     name: 오스트리아 경기변동이론 (ABCT)
     description: 중앙은행의 인위적 신용 팽창과 저금리가 자원을 장기 투자로 잘못 배분(말인베스트먼트)해 거품과 붕괴를 부른다고 보는 미제스·하이에크의 이론
     category: 경제이론
     stockMarketImportance: 1
-
   - id: malinvestment
     name: 말인베스트먼트 (Malinvestment)
     description: 인위적 저금리가 보낸 잘못된 신호 때문에 수익성 없는 장기 프로젝트에 자원이 과잉 투입되는 현상으로 거품 붕괴와 구조조정의 원인
     category: 경제이론
     stockMarketImportance: 2
-
   - id: effective-demand
     name: 유효수요 (Effective Demand)
     description: 실제 지출로 뒷받침되는 총수요로, 이것이 부족하면 경제가 완전고용 아래에서 정체할 수 있다는 케인즈 진단의 핵심
     category: 거시경제
     stockMarketImportance: 3
-
   - id: multiplier
     name: 승수효과 (Multiplier Effect)
     description: 정부 지출이나 투자가 소득을 늘리고 그 소득이 다시 소비로 이어져 총수요를 처음 지출보다 더 크게 확대시키는 효과
     category: 거시경제
     stockMarketImportance: 3
-
   - id: liquidity-trap
     name: 유동성 함정 (Liquidity Trap)
     description: 금리가 이미 0에 가까워 추가 금리 인하나 통화 공급이 수요를 늘리지 못하고 통화정책이 무력해지는 상태
     category: 통화정책
     stockMarketImportance: 3
-
   - id: stagflation
     name: 스태그플레이션 (Stagflation)
     description: 경기 침체로 실업이 높은 동시에 물가가 오르는 현상. 1970년대 오일쇼크가 촉발했으나, 1960년대 확장 재정·감세·전쟁 지출로 쌓인 수요 인플레와 임금-물가 기대가 먼저 형성된 뒤 공급 충격과 겹치며 폭발한 사례로도 해석됨
     category: 거시경제
     stockMarketImportance: 5
-
   - id: animal-spirits
     name: 야성적 충동 (Animal Spirits)
     description: 투자와 소비가 합리적 계산만이 아니라 불확실성 속의 심리와 기대, 자신감에 크게 좌우된다는 케인즈의 개념
     category: 경제이론
     stockMarketImportance: 3
-
   - id: government-failure
     name: 정부 실패 (Government Failure)
     description: 정부 개입이 정보 부족·정치적 남용·관료적 비효율 때문에 오히려 자원 배분을 악화시키는 현상으로 시장 실패에 대응하는 개념
     category: 정부
     stockMarketImportance: 2
-
   - id: lucas-critique
     name: 루카스 비판 (Lucas Critique)
     description: 사람들이 정부 정책을 미리 예상하고 행동을 바꾸면 과거 데이터에 기반한 정책 효과가 상쇄된다는 비판으로 합리적 기대 이론의 핵심
     category: 경제이론
     stockMarketImportance: 1
-
   - id: zombie-firm
     name: 좀비기업 (Zombie Firm)
     description: 영업이익으로 이자도 갚지 못하면서 저금리와 금융 지원에 기대 연명하는 부실기업으로 자원 배분과 생산성을 떨어뜨림
     category: 금융
     stockMarketImportance: 3
-
   - id: natural-rate-of-interest
     name: 자연이자율 (Natural Rate of Interest)
     description: 저축과 투자를 일치시켜 경제를 균형으로 이끄는 가상의 금리로, 시장금리가 이보다 낮으면 과잉투자와 거품이 생긴다고 보는 기준
     category: 금리
     stockMarketImportance: 3
-
   - id: national-debt
     name: 국가부채 (National Debt)
     description: 정부가 재정 적자를 메우려 빌린 누적 채무로, 적극적 재정정책의 부작용이자 미래 세대의 부담으로 이어질 수 있는 문제
     category: 정부
     stockMarketImportance: 5
-
   - id: time-preference
     name: 시간선호 (Time Preference)
     description: 사람들이 미래의 소비보다 현재의 소비를 더 선호하는 정도로, 금리와 자본의 시간 구조를 설명하는 오스트리아 자본이론의 기초
     category: 경제이론
     stockMarketImportance: 1
-
   - id: great-depression
     name: 대공황 (Great Depression)
     description: 1929년 시작된 세계적 장기 불황으로 대량 실업과 디플레이션을 낳았으며, 오스트리아학파와 케인즈주의의 정면 충돌과 케인즈 혁명의 계기가 됨
     category: 거시경제
     stockMarketImportance: 3
-
   - id: monetarism
     name: 통화주의 (Monetarism)
     description: 인플레이션은 언제 어디서나 화폐적 현상이라고 보고 안정적인 통화량 증가를 강조한 밀턴 프리드먼과 시카고학파의 이론으로 케인즈주의에 맞서 1970년대에 부상
     category: 경제이론
     stockMarketImportance: 2
-
   - id: quantity-theory-of-money
     name: 화폐수량설 (Quantity Theory of Money)
-    description: "통화량(M)과 유통속도(V)의 곱이 물가(P)와 실질생산(Y)의 곱과 같다는 MV=PY 항등식에 기반해, 장기적으로 화폐 공급 증가가 물가 상승으로 이어진다고 보는 이론"
+    description: 통화량(M)과 유통속도(V)의 곱이 물가(P)와 실질생산(Y)의 곱과 같다는 MV=PY 항등식에 기반해, 장기적으로 화폐 공급 증가가 물가 상승으로 이어진다고 보는 이론
     category: 경제이론
     stockMarketImportance: 2
-
   - id: phillips-curve
     name: 필립스 곡선 (Phillips Curve)
     description: 인플레이션과 실업률 사이에 단기적으로 상충 관계가 있다는 곡선으로, 1970년대 스태그플레이션으로 그 안정성이 깨지고 장기에는 수직이라는 수정이 이뤄짐
     category: 거시경제
     stockMarketImportance: 3
-
   - id: natural-rate-of-unemployment
     name: 자연실업률 (NAIRU)
     description: 인플레이션을 가속시키지 않으면서 유지되는 실업률 수준으로, 이보다 낮추려는 부양은 결국 물가만 올린다는 프리드먼의 자연실업률 가설의 핵심
     category: 거시경제
     stockMarketImportance: 3
-
   - id: inflation-targeting
     name: 물가안정목표제 (Inflation Targeting)
     description: 중앙은행이 일정한 물가상승률(흔히 2퍼센트)을 공개 목표로 삼아 통화정책을 운영하는 제도로, 통화량 목표제를 대체한 통화주의의 대표적 현대 유산
     category: 통화정책
     stockMarketImportance: 4
-
   - id: rational-expectations
     name: 합리적 기대 (Rational Expectations)
     description: 사람들이 이용 가능한 모든 정보를 활용해 미래를 예측하고 행동한다는 가정으로, 예상된 정책은 효과가 상쇄된다는 새고전파와 루카스 비판의 토대
     category: 경제이론
     stockMarketImportance: 2
-
   - id: adaptive-expectations
     name: 적응적 기대 (Adaptive Expectations)
     description: 사람들이 과거의 경험을 바탕으로 미래를 예측하고 오차를 점진적으로 수정한다는 기대 형성 방식으로, 정보를 즉시 반영하는 합리적 기대와 대비됨
     category: 경제이론
     stockMarketImportance: 1
-
   - id: new-classical-economics
     name: 새고전파 (New Classical Economics)
     description: 합리적 기대와 시장청산을 전제로 예상된 정책은 무력하다고 보는 루카스·사전트 등의 학파로 통화주의를 계승하며 케인즈식 재량 정책을 비판
     category: 경제이론
     stockMarketImportance: 2
-
   - id: supply-shock
     name: 공급 충격 (Supply Shock)
-    description: "유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음. 코로나 이후 공급망·에너지 등 상대가격 재조정형 물가는 1960년대형 임금–비용 스파이럴과 메커니즘이 달라, 동일한 '인플레 재발' 경고로 단순 대응하기 어렵다는 해석도 있음"
+    description: 유가 급등이나 자연재해처럼 생산 비용·공급 능력을 갑자기 바꾸는 충격으로, 1970년대 오일쇼크처럼 물가 상승과 경기 침체를 동시에 일으킬 수 있음. 코로나 이후 공급망·에너지 등 상대가격 재조정형 물가는 1960년대형 임금–비용 스파이럴과 메커니즘이 달라, 동일한 '인플레 재발' 경고로 단순 대응하기 어렵다는 해석도 있음
     category: 거시경제
     stockMarketImportance: 5
-
   - id: monetary-policy-rule
     name: 준칙주의 (Monetary Policy Rule)
     description: 중앙은행이 재량적 판단 대신 통화량 증가율이나 금리 공식 같은 정해진 규칙을 따라야 한다는 입장으로 프리드먼의 k퍼센트 준칙이 대표적
     category: 통화정책
     stockMarketImportance: 2
-
   - id: permanent-income-hypothesis
     name: 영구소득가설 (Permanent Income Hypothesis)
     description: 소비가 일시적 소득이 아니라 평생에 걸친 기대 소득(영구소득)에 따라 결정된다는 프리드먼의 가설로, 일회성 감세나 지원금의 부양 효과가 작다고 봄
     category: 경제이론
     stockMarketImportance: 2
-
   - id: central-bank-independence
     name: 중앙은행 독립성 (Central Bank Independence)
     description: 중앙은행이 정치적 압력에서 벗어나 통화정책을 결정하는 정도로, 정부의 단기 유혹을 차단해 물가 안정과 정책 신뢰를 높이는 장치
     category: 통화정책
     stockMarketImportance: 4
-
   - id: time-inconsistency
     name: 시간 불일치 (Time Inconsistency)
     description: 사전에 최적이라고 약속한 정책이 시간이 지나면 어기고 싶은 유인이 생기는 문제로, 재량보다 규칙과 중앙은행 독립성이 필요하다는 핵심 논거
     category: 경제이론
     stockMarketImportance: 1
-
   - id: monetary-neutrality
     name: 화폐의 중립성 (Monetary Neutrality)
     description: 통화량 변화가 장기적으로 물가 같은 명목 변수만 바꾸고 생산·고용 같은 실물 변수에는 영향을 주지 않는다는 명제
     category: 경제이론
     stockMarketImportance: 1
-
   - id: forward-guidance
     name: 포워드 가이던스 (Forward Guidance)
     description: 중앙은행이 앞으로의 금리·정책 방향을 미리 알려 시장의 기대를 관리하는 통화정책 수단으로 합리적 기대 이론과 신뢰의 중요성에 기반
     category: 통화정책
     stockMarketImportance: 4
-
   - id: new-keynesian-economics
     name: 뉴케인즈학파 (New Keynesian Economics)
     description: 합리적 기대를 받아들이면서도 가격·임금 경직성 때문에 화폐가 단기에는 실물에 영향을 준다고 보아 정부 개입의 여지를 옹호하는 현대 케인즈 계열 학파
     category: 경제이론
     stockMarketImportance: 2
-
   - id: global-financial-crisis
     name: 글로벌 금융위기 (2008)
     description: 2007~2008년 미국 서브프라임 모기지 버블 붕괴에서 시작돼 전 세계로 번진 금융위기로, 효율적 시장과 합리적 기대를 전제한 신고전파 모델의 한계를 극명하게 드러냄
     category: 금융
     stockMarketImportance: 5
-
   - id: policy-ineffectiveness
     name: 정책 무력화 명제 (Policy Ineffectiveness)
     description: 사람들이 정부의 체계적 정책을 미리 예상하고 대응하면 그 효과가 상쇄된다는 새고전파의 명제로, 예측 가능한 규칙 기반 정책의 근거가 됨
     category: 경제이론
     stockMarketImportance: 2
-
   - id: efficient-market-hypothesis
     name: 효율적 시장 가설 (EMH)
     description: 자산 가격이 이용 가능한 모든 정보를 즉시 반영하므로 시장을 꾸준히 이기기 어렵다는 가설로, 합리적 기대를 금융시장에 적용한 이론
     category: 금융
     stockMarketImportance: 5
-
   - id: microfoundations
     name: 미시적 기초 (Microfoundations)
     description: 거시경제 모형을 개인과 기업의 최적화 행동에서 출발해 쌓아 올려야 한다는 방법론으로, 합리적 기대와 함께 현대 DSGE 모델의 기본 구조
     category: 경제이론
     stockMarketImportance: 1
-
   - id: dsge-model
     name: DSGE 모델 (DSGE Model)
     description: 미시적 기초와 합리적 기대를 토대로 경제 전체의 동태적 균형을 분석하는 동태확률일반균형 모형으로 1990년대 이후 주류 거시경제학의 표준 도구
     category: 경제이론
     stockMarketImportance: 1
-
   - id: real-business-cycle
     name: 실물경기변동이론 (RBC)
     description: 경기변동이 화폐가 아니라 생산성 같은 실물 기술 충격에서 비롯된다고 보는 프레스콧 등의 이론으로 DSGE 모델의 원형
     category: 경제이론
     stockMarketImportance: 1
-
   - id: herd-behavior
     name: 군중 행동 (Herd Behavior)
     description: 투자자들이 독자적 판단 대신 남을 따라 움직이며 쏠림을 만드는 현상으로, 버블과 패닉을 키워 효율적 시장 가설의 한계를 드러냄
     category: 금융
     stockMarketImportance: 4
-
   - id: financial-instability-hypothesis
     name: 금융불안정성 가설 (Minsky)
-    description: "안정과 호황이 길어질수록 빚과 위험 감수가 늘어 금융 시스템이 스스로 불안정해진다는 하이먼 민스키의 이론으로, 단기 신용 사이클의 누적이 장기 부채 사이클·디레버리징 정점으로 이어진다는 관점과 맞닿아 2008년 위기 이후 재조명됨"
+    description: 안정과 호황이 길어질수록 빚과 위험 감수가 늘어 금융 시스템이 스스로 불안정해진다는 하이먼 민스키의 이론으로, 단기 신용 사이클의 누적이 장기 부채 사이클·디레버리징 정점으로 이어진다는 관점과 맞닿아 2008년 위기 이후 재조명됨
     category: 경제이론
     stockMarketImportance: 3
-
   - id: systemic-risk
     name: 시스템 리스크 (Systemic Risk)
     description: 한 금융기관이나 시장의 충격이 연쇄적으로 전체 금융 시스템으로 번지는 위험으로, 개별 위험과 달리 시스템 전체의 붕괴를 초래할 수 있음
     category: 금융
     stockMarketImportance: 5
-
   - id: shadow-banking
     name: 그림자 금융 (Shadow Banking)
     description: 은행과 비슷한 신용 중개를 하면서도 은행 규제를 받지 않는 금융 영역으로, 2008년 위기 때 그 취약성과 시스템 위험이 드러남
     category: 금융
     stockMarketImportance: 3
-
   - id: financial-accelerator
     name: 금융 가속기 (Financial Accelerator)
     description: 자산 가격과 담보 가치의 변화가 차입 여력을 통해 경기 충격을 증폭시키며 금융 부문의 문제를 실물 경제로 전이시키는 메커니즘
     category: 금융
     stockMarketImportance: 2
-
   - id: representative-agent
     name: 대표적 경제주체 (Representative Agent)
     description: 경제 전체를 평균적인 한 명의 합리적 주체로 단순화해 분석하는 모형 가정으로, 가계·은행·기업의 이질성과 상호작용을 담지 못하는 한계가 있음
     category: 경제이론
     stockMarketImportance: 1
-
   - id: heterogeneous-agent
     name: 이질적 행위자 (Heterogeneous Agent)
     description: 소득·부채·정보가 서로 다른 다양한 경제주체를 명시적으로 다루는 접근으로, 불평등과 금융 불안정이 위기를 키우는 과정을 설명하기 위해 대표주체 모형을 보완
     category: 경제이론
     stockMarketImportance: 1
-
   - id: tail-risk
     name: 테일 리스크 (Tail Risk)
     description: 확률이 매우 낮지만 발생하면 막대한 손실을 주는 극단적 위험으로, 정규분포를 가정한 위험 모델이 2008년에 크게 과소평가함
     category: 금융
     stockMarketImportance: 4
-
   - id: financial-friction
     name: 금융 마찰 (Financial Friction)
     description: 정보 비대칭이나 담보 제약 때문에 자금이 매끄럽게 중개되지 못하는 현상으로, 2008년 이후 거시 모형에 적극 반영되기 시작한 요소
     category: 금융
     stockMarketImportance: 2
-
   - id: prospect-theory
     name: 프로스펙트 이론 (Prospect Theory)
     description: 사람들이 이익보다 손실에 더 민감하고 확률을 왜곡해 평가한다는 카너먼과 트버스키의 이론으로 기대효용이론을 대체한 행동경제학의 토대
     category: 경제이론
     stockMarketImportance: 3
-
   - id: loss-aversion
     name: 손실 회피 (Loss Aversion)
     description: 같은 크기라도 이득의 기쁨보다 손실의 고통을 약 두 배 크게 느끼는 경향으로, 투자자가 손실 난 자산을 너무 오래 쥐고 있는 행동 등을 설명
     category: 경제이론
     stockMarketImportance: 4
-
   - id: nudge
     name: 넛지 (Nudge)
     description: 선택의 자유를 막지 않으면서 선택의 구조를 살짝 바꿔 더 나은 결정을 유도하는 정책 설계 방법으로 세일러와 선스타인이 제시
     category: 정부
     stockMarketImportance: 2
-
   - id: macroprudential-policy
     name: 거시건전성 정책 (Macroprudential Policy)
     description: 개별 기관이 아니라 금융 시스템 전체의 안정을 목표로 레버리지와 위험을 규제하는 정책으로 LTV·DTI 규제와 은행 자본 규제가 대표적이며 2008년 위기 이후 강화됨
     category: 정부
     stockMarketImportance: 4
-
   - id: cognitive-bias
     name: 인지 편향 (Cognitive Bias)
     description: 사람들이 판단과 의사결정에서 체계적으로 합리성에서 벗어나는 사고의 오류로, 과잉 자신감·손실 회피·앵커링 등 다양한 형태로 나타남
     category: 경제이론
     stockMarketImportance: 3
-
   - id: overconfidence
     name: 과잉 자신감 (Overconfidence)
     description: 자신의 지식·판단·통제력을 실제보다 높게 평가하는 편향으로 과도한 거래와 위험 추구, 버블 형성을 부추김
     category: 경제이론
     stockMarketImportance: 3
-
   - id: mental-accounting
     name: 정신회계 (Mental Accounting)
     description: 돈을 출처와 용도에 따라 마음속 별개의 계좌로 나누어 다르게 취급하는 경향으로 세일러가 제시했으며 비합리적 소비·저축 행동을 설명
     category: 경제이론
     stockMarketImportance: 2
-
   - id: behavioral-finance
     name: 행동재무학 (Behavioral Finance)
     description: 투자자의 심리와 편향으로 모멘텀·과잉반응 같은 시장 이상현상을 설명하는 분야로 효율적 시장 가설에 도전하는 실러·세일러 등의 연구
     category: 금융
     stockMarketImportance: 4
-
   - id: asset-bubble
     name: 자산 버블 (Asset Bubble)
     description: 자산 가격이 내재가치에서 크게 벗어나 비정상적으로 부풀었다가 붕괴하는 현상으로 군중 심리와 과잉 자신감, 레버리지가 결합해 반복적으로 발생
     category: 금융
     stockMarketImportance: 6
-
   - id: go-go-years
     name: Go-Go Years (Go-Go Years)
-    description: "1960년대 중반 미국 주식시장의 장기 강세 국면으로, 확장적 재정·성장 낙관·기술주(Nifty Fifty) 열풍이 겹침. 1966년 1월 고점 뒤 연준·각국 중앙은행의 단기금리 인상(인플레 대응)과 침체 공포가 겹치며 10월 저점까지 조정했으나, 미디어가 말한 '항복 매도(capitulation)' 없이 바닥이 형성된 사례로 자주 인용됨(2022년 조정과의 analog 논의). 이후 1967년 강세로 이어졌다가 1960년대 말·1970년대 초 급락으로 마무리"
+    description: 1960년대 중반 미국 주식시장의 장기 강세 국면으로, 확장적 재정·성장 낙관·기술주(Nifty Fifty) 열풍이 겹침. 1966년 1월 고점 뒤 연준·각국 중앙은행의 단기금리 인상(인플레 대응)과 침체 공포가 겹치며 10월 저점까지 조정했으나, 미디어가 말한 '항복 매도(capitulation)' 없이 바닥이 형성된 사례로 자주 인용됨(2022년 조정과의 analog 논의). 이후 1967년 강세로 이어졌다가 1960년대 말·1970년대 초 급락으로 마무리
     category: 금융
     stockMarketImportance: 4
-
   - id: nifty-fifty
     name: Nifty Fifty (Nifty Fifty)
     description: 1960~70년대 Go-Go Years를 대표한 대형 성장·기술주 50종 쏠림 현상으로, '한 번 사면 영원히' 심리가 밸류에이션을 과도하게 부풀렸다가 이후 조정을 받음
     category: 금융
     stockMarketImportance: 4
-
   - id: irrational-exuberance
     name: 비합리적 과열 (Irrational Exuberance)
     description: 투자자들이 근거 없는 낙관에 휩싸여 자산 가격을 과도하게 끌어올리는 상태로 로버트 실러가 시장의 비효율성을 설명하며 널리 알린 표현
     category: 금융
     stockMarketImportance: 3
-
   - id: information-cascade
     name: 정보 캐스케이드 (Information Cascade)
     description: 사람들이 자기 정보 대신 앞선 사람들의 선택을 보고 따라가면서 같은 행동이 연쇄적으로 번지는 현상으로 군중 행동과 쏠림의 근거
     category: 경제이론
     stockMarketImportance: 2
-
   - id: credit-crunch
     name: 신용 경색 (Credit Crunch)
-    description: "금융기관이 위험을 회피해 대출을 급격히 줄이면 신용창출 경로가 막히는 상태로, 비유적으로 돈맥경화(돈의 통로 막힘)라고도 함. 대출 문턱 상승·가산금리 확대와 맞물려 기업·가계 자금 조달이 어려워지고, 2008년 위기처럼 금융 충격이 투자·총수요 위축을 거쳐 실물 경기로 전이되는 핵심 경로"
+    description: 금융기관이 위험을 회피해 대출을 급격히 줄이면 신용창출 경로가 막히는 상태로, 비유적으로 돈맥경화(돈의 통로 막힘)라고도 함. 대출 문턱 상승·가산금리 확대와 맞물려 기업·가계 자금 조달이 어려워지고, 2008년 위기처럼 금융 충격이 투자·총수요 위축을 거쳐 실물 경기로 전이되는 핵심 경로
     category: 금융
     stockMarketImportance: 4
-
   - id: supply-side-economics
     name: 공급주의 (Supply-Side Economics)
     description: 1970년대 후반 케인즈주의의 수요관리 정책에 맞서 등장한 학파로 성장의 원동력을 수요가 아니라 생산·투자·노동의 공급 측 유인에서 찾아 감세와 규제 완화를 강조했으며 레이거노믹스의 이론적 기반이 됨. 신자유주의 정책 묶음의 핵심 축 중 하나로 감세·생산 유인을 담당하며, 고전파적 흐름에 속하나 학문적 완결성보다 정책 독트린의 성격이 강함
@@ -1491,963 +1244,883 @@ terms:
     description: 1970년대 스태그플레이션 이후 케인즈식 수요관리에 대한 반동으로 등장한 정책 사조로 자유무역 확대·규제 완화·공기업 민영화·작은 정부를 지향하며 레이건·대처 행정부를 통해 세계화와 함께 확산됐으나 빈부격차 확대의 주범이라는 비판도 받음
     category: 경제이론
     stockMarketImportance: 3
-
   - id: laffer-curve
     name: 래퍼 곡선 (Laffer Curve)
     description: 세율이 0이거나 100퍼센트면 세수가 모두 0이 되므로 그 사이에 세수를 극대화하는 지점이 있고 세율이 그보다 높으면 인하해야 생산과 세수가 함께 늘 수 있다는 공급주의의 상징적 논리로, 감세 주장의 근거이나 세수 증가가 항상 실현되지는 않는 한계가 있음
     category: 경제이론
     stockMarketImportance: 3
-
   - id: reaganomics
     name: 레이거노믹스 (Reaganomics)
     description: 1980년대 로널드 레이건 행정부가 추진한 대규모 감세·규제 완화·작은 정부 노선으로 공급주의를 현실 정책으로 구현했으나 지출은 줄지 않아 재정적자와 국가부채가 크게 늘어난 한계도 함께 보여준 정책 레짐
     category: 경제이론
     stockMarketImportance: 2
-
   - id: trickle-down-effect
     name: 트리클다운 효과 (Trickle-down Effect)
     description: 고소득층과 기업에 대한 감세 혜택이 투자와 고용을 거쳐 저소득층에게도 흘러내린다는 공급주의의 가정으로, 추가 소득이 소비·투자보다 저축으로 향하면 자동으로 작동하지 않아 불평등 심화 비판을 받음
     category: 경제이론
     stockMarketImportance: 2
-
   - id: dynamic-scoring
     name: 동적 재정 분석 (Dynamic Scoring)
     description: 세제 변화를 평가할 때 세율 변화가 유발하는 경제주체의 행동 변화와 성장 효과까지 반영하는 분석 방식으로 세수를 고정적으로 추정하는 정적 분석과 대비되며 래퍼 곡선의 문제의식을 정책 평가에 잇는다
     category: 정부
     stockMarketImportance: 2
-
   - id: corporate-tax
     name: 법인세 (Corporate Tax)
-    description: "기업의 이익에 부과하는 세금으로 세후 이익·투자 여력·주가에 직접 영향을 미침. 인하는 FDI·본사·설비 유치 유인을 키우지만 세수 감소·재정적자·국채 금리·분배 논쟁을 동반하며, 조세만으로 유치가 결정되지 않고 이익 이동에 악용될 수 있음"
+    description: 기업의 이익에 부과하는 세금으로 세후 이익·투자 여력·주가에 직접 영향을 미침. 인하는 FDI·본사·설비 유치 유인을 키우지만 세수 감소·재정적자·국채 금리·분배 논쟁을 동반하며, 조세만으로 유치가 결정되지 않고 이익 이동에 악용될 수 있음
     category: 정부
     stockMarketImportance: 6
-
   - id: deregulation
     name: 규제 완화 (Deregulation)
     description: 기업 활동에 대한 규제와 그 비용을 줄여 공급과 투자 유인을 높이려는 정책으로 공급주의의 핵심 수단이며 에너지·금융·핀테크 등 특정 산업의 비용 구조와 주가를 빠르게 바꿀 수 있으나 안전·환경·건전성 약화 위험을 동반함
     category: 정부
     stockMarketImportance: 5
-
   - id: aggregate-supply
     name: 총공급 (Aggregate Supply)
     description: 한 경제가 일정 기간 생산·공급하려는 재화와 서비스의 총량으로 노동·자본·생산성과 생산비용에 좌우되며 총수요와 만나 물가와 산출을 결정하고 공급 충격 시 물가와 경기를 동시에 흔든다
     category: 거시경제
     stockMarketImportance: 5
-
   - id: capital-gains-tax
     name: 자본이득세 (Capital Gains Tax)
     description: 주식·부동산 등 자산을 팔아 얻은 차익에 부과하는 세금으로 투자자의 매도·실현 시점과 위험 감수 의향에 직접 영향을 미치며 세율 변화가 거래와 자산 가격에 단기 충격을 줄 수 있음
     category: 정부
     stockMarketImportance: 5
-
   - id: disinflation
     name: 디스인플레이션 (Disinflation)
     description: 물가가 하락하는 디플레이션과 달리 물가상승률 자체가 둔화되는 현상으로 인플레이션이 정점을 지나 목표로 수렴하는 국면을 가리키며 중앙은행의 금리 인하 여지와 시장 기대를 좌우하는 핵심 화두
     category: 거시경제
     stockMarketImportance: 7
-
   - id: full-expensing
     name: 즉시상각 (Full Expensing)
     description: 기업이 설비·장비 투자액을 여러 해에 걸쳐 나누지 않고 당해에 전액 비용으로 처리하도록 허용하는 세제로 투자의 세후 수익성을 높여 설비투자를 앞당기는 공급 측 유인책이며 2025년 감세법에서 부활함
     category: 정부
     stockMarketImportance: 4
-
   - id: crowding-out-effect
     name: 구축효과 (Crowding-out Effect)
     description: 정부가 국채를 발행해 지출을 늘리면 시중 자금 수요가 커져 금리가 오르고 민간 투자가 위축되는 현상으로 확장적 재정정책의 효과를 깎아내리는 대표적 경로이나, 불황이나 유동성 함정에서는 그 효과가 약하게 나타남
     category: 거시경제
     stockMarketImportance: 4
-
   - id: yield-curve
     name: 수익률 곡선 (Yield Curve)
     description: 만기별 국채 금리를 이은 곡선으로 단기금리와 장기금리의 차이(장단기 금리차)를 보여주며, 장기금리가 단기금리보다 낮아지는 역전은 경기침체를 예고하는 대표적 선행지표로 시장이 면밀히 주목함
     category: 금리
     stockMarketImportance: 7
-
   - id: recession
     name: 경기침체 (Recession)
-    description: "경제활동이 위축되어 실질 GDP가 줄고 실업이 늘며 소비·투자가 감소하는 경기순환의 수축 국면으로 주식·신용 시장에 큰 충격을 줌. **객관적 수축**(실질 GDP 감소)과 달리 **침체 판정**은 더 주관적 — 미국 NBER는 '경제 전반에 걸쳐 수개월 이상 지속되는 **유의미한**(depth) **확산**(diffusion) **하락**(duration)'을 실질 소득·고용·소비·판매·산출 등 **복수 지표**로 판단하며, 선언은 시작·종료 모두 **4~21개월 지연**되는 경우가 많음. '두 분기 연속 실질 GDP 감소'는 **rough rule of thumb**이지만 2020년(2개월)·1980·1991·2001년(한 분기만 GDP 역성장)처럼 **두 분기 규칙 없이도** 침체가 될 수 있고, 2022년 1·2분기처럼 미세 역성장만으로는 공식 침체라고 단정하기 어려움"
+    description: 경제활동이 위축되어 실질 GDP가 줄고 실업이 늘며 소비·투자가 감소하는 경기순환의 수축 국면으로 주식·신용 시장에 큰 충격을 줌. **객관적 수축**(실질 GDP 감소)과 달리 **침체 판정**은 더 주관적 — 미국 NBER는 '경제 전반에 걸쳐 수개월 이상 지속되는 **유의미한**(depth) **확산**(diffusion) **하락**(duration)'을 실질 소득·고용·소비·판매·산출 등 **복수 지표**로 판단하며, 선언은 시작·종료 모두 **4~21개월 지연**되는 경우가 많음. '두 분기 연속 실질 GDP 감소'는 **rough rule of thumb**이지만 2020년(2개월)·1980·1991·2001년(한 분기만 GDP 역성장)처럼 **두 분기 규칙 없이도** 침체가 될 수 있고, 2022년 1·2분기처럼 미세 역성장만으로는 공식 침체라고 단정하기 어려움
     category: 거시경제
     stockMarketImportance: 6
-
   - id: credit-spread
     name: 가산금리 (Credit Spread)
     description: 기준금리에 차입자의 신용위험에 따라 덧붙이는 추가 금리로 신용도가 낮을수록 커지며 신용 위험의 가격을 나타냄
     category: 금리
     stockMarketImportance: 4
-
   - id: business-condition-index
     name: 경기동향지수 (Composite Index)
     description: 경기가 확장·수축 중 어느 국면인지 종합적으로 보여주는 지표로 선행·동행·후행 지수로 나뉘어 경기 흐름과 전환점을 판단하는 데 쓰임
     category: 거시경제
     stockMarketImportance: 4
-
   - id: current-account
     name: 경상수지 (Current Account)
     description: 한 나라가 일정 기간 상품·서비스 수출입과 소득·이전 거래로 벌어들이고 지출한 외화의 차이로 흑자면 외화가 유입되고 적자면 유출되며 환율·외채와 직결됨
     category: 국제경제
     stockMarketImportance: 5
-
   - id: employment-rate
     name: 고용률 (Employment Rate)
     description: 15세 이상 생산가능인구 중 실제 취업자가 차지하는 비율로 구직 단념자의 영향을 받는 실업률을 보완해 고용 상황을 더 폭넓게 보여줌
     category: 거시경제
     stockMarketImportance: 5
-
   - id: fixed-rate
     name: 고정금리 (Fixed Rate)
     description: 약정 기간 동안 시장금리가 변해도 이자율이 고정되는 대출·채권 방식으로 금리 상승 위험을 차입자가 피할 수 있음
     category: 금리
     stockMarketImportance: 4
-
   - id: misery-index
     name: 고통지수 (Misery Index)
     description: 물가상승률과 실업률을 더한 값으로 국민이 체감하는 경제적 고통의 크기를 가늠하는 지표
     category: 거시경제
     stockMarketImportance: 3
-
   - id: goldilocks-economy
     name: 골디락스 경제 (Goldilocks Economy)
     description: 물가가 안정된 가운데 경기 과열도 침체도 아닌 적절한 성장세가 이어지는 이상적 경제 상태
     category: 거시경제
     stockMarketImportance: 4
-
   - id: supply-elasticity
     name: 공급탄력성 (Price Elasticity of Supply)
     description: 가격이 변할 때 공급량이 얼마나 민감하게 변하는지 나타내는 지표로 생산 조정이 쉬울수록 탄력적
     category: 미시경제
     stockMarketImportance: 3
-
   - id: short-selling
     name: 공매도 (Short Selling)
     description: 주식을 빌려 먼저 판 뒤 가격이 내리면 싸게 되사 갚아 차익을 얻는 매매 기법으로 가격 하락에 베팅함
     category: 금융
     stockMarketImportance: 5
-
   - id: national-solvency
     name: 국가지불능력 (National Solvency)
     description: 국가가 채무를 정상적으로 상환할 수 있는 능력으로 이 신뢰가 무너지면 국가 부도로 이어질 수 있음
     category: 정부
     stockMarketImportance: 4
-
   - id: gold-standard
     name: 금본위제 (Gold Standard)
     description: 화폐 가치를 일정량의 금에 고정하고 금과의 교환을 보장하던 통화제도. 브레튼우즈 체계(1944~1971)는 달러-금 태환과 고정환율로 변형된 금본위제였으나, 1960년대 달러 과잉 공급·런던 골드풀 해체 뒤 1970년대에 사실상 폐기됨
     category: 통화
     stockMarketImportance: 3
-
   - id: bretton-woods-system
     name: 브레튼우즈 체계 (Bretton Woods System)
     description: 1944년 이후 국제 통화질서로, 달러를 금에 고정하고 다른 통화는 달러에 고정환율을 유지. 미국이 기축통화를 발행하는 대가로 금 태환을 보장했으나, 1960년대 확장 재정·약달러 압력으로 런던 골드풀이 해체되고 1971년 닉슨 쇼크로 붕괴
     category: 국제경제
     stockMarketImportance: 4
-
   - id: banking-commerce-separation
     name: 금산분리 (Separation of Banking and Commerce)
     description: 산업자본이 은행을 소유·지배하지 못하게 막는 규제로 은행이 특정 기업의 사금고가 되는 것을 방지함
     category: 금융
     stockMarketImportance: 2
-
   - id: ipo
     name: 기업공개 (IPO)
     description: 비상장 기업이 주식을 일반 투자자에게 공개 매각하고 거래소에 상장하는 절차
     category: 금융
     stockMarketImportance: 5
-
   - id: reserve-currency
     name: 기축통화 (Reserve Currency)
     description: 국제 무역·금융 거래와 각국 외환보유의 중심이 되는 통화로 미국 달러가 대표적이며 발행국에 큰 특권(트리핀 딜레마)을 부여함. 1960년대 확장 재정·달러 공급 증가는 브레튼우즈 체계의 금 태환 신뢰를 약화시키는 압력으로 작용
     category: 통화
     stockMarketImportance: 5
-
   - id: money-market
     name: 단기금융시장 (Money Market)
     description: 만기 1년 이내의 단기 자금을 거래하는 시장으로 기업·금융기관의 유동성 조절과 단기금리 형성의 장
     category: 금융
     stockMarketImportance: 4
-
   - id: trade-dependency
     name: 대외의존도 (Trade Dependency)
     description: 국민경제에서 무역(수출과 수입)이 차지하는 비중으로 높을수록 해외 경기·환율 변동에 민감함
     category: 국제경제
     stockMarketImportance: 3
-
   - id: substitute-goods
     name: 대체재 (Substitute Goods)
     description: 한 재화의 가격이 오르면 대신 소비가 늘어나는 서로 대체 가능한 재화
     category: 미시경제
     stockMarketImportance: 3
-
   - id: double-dip
     name: 더블딥 (Double Dip)
     description: 경기가 침체에서 잠시 회복하는 듯하다가 다시 침체에 빠지는 이중 침체 현상
     category: 거시경제
     stockMarketImportance: 4
-
   - id: decoupling
     name: 디커플링 (Decoupling)
     description: 한 나라나 자산의 경기·시장 흐름이 다른 나라와 동조하지 않고 따로 움직이는 현상
     category: 국제경제
     stockMarketImportance: 4
-
   - id: leverage-effect
     name: 레버리지 효과 (Leverage Effect)
     description: 빌린 자금을 지렛대로 활용해 자기자본 대비 투자 수익률을 키우는 효과로 손실도 함께 확대되는 양날의 칼
     category: 금융
     stockMarketImportance: 5
-
   - id: yield-to-maturity
     name: 만기수익률 (Yield to Maturity)
     description: 채권을 만기까지 보유할 때 얻는 연평균 수익률로 채권 가격이 오르면 낮아지는 채권 투자의 핵심 수익 지표
     category: 채권
     stockMarketImportance: 5
-
   - id: microcredit
     name: 마이크로크레디트 (Microcredit)
     description: 담보가 없는 저소득층에게 소액을 빌려줘 창업·자립을 돕는 소액금융
     category: 금융
     stockMarketImportance: 2
-
   - id: sunk-cost
     name: 매몰비용 (Sunk Cost)
     description: 이미 지출해 회수할 수 없는 비용으로 합리적 의사결정에서는 고려하지 말아야 함
     category: 미시경제
     stockMarketImportance: 3
-
   - id: nominal-interest-rate
     name: 명목금리 (Nominal Interest Rate)
     description: 물가 변동을 반영하지 않은 표면상의 금리로 명목금리에서 기대인플레이션을 빼면 실질금리가 됨
     category: 금리
     stockMarketImportance: 5
-
   - id: credit-rating
     name: 신용등급 (Credit Rating)
     description: 무디스·S&P·피치 같은 신용평가사가 국가·기업의 채무 상환 능력을 등급으로 평가한 것으로 조달 금리와 투자 가능 여부를 좌우함
     category: 금융
     stockMarketImportance: 5
-
   - id: price-index
     name: 물가지수 (Price Index)
     description: 여러 상품·서비스의 가격을 가중평균해 물가 수준의 변화를 나타낸 지표로 CPI·PPI·PCE 등이 이에 속함
     category: 거시경제
     stockMarketImportance: 5
-
   - id: mutual-fund
     name: 뮤추얼펀드 (Mutual Fund)
     description: 다수 투자자의 자금을 모아 전문 운용사가 주식·채권 등에 분산투자하고 수익을 배분하는 집합투자기구
     category: 금융
     stockMarketImportance: 4
-
   - id: bank-run
     name: 뱅크런 (Bank Run)
     description: 은행 부실 우려로 예금자들이 한꺼번에 예금을 인출하려는 사태로 건전한 은행도 유동성 부족으로 무너질 수 있음
     category: 금융
     stockMarketImportance: 5
-
   - id: veblen-effect
     name: 베블런 효과 (Veblen Effect)
     description: 가격이 비쌀수록 과시 욕구 때문에 오히려 수요가 늘어나는 현상
     category: 미시경제
     stockMarketImportance: 2
-
   - id: variable-rate
     name: 변동금리 (Variable Rate)
     description: 시장금리에 연동되어 주기적으로 이자율이 바뀌는 대출 방식으로 금리 상승기에는 상환 부담이 커짐
     category: 금리
     stockMarketImportance: 4
-
   - id: value-added
     name: 부가가치 (Value Added)
     description: 생산 과정에서 새로 더해진 가치로 산출액에서 중간투입물 비용을 뺀 것이며 GDP는 모든 생산단계의 부가가치 합으로 계산됨
     category: 거시경제
     stockMarketImportance: 3
-
   - id: cdo
     name: 부채담보부증권 (CDO)
     description: 여러 대출·채권을 묶어 위험도별로 잘게 나눠 발행한 구조화 증권으로 2008년 금융위기 확산의 핵심 매개였음
     category: 금융
     stockMarketImportance: 4
-
   - id: debt-ratio
     name: 부채비율 (Debt Ratio)
     description: 자기자본 대비 부채의 비율로 높을수록 재무 위험이 크며 기업 건전성 판단의 기본 지표
     category: 금융
     stockMarketImportance: 4
-
   - id: fountain-effect
     name: 분수효과 (Fountain Effect)
     description: 저소득층의 소득과 소비를 늘리면 그 수요가 경제 전체로 퍼져 성장을 이끈다는 주장으로 낙수효과와 대비됨
     category: 거시경제
     stockMarketImportance: 2
-
   - id: big-mac-index
     name: 빅맥지수 (Big Mac Index)
     description: 각국 빅맥 가격을 비교해 구매력평가 기준으로 통화의 고평가·저평가를 가늠하는 비공식 환율 지표
     category: 국제경제
     stockMarketImportance: 2
-
   - id: etf
     name: 상장지수펀드 (ETF)
     description: 지수나 자산을 추종하도록 만들어 거래소에서 주식처럼 사고팔 수 있는 펀드로 분산투자와 매매 편의를 결합함
     category: 금융
     stockMarketImportance: 6
-
   - id: circuit-breaker
     name: 서킷브레이커 (Circuit Breaker)
     description: 주가가 급락하면 시장의 과열·공포를 식히기 위해 일시적으로 거래를 중단하는 제도
     category: 금융
     stockMarketImportance: 4
-
   - id: futures
     name: 선물거래 (Futures)
     description: 미래 특정 시점에 정해진 가격으로 기초자산을 사고팔기로 미리 약정하는 표준화된 파생상품 거래
     category: 금융
     stockMarketImportance: 5
-
   - id: income-led-growth
     name: 소득주도성장 (Income-led Growth)
     description: 가계 임금·소득을 늘려 소비와 총수요를 키우고 이를 통해 성장을 도모하는 정책 기조
     category: 거시경제
     stockMarketImportance: 3
-
   - id: demand-elasticity
     name: 수요탄력성 (Price Elasticity of Demand)
     description: 가격이 변할 때 수요량이 얼마나 민감하게 변하는지 나타내는 지표로 필수재는 비탄력적이고 사치재는 탄력적
     category: 미시경제
     stockMarketImportance: 3
-
   - id: swap
     name: 스왑 (Swap)
     description: 두 당사자가 미래의 현금흐름(금리·통화 등)을 서로 교환하기로 하는 파생상품 계약
     category: 금융
     stockMarketImportance: 4
-
   - id: synergy
     name: 시너지 (Synergy)
     description: 둘 이상이 결합해 개별 합보다 큰 효과를 내는 것으로 인수합병의 핵심 명분
     category: 금융
     stockMarketImportance: 2
-
   - id: bond-with-warrant
     name: 신주인수권부사채 (Bond with Warrant)
     description: 정해진 가격에 신주를 인수할 수 있는 권리가 붙은 채권으로 채권은 그대로 두고 신주인수권만 따로 행사·거래할 수 있음
     category: 채권
     stockMarketImportance: 3
-
   - id: real-wage
     name: 실질임금 (Real Wage)
     description: 명목임금을 물가로 나눠 실제 구매력으로 환산한 임금으로 물가 상승이 임금 상승을 앞지르면 실질임금은 하락함
     category: 거시경제
     stockMarketImportance: 4
-
   - id: agflation
     name: 애그플레이션 (Agflation)
     description: 농산물 가격 상승이 전반적인 물가 상승을 이끄는 현상으로 기후·작황·에너지 가격에 민감함
     category: 거시경제
     stockMarketImportance: 3
-
   - id: certificate-of-deposit
     name: 양도성예금증서 (CD)
     description: 제3자에게 양도할 수 있는 무기명 정기예금증서로 단기 자금 조달·운용 수단
     category: 금융
     stockMarketImportance: 3
-
   - id: cma
     name: 어음관리계좌 (CMA)
     description: 하루만 맡겨도 이자가 붙고 입출금이 자유로운 증권사 계좌로 단기 자금 보관에 쓰임
     category: 금융
     stockMarketImportance: 2
-
   - id: engels-law
     name: 엥겔의 법칙 (Engel's Law)
     description: 소득이 낮을수록 가계 지출에서 식료품비가 차지하는 비중(엥겔계수)이 높아진다는 경험 법칙
     category: 미시경제
     stockMarketImportance: 2
-
   - id: reverse-mortgage
     name: 역모기지론 (Reverse Mortgage)
     description: 주택을 담보로 맡기고 매달 연금처럼 생활비를 받는 대출로 노후 소득원으로 활용됨
     category: 금융
     stockMarketImportance: 2
-
   - id: loan-deposit-ratio
     name: 예대율 (Loan-Deposit Ratio)
     description: 은행의 예금 대비 대출 비율로 너무 높으면 유동성 위험이 커져 건전성 규제의 대상이 됨
     category: 금융
     stockMarketImportance: 3
-
   - id: option
     name: 옵션 (Option)
     description: 미래에 정해진 가격으로 기초자산을 사거나 팔 수 있는 권리를 거래하는 파생상품으로 살 권리는 콜, 팔 권리는 풋
     category: 금융
     stockMarketImportance: 5
-
   - id: foreign-reserves
     name: 외환보유액 (Foreign Reserves)
     description: 중앙은행·정부가 대외 지급과 환율 방어를 위해 보유한 외화·금 등 대외 지급준비 자산
     category: 국제경제
     stockMarketImportance: 5
-
   - id: workout
     name: 워크아웃 (Workout)
     description: 부실 위기 기업을 살리기 위해 채권단이 채무 조정·만기 연장 등으로 구조조정하는 절차
     category: 금융
     stockMarketImportance: 3
-
   - id: principal-risk
     name: 원금리스크 (Principal Risk)
     description: 투자 원금을 회수하지 못할 위험으로 기대수익이 높은 상품일수록 일반적으로 더 큼
     category: 금융
     stockMarketImportance: 3
-
   - id: liquidity
     name: 유동성 (Liquidity)
     description: 자산을 가치 손실 없이 빠르게 현금으로 바꿀 수 있는 정도 또는 시장에 풀린 자금의 양으로 자산 가격과 위기 대응에 핵심적
     category: 금융
     stockMarketImportance: 6
-
   - id: dual-currency-bond
     name: 이중통화채 (Dual Currency Bond)
     description: 발행·이자 지급 통화와 원금 상환 통화가 서로 다른 채권으로 환율 변동에 노출됨
     category: 채권
     stockMarketImportance: 1
-
   - id: voluntary-unemployment
     name: 자발적 실업 (Voluntary Unemployment)
     description: 일자리가 있어도 임금·근로조건이 맞지 않아 스스로 취업하지 않는 실업으로 자연실업률의 한 구성요소
     category: 거시경제
     stockMarketImportance: 3
-
   - id: term-spread
     name: 장단기금리차 (Term Spread)
     description: 장기금리와 단기금리의 차이로 이 폭이 줄거나 역전되면 경기 둔화·침체 신호로 해석됨
     category: 금리
     stockMarketImportance: 6
-
   - id: otc-market
     name: 장외시장 (OTC Market)
     description: 거래소 밖에서 당사자 간 협상으로 증권을 거래하는 시장으로 비상장주·채권·파생상품이 거래됨
     category: 금융
     stockMarketImportance: 3
-
   - id: convertible-bond
     name: 전환사채 (Convertible Bond)
     description: 일정 조건에서 발행기업의 주식으로 전환할 수 있는 권리가 붙은 채권으로 이자 수익과 주가 상승 기회를 함께 노림
     category: 채권
     stockMarketImportance: 4
-
   - id: junk-bond
     name: 정크본드 (Junk Bond)
     description: 신용등급이 투자적격 미만인 고위험 채권으로 부도 위험이 큰 대신 높은 금리를 제공함
     category: 채권
     stockMarketImportance: 4
-
   - id: zero-interest-rate-policy
     name: 제로금리정책 (Zero Interest Rate Policy)
     description: 기준금리를 0퍼센트에 가깝게 낮춰 차입과 투자·소비를 자극하는 통화정책으로 경기 침체·디플레이션 대응에 쓰임
     category: 통화정책
     stockMarketImportance: 6
-
   - id: stock-index
     name: 주가지수 (Stock Index)
-    description: "다수 종목의 가격을 종합해 시장 전체의 흐름을 보여주는 지표로 코스피·S&P500 등이 대표적. 국가 간 지수 상대 수익률은 실질 성장률 격차·밸류·금리·유동성 등이 겹쳐 형성되며, 성장 전망 개정도 선행 반영되는 경우가 많음"
+    description: 다수 종목의 가격을 종합해 시장 전체의 흐름을 보여주는 지표로 코스피·S&P500 등이 대표적. 국가 간 지수 상대 수익률은 실질 성장률 격차·밸류·금리·유동성 등이 겹쳐 형성되며, 성장 전망 개정도 선행 반영되는 경우가 많음
     category: 금융
     stockMarketImportance: 6
-
   - id: market-capitalization
     name: 시가총액 (Market Capitalization)
-    description: "상장 주식 수 × 주가로 잰 주식시장 규모. 시총 변화는 크게 (1) 순 주식 발행(신규상장·유상증자 − 자사주 매입·상장폐지)과 (2) 실질 자본이득(주가 상승)으로 분해됨"
+    description: 상장 주식 수 × 주가로 잰 주식시장 규모. 시총 변화는 크게 (1) 순 주식 발행(신규상장·유상증자 − 자사주 매입·상장폐지)과 (2) 실질 자본이득(주가 상승)으로 분해됨
     category: 금융
     stockMarketImportance: 7
-
   - id: market-cap-to-gdp
     name: 시가총액/GDP 비율 (Market Cap to GDP)
-    description: "시가총액을 실질(또는 명목) GDP로 나눈 비율로, 버핏 지표로도 불림. GDP 성장과 시총 성장이 얼마나 맞물리는지, 밸류에이션이 역사 대비 높은지 가늠하는 거시·밸류 지표"
+    description: 시가총액을 실질(또는 명목) GDP로 나눈 비율로, 버핏 지표로도 불림. GDP 성장과 시총 성장이 얼마나 맞물리는지, 밸류에이션이 역사 대비 높은지 가늠하는 거시·밸류 지표
     category: 금융
     stockMarketImportance: 6
-
   - id: net-equity-issuance
     name: 순 주식 발행 (Net Equity Issuance)
-    description: "기간 중 순증가한 주식 발행액(신규상장·유상증자 − 자사주 매입·상환·상장폐지). 양수면 시총을 발행으로 키우고, 음수면 소각·상장 감소로 시총을 줄이는 쪽"
+    description: 기간 중 순증가한 주식 발행액(신규상장·유상증자 − 자사주 매입·상환·상장폐지). 양수면 시총을 발행으로 키우고, 음수면 소각·상장 감소로 시총을 줄이는 쪽
     category: 금융
     stockMarketImportance: 5
-
   - id: share-buyback
     name: 자사주 매입 (Share Buyback)
-    description: "상장사가 자사 주식을 시장에서 되사들이는 행위로, 순 주식 발행을 줄이거나 마이너스로 만들어 시가총액의 '발행' 축을 축소. 저금리·고밸류 국면에서 배당·CAPEX와 함께 자본 배분 수단"
+    description: 상장사가 자사 주식을 시장에서 되사들이는 행위로, 순 주식 발행을 줄이거나 마이너스로 만들어 시가총액의 '발행' 축을 축소. 저금리·고밸류 국면에서 배당·CAPEX와 함께 자본 배분 수단
     category: 금융
     stockMarketImportance: 6
-
   - id: dividend-yield
     name: 배당수익률 (Dividend Yield)
-    description: "배당금 ÷ 주가(또는 시가총액)로, 주식의 현금 수익률. 높을수록 주식 자체 발행·유상증자 유인이 약해질 수 있음(채권·자사주·사모 대안과 비교)"
+    description: 배당금 ÷ 주가(또는 시가총액)로, 주식의 현금 수익률. 높을수록 주식 자체 발행·유상증자 유인이 약해질 수 있음(채권·자사주·사모 대안과 비교)
     category: 금융
     stockMarketImportance: 5
-
   - id: real-capital-gain
     name: 실질 자본이득 (Real Capital Gain)
-    description: "물가를 반영해 조정한 주가 상승분. 시가총액 증가 중 순 주식 발행이 아닌 '주가 오름' 축이며, 이익·밸류·금리(할인율) 기대가 반영됨. capital-gains-tax(양도세)와는 별개"
+    description: 물가를 반영해 조정한 주가 상승분. 시가총액 증가 중 순 주식 발행이 아닌 '주가 오름' 축이며, 이익·밸류·금리(할인율) 기대가 반영됨. capital-gains-tax(양도세)와는 별개
     category: 금융
     stockMarketImportance: 5
-
   - id: tax-burden-ratio
     name: 조세부담률 (Tax Burden Ratio)
     description: 국민소득이나 GDP 대비 조세 총액의 비율로 국민이 부담하는 세금 수준을 보여줌
     category: 정부
     stockMarketImportance: 3
-
   - id: eps
     name: 주당순이익 (EPS)
     description: 기업의 순이익을 발행주식 수로 나눈 값으로 주식 1주가 벌어들인 이익을 나타내며 주가 평가의 기본 지표
     category: 금융
     stockMarketImportance: 5
-
   - id: margin-requirement
     name: 증거금 (Margin Requirement)
     description: 주식·파생상품 거래 시 계약 이행을 담보하기 위해 미리 예치하는 보증금
     category: 금융
     stockMarketImportance: 4
-
   - id: holding-company
     name: 지주회사 (Holding Company)
     description: 다른 회사의 주식을 보유해 지배하는 것을 주된 목적으로 하는 회사
     category: 금융
     stockMarketImportance: 3
-
   - id: chicken-game
     name: 치킨게임 (Chicken Game)
     description: 양측이 양보 없이 충돌로 치닫는 게임이론 상황으로 끝까지 가면 모두 큰 손실을 입음
     category: 미시경제
     stockMarketImportance: 3
-
   - id: cartel
     name: 카르텔 (Cartel)
     description: 같은 산업의 기업들이 가격·생산량을 담합해 경쟁을 제한하는 협정으로 소비자 후생을 해쳐 대체로 불법
     category: 미시경제
     stockMarketImportance: 3
-
   - id: call-option
     name: 콜옵션 (Call Option)
     description: 기초자산을 정해진 가격에 살 수 있는 권리로 가격 상승 시 이익을 보며 옵션의 한 종류
     category: 금융
     stockMarketImportance: 4
-
   - id: currency-swap
     name: 통화스왑 (Currency Swap)
     description: 두 나라나 거래자가 서로의 통화를 약정 환율로 교환했다가 되갚기로 하는 계약으로 국가 간에는 외환위기를 막는 안전장치로 쓰임
     category: 국제경제
     stockMarketImportance: 4
-
   - id: investment-bank
     name: 투자은행 (Investment Bank)
     description: 예금 대신 주식·채권 발행 주관, 인수합병 자문, 자기매매 등으로 수익을 얻는 금융기관
     category: 금융
     stockMarketImportance: 5
-
   - id: spv
     name: 특수목적기구 (SPV)
     description: 특정 사업이나 자산 유동화를 위해 한시적으로 설립하는 명목상 회사로 위험·자산을 모기업과 분리함
     category: 금융
     stockMarketImportance: 3
-
   - id: derivatives
     name: 파생금융상품 (Derivatives)
     description: 주식·금리·환율·원자재 등 기초자산의 가치 변동에 따라 가격이 결정되는 금융상품으로 선물·옵션·스왑이 대표적
     category: 금융
     stockMarketImportance: 5
-
   - id: devaluation
     name: 평가절하 (Devaluation)
     description: 자국 통화의 대외 가치를 낮추는 것으로 수출 가격 경쟁력을 높이지만 수입물가 상승과 외채 부담 증가를 동반함
     category: 국제경제
     stockMarketImportance: 4
-
   - id: plaza-accord
     name: 플라자 합의 (Plaza Accord)
-    description: "1985년 G5가 달러 절하를 유도하기로 합의한 환율 협정으로, 단기간 달러 약세를 이끌었으나 장기 무역적자 해소에는 한계가 있었고 이후 「제2의 플라자」 논의의 역사적 선례가 됨"
+    description: 1985년 G5가 달러 절하를 유도하기로 합의한 환율 협정으로, 단기간 달러 약세를 이끌었으나 장기 무역적자 해소에는 한계가 있었고 이후 「제2의 플라자」 논의의 역사적 선례가 됨
     category: 국제경제
     stockMarketImportance: 4
-
   - id: coupon-rate
     name: 표면금리 (Coupon Rate)
     description: 채권 액면에 명시된 고정 이자율로 발행 시 약정한 이표 지급의 기준이 되며 만기수익률과 구분됨
     category: 채권
     stockMarketImportance: 3
-
   - id: hedge-fund
     name: 헤지펀드 (Hedge Fund)
     description: 소수 투자자의 자금을 모아 공매도·레버리지·파생상품 등 공격적 전략으로 절대수익을 추구하는 사모 펀드
     category: 금융
     stockMarketImportance: 5
-
   - id: currency-manipulator
     name: 환율조작국 (Currency Manipulator)
     description: 수출 확대 등을 위해 인위적으로 환율에 개입한다고 미국이 지정하는 국가로 무역 갈등의 쟁점이 됨
     category: 국제경제
     stockMarketImportance: 4
-
   - id: mergers-acquisitions
     name: M&A (Mergers and Acquisitions)
     description: 기업이 다른 기업을 합치거나 사들이는 합병·인수로 사업 확장·시너지·구조조정의 수단
     category: 금융
     stockMarketImportance: 5
-
   - id: geopolitical-risk
     name: 지정학적 리스크 (Geopolitical Risk)
     description: 전쟁·테러·외교 갈등 등 정치·군사적 사건이 경제와 시장에 불확실성을 더하는 위험으로 단기적으로 위험자산을 끌어내리고 안전자산·유가를 밀어 올리며, GPR 지수 등으로 계량화됨
     category: 국제경제
     stockMarketImportance: 6
-
   - id: safe-haven-asset
     name: 안전자산 (Safe-haven Asset)
     description: 위기나 시장 불안기에 가치가 비교적 안정적이어서 자금이 몰리는 자산으로 금·미국 국채·달러가 대표적
     category: 금융
     stockMarketImportance: 6
-
   - id: risk-on
     name: 위험 선호 (Risk-on)
     description: 투자자들이 위험을 감수하고 주식·신흥국 자산 등 위험자산을 선호하는 시장 심리 국면
     category: 금융
     stockMarketImportance: 5
-
   - id: risk-off
     name: 위험 회피 (Risk-off)
     description: 불확실성이 커져 투자자들이 위험자산을 팔고 안전자산으로 갈아타는 시장 심리 국면
     category: 금융
     stockMarketImportance: 6
-
   - id: valuation
     name: 밸류에이션 (Valuation)
     description: 기업이나 자산의 가치를 이익·자산 등 기초지표 대비 평가한 수준으로 멀티플이 높으면 고평가, 낮으면 저평가로 보며 금리에 민감하게 변함
     category: 금융
     stockMarketImportance: 6
-
   - id: pbr
     name: 주가순자산비율 (PBR)
     description: 주가를 주당순자산으로 나눈 값으로 1보다 낮으면 장부가치보다 싸게 거래되는 저평가 신호로 해석됨
     category: 금융
     stockMarketImportance: 5
-
   - id: crude-oil
     name: 원유 (Crude Oil)
-    description: "가장 중요한 1차 에너지원이자 원자재로 브렌트·WTI 가격이 기준이 되며 가격 급등은 물가·무역수지·기업 비용에 광범위한 충격을 줌. 미국은 셰일 등으로 생산이 늘어 에너지 순수출국이 되었고, 저렴한 국내 에너지는 제조업 원가·인플레이션 완충에 기여할 수 있으나 정권 레토릭과 실제 생산·투자는 어긋날 수 있음"
+    description: 가장 중요한 1차 에너지원이자 원자재로 브렌트·WTI 가격이 기준이 되며 가격 급등은 물가·무역수지·기업 비용에 광범위한 충격을 줌. 미국은 셰일 등으로 생산이 늘어 에너지 순수출국이 되었고, 저렴한 국내 에너지는 제조업 원가·인플레이션 완충에 기여할 수 있으나 정권 레토릭과 실제 생산·투자는 어긋날 수 있음
     category: 원자재
     stockMarketImportance: 7
-
   - id: capital-flight
     name: 자본 유출 (Capital Flight)
     description: 위험 회피나 불안으로 외국인·국내 자금이 한 나라에서 대거 빠져나가는 현상으로 통화 약세와 자산 가격 하락을 동반
     category: 국제경제
     stockMarketImportance: 5
-
   - id: risk-premium
     name: 위험 프리미엄 (Risk Premium)
     description: 위험을 감수하는 대가로 투자자가 무위험 수익률 위에 요구하는 추가 기대수익으로 불확실성이 커지면 상승해 자산 가격을 끌어내림
     category: 금융
     stockMarketImportance: 5
-
   - id: market-regime
     name: 시장 레짐 (Market Regime)
     description: 일정 기간 시장과 자산 가격을 지배하는 거시 환경의 성격으로 평화·변혁, 인플레·디플레, 완화·긴축 등으로 구분되며 어떤 레짐인지에 따라 유효한 투자 전략이 달라짐
     category: 거시경제
     stockMarketImportance: 5
-
   - id: debt-burden
     name: 부채 부담 (Debt Burden)
-    description: "부채 규모를 소득(또는 GDP)으로 나눈 비율과 상환액이 소득 증가를 따라가는지를 보는 지표로, 부채가 소득보다 빠르게 늘거나 상환 부담이 소득을 앞서면 차입·지출이 줄어들며 장기 부채 사이클의 정점과 디레버리징으로 이어질 수 있음"
+    description: 부채 규모를 소득(또는 GDP)으로 나눈 비율과 상환액이 소득 증가를 따라가는지를 보는 지표로, 부채가 소득보다 빠르게 늘거나 상환 부담이 소득을 앞서면 차입·지출이 줄어들며 장기 부채 사이클의 정점과 디레버리징으로 이어질 수 있음
     category: 거시경제
     stockMarketImportance: 6
-
   - id: debt-to-gdp
     name: GDP 대비 부채비율 (Debt-to-GDP)
     description: 정부부채를 GDP로 나눈 비율로 국가부채의 지속가능성과 상환 부담을 가늠하는 핵심 지표
     category: 정부
     stockMarketImportance: 6
-
   - id: debt-monetization
     name: 부채의 화폐화 (Debt Monetization)
     description: 중앙은행이 국채를 사들여 사실상 정부부채를 통화 발행으로 메우는 것으로 인플레이션을 유발할 수 있음
     category: 통화정책
     stockMarketImportance: 5
-
   - id: financial-repression
     name: 금융 억압 (Financial Repression)
     description: 금리를 인플레이션보다 낮게 억눌러 채권 보유자의 희생으로 정부의 실질 부채 부담을 줄이는 정책
     category: 통화정책
     stockMarketImportance: 4
-
   - id: inflation-tax
     name: 인플레이션 조세 (Inflation Tax)
     description: 인플레이션이 화폐와 명목채권의 실질 가치를 깎아 사실상 보유자에게 부과되는 보이지 않는 세금
     category: 통화
     stockMarketImportance: 4
-
   - id: deleveraging
     name: 디레버리징 (Deleveraging)
-    description: "과도한 부채 부담을 줄이는 과정으로, (1) 지출 삭감(긴축), (2) 디폴트·채무 재조정, (3) 세제 등을 통한 부의 재분배, (4) 중앙은행의 통화량 증가(화폐화·QE) 네 경로가 결합됨. 정치 양극화가 심하면 허리띠 졸라매기형 긴축·채무 불이행은 현실적으로 어려워 화폐화·인플레이션 경로가 선택되기 쉬움. 지출 삭감·부채 탕감만으로는 소득이 더 빨리 줄어 부담이 악화될 수 있어, 소득 증가율이 이자율을 넘는 조합과 재정·통화 협력이 관건이며, 일반 경기침체와 달리 금리 인하만으로는 끝나지 않는 경우가 많아 10년 가까운 '잃어버린 10년'으로 이어지기도 함"
+    description: 과도한 부채 부담을 줄이는 과정으로, (1) 지출 삭감(긴축), (2) 디폴트·채무 재조정, (3) 세제 등을 통한 부의 재분배, (4) 중앙은행의 통화량 증가(화폐화·QE) 네 경로가 결합됨. 정치 양극화가 심하면 허리띠 졸라매기형 긴축·채무 불이행은 현실적으로 어려워 화폐화·인플레이션 경로가 선택되기 쉬움. 지출 삭감·부채 탕감만으로는 소득이 더 빨리 줄어 부담이 악화될 수 있어, 소득 증가율이 이자율을 넘는 조합과 재정·통화 협력이 관건이며, 일반 경기침체와 달리 금리 인하만으로는 끝나지 않는 경우가 많아 10년 가까운 '잃어버린 10년'으로 이어지기도 함
     category: 금융
     stockMarketImportance: 5
-
   - id: fiat-currency
     name: 법정화폐 (Fiat Currency)
     description: 금 같은 실물 담보 없이 정부 신뢰와 법적 강제력으로 통용되는 화폐로 발행 재량이 큰 만큼 가치 훼손 위험을 안음
     category: 통화
     stockMarketImportance: 4
-
   - id: currency-debasement
     name: 화폐가치 훼손 (Currency Debasement)
     description: 과도한 발행·인플레이션으로 통화의 구매력이 구조적으로 떨어지는 현상으로 금·실물자산 선호를 키움
     category: 통화
     stockMarketImportance: 4
-
   - id: big-government
     name: 큰 정부 (Big Government)
     description: 재정·규제·산업개입을 통해 경제에서 정부 역할이 비대해지는 상태로 신냉전·AI 전환기에 강화되는 경향
     category: 정부
     stockMarketImportance: 4
-
   - id: new-cold-war
     name: 신냉전 (New Cold War)
     description: 미국과 중국을 중심으로 기술·무역·안보 패권을 다투는 진영 대립 구도로 공급망 재편과 산업정책을 촉발
     category: 국제경제
     stockMarketImportance: 4
-
   - id: capital-expenditure
     name: 설비투자 (Capex)
     description: 기업·정부가 설비·인프라·연구개발에 투입하는 자본지출로 AI·에너지 전환기에 대규모로 요구됨
     category: 거시경제
     stockMarketImportance: 5
-
   - id: populism
     name: 포퓰리즘 (Populism)
     description: 표심을 겨냥해 단기 부양·재분배를 앞세우는 정치 행태로 재정규율을 약화시켜 부채·인플레 압력을 키우기 쉬움
     category: 정부
     stockMarketImportance: 4
-
   - id: beta
     name: 베타 (Beta)
     description: 시장 전체의 움직임에 연동된 수익·위험으로 지수추종처럼 시장 방향만 따라가도 얻는 리스크 기반 수익
     category: 금융
     stockMarketImportance: 5
-
   - id: alpha
     name: 알파 (Alpha)
     description: 시장(베타)을 초과해 얻는 수익으로 종목 선택·타이밍 등 운용 능력에서 나오는 초과 성과
     category: 금융
     stockMarketImportance: 5
-
   - id: political-cycle
     name: 정치 사이클 (Political Cycle)
     description: 선거 일정에 맞춰 정책과 시장이 움직이는 주기로 선거 전 부양과 선거 후 긴축·후유증이 반복되는 경향
     category: 정부
     stockMarketImportance: 5
-
   - id: credit-cycle
     name: 신용 사이클 (Credit Cycle)
-    description: "약 5~8년 주기로 신용(대출·레버리지)이 팽창·수축하며 지출·물가·경기를 움직이는 단기 부채 사이클. 확장기에는 신용 창조가 지출을 키우고, 정점 이후 신용 파괴·디레버리징으로 수축. 실물 경기순환과 떼려야 뗄 수 없지만 주도·시차는 국면마다 다름. 단기 사이클이 반복되면 부채가 소득보다 빠르게 쌓여 장기 부채 사이클을 만듦"
+    description: 약 5~8년 주기로 신용(대출·레버리지)이 팽창·수축하며 지출·물가·경기를 움직이는 단기 부채 사이클. 확장기에는 신용 창조가 지출을 키우고, 정점 이후 신용 파괴·디레버리징으로 수축. 실물 경기순환과 떼려야 뗄 수 없지만 주도·시차는 국면마다 다름. 단기 사이클이 반복되면 부채가 소득보다 빠르게 쌓여 장기 부채 사이클을 만듦
     category: 금융
     stockMarketImportance: 6
-
   - id: long-term-debt-cycle
     name: 장기 부채 사이클 (Long-term Debt Cycle)
-    description: "약 75~100년에 걸쳐 단기 신용 사이클이 반복되며 부채가 소득보다 빠르게 누적되다가 부채 부담 정점(peak)에 도달하고 디레버리징으로 전환되는 장기 구조로, 1930년대 대공황이 실제 청산, 2008년 금융위기는 QE로 연기된 유예로 해석되기도 함. 과도한 부채를 푸는 경로는 긴축·채무 불이행·화폐화(인플레이션)·부의 강제 이전 네 가지로 요약되며, 1929·1989·2008년처럼 일반 경기침체와 달리 금리가 0%에 가까워도 회복이 더디고 재정·통화 협력이 필요할 수 있음"
+    description: 약 75~100년에 걸쳐 단기 신용 사이클이 반복되며 부채가 소득보다 빠르게 누적되다가 부채 부담 정점(peak)에 도달하고 디레버리징으로 전환되는 장기 구조로, 1930년대 대공황이 실제 청산, 2008년 금융위기는 QE로 연기된 유예로 해석되기도 함. 과도한 부채를 푸는 경로는 긴축·채무 불이행·화폐화(인플레이션)·부의 강제 이전 네 가지로 요약되며, 1929·1989·2008년처럼 일반 경기침체와 달리 금리가 0%에 가까워도 회복이 더디고 재정·통화 협력이 필요할 수 있음
     category: 거시경제
     stockMarketImportance: 6
-
   - id: per
     name: 주가수익비율 (PER)
     description: 주가를 주당순이익으로 나눈 값으로 이익 대비 주가 수준을 보는 대표 밸류에이션 지표
     category: 금융
     stockMarketImportance: 6
-
   - id: dcf
     name: 현금흐름할인법 (DCF)
-    description: "기업의 미래 현금흐름(CF)을 할인율(r)로 현재가치로 환산해 내재가치(IV)를 추정하는 방법. IV = CF1/(1+r) + … + 터미널/(r−g)(r>g) 형태로, 주가·밸류가 오르려면 CF↑·g↑·r↓ 중 하나 이상이 필요. 국가 실질 성장률은 g의 현실적 상한, 경기·신용 국면은 CF와 r(리스크 프리미엄·스프레드)에 영향"
+    description: 기업의 미래 현금흐름(CF)을 할인율(r)로 현재가치로 환산해 내재가치(IV)를 추정하는 방법. IV = CF1/(1+r) + … + 터미널/(r−g)(r>g) 형태로, 주가·밸류가 오르려면 CF↑·g↑·r↓ 중 하나 이상이 필요. 국가 실질 성장률은 g의 현실적 상한, 경기·신용 국면은 CF와 r(리스크 프리미엄·스프레드)에 영향
     category: 금융
     stockMarketImportance: 5
-
   - id: intrinsic-value
     name: 내재가치 (Intrinsic Value)
     description: 자산이 창출할 미래 가치에 근거한 본질적 가치로 시장 가격과 다를 수 있으며 가치투자의 기준이 됨
     category: 금융
     stockMarketImportance: 5
-
   - id: margin-of-safety
     name: 안전마진 (Margin of Safety)
     description: 내재가치보다 충분히 낮은 가격에 사 추정 오차와 위험을 흡수하는 가치투자 원칙
     category: 금융
     stockMarketImportance: 4
-
   - id: relative-valuation
     name: 상대가치평가 (Relative Valuation)
     description: PER·PBR 등 배수를 유사기업과 비교해 상대적 고평가·저평가를 판단하는 평가 방법
     category: 금융
     stockMarketImportance: 5
-
   - id: sector-rotation
     name: 섹터 로테이션 (Sector Rotation)
     description: 경기 국면과 매크로 변화에 따라 자금이 산업(섹터) 간 이동하는 현상으로 경기 흐름의 단서가 되기도 함
     category: 금융
     stockMarketImportance: 5
-
   - id: value-investing
     name: 가치투자 (Value Investing)
     description: 내재가치보다 싸게 거래되는 자산을 사 안전마진을 확보하는 투자 철학
     category: 금융
     stockMarketImportance: 4
-
   - id: repo-market
     name: 레포 시장 (Repo Market)
     description: 국채 등을 담보로 초단기 자금을 빌리고 빌려주는 환매조건부 시장으로 금융시스템 유동성의 핵심 배관
     category: 금융
     stockMarketImportance: 5
-
   - id: capitulation
     name: 항복 매도 (Capitulation)
-    description: "투자자들이 손실·공포에 포기해 대규모 매도가 몰리는 극단적 심리 상태로, '바닥 직전의 패닉'으로 자주 묘사됨. 미디어·애널리스트가 'capitulation 없이는 바닥이 아니다'고 말하는 경우가 많으나, 역사적으로 항복 매도 없이도 조정 저점이 형성된 사례(1966·2022년 10월 등)가 있어 바닥 판단의 **필수 조건**으로 보기는 어려움"
+    description: 투자자들이 손실·공포에 포기해 대규모 매도가 몰리는 극단적 심리 상태로, '바닥 직전의 패닉'으로 자주 묘사됨. 미디어·애널리스트가 'capitulation 없이는 바닥이 아니다'고 말하는 경우가 많으나, 역사적으로 항복 매도 없이도 조정 저점이 형성된 사례(1966·2022년 10월 등)가 있어 바닥 판단의 **필수 조건**으로 보기는 어려움
     category: 금융
     stockMarketImportance: 5
-
   - id: market-sentiment
     name: 투자 심리 (Market Sentiment)
     description: 시장 참여자들의 낙관·비관 정도로 과열·공포의 극단은 흔히 역발상 신호로 쓰임
     category: 금융
     stockMarketImportance: 5
-
   - id: technical-analysis
     name: 기술적 분석 (Technical Analysis)
     description: 과거 가격·거래량 패턴과 지표로 향후 가격 흐름을 가늠하는 분석 기법
     category: 금융
     stockMarketImportance: 4
-
   - id: rsi
     name: RSI (Relative Strength Index)
     description: 일정 기간 상승·하락 폭을 비교해 과매수·과매도를 보는 모멘텀 지표
     category: 금융
     stockMarketImportance: 3
-
   - id: support-resistance
     name: 지지·저항 (Support and Resistance)
     description: 매수·매도세가 반복적으로 부딪쳐 가격이 잘 멈추거나 되돌아가는 구간
     category: 금융
     stockMarketImportance: 3
-
   - id: financial-intermediation
     name: 금융 중개 (Financial Intermediation)
     description: 돈의 공급(저축)과 수요(차입)를 이어주는 은행의 핵심 기능으로 잉여 자금을 예금으로 흡수해 대출로 공급함
     category: 금융
     stockMarketImportance: 5
-
   - id: deposit
     name: 예금 (Deposit)
     description: 은행이 보관·상환 책임을 지는 부채이자 신용창출의 결과로 생기는 돈(bank money)으로 광의통화의 핵심 구성요소
     category: 금융
     stockMarketImportance: 5
-
   - id: loan
     name: 대출 (Loan)
     description: 은행이 차입자에게 자금을 빌려주는 여신으로 실행과 동시에 같은 금액의 예금을 창출하는, 예금과 동전의 양면인 거래
     category: 금융
     stockMarketImportance: 5
-
   - id: fractional-reserve-banking
     name: 부분지급준비제도 (Fractional Reserve Banking)
     description: 은행이 받은 예금의 일부만 지급준비금으로 두고 나머지로 대출·신용을 창출하도록 허용하는 제도로 통화승수의 토대
     category: 금융
     stockMarketImportance: 5
-
   - id: savings
     name: 저축 (Savings)
-    description: "가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음"
+    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음
     category: 거시경제
     stockMarketImportance: 5
-
   - id: disposable-income
     name: 가처분소득 (Disposable Income)
     description: 소득에서 세금·사회보험료 등을 뺀, 가계가 실제로 소비하거나 저축할 수 있는 소득
     category: 거시경제
     stockMarketImportance: 5
-
   - id: banking-license
     name: 은행업 인가 (Banking License)
     description: 자본금 이상으로 신용을 창출할 수 있도록 국가가 은행에 부여하는 면허로 성장에 필요한 자금 공급을 합법화함
     category: 금융
     stockMarketImportance: 3
-
   - id: lender-of-last-resort
     name: 최종 대부자 (Lender of Last Resort)
     description: 은행이 유동성 위기에 빠졌을 때 중앙은행이 마지막으로 자금을 공급해 시스템 붕괴를 막는 기능
     category: 통화정책
     stockMarketImportance: 5
-
   - id: discount-window
     name: 재할인 창구 (Discount Window)
     description: 은행이 담보를 맡기고 중앙은행에서 단기 자금을 빌리는 유동성 지원 창구로 최종 대부자 기능의 대표 수단
     category: 통화정책
     stockMarketImportance: 4
-
   - id: moral-hazard
     name: 도덕적 해이 (Moral Hazard)
     description: 손실은 사회·국가에 떠넘기고 이익만 추구하도록 유인이 왜곡된 상태로 금융기관의 과도한 위험 추구를 부추김
     category: 금융
     stockMarketImportance: 5
-
   - id: bailout
     name: 구제금융 (Bailout)
     description: 부실에 빠진 금융기관·기업을 정부·중앙은행이 공적 자금으로 구제하는 것으로 손실의 사회화 논란을 낳음
     category: 금융
     stockMarketImportance: 5
-
   - id: too-big-to-fail
     name: 대마불사 (Too Big to Fail)
     description: 규모가 너무 커서 망하게 두면 시스템 전체가 위태로워 결국 구제받는다는 기대로 도덕적 해이의 핵심 원인
     category: 금융
     stockMarketImportance: 5
-
   - id: basel-accords
     name: 바젤 규제 (Basel Accords)
     description: BIS가 마련한 국제 은행 건전성 규제 기준으로 자기자본비율(BIS 비율) 등을 통해 과도한 신용창출을 억제함
     category: 금융
     stockMarketImportance: 5
-
   - id: risk-weighted-assets
     name: 위험가중자산 (Risk-Weighted Assets)
     description: 자산별 위험도에 가중치를 적용해 합산한 규제용 자산으로 자기자본비율(BIS 비율)의 분모가 됨
     category: 금융
     stockMarketImportance: 4
-
   - id: gsib
     name: 시스템적 중요 은행 (G-SIB)
     description: 부실 시 세계 금융시스템에 큰 충격을 주어 추가 자본 등 더 강한 규제를 받는 글로벌 핵심 은행
     category: 금융
     stockMarketImportance: 4
-
   - id: bis
     name: 국제결제은행 (BIS)
     description: 각국 중앙은행 간 결제를 중개하고 바젤 규제 등 국제 은행 건전성 기준을 마련하는 국제기구
     category: 금융
     stockMarketImportance: 3
-
   - id: open-market-operations
     name: 공개시장조작 (Open Market Operations)
     description: 중앙은행이 국채 등을 사고팔아 지급준비금 잔액과 단기금리를 조절하는 핵심 통화정책 수단
     category: 통화정책
     stockMarketImportance: 5
-
   - id: reverse-repo
     name: 역레포 (ON RRP)
     description: 연준이 채권을 담보로 시중의 단기 자금을 흡수하는 창구로 단기금리의 하단을 떠받치고 지급준비금을 조절함
     category: 통화정책
     stockMarketImportance: 4
-
   - id: wage-price-spiral
     name: 임금–물가 스파이럴 (Wage–Price Spiral)
-    description: "명목임금 인상이 생산비용·물가를 올리고, 물가 상승이 다시 임금 인상 요구를 촉발하는 상호 강화(feedback) 루프. 1960년대 후반 미국처럼 임금–물가 연동과 기대인플레이션이 맞물리면 헤드라인 물가는 낮아도 기저 압력이 누적될 수 있음"
+    description: 명목임금 인상이 생산비용·물가를 올리고, 물가 상승이 다시 임금 인상 요구를 촉발하는 상호 강화(feedback) 루프. 1960년대 후반 미국처럼 임금–물가 연동과 기대인플레이션이 맞물리면 헤드라인 물가는 낮아도 기저 압력이 누적될 수 있음
     category: 거시경제
     stockMarketImportance: 5
-
   - id: unit-labor-cost
     name: 단위 노동 비용 (Unit Labor Cost)
-    description: "한 단위 산출을 만드는 데 드는 노동 비용으로, 명목임금 상승률에서 노동 생산성 상승률을 뺀 값(추세·단위 노동 비용)과 밀접. 임금이 생산성을 지속적으로 웃돌면 기업이 가격에 전가하기 쉬워 광범위한 인플레이션 압력으로 이어질 수 있음"
+    description: 한 단위 산출을 만드는 데 드는 노동 비용으로, 명목임금 상승률에서 노동 생산성 상승률을 뺀 값(추세·단위 노동 비용)과 밀접. 임금이 생산성을 지속적으로 웃돌면 기업이 가격에 전가하기 쉬워 광범위한 인플레이션 압력으로 이어질 수 있음
     category: 거시경제
+    stockMarketImportance: 5
+  - id: demand-pull-inflation
+    name: 수요견인 인플레이션 (Demand-Pull Inflation)
+    description: 총수요가 경제의 공급 능력을 웃돌아 물가가 오르는 유형으로, 재정 부양·저금리·소비·투자 확대 등 수요 측 압력이 핵심 원인
+    category: 거시경제
+    stockMarketImportance: 7
+  - id: cost-push-inflation
+    name: 비용상승 인플레이션 (Cost-Push Inflation)
+    description: 유가·임금·환율·공급망 차질 등 생산비용 상승이 기업의 가격 전가로 이어져 물가가 오르는 유형으로, 공급 충격·임금-물가 스파이럴과 맞물릴 수 있음
+    category: 거시경제
+    stockMarketImportance: 7
+  - id: demand-shock
+    name: 수요 충격 (Demand Shock)
+    description: 소비·투자·정부지출 등 총수요를 갑자기 확대·위축시키는 충격으로, 팬데믹 봉쇄·대규모 부양·금융 위기 등이 대표적
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: earnings
+    name: 기업 이익 (Earnings)
+    description: 기업이 일정 기간 벌어들인 순이익으로 주식 투자자가 실제로 받는 현금흐름의 근원이며, EPS·PER·밸류에이션과 주가의 핵심 연결고리
+    category: 금융
+    stockMarketImportance: 8
+  - id: bull-market
+    name: 강세장 (Bull Market)
+    description: 주가·자산가격이 장기간 상승 추세에 있는 시장 국면으로, 위험 선호와 유동성 확대와 함께 나타나는 경우가 많음
+    category: 금융
+    stockMarketImportance: 6
+  - id: bear-market
+    name: 약세장 (Bear Market)
+    description: 주가·자산가격이 장기간 하락 추세에 있는 시장 국면으로, 긴축·침체·신용 경색과 맞물릴 수 있음
+    category: 금융
+    stockMarketImportance: 6
+  - id: hawkish
+    name: 매파 (Hawkish)
+    description: 중앙은행이 물가·인플레이션 억제를 우선해 금리 인상·긴축을 선호하는 정책 기조
+    category: 통화정책
+    stockMarketImportance: 6
+  - id: dovish
+    name: 비둘기파 (Dovish)
+    description: 중앙은행이 성장·고용을 우선해 금리 인하·완화를 선호하는 정책 기조
+    category: 통화정책
+    stockMarketImportance: 6
+  - id: soft-landing
+    name: 연착륙 (Soft Landing)
+    description: 긴축·금리 인상 뒤에도 실업 급증 없이 인플레이션만 잡히는 이상적 경기 착륙 시나리오
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: hard-landing
+    name: 경착륙 (Hard Landing)
+    description: 긴축·금리 인상이 침체·실업 급증으로 이어지는 경기 착륙 시나리오
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: core-cpi
+    name: Core CPI (Core Consumer Price Index)
+    description: 식품·에너지를 제외한 소비자물가지수로 단기 변동성을 줄여 근원 물가 추세를 파악하는 데 쓰임
+    category: 거시경제
+    stockMarketImportance: 7
+  - id: ppi
+    name: 생산자물가지수 (PPI)
+    description: 생산 단계에서의 가격 변동을 측정하는 지표로, 기업 비용 압력과 향후 소비자물가(CPI) 선행 신호로 주목됨
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: vix
+    name: VIX (Volatility Index)
+    description: S&P 500 옵션 가격에서 산출한 변동성 지수로 시장 공포·불안을 실시간으로 반영하는 대표 지표
+    category: 금융
+    stockMarketImportance: 7
+  - id: volatility
+    name: 변동성 (Volatility)
+    description: 자산 가격이 얼마나 크게·자주 움직이는지를 나타내는 척도로, 리스크 프리미엄·포지션 조정·옵션 가격에 영향
+    category: 금융
+    stockMarketImportance: 6
+  - id: breakeven-inflation
+    name: 손익분기 인플레이션 (Breakeven Inflation)
+    description: 명목국채와 물가연동채(TIPS) 수익률 차이로 시장이 기대하는 인플레이션을 추정하는 지표
+    category: 채권
+    stockMarketImportance: 6
+  - id: tips
+    name: 물가연동국채 (TIPS)
+    description: 원금·이자가 CPI에 연동되는 미국 국채로 실질 수익률과 기대인플레이션 추정의 기준 자산
+    category: 채권
     stockMarketImportance: 5
