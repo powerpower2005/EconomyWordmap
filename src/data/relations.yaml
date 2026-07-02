@@ -7925,3 +7925,60 @@ relations:
     description: "국민계정(SNA) 틀에서 명목·실질 GDP와 GDP 디플레이터가 함께 추계됨"
     strength: strong
     nature: hierarchical
+
+  - id: r1006
+    term1Id: economic-shock
+    term2Id: business-cycle
+    type: correlation
+    description: "예기치 못한 경제 충격이 성장 추세를 벗어나게 하며 경기순환의 전환(정점·저점)을 촉발"
+    strength: strong
+    nature: causal
+
+  - id: r1007
+    term1Id: economic-shock
+    term2Id: recession
+    type: correlation
+    description: "금융·대외·에너지·통화긴축 등 음(-)의 경제 충격이 침체·수축 국면으로 이어질 수 있음"
+    strength: strong
+    nature: causal
+
+  - id: r1008
+    term1Id: recession
+    term2Id: investment
+    type: inverse
+    description: "침체기에는 기업 설비·CapEx 투자가 위축되며, 전형적 침체에서 투자(I) 감소가 먼저 나타나는 경우가 많음"
+    strength: strong
+    nature: causal
+
+  - id: r1009
+    term1Id: credit-crunch
+    term2Id: recession
+    type: correlation
+    description: "금융시장 교란·신용 경색이 기업·가계 자금을 옥죄어 침체로 이어질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r1010
+    term1Id: supply-shock
+    term2Id: recession
+    type: correlation
+    description: "유가 급등 등 공급 충격이 생산·고용을 위축시켜 침체 국면으로 이어질 수 있음"
+    strength: medium
+    nature: causal
+
+  - id: r1011
+    term1Id: policy-rate
+    term2Id: recession
+    type: correlation
+    description: "인플레 억제를 위한 기준금리 급격·지속 인상이 수요·투자를 눌러 침체로 이어질 수 있음"
+    strength: medium
+    nature: causal
+    conditions: "긴축이 수요·신용에 실질 제약을 가할 때"
+
+  - id: r1012
+    term1Id: investment
+    term2Id: real-gdp
+    type: correlation
+    description: "민간투자(I)는 실질 GDP 구성요소 중 변동성이 크고 경기·침체 국면에서 실질 GDP 흐름을 선행·증폭하는 경우가 많음"
+    strength: strong
+    nature: causal
