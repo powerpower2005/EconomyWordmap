@@ -7265,3 +7265,53 @@ relations:
     description: 리스크오프 국면은 약세장·조정과 맞물림
     strength: medium
     nature: correlational
+  - id: r1053
+    term1Id: lender-of-last-resort
+    term2Id: bank-run
+    type: inverse
+    description: 최종 대부자의 유동성 공급이 연쇄 인출·시스템 붕괴를 완화
+    strength: strong
+    nature: policy
+  - id: r1054
+    term1Id: deposit-insurance
+    term2Id: bank-run
+    type: inverse
+    description: 예금보험이 예금자 불안을 낮춰 연쇄 인출을 억제
+    strength: medium
+    nature: policy
+  - id: r1055
+    term1Id: deposit-insurance
+    term2Id: lender-of-last-resort
+    type: correlation
+    description: 예금 보호와 중앙은행 유동성 공급이 함께 금융 안정 장치를 이룸
+    strength: medium
+    nature: policy
+  - id: r1056
+    term1Id: base-money
+    term2Id: deposit
+    type: correlation
+    description: 본원통화(현금·지급준비금)는 중앙은행 지급보증, 예금은 시중은행 지급보증인 신용화폐
+    strength: strong
+    nature: hierarchical
+  - id: r1057
+    term1Id: loan
+    term2Id: credit-creation
+    type: proportional
+    description: 대출 실행과 동시에 신용창출이 일어남
+    strength: strong
+    nature: causal
+  - id: r1058
+    term1Id: capital-adequacy-ratio
+    term2Id: bank-run
+    type: inverse
+    description: 대출 부실로 자기자본이 잠식되면 예금자 불안과 연쇄 인출 위험이 커짐
+    strength: medium
+    nature: causal
+    conditions: 대규모 대출 손실이 자기자본을 소진할 때
+  - id: r1059
+    term1Id: net-interest-margin
+    term2Id: credit-creation
+    type: proportional
+    description: 예대마진은 대출 규모를 키울수록 은행 수익이 커져 신용창출 확대 유인을 줌
+    strength: medium
+    nature: causal

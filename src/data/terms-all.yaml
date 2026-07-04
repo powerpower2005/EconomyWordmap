@@ -151,12 +151,12 @@ terms:
     stockMarketImportance: 2
   - id: bank
     name: 은행 (Bank)
-    description: 예금 수취와 대출을 통해 자금을 중개하고 신용을 창출하는 금융기관
+    description: 잉여 저축(공급)과 자금 수요를 연결하는 금융 중개기관으로, 예금 수취와 대출을 통해 신용을 창출함
     category: 금융
     stockMarketImportance: 6
   - id: credit-creation
     name: 신용창조 (Credit Creation)
-    description: "중앙은행이 공급한 본원통화가 은행·기업·가계 거래를 거치며 예금(신용화폐)과 대출이 연쇄적으로 늘어나는 과정. 예: 1억원 예금→1억원 대출→수입이 다시 예금화되면 예금·대출 총액이 본원보다 커질 수 있음. 교과서식으로는 지급준비율만큼 남기고 나머지를 대출→예금→재대출하는 예금 승수(M≈C/r)로 설명하고, 현대 은행론에서는 대출 실행과 동시에 예금이 창출되는 회계 구조(대출=예금의 양면)를 강조함. 지급준비율·자본규제·대출수요에 따라 속도와 규모가 달라지며, 그림자금융은 은행 규제 밖에서 같은 기능을 할 수 있음"
+    description: "중앙은행이 공급한 본원통화가 은행·기업·가계 거래를 거치며 예금(신용화폐)과 대출이 연쇄적으로 늘어나는 과정. 예: 1억원 예금→1억원 대출→수입이 다시 예금화되면 예금·대출 총액이 본원보다 커질 수 있음. 교과서식으로는 지급준비율만큼 남기고 나머지를 대출→예금→재대출하는 예금 승수(M≈C/r)로 설명하고, 현대 은행론에서는 대출 실행과 동시에 예금이 창출되는 회계 구조(대출=예금의 양면)를 강조함. 실물 현금이 늘지 않아도 디지털 장부상 예금·대출이 창출될 수 있으며, 중앙은행이 보증하는 현금과 달리 예금은 시중은행의 지급보증에 기반함. 지급준비율·자본규제·대출수요에 따라 속도와 규모가 달라지며, 그림자금융은 은행 규제 밖에서 같은 기능을 할 수 있음"
     category: 금융
     stockMarketImportance: 4
   - id: credit-destruction
@@ -2002,6 +2002,11 @@ terms:
   - id: too-big-to-fail
     name: 대마불사 (Too Big to Fail)
     description: 규모가 너무 커서 망하게 두면 시스템 전체가 위태로워 결국 구제받는다는 기대로 도덕적 해이의 핵심 원인
+    category: 금융
+    stockMarketImportance: 5
+  - id: deposit-insurance
+    name: 예금보험 (Deposit Insurance)
+    description: 은행 부실 시 예금자 손실을 공적 기금으로 일정 한도까지 보장하는 제도로, 연쇄 인출(뱅크런)을 억제하는 금융 안정 장치. 미국 FDIC·한국 예금보험공사 등
     category: 금융
     stockMarketImportance: 5
   - id: basel-accords

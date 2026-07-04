@@ -1655,6 +1655,8 @@ propositions:
       - bank-run
       - systemic-risk
       - liquidity
+      - deposit-insurance
+      - lender-of-last-resort
     premise: 한 은행의 예금 인출 사태가 다른 은행에 대한 불신으로 번지면 연쇄 인출과 유동성 고갈로 시스템 전체가 흔들린다는 논리에 근거한다.
     holds:
       - label: 불안이 전염되는 국면

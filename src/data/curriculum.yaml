@@ -462,6 +462,8 @@ curriculum:
           termIds:
             - liquidity-trap
             - bank-run
+            - deposit-insurance
+            - lender-of-last-resort
             - too-big-to-fail
             - moral-hazard
             - systemic-risk
