@@ -44,6 +44,11 @@ terms:
     description: "연말 시점 국민경제·부문별 자산·부채·순자산(순재산)을 기록하는 SNA 5대 통계. 국부(national wealth)는 비금융자산과 순대외금융자산의 합. 생산자산(고정자본·재고 등)은 영구재고법(PIM)으로 투자·감가상각(고정자본소모) 플로에서 추계되며, 토지·지하자원 등 비생산자산은 별도 평가. 생산자본스톡·자본서비스는 잠재 GDP·노동 생산성 추정의 토대. fed-balance-sheet(연준 대차)와 목적·범위가 다름"
     category: 거시경제
     stockMarketImportance: 5
+  - id: flow-of-funds
+    name: 자금순환표 (Flow of Funds)
+    description: "SNA **금융계정** — 부문별(가계·기업·정부·금융·국외) 금융자산·부채의 **조달·운용**(flow)과 **잔액**(stock). △저축−△투자=△금융자산−△부채로 **실물(자본계정)** 과 금융거래를 연결. **경상수지**·국외부문, 가계부채 안정성·from-whom-to-whom 연계성 분석에 활용"
+    category: 거시경제
+    stockMarketImportance: 6
   - id: beyond-gdp
     name: Beyond GDP (GDP를 넘어)
     description: GDP만으로 국가 번영·후생·지속가능성을 평가하기 어렵다는 문제의식에서 출발한 대안 지표·측정 논의(EU·OECD·Stiglitz 위원회 등)로, 분배·환경·돌봄·행복 등 비시장 가치의 포괄적 반영을 지향
@@ -246,9 +251,9 @@ terms:
     stockMarketImportance: 6
   - id: household-debt
     name: 가계부채 (Household Debt)
-    description: 가계가 금융기관 등으로부터 빌린 부채로 소비 여력과 금융안정에 영향을 미치며 금리 상승 시 소비 위축과 금융불안 요인으로 작용할 수 있고 인플레이션에 의해 실질 부담이 경감될 수 있음
+    description: "가계·비영리단체의 금융부채(대출·상거래신용 등). **자금순환표**에서는 금융부채/금융자산, DSR, GDP 대비 부채 등과 함께 상환능력을 본다 — 한은 「가계신용」(가계 대출·판매신용)과 범위·주체가 다름. 금리↑ 시 소비 위축·금융불안 요인"
     category: 거시경제
-    stockMarketImportance: 5
+    stockMarketImportance: 6
   - id: natural-gas
     name: 천연가스 (Natural Gas)
     description: 주요 에너지원으로 발전·난방·산업 연료에 광범위하게 사용되며 가격 변동이 에너지 비용과 인플레이션에 영향. 미국은 생산 확대로 에너지 순수출국이 되었고, 저렴한 가스는 제조업 원가·전력 공급에 기여할 수 있으나 자본집약·자동화로 고용 창출력은 제한적일 수 있음

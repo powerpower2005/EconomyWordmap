@@ -7649,3 +7649,59 @@ relations:
     description: 영업마진이 약하고 부채비율이 높으면 이자보상·레버리지 리스크가 동시에 커짐
     strength: medium
     nature: correlational
+  - id: r1107
+    term1Id: flow-of-funds
+    term2Id: national-accounts
+    type: correlation
+    description: 자금순환표는 SNA 5대 통계 중 금융계정 — 국민소득·자본계정과 함께 실물·금융을 연결
+    strength: strong
+    nature: definitional
+  - id: r1108
+    term1Id: flow-of-funds
+    term2Id: savings
+    type: correlation
+    description: 부문별 저축−투자 차액이 금융계정의 순조달·운용으로 이어지는 FoF 핵심 항등
+    strength: strong
+    nature: definitional
+  - id: r1109
+    term1Id: flow-of-funds
+    term2Id: investment
+    type: correlation
+    description: 실물 투자(I)와 금융 조달·운용은 자본계정·금융계정에서 짝으로 기록
+    strength: strong
+    nature: definitional
+  - id: r1110
+    term1Id: flow-of-funds
+    term2Id: current-account
+    type: correlation
+    description: 국외부문 순자금조달·운용은 경상수지(대외균형)와 FoF 부호로 연결
+    strength: strong
+    nature: definitional
+  - id: r1111
+    term1Id: flow-of-funds
+    term2Id: credit-creation
+    type: correlation
+    description: 가계·기업의 대출·증권 발행 등 조달 경로가 금융거래표 행·열에 기록
+    strength: strong
+    nature: causal
+  - id: r1112
+    term1Id: flow-of-funds
+    term2Id: national-balance-sheet
+    type: correlation
+    description: 금융자산부채잔액표에 실물자산을 더하면 국민대차대조표 — FoF 스톡 측면
+    strength: strong
+    nature: definitional
+  - id: r1113
+    term1Id: flow-of-funds
+    term2Id: financial-accelerator
+    type: correlation
+    description: 실물 투자·담보 가격과 금융 조달·운용이 FoF에서 부문별로 추적 가능
+    strength: medium
+    nature: causal
+  - id: r1114
+    term1Id: flow-of-funds
+    term2Id: household-debt
+    type: correlation
+    description: GFC 이후 가계 금융부채/자산·DSR 등 FoF 기반 안정성 지표가 정책·시장 모니터링에 활용
+    strength: strong
+    nature: correlational

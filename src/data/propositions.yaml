@@ -4399,3 +4399,54 @@ propositions:
       - label: 순부채·현금 보유
         detail: 현금·단기투자가 많으면 총부채비율만으로 위험을 과대평가할 수 있다.
     verdict: 이자보상·현금흐름·금리 국면 조건에서만 판단 가능한 조건부 명제다.
+  - id: p209
+    statement: 가계는 항상 다른 부문에 순자금을 공급한다
+    category: 거시경제
+    termIds:
+      - flow-of-funds
+      - savings
+      - investment
+      - consumption
+      - household-debt
+      - credit-creation
+    relationIds:
+      - r1108
+      - r1109
+      - r1111
+      - r1114
+    premise: 통상 가계는 소득−소비(저축)가 실물투자를 초과해 금융자산·예금으로 여유자금을 공급한다는 FoF 정형(7.2)에 근거한다.
+    holds:
+      - label: 저축>투자·순예금 축적
+        detail: 소비·주택투자가 완만하고 저축이 투자를 초과하면 가계는 순자금 공급자로 FoF에 기록된다.
+      - label: 금융자산 매입·예금
+        detail: 여유자금이 예금·유가증권 등 금융운용으로 흘러가면 기업·금융부문 조달원이 된다.
+    fails:
+      - label: 소비·주택투자 급증
+        detail: 소비·신규 분양 등으로 저축<투자면 가계는 대출 등으로 **순조달** 전환(2021 가계 193조 차입).
+      - label: 금융자산 매각·레버리지
+        detail: 보유 금융상품 매각·대출 확대로 조달>운용이면 공급자 가정이 깨진다.
+    verdict: 평균적 패턴이지 항상 성립하지 않는 조건부 명제다.
+  - id: p210
+    statement: 경상수지 흑자이면 국외부문이 국내에 순자금을 공급한다
+    category: 국제경제
+    termIds:
+      - flow-of-funds
+      - current-account
+      - trade-surplus
+      - trade-deficit
+      - exchange-rate
+      - savings
+    relationIds:
+      - r1110
+      - r474
+      - r775
+    premise: 대외 흑자=외화 유입=통화·자금 공급이라는 직관에 근거한다. FoF 국외부문 부호는 경상수지와 반대 방향으로 기록된다(7.3).
+    holds:
+      - label: 통화공급·외화 유입
+        detail: 수출·관광 등으로 외화가 들어와 환전되면 **통화량**은 늘 수 있다(8.5.1.3).
+    fails:
+      - label: FoF 국외부문 부호
+        detail: 경상수지 **흑자**면 국외부문 순자금조달·운용은 **마이너스** — 국내가 국외에 자금을 공급한 결과로 해석.
+      - label: 자본수지·금융거래
+        detail: 경상수지만으로 FoF 국외부문을 단정하면 자본·금융계정 흐름을 놓칠 수 있다.
+    verdict: 통화공급 경로와 FoF 부문 부호를 구분해야 하는 조건부 명제다.
