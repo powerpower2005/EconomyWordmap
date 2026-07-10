@@ -131,6 +131,12 @@ curriculum:
 
             ---
 
+            **Alice:** 기준금리랑 내 대출금리랑 바로 연결돼?
+
+            **Bob:** 한국은 **policy-rate**→**call-rate**→CD·국채로 **금리경로**가 이어져. 가계 **변동금리**는 **COFIX** 같은 준거+가산금리라 즉시·동일하게 안 내려갈 수 있어.
+
+            ---
+
             *2022~2023년, 금리 인상 국면*
 
             **Bob:** 물가가 높게 나오자 연준은 **공격적으로 기준금리를 인상**했어. 시장은 「금리 ↑ → 미래 현금흐름 할인율 ↑ → 성장주 밸류에이션 ↓」 식으로 주식을 재가격했고, 동시에 **채권 가격은 하락**(금리와 역관계)했지.
@@ -149,7 +155,7 @@ curriculum:
 
             **Bob:** **물가 신호에 반응해 금리**를 움직여. 「왜 올렸/내렸는가(배경)」가 방향만큼 중요해.
           bodyProse: |
-            연준(Fed)은 **물가 안정(약 2% 인플레)** 을 최우선 목표 중 하나로 삼는다. 물가가 목표를 넘으면 **기준금리(policy rate)를 올려** 차입·투자·소비를 식히려 한다 — 전달은 즉각적이지 않다.
+            연준(Fed)은 **물가 안정(약 2% 인플레)** 을 최우선 목표 중 하나로 삼는다. **policy-rate**→**call-rate**→장기금리 **금리경로**로 전달되며, **COFIX**·**variable-rate**·**fixed-rate** 대출은 준거·가산·약정에 따라 속도가 다르다.
 
             2022~2023년 물가가 높게 나오자 연준은 **공격적으로 기준금리를 인상**했다. 시장은 「금리 ↑ → 미래 현금흐름 할인율 ↑ → 성장주 밸류에이션 ↓」 식으로 주식을 재가격했고, 동시에 **채권 가격은 하락**(금리와 역관계)했다. 「침체 우려 때문에 내리는 금리」는 오히려 주식에 악재일 수 있다 — **배경**이 중요하다.
 
@@ -160,15 +166,22 @@ curriculum:
             - federal-reserve
             - central-bank
             - policy-rate
+            - call-rate
             - interest-rate
+            - long-term-interest-rate
+            - cofix
+            - variable-rate
+            - fixed-rate
             - inflation-targeting
             - government-bond
             - bond-market
+            - open-market-operations
           propositionIds:
             - p1
             - p59
             - p58
             - p82
+            - p213
 
         - id: part-korea-investor
           title: "4. 한국 투자자 — Fed 뉴스가 원·코스피까지"

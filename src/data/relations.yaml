@@ -7754,3 +7754,66 @@ relations:
     description: 통화량·유동성 지표는 M1/M2/Lf/L 포괄범위로 계층화되어 공표
     strength: strong
     nature: hierarchical
+  - id: r1122
+    term1Id: policy-rate
+    term2Id: call-rate
+    type: correlation
+    description: 기준금리(7일물 RP) 조정이 무담보 익일물 콜금리·단기시장금리와 스프레드를 유지하며 연동
+    strength: strong
+    nature: policy
+  - id: r1123
+    term1Id: call-rate
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: 정책금리→콜·CD→장기국채 **금리경로** — 재정거래로 장단기 금리가 동행(9.3.3)
+    strength: strong
+    nature: causal
+  - id: r1124
+    term1Id: policy-rate
+    term2Id: consumption
+    type: inverse
+    description: 기준금리↑→차입·예금금리↑→가계 소비·주택대출 부담↑(9.2)
+    strength: medium
+    nature: causal
+  - id: r1125
+    term1Id: policy-rate
+    term2Id: investment
+    type: inverse
+    description: 기준금리↑→기업 조달비용↑→투자 위축(9.2)
+    strength: medium
+    nature: causal
+  - id: r1126
+    term1Id: term-premium
+    term2Id: term-spread
+    type: correlation
+    description: 기간프리미엄·단기금리 기대가 장단기금리차·yield-curve 기울기를 결정
+    strength: strong
+    nature: causal
+  - id: r1127
+    term1Id: term-premium
+    term2Id: long-term-interest-rate
+    type: proportional
+    description: 장기금리에는 단기 기대+기간프리미엄+기대인플레이션이 반영(9.4.1.3)
+    strength: strong
+    nature: causal
+  - id: r1128
+    term1Id: cofix
+    term2Id: variable-rate
+    type: correlation
+    description: COFIX 연동 **변동금리** 가계·기업 대출의 준거금리(9.4.2)
+    strength: strong
+    nature: definitional
+  - id: r1129
+    term1Id: call-rate
+    term2Id: market-interest-rate
+    type: correlation
+    description: 콜금리는 단기금융시장·CD·CP 등 **market-interest-rate** 벤치마크의 축
+    strength: strong
+    nature: hierarchical
+  - id: r1130
+    term1Id: open-market-operations
+    term2Id: call-rate
+    type: correlation
+    description: 공개시장운영(채권 매매)이 단기시장금리·콜금리 수준을 간접 조절(9.3.2)
+    strength: strong
+    nature: policy

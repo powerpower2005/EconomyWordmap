@@ -16,9 +16,24 @@ terms:
     stockMarketImportance: 10
   - id: policy-rate
     name: 기준금리 (Policy Rate)
-    description: 중앙은행이 통화정책을 위해 설정하는 대표 금리로 단기금리 운용의 기준이 되며 공개시장조작·지급준비금 제도와 결합되어 통화정책 신호를 전달하는 핵심 도구로 corridor system 또는 floor system 등 운영체계에 따라 작동
+    description: "중앙은행이 통화정책을 위해 설정하는 대표 금리. 한국 1999~2008.2 **콜금리** 목표 → 2008.3~ **7일물 RP 기준금리**(금통위 연 8회). **open-market-operations**·여수신제도와 결합해 **call-rate**·시장금리·대고객금리로 전달"
     category: 통화정책
     stockMarketImportance: 10
+  - id: call-rate
+    name: 콜금리 (Call Rate)
+    description: "금융기관 간 초단기(익일물) 자금 거래 금리 — 무담보 중개거래 가중평균. 2008.3 이전 한국 **policy-rate** 운용 목표, 현재도 단기·CD·국채로 이어지는 **금리경로** 1차 벤치마크"
+    category: 금리
+    stockMarketImportance: 8
+  - id: cofix
+    name: COFIX (Cost of Funds Index)
+    description: "전국은행연합회 산출 **자금조달비용지수** — 8개 은행 조달금리 가중평균(신규·잔액·단기·신잔액). 2010~ 가계대출 **준거금리**로 CD 연동 대체 — **variable-rate**·수신금리 연동 대출의 기준"
+    category: 금리
+    stockMarketImportance: 6
+  - id: term-premium
+    name: 기간프리미엄 (Term Premium)
+    description: "장기금리=단기금리 기대+**기간프리미엄**+기대인플레이션. 장기 보유의 금리변동·인플레 리스크 보상 — **term-spread**·**yield-curve** 기울기 해석의 핵심"
+    category: 금리
+    stockMarketImportance: 7
   - id: real-interest-rate
     name: 실질금리 (Real Interest Rate)
     description: 명목금리에서 기대인플레이션을 차감한 금리로 실제 차입 비용을 반영
@@ -1666,9 +1681,9 @@ terms:
     stockMarketImportance: 3
   - id: term-spread
     name: 장단기금리차 (Term Spread)
-    description: 장기금리와 단기금리의 차이로 이 폭이 줄거나 역전되면 경기 둔화·침체 신호로 해석됨
+    description: "장기금리−단기금리. 축소·**역전**은 침체 선행 신호로 자주 쓰이나, **선제적 긴축**(단기↑>장기)이나 **term-premium**·QE 왜곡 시 역전만으로 침체 단정은 위험"
     category: 금리
-    stockMarketImportance: 6
+    stockMarketImportance: 7
   - id: otc-market
     name: 장외시장 (OTC Market)
     description: 거래소 밖에서 당사자 간 협상으로 증권을 거래하는 시장으로 비상장주·채권·파생상품이 거래됨

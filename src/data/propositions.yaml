@@ -4509,3 +4509,33 @@ propositions:
       - label: 긴축·정책 신뢰
         detail: M2 둔화 전에 **inflation-targeting**·긴축으로 기대가 먼저 잡히면 즉시 재가속하지 않을 수 있다.
     verdict: 속도·수요·정책 조건에서만 성립하는 조건부 명제다.
+  - id: p213
+    statement: 기준금리를 내리면 모든 대출금리가 즉시 내린다
+    category: 통화정책
+    termIds:
+      - policy-rate
+      - call-rate
+      - interest-rate
+      - variable-rate
+      - fixed-rate
+      - cofix
+      - credit-spread
+    relationIds:
+      - r1122
+      - r1123
+      - r1128
+      - r122
+    premise: policy-rate 하락이 시장·대출금리에 1:1·즉시 전달된다는 직관에 근거한다. 실제로는 준거금리(COFIX·CD)·가산금리·고정금리·재계약 시차가 있다(9.4.2).
+    holds:
+      - label: 변동금리·COFIX 연동
+        detail: COFIX·시장금리부 variable-rate 대출은 준거금리 하락 시 상대적으로 빠르게 따라갈 수 있다.
+      - label: 단기·콜·CD 전달
+        detail: policy-rate→call-rate→단기시장금리는 비교적 빠르게 연동될 수 있다.
+    fails:
+      - label: 고정금리·잔존 약정
+        detail: fixed-rate·장기 고정 구간은 만기·재약정 전까지 대출금리가 그대로일 수 있다.
+      - label: 가산금리·은행 마진
+        detail: 준거금리↓와 별도로 가산금리·신용프리미엄이 올라 체감 금리가 안 내려갈 수 있다.
+      - label: 전달 시차·장기금리
+        detail: 장기국채·term-premium은 정책금리와 다른 속도·방향으로 움직일 수 있다.
+    verdict: 변동·준거·가산·고정 조건에서만 부분 성립하는 조건부 명제다.
