@@ -8022,3 +8022,80 @@ relations:
     description: 증권투자 역전·급격한 외국인 매도는 단기 자본 유출·환율 충격 채널(13.2.3)
     strength: strong
     nature: causal
+  - id: r1160
+    term1Id: international-investment-position
+    term2Id: bop-financial-account
+    type: correlation
+    description: IIP 증감의 거래요인 = BoP 금융계정(flow↔stock, 14.3)
+    strength: strong
+    nature: definitional
+  - id: r1161
+    term1Id: international-investment-position
+    term2Id: balance-of-payments
+    type: correlation
+    description: IIP·BoP = 국외계정 저량·유량 한 쌍(14.3·그림14-5)
+    strength: strong
+    nature: hierarchical
+  - id: r1162
+    term1Id: net-foreign-assets
+    term2Id: international-investment-position
+    type: correlation
+    description: 순대외금융자산 = IIP 대외금융자산−대외금융부채(14.1.1)
+    strength: strong
+    nature: definitional
+  - id: r1163
+    term1Id: net-foreign-assets
+    term2Id: current-account
+    type: correlation
+    description: 경상수지 흑자 누적과 순IIP 장기 연관·단기 평가 괴리(14.1.3)
+    strength: medium
+    nature: causal
+  - id: r1164
+    term1Id: international-investment-position
+    term2Id: flow-of-funds
+    type: correlation
+    description: IIP = FoF 국외부문 금융잔액(통화·부호 표기만 다름, 14.3)
+    strength: strong
+    nature: definitional
+  - id: r1165
+    term1Id: international-investment-position
+    term2Id: national-balance-sheet
+    type: correlation
+    description: 국민순자산 = 비금융자산 + IIP 순대외금융자산(14.3)
+    strength: strong
+    nature: hierarchical
+  - id: r1166
+    term1Id: international-investment-position
+    term2Id: foreign-reserves
+    type: correlation
+    description: 외환보유액 = IIP 대외금융자산 중 준비자산(14.1.2)
+    strength: strong
+    nature: hierarchical
+  - id: r1167
+    term1Id: international-investment-position
+    term2Id: portfolio-investment
+    type: correlation
+    description: 증권투자 = IIP 최대 비중·가격·환율 민감(14.1.3)
+    strength: medium
+    nature: causal
+  - id: r1168
+    term1Id: external-debt
+    term2Id: international-investment-position
+    type: correlation
+    description: 대외채무 = IIP 부채 중 확정 채무(지분·파생 제외, 14.5)
+    strength: strong
+    nature: hierarchical
+  - id: r1169
+    term1Id: net-foreign-assets
+    term2Id: exchange-rate
+    type: correlation
+    description: 환율변동 → 달러 환산 IIP·외채 부담(14.2③⑩)
+    strength: medium
+    nature: causal
+  - id: r1170
+    term1Id: net-foreign-assets
+    term2Id: stock-market
+    type: correlation
+    description: 외국인 보유 국내 주식 평가액 변동 → 대외금융부채·순IIP(14.1.3)
+    strength: medium
+    nature: causal

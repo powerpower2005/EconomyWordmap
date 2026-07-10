@@ -56,7 +56,7 @@ terms:
     stockMarketImportance: 5
   - id: national-balance-sheet
     name: 국민대차대조표 (National Balance Sheet)
-    description: "연말 시점 국민경제·부문별 자산·부채·순자산(순재산)을 기록하는 SNA 5대 통계. 국부(national wealth)는 비금융자산과 순대외금융자산의 합. 생산자산(고정자본·재고 등)은 영구재고법(PIM)으로 투자·감가상각(고정자본소모) 플로에서 추계되며, 토지·지하자원 등 비생산자산은 별도 평가. 생산자본스톡·자본서비스는 잠재 GDP·노동 생산성 추정의 토대. fed-balance-sheet(연준 대차)와 목적·범위가 다름"
+    description: "연말 시점 국민경제·부문별 자산·부채·순자산(순재산)을 기록하는 SNA 5대 통계. **국민순자산(국부)** = 비금융자산 + **순대외금융자산**(IIP Net, 14.3). 생산자산(고정자본·재고 등)은 영구재고법(PIM)으로 투자·감가상각(고정자본소모) 플로에서 추계되며, 토지·지하자원 등 비생산자산은 별도 평가. fed-balance-sheet(연준 대차)와 목적·범위가 다름"
     category: 거시경제
     stockMarketImportance: 5
   - id: flow-of-funds
@@ -124,6 +124,11 @@ terms:
     description: 한 국가 통화를 다른 국가 통화로 교환할 때 적용되는 비율
     category: 국제경제
     stockMarketImportance: 8
+  - id: external-debt
+    name: 대외채무 (External Debt)
+    description: "일정 시점 거주자가 비거주자에 대해 부담하는 **확정** 금융부채(외채). IIP 대외금융부채에서 지분·파생을 제외한 채무성 잔액과 대응(14.5). 국채·국가부채와 구분 — 원화 표시 국내채도 비거주자 보유분은 대외부채"
+    category: 국제경제
+    stockMarketImportance: 6
   - id: money-supply
     name: 통화량 (Money Supply)
     description: "경제 내 유통·보유 화폐·유동성의 총량. 한국은행 ECOS는 **M1**(협의)·**M2**(광의)·**Lf**·**L**(광의유동성) 계층으로 공표 — 포괄범위가 넓을수록 가치저장·장기 금융상품 포함"
@@ -1429,6 +1434,16 @@ terms:
     description: "국제수지 **금융계정**의 증권투자 — FDI(10%↑ 의결권)를 제외한 주식·채권 등 포트폴리오 자본의 순유입·유출. 변동성이 커 위기 시 **자본 유출**·환율 급변의 단기 채널이 될 수 있음"
     category: 국제경제
     stockMarketImportance: 6
+  - id: international-investment-position
+    name: 국제투자대조표 (International Investment Position, IIP)
+    description: "특정 시점 거주자의 **대외금융자산·대외금융부채** 잔액을 시장가·달러 환산으로 기록한 **저량(stock)** 표(14장). 증감 = BoP **금융계정** 거래 + 가격·환율·기타조정. FoF 국외부문·국민대차 국부와 연결"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: net-foreign-assets
+    name: 순대외금융자산 (Net Foreign Assets)
+    description: "IIP에서 대외금융자산−대외금융부채(Net IIP). 플러스면 순채권국, 마이너스면 순부채국. 경상수지 흑자 누적과 장기 연관되나 주가·환율 **평가변동**으로 단기 괴리 가능(14.1.3)"
+    category: 국제경제
+    stockMarketImportance: 6
   - id: employment-rate
     name: 고용률 (Employment Rate)
     description: 15세 이상 생산가능인구 중 실제 취업자가 차지하는 비율로 구직 단념자의 영향을 받는 실업률을 보완해 고용 상황을 더 폭넓게 보여줌
@@ -1706,7 +1721,7 @@ terms:
     stockMarketImportance: 5
   - id: foreign-reserves
     name: 외환보유액 (Foreign Reserves)
-    description: 중앙은행·정부가 대외 지급과 환율 방어를 위해 보유한 외화·금 등 대외 지급준비 자산
+    description: "중앙은행·정부가 대외 지급·환율 방어를 위해 보유한 외화·금 등 **준비자산**. IIP **대외금융자산** 중 준비자산 항목 — BoP 금융계정의 준비자산 **거래**와 IIP **가격변동**을 구분(14.2)"
     category: 국제경제
     stockMarketImportance: 5
   - id: workout

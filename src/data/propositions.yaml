@@ -4727,3 +4727,61 @@ propositions:
       - label: 시점·통계 오차
         detail: 통관 시점 vs 소유권 이전(선박 등) 차이로 같은 달에도 부호가 다를 수 있음.
     verdict: 무역 헤드라인만으로 경상수지를 단정하면 안 되는 조건부 명제다.
+  - id: p222
+    statement: 경상수지 흑자가 누적되면 순대외금융자산도 반드시 증가한다
+    category: 국제경제
+    termIds:
+      - current-account
+      - net-foreign-assets
+      - international-investment-position
+      - bop-financial-account
+      - balance-of-payments
+      - portfolio-investment
+      - stock-market
+    relationIds:
+      - r1163
+      - r1160
+      - r1170
+    premise: 경상 흑자=대외자산 축적이라는 직관에 근거한다. p220 BoP 항등식과 달리 IIP는 **저량**이라 평가·환율 요인이 추가된다(14.1.3).
+    holds:
+      - label: 거래요인·장기 누적
+        detail: BoP 금융계정 순유출(해외투자)이 지속되고 평가 변동이 작으면 경상 흑자와 순IIP가 함께 개선(2012년 이후 한국).
+      - label: IIP 거래 = BoP 금융계정
+        detail: 비거래요인이 없으면 IIP 증감 거래분 = BoP 금융계정(14.3).
+    fails:
+      - label: 가격·환율 재평가
+        detail: 국내 주가·외국인 지분 평가↑, 원화↑ 등으로 대외부채 잔액이 늘어 순IIP가 경상 흑자와 어긋날 수 있음(1998~2012).
+      - label: 단기 변동
+        detail: 분기·연간 경상 흑자와 같은 기간 순IIP 변동은 1:1이 아님.
+      - label: 준비자산·자본수지
+        detail: 중앙은행 준비자산·자본이전·오차를 빼면 단정이 깨진다.
+    verdict: 장기 평균 연관은 있으나 평가·환율 앞에서는 즉시 성립하지 않는 조건부 명제다.
+  - id: p223
+    statement: 순대외금융자산이 마이너스이면 외환위기가 임박했다
+    category: 국제경제
+    termIds:
+      - net-foreign-assets
+      - international-investment-position
+      - external-debt
+      - foreign-reserves
+      - capital-flight
+      - reserve-currency
+      - current-account
+    relationIds:
+      - r1162
+      - r1168
+      - r1157
+    premise: 순부채국=대외 지급능력 부족=위기 임박이라는 단순 규칙(14.4·비기축통화국 narrative).
+    holds:
+      - label: 단기외채·유동성 부족
+        detail: 순IIP 마이너스에 단기 외채·외환보유 부족·경상적자·자본 유출이 겹치면 취약(1997 유형).
+      - label: 비기축통화국
+        detail: 기축통화 발행국이 아니면 대외 순부채가 환율·금리 압력을 키울 수 있다.
+    fails:
+      - label: 기축통화·순부채국
+        detail: 미국 등 순IIP 대규모 마이너스도 달러 수요·기축통화 지위로 지속(14.4).
+      - label: 외환보유·신용
+        detail: 준비자산·대외채무 구조·신용등급이 양호하면 순부채만으로 위기 단정 어려움.
+      - label: 평가·장기 FDI
+        detail: 해외자산 평가·FDI 수익이 크면 순IIP 부호와 실질 지급능력이 어긋날 수 있다.
+    verdict: 유동성·외채 구조·통화 지위를 함께 봐야 하는 조건부 명제다.
