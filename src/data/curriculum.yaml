@@ -1223,6 +1223,7 @@ curriculum:
             - ai-capex
             - inflation
             - supply-chain
+            - input-output-analysis
             - semiconductor
           propositionIds:
             - p168

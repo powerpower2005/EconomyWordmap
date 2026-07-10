@@ -31,7 +31,7 @@ terms:
     stockMarketImportance: 8
   - id: gdp
     name: GDP (Gross Domestic Product)
-    description: 한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재는 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다. 다국적 기업의 IP·이익 귀속(profit shifting)과 SPE·조세회피성 자본 유입은 국내 실물 생산·거주자 소득과 무관하게 GDP를 부풀릴 수 있다
+    description: 한 국가 국경 안에서 일정 기간(유량) 동안 시장을 위해 생산된 최종 재화·서비스의 시장 가치 총합. 생산접근법에서는 산업·부문별 부가가치(총산출−중간투입)를 합산하고, 산업연관표·공급사용표가 그 추계 틀을 제공한다. 판매가 아닌 생산 기준이라 재고도 포함하고 중간재 이중계상은 제외. 지출 측면에서는 GDP = C + I + G + NX(순수출)로 쪼갠다 — I에는 설비·재고 등 민간투자(Capex)가 들어가고 주식·채권 발행은 포함되지 않으며, G에는 이전지출(transfer)은 빠진다. 시장 거래 가격·산출(총량) 중심이라 소득 분배, 외부효과, 무급 가사·돌봄, 환경·미래세대 비용은 반영되지 않아 '성장=후생'을 곧바로 읽기 어렵다. 다국적 기업의 IP·이익 귀속(profit shifting)과 SPE·조세회피성 자본 유입은 국내 실물 생산·거주자 소득과 무관하게 GDP를 부풀릴 수 있다
     category: 거시경제
     stockMarketImportance: 9
   - id: national-accounts
@@ -621,9 +621,9 @@ terms:
     stockMarketImportance: 1
   - id: input-output-analysis
     name: 산업연관분석 (Input-Output Analysis)
-    description: 산업 간 투입과 산출의 상호의존 관계를 표로 분석하는 기법으로 레온티에프가 체계화했으며, 케네의 경제표를 현대적으로 발전시킨 거시·순환경제 분석 도구
-    category: 경제이론
-    stockMarketImportance: 2
+    description: 산업연관표·공급사용표·투입산출표로 산업 간 중간재·최종수요(C·I·G·수출) 흐름을 분석하는 SNA 도구. 투입계수는 부문별 비용·기술 구조를, 생산유발계수(Leontief 역행렬)는 최종수요 1단위가 연쇄 중간재 생산까지 키우는 총생산 파급을 보여 준다. 원자재·임금·환율 등 요소가격 변화의 부문별 생산물가·PPI 전가, 수출·공급망 충격의 산업 간 전파 분석에 쓰이며, 부문 부가가치 합산을 통한 GDP 생산접근 추계와도 연결된다
+    category: 거시경제
+    stockMarketImportance: 6
   - id: natural-law
     name: 자연법 (Natural Law)
     description: 인간 사회도 자연처럼 보편 법칙에 따라 움직인다고 보는 사상으로 중농주의 자유방임론의 철학적 기반이 됨
@@ -1471,9 +1471,9 @@ terms:
     stockMarketImportance: 4
   - id: value-added
     name: 부가가치 (Value Added)
-    description: 생산 과정에서 새로 더해진 가치로 산출액에서 중간투입물 비용을 뺀 것이며 GDP는 모든 생산단계의 부가가치 합으로 계산됨
+    description: 생산 과정에서 새로 더해진 가치로 총산출에서 중간투입(다른 부문에서 구매한 재화·서비스) 비용을 뺀 것. 산업연관표에서는 내생 부문(중간수요·중간투입)과 외생 부문(부가가치·최종수요)로 나뉘며, GDP는 모든 생산단계·부문의 부가가치 합(생산접근법)으로 계산된다
     category: 거시경제
-    stockMarketImportance: 3
+    stockMarketImportance: 4
   - id: cdo
     name: 부채담보부증권 (CDO)
     description: 여러 대출·채권을 묶어 위험도별로 잘게 나눠 발행한 구조화 증권으로 2008년 금융위기 확산의 핵심 매개였음

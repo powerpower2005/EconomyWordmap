@@ -7362,3 +7362,59 @@ relations:
     description: 국민계정 총저축률은 GNDI 대비 저축(=GNDI−최종소비) 비율로, 국내 투자 재원·대외균형(저축−투자=경상수지)과 연결
     strength: medium
     nature: hierarchical
+  - id: r1066
+    term1Id: national-accounts
+    term2Id: input-output-analysis
+    type: correlation
+    description: 산업연관표·공급사용표는 SNA 5대 국민경제통계 중 하나로, 국민소득·국민대차대조표 등과 정합성을 맞춰 작성
+    strength: strong
+    nature: hierarchical
+  - id: r1067
+    term1Id: value-added
+    term2Id: input-output-analysis
+    type: correlation
+    description: 투입산출표에서 부가가치(총산출−중간투입)는 외생 부문으로, 부문별 부가가치 합산이 GDP 생산접근 추계의 기초
+    strength: strong
+    nature: definitional
+  - id: r1068
+    term1Id: input-output-analysis
+    term2Id: aggregate-demand
+    type: correlation
+    description: 산업연관분석은 C+I+G+NX 최종수요 변동이 연쇄 중간재 생산까지 키우는 생산유발효과를 부문별로 추정
+    strength: strong
+    nature: causal
+  - id: r1069
+    term1Id: input-output-analysis
+    term2Id: supply-chain
+    type: correlation
+    description: "투입산출표의 중간투입 연쇄(예: 수출 자동차-부품-원재료)는 공급망 단절·복구·리쇼어링 충격의 산업 간 전파를 분석하는 틀"
+    strength: medium
+    nature: correlational
+  - id: r1070
+    term1Id: input-output-analysis
+    term2Id: consumption
+    type: correlation
+    description: 가계 최종소비(C) 변동의 생산유발효과는 투입산출·생산유발계수로 부문별 총생산·고용 파급을 추정
+    strength: medium
+    nature: causal
+  - id: r1071
+    term1Id: input-output-analysis
+    term2Id: investment
+    type: correlation
+    description: 설비·건설 등 민간투자(I) 최종수요는 연관 산업(철강·기계·건설)으로 생산유발 파급을 일으킴
+    strength: medium
+    nature: causal
+  - id: r1072
+    term1Id: input-output-analysis
+    term2Id: trade-surplus
+    type: correlation
+    description: 수출(순수출) 최종수요 변동은 제조·중간재 부문 생산유발을 통해 GDP·부문 이익에 비대칭 파급
+    strength: medium
+    nature: causal
+  - id: r1073
+    term1Id: input-output-analysis
+    term2Id: ppi
+    type: correlation
+    description: 투입계수에 임금·유가·환율 등 요소가격 변화를 곱하면 부문별 생산물가·PPI 전가 경로를 추정할 수 있음
+    strength: medium
+    nature: causal

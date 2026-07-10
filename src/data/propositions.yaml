@@ -4113,3 +4113,62 @@ propositions:
       - label: 국외순요소소득 상쇄
         detail: 해외 투자 수익·송금 등 NFP가 무역손익 악화를 상쇄하면 실질 GNI 하락폭이 GDP보다 작을 수 있다.
     verdict: 수입 의존·교역조건 악화 국면에서 특히 성립하며, 환율·NFP·내수 구조에 따라 깨지는 조건부 명제다.
+  - id: p199
+    statement: 최종수요 1단위 증가는 해당 부문 생산만 1단위 늘린다
+    category: 거시경제
+    termIds:
+      - input-output-analysis
+      - aggregate-demand
+      - consumption
+      - investment
+      - trade-surplus
+      - gdp
+      - value-added
+      - supply-chain
+    relationIds:
+      - r1068
+      - r1070
+      - r1071
+      - r1072
+      - r1069
+      - r6496
+      - r1067
+    premise: GDP·총수요 헤드라인을 볼 때 최종수요(소비·투자·수출) 변화가 해당 부문 산출에만 1:1로 반영된다는 단순 가정에 근거한다.
+    holds:
+      - label: 중간투입이 거의 없는 순수 서비스
+        detail: 중간재 의존도가 낮은 부문은 최종수요와 부문 생산이 거의 1:1에 가깝게 움직일 수 있다.
+    fails:
+      - label: 생산유발계수 > 1
+        detail: 투입산출표에서 최종수요 1단위는 연쇄 중간재 생산을 더 키워 해당 부문·연관 부문 총생산이 1을 초과할 수 있다.
+        example: 공산품 최종수요 1단위의 생산유발효과(그림 2-2)처럼 2~3배대 파급.
+      - label: 공급망·수출 연쇄
+        detail: 수출·제조 충격은 1차 부문을 넘어 부품·에너지·운송 등 다단계로 전파된다.
+      - label: 가격·재고 조정
+        detail: 단기에는 재고 흡수·수입 대체로 생산 반응이 1:1에서 벗어날 수 있다.
+    verdict: 중간재 연쇄가 큰 부문·개방경제에서는 깨지며, 생산유발계수로 봐야 하는 조건부 명제다.
+  - id: p200
+    statement: 재정 승수와 생산유발계수는 같은 개념이다
+    category: 거시경제
+    termIds:
+      - multiplier
+      - input-output-analysis
+      - aggregate-demand
+      - fiscal-policy
+      - consumption
+      - investment
+    relationIds:
+      - r314
+      - r1068
+      - r787
+    premise: 정부 지출·투자가 경제를 키운다는 점에서 케인즈 승수효과와 산업연관표의 생산유발계수를 같은 '파급 배수'로 본다는 혼동에 근거한다.
+    holds:
+      - label: 거시 부양 서사
+        detail: 재정·투자·수요 확대가 GDP를 키운다는 방향성은 둘 다 '수요→더 큰 산출' 스토리를 공유한다.
+    fails:
+      - label: 메커니즘·분모
+        detail: 승수는 소득→소비→총수요의 **소비 연쇄**(边際소비성향) 중심이고, 생산유발은 **중간재 생산 연쇄**(투입계수·Leontief) 중심이다.
+      - label: 재정 vs 부문
+        detail: 승수는 거시 총량·재정 impetus에, 생산유발은 **부문·산업별** 총생산·고용 파급에 쓰인다.
+      - label: 가격·금리·통화
+        detail: 승수 분석은 금리·crowding-out·인플레 반응을, IO 분석은 기술·투입구조·요소가격 전가를 별도로 봐야 한다.
+    verdict: 방향은 비슷해도 연쇄 메커니즘이 달라 동일 개념이 아닌 조건부 명제다.
