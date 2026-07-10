@@ -4816,3 +4816,60 @@ propositions:
       - label: 반도체·기술혁신
         detail: 수출가격 인하+물량 급증이면 순상품 ToT만으로 이익 단정 불가(15.2.2).
     verdict: 단가 ToT만으로 무역 이익을 단정하면 안 되는 조건부 명제다.
+  - id: p225
+    statement: 원/달러 명목환율만 보면 수출 경쟁력을 판단할 수 있다
+    category: 국제경제
+    termIds:
+      - exchange-rate
+      - real-exchange-rate
+      - real-effective-exchange-rate
+      - inflation
+      - korean-won
+      - terms-of-trade
+    relationIds:
+      - r1180
+      - r1181
+      - r1183
+      - r1184
+      - r1188
+    premise: 헤드라인 **원/달러** 환율이 경쟁력의 전부라는 직관(16.1·참고16-1).
+    holds:
+      - label: 단기·단일 통화 충격
+        detail: 달러 대비 급격한 절상·절하가 수출가격에 바로 반영되면 명목환율이 1차 신호가 될 수 있다.
+      - label: 달러 peg·결제통화
+        detail: 수출·부채가 달러 표시 위주면 원/달러가 실무에서 가장 자주 쓰인다.
+    fails:
+      - label: REER·물가차
+        detail: 명목이 같아도 자국 물가가 더 오르면 **실질·실효환율**은 약세 — 경쟁력은 REER·ToT로 보완(참고16-1).
+      - label: 교역국 바스켓
+        detail: 엔·유로 등 제3국 통화 변동이 크면 원/달러만으로 종합 가치를 놓칠 수 있다.
+    verdict: 명목환율은 출발점이지만 REER·물가·교역조건과 함께 봐야 하는 조건부 명제다.
+  - id: p226
+    statement: 통화 약세가 반드시 경상수지를 개선한다
+    category: 국제경제
+    termIds:
+      - exchange-rate
+      - korean-won
+      - current-account
+      - external-debt
+      - inflation
+      - import-price-index
+      - real-effective-exchange-rate
+    relationIds:
+      - r1186
+      - r475
+      - r1133
+    premise: 약세→수출↑·수입↓→**경상수지** 개선이라는 표16-2·16.3 논리.
+    holds:
+      - label: J커브 이후·가격탄력적
+        detail: 환율이 가격·물량에 반영된 뒤 수출 경쟁력이 회복되면 무역·경상수지가 개선될 수 있다.
+      - label: 수요 견조
+        detail: 해외 수요가 받쳐주면 약세의 가격 효과가 수출 증가로 이어진다.
+    fails:
+      - label: J커브·수입원가
+        detail: 약세 직후 **수입물가**·중간재 비용이 먼저 올라 단기 경상수지가 악화될 수 있다(표16-2).
+      - label: 외화부채·물가
+        detail: 약세로 외화부채 원화환산 부담·국내 물가가 올라 실질 효과가 상쇄될 수 있다.
+      - label: REER·생산성
+        detail: 명목 약세여도 국내 물가·REER가 따라가면 경쟁력 개선이 제한된다.
+    verdict: 중기에는 가능하지만 J커브·수입구조·외채·REER 때문에 즉시·필연적이지 않은 조건부 명제다.

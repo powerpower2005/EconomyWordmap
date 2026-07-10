@@ -121,7 +121,7 @@ terms:
     stockMarketImportance: 10
   - id: exchange-rate
     name: 환율 (Exchange Rate)
-    description: 한 국가 통화를 다른 국가 통화로 교환할 때 적용되는 비율
+    description: "한 국가 통화와 다른 국가 통화 간 **교환비율**(명목환율). 일상 보도·시장의 **현물환율**이 대표이며, **실질환율**·**실질실효환율(REER)** 은 물가·교역국 가중을 반영해 구매력·가격경쟁력을 보완(16.1)"
     category: 국제경제
     stockMarketImportance: 8
   - id: external-debt
@@ -486,7 +486,7 @@ terms:
     stockMarketImportance: 7
   - id: korean-won
     name: 원화 (Korean Won)
-    description: 대한민국의 공식 통화로 달러 대비 환율이 수출입 경쟁력·수입 물가·외국인 자금 흐름에 영향을 미치며 위험선호 변화에 민감하게 반응
+    description: "대한민국 공식 통화. 1997년 IMF 위기 이후 **자유변동환율** 체제(1997.12~)로 전환 — 대외의존도가 높아 **원/달러** 수준·**변동성**이 수출입·수입물가·외화부채·외국인 자금에 즉시 전달(16.1.4·16.3)"
     category: 국제경제
     stockMarketImportance: 5
   - id: chinese-yuan
@@ -2309,3 +2309,28 @@ terms:
     description: 원금·이자가 CPI에 연동되는 미국 국채로 실질 수익률과 기대인플레이션 추정의 기준 자산
     category: 채권
     stockMarketImportance: 5
+  - id: real-effective-exchange-rate
+    name: 실질실효환율 (REER)
+    description: "주요 교역상대국 **명목환율**을 무역비중으로 가중하고 **물가차**를 반영한 지표. **원/달러**만으로는 경쟁력을 놓칠 수 있어 BIS 등이 발표 — REER 하락=가격경쟁력 약화(참고16-1, 16.1.3)"
+    category: 국제경제
+    stockMarketImportance: 7
+  - id: impossible-trinity
+    name: 삼불원칙 (Impossible Trinity)
+    description: "통화정책 **자율성**·**자본자유화**·**환율안정**을 동시에 달성하기 어렵다는 제약. 자본이동이 자유로우면 고정환율과 독립적 통화정책 중 하나를 포기해야 함(16.1.4)"
+    category: 국제경제
+    stockMarketImportance: 5
+  - id: real-exchange-rate
+    name: 실질환율 (Real Exchange Rate)
+    description: "양국 **물가**를 반영한 bilateral 환율 — 명목환율×(외국물가÷자국물가). 명목이 같아도 자국 물가가 더 오르면 실질환율 하락·구매력·수출 가격경쟁력 약화(참고16-1)"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: forward-exchange-rate
+    name: 선물환율 (Forward Exchange Rate)
+    description: "계약 후 2영업일을 넘긴 미래 결제일의 환율. **금리평가이론**(covered IRP)에 따라 **현물환율**과 **내외금리차**로 결정 — 국내금리↑ 시 선물환 **프리미엄**(16.1.3)"
+    category: 국제경제
+    stockMarketImportance: 5
+  - id: floating-exchange-rate
+    name: 변동환율제 (Floating Exchange Rate)
+    description: "환율을 시장 수급에 맡기되 당국이 **개입**해 과도한 변동을 완화하는 제도. IMF 분류 ⑧ — 한국은 1997.12 이후 **자유변동**(⑨)에 가깝게 운영(표16-1, 16.1.4)"
+    category: 국제경제
+    stockMarketImportance: 6
