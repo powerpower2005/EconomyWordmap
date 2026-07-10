@@ -7959,3 +7959,66 @@ relations:
     description: 국가·일반정부 부채 규모는 GDP 대비 부채비율로 국제 비교·건전성 판단(12.4)
     strength: strong
     nature: definitional
+  - id: r1151
+    term1Id: balance-of-payments
+    term2Id: current-account
+    type: correlation
+    description: 국제수지표는 경상수지를 핵심 하위 계정으로 포함(13.2)
+    strength: strong
+    nature: hierarchical
+  - id: r1152
+    term1Id: balance-of-payments
+    term2Id: bop-financial-account
+    type: correlation
+    description: 국제수지표는 금융계정(순자본·대외금융자산·부채 흐름)을 포함(13.2.3)
+    strength: strong
+    nature: hierarchical
+  - id: r1153
+    term1Id: current-account
+    term2Id: bop-financial-account
+    type: correlation
+    description: 경상수지 흑자(적자)는 금융계정 순유출(유입)과 항등식으로 연결 — 흑자 뒤 해외투자·순자본 유출(13장)
+    strength: strong
+    nature: definitional
+  - id: r1154
+    term1Id: goods-balance
+    term2Id: trade-deficit
+    type: correlation
+    description: 통관 무역수지(무역적자)와 BoP 상품수지는 FOB/CIF·포괄범위·시점이 달라 수치가 어긋날 수 있음(참고13-2)
+    strength: medium
+    nature: definitional
+  - id: r1155
+    term1Id: goods-balance
+    term2Id: current-account
+    type: correlation
+    description: 상품수지는 경상수지의 최대 비중 구성요소(13.2.1)
+    strength: strong
+    nature: hierarchical
+  - id: r1156
+    term1Id: current-account
+    term2Id: foreign-reserves
+    type: correlation
+    description: 경상수지와 금융계정 준비자산 변동이 외환보유액·환율 방어와 연결(13.2.3)
+    strength: medium
+    nature: causal
+  - id: r1157
+    term1Id: current-account
+    term2Id: capital-flight
+    type: correlation
+    description: 경상적자·단기외채와 자본 유출이 겹치면 외환위기 취약성이 커짐(13장 서두)
+    strength: medium
+    nature: causal
+  - id: r1158
+    term1Id: foreign-direct-investment
+    term2Id: primary-income-account
+    type: correlation
+    description: 해외 FDI 확대는 배당·이자 등 본원소득수지 흑자 기여로 이어질 수 있음(13.3)
+    strength: medium
+    nature: causal
+  - id: r1159
+    term1Id: portfolio-investment
+    term2Id: capital-flight
+    type: correlation
+    description: 증권투자 역전·급격한 외국인 매도는 단기 자본 유출·환율 충격 채널(13.2.3)
+    strength: strong
+    nature: causal

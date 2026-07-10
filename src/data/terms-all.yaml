@@ -371,12 +371,12 @@ terms:
     stockMarketImportance: 7
   - id: trade-deficit
     name: 무역적자 (Trade Deficit)
-    description: 한 나라의 수입이 수출보다 많아 순수출(NX)이 음(-)인 상태로 경상수지 적자와 연결됨. 강한 내수와 자본 유입을 반영할 수도, 산업 경쟁력 약화를 반영할 수도 있어 그 자체로 좋고 나쁨을 단정하기 어렵고 환율·자본수지·경기 국면과 함께 해석해야 함
+    description: "관세청 **통관 무역수지**(수출 FOB−수입 CIF) 또는 GDP **순수출(NX)** 이 마이너스인 상태. BoP **상품수지**·**경상수지**와 개념·범위·평가(Fob/Cif·소유권)가 달라 헤드라인 무역수지와 경상수지가 어긋날 수 있음. 강한 내수·자본 유입·산업 경쟁력 등 원인이 섞여 그 자체로 좋고 나쁨을 단정하기 어렵고 환율·금융계정·경기와 함께 해석해야 함"
     category: 국제경제
     stockMarketImportance: 5
   - id: trade-surplus
     name: 무역흑자 (Trade Surplus)
-    description: 한 나라의 수출이 수입보다 많아 순수출(NX)이 양(+)인 상태로 경상수지 흑자와 연결됨. GDP에 기여하고 외화를 축적하는 요인이 되나 과도하면 교역 상대국과의 통상마찰과 통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함
+    description: "관세청 **통관 무역수지** 또는 GDP **순수출(NX)** 이 플러스인 상태. BoP **상품수지**·**경상수지**와 수치·범위가 다를 수 있어 무역 흑자만으로 경상 흑자를 단정하면 안 됨. GDP에 기여·외화 축적 요인이 되나 과도하면 통상마찰·통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함"
     category: 국제경제
     stockMarketImportance: 4
   - id: twin-deficit
@@ -1401,9 +1401,34 @@ terms:
     stockMarketImportance: 8
   - id: current-account
     name: 경상수지 (Current Account)
-    description: 한 나라가 일정 기간 상품·서비스 수출입과 소득·이전 거래로 벌어들이고 지출한 외화의 차이로 흑자면 외화가 유입되고 적자면 유출되며 환율·외채와 직결됨
+    description: "국제수지표(BPM6)의 핵심 유량 계정 — 거주자↔비거주자 간 **상품·서비스·본원소득·이전** 거래 순액. 흑자면 실물·소득 측면에서 외화 순유입, 적자면 순유출. **금융계정**·**자본수지**와 항등식으로 연결되며 환율·외채·통화량과 직결됨"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: balance-of-payments
+    name: 국제수지표 (Balance of Payments)
+    description: "일정 기간 거주자와 비거주자 사이 모든 대외거래를 BPM6 기준으로 기록한 **유량(flow)** 표. **경상수지**·**자본수지**·**금융계정**·오차·누락으로 구성되며 복식부기로 전체 순수지는 0에 수렴. 통관 무역수지·외환보유·대외순자산(IIP) 해석의 출발점"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: bop-financial-account
+    name: 국제수지 금융계정 (BoP Financial Account)
+    description: "국제수지표의 **금융계정** — 직접·증권·파생·기타투자·준비자산 등 거주자 대외 **금융자산·부채의 순변동**(순액 기록). 경상수지 흑자 뒤 해외투자·순자본 유출, 적자 뒤 외채·외자 유입이 여기에 반영. SNA **자금순환표** 금융계정·IIP 증감의 거래요인과 연결(13·14장)"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: goods-balance
+    name: 상품수지 (Goods Balance)
+    description: "국제수지 **경상수지** 내 상품 수출−수입(모두 FOB·소유권 이전 기준). 관세청 **통관 무역수지**(수입 CIF·통관 시점)와 범위·평가·시점이 달라 수치가 어긋날 수 있음 — 무역 헤드라인과 경상수지를 연결할 때 구분 필요"
     category: 국제경제
     stockMarketImportance: 5
+  - id: primary-income-account
+    name: 본원소득수지 (Primary Income Account)
+    description: "경상수지의 본원소득 — 급료·임금(단기 노동)과 **투자소득**(해외 FDI·증권에서 받은 배당·이자 vs 국내에 지급한 배당·이자) 순액. 해외 생산·투자 확대 시 경상 흑자의 비중이 커지는 요인(13.3)"
+    category: 국제경제
+    stockMarketImportance: 5
+  - id: portfolio-investment
+    name: 증권투자 (Portfolio Investment)
+    description: "국제수지 **금융계정**의 증권투자 — FDI(10%↑ 의결권)를 제외한 주식·채권 등 포트폴리오 자본의 순유입·유출. 변동성이 커 위기 시 **자본 유출**·환율 급변의 단기 채널이 될 수 있음"
+    category: 국제경제
+    stockMarketImportance: 6
   - id: employment-rate
     name: 고용률 (Employment Rate)
     description: 15세 이상 생산가능인구 중 실제 취업자가 차지하는 비율로 구직 단념자의 영향을 받는 실업률을 보완해 고용 상황을 더 폭넓게 보여줌

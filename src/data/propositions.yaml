@@ -4676,3 +4676,54 @@ propositions:
       - label: 흑자=좋은 살림
         detail: 12.3 — 흑자·적자만으로 정부 성과를 단정할 수 없고 배경·구조가 중요하다.
     verdict: 과열·부채 억제에는 유용하지만, 침체·수요 부족·민간 흡수 앞에서는 약해지는 조건부 명제다.
+  - id: p220
+    statement: 경상수지 흑자이면 반드시 순자본을 국외로 보낸다
+    category: 국제경제
+    termIds:
+      - balance-of-payments
+      - current-account
+      - bop-financial-account
+      - trade-surplus
+      - foreign-direct-investment
+      - portfolio-investment
+    relationIds:
+      - r1153
+      - r1152
+    premise: 경상 흑자=외화가 들어왔으니 국내에 그대로 남는다는 직관과 달리, BoP 항등식상 경상·자본수지 흑자는 금융계정 순유출(해외투자·대외자산 증가)과 짝을 이룬다(13장·p210 FoF 부호와 구분).
+    holds:
+      - label: BoP 항등식·순자본 유출
+        detail: 경상수지+자본수지 흑자(적자 제외)면 금융계정은 순유출(순유입)로 기록 — 흑자국이 해외 FDI·증권투자로 자본을 보내는 그림.
+      - label: 한국 사례
+        detail: 1998년 이후 경상 흑자와 해외직접·증권투자 확대가 동시에 관찰(13.3).
+    fails:
+      - label: 준비자산·중앙은행 개입
+        detail: 금융계정의 준비자산 축적·환율 개입이면 순자본 유출 없이도 경상 흑자가 가능.
+      - label: 자본수지·오차
+        detail: 자본이전·오차 및 누락, 가격·환율 재평가(IIP) 요인을 무시하면 단정이 깨진다.
+      - label: FoF 국외부문 부호
+        detail: p210 — 경상 흑자와 FoF 국외부문 부호·통화공급 경로를 혼동하면 오해.
+    verdict: BoP 회계상 평균적 짝이지만, 준비자산·자본수지·재평가를 빼면 항상 성립하지 않는 조건부 명제다.
+  - id: p221
+    statement: 통관 무역수지가 개선되면 경상수지도 반드시 개선된다
+    category: 국제경제
+    termIds:
+      - trade-deficit
+      - trade-surplus
+      - goods-balance
+      - current-account
+      - balance-of-payments
+    relationIds:
+      - r1154
+      - r1155
+    premise: 관세청 무역수지 헤드라인과 경상수지가 같은 통계라는 전제(13장 참고13-2).
+    holds:
+      - label: 상품수지만 변할 때
+        detail: 서비스·본원소득·이전이 안정적이면 상품(무역) 개선이 경상수지에 거의 그대로 반영.
+    fails:
+      - label: FOB/CIF·포괄범위
+        detail: 무역수지(수입 CIF)와 상품수지(FOB·소유권)는 운임·보험·가공·중계무역 조정으로 수치가 다름.
+      - label: 서비스·본원소득
+        detail: 한국처럼 서비스 적자·본원소득 흑자가 크면 무역수지와 경상수지 추이가 어긋남(13.3).
+      - label: 시점·통계 오차
+        detail: 통관 시점 vs 소유권 이전(선박 등) 차이로 같은 달에도 부호가 다를 수 있음.
+    verdict: 무역 헤드라인만으로 경상수지를 단정하면 안 되는 조건부 명제다.
