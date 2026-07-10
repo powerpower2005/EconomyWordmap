@@ -1326,9 +1326,14 @@ terms:
     stockMarketImportance: 4
   - id: business-condition-index
     name: 경기동향지수 (Composite Index)
-    description: 경기가 확장·수축 중 어느 국면인지 종합적으로 보여주는 지표로 선행·동행·후행 지수로 나뉘어 경기 흐름과 전환점을 판단하는 데 쓰임
+    description: "통계청 경기종합지수(CI) — 개별 월별 지표를 계절·불규칙 요인 제거·진폭 표준화 후 합성. 선행(재고순환·ESI·건설수주·코스피·장단기금리차 등 7개)·동행(광공업·서비스 생산·소매·수출입·취업 등 7개)·후행(재고·CPI·수입·취업 등 5개)으로 구분. 동행지수 순환변동치와 기준순환일(정·저점)로 경기 국면·전환점 판단. GDP는 분기·시차가 있어 단기 판단에 CI·PMI 등과 함께 봄"
     category: 거시경제
-    stockMarketImportance: 4
+    stockMarketImportance: 5
+  - id: purchasing-managers-index
+    name: 구매관리자지수 (PMI)
+    description: "매월 구매·생산 관리자 설문(생산·신규주문·재고·고용·가격 등)으로 작성하는 속보성 경기 지표. 확산지수 방식으로 50 초과=호전·미만=악화(중립선). ISM(미국)·IHS Markit/S&P Global(글로벌·多국) 등. 제조·서비스·종합 PMI는 월초 직전월 통계로 발표되어 GDP·경기동향지수보다 빠른 선행·동행 신호로 투자자·정책당국이 널리 사용"
+    category: 거시경제
+    stockMarketImportance: 8
   - id: current-account
     name: 경상수지 (Current Account)
     description: 한 나라가 일정 기간 상품·서비스 수출입과 소득·이전 거래로 벌어들이고 지출한 외화의 차이로 흑자면 외화가 유입되고 적자면 유출되며 환율·외채와 직결됨
@@ -1939,6 +1944,11 @@ terms:
     description: 시장 참여자들의 낙관·비관 정도로 과열·공포의 극단은 흔히 역발상 신호로 쓰임
     category: 금융
     stockMarketImportance: 5
+  - id: consumer-confidence
+    name: 소비자신뢰지수 (Consumer Confidence)
+    description: "가계 설문(생활형편·경기판단·소비·고용·물가 전망 등)으로 작성하는 경제심리 지표. 한국은행 CSI·CCSI, 미국 컨퍼런스보드·미시간대, EU 소비자신뢰지수 등. BSI(기업경기실사)와 합성한 ESI·경기선행지수 구성에도 쓰이며, **market-sentiment**(주식·자산시장 심리)와 구분. 소비지출·경기 전망의 선행 신호로 활용"
+    category: 거시경제
+    stockMarketImportance: 7
   - id: technical-analysis
     name: 기술적 분석 (Technical Analysis)
     description: 과거 가격·거래량 패턴과 지표로 향후 가격 흐름을 가늠하는 분석 기법

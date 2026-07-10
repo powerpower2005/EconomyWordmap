@@ -7467,3 +7467,59 @@ relations:
     description: 자본축적(투자·질 개선 플로)은 연말 자본스톡·국부의 생산자산을 키우는 장기 경로
     strength: strong
     nature: causal
+  - id: r1081
+    term1Id: business-condition-index
+    term2Id: real-gdp
+    type: correlation
+    description: 동행종합지수·순환변동치는 실질 GDP 등 총량 경기와 함께 움직이며 현재 경기 국면 판단의 핵심 참고지표
+    strength: strong
+    nature: correlational
+  - id: r1082
+    term1Id: purchasing-managers-index
+    term2Id: business-cycle
+    type: correlation
+    description: PMI(50 기준 확산지수)는 월간·속보성 경기 선행·동행 모니터링 지표로 경기순환 국면 전환 신호로 활용
+    strength: strong
+    nature: correlational
+  - id: r1083
+    term1Id: purchasing-managers-index
+    term2Id: manufacturing
+    type: correlation
+    description: 제조업 PMI는 생산·신규주문·고용·재고 등 제조 부문 경기와 직접 연결
+    strength: strong
+    nature: correlational
+  - id: r1084
+    term1Id: business-condition-index
+    term2Id: yield-curve
+    type: correlation
+    description: 한국 선행종합지수 구성에 장단기금리차(수익률 곡선 기울기)가 포함되어 금융·실물 선행 신호를 함께 반영
+    strength: medium
+    nature: correlational
+  - id: r1085
+    term1Id: consumer-confidence
+    term2Id: consumption
+    type: correlation
+    description: 소비자신뢰·소비지출전망(CSI 등)은 가계 지출(C)의 선행·동행 신호
+    strength: medium
+    nature: causal
+  - id: r1086
+    term1Id: business-condition-index
+    term2Id: stock-index
+    type: correlation
+    description: 선행종합지수 구성에 주가지수(코스피)가 포함되어 금융시장 기대가 경기 선행지표에 반영
+    strength: medium
+    nature: correlational
+  - id: r1087
+    term1Id: business-condition-index
+    term2Id: growth-forecast
+    type: correlation
+    description: 경기종합지수·선행지수 하락은 중앙은행·민간 성장률 전망 하향 개정과 연동되는 경우가 많음
+    strength: medium
+    nature: correlational
+  - id: r1088
+    term1Id: copper
+    term2Id: business-cycle
+    type: correlation
+    description: 구리 수요·가격은 건설·제조 경기와 연동되어 경기순환의 선행·동행 신호로 해석
+    strength: medium
+    nature: correlational
