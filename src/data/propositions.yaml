@@ -4956,3 +4956,59 @@ propositions:
       - label: 헤드라인 실업 자체 급등
         detail: 공식 실업률이 이미 높으면 「괴리」보다 절대 수준 자체가 더 중요할 수 있다.
     verdict: 고용 질·확장실업·참가율을 함께 봐야 성립하는 조건부 명제다.
+  - id: p230
+    statement: NFP·고용 지표가 컨센서스를 크게 웃돌면 단기적으로 금리·주가가 함께 오른다
+    category: 거시경제
+    termIds:
+      - nonfarm-payroll
+      - employment-situation-report
+      - long-term-interest-rate
+      - stock-index
+      - federal-reserve
+      - policy-rate
+      - unemployment
+      - consumption
+    relationIds:
+      - r1205
+      - r1206
+      - r1207
+      - r1096
+    premise: Employment Situation NFP 서프라이즈는 성장·소비·Fed 긴축(또는 완화) 기대를 동시에 올려, 단기적으로 장기금리와 주가가 같은 방향으로 반응하는 경우가 많다는 실증·시장 관행에 근거한다.
+    holds:
+      - label: 서프라이즈·성장 국면
+        detail: NFP가 컨센서스를 크게 상회하면 성장·리스크온 기대로 주가·금리(성장 프리미엄)가 단기 상승하는 패턴이 관찰된다.
+      - label: Fed 긴축 경로 재가격
+        detail: 물가 목표는 충족됐는데 고용만 부족할 때 강한 NFP는 테이퍼·QT 시점 기대를 앞당겨 금리 변동성을 키울 수 있다.
+    fails:
+      - label: 스태그플레이션·임금 쇼크
+        detail: 고용은 좋지만 AHE·물가가 동시에 높으면 주가는 Fed 긴축 우려로 NFP와 역방향일 수 있다.
+      - label: 이미 과열·금리 정점
+        detail: 금리가 이미 높고 성장 둔화 신호가 쌓이면 강한 NFP도 「더 오를 금리」 해석이 약해질 수 있다.
+      - label: 쇼크(대폭 하회)
+        detail: NFP 쇼크는 성장·Fed 완화 기대로 금리·주가가 **하락**하는 반대 패턴이 나타날 수 있다.
+    verdict: 서프라이즈 방향·Fed 국면·물가 조건에서 갈리는 조건부 명제다.
+  - id: p231
+    statement: 실업률 수준보다 실업률 변화가 주가와 더 잘 맞는다
+    category: 거시경제
+    termIds:
+      - unemployment
+      - stock-index
+      - nonfarm-payroll
+      - employment-situation-report
+      - business-cycle
+    relationIds:
+      - r1207
+      - r1208
+      - r1212
+    premise: Employment Situation 가계조사 실업률의 **전년동월비·전월 변화**는 경기 모멘텀을 반영해, 절대 수준보다 S&P500 등 주가와 동행·역행 패턴이 더 뚜렷하다는 실증에 근거한다.
+    holds:
+      - label: 실업률 개선(하락) 가속
+        detail: 실업률이 빠르게 내려가는 구간은 경기 확장·이익 기대와 함께 주가와 같은 방향으로 움직이는 경향이 있다.
+      - label: NFP와 같은 보고서
+        detail: NFP 서프라이즈와 실업률 변화 방향이 맞을 때 주가 반응이 더 선명한 경우가 많다.
+    fails:
+      - label: 절대 수준만 낮음
+        detail: 실업률이 이미 낮아도 변화가 없으면 주가·Fed 서사에 기여가 제한적일 수 있다.
+      - label: 참가율·U-6 악화
+        detail: 헤드라인 실업률만 개선되고 확장실업·참가율이 나쁘면 주가와 괴릴 수 있다.
+    verdict: 모멘텀(변화) 중심 해석이 유효하며, 절대 수준·확장 지표와 함께 봐야 하는 조건부 명제다.

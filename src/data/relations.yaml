@@ -7576,7 +7576,7 @@ relations:
     term1Id: nonfarm-payroll
     term2Id: consumption
     type: proportional
-    description: 비농업 고용·임금 확대는 가계 소득·소비(C)의 실물 전달 경로
+    description: 비농업 고용·임금 확대는 가계 소득·소비(C)의 실물 전달 경로 — 미국은 민간소비가 GDP의 약 2/3를 차지해 NFP가 수요 전망에 직결
     strength: medium
     nature: causal
   - id: r1097
@@ -8341,3 +8341,73 @@ relations:
     reverseDescription: 고실업·침체기 확장적 재정은 총수요·고용을 끌어올려 실업률 하락에 기여할 수 있음
     reverseStrength: medium
     reverseType: inverse
+  - id: r1205
+    term1Id: nonfarm-payroll
+    term2Id: federal-reserve
+    type: correlation
+    description: NFP·실업률 등 Employment Situation 지표는 Fed 이중목표(물가·최대고용)·테이퍼·QT 판단의 핵심 입력
+    strength: strong
+    nature: policy
+  - id: r1206
+    term1Id: nonfarm-payroll
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: NFP 증가율·서프라이즈는 장기 국채 금리·성장·Fed 경로 기대를 흔드는 대표 실물 신호 — 발표 직후 금리 반응이 단기적으로 큰 경우가 많음
+    strength: strong
+    nature: correlational
+  - id: r1207
+    term1Id: nonfarm-payroll
+    term2Id: stock-index
+    type: correlation
+    description: NFP·고용 서프라이즈는 성장·Fed 경로 기대를 통해 주가지수 변동성을 키우는 월간 이벤트 — 영향이 수 주~한 달 지속되는 패턴도 관찰
+    strength: medium
+    nature: correlational
+  - id: r1208
+    term1Id: nonfarm-payroll
+    term2Id: unemployment
+    type: correlation
+    description: Employment Situation 내 **기관조사(NFP)** vs **가계조사(실업률)** 쌍 — 방향은 같아도 크기·변동성이 달라 함께 봐야 함
+    strength: strong
+    nature: definitional
+  - id: r1209
+    term1Id: nonfarm-payroll
+    term2Id: quantitative-tightening
+    type: correlation
+    description: 고용 측 substantial further progress 충족 시 QE 축소·QT(테이퍼) 경로가 앞당겨질 수 있음 — 물가 목표와 함께 판단
+    strength: medium
+    nature: policy
+  - id: r1210
+    term1Id: nonfarm-payroll
+    term2Id: full-employment
+    type: correlation
+    description: NFP·실업률 개선은 완전고용(최대고용)에 근접했는지 판단하는 실물 근거
+    strength: medium
+    nature: correlational
+  - id: r1211
+    term1Id: employment-situation-report
+    term2Id: nonfarm-payroll
+    type: correlation
+    description: Employment Situation **기관조사** 헤드라인 = 비농업취업 NFP(전월비 순증)
+    strength: strong
+    nature: hierarchical
+  - id: r1212
+    term1Id: employment-situation-report
+    term2Id: unemployment
+    type: correlation
+    description: Employment Situation **가계조사** 헤드라인 = 실업률(경제활동인구 대비)
+    strength: strong
+    nature: hierarchical
+  - id: r1213
+    term1Id: employment-situation-report
+    term2Id: federal-reserve
+    type: correlation
+    description: 매월 고용 보고서 발표는 Fed 이중목표·FOMC 경로에 대한 시장 재가격 이벤트
+    strength: strong
+    nature: policy
+  - id: r1214
+    term1Id: average-hourly-earnings
+    term2Id: employment-situation-report
+    type: correlation
+    description: 평균 시급(AHE)은 Employment Situation 기관조사 구성 — NFP·실업률보다 후행하는 임금 지표
+    strength: medium
+    nature: hierarchical
