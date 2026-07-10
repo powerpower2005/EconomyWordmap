@@ -4588,3 +4588,45 @@ propositions:
       - label: 일회성·통계 범위 차
         detail: PPI(기초가격·출하)와 CPI(소비자 구입가·서비스) 범위·시차가 달라 즉시 1:1로 움직이지 않는다.
     verdict: 전가·수요 조건에서 선행 신호로 성립하지만, 마진·수요·범위 차 앞에서는 약해지는 조건부 명제다.
+  - id: p216
+    statement: 채권 수익률이 오르면 채권 가격도 오른다
+    category: 채권
+    termIds:
+      - yield-to-maturity
+      - bond-price
+      - government-bond
+      - interest-rate
+    relationIds:
+      - r506
+      - r1140
+    premise: 수익률과 가격이 같은 방향으로 움직인다는 직관에 근거한다(11.5).
+    holds: []
+    fails:
+      - label: 가격·YTM 역관계
+        detail: YTM은 할인율이므로 채권 가격↑면 YTM↓, 가격↓면 YTM↑(r506).
+      - label: 금리·채권가 역관계
+        detail: 시장금리 상승은 기존 채권 가격을 누르는 것이 일반적(p1050).
+    verdict: 정의상 성립하지 않는 명제다. 채권은 가격과 수익률(YTM)이 반대 방향으로 움직인다.
+  - id: p217
+    statement: PER이 낮으면 무조건 저평가다
+    category: 금융
+    termIds:
+      - per
+      - eps
+      - valuation
+      - interest-rate
+      - pbr
+    relationIds:
+      - r578
+    premise: PER(주가÷EPS)이 낮으면 이익 대비 주가가 싸다는 통념에 근거한다(11.4).
+    holds:
+      - label: 동일 섹터·성장·금리
+        detail: 성장·금리·리스크가 비슷한 동종 업종에서 PER이 크게 낮으면 상대적 저평가 후보가 될 수 있다.
+    fails:
+      - label: 성장·이익 전망
+        detail: EPS가 앞으로 급감할 기업은 낮은 PER이 함정(value trap)일 수 있다.
+      - label: 금리·유동성·심리
+        detail: p107처럼 적정 PER은 금리·유동성·심리에 따라 달라 절대 기준이 없다.
+      - label: 일회성·회계 이익
+        detail: 일시적 이익으로 EPS가 부풀려지면 PER이 인위적으로 낮아 보일 수 있다.
+    verdict: 상대 비교·동종 조건에서만 부분 성립하는 조건부 명제다.

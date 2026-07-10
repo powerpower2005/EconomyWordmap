@@ -7875,3 +7875,38 @@ relations:
     description: DSPI는 PPI와 수입물가를 결합한 국내 공급측 물가지수(10.2.2)
     strength: strong
     nature: definitional
+  - id: r1139
+    term1Id: credit-spread
+    term2Id: government-bond
+    type: correlation
+    description: 채권 신용스프레드는 동일만기 회사채 YTM에서 국채(무위험) 수익률을 뺀 차이(11.7)
+    strength: strong
+    nature: definitional
+  - id: r1140
+    term1Id: duration
+    term2Id: bond-price
+    type: inverse
+    description: 듀레이션이 길수록 시장금리 상승 시 채권가격 하락 폭이 커짐(이자율위험, 11.8)
+    strength: strong
+    nature: causal
+  - id: r1141
+    term1Id: duration
+    term2Id: yield-to-maturity
+    type: correlation
+    description: 만기·표면금리·YTM이 길수록(또는 낮을수록) 듀레이션이 길어지는 경향(11.8)
+    strength: medium
+    nature: correlational
+  - id: r1142
+    term1Id: credit-spread
+    term2Id: bond-market
+    type: correlation
+    description: 회사채·신용채권 시장에서 신용스프레드가 신용경색·유동성 악화 신호로 확대(11.7)
+    strength: medium
+    nature: correlational
+  - id: r1143
+    term1Id: stock-index
+    term2Id: liquidity
+    type: correlation
+    description: 강세장·거래 활발 국면에서 주가지수 상승과 시장 유동성·거래량이 함께 늘어나는 경향(11.3)
+    strength: medium
+    nature: correlational

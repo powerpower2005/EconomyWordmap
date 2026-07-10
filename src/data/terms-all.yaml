@@ -1370,10 +1370,10 @@ terms:
     category: 거시경제
     stockMarketImportance: 6
   - id: credit-spread
-    name: 가산금리 (Credit Spread)
-    description: 기준금리에 차입자의 신용위험에 따라 덧붙이는 추가 금리로 신용도가 낮을수록 커지며 신용 위험의 가격을 나타냄
+    name: 신용스프레드 (Credit Spread)
+    description: "신용위험에 대한 추가 수익률 프리미엄. 채권시장에서는 회사채(또는 특정 채권) YTM에서 동일만기 국채 수익률을 뺀 값(11.7)이고, 대출시장에서는 기준금리·준거금리 위 가산금리로도 쓰임"
     category: 금리
-    stockMarketImportance: 4
+    stockMarketImportance: 7
   - id: business-condition-index
     name: 경기동향지수 (Composite Index)
     description: "통계청 경기종합지수(CI) — 개별 월별 지표를 계절·불규칙 요인 제거·진폭 표준화 후 합성. 선행(재고순환·ESI·건설수주·코스피·장단기금리차 등 7개)·동행(광공업·서비스 생산·소매·수출입·취업 등 7개)·후행(재고·CPI·수입·취업 등 5개)으로 구분. 동행지수 순환변동치와 기준순환일(정·저점)로 경기 국면·전환점 판단. GDP는 분기·시차가 있어 단기 판단에 CI·PMI 등과 함께 봄"
@@ -1469,6 +1469,11 @@ terms:
     description: 경기가 침체에서 잠시 회복하는 듯하다가 다시 침체에 빠지는 이중 침체 현상
     category: 거시경제
     stockMarketImportance: 4
+  - id: duration
+    name: 듀레이션 (Duration)
+    description: "채권 현금흐름의 가중평균 만기로, 시장금리 1%p 변동 시 채권가격이 대략 duration%만큼 반대 방향으로 움직이는 이자율위험(민감도) 지표. 만기·표면금리·YTM에 따라 결정(11.8)"
+    category: 채권
+    stockMarketImportance: 7
   - id: decoupling
     name: 디커플링 (Decoupling)
     description: 한 나라나 자산의 경기·시장 흐름이 다른 나라와 동조하지 않고 따로 움직이는 현상
@@ -1481,9 +1486,9 @@ terms:
     stockMarketImportance: 5
   - id: yield-to-maturity
     name: 만기수익률 (Yield to Maturity)
-    description: 채권을 만기까지 보유할 때 얻는 연평균 수익률로 채권 가격이 오르면 낮아지는 채권 투자의 핵심 수익 지표
+    description: "채권 현금흐름(이표·만기 원금)의 현재가치를 시장가격과 일치시키는 할인율(YTM). 채권은 가격으로 거래되지만 YTM으로 비교하며, 가격↑면 YTM↓(11.5)"
     category: 채권
-    stockMarketImportance: 5
+    stockMarketImportance: 6
   - id: microcredit
     name: 마이크로크레디트 (Microcredit)
     description: 담보가 없는 저소득층에게 소액을 빌려줘 창업·자립을 돕는 소액금융
@@ -1716,17 +1721,17 @@ terms:
     stockMarketImportance: 6
   - id: stock-index
     name: 주가지수 (Stock Index)
-    description: 다수 종목의 가격을 종합해 시장 전체의 흐름을 보여주는 지표로 코스피·S&P500 등이 대표적. 국가 간 지수 상대 수익률은 실질 성장률 격차·밸류·금리·유동성 등이 겹쳐 형성되며, 성장 전망 개정도 선행 반영되는 경우가 많음
+    description: "다수 종목 가격을 종합해 시장 흐름을 보여주는 지표. KOSPI·S&P500 등 대부분은 시가총액 가중(11.1)이고 다우·닛케이는 주가평균식. KOSPI200·KRX300은 벤치마크용 부분지수"
     category: 금융
-    stockMarketImportance: 6
+    stockMarketImportance: 8
   - id: market-capitalization
     name: 시가총액 (Market Capitalization)
-    description: 상장 주식 수 × 주가로 잰 주식시장 규모. 시총 변화는 크게 (1) 순 주식 발행(신규상장·유상증자 − 자사주 매입·상장폐지)과 (2) 실질 자본이득(주가 상승)으로 분해됨
+    description: "상장주식수×주가로 잰 주식시장 규모(11.2). 시총 변화는 (1) 순 주식 발행과 (2) 주가(자본이득)로 분해되며, 명목GDP 대비 비율로 시장 발전·거시 밸류를 국제 비교"
     category: 금융
     stockMarketImportance: 7
   - id: market-cap-to-gdp
     name: 시가총액/GDP 비율 (Market Cap to GDP)
-    description: 시가총액을 실질(또는 명목) GDP로 나눈 비율로, 버핏 지표로도 불림. GDP 성장과 시총 성장이 얼마나 맞물리는지, 밸류에이션이 역사 대비 높은지 가늠하는 거시·밸류 지표
+    description: "시가총액을 명목(또는 실질) GDP로 나눈 버핏 지표(11.2). 2022년 한국은 약 99%로 GDP 대비 시총이 빠르게 확대된 편이나 미·일 대비 여전히 낮은 구간이 있었음"
     category: 금융
     stockMarketImportance: 6
   - id: net-equity-issuance
