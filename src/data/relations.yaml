@@ -7817,3 +7817,61 @@ relations:
     description: 공개시장운영(채권 매매)이 단기시장금리·콜금리 수준을 간접 조절(9.3.2)
     strength: strong
     nature: policy
+  - id: r1131
+    term1Id: exchange-rate
+    term2Id: cpi
+    type: proportional
+    description: 원화 약세(환율 상승)는 달러 표시 수입원가를 올려 국내 CPI에 상승압력(10.1.2)
+    strength: medium
+    nature: causal
+    lag: 1~2분기
+  - id: r1132
+    term1Id: import-price-index
+    term2Id: cpi
+    type: proportional
+    description: 수입물가 상승은 국내 소비자물가로 전가될 수 있음(10.2.3)
+    strength: medium
+    nature: causal
+    lag: 1~2분기
+  - id: r1133
+    term1Id: exchange-rate
+    term2Id: import-price-index
+    type: proportional
+    description: 결제통화 가격이 같아도 원화 약세면 수입물가지수(원화 환산)가 상승(10.1.2)
+    strength: strong
+    nature: causal
+  - id: r1134
+    term1Id: ppi
+    term2Id: import-price-index
+    type: correlation
+    description: DSPI·공급측 물가에서 PPI와 수입물가가 함께 움직이는 경향(10.2.2)
+    strength: medium
+    nature: correlational
+  - id: r1135
+    term1Id: crude-oil
+    term2Id: ppi
+    type: proportional
+    description: 유가·에너지 원자재 상승이 생산자물가(기초가격)를 끌어올림(10.1.2)
+    strength: strong
+    nature: causal
+  - id: r1136
+    term1Id: perceived-inflation
+    term2Id: cpi
+    type: correlation
+    description: 체감물가는 헤드라인 CPI와 괴리될 수 있으나 지표물가의 대표 측정치는 CPI(10.5)
+    strength: medium
+    nature: correlational
+  - id: r1137
+    term1Id: domestic-supply-price-index
+    term2Id: ppi
+    type: correlation
+    description: DSPI는 PPI와 수입물가를 결합한 국내 공급측 물가지수(10.2.2)
+    strength: strong
+    nature: definitional
+  - id: r1138
+    term1Id: domestic-supply-price-index
+    term2Id: import-price-index
+    type: correlation
+    description: DSPI는 PPI와 수입물가를 결합한 국내 공급측 물가지수(10.2.2)
+    strength: strong
+    nature: definitional

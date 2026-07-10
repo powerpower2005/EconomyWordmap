@@ -4539,3 +4539,52 @@ propositions:
       - label: 전달 시차·장기금리
         detail: 장기국채·term-premium은 정책금리와 다른 속도·방향으로 움직일 수 있다.
     verdict: 변동·준거·가산·고정 조건에서만 부분 성립하는 조건부 명제다.
+  - id: p214
+    statement: CPI 발표치와 내가 느끼는 물가는 같다
+    category: 거시경제
+    termIds:
+      - cpi
+      - perceived-inflation
+      - inflation
+      - core-cpi
+    relationIds:
+      - r1136
+      - r85
+    premise: 헤드라인 CPI가 전 가구 평균 물가변동을 대표한다는 직관에 근거한다(10.5).
+    holds:
+      - label: 평균적 소비 바스켓
+        detail: 가계 소비 구조가 CPI 가중치와 비슷하고 비교 시점·품목이 맞으면 체감과 발표치가 가깝다.
+    fails:
+      - label: 개인 바스켓·교육·주거
+        detail: 자녀 학비·아파트 매매가 등 개인 지출 비중이 CPI와 다르면 체감이 더 크거나 작을 수 있다.
+      - label: 품질조정·비교 시점
+        detail: CPI는 품질향상분을 제외하고 전월·전년동월비로 산출해, 장기간·시장가 기준 체감과 어긋날 수 있다.
+      - label: 주택매매가 미포함
+        detail: CPI에는 전·월세는 있으나 아파트 매매가는 투자로 분류되어 구매 희망자 체감과 괴리가 클 수 있다.
+    verdict: 평균 가구·동일 비교틀에서는 부분 성립하지만, 개인 바스켓·품질조정·주택·시점 차이 앞에서는 깨지는 조건부 명제다.
+  - id: p215
+    statement: 생산자물가(PPI)가 오르면 곧 소비자물가(CPI)도 오른다
+    category: 거시경제
+    termIds:
+      - ppi
+      - cpi
+      - inflation
+      - import-price-index
+    relationIds:
+      - r1041
+      - r1042
+      - r1132
+      - r1135
+    premise: PPI 상승이 기업 원가를 통해 소비자물가로 전가된다는 선행지표 논리에 근거한다(10.2.2).
+    holds:
+      - label: 높은 전가·수요 견조
+        detail: 마진 여력이 작고 수요가 버티면 PPI 상승이 1~2분기 내 CPI로 이어지는 경우가 많다.
+        example: "2021~22 에너지·원자재 급등 후 PPI·CPI 연쇄 상승."
+    fails:
+      - label: 마진·가격 고정
+        detail: 기업이 원가를 흡수하거나 가격 인상을 미루면 PPI와 CPI가 분리된다.
+      - label: 수요 약세·할인
+        detail: 소비·유통 경쟁이 강하면 PPI는 올라도 CPI 전가가 지연·약화된다.
+      - label: 일회성·통계 범위 차
+        detail: PPI(기초가격·출하)와 CPI(소비자 구입가·서비스) 범위·시차가 달라 즉시 1:1로 움직이지 않는다.
+    verdict: 전가·수요 조건에서 선행 신호로 성립하지만, 마진·수요·범위 차 앞에서는 약해지는 조건부 명제다.

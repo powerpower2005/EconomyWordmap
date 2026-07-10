@@ -116,7 +116,7 @@ terms:
     stockMarketImportance: 6
   - id: cpi
     name: CPI 소비자 물가 지수 (Consumer Price Index)
-    description: 가계가 소비하는 상품과 서비스의 가격 변동을 측정하는 대표 물가지표
+    description: "통계청이 작성하는 가계 소비 458품목의 소비자 구입가(부가세 포함) 변동을 2020=100 기준으로 지수화한 대표 물가지표. 총지수(all-item) 상승률이 헤드라인 인플레이션율로 보도되며 연준·한국은행 정책의 핵심 준거"
     category: 거시경제
     stockMarketImportance: 10
   - id: exchange-rate
@@ -584,6 +584,11 @@ terms:
     description: 수입품을 국내 생산으로 대체하기 위해 높은 관세·보조금으로 내수 산업을 보호한 발전 전략으로, 20세기 중반 라틴아메리카 등에서 비효율과 경쟁력 저하로 실패한 사례가 많음
     category: 국제경제
     stockMarketImportance: 2
+  - id: import-price-index
+    name: 수입물가지수 (Import Price Index)
+    description: "한국은행이 작성하는 수입 상품 계약가격 변동을 2015=100 기준으로 지수화한 지표. 원자재·에너지 수입원가와 환율 변동이 국내 PPI·CPI로 전가되는 경로의 1차 관측점"
+    category: 거시경제
+    stockMarketImportance: 7
   - id: developmental-state
     name: 발전국가 모델 (Developmental State)
     description: 국가가 전략 산업을 선정해 금융·보조금을 집중하되 수출 성과로 규율하며 성장을 주도한 동아시아 발전 모델로, 한국·대만·싱가포르의 고도성장 사례가 대표적
@@ -1339,6 +1344,11 @@ terms:
     description: 물가가 하락하는 디플레이션과 달리 물가상승률 자체가 둔화되는 현상으로 인플레이션이 정점을 지나 목표로 수렴하는 국면을 가리키며 중앙은행의 금리 인하 여지와 시장 기대를 좌우하는 핵심 화두
     category: 거시경제
     stockMarketImportance: 7
+  - id: domestic-supply-price-index
+    name: 국내공급물가지수 (DSPI)
+    description: "한국은행 국내공급물가지수(DSPI). PPI와 수입물가를 결합해 국내 시장에 공급되는 상품·서비스의 종합 공급측 가격압력을 측정"
+    category: 거시경제
+    stockMarketImportance: 5
   - id: full-expensing
     name: 즉시상각 (Full Expensing)
     description: 기업이 설비·장비 투자액을 여러 해에 걸쳐 나누지 않고 당해에 전액 비용으로 처리하도록 허용하는 세제로 투자의 세후 수익성을 높여 설비투자를 앞당기는 공급 측 유인책이며 2025년 감세법에서 부활함
@@ -1496,7 +1506,7 @@ terms:
     stockMarketImportance: 5
   - id: price-index
     name: 물가지수 (Price Index)
-    description: 여러 상품·서비스의 가격을 가중평균해 물가 수준의 변화를 나타낸 지표로 CPI·PPI·PCE 등이 이에 속함
+    description: 여러 상품·서비스 가격을 가중평균해 물가 수준 변화를 나타내는 지표군. CPI·PPI·수입물가지수·PCE 등이 속하며 명목금액 실질화·인플레이션율 측정에 쓰임
     category: 거시경제
     stockMarketImportance: 5
   - id: mutual-fund
@@ -2191,9 +2201,14 @@ terms:
     stockMarketImportance: 7
   - id: ppi
     name: 생산자물가지수 (PPI)
-    description: 생산 단계에서의 가격 변동을 측정하는 지표로, 기업 비용 압력과 향후 소비자물가(CPI) 선행 신호로 주목됨
+    description: "한국은행이 작성하는 국내 생산자 출하 기초가격 894품목의 변동을 2015=100 기준으로 지수화한 지표. 기업 원가·마진 압력과 CPI 선행 신호로 주목되며 DSPI·TOPI와 함께 공표"
     category: 거시경제
     stockMarketImportance: 6
+  - id: perceived-inflation
+    name: 체감물가 (Perceived Inflation)
+    description: 가계·개인이 일상에서 느끼는 물가 상승 체감. CPI와 괴리가 날 수 있는데, 개인별 소비 바스켓 차이·품질조정·비교 시점·주택매매가(CPI 미포함) 등 때문
+    category: 거시경제
+    stockMarketImportance: 5
   - id: vix
     name: VIX (Volatility Index)
     description: S&P 500 옵션 가격에서 산출한 변동성 지수로 시장 공포·불안을 실시간으로 반영하는 대표 지표
