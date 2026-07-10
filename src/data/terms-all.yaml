@@ -239,6 +239,21 @@ terms:
     description: 정부의 재정정책(지출·감세·전쟁·복지)이 중앙은행 통화정책보다 우선해, 물가가 높아도 금리 인상 등 긴축이 제한되는 상태. 국가부채 이자 지급이 국방비를 추월하는 수준에 이르면 통화정책이 물가가 아니라 정부 이자 부담에 끌려다닌다는 신호로 해석되기도 함. 1960년대 미국은 연준이 무게중심을 유지했으나 재정 확장이 앞서 70년대 인플레 기대 누적의 배경이 됨
     category: 정부
     stockMarketImportance: 4
+  - id: automatic-stabilizer
+    name: 자동안정화 (Automatic Stabilizer)
+    description: "경기 침체 시 세수 감소·실업급여 등 지출 증가로 재정수지가 자동으로 적자로 기울고, 호황 시 반대로 작용하는 내장 메커니즘(12.3)"
+    category: 정부
+    stockMarketImportance: 5
+  - id: consolidated-fiscal-balance
+    name: 통합재정수지 (Consolidated Fiscal Balance)
+    description: "중앙정부 일반·특별회계·기금을 통합한 수입−(지출+순융자). 적자는 국채 발행·부채 누적로 이어질 수 있음(2022년 −64.6조 원, 12.2.2)"
+    category: 정부
+    stockMarketImportance: 7
+  - id: managed-fiscal-balance
+    name: 관리재정수지 (Managed Fiscal Balance)
+    description: "통합재정수지에서 사회보장성기금 수지를 제외한 지표. 장기 연금·보험 성격 지출을 분리해 재정운용 결과를 판단(2022년 −117.0조 원, 12.2.2)"
+    category: 정부
+    stockMarketImportance: 6
   - id: gold
     name: 금 (Gold)
     description: 안전자산으로 여겨지는 귀금속으로 인플레이션 헤지와 포트폴리오 다변화에 활용
@@ -1051,9 +1066,9 @@ terms:
     stockMarketImportance: 3
   - id: national-debt
     name: 국가부채 (National Debt)
-    description: 정부가 재정 적자를 메우려 빌린 누적 채무로, 적극적 재정정책의 부작용이자 미래 세대의 부담으로 이어질 수 있는 문제
+    description: "정부가 재정 적자를 메우며 빌린 누적 채무. 한국은 국가채무(D1)·일반정부부채(D2, 2021 GDP 대비 51.3%)·공공부문부채(D3, 68.6%)로 범위가 다르며 IMF·OECD 비교는 D2 기준이 일반적(12.4)"
     category: 정부
-    stockMarketImportance: 5
+    stockMarketImportance: 6
   - id: time-preference
     name: 시간선호 (Time Preference)
     description: 사람들이 미래의 소비보다 현재의 소비를 더 선호하는 정도로, 금리와 자본의 시간 구조를 설명하는 오스트리아 자본이론의 기초
@@ -1756,9 +1771,9 @@ terms:
     stockMarketImportance: 5
   - id: tax-burden-ratio
     name: 조세부담률 (Tax Burden Ratio)
-    description: 국민소득이나 GDP 대비 조세 총액의 비율로 국민이 부담하는 세금 수준을 보여줌
+    description: "국세·지방세 조세수입이 명목GDP에서 차지하는 비중(2021년 22.1%). 국민부담률은 사회보장기여금(준조세)을 더해 29.9%로 OECD 평균보다 낮은 편(12.1, 참고 12-1)"
     category: 정부
-    stockMarketImportance: 3
+    stockMarketImportance: 4
   - id: eps
     name: 주당순이익 (EPS)
     description: 기업의 순이익을 발행주식 수로 나눈 값으로 주식 1주가 벌어들인 이익을 나타내며 주가 평가의 기본 지표

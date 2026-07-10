@@ -4630,3 +4630,49 @@ propositions:
       - label: 일회성·회계 이익
         detail: 일시적 이익으로 EPS가 부풀려지면 PER이 인위적으로 낮아 보일 수 있다.
     verdict: 상대 비교·동종 조건에서만 부분 성립하는 조건부 명제다.
+  - id: p218
+    statement: 재정적자는 항상 나쁘다
+    category: 정부
+    termIds:
+      - consolidated-fiscal-balance
+      - fiscal-policy
+      - automatic-stabilizer
+      - recession
+      - business-cycle
+    relationIds:
+      - r1147
+      - r1148
+    premise: 재정 적자=낭비·부채 누적이라는 통념에 근거한다(12.3).
+    holds:
+      - label: 구조적·만성 적자
+        detail: 잠재성장 대비 구조적 적자가 지속되면 부채·금리 부담이 커져 중장기 성장을 제약할 수 있다.
+    fails:
+      - label: 경기 침체·자동안정화
+        detail: 침체 시 세수 감소·실업·복지 지출로 적자가 커지는 것은 경기 완화 기능일 수 있다.
+      - label: 의도적 역주기 재정
+        detail: 정부가 침체 국면에 지출을 늘려 총수요를 지탱하면 단기 적자는 정책 목적일 수 있다.
+      - label: 안전자산·기축통화
+        detail: 신뢰·수요가 강한 국채 시장에서는 적자 확대에도 금리가 즉시 치솟지 않을 수 있다(p6 fails).
+    verdict: 만성·구조적 적자에서는 문제지만, 침체 완화·자동안정화 국면에서는 조건부로 정당화될 수 있는 명제다.
+  - id: p219
+    statement: 재정흑자는 항상 좋다
+    category: 정부
+    termIds:
+      - consolidated-fiscal-balance
+      - fiscal-policy
+      - savings
+      - investment
+    relationIds:
+      - r1145
+    premise: 흑자=재정 건전·잘 사는 정부라는 통념에 근거한다(12.3).
+    holds:
+      - label: 과열·부채 누적 억제
+        detail: 호황·고부채 국면에서 흑자·긴축은 재정 여력을 회복하고 금리 압력을 줄일 수 있다.
+    fails:
+      - label: 민간 유동성 흡수
+        detail: 지속적 흑자는 정부가 시중 자금을 흡수해 민간 소비·투자를 제약할 수 있다(12.3).
+      - label: 침체기 긴축
+        detail: 경기 위축·실업 확대 국면에서 지출을 과도히 줄이면 총수요를 더 깎을 수 있다.
+      - label: 흑자=좋은 살림
+        detail: 12.3 — 흑자·적자만으로 정부 성과를 단정할 수 없고 배경·구조가 중요하다.
+    verdict: 과열·부채 억제에는 유용하지만, 침체·수요 부족·민간 흡수 앞에서는 약해지는 조건부 명제다.

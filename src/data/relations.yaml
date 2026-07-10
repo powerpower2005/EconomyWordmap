@@ -7910,3 +7910,52 @@ relations:
     description: 강세장·거래 활발 국면에서 주가지수 상승과 시장 유동성·거래량이 함께 늘어나는 경향(11.3)
     strength: medium
     nature: correlational
+  - id: r1144
+    term1Id: consolidated-fiscal-balance
+    term2Id: national-debt
+    type: proportional
+    description: 통합재정 적자가 누적되면 국가·일반정부 부채가 증가(12.3·12.4)
+    strength: strong
+    nature: causal
+  - id: r1145
+    term1Id: consolidated-fiscal-balance
+    term2Id: fiscal-policy
+    type: correlation
+    description: 확장·긴축 재정정책이 통합재정수지(적자/흑자)를 직접 좌우(12.3)
+    strength: strong
+    nature: policy
+  - id: r1146
+    term1Id: consolidated-fiscal-balance
+    term2Id: government-bond
+    type: proportional
+    description: 재정 적자는 국채 발행·조달 수요를 늘려 금리·시장에 영향(12.3, p6 경로)
+    strength: medium
+    nature: causal
+  - id: r1147
+    term1Id: consolidated-fiscal-balance
+    term2Id: recession
+    type: correlation
+    description: 침체 시 자동안정화로 세수↓·지출↑ → 재정수지 악화(12.3)
+    strength: medium
+    nature: correlational
+  - id: r1148
+    term1Id: automatic-stabilizer
+    term2Id: consolidated-fiscal-balance
+    type: correlation
+    description: 자동안정화는 경기 변동에 따라 재정수지가 역주기로 움직이게 함(12.3)
+    strength: strong
+    nature: causal
+  - id: r1149
+    term1Id: managed-fiscal-balance
+    term2Id: consolidated-fiscal-balance
+    type: correlation
+    description: 관리재정수지=통합재정수지−사회보장성기금 수지(12.2.2)
+    strength: strong
+    nature: definitional
+  - id: r1150
+    term1Id: national-debt
+    term2Id: debt-to-gdp
+    type: correlation
+    description: 국가·일반정부 부채 규모는 GDP 대비 부채비율로 국제 비교·건전성 판단(12.4)
+    strength: strong
+    nature: definitional
