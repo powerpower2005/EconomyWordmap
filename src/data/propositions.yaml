@@ -4329,6 +4329,8 @@ propositions:
       - employment-rate
       - labor-force-participation-rate
       - labor-underutilization
+      - non-regular-employment
+      - youth-unemployment
       - natural-rate-of-unemployment
       - consumption
     relationIds:
@@ -4336,6 +4338,8 @@ propositions:
       - r1089
       - r1097
       - r1098
+      - r1200
+      - r1203
     premise: ILO 실업률 하나로 노동시장 slack을 충분히 파악할 수 있다는 직관에 근거한다. 구직단념·취업준비·불완전취업은 비경제활동 등으로 분류되어 공식 실업률에서 빠질 수 있다(5.1.1.2·5.1.2).
     holds:
       - label: 참가율·확장지표 안정
@@ -4347,6 +4351,10 @@ propositions:
         detail: 고용률(15세+ 기준)은 분모가 달라 실업률과 괴릴 수 있어 함께 봐야 한다.
       - label: 확장실업·U-6
         detail: 고용보조지표3·U-6는 공식 실업보다 체감 slack을 크게 보여주는 경우가 많다.
+      - label: 1시간 취업·단시간 근로
+        detail: ILO 기준 주 1시간만 일해도 취업자로 분류되어 공식 실업이 과소 추정될 수 있다.
+      - label: 퇴직 후 휴식
+        detail: 취업 중 퇴직 후 잠시 쉬면 비경제활동으로 이동해 실업률이 낮아 보이는 역설이 생길 수 있다.
     verdict: 필수 보조 지표(고용률·참가율·확장실업) 없이는 성립하기 어려운 조건부 명제다.
   - id: p207
     statement: 순이익이 늘면 현금 여력도 항상 는다
@@ -4921,3 +4929,30 @@ propositions:
       - label: 쌍둥이 적자·수요
         detail: 미국처럼 내수·수입 주도 적자 구조에서는 강달러와 무역적자가 동시에 지속될 수 있다.
     verdict: DXY는 방향 신호이나 REER·수요·구조를 함께 봐야 하는 조건부 명제다.
+  - id: p229
+    statement: 비정규·단시간 고용 비중이 높을수록 공식 실업률과 체감 slack의 괴리가 커진다
+    category: 거시경제
+    termIds:
+      - unemployment
+      - labor-underutilization
+      - non-regular-employment
+      - employment-rate
+      - youth-unemployment
+      - consumption
+    relationIds:
+      - r1097
+      - r1098
+      - r1200
+      - r1202
+    premise: ILO 기준 1시간 근무 취업·비자발적 비정규·알바+구직은 공식 실업에서 빠지거나 고용률만 높여 보일 수 있어, 고용 질·확장실업 지표 없이는 노동시장 slack을 과소 추정하기 쉽다는 논리에 근거한다.
+    holds:
+      - label: 한국·청년·비정규 비중 높을 때
+        detail: 신규 채용 청년층 비정규 비중이 높고 단시간·알바 취업이 많으면 고용보조지표·체감 slack이 공식 실업률보다 훨씬 클 수 있다.
+      - label: 확장실업·U-6 동반 상승
+        detail: 공식 실업은 안정인데 고용보조지표3·U-6만 오르면 underutilization이 실물보다 나쁠 수 있다.
+    fails:
+      - label: 전체 정규·풀타임 고용 회복
+        detail: 정규·풀타임 채용이 늘고 참가율·확장실업이 함께 개선되면 공식·체감 괴리가 줄어든다.
+      - label: 헤드라인 실업 자체 급등
+        detail: 공식 실업률이 이미 높으면 「괴리」보다 절대 수준 자체가 더 중요할 수 있다.
+    verdict: 고용 질·확장실업·참가율을 함께 봐야 성립하는 조건부 명제다.

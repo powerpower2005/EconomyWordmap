@@ -8302,3 +8302,42 @@ relations:
     description: 주택착공·건설 = 고정투자·경기 선행(17.7)
     strength: medium
     nature: causal
+  - id: r1200
+    term1Id: non-regular-employment
+    term2Id: labor-underutilization
+    type: proportional
+    description: 비자발적 비정규·단기 고용은 공식 실업에 포함되지 않아 고용보조·확장실업·U-6 계열 지표에서 slack이 더 크게 드러나는 경우가 많음
+    strength: strong
+    nature: correlational
+  - id: r1201
+    term1Id: youth-unemployment
+    term2Id: unemployment
+    type: correlation
+    description: 청년실업률은 전체 실업률과 함께 움직이나 비정규·취업준비·단시간 취업 때문에 헤드라인과 괴리·변동성이 더 클 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1202
+    term1Id: non-regular-employment
+    term2Id: consumption
+    type: inverse
+    description: 비자발적·저임금 비정규 비중이 높으면 소득·고용 안정성이 약해져 가계 소비·지출 기대가 위축될 수 있음
+    strength: medium
+    nature: causal
+  - id: r1203
+    term1Id: labor-underutilization
+    term2Id: labor-force-participation-rate
+    type: correlation
+    description: 구직단념·취업준비가 실업↔비경제활동 사이를 오가면 확장실업과 참가율이 공식 실업률과 다른 방향·크기로 움직일 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1204
+    term1Id: fiscal-policy
+    term2Id: unemployment
+    type: inverse
+    description: 재정 부양·청년일자리 지출은 고용·실업 개선에 기여할 수 있으나, 공식 실업률 착시 아래서는 실효성을 과대평가하기 쉬움
+    strength: medium
+    nature: policy
+    bidirectional: true
+    reverseDescription: 고실업·침체기 확장적 재정은 총수요·고용을 끌어올려 실업률 하락에 기여할 수 있음
+    reverseStrength: medium
+    reverseType: inverse

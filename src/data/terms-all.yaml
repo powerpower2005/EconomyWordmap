@@ -96,7 +96,7 @@ terms:
     stockMarketImportance: 7
   - id: unemployment
     name: 실업률 (Unemployment Rate)
-    description: "경제활동인구(취업+ILO 기준 구직) 중 실업자 비율. 우리나라 등은 **4주간 적극적 구직** 기준. **구직단념자**·취업준비 중 비경제활동인구는 실업에 포함되지 않아 공식 실업률이 체감보다 낮을 수 있음 — **고용률**(15세+ 대비 취업자)과 함께 봐야 함"
+    description: "경제활동인구(취업+ILO 기준 구직) 중 실업자 비율. ILO 기준 **조사 주 1시간 이상** 근무하면 취업자로 분류(단시간·알바+구직은 공식 실업에서 빠질 수 있음). 우리나라 등은 **4주간 적극적 구직** 기준. **구직단념자**·취업준비 중 비경제활동인구는 실업에 포함되지 않아 공식 실업률이 체감보다 낮을 수 있음 — 퇴직 후 휴식도 비경제활동으로 실업률을 낮춰 보일 수 있어 **고용률**·**고용보조지표**와 함께 봐야 함"
     category: 거시경제
     stockMarketImportance: 8
   - id: labor-force-participation-rate
@@ -111,7 +111,17 @@ terms:
     stockMarketImportance: 9
   - id: labor-underutilization
     name: 고용보조지표 (Labor Underutilization)
-    description: "공식 실업률을 보완하는 확장 실업 개념. 한국 고용보조지표1~3(시간관련 추가취업가능·잠재경제활동·확장실업률), 미국 U-6(불완전취업·구직단념 포함) 등. 체감 노동시장 여력 파악용"
+    description: "공식 실업률을 보완하는 확장 실업·노동 slack 개념. 한국 **고용보조지표1** 시간관련 추가취업가능(단시간·알바+구직), **2** 잠재경제활동(취업준비·입시생 등), **3** 확장실업(1+2+공식실업) 순으로 넓혀짐. 미국 **U-6**는 공식 실업+불완전취업+구직단념 포함. 비자발적 **비정규직**·청년층에서 공식 실업과 괴리가 클 때 필수 보조 지표"
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: non-regular-employment
+    name: 비정규직 (Non-regular Employment)
+    description: "기간제·시간제·파견·용역·특수고용 등 **정규직이 아닌** 고용 형태. 비자발적 비정규(희망 근로형태와 다른 취업)는 공식 실업에 잡히지 않아 **고용보조지표·체감 slack**에 더 가깝게 잡힐 수 있음. 한국에서는 신규 채용 청년층 비중이 높아 **소득·소비 기대** 해석에 중요"
+    category: 거시경제
+    stockMarketImportance: 5
+  - id: youth-unemployment
+    name: 청년실업률 (Youth Unemployment Rate)
+    description: "15~29세(또는 통계 정의에 따른 청년층)의 실업률. 전체 실업률보다 **변동성·괴리**가 크고, 아르바이트+구직·취업준비·비정규직 비중 때문에 **공식 실업률과 체감** 차이가 더 벌어지는 경우가 많음"
     category: 거시경제
     stockMarketImportance: 6
   - id: cpi
