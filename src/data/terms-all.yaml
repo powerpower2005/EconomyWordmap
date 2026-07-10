@@ -36,7 +36,12 @@ terms:
     stockMarketImportance: 9
   - id: national-accounts
     name: 국민계정 (System of National Accounts)
-    description: UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 생산GDP·분배GDP(피용자보수·영업잉여 등)·지출GDP(C+I+G+NX) 세 측면에서 추계하며 이론상 동일해야 함. 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨
+    description: "UN SNA 기준 GDP·국민소득·산업연관표·자금순환표·국민대차대조표 등 국가 경제의 플로(흐름)와 스톡(재고·자산)을 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가로 GDP를 생산·분배·지출 측면에서 추계하며, 투자·감가상각 등 플로와 자본스톡·국부 스톡은 스톡–플로 정합으로 연결. 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨"
+    category: 거시경제
+    stockMarketImportance: 5
+  - id: national-balance-sheet
+    name: 국민대차대조표 (National Balance Sheet)
+    description: "연말 시점 국민경제·부문별 자산·부채·순자산(순재산)을 기록하는 SNA 5대 통계. 국부(national wealth)는 비금융자산과 순대외금융자산의 합. 생산자산(고정자본·재고 등)은 영구재고법(PIM)으로 투자·감가상각(고정자본소모) 플로에서 추계되며, 토지·지하자원 등 비생산자산은 별도 평가. 생산자본스톡·자본서비스는 잠재 GDP·노동 생산성 추정의 토대. fed-balance-sheet(연준 대차)와 목적·범위가 다름"
     category: 거시경제
     stockMarketImportance: 5
   - id: beyond-gdp

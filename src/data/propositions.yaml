@@ -4172,3 +4172,62 @@ propositions:
       - label: 가격·금리·통화
         detail: 승수 분석은 금리·crowding-out·인플레 반응을, IO 분석은 기술·투입구조·요소가격 전가를 별도로 봐야 한다.
     verdict: 방향은 비슷해도 연쇄 메커니즘이 달라 동일 개념이 아닌 조건부 명제다.
+  - id: p201
+    statement: GDP가 늘면 국부·가계 순자산도 같은 속도로 늘었다
+    category: 거시경제
+    termIds:
+      - gdp
+      - real-gdp
+      - economic-growth
+      - national-balance-sheet
+      - asset-bubble
+      - household-debt
+      - investment
+      - capital-accumulation
+    relationIds:
+      - r1074
+      - r1075
+      - r1076
+      - r1079
+      - r1080
+    premise: GDP는 분기·연간 **플로**(생산·지출) 지표이고 국민대차대조표·국부는 **스톡**(자산·부채·순자산)이다. 투자가 자본스톡을 쌓지만 자산가격·토지·환율·분배·부채 변동은 GDP 성장과 다른 속도로 움직일 수 있다는 스톡–플로·부의 분배 논리에 근거한다.
+    holds:
+      - label: 투자·생산성 동반·자산가격 안정
+        detail: 실질 투자가 자본스톡을 키우고 자산가격이 GDP와 비슷하게 따라가면 국부·순자산이 GDP와 함께 늘 수 있다.
+      - label: 분배·가계 소득 개선
+        detail: 성장 이익이 가계 소득·저축으로 전이되면 가계 순자산이 실물 성장과 함께 개선될 수 있다.
+    fails:
+      - label: 자산가격·토지 급등·급락
+        detail: 부동산·주식 버블·붕괴는 GDP보다 국부·순자산 변동을 크게 흔든다.
+      - label: 분배·NFP·교역조건
+        detail: GDP는 커도 이익·자산이 해외·상위층에 쏠리거나 교역조건이 악화하면 GNI·가계 순자산은 뒤처질 수 있다.
+      - label: 부채·레버리지 확대
+        detail: 순자산은 자산−부채이므로 GDP 성장과 별도로 가계·기업 부채가 빠르게 늘면 순자산은 정체될 수 있다.
+    verdict: 플로( GDP)와 스톡(국부·순자산)은 연결되지만 동일 속도로 움직인다고 단정할 수 없는 조건부 명제다.
+  - id: p202
+    statement: 가계부채만 보면 가계 재무 건전성을 알 수 있다
+    category: 금융
+    termIds:
+      - household-debt
+      - national-balance-sheet
+      - asset-bubble
+      - consumption
+      - interest-rate
+      - financial-accelerator
+    relationIds:
+      - r1078
+      - r1079
+    premise: 가계부채는 대출·이자 부담의 한 축이지만 국민대차대조표·가계 대차는 **자산(부동산·금융)·부채·순자산**을 함께 기록한다. 금융 가속기는 담보·순자산 가치와 차입 여력을 함께 본다는 논리에 근거한다.
+    holds:
+      - label: 자산·소득 대비 부채 비율이 낮을 때
+        detail: 부채 규모가 작고 금리·실업 리스크가 낮으면 부채 지표만으로도 상대적 여력을 가늠할 수 있다.
+      - label: 단기 금리·DSR 모니터링
+        detail: 정책금리·가산금리 상승 국면에서 부채·DSR 추이는 소비·디레버리징 압력의 1차 신호가 될 수 있다.
+    fails:
+      - label: 자산·순자산 누락
+        detail: 부동산·주식 등 자산이 크면 부채가 많아도 순자산·담보가 충분할 수 있다.
+      - label: 금융 가속기·버블
+        detail: 담보 가격 상승기에는 부채가 늘어도 차입 여력이 커 보이다가 가격 급락 시 건전성이 급격히 악화될 수 있다.
+      - label: 분포·비율 지표 필요
+        detail: 총부채/GDP·DSR·금리 민감도 등 **부채 대비 소득·자산** 지표 없이 총량만으로는 판단이 부족하다.
+    verdict: 부채는 필수 신호이지만 순자산·자산가격·소득 대비 부담을 함께 봐야 하는 조건부 명제다.

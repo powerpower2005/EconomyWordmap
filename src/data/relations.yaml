@@ -7418,3 +7418,52 @@ relations:
     description: 투입계수에 임금·유가·환율 등 요소가격 변화를 곱하면 부문별 생산물가·PPI 전가 경로를 추정할 수 있음
     strength: medium
     nature: causal
+  - id: r1074
+    term1Id: national-balance-sheet
+    term2Id: national-accounts
+    type: correlation
+    description: 국민대차대조표는 SNA 5대 통계 중 스톡(자산·부채·순자산) 측면을 담당하며 국민계정·자금순환표와 스톡–플로 정합으로 연결
+    strength: strong
+    nature: definitional
+  - id: r1075
+    term1Id: national-balance-sheet
+    term2Id: potential-gdp
+    type: proportional
+    description: 생산자본스톡·자본서비스 추정은 잠재 GDP·잠재성장률 산출의 핵심 공급 측 입력
+    strength: strong
+    nature: causal
+  - id: r1076
+    term1Id: investment
+    term2Id: national-balance-sheet
+    type: proportional
+    description: 설비·건설 등 투자(I) 플로가 고정자본 스톡을 쌓고 감가상각과 함께 국민대차대조표 생산자산을 갱신
+    strength: strong
+    nature: causal
+  - id: r1077
+    term1Id: national-balance-sheet
+    term2Id: labor-productivity
+    type: proportional
+    description: 자본서비스·생산자본스톡과 노동 투입 대비 산출 분석은 노동 생산성·공급 여력 추정과 연결
+    strength: medium
+    nature: causal
+  - id: r1078
+    term1Id: national-balance-sheet
+    term2Id: household-debt
+    type: correlation
+    description: 가계 부문 대차대조표는 부채뿐 아니라 부동산·금융자산 등 자산과 순자산을 함께 보여 가계부채 단독 지표의 한계를 보완
+    strength: medium
+    nature: correlational
+  - id: r1079
+    term1Id: national-balance-sheet
+    term2Id: asset-bubble
+    type: correlation
+    description: 국부·가계 순자산의 급등·급락은 부동산·주식 등 자산가격 버블·디레버리징 내러티브와 맞물림
+    strength: medium
+    nature: correlational
+  - id: r1080
+    term1Id: capital-accumulation
+    term2Id: national-balance-sheet
+    type: proportional
+    description: 자본축적(투자·질 개선 플로)은 연말 자본스톡·국부의 생산자산을 키우는 장기 경로
+    strength: strong
+    nature: causal
