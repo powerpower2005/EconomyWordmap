@@ -36,7 +36,7 @@ terms:
     stockMarketImportance: 9
   - id: national-accounts
     name: 국민계정 (System of National Accounts)
-    description: UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 추계하며, 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨
+    description: UN SNA 기준으로 GDP·국민소득·산업연관표·자금순환표 등 국가 경제 흐름·재고를 체계적으로 기록하는 통계 틀. 생산·소득·지출 3면 등가 원칙으로 GDP를 생산GDP·분배GDP(피용자보수·영업잉여 등)·지출GDP(C+I+G+NX) 세 측면에서 추계하며 이론상 동일해야 함. 2008 SNA 개정처럼 R&D·디지털·지식재산 범위 확대로 정의가 시대에 맞게 개정됨
     category: 거시경제
     stockMarketImportance: 5
   - id: beyond-gdp
@@ -56,12 +56,17 @@ terms:
     stockMarketImportance: 8
   - id: gdp-deflator
     name: GDP 디플레이터 (GDP Deflator)
-    description: 명목 GDP를 실질 GDP로 나눈 물가 지수(×100)로, 해당 연도 국내 생산물 가격 수준 변화를 반영. CPI·PCE와 달리 수출입 가격·투자재·정부 구매 등 GDP 구성 전체의 물가를 포함해 경제 전반의 명목·실질 분해와 물가 추세 판단에 쓰임
+    description: 명목 GDP를 실질 GDP로 나눈 물가 지수(×100)로, 해당 연도 국내 생산물 가격 수준 변화를 반영. CPI·PCE는 가계 소비 바구니 중심이지만 디플레이터는 수출입·투자재·정부 구매 등 GDP 전체와 생산 측면의 중간재·최종재 가격을 포함해 경제 전반의 명목·실질 분해와 물가 추세 판단에 쓰임
     category: 거시경제
     stockMarketImportance: 6
   - id: gdp-per-capita
     name: 1인당 GDP (GDP per Capita)
-    description: 총 GDP를 인구로 나눈 국가 간 생활수준 비교용 지표로 세계은행·IMF 헤드라인 순위에 자주 쓰임. 소규모·개방경제에서는 다국적 기업의 IP·이익 귀속, SPE·조세회피성 FDI로 총량 GDP가 부풀려 1인당 GDP만으로 국민 체감 번영을 판단하기 어려울 수 있어 소비·가처분소득·불평등 지표와 함께 봐야 함
+    description: 총 GDP를 인구로 나눈 국가 간 생활수준 비교용 지표로 세계은행·IMF 헤드라인 순위에 자주 쓰임. 소규모·개방경제에서는 다국적 기업의 IP·이익 귀속, SPE·조세회피성 FDI로 총량 GDP가 부풀려 1인당 GDP만으로 국민 체감 번영을 판단하기 어려울 수 있어 1인당 GNI·가처분소득·불평등 지표와 함께 봐야 함
+    category: 거시경제
+    stockMarketImportance: 7
+  - id: gni
+    name: GNI (Gross National Income)
+    description: 한 나라 거주자가 일정 기간 벌어들인 총소득(국민총소득). GDP가 국경 안 생산에 초점을 둔다면 GNI = GDP + 국외순요소소득(해외로부터 받은 임금·이자·이익 등에서 지급분을 뺀 값)으로 국민 소득 관점을 본다. 개방경제·다국적 이익 귀속·조세회피성 FDI에는 GDP·1인당 GDP는 크지만 GNI·가처분소득이 뒤처질 수 있어, 생활수준·분배는 GNI·1인당 GNI·가계처분가능소득(PDI/PGDI)과 함께 봐야 함. 실질 GNI 추계에는 교역조건 변화에 따른 무역손익도 반영될 수 있음
     category: 거시경제
     stockMarketImportance: 7
   - id: unemployment
@@ -1966,12 +1971,12 @@ terms:
     stockMarketImportance: 5
   - id: savings
     name: 저축 (Savings)
-    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음
+    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 국민계정에서는 GNDI(국민총처분가능소득) 대비 총저축률·가계 저축률로도 보며, 저축−투자=경상수지(대외균형)와 연결됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음
     category: 거시경제
     stockMarketImportance: 5
   - id: disposable-income
     name: 가처분소득 (Disposable Income)
-    description: 소득에서 세금·사회보험료 등을 뺀, 가계가 실제로 소비하거나 저축할 수 있는 소득
+    description: 소득에서 세금·사회보험료 등을 뺀 뒤 소비·저축에 쓸 수 있는 소득. 국민계정의 가계처분가능소득(PDI)은 가계가 정부·기업·국외로부터 받은 이전소득까지 반영한 가계 총량이고, PGDI(가계총처분가능소득)는 가계 부문만 좁혀 본 지표로 체감 구매력에 더 가깝다. GDP·1인당 GDP가 높아도 분배·조세·비거주자 이익 귀속 때문에 PDI·PGDI는 GNI보다 더 뒤처질 수 있어 함께 봐야 함
     category: 거시경제
     stockMarketImportance: 5
   - id: banking-license

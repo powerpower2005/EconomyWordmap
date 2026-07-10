@@ -4051,3 +4051,65 @@ propositions:
       - label: 이익 정점·마진 압박
         detail: 호황 말기·비용 상승 국면에서는 금리 인하만으로 이익 성장이 이어지지 않을 수 있다.
     verdict: 실물 전달이 살아 있는 국면에서만 성립하는 CF 중간단계 조건부 명제다.
+  - id: p197
+    statement: GDP가 크게 늘면 GNI·가계 소득도 같이 늘었다
+    category: 거시경제
+    termIds:
+      - gdp
+      - gni
+      - gdp-per-capita
+      - disposable-income
+      - profit-shifting
+      - consumption
+      - inequality
+    relationIds:
+      - r1061
+      - r1062
+      - r1063
+      - r950
+      - r958
+      - r959
+    premise: GDP는 국경 안 생산 총량이고 GNI = GDP + 국외순요소소득으로 거주자 소득을 본다. 헤드라인 GDP·1인당 GDP 성장이 곧 국민 생활수준·가처분소득 개선으로 이어진다는 직관에 근거한다.
+    holds:
+      - label: 실물 성장·분배·NFP 동행
+        detail: 생산·고용·임금·가처분소득이 함께 늘고 국외순요소소득이 크게 빠지지 않으면 GDP·GNI·PDI가 방향을 같이 한다.
+      - label: 폐쇄·균형적 개방경제
+        detail: 이익·소득이 거주자에게 분배되고 조세 왜곡·SPE 유입이 작으면 GDP와 GNI 괴리가 제한적이다.
+    fails:
+      - label: 이익 이동·SPE·IP 귀속
+        detail: GDP·1인당 GDP·FDI는 부풀지만 GNI·가처분소득·소비·실업은 뒤처질 수 있다.
+        example: 아일랜드 2015년 GDP 급등(레프러콘 경제학) vs 실업·소비 지표.
+      - label: 분배·가계 부문 쏠림
+        detail: GDP 성장 이익이 비거주자·법인·상위층에 쏠리면 GNI·PDI·PGDI는 GDP보다 약하게 늘거나 정체될 수 있다.
+      - label: 국외순요소소득·교역조건
+        detail: 해외 이익 유출·교역조건 악화가 크면 실질 GNI는 실질 GDP보다 더 약할 수 있다.
+    verdict: 실물 성장·분배·NFP 조건에서만 성립하며, 개방경제·조세 왜곡·분배 불균형 앞에서는 GDP 헤드라인만으로 판단할 수 없는 조건부 명제다.
+  - id: p198
+    statement: 교역조건이 악화하면 실질 GNI는 실질 GDP보다 더 크게 떨어질 수 있다
+    category: 국제경제
+    termIds:
+      - gni
+      - gdp
+      - real-gdp
+      - trade-deficit
+      - trade-surplus
+      - inflation
+      - exchange-rate
+    relationIds:
+      - r1061
+      - r361
+      - r355
+    premise: 실질 GNI는 실질 GDP에 교역조건 변화에 따른 실질 무역손익과 국외순요소소득을 더해 추계한다. 수출가격 대비 수입가격(교역조건)이 나빠지면 같은 수출물량으로 사들일 수입이 줄어 실질 구매력·소득이 GDP 생산 지표보다 더 크게 훼손될 수 있다는 국민계정 논리에 근거한다.
+    holds:
+      - label: 수입물가 급등·수출가격 정체
+        detail: 에너지·원자재 수입가격이 오르고 수출 단가가 따라가지 못하면 교역조건이 악화되어 실질 GNI가 실질 GDP보다 약해질 수 있다.
+      - label: 개방·수입 의존 경제
+        detail: 수출입/GNI 비율이 높은 경제는 교역조건 충격이 국민 실질소득에 GDP보다 직접적으로 전달된다.
+    fails:
+      - label: 교역조건 개선·내수 주도
+        detail: 수출가격이 수입보다 빠르게 오르거나 성장이 순수 내수·서비스에 의존하면 GDP·GNI 괴리가 작거나 GNI가 상대적으로 유리할 수 있다.
+      - label: 환율·가격 전가 완충
+        detail: 환율 조정·기업 마진·재고·가격 전가로 단기 GDP·물가 지표와 GNI 반응 시차·크기가 달라질 수 있다.
+      - label: 국외순요소소득 상쇄
+        detail: 해외 투자 수익·송금 등 NFP가 무역손익 악화를 상쇄하면 실질 GNI 하락폭이 GDP보다 작을 수 있다.
+    verdict: 수입 의존·교역조건 악화 국면에서 특히 성립하며, 환율·NFP·내수 구조에 따라 깨지는 조건부 명제다.
