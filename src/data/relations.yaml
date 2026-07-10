@@ -8246,3 +8246,59 @@ relations:
     description: 한국 원화는 1997.12~ 자유변동환율 체제(16.1.4)
     strength: strong
     nature: definitional
+  - id: r1192
+    term1Id: commodity-price-index
+    term2Id: ppi
+    type: correlation
+    description: 국제원자재가격 → 생산자물가·CPI 선행(17.1)
+    strength: medium
+    nature: causal
+  - id: r1193
+    term1Id: dollar-index
+    term2Id: strong-dollar
+    type: correlation
+    description: DXY·광의 달러지수 상승 = 달러 강세(17.6.1)
+    strength: strong
+    nature: definitional
+  - id: r1194
+    term1Id: nominal-effective-exchange-rate
+    term2Id: real-effective-exchange-rate
+    type: correlation
+    description: NEER + 물가차 = REER — 명목·실질 실효환율 쌍(17.6.2)
+    strength: strong
+    nature: hierarchical
+  - id: r1195
+    term1Id: federal-funds-rate
+    term2Id: sofr
+    type: correlation
+    description: Fed FFR 목표·지준시장 → 레포·SOFR 등 단기금리(17.2)
+    strength: strong
+    nature: causal
+  - id: r1196
+    term1Id: credit-default-swap
+    term2Id: credit-spread
+    type: correlation
+    description: CDS 프리미엄·채권 스프레드 = 신용위험 가격(17.5)
+    strength: strong
+    nature: definitional
+  - id: r1197
+    term1Id: vix
+    term2Id: stock-index
+    type: inverse
+    description: VIX·주가지수 음(-)의 상관 — 공포지수(17.4)
+    strength: medium
+    nature: correlational
+  - id: r1198
+    term1Id: crude-oil
+    term2Id: commodity-price-index
+    type: correlation
+    description: 유가 = IMF 원자재지수 에너지 핵심 구성(17.1.1)
+    strength: strong
+    nature: hierarchical
+  - id: r1199
+    term1Id: housing-starts
+    term2Id: investment
+    type: correlation
+    description: 주택착공·건설 = 고정투자·경기 선행(17.7)
+    strength: medium
+    nature: causal

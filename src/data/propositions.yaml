@@ -4873,3 +4873,51 @@ propositions:
       - label: REER·생산성
         detail: 명목 약세여도 국내 물가·REER가 따라가면 경쟁력 개선이 제한된다.
     verdict: 중기에는 가능하지만 J커브·수입구조·외채·REER 때문에 즉시·필연적이지 않은 조건부 명제다.
+  - id: p227
+    statement: VIX가 오르면 주식시장이 반드시 폭락한다
+    category: 금융
+    termIds:
+      - vix
+      - stock-index
+      - stock-market
+      - volatility
+    relationIds:
+      - r1197
+      - r1043
+    premise: VIX = S&P500 옵션 기반 **공포지수** — 지수 하락 시 VIX 상승(17.4).
+    holds:
+      - label: 급격한 리스크오프
+        detail: 지수 급락·신용 경색 국면에서 VIX 급등과 주식 조정이 동반된다.
+      - label: 변동성 매수 후
+        detail: 공포 정점에서 VIX가 극단치면 추가 하락 폭이 제한될 수 있으나, 「VIX↑=즉시 폭락」과는 구분.
+    fails:
+      - label: 완만한 조정
+        detail: 지수가 천천히 내릴 때 VIX는 크게 안 오를 수 있다.
+      - label: 변동성 매도·헤지 해제
+        detail: vol-selling·옵션 포지션 정리로 VIX만 먼저 오르거나 지수와 단기 괴리가 날 수 있다.
+    verdict: 음의 상관은 흔하지만 필연적 폭락 신호는 아닌 조건부 명제다.
+  - id: p228
+    statement: 달러화지수(DXY) 상승이면 미국 수출 경쟁력이 항상 약해진다
+    category: 국제경제
+    termIds:
+      - dollar-index
+      - strong-dollar
+      - exchange-rate
+      - real-effective-exchange-rate
+      - trade-surplus
+      - trade-deficit
+    relationIds:
+      - r1193
+      - r61
+    premise: DXY↑ = 달러 강세 → 미국 상품의 외화 표시 가격↑ → 수출 경쟁력↓(17.6·16.3).
+    holds:
+      - label: 가격경쟁력·J커브 이후
+        detail: 달러 강세가 수출가격에 반영되고 수요가 가격탄력적이면 무역수지가 악화될 수 있다.
+      - label: 동반 강세
+        detail: 글로벌 수요 호조와 함께 달러가 오르면 수출액은 유지되나 점유율은 떨어질 수 있다.
+    fails:
+      - label: REER·물가
+        detail: 타국 물가·환율이 더 약하면 **실효** 경쟁력은 DXY만으로 단정 불가.
+      - label: 쌍둥이 적자·수요
+        detail: 미국처럼 내수·수입 주도 적자 구조에서는 강달러와 무역적자가 동시에 지속될 수 있다.
+    verdict: DXY는 방향 신호이나 REER·수요·구조를 함께 봐야 하는 조건부 명제다.

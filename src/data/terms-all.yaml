@@ -316,7 +316,7 @@ terms:
     stockMarketImportance: 9
   - id: sofr
     name: SOFR (Secured Overnight Financing Rate)
-    description: 미국 국채를 담보로 한 하루짜리 대출 금리로 신용리스크가 거의 없으며, LIBOR를 대체하는 대표적인 무위험 기준금리
+    description: "미 **국채 담보** 익일 RP 금리 — Libor 대체 **준거금리**. Fed **ARRC**가 2017년 선정, 2023.7 Libor 산출 종료 후 국제금융·변동금리 대출의 기준(17.2.1)"
     category: 금리
     stockMarketImportance: 6
   - id: qra
@@ -516,7 +516,7 @@ terms:
     stockMarketImportance: 8
   - id: commodity-market
     name: 원자재시장 (Commodity Market)
-    description: 원유·금·곡물 등 원자재를 거래하는 시장으로 인플레이션·경기 사이클·지정학 요인에 민감하며 생산비용을 통해 물가에 영향을 미침
+    description: "원유·금·곡물 등 **국제원자재** 거래 시장. IMF·세계은행 **원자재가격지수**(에너지/비연료)가 흐름을 요약하며 **생산자물가**·CPI에 **선행**하는 경향(17.1)"
     category: 금융
     stockMarketImportance: 7
   - id: net-interest-margin
@@ -1796,7 +1796,7 @@ terms:
     stockMarketImportance: 6
   - id: stock-index
     name: 주가지수 (Stock Index)
-    description: "다수 종목 가격을 종합해 시장 흐름을 보여주는 지표. KOSPI·S&P500 등 대부분은 시가총액 가중(11.1)이고 다우·닛케이는 주가평균식. KOSPI200·KRX300은 벤치마크용 부분지수"
+    description: "다수 종목 가격을 종합한 시장 지표. **MSCI** ACWI·신흥국, **S&P500**·**나스닥**·다우(미), **유로스톡스**·**닛케이** 등 — 대부분 시가총액 가중, 다우·닛케이225는 주가평균(17.3)"
     category: 금융
     stockMarketImportance: 8
   - id: market-capitalization
@@ -1956,7 +1956,7 @@ terms:
     stockMarketImportance: 5
   - id: risk-premium
     name: 위험 프리미엄 (Risk Premium)
-    description: 위험을 감수하는 대가로 투자자가 무위험 수익률 위에 요구하는 추가 기대수익으로 불확실성이 커지면 상승해 자산 가격을 끌어내림
+    description: "동일 만기에서 **무위험** 대비 위험자산이 요구하는 추가 수익. **EMBI+ 가산금리**(신흥국채−미 국채)·**CDS 프리미엄**이 대표 지표 — 신용불안 확대 시 상승(17.5)"
     category: 금융
     stockMarketImportance: 5
   - id: market-regime
@@ -2333,4 +2333,34 @@ terms:
     name: 변동환율제 (Floating Exchange Rate)
     description: "환율을 시장 수급에 맡기되 당국이 **개입**해 과도한 변동을 완화하는 제도. IMF 분류 ⑧ — 한국은 1997.12 이후 **자유변동**(⑨)에 가깝게 운영(표16-1, 16.1.4)"
     category: 국제경제
+    stockMarketImportance: 6
+  - id: commodity-price-index
+    name: 국제원자재가격지수 (Commodity Price Index)
+    description: "IMF·세계은행 등이 발표하는 **가중 원자재지수**(2016=100 등). **에너지**(원유·가스·석탄)와 **비연료**(곡물·금속)로 구분 — PPI·CPI **선행** 신호(17.1.1)"
+    category: 원자재
+    stockMarketImportance: 7
+  - id: dollar-index
+    name: 달러화지수 (DXY)
+    description: "미 달러 **종합 가치** 지수 — ICE **DXY**는 유로·엔·파운드 등 6통화 가중(1973=100). FRB **광의 달러지수**는 교역국 26개 반영(17.6.1)"
+    category: 국제경제
+    stockMarketImportance: 8
+  - id: nominal-effective-exchange-rate
+    name: 명목실효환율 (NEER)
+    description: "교역상대국 **명목환율**을 무역비중으로 가중한 지수 — BIS·IMF 발표. **REER**는 여기에 물가차를 반영(17.6.2)"
+    category: 국제경제
+    stockMarketImportance: 7
+  - id: federal-funds-rate
+    name: 연방기금금리 (Federal Funds Rate)
+    description: "미 **지준시장**에서 은행 간 익일 대출 금리(**FFR**). Fed가 **목표**를 정하고 OMO 등으로 유지 — **SOFR**·단기금리·글로벌 금리의 기준(17.2.2)"
+    category: 금리
+    stockMarketImportance: 9
+  - id: credit-default-swap
+    name: 신용파산스왑 (CDS)
+    description: "신용위험을 **스왑**으로 전가하는 파생상품 — 보장 매입자가 **프리미엄**을 내고 채무불이행 시 보상. 국가·기업 **신용위험** 가격(17.5)"
+    category: 금융
+    stockMarketImportance: 6
+  - id: housing-starts
+    name: 주택착공 (Housing Starts)
+    description: "해당 월 **착공** 주택 호수 — 미 상무부 등 매월 발표. **신규주택**·건설·주택투자의 **선행지표**(17.7·표17-4)"
+    category: 거시경제
     stockMarketImportance: 6
