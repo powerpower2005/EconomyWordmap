@@ -4450,3 +4450,62 @@ propositions:
       - label: 자본수지·금융거래
         detail: 경상수지만으로 FoF 국외부문을 단정하면 자본·금융계정 흐름을 놓칠 수 있다.
     verdict: 통화공급 경로와 FoF 부문 부호를 구분해야 하는 조건부 명제다.
+  - id: p211
+    statement: 중앙은행이 본원통화만 조절하면 M2를 정확히 통제할 수 있다
+    category: 통화정책
+    termIds:
+      - base-money
+      - m2
+      - money-multiplier
+      - credit-creation
+      - required-reserve-ratio
+      - reserves
+      - inflation-targeting
+    relationIds:
+      - r1115
+      - r67
+      - r73
+      - r1119
+    premise: 외생적 통화공급(승수이론)에 따라 중앙은행이 본원통화·지급준비율로 M2를 기계적으로 결정한다는 견해에 근거한다. 내생적 공급론은 대출수요→예금→M2 순서를 강조(8.5.1.4·참고8-1).
+    holds:
+      - label: 승수·속도 안정·강한 규제
+        detail: 지급준비율·대출수요가 안정적이고 금융혁신이 적을 때 본원통화→M2 연쇄가 비교적 예측 가능할 수 있다.
+      - label: 금융억압·통화량목표 시대
+        detail: 1980년대까지 일부 국가에서 M2 중간목표가 작동했던 구간이 있다.
+    fails:
+      - label: 내생·대출수요 주도
+        detail: 외환위기 이후 한국 등에서 「은행대출↑→M2↑」 인과가 두드러져 본원통화만으로 통제 어렵다.
+      - label: QE·지준금 적체
+        detail: 본원통화 급증해도 대출·속도·규제 때문에 M2는 완만할 수 있다.
+      - label: 금융혁신·그림자금융
+        detail: M2 밖 유동성·포트폴리오 이동으로 정의·통제 범위가 흔들린다.
+    verdict: 외생·내생·금융환경 조건에서만 판단 가능한 조건부 명제다.
+  - id: p212
+    statement: M2 증가율이 높으면 항상 인플레이션이 재가속한다
+    category: 거시경제
+    termIds:
+      - m2
+      - money-supply
+      - inflation
+      - velocity-of-money
+      - inflation-targeting
+      - credit-creation
+    relationIds:
+      - r34
+      - r112
+      - r1115
+      - r1119
+    premise: MV=PY에서 M2↑=물가↑ 직관에 근거한다. 그러나 유통속도·수요·정책·공급 충격에 따라 단기 괴리가 크다(그림8-2·코로나 M2).
+    holds:
+      - label: 속도 안정·과잉 수요
+        detail: 유통속도가 안정적이고 M2가 수요를 초과하면 물가 압력이 커질 수 있다.
+      - label: 지속적 고증가율+달러 약세
+        detail: M2가 여러 분기 고성장하고 환율·원자재가 동반되면 인플레 재점화 신호가 될 수 있다.
+    fails:
+      - label: 유통속도 하락
+        detail: 같은 M2도 거래에 덜 쓰이면 물가 반응이 약하거나 지연된다.
+      - label: 공급·일회성 충격
+        detail: 2021~22 공급망·에너지 충격은 M2와 별개로 CPI를 움직였다.
+      - label: 긴축·정책 신뢰
+        detail: M2 둔화 전에 **inflation-targeting**·긴축으로 기대가 먼저 잡히면 즉시 재가속하지 않을 수 있다.
+    verdict: 속도·수요·정책 조건에서만 성립하는 조건부 명제다.

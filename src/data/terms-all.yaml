@@ -111,9 +111,9 @@ terms:
     stockMarketImportance: 8
   - id: money-supply
     name: 통화량 (Money Supply)
-    description: 경제 내에서 유통되는 화폐의 총량으로 소비·투자·물가에 영향
+    description: "경제 내 유통·보유 화폐·유동성의 총량. 한국은행 ECOS는 **M1**(협의)·**M2**(광의)·**Lf**·**L**(광의유동성) 계층으로 공표 — 포괄범위가 넓을수록 가치저장·장기 금융상품 포함"
     category: 금융
-    stockMarketImportance: 6
+    stockMarketImportance: 7
   - id: base-money
     name: 본원통화(M0) (Base Money)
     description: 중앙은행이 직접 공급하는 현금과 은행의 지급준비금
@@ -121,12 +121,17 @@ terms:
     stockMarketImportance: 5
   - id: m1
     name: 협의통화(M1) (M1 Money Supply)
-    description: 현금과 요구불예금 등 즉시 지출에 쓰이는 협의통화로, 중앙은행이 M2·M3와 함께 공표하는 통화량 지표 중 가장 좁은 범위
+    description: "IMF MFSM 기준 **현금통화 + 결제성예금**(요구불·MMDA 등) — 지급결제·단기 유동성 지표. **M2**·**money-supply** 계층의 가장 좁은 범위"
     category: 통화
-    stockMarketImportance: 3
+    stockMarketImportance: 5
   - id: m2
     name: 광의통화(M2) (M2 Money Supply)
-    description: 본원통화와 예금통화를 포함한 광범위한 유동성 지표
+    description: "**M1** + 2년 미만 저축성예금·시장형·실적배당형 금융상품·금융채·거주자외화예금(IMF MFSM). **credit-creation**(민간신용)이 확대하는 핵심 광의통화 — 1998~ 물가안정목표제 이후 **정보변수**로 활용"
+    category: 통화
+    stockMarketImportance: 7
+  - id: broad-liquidity
+    name: 광의유동성 (Broad Liquidity)
+    description: "M2보다 넓은 유동성 지표 — **Lf**(금융기관유동성: M2+2년 이상 예금·생보 준비금·증권금융 예수금), **L**(광의유동성: Lf+CP·회사채·국공채 등). 가치저장 기능 중시·장기 금융상품 포함"
     category: 통화
     stockMarketImportance: 4
   - id: reserves
@@ -1886,9 +1891,9 @@ terms:
     stockMarketImportance: 5
   - id: fiat-currency
     name: 법정화폐 (Fiat Currency)
-    description: 금 같은 실물 담보 없이 정부 신뢰와 법적 강제력으로 통용되는 화폐로 발행 재량이 큰 만큼 가치 훼손 위험을 안음
+    description: "금본위 폐지 이후 금·은 등 실물 담보 없이 **중앙은행** 독점 발행·법적 강제력(legal tender)으로 통용되는 화폐. 신뢰·통화정책에 담보되며 발행 재량이 큰 만큼 **인플레이션·화폐가치 훼손** 위험을 안음"
     category: 통화
-    stockMarketImportance: 4
+    stockMarketImportance: 5
   - id: currency-debasement
     name: 화폐가치 훼손 (Currency Debasement)
     description: 과도한 발행·인플레이션으로 통화의 구매력이 구조적으로 떨어지는 현상으로 금·실물자산 선호를 키움
