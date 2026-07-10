@@ -7315,3 +7315,13 @@ relations:
     description: 예대마진은 대출 규모를 키울수록 은행 수익이 커져 신용창출 확대 유인을 줌
     strength: medium
     nature: causal
+  - id: r1060
+    term1Id: interest-rate
+    term2Id: eps
+    type: inverse
+    description: 금리 인하는 투자·소비·총수요를 자극해 기업 이익·EPS 전망을 끌어올릴 수 있음
+    strength: medium
+    nature: causal
+    mechanism: 금리 인하가 I·C를 살려 매출·마진 기대를 개선하고 DCF CF 추정에 반영
+    conditions: 경기가 과열이 아니고 신용 전달이 정상일 때
+    lag: 수분기~1년+
