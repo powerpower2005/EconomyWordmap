@@ -3181,7 +3181,7 @@ relations:
     term1Id: employment-rate
     term2Id: unemployment
     type: inverse
-    description: 고용률과 실업률은 노동시장을 보완적으로 측정하나 완전한 역수는 아님
+    description: 고용률(15세+ 대비 취업자)과 실업률(경제활동인구 대비)은 구직단념·참가율 이동에 따라 역으로만 움직이지 않아 함께 봐야 함
     strength: medium
     nature: correlational
   - id: r477
@@ -7521,5 +7521,131 @@ relations:
     term2Id: business-cycle
     type: correlation
     description: 구리 수요·가격은 건설·제조 경기와 연동되어 경기순환의 선행·동행 신호로 해석
+    strength: medium
+    nature: correlational
+  - id: r1089
+    term1Id: labor-force-participation-rate
+    term2Id: unemployment
+    type: correlation
+    description: 참가율(노동공급)과 실업률은 분모·구성이 달라 동시에 움직일 수 있어 노동시장 해석에 함께 필요
+    strength: medium
+    nature: correlational
+  - id: r1090
+    term1Id: nonfarm-payroll
+    term2Id: business-cycle
+    type: correlation
+    description: 미국 비농업부문 월간 순고용은 경기순환·침체 판단의 속보성 실물 지표
+    strength: strong
+    nature: correlational
+  - id: r1091
+    term1Id: nonfarm-payroll
+    term2Id: real-gdp
+    type: correlation
+    description: 고용·소득 창출과 실질 GDP 성장은 중기적으로 연동되며 NFP 서프라이즈가 성장 전망을 흔듦
+    strength: medium
+    nature: causal
+  - id: r1092
+    term1Id: unit-labor-cost
+    term2Id: labor-productivity
+    type: inverse
+    description: "단위 노동 비용 ≈ 임금(노동비용)/생산성 — 생산성 개선이 임금 상승을 상쇄하면 ULC·물가 압력이 완화"
+    strength: strong
+    nature: causal
+  - id: r1093
+    term1Id: real-wage
+    term2Id: labor-productivity
+    type: proportional
+    description: 장기적으로 실질임금은 노동 생산성 추세와 연동되는 경향(5.2 임금·생산성)
+    strength: medium
+    nature: causal
+  - id: r1094
+    term1Id: unemployment
+    term2Id: central-bank
+    type: correlation
+    description: Fed 이중목표(고용·물가) 등 중앙은행 통화정책은 실업·참가율·임금 지표를 핵심 입력으로 참고
+    strength: strong
+    nature: causal
+  - id: r1095
+    term1Id: unemployment
+    term2Id: policy-rate
+    type: inverse
+    description: 실업률이 자연실업률 아래로 내려가면 임금·물가 압력으로 금리 인상 압력, 고실업 시 인하 여지
+    strength: medium
+    nature: causal
+  - id: r1096
+    term1Id: nonfarm-payroll
+    term2Id: consumption
+    type: proportional
+    description: 비농업 고용·임금 확대는 가계 소득·소비(C)의 실물 전달 경로
+    strength: medium
+    nature: causal
+  - id: r1097
+    term1Id: labor-underutilization
+    term2Id: unemployment
+    type: proportional
+    description: 고용보조지표·U-6 등 확장 실업은 구직단념·불완전취업을 포함해 공식 실업률보다 넓은 노동시장 slack을 반영
+    strength: strong
+    nature: correlational
+  - id: r1098
+    term1Id: labor-underutilization
+    term2Id: employment-rate
+    type: inverse
+    description: 확장 실업·underutilization이 높으면 고용률·체감 고용 여력이 공식 실업·고용률만으로는 드러나지 않을 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1099
+    term1Id: cash-flow-statement
+    term2Id: earnings
+    type: correlation
+    description: 손익계산서 순이익(발생주의)과 영업활동 현금흐름은 괴릴 수 있어 — 흑자도산·이익 품질 분석에 함께 필요
+    strength: strong
+    nature: correlational
+  - id: r1100
+    term1Id: cash-flow-statement
+    term2Id: eps
+    type: correlation
+    description: EPS는 accrual 이익 기반이고 FCF·영업 CF와 괴리하면 멀티플·배당 지속성 해석이 왜곡될 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1101
+    term1Id: debt-ratio
+    term2Id: interest-coverage-ratio
+    type: inverse
+    description: 부채비율↑와 이자보상비율↓가 겹치면 재무 스트레스·신용 경색 전달 위험이 커짐
+    strength: strong
+    nature: causal
+  - id: r1102
+    term1Id: cash-flow-statement
+    term2Id: dcf
+    type: correlation
+    description: DCF의 현금흐름(CF)은 현금흐름표·FCF 추정에서 출발 — 손익만으로는 부족
+    strength: strong
+    nature: causal
+  - id: r1103
+    term1Id: current-ratio
+    term2Id: credit-crunch
+    type: inverse
+    description: 유동비율 악화·단기 상환 부담은 신용 경색·돈맥경화 시 도산·디폴트 리스크를 키움
+    strength: medium
+    nature: causal
+  - id: r1104
+    term1Id: operating-margin
+    term2Id: eps
+    type: proportional
+    description: 매출액영업이익률 개선은 본업 수익성→순이익→EPS 전달의 1차 경로
+    strength: strong
+    nature: causal
+  - id: r1105
+    term1Id: financial-statements
+    term2Id: earnings
+    type: correlation
+    description: 손익계산서·재무상태표 등 재무제표가 EPS·PER·부채비율 등 분석의 공통 입력
+    strength: strong
+    nature: definitional
+  - id: r1106
+    term1Id: operating-margin
+    term2Id: debt-ratio
+    type: correlation
+    description: 영업마진이 약하고 부채비율이 높으면 이자보상·레버리지 리스크가 동시에 커짐
     strength: medium
     nature: correlational

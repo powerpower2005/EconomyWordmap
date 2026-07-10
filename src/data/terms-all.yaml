@@ -76,9 +76,24 @@ terms:
     stockMarketImportance: 7
   - id: unemployment
     name: 실업률 (Unemployment Rate)
-    description: 경제활동인구 중 일할 의사가 있으나 일자리를 갖지 못한 인구의 비율
+    description: "경제활동인구(취업+ILO 기준 구직) 중 실업자 비율. 우리나라 등은 **4주간 적극적 구직** 기준. **구직단념자**·취업준비 중 비경제활동인구는 실업에 포함되지 않아 공식 실업률이 체감보다 낮을 수 있음 — **고용률**(15세+ 대비 취업자)과 함께 봐야 함"
     category: 거시경제
     stockMarketImportance: 8
+  - id: labor-force-participation-rate
+    name: 경제활동참가율 (Labor Force Participation Rate)
+    description: "만 15세 이상 인구 중 경제활동인구(취업+구직) 비율. 실업률과 분모·해석이 달라 — 참가율이 오르면 실업률도 함께 오를 수 있음(회복 초기). 경제활동인구조사 핵심 지표"
+    category: 거시경제
+    stockMarketImportance: 7
+  - id: nonfarm-payroll
+    name: 비농업부문 고용 (Nonfarm Payrolls)
+    description: "미국 BLS **비농업부문** 월간 순고용(신규 일자리) 헤드라인. Fed 이중목표(물가·고용)와 시장 변동성의 핵심 지표. **GNI의 NFP(국외순요소소득)** 와 약어가 다름 — id는 nonfarm-payroll로 구분"
+    category: 거시경제
+    stockMarketImportance: 9
+  - id: labor-underutilization
+    name: 고용보조지표 (Labor Underutilization)
+    description: "공식 실업률을 보완하는 확장 실업 개념. 한국 고용보조지표1~3(시간관련 추가취업가능·잠재경제활동·확장실업률), 미국 U-6(불완전취업·구직단념 포함) 등. 체감 노동시장 여력 파악용"
+    category: 거시경제
+    stockMarketImportance: 6
   - id: cpi
     name: CPI 소비자 물가 지수 (Consumer Price Index)
     description: 가계가 소비하는 상품과 서비스의 가격 변동을 측정하는 대표 물가지표
@@ -1491,9 +1506,34 @@ terms:
     stockMarketImportance: 4
   - id: debt-ratio
     name: 부채비율 (Debt Ratio)
-    description: 자기자본 대비 부채의 비율로 높을수록 재무 위험이 크며 기업 건전성 판단의 기본 지표
+    description: "기업 재무상태표상 부채÷자기자본(%) — 재무 레버리지·안정성의 대표 지표. 자기자본비율·차입금의존도·유동비율·이자보상비율과 함께 봐야 하며, **national-balance-sheet**(국민경제 거시 대차)와 목적·범위가 다름"
     category: 금융
-    stockMarketImportance: 4
+    stockMarketImportance: 6
+  - id: financial-statements
+    name: 재무제표 (Financial Statements)
+    description: "기업경영분석의 기초 — 재무상태표(자산·부채·자본), 손익계산서(영업·순이익), 현금흐름표(영업·투자·재무 CF), 이익잉여금처분 등. 은행·투자자·경영자 의사결정의 공통 입력"
+    category: 금융
+    stockMarketImportance: 7
+  - id: cash-flow-statement
+    name: 현금흐름표 (Cash Flow Statement)
+    description: "영업·투자·재무활동별 현금 유입·유출. 발생주의 **손익**과 **현금**을 분리 — 장부 이익은 크나 현금이 부족한 **흑자도산** 위험을 본다. DCF·현금흐름보상비율 분석의 기초"
+    category: 금융
+    stockMarketImportance: 8
+  - id: current-ratio
+    name: 유동비율 (Current Ratio)
+    description: "유동자산÷유동부채(%) — 단기 지급능력·유동성. 100% 미만이면 단기 상환 스트레스 신호. 시장 **liquidity**(유동성 공급)와 구분"
+    category: 금융
+    stockMarketImportance: 6
+  - id: interest-coverage-ratio
+    name: 이자보상비율 (Interest Coverage Ratio)
+    description: "영업이익÷이자비용(%) — 이자 부담능력. 100% 미만이면 영업이익만으로 이자를 못 갚는 상태. 부채비율·금융비용부담률과 함께 신용·레버리지 리스크 판단"
+    category: 금융
+    stockMarketImportance: 7
+  - id: operating-margin
+    name: 매출액영업이익률 (Operating Margin)
+    description: "영업이익÷매출액(%) — 본업 수익성·영업 효율. 영업외손익을 제외한 **순수 영업** 마진으로 EPS·PER 해석의 선행 지표"
+    category: 금융
+    stockMarketImportance: 7
   - id: fountain-effect
     name: 분수효과 (Fountain Effect)
     description: 저소득층의 소득과 소비를 늘리면 그 수요가 경제 전체로 퍼져 성장을 이끈다는 주장으로 낙수효과와 대비됨
