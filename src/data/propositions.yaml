@@ -4091,6 +4091,9 @@ propositions:
       - gni
       - gdp
       - real-gdp
+      - terms-of-trade
+      - export-price-index
+      - import-price-index
       - trade-deficit
       - trade-surplus
       - inflation
@@ -4099,6 +4102,7 @@ propositions:
       - r1061
       - r361
       - r355
+      - r1173
     premise: 실질 GNI는 실질 GDP에 교역조건 변화에 따른 실질 무역손익과 국외순요소소득을 더해 추계한다. 수출가격 대비 수입가격(교역조건)이 나빠지면 같은 수출물량으로 사들일 수입이 줄어 실질 구매력·소득이 GDP 생산 지표보다 더 크게 훼손될 수 있다는 국민계정 논리에 근거한다.
     holds:
       - label: 수입물가 급등·수출가격 정체
@@ -4785,3 +4789,30 @@ propositions:
       - label: 평가·장기 FDI
         detail: 해외자산 평가·FDI 수익이 크면 순IIP 부호와 실질 지급능력이 어긋날 수 있다.
     verdict: 유동성·외채 구조·통화 지위를 함께 봐야 하는 조건부 명제다.
+  - id: p224
+    statement: 순상품교역조건이 악화되면 무역 이익이 반드시 줄어든다
+    category: 국제경제
+    termIds:
+      - terms-of-trade
+      - income-terms-of-trade
+      - export-price-index
+      - import-price-index
+      - trade-volume-index
+      - trade-surplus
+      - gni
+    relationIds:
+      - r1171
+      - r1177
+      - r1179
+    premise: ToT 하락 = 수출 한 단위로 사들일 수입 감소 = 무역 이익 감소라는 단가 중심 직관(15.2.1).
+    holds:
+      - label: 단가 ToT·물량 정체
+        detail: 수출물가 대비 수입물가만 나빠지고 수출물량이 늘지 않으면 실질 교환력·무역손익이 줄 수 있다.
+      - label: 에너지·원자재 수입 쇼크
+        detail: 유가 등 수입물가가 수출물가보다 빠르게 오르면 순상품 ToT 하락(15.2.1).
+    fails:
+      - label: 소득교역조건·물량 확대
+        detail: 단가 ToT는 악화여도 수출물량·원가절감으로 소득 ToT·수출총액은 개선 — 2022년 한국(표15-4).
+      - label: 반도체·기술혁신
+        detail: 수출가격 인하+물량 급증이면 순상품 ToT만으로 이익 단정 불가(15.2.2).
+    verdict: 단가 ToT만으로 무역 이익을 단정하면 안 되는 조건부 명제다.

@@ -91,7 +91,7 @@ terms:
     stockMarketImportance: 7
   - id: gni
     name: GNI (Gross National Income)
-    description: 한 나라 거주자가 일정 기간 벌어들인 총소득(국민총소득). GDP가 국경 안 생산에 초점을 둔다면 GNI = GDP + 국외순요소소득(해외로부터 받은 임금·이자·이익 등에서 지급분을 뺀 값)으로 국민 소득 관점을 본다. 개방경제·다국적 이익 귀속·조세회피성 FDI에는 GDP·1인당 GDP는 크지만 GNI·가처분소득이 뒤처질 수 있어, 생활수준·분배는 GNI·1인당 GNI·가계처분가능소득(PDI/PGDI)과 함께 봐야 함. 실질 GNI 추계에는 교역조건 변화에 따른 무역손익도 반영될 수 있음
+    description: "한 나라 거주자가 일정 기간 벌어들인 총소득(국민총소득). GNI = GDP + 국외순요소소득. **실질 GNI** 추계에는 **교역조건(terms-of-trade)** 변화에 따른 무역손익도 반영될 수 있어, 수입물가 급등·ToT 악화 국면에서는 실질 GDP보다 약할 수 있음(15.2·p198)"
     category: 거시경제
     stockMarketImportance: 7
   - id: unemployment
@@ -384,6 +384,21 @@ terms:
     description: "관세청 **통관 무역수지** 또는 GDP **순수출(NX)** 이 플러스인 상태. BoP **상품수지**·**경상수지**와 수치·범위가 다를 수 있어 무역 흑자만으로 경상 흑자를 단정하면 안 됨. GDP에 기여·외화 축적 요인이 되나 과도하면 통상마찰·통화 절상 압력을 부를 수 있어 글로벌 수요·환율 국면과 함께 해석해야 함"
     category: 국제경제
     stockMarketImportance: 4
+  - id: terms-of-trade
+    name: 교역조건 (Terms of Trade)
+    description: "수출품 대 수입품 **가격 교환비율**. **순상품교역조건** = 수출물가지수÷수입물가지수(15.2.1) — 하락 시 같은 수출로 사들일 수입 감소·실질 구매력 악화. **소득교역조건**은 수출물량까지 반영(15.2.2)"
+    category: 국제경제
+    stockMarketImportance: 6
+  - id: income-terms-of-trade
+    name: 소득교역조건 (Income Terms of Trade)
+    description: "수출총액으로 수입할 수 있는 물량 지수 — 순상품교역조건×수출물량지수÷100(15.2.2). 단가 ToT만 보면 악화여도 물량·원가절감으로 무역 이익은 늘 수 있음(반도체 사례)"
+    category: 국제경제
+    stockMarketImportance: 5
+  - id: trade-volume-index
+    name: 무역물량지수 (Trade Volume Index)
+    description: "수출입 **물량지수** — 금액지수÷물가지수(2015=100, 15.1). 소득교역조건·수출 성장의 물량 요인 분해에 사용"
+    category: 국제경제
+    stockMarketImportance: 5
   - id: twin-deficit
     name: 쌍둥이 적자 (Twin Deficits)
     description: 재정적자와 무역(경상)적자가 동시에 확대되는 상태로, 가계 저축 부족·재정 확장·금리 상승·달러 강세·해외 자본 유입이 겹치면 나타날 수 있음. 레이건 시대와 이후 미국 등에서 논의되며, 강달러·관세만으로 무역적자를 해결하기 어렵다는 분석의 출발점이 되기도 함
@@ -606,9 +621,14 @@ terms:
     stockMarketImportance: 2
   - id: import-price-index
     name: 수입물가지수 (Import Price Index)
-    description: "한국은행이 작성하는 수입 상품 계약가격 변동을 2015=100 기준으로 지수화한 지표. 원자재·에너지 수입원가와 환율 변동이 국내 PPI·CPI로 전가되는 경로의 1차 관측점"
+    description: "한국은행 **무역지수**의 수입 **물가지수**(2015=100, 계약가·통관 시차조정, 달러 기준). **교역조건** 분모·원자재·에너지 수입원가 관측 — PPI·CPI 전가 1차 경로(10·15장)"
     category: 거시경제
     stockMarketImportance: 7
+  - id: export-price-index
+    name: 수출물가지수 (Export Price Index)
+    description: "한국은행 **무역지수**의 수출 **물가지수**(2015=100, 계약가·시차조정, 달러 기준). **순상품교역조건** = 수출물가÷수입물가 — 반도체·IT 수출 단가 추적(15.2.1)"
+    category: 거시경제
+    stockMarketImportance: 6
   - id: developmental-state
     name: 발전국가 모델 (Developmental State)
     description: 국가가 전략 산업을 선정해 금융·보조금을 집중하되 수출 성과로 규율하며 성장을 주도한 동아시아 발전 모델로, 한국·대만·싱가포르의 고도성장 사례가 대표적
