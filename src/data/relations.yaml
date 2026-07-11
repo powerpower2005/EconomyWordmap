@@ -8589,3 +8589,73 @@ relations:
     description: 설비가동률이 장기 평균·82%대를 넘어 지속되면 **기준금리** 인상·유지 등 긴축 압력이 커질 수 있음
     strength: medium
     nature: policy
+  - id: r1240
+    term1Id: inventory-investment
+    term2Id: investment
+    type: correlation
+    description: 재고투자는 GDP **I(민간투자)** 의 한 축 — **설비(CapEx)** 와 구분되는 재고 축적·감소 흐름
+    strength: strong
+    nature: hierarchical
+  - id: r1241
+    term1Id: inventory-investment
+    term2Id: recession
+    type: inverse
+    description: "불황: 수요 맞춰 생산·**재고투자** 감소 → 침체 **심화** 가능(생산평활 동기와 별개로 실물 위축 경로)"
+    strength: medium
+    nature: causal
+  - id: r1242
+    term1Id: inventory-investment
+    term2Id: business-cycle
+    type: correlation
+    description: 재고투자는 호황·불황 국면에 따라 **경기 변동성을 확대**하는 경우가 많음 — 재고순환·생산 조정
+    strength: medium
+    nature: causal
+  - id: r1243
+    term1Id: inventory-investment
+    term2Id: manufacturing
+    type: correlation
+    description: 제조업 **재고·출하·생산** 지수와 재고투자·재고수준 밀접 — 제조 패널·거시 재고 분석의 중심
+    strength: strong
+    nature: correlational
+  - id: r1244
+    term1Id: inventory-investment
+    term2Id: industrial-production
+    type: correlation
+    description: "불황: **산업생산** 삭감 → 재고 소진·재고투자↓. 호황: 생산·재고투자 동행 — 시차·방향은 국면마다 다름"
+    strength: medium
+    nature: causal
+  - id: r1245
+    term1Id: inventory-investment
+    term2Id: earnings
+    type: correlation
+    description: 기업 **순이익**과 재고투자는 장기적으로 **같은 방향**으로 움직이는 경향 — 수요·마진·생산 계획 반영
+    strength: medium
+    nature: correlational
+  - id: r1246
+    term1Id: inventory-investment
+    term2Id: real-gdp
+    type: correlation
+    description: 재고투자(I) 조정은 **분기 실질 GDP** 변동·침체 판정에 크게 기여 — 재고만으로 GDP 방향 단정은 위험
+    strength: medium
+    nature: causal
+  - id: r1247
+    term1Id: inventory-investment
+    term2Id: aggregate-demand
+    type: correlation
+    description: 판매·수요 전망에 따라 기업이 재고투자를 조정 — **총수요** 변화의 I 채널
+    strength: medium
+    nature: causal
+  - id: r1248
+    term1Id: inventory-investment
+    term2Id: business-condition-index
+    type: correlation
+    description: 경기동향지수 **선행(재고순환)**·**후행(재고)** 구성 — 재고투자·재고수준과 CI 국면 판독 연동
+    strength: medium
+    nature: correlational
+  - id: r1249
+    term1Id: inventory-investment
+    term2Id: purchasing-managers-index
+    type: correlation
+    description: PMI **재고** 항목(설문)과 공식 **재고투자·생산** 통계는 제조 경기의 보완 지표
+    strength: medium
+    nature: correlational

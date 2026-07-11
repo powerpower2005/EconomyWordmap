@@ -3972,7 +3972,7 @@ propositions:
         detail: 금리 상승·신용 경색·수요 둔화가 겹치면 기업 투자가 먼저 줄고, 고용·내구재·주택 소비가 뒤따라 위축되는 패턴이 흔하다.
         example: "2008년 금융위기: CapEx·건설 투자 급감 후 실업·소비 악화."
       - label: 재고·생산 조정
-        detail: 투자·주문 감소 뒤 재고 축적·생산 삭감·해고가 연쇄되면 침체가 심화된다.
+        detail: "투자·주문 감소 뒤 **재고투자↓·생산 삭감**·해고가 연쇄되면 침체가 심화된다. 호황: 재고↑가 경기 **증폭**할 수 있으나 미판매 적체일 수도 있다."
     fails:
       - label: 공급·팬데믹형 충격
         detail: 봉쇄·공급망 단절처럼 **소비·서비스**가 먼저 꺾이면 투자보다 고용·소비가 선행할 수 있다.
@@ -5193,3 +5193,84 @@ propositions:
       - label: 과잉 CapEx·설비 과잉
         detail: 침체 직후 저가동 구간에서도 선행 CapEx가 몰리면 이후 **과잉 설비**로 투자 위축이 이어질 수 있다(p3273).
     verdict: 수요·금융 조건이 맞을 때 성립하나, 금리·수요 전망·과잉 설비 앞에서는 깨지는 조건부 명제다.
+  - id: p238
+    statement: 불황 때 재고투자가 줄면 침체가 심화된다
+    category: 거시경제
+    termIds:
+      - inventory-investment
+      - recession
+      - business-cycle
+      - industrial-production
+      - manufacturing
+      - investment
+      - real-gdp
+    relationIds:
+      - r1241
+      - r1244
+      - r1246
+    premise: 경기 불황에서 기업은 수요에 맞춰 생산을 줄이고 재고를 소진·축소하며, **재고투자 감소**가 생산·고용 위축을 키워 침체를 **심화**시킨다는 한은·실물 경기 분석에 근거한다.
+    holds:
+      - label: 수요 둔화·생산 삭감
+        detail: 판매 전망이 어두우면 생산·재고투자를 줄여 실물 GDP·고용 위축이 커질 수 있다.
+      - label: 재고·생산 연쇄
+        detail: 주문 감소 → 재고투자↓ → 생산·고용 조정이 이어지면 침체 깊이가 커진다.
+    fails:
+      - label: 생산평활(완충) 동기
+        detail: 예기치 못한 수요 충격을 재고로 흡수하려는 동기가 강하면 단기적으로 변동 **완화**로 작용할 수 있다.
+      - label: 재고 지표만으로 국면 단정
+        detail: 재고 감소가 구조 조정·일회성 소진일 수 있어, 곧바로 ‘불황 확대’로 읽기 어렵다.
+      - label: 공급·봉쇄형 충격
+        detail: 공급망·봉쇄 충격은 재고가 아닌 **서비스·고용** 경로가 먼저일 수 있다.
+    verdict: 전형적 **수요·제조** 침체에서는 성립하나, 완충 동기·공급 충격·지표 해석 오류 앞에서는 깨지는 조건부 명제다.
+  - id: p239
+    statement: 호황 때 재고가 늘면 경기가 더 좋아 보인다
+    category: 거시경제
+    termIds:
+      - inventory-investment
+      - business-cycle
+      - manufacturing
+      - aggregate-demand
+      - earnings
+      - industrial-production
+    relationIds:
+      - r1242
+      - r1243
+      - r1245
+      - r1247
+    premise: 호황 국면에서 기업은 **재고소진 회피**·판매 전망에 맞춰 재고를 늘리므로, 재고투자·재고수준 증가가 경기 **확장을 증폭**하는 것처럼 보인다는 재고소진 회피 가설에 근거한다.
+    holds:
+      - label: 재고소진 회피·수요 호조
+        detail: 판매 전망이 밝을 때 재고를 미리 쌓으면 생산·고용·이익이 함께 늘어 경기가 더 강해 보인다.
+      - label: 이익·재고투자 동행
+        detail: 호황기 이익 개선과 재고투자가 같은 방향으로 움직이는 패턴이 관찰된다.
+    fails:
+      - label: 미판매·적체 재고
+        detail: 재고↑가 수요 호조가 아니라 **판매 부진·미판매 적체** 때문일 수 있어, 오히려 향후 생산 삭감 신호다.
+      - label: 재고만 보고 확장 단정
+        detail: 재고 지표만으로 경기 확장·불황 확대를 곧바로 의미하지 않는다(한은 분석 주의).
+      - label: 단기 재고·생산 조정
+        detail: 일시적 생산·재고 축적은 고용·CapEx로 바로 이어지지 않을 수 있다.
+    verdict: 수요가 받쳐주는 호황에서는 성립하나, 적체·판매 부진·지표 단독 해석 앞에서는 깨지는 조건부 명제다.
+  - id: p240
+    statement: 재고투자 변동이 분기 GDP·경기 판정을 흔든다
+    category: 거시경제
+    termIds:
+      - inventory-investment
+      - real-gdp
+      - recession
+      - investment
+      - business-cycle
+    relationIds:
+      - r1240
+      - r1246
+    premise: 재고투자(I)는 분기별 변동성이 크고, 재고 조정만으로 **실질 GDP** 증가율·침체 **rough rule**(두 분기 역성장) 판단을 흔들 수 있다는 국민계정·NBER 논의에 근거한다.
+    holds:
+      - label: 분기 재고 급변
+        detail: 재고투자 급감·급증이 분기 GDP 헤드라인을 크게 움직여 ‘침체/회복’ 해석을 왜곡할 수 있다.
+        example: "2022년 미국 1·2분기: 재고 등으로 미세 역성장 후 3·4분기 회복, NBER 침체 미선언."
+    fails:
+      - label: C·G·NX가 상쇄
+        detail: 소비·정부·수출이 재고 조정을 상쇄하면 GDP·경기 체감과 재고 신호가 엇갈릴 수 있다.
+      - label: 측정·계절 조정
+        detail: 재고 통계·GDP 추계 오차로 단기 재고만으로 국면을 단정하기 어렵다.
+    verdict: 재고(I) 변동을 **GDP·침체 판정**과 함께 봐야 하는 조건부 명제다.
