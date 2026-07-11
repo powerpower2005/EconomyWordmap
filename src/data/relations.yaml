@@ -7499,7 +7499,7 @@ relations:
     term1Id: consumer-confidence
     term2Id: consumption
     type: correlation
-    description: 소비자신뢰·소비지출전망(CSI 등)은 가계 지출(C)의 선행·동행 신호
+    description: 소비자신뢰·소비지출전망(CSI/CCI)은 가계 지출(C)의 선행·동행 신호이나 GFC 이후 민감도가 약해진 구간도 있음
     strength: medium
     nature: causal
   - id: r1086
@@ -8338,7 +8338,7 @@ relations:
     strength: medium
     nature: policy
     bidirectional: true
-    reverseDescription: 고실업·침체기 확장적 재정은 총수요·고용을 끌어올려 실업률 하락에 기여할 수 있음
+    reverseDescription: 고실업·침체기 확장적 재정은 총수요·고용을 끌어올리고, 부양·금리 인하 기대가 주가 선행 반등을 이끌 수 있음(실업률은 아직 높아도)
     reverseStrength: medium
     reverseType: inverse
   - id: r1205
@@ -8411,3 +8411,101 @@ relations:
     description: 평균 시급(AHE)은 Employment Situation 기관조사 구성 — NFP·실업률보다 후행하는 임금 지표
     strength: medium
     nature: hierarchical
+  - id: r1215
+    term1Id: unemployment
+    term2Id: stock-index
+    type: correlation
+    description: 실업률과 주가는 **항상 같은 방향이 아님** — 저실업(완전고용)·임금·Fed 긴축 vs 고실업+정책·선행 반등 등 국면에 따라 역방향·시차 괴리가 자주 나타남
+    strength: medium
+    nature: correlational
+  - id: r1216
+    term1Id: unit-labor-cost
+    term2Id: earnings
+    type: inverse
+    description: 완전고용·임금 상승으로 단위 노동 비용이 올라가면 기업 마진·이익 전망이 눌려 주가에 전달될 수 있음(생산성이 따라가면 완화)
+    strength: medium
+    nature: causal
+  - id: r1217
+    term1Id: full-employment
+    term2Id: stock-index
+    type: correlation
+    description: 완전고용에 근접하면 임금·물가·Fed 긴축 기대로 주가·밸류에이션이 조정될 수 있음 — 경기는 좋아도 증시는 약할 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1218
+    term1Id: unemployment
+    term2Id: earnings
+    type: inverse
+    description: 고실업은 수요·매출 위축으로 이익에 부담, 저실업은 임금·ULC 압력으로 마진·이익에 부담 — 양 극단 모두 이익·주가 해석에 조건 필요
+    strength: medium
+    nature: causal
+  - id: r1219
+    term1Id: consumer-confidence
+    term2Id: dollar-index
+    type: correlation
+    description: 미시간대 CSI 등 소비자심리는 달러화지수(DXY)와 상관이 높은 편 — 수입·재정·환율 기대가 설문에 반영
+    strength: strong
+    nature: correlational
+  - id: r1220
+    term1Id: consumer-confidence
+    term2Id: stock-market
+    type: correlation
+    description: 소비자심리(CSI/CCI)는 주가와 동행·선행하는 경우가 많아 경기·수요 기대의 금융시장 반영으로 해석
+    strength: medium
+    nature: correlational
+  - id: r1221
+    term1Id: consumer-confidence
+    term2Id: long-term-interest-rate
+    type: correlation
+    description: 소비자심리와 장기국채 금리는 국면에 따라 동행·역행 — 경기·인플레·Fed 기대가 설문과 금리에 동시 반영
+    strength: medium
+    nature: correlational
+  - id: r1222
+    term1Id: consumer-confidence
+    term2Id: expected-inflation
+    type: correlation
+    description: 미시간대 설문의 **기대인플레이션**·물가 전망은 CPI·연준 정책 기대에 선행하는 경우가 많음
+    strength: medium
+    nature: causal
+  - id: r1223
+    term1Id: consumer-confidence
+    term2Id: unemployment
+    type: correlation
+    description: CSI 실업률 **전망**은 실제 실업 변화에 선행하는 경향 — 고용 기대가 소비·경기 판단에 반영
+    strength: medium
+    nature: causal
+  - id: r1224
+    term1Id: consumer-confidence
+    term2Id: gdp
+    type: correlation
+    description: GDP 최대 구성=C(소비)인 미국에서 소비자심리는 실물 성장·총수요의 선행·동행 지표로 활용
+    strength: medium
+    nature: correlational
+  - id: r1225
+    term1Id: consumer-confidence
+    term2Id: inflation
+    type: correlation
+    description: 소비자심리의 물가·인플레 전망은 헤드라인 인플레이션과 연동 — 체감·기대 채널
+    strength: medium
+    nature: correlational
+  - id: r1226
+    term1Id: consumer-confidence
+    term2Id: market-sentiment
+    type: correlation
+    description: 가계 **경기심리**(CSI/CCI)와 자산시장 **투자 심리**는 구분되나 단기·국면에 따라 함께 움직이기도 함
+    strength: medium
+    nature: correlational
+  - id: r1227
+    term1Id: savings
+    term2Id: consumption
+    type: inverse
+    description: 가계 저축률이 높아지면(예비적 저축·디레버리징) 같은 소득·심리에서도 소비 지출이 상대적으로 줄 수 있음
+    strength: medium
+    nature: causal
+  - id: r1228
+    term1Id: consumer-confidence
+    term2Id: aggregate-demand
+    type: correlation
+    description: 소비자심리 개선은 가계 소비(C)를 통해 총수요(AD)를 끌어올리는 전달경로의 선행 신호
+    strength: medium
+    nature: causal

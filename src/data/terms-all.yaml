@@ -96,7 +96,7 @@ terms:
     stockMarketImportance: 7
   - id: unemployment
     name: 실업률 (Unemployment Rate)
-    description: "경제활동인구(취업+ILO 기준 구직) 중 실업자 비율. ILO 기준 **조사 주 1시간 이상** 근무하면 취업자로 분류(단시간·알바+구직은 공식 실업에서 빠질 수 있음). 우리나라 등은 **4주간 적극적 구직** 기준. **구직단념자**·취업준비 중 비경제활동인구는 실업에 포함되지 않아 공식 실업률이 체감보다 낮을 수 있음 — 퇴직 후 휴식도 비경제활동으로 실업률을 낮춰 보일 수 있어 **고용률**·**고용보조지표**와 함께 봐야 함"
+    description: "경제활동인구(취업+ILO 기준 구직) 중 실업자 비율. ILO 기준 **조사 주 1시간 이상** 근무하면 취업자로 분류(단시간·알바+구직은 공식 실업에서 빠질 수 있음). 우리나라 등은 **4주간 적극적 구직** 기준. **구직단념자**·취업준비 중 비경제활동인구는 실업에 포함되지 않아 공식 실업률이 체감보다 낮을 수 있음 — 퇴직 후 휴식도 비경제활동으로 실업률을 낮춰 보일 수 있어 **고용률**·**고용보조지표**와 함께 봐야 함. **후행 지표** 성격 — 주가·선행지수(PMI·수익률곡선)와 **동시에 읽으면** 엇갈림(위기 전후 저실업+주가↓·고실업+주가↑)이 자주 나타남"
     category: 거시경제
     stockMarketImportance: 8
   - id: labor-force-participation-rate
@@ -301,7 +301,7 @@ terms:
     stockMarketImportance: 4
   - id: consumption
     name: 소비 (Consumption)
-    description: 가계가 재화와 서비스를 구매하는 경제활동으로 GDP의 가장 큰 구성요소이며 소득·금리·기대인플레이션에 영향을 받음
+    description: "가계가 재화와 서비스를 구매하는 경제활동으로 GDP의 가장 큰 구성요소이며 소득·금리·기대인플레이션·**소비자신뢰(CSI/CCI)** 에 영향을 받음. 심리 지표는 선행 신호로 쓰이나 **글로벌 금융위기 이후** 심리–지출 탄력성이 약해진 구간도 있음"
     category: 거시경제
     stockMarketImportance: 6
   - id: investment
@@ -931,7 +931,7 @@ terms:
     stockMarketImportance: 4
   - id: full-employment
     name: 완전고용 (Full Employment)
-    description: "경기적 실업이 사라지고 일하려는 사람이 대체로 고용된 상태. **연준은 최대고용**을 **이중목표** 중 하나로 명시해 NFP·실업률·참가율을 추적하며, QE 축소·QT(테이퍼) 조건에서 고용 측 **substantial further progress**가 자주 거론됨. 학술적으로는 고전파(시장 자율 조정) vs 케인즈(단기 미달) 논쟁의 한 축"
+    description: "경기적 실업이 사라지고 일하려는 사람이 대체로 고용된 상태. **연준은 최대고용**을 **이중목표** 중 하나로 명시해 NFP·실업률·참가율을 추적하며, QE 축소·QT(테이퍼) 조건에서 고용 측 **substantial further progress**가 자주 거론됨. **투자자 관점**에서는 완전고용에 가까울수록 **임금·단위노동비용·Fed 긴축** 리스크로 주가·마진에 부담이 될 수 있음(경제 전반과 주식시장이 어긋날 수 있음). 학술적으로는 고전파(시장 자율 조정) vs 케인즈(단기 미달) 논쟁의 한 축"
     category: 거시경제
     stockMarketImportance: 4
   - id: game-theory
@@ -2121,7 +2121,7 @@ terms:
     stockMarketImportance: 5
   - id: consumer-confidence
     name: 소비자신뢰지수 (Consumer Confidence)
-    description: "가계 설문(생활형편·경기판단·소비·고용·물가 전망 등)으로 작성하는 경제심리 지표. 한국은행 CSI·CCSI, 미국 컨퍼런스보드·미시간대, EU 소비자신뢰지수 등. BSI(기업경기실사)와 합성한 ESI·경기선행지수 구성에도 쓰이며, **market-sentiment**(주식·자산시장 심리)와 구분. 소비지출·경기 전망의 선행 신호로 활용"
+    description: "가계 설문(생활형편·경기판단·소비·고용·물가 전망 등)으로 작성하는 경기심리 지표. 미국은 **미시간대 소비자심리지수(CSI, 예비·2·3째 금요일/확정)** 와 **컨퍼런스보드 소비자신뢰지수(CCI, 월말 화요일)** — CSI는 수입·재정·**달러**에 민감, CCI는 노동·6개월 전망·변동성이 큼. 한국은행 CSI·CCSI, EU 소비자신뢰지수 등. 미시간대 **소비자기대지수**는 미국 경기선행지수 구성. BSI와 합성한 ESI·경기선행지수에도 쓰이며 **market-sentiment**(자산시장 심리)와 구분. **주가·장기금리·달러**와 상관이 높고 **가계지출(C)** 의 선행·동행 신호"
     category: 거시경제
     stockMarketImportance: 7
   - id: technical-analysis
@@ -2161,7 +2161,7 @@ terms:
     stockMarketImportance: 5
   - id: savings
     name: 저축 (Savings)
-    description: 가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 국민계정에서는 GNDI(국민총처분가능소득) 대비 총저축률·가계 저축률로도 보며, 저축−투자=경상수지(대외균형)와 연결됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음
+    description: "가처분소득에서 소비하지 않고 남긴 잉여자금으로 예금을 통해 투자와 대출의 재원이 됨. 국민계정에서는 GNDI(국민총처분가능소득) 대비 총저축률·가계 저축률로도 보며, 저축−투자=경상수지(대외균형)와 연결됨. 가계 저축률 하락과 재정적자 확대가 겹치면 국내 자본이 부족해져 금리·달러 강세·무역적자(쌍둥이 적자) 압력으로 이어질 수 있음. 금융위기 이후 **예비적 저축**이 늘면 **소비자심리** 개선만으로 지출이 덜 늘 수 있음"
     category: 거시경제
     stockMarketImportance: 5
   - id: disposable-income
