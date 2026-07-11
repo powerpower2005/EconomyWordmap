@@ -5114,3 +5114,82 @@ propositions:
       - label: 주가의 선행성
         detail: 주가가 CSI 반등보다 먼저 회복 기대를 반영하면 단기 상관이 약해 보일 수 있다.
     verdict: 경기·수요 내러티브가 지배할 때는 성립하지만, Fed·글로벌 FX 드라이버 앞에서는 깨지는 조건부 명제다.
+  - id: p235
+    statement: 설비가동률이 높으면 물가 압력이 커진다
+    category: 거시경제
+    termIds:
+      - capacity-utilization
+      - inflation
+      - output-gap
+      - policy-rate
+      - federal-reserve
+    relationIds:
+      - r1231
+      - r1232
+      - r1239
+    premise: 설비가동률이 올라가면 유휴 설비가 줄고 수요가 생산능력을 압박해, 통상 **82% 전후**를 넘기면 가격 상승 압력이 커진다는 수요 견인·슬랙 논리에 근거한다.
+    holds:
+      - label: 수요 견인·풀가동 국면
+        detail: 가동률이 장기 평균을 크게 상회하고 수요가 받쳐주면 임금·마진·가격 전가 압력이 커질 수 있다.
+      - label: 아웃풋 갭 과열과 동행
+        detail: 설비가동률 상승이 아웃풋 갭 양(+)·Fed 긴축 신호와 함께 나타나면 물가 압력 해석이 강해진다.
+    fails:
+      - label: 공급 충격만의 물가
+        detail: 유가·공급망 충격으로 물가만 오르고 실물·가동률이 약하면 가동률만으로 인플레를 단정하기 어렵다.
+      - label: 생산성·비용 흡수
+        detail: 생산성 향상·원가 하락이 마진에 흡수되면 가동률↑에도 CPI 전달이 약할 수 있다.
+      - label: 모델·측정 오차
+        detail: 잠재 CAPACITY 추정·계절 조정 오차로 헤드라인 가동률과 체감 슬랙이 어긋날 수 있다.
+    verdict: 수요 견인·슬랙 부족 국면에서 성립하나, 공급 충격·생산성 앞에서는 깨지는 조건부 명제다.
+  - id: p236
+    statement: 산업생산이 늘면 고용이 늘어난다
+    category: 거시경제
+    termIds:
+      - industrial-production
+      - manufacturing
+      - employment-rate
+      - unemployment
+      - labor-productivity
+    relationIds:
+      - r1234
+      - r791
+    premise: 산업생산·제조업 생산이 늘면 생산 확대에 맞춰 고용·고용률이 개선된다는 실물 경기 전달 논리에 근거한다.
+    holds:
+      - label: 회복·확장 초기
+        detail: 침체 이후 생산이 빠르게 회복하면 생산라인 재가동·추가 채용으로 고용이 따라오는 경우가 많다.
+      - label: 생산성 정체·수요 호조
+        detail: 생산성 향상이 둔하고 수요가 받쳐주면 IP↑와 NFP·고용률↑가 동행하기 쉽다.
+    fails:
+      - label: 생산성·자동화
+        detail: 설비·자동화로 인력 대비 산출만 늘면 IP는 오르고 제조업 고용은 정체될 수 있다(p2686).
+      - label: 단기 생산 재고 조정
+        detail: 재고 축적·일시적 생산 급증은 고용 채용으로 바로 이어지지 않을 수 있다.
+      - label: 구조적 제조업 고용 감소
+        detail: 장기적으로 제조업 고용 비중은 줄어드는 추세와 단기 IP 회복이 엇갈릴 수 있다.
+    verdict: 회복·수요 주도 국면에서는 성립하나, 생산성·자동화 앞에서는 깨지는 조건부 명제다.
+  - id: p237
+    statement: 설비가동률이 높으면 설비투자가 늘어난다
+    category: 거시경제
+    termIds:
+      - capacity-utilization
+      - capital-expenditure
+      - investment
+      - manufacturing
+      - interest-rate
+    relationIds:
+      - r1233
+      - r874
+    premise: 설비가동률이 **풀가동**에 가까우면 생산 병목을 풀기 위해 공장 증설·설비 투자(CapEx)가 늘어난다는 실물 경기·기업 투자 논리에 근거한다.
+    holds:
+      - label: 수요 전망·금융 여건 양호
+        detail: 가동률 상승과 함께 주문·마진 전망이 좋고 신용이 막히지 않으면 CapEx·건설 지출이 따라오기 쉽다.
+      - label: 장기 평균 대비 고가동
+        detail: 80%대 후반·90%대 접근 시 증설 논의·주택착공·산업 설비 수주가 늘어나는 패턴이 관찰된다.
+    fails:
+      - label: 금리·신용 경색
+        detail: 고금리·신용 경색이면 가동률이 높아도 투자를 미루거나 임시근로·교대로 대체할 수 있다.
+      - label: 수요 둔화 전망
+        detail: 가동률은 높지만 향후 수요 전망이 약하면 CapEx보다 재고·가격 조정을 택할 수 있다.
+      - label: 과잉 CapEx·설비 과잉
+        detail: 침체 직후 저가동 구간에서도 선행 CapEx가 몰리면 이후 **과잉 설비**로 투자 위축이 이어질 수 있다(p3273).
+    verdict: 수요·금융 조건이 맞을 때 성립하나, 금리·수요 전망·과잉 설비 앞에서는 깨지는 조건부 명제다.

@@ -761,9 +761,19 @@ terms:
     stockMarketImportance: 6
   - id: manufacturing
     name: 제조업 (Manufacturing)
-    description: 원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 되며, 중농주의가 불임적이라 폄하했으나 산업혁명 이후 부의 핵심 원천이 됨. 생산성·자본집약이 올라가면 산출은 늘어도 고용 인원은 줄거나 정체될 수 있어 산출과 고용을 따로 봐야 함
+    description: "원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 됨. 미국 **연준(FRB) 산업생산** 지수에서 가중치가 가장 큰 부문(약 76%)이며, **PMI 설문**과 **공식 생산 통계**를 함께 봐야 함. 생산성·자본집약이 올라가면 **산출**은 늘어도 **고용**은 줄거나 정체될 수 있어 둘을 분리해 봐야 함"
     category: 거시경제
     stockMarketImportance: 5
+  - id: industrial-production
+    name: 산업생산 (Industrial Production)
+    description: "미국 **연준(FRB)** 이 매월 15일 전후(동부 9:15) 발표하는 **실물 생산** 지수. **제조업**(약 76%)·**광업**·**유틸리티** 생산 변화를 측정하며 농업·건설·운수·금융·서비스는 제외. GDP·경기와 **동행**하는 대표 실물 지표로, PMI(설문)와 달리 **공식 생산량** 기반"
+    category: 거시경제
+    stockMarketImportance: 8
+  - id: capacity-utilization
+    name: 설비가동률 (Capacity Utilization)
+    description: "연준(FRB)이 **산업생산**과 함께 발표하는 공장·설비 **가동 수준(%)**. 낮으면 유휴 설비·슬랙, 높으면 수요 압력·증설(CapEx) 신호. 통상 **82% 전후**를 넘기면 **인플레이션** 압력 가능성으로 주목. **아웃풋 갭**(모델 추정)과 함께 경기 과열·둔화를 읽는 **실측** 슬랙 지표"
+    category: 거시경제
+    stockMarketImportance: 7
   - id: ecological-economics
     name: 생태경제학 (Ecological Economics)
     description: 경제를 자연 생태계의 일부로 보고 자원의 한계와 지속가능성을 중시하는 학문으로, 자연과의 조화를 강조한 중농주의를 사상적 선구로 봄
@@ -851,7 +861,7 @@ terms:
     stockMarketImportance: 6
   - id: output-gap
     name: 아웃풋 갭 (Output Gap)
-    description: 실질 GDP가 잠재 GDP를 얼마나 웃도는지(양수) 또는 밑도는지(음수)를 나타내는 지표로, 양(+)이면 경기 과열·가동률 초과, 음(−)이면 둔화·유휴 자원 여력으로 해석. 중앙은행이 통화정책(금리·매파·비둘기 톤) 판단에 참고하는 대표 실물 지표 중 하나
+    description: "실질 GDP가 잠재 GDP를 얼마나 웃도는지(양수) 또는 밑도는지(음수)를 나타내는 **모델 추정** 지표. 양(+)이면 경기 과열, 음(−)이면 둔화·유휴 자원. 연준 **설비가동률**은 공장 가동의 **실측** 슬랙으로, 아웃풋 갭과 **함께** Fed·금리 판단에 참고"
     category: 거시경제
     stockMarketImportance: 6
   - id: labor-productivity
@@ -2036,7 +2046,7 @@ terms:
     stockMarketImportance: 4
   - id: capital-expenditure
     name: 설비투자 (Capex)
-    description: 기업·정부가 설비·인프라·연구개발에 투입하는 자본지출로 AI·에너지 전환기에 대규모로 요구됨
+    description: "기업·정부가 설비·인프라·연구개발에 투입하는 자본지출. **설비가동률**이 장기 평균·80%대를 넘어 **풀가동**에 가까우면 증설·공장 건설 압력이 커지는 경우가 많음. AI·에너지 전환기 대규모 지출과 별개로, 금리·수요 전망에 따라 타이밍은 달라질 수 있음"
     category: 거시경제
     stockMarketImportance: 5
   - id: populism
