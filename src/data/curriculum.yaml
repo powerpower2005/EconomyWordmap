@@ -1720,6 +1720,12 @@ curriculum:
             **Alice:** 그래서 뭘 보면 돼?
 
             **Bob:** GDP 성장률만 말고 **시총/GDP**, **EPS**, **장기금리**, **순 발행·자사주**를 같이 봐. “경제랑 똑같이 오른다”고 가정하면 위험해. **국가 간 성장 격차**가 좁혀지면 해당국 **주가지수** 상대 수익률이 약해질 수도 있어.
+
+            ---
+
+            **Alice:** 한국은 증시가 오르면 경기가 좋은 거라고 보면 돼?
+
+            **Bob:** 조심해. 시총은 **제조·수출** 비중이 큰데 실물 **부가가치·고용**은 **서비스**가 더 커. 시총/GDP **수준**이랑, 산업별 시총 vs 부가가치 **구성**은 다른 축이야. 코스피만 보고 전체 경기를 읽으면 빗나갈 수 있어.
           bodyProse: |
             **시가총액/GDP**(버핏 지표)는 시장 규모를 실질 경제와 비교한다. 1980년대 이후 주요 선진국에서 이 비율이 급등했으며, **GDP 성장 = 시총 성장**이라는 직관과 어긋날 수 있다.
 
@@ -1727,7 +1733,9 @@ curriculum:
 
             **장기금리 하락 → 할인율↓ → 밸류↑**, **법인세·이자비용↓ → EPS↑**, **기술·글로벌 가치사슬 → 상장사 이익 쏠림**이 겹치면 시총/GDP가 GDP보다 빠르게 오를 수 있다. **국가 간 실질 성장률 격차**와 **주가지수 상대 수익률**은 평균적으로 연동되나(p184), 밸류·금리·섹터 쏠림에 따라 이격될 수 있다.
 
-            **정리:** GDP 헤드라인과 **시총/GDP·EPS·장기금리·순발행·성장 전망**을 세트로 본다. p175(성장 패리티)는 **조건부**다.
+            시총/GDP는 **수준** 비교다. 한국처럼 시총이 **제조·수출**에 편중되고 실물 **부가가치·고용**이 **서비스** 중심이면, 산업별 시총 비중과 부가가치 비중의 **구성 괴리(비대표성)** 때문에 주가지수를 전체 경기의 선행지표로만 읽기 어렵다(p252).
+
+            **정리:** GDP 헤드라인과 **시총/GDP·EPS·장기금리·순발행·성장 전망**을 세트로 본다. p175(성장 패리티)·p252(시총 구성의 실물 대표성)는 **조건부**다.
           termIds:
             - market-capitalization
             - market-cap-to-gdp
@@ -1753,6 +1761,11 @@ curriculum:
             - dividend-yield
             - stock-market
             - stock-index
+            - manufacturing
+            - services
+            - value-added
+            - employment-rate
+            - trade-dependency
           propositionIds:
             - p175
             - p176
@@ -1762,6 +1775,8 @@ curriculum:
             - p184
             - p74
             - p102
+            - p252
+            - p11
 
         - id: part-gdp-limits
           title: "4. GDP가 못 보는 것"
@@ -1874,8 +1889,11 @@ curriculum:
             - pce
             - gdp
             - business-condition-index
+            - seasonal-adjustment
+            - data-revision
           propositionIds:
             - p204
+            - p254
 
         - id: part-circular-dual-mandate
           title: "2. 순환과 이중목표"
@@ -1969,6 +1987,7 @@ curriculum:
             - p232
             - p247
             - p249
+            - p253
 
         - id: part-consumption-income
           title: "4. 소비와 소득"
@@ -2040,6 +2059,7 @@ curriculum:
             - capital-expenditure
             - gdp
             - inflation
+            - nahb-housing-market-index
           propositionIds:
             - p203
             - p235

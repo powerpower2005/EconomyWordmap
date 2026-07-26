@@ -106,12 +106,12 @@ terms:
     stockMarketImportance: 7
   - id: employment-situation-report
     name: 미국 고용 보고서 (Employment Situation Report)
-    description: "미국 노동부 BLS **Employment Situation**. **가계조사**(실업률·참가율·고용률)와 **기관조사**(비농업취업 NFP·주평균 근로시간·평균 시급) **이원 구조**. 매월 첫(또는 둘째) **금요일** 발표 — 글로벌 **Fed·금리·주가** 변동성의 정기 이벤트"
+    description: "미국 노동부 BLS **Employment Situation**. **가계조사(Household)** 는 **사람 수**(실업률·참가율·고용률)를, **기관조사(Establishment/Payroll)** 는 **일자리 수**(비농업 NFP·주평균 근로시간·평균 시급)를 센다 — 투잡을 뛰면 가계=1명·기관=2개로 잡혀 둘이 어긋날 수 있음. 매월 첫(또는 둘째) **금요일** 발표 — 글로벌 **Fed·금리·주가** 변동성의 정기 이벤트"
     category: 거시경제
     stockMarketImportance: 9
   - id: nonfarm-payroll
     name: 비농업부문 고용 (Nonfarm Payrolls)
-    description: "Employment Situation **기관조사(Payroll Survey)** 헤드라인 — **비농업부문** 월간 순고용(전월비 신규 일자리). 같은 보고서 **가계조사** 실업률과 쌍으로 읽지만, 급여 기록 기반이라 **변동성이 적다**는 이유로 시장은 NFP에 더 주목. Fed **이중목표(물가·최대고용)**·테이퍼·QT 판단 핵심. **GNI의 NFP(국외순요소소득)** 와 약어 다름 — id는 nonfarm-payroll"
+    description: "Employment Situation **기관조사(Payroll Survey)** 헤드라인 — **비농업부문** 월간 순고용(전월비 **일자리** 증감). 가계조사가 **사람**을 세는 것과 달리 급여 기록 기반이라 **투잡=일자리 2개**로 잡히고, 농업·가사도우미 등은 제외. **정부(공무원) 고용**이 포함되므로 경기 온도는 **민간 NFP(private payrolls)** 와 함께 보는 편이 낫다. 같은 보고서 실업률과 쌍으로 읽되 시장은 단기적으로 NFP·컨센서스에 더 민감. Fed **이중목표(물가·최대고용)**·테이퍼·QT 판단 핵심. **GNI의 NFP(국외순요소소득)** 와 약어 다름 — id는 nonfarm-payroll"
     category: 거시경제
     stockMarketImportance: 9
   - id: average-hourly-earnings
@@ -531,7 +531,7 @@ terms:
     stockMarketImportance: 6
   - id: stock-market
     name: 주식시장 (Stock Market)
-    description: 주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장. 장기적으로 실질 GDP와 연동되는 경우가 많지만, 1980년대 이후 선진국에서는 시가총액/GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 늘기도 함(밸류·금리·순발행 구조에 따라)
+    description: "주식을 발행·거래하는 시장으로 기업 이익 전망과 경기·금리·유동성 기대를 반영하는 핵심 자산시장. 장기적으로 실질 GDP와 연동되는 경우가 많지만, 1980년대 이후 선진국에서는 시가총액/GDP 비율이 급등하며 시총이 GDP보다 훨씬 빠르게 늘기도 함(밸류·금리·순발행 구조에 따라). 한국처럼 상장 시총이 제조·수출에 편중되면 서비스·고용 중심 실물과 괴리될 수 있어, 주가지수를 전체 경제의 선행지표로만 읽기 어렵다"
     category: 금융
     stockMarketImportance: 9
   - id: bond-market
@@ -766,7 +766,7 @@ terms:
     stockMarketImportance: 6
   - id: manufacturing
     name: 제조업 (Manufacturing)
-    description: "원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 됨. 미국 **연준(FRB) 산업생산** 지수에서 가중치가 가장 큰 부문(약 76%)이며, **PMI 설문**과 **공식 생산 통계**를 함께 봐야 함. 생산성·자본집약이 올라가면 **산출**은 늘어도 **고용**은 줄거나 정체될 수 있어 둘을 분리해 봐야 함"
+    description: "원료를 가공해 재화를 생산하는 2차 산업으로 기술 혁신·고용·국가 역량의 기반이 됨. 미국 **연준(FRB) 산업생산** 지수에서 가중치가 가장 큰 부문(약 76%)이며, **PMI 설문**과 **공식 생산 통계**를 함께 봐야 함. 생산성·자본집약이 올라가면 **산출**은 늘어도 **고용**은 줄거나 정체될 수 있어 둘을 분리해 봐야 함. 한국에서는 시가총액 비중이 부가가치·고용 비중보다 훨씬 커, 증시가 제조·수출 충격을 실물 전체보다 과장·편향해 반영할 수 있음"
     category: 거시경제
     stockMarketImportance: 5
   - id: industrial-production
@@ -1066,7 +1066,7 @@ terms:
     stockMarketImportance: 3
   - id: business-cycle
     name: 경기순환 (Business Cycle)
-    description: 실물 경제(재화·서비스·고용)가 **확장·정점·수축·저점**을 거치며 호황과 불황을 오가는 변동으로, 통상 실질 GDP로 측정. 교과서 그림처럼 **규칙적 주기가 아니라** 수축은 2~18개월·확장은 12~128개월 등 **기간이 불규칙**하며, 확장이 오래 이어졌다는 이유만으로 끝나지 않고 **예기치 못한 경제 충격**이 성장 추세를 벗어나게 할 때 전환. 금융의 신용·부채 사이클과 맞물리지만 선후는 국면마다 달라 양쪽을 함께 봐야 함
+    description: "실물 경제(재화·서비스·고용)가 **확장·정점·수축·저점**을 거치며 호황과 불황을 오가는 변동으로, 통상 실질 GDP로 측정. 교과서 그림처럼 **규칙적 주기가 아니라** 수축은 2~18개월·확장은 12~128개월 등 **기간이 불규칙**하며, 확장이 오래 이어졌다는 이유만으로 끝나지 않고 **예기치 못한 경제 충격**이 성장 추세를 벗어나게 할 때 전환. 지표는 경기와 **같은 방향**이면 **순행(procyclical)** — 소비·생산·고용·물가·통화량·신용 등 — **반대 방향**이면 **역행(countercyclical)** — 실업률·재고 적체·파산·정부 이전지출 등. 금융의 신용·부채 사이클과 맞물리지만 선후는 국면마다 달라 양쪽을 함께 봐야 함"
     category: 거시경제
     stockMarketImportance: 5
   - id: austrian-business-cycle
@@ -1456,7 +1456,7 @@ terms:
     stockMarketImportance: 5
   - id: purchasing-managers-index
     name: 구매관리자지수 (PMI)
-    description: "매월 구매·생산 관리자 설문(생산·신규주문·재고·고용·가격 등)으로 작성하는 속보성 경기 지표. 확산지수 방식으로 50 초과=호전·미만=악화(중립선). ISM(미국)·IHS Markit/S&P Global(글로벌·多국) 등. 제조·서비스·종합 PMI는 월초 직전월 통계로 발표되어 GDP·경기동향지수보다 빠른 선행·동행 신호로 투자자·정책당국이 널리 사용. 시장 휴리스틱으로 **60 근처 이상**을 과열(금리 인상 기대)·**40 근처 이하**를 깊은 수축(완화 기대)으로 읽기도 하나, 50 미만≠공식 침체이며 제조만 약하고 서비스가 버틸 수 있음"
+    description: "매월 구매·생산 관리자 설문(생산·신규주문·재고·고용·가격 등)으로 작성하는 속보성 경기 지표. **확산지수(diffusion index)** — '좋아졌다' 응답 비중을 재므로 **50이 확장/수축 분기점**(절대 수준이 아님). ISM(미국, 보통 **매달 첫 영업일**로 가장 빠른 실물 신호)·IHS Markit/S&P Global(글로벌·多국) 등. NAHB 주택시장지수 등 다른 확산지수와 원리는 같고 설문 대상만 다름. 제조·서비스·종합 PMI는 GDP·경기동향지수보다 빠른 선행·동행 신호로 쓰임. 시장 휴리스틱으로 **60 근처 이상**을 과열(금리 인상 기대)·**40 근처 이하**를 깊은 수축(완화 기대)으로 읽기도 하나, 50 미만≠공식 침체이며 제조만 약하고 서비스가 버틸 수 있음"
     category: 거시경제
     stockMarketImportance: 8
   - id: current-account
@@ -1841,7 +1841,7 @@ terms:
     stockMarketImportance: 7
   - id: market-cap-to-gdp
     name: 시가총액/GDP 비율 (Market Cap to GDP)
-    description: "시가총액을 명목(또는 실질) GDP로 나눈 버핏 지표(11.2). 2022년 한국은 약 99%로 GDP 대비 시총이 빠르게 확대된 편이나 미·일 대비 여전히 낮은 구간이 있었음"
+    description: "시가총액을 명목(또는 실질) GDP로 나눈 버핏 지표(11.2). 2022년 한국은 약 99%로 GDP 대비 시총이 빠르게 확대된 편이나 미·일 대비 여전히 낮은 구간이 있었음. 이 비율은 시총·GDP **수준** 비교이며, 산업별 시총 비중과 부가가치 비중의 구성 괴리(비대표성)와는 다른 축"
     category: 금융
     stockMarketImportance: 6
   - id: net-equity-issuance
@@ -2406,7 +2406,7 @@ terms:
     stockMarketImportance: 7
   - id: nahb-housing-market-index
     name: NAHB 주택시장지수 (NAHB Housing Market Index)
-    description: "전미주택건설업협회(NAHB)가 단독주택 **건설업자 설문**으로 산출하는 주택시장 심리지수(중립=50). 현재 판매·전망·방문객 등으로 구성되며 **주택착공**·건설 경기 선행 신호로 읽히는 경향. 금리·자재·인력 등 공급 여건에 민감하고, 달러·금융변수와의 상관은 국면(예: 금융위기 이후)에 따라 약해질 수 있음"
+    description: "전미주택건설업협회(NAHB)가 단독주택 **건설업자 설문**으로 산출하는 주택시장 심리지수. PMI와 같은 **확산지수**라 **50이 중립**(초과=확장·미만=수축 응답이 더 많음). 현재 판매·전망·방문객 등으로 구성되며 조사 당월에 나와 **주택착공**·건설 경기 선행 신호로 읽히는 경향. 금리·자재·인력 등 공급 여건에 민감하고, 달러·금융변수와의 상관은 국면(예: 금융위기 이후)에 따라 약해질 수 있음"
     category: 거시경제
     stockMarketImportance: 5
   - id: existing-home-sales
@@ -2444,3 +2444,18 @@ terms:
     description: "BEA **개인소득·지출 보고서**의 가계 소득 총량 — 근로·임대·자산소득 등. **실질 가처분소득(DPI, chained)** 과 함께 소비 여력을 봄. 같은 보고서의 지출·저축(소득−지출)과 짝으로 읽고, 저축 급락·이자지출 급등은 가계 부담 신호. 물가 지표인 **PCE Price Index**(`pce`)와 구분"
     category: 거시경제
     stockMarketImportance: 7
+  - id: services
+    name: 서비스업 (Services)
+    description: "도소매·운수·금융·정보·보건 등 무형·인적 서비스를 생산하는 3차 산업. 한국·선진국 실물에서 부가가치·고용 비중이 제조업보다 큰 경우가 많으나, 상장 시총은 제조·수출에 쏠려 서비스 경기가 주가지수에 덜 반영될 수 있음. 제조업과 차별적 충격(대면 서비스 위축 등)이 오면 주식시장과 GDP·고용이 갈라질 수 있음"
+    category: 거시경제
+    stockMarketImportance: 5
+  - id: seasonal-adjustment
+    name: 계절조정 (Seasonal Adjustment)
+    description: "매년 반복되는 계절 패턴(여름 주택 거래↑·연말 소매↑·학기·연휴 고용 등)을 통계적으로 제거해, **평소 대비** 지표가 강해졌는지·약해졌는지 보이게 하는 보정(SA). MoM 고용·소매·주택 등 헤드라인은 대개 계절조정치를 쓰고, 미조정(NSA)만 보면 계절 노이즈에 일희일비하기 쉬움"
+    category: 거시경제
+    stockMarketImportance: 5
+  - id: data-revision
+    name: 지표 개정 (Data Revision)
+    description: "대부분 실물 지표는 **예비치**를 먼저 내고 표본·추정·계절요인이 바뀌면 **사후 개정**한다. NFP·GDP·소매 등은 첫 숫자가 뒤집히는 경우가 많아, 발표 직후 일희일비보다 개정 궤적을 함께 보는 편이 낫다. **벤치마크 개정**은 계산 방식·모집단을 바꿔 **과거치까지 소급** 재계산하는 큰 사건이라 추세·국면 해석이 한꺼번에 바뀔 수 있음"
+    category: 거시경제
+    stockMarketImportance: 5

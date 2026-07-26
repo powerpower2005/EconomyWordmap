@@ -8366,7 +8366,7 @@ relations:
     term1Id: nonfarm-payroll
     term2Id: unemployment
     type: correlation
-    description: Employment Situation 내 **기관조사(NFP)** vs **가계조사(실업률)** 쌍 — 방향은 같아도 크기·변동성이 달라 함께 봐야 함
+    description: "Employment Situation **기관조사(NFP=일자리 수)** vs **가계조사(실업률=사람 수)** — 투잡·비농업 범위·표본 차이로 방향·크기가 어긋날 수 있어 함께 봐야 함"
     strength: strong
     nature: definitional
   - id: r1209
@@ -8946,4 +8946,111 @@ relations:
     type: correlation
     description: 소매판매는 수요·물가 압력 신호로 시장이 Fed 경로를 재가격할 때 참고하나, Fed의 **직접 이중목표 변수**는 아님
     strength: weak
+    nature: correlational
+  - id: r1290
+    term1Id: stock-market
+    term2Id: manufacturing
+    type: correlation
+    description: 한국 등 일부 증시는 시가총액에서 제조업 비중이 실물 부가가치·고용 비중보다 훨씬 커, 주식시장이 제조업 실적·수출 충격을 더 크게 반영
+    strength: strong
+    nature: correlational
+    conditions: 상장기업 산업구성이 제조·수출 편향일 때
+  - id: r1291
+    term1Id: services
+    term2Id: gdp
+    type: proportional
+    description: 선진국·한국 실물경제에서 서비스업이 부가가치(GDP)의 절반 이상을 차지하는 경우가 많음
+    strength: strong
+    nature: hierarchical
+  - id: r1292
+    term1Id: services
+    term2Id: value-added
+    type: proportional
+    description: 서비스업 생산은 해당 부문 부가가치로 GDP에 합산되며, 실물에서 서비스 부가가치 비중이 제조업보다 큰 경우가 많음
+    strength: strong
+    nature: definitional
+  - id: r1293
+    term1Id: services
+    term2Id: employment-rate
+    type: proportional
+    description: 서비스업은 고용 비중이 제조업보다 훨씬 커, 서비스 경기가 고용·고용률 움직임에 크게 영향
+    strength: strong
+    nature: causal
+  - id: r1294
+    term1Id: stock-market
+    term2Id: services
+    type: correlation
+    description: 상장 시총에서 서비스업 비중이 실물 부가가치·고용 비중보다 작으면, 서비스 경기 충격이 주가지수에 충분히 반영되지 않을 수 있음
+    strength: weak
+    nature: correlational
+    conditions: 증시가 제조·수출 편향일 때
+  - id: r1295
+    term1Id: manufacturing
+    term2Id: value-added
+    type: correlation
+    description: 제조업 산출은 부문 부가가치로 GDP에 기여하나, 시가총액 비중과 부가가치 비중은 크게 다를 수 있음
+    strength: medium
+    nature: definitional
+  - id: r1296
+    term1Id: market-capitalization
+    term2Id: value-added
+    type: correlation
+    description: 산업별 시가총액 비중과 부가가치 비중의 차이(비대표성)로 주식시장이 실물 구조를 얼마나 반영하는지 가늠
+    strength: medium
+    nature: correlational
+  - id: r1297
+    term1Id: stock-market
+    term2Id: trade-dependency
+    type: correlation
+    description: 수출·제조 위주 증시는 대외의존도가 높을수록 해외 수요·환율·글로벌 충격에 더 민감
+    strength: medium
+    nature: correlational
+  - id: r1298
+    term1Id: seasonal-adjustment
+    term2Id: employment-situation-report
+    type: correlation
+    description: Employment Situation(NFP·실업률 등) 헤드라인은 대개 **계절조정**치 — 연휴·학기 고용 패턴을 빼고 전월비를 읽음
+    strength: strong
+    nature: definitional
+  - id: r1299
+    term1Id: seasonal-adjustment
+    term2Id: housing-starts
+    type: correlation
+    description: 주택착공·허가 등 건설 지표는 계절성이 커서 **계절조정** 없이 MoM만 보면 여름↑·겨울↓에 일희일비하기 쉬움
+    strength: strong
+    nature: definitional
+  - id: r1300
+    term1Id: seasonal-adjustment
+    term2Id: retail-sales
+    type: correlation
+    description: 소매판매는 연말 쇼핑 등 계절 패턴이 강해 헤드라인 MoM은 **계절조정**치를 기준으로 읽음
+    strength: strong
+    nature: definitional
+  - id: r1301
+    term1Id: data-revision
+    term2Id: nonfarm-payroll
+    type: correlation
+    description: NFP는 예비치 발표 후 표본·벤치마크 **개정**이 잦아, 첫 숫자만으로 고용 국면을 단정하기 어려움
+    strength: strong
+    nature: correlational
+  - id: r1302
+    term1Id: data-revision
+    term2Id: gdp
+    type: correlation
+    description: GDP는 속보·잠정·확정 및 연간 벤치마크 개정으로 과거 성장률이 소급 수정되는 대표 후행·개정 지표
+    strength: strong
+    nature: correlational
+  - id: r1303
+    term1Id: data-revision
+    term2Id: seasonal-adjustment
+    type: correlation
+    description: 계절요인 재추정·벤치마크 개정이 겹치면 과거 SA 시계열까지 한꺼번에 바뀌어 모멘텀 해석이 달라질 수 있음
+    strength: medium
+    nature: correlational
+  - id: r1304
+    term1Id: nahb-housing-market-index
+    term2Id: purchasing-managers-index
+    type: correlation
+    description: 둘 다 **확산지수**(좋아졌다 응답 비중)라 **50이 중립선** — 설문 대상만 건설업자 vs 구매관리자로 다름
+    strength: medium
     nature: correlational
