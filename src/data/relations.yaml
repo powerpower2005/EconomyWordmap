@@ -9092,3 +9092,50 @@ relations:
     description: 큰 음의 수요 충격에는 정부가 지출·이전지출 등 확장 재정으로 대응하는 경우가 많음
     strength: strong
     nature: policy
+  - id: r1310
+    term1Id: term-spread
+    term2Id: net-interest-margin
+    type: proportional
+    description: 장단기 금리차(스프레드)가 넓을수록 단기 조달·장기 운용 마진이 커져 은행 예대마진이 개선되고, 역전되면 마진이 압박됨
+    strength: strong
+    nature: causal
+    mechanism: 은행은 단기 예금으로 조달해 장기 대출로 운용하므로 우상향 곡선에서 마진이 생기고, 역전 시 마진이 붕괴해 대출을 줄일 유인이 커짐
+    conditions: 예대 만기 불일치가 큰 전통적 은행업 모델일 때
+    lag: 수개월~1년
+  - id: r1311
+    term1Id: impossible-trinity
+    term2Id: reserve-currency
+    type: correlation
+    description: 기축통화는 국경을 넘는 자유로운 자본·결제 수요가 전제라, 자본통제를 유지하면 기축통화 지위와 충돌(삼불원칙)
+    strength: strong
+    nature: causal
+  - id: r1312
+    term1Id: impossible-trinity
+    term2Id: chinese-yuan
+    type: correlation
+    description: 중국이 환율 관리·통화정책 자율을 택하면 자본이동 자유를 포기해 위안화의 기축통화 도전이 구조적으로 제약됨
+    strength: strong
+    nature: causal
+  - id: r1313
+    term1Id: fiat-currency
+    term2Id: gold-standard
+    type: inverse
+    bidirectional: true
+    description: 금본위 폐지 이후 실물 담보 없이 신용·법적 강제력에 기반한 법정화폐(신용화폐) 체제로 이행
+    reverseDescription: 금본위는 화폐가치를 금에 묶어 발행 재량을 제약하며 법정화폐 체제과 대비됨
+    strength: strong
+    nature: hierarchical
+  - id: r1314
+    term1Id: fiat-currency
+    term2Id: inflation
+    type: proportional
+    description: 법정화폐 체제에서는 중앙은행·신용 확장이 가능해 지속적 인플레이션이 나타나기 쉽고, 금본위 시대의 장기 물가 안정과 대비됨
+    strength: medium
+    nature: causal
+  - id: r1315
+    term1Id: breakeven-inflation
+    term2Id: term-premium
+    type: correlation
+    description: 명목−TIPS 스프레드(BEI)에는 기대인플레이션뿐 아니라 인플레 리스크·유동성(기간) 프리미엄이 섞일 수 있음
+    strength: medium
+    nature: correlational
