@@ -8659,3 +8659,87 @@ relations:
     description: PMI **재고** 항목(설문)과 공식 **재고투자·생산** 통계는 제조 경기의 보완 지표
     strength: medium
     nature: correlational
+  - id: r1250
+    term1Id: case-shiller-index
+    term2Id: long-term-interest-rate
+    type: inverse
+    description: 장기·모기지 금리 하락은 주택 구매 여력을 키워 시차를 두고 케이스-실러 주택가격 상승 압력을 키우는 경향
+    strength: strong
+    nature: causal
+  - id: r1251
+    term1Id: m2
+    term2Id: case-shiller-index
+    type: proportional
+    description: 광의통화·유동성 확대 국면에서 주택 수요·자산가격이 함께 오르며 케이스-실러 상승세가 가팔라지는 경향
+    strength: medium
+    nature: correlational
+  - id: r1252
+    term1Id: liquidity
+    term2Id: case-shiller-index
+    type: proportional
+    description: 시중 유동성이 풍부하면 주택 등 실물·금융자산으로 자금이 유입되어 주택가격지수 상승을 부추길 수 있음
+    strength: medium
+    nature: causal
+  - id: r1253
+    term1Id: case-shiller-index
+    term2Id: consumption
+    type: proportional
+    description: 주택가격 상승은 가계 순자산 증가(부의 효과)를 통해 소비를 자극할 수 있으나, 소유 집중·레버리지·주식 대비 부동산 비중에 따라 강도는 달라짐
+    strength: medium
+    nature: causal
+  - id: r1254
+    term1Id: housing-starts
+    term2Id: case-shiller-index
+    type: correlation
+    description: 착공·공급과 주택가격은 수요·재고·금리 국면에 따라 동행하거나 어긋날 수 있어 함께 봄
+    strength: medium
+    nature: correlational
+  - id: r1255
+    term1Id: case-shiller-index
+    term2Id: asset-bubble
+    type: correlation
+    description: 전국 주택가격 상승률이 역사적 고점 부근일 때 주택 버블·과열 논의의 대표 지표로 쓰임
+    strength: medium
+    nature: correlational
+  - id: r1256
+    term1Id: case-shiller-index
+    term2Id: stock-market
+    type: correlation
+    description: 주택경기·가격 호조 국면에서 위험선호·소비·건설 파급이 겹치며 주가와 동행하는 경향이 있으나 국면 의존
+    strength: medium
+    nature: correlational
+  - id: r1257
+    term1Id: nahb-housing-market-index
+    term2Id: housing-starts
+    type: proportional
+    description: 건설업자 심리(NAHB)가 개선되면 이후 주택착공·건설 활동이 늘어나는 경향
+    strength: strong
+    nature: causal
+  - id: r1258
+    term1Id: long-term-interest-rate
+    term2Id: nahb-housing-market-index
+    type: inverse
+    description: 장기·모기지 금리 상승은 구매 여력·분양 수요를 눌러 건설업자 심리(NAHB)를 위축시키는 경향
+    strength: strong
+    nature: causal
+  - id: r1259
+    term1Id: nahb-housing-market-index
+    term2Id: interest-rate
+    type: inverse
+    description: 금리 상승 국면에서 주택 수요·마진 압박으로 NAHB 주택시장지수가 약해지는 경향
+    strength: medium
+    nature: correlational
+  - id: r1260
+    term1Id: nahb-housing-market-index
+    term2Id: dollar-index
+    type: correlation
+    description: 과거에는 NAHB와 달러지수가 유사하게 움직인 구간이 있었으나, 금융위기 이후 설명력이 약해진 경우가 많아 단독 페어로 보기 어려움
+    strength: weak
+    nature: correlational
+  - id: r1261
+    term1Id: housing-starts
+    term2Id: gdp
+    type: correlation
+    description: 주택착공·허가는 미국 GDP에 대체로 수 분기 선행하는 경향이 있어 경기선행 신호로 쓰이나, 건설 비중 축소·공급 제약 국면에서는 선행성이 약해질 수 있음
+    strength: medium
+    nature: correlational
