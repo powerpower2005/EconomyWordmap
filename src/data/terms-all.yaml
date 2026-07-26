@@ -2396,7 +2396,7 @@ terms:
     stockMarketImportance: 6
   - id: housing-starts
     name: 주택착공 (Housing Starts)
-    description: "해당 월 **착공** 주택 호수 — 미 센서스국 매월 발표. 대부분 지역에서 **착공허가(Building Permits)** 뒤 착공되며, 기상 등으로 허가보다 변동성이 클 수 있어 수개월 추세를 함께 봄. 신규주택·주택투자·GDP의 **경기선행** 신호로 쓰이는 경향이 있으나, 착공 둔화가 수요 둔화인지 **공급 차질**(자재·인력·재고)인지는 판매·가격·금리와 함께 판단"
+    description: "해당 월 **착공** 주택 호수 — 미 센서스국 매월 발표. 대부분 지역에서 **착공허가(Building Permits)** 뒤 착공되며, 허가는 착공과 거의 같이 움직이나 기상 등으로 착공 변동성이 더 클 수 있어 수개월 추세를 함께 봄. 착공허가는 미국 **경기선행지수(LEI)** 구성 지표 중 하나로도 쓰임. 신규주택·주택투자·GDP의 **경기선행** 신호로 읽히는 경향이 있으나, 착공 둔화가 수요 둔화인지 **공급 차질**(자재·인력·재고)인지는 **기존주택판매**·가격·금리와 함께 판단"
     category: 거시경제
     stockMarketImportance: 6
   - id: case-shiller-index
@@ -2407,5 +2407,15 @@ terms:
   - id: nahb-housing-market-index
     name: NAHB 주택시장지수 (NAHB Housing Market Index)
     description: "전미주택건설업협회(NAHB)가 단독주택 **건설업자 설문**으로 산출하는 주택시장 심리지수(중립=50). 현재 판매·전망·방문객 등으로 구성되며 **주택착공**·건설 경기 선행 신호로 읽히는 경향. 금리·자재·인력 등 공급 여건에 민감하고, 달러·금융변수와의 상관은 국면(예: 금융위기 이후)에 따라 약해질 수 있음"
+    category: 거시경제
+    stockMarketImportance: 5
+  - id: existing-home-sales
+    name: 기존주택판매 (Existing Home Sales)
+    description: "이미 지어진 주택의 **소유권 이전 완료** 건수를 집계하는 수요측 대표 지표 — 전미부동산협회(NAR) 월간 발표. 계약부터 클로징까지 시차가 있어 시의성은 **잠정·신규주택판매**보다 떨어질 수 있음. **주택착공**·**주택재고**·가격·금리와 함께 보면 거래 둔화가 수요 약화인지 공급·가격 부담인지 구분하는 데 쓰임"
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: housing-inventory
+    name: 주택재고 (Housing Inventory)
+    description: "매매를 위해 나와 있는 주택 물량·재고개월수 등으로 읽는 **공급 여유**. 재고가 극도로 낮으면 가격 상승·거래 병목이 겹치기 쉽고, 착공·신규공급이 늘면 재고가 회복되는 경향. 저금리·수요 급증 국면에서 재고 부족이 가격·판매·착공 해석을 좌우할 수 있어 **기존주택판매**·케이스-실러·착공과 함께 봄"
     category: 거시경제
     stockMarketImportance: 5

@@ -8743,3 +8743,66 @@ relations:
     description: 주택착공·허가는 미국 GDP에 대체로 수 분기 선행하는 경향이 있어 경기선행 신호로 쓰이나, 건설 비중 축소·공급 제약 국면에서는 선행성이 약해질 수 있음
     strength: medium
     nature: correlational
+  - id: r1262
+    term1Id: long-term-interest-rate
+    term2Id: housing-starts
+    type: inverse
+    description: 장기·모기지 금리 하락은 주택 구매 여력을 키워 시차를 두고 주택착공·허가 증가로 이어지는 경향이 있고, 금리 상승 국면에서는 착공이 부진하기 쉬움
+    strength: strong
+    nature: causal
+  - id: r1263
+    term1Id: housing-starts
+    term2Id: stock-market
+    type: correlation
+    description: 주택착공·허가 호조 국면에서 건설 파급·위험선호가 겹치며 주가와 동행하는 경향이 있으나 국면 의존
+    strength: medium
+    nature: correlational
+  - id: r1264
+    term1Id: existing-home-sales
+    term2Id: housing-starts
+    type: correlation
+    description: 기존주택판매(수요)와 주택착공(공급)은 함께 보면 거래·착공 둔화가 수요 약화인지 공급 차질인지 구분하는 데 쓰임
+    strength: medium
+    nature: correlational
+  - id: r1265
+    term1Id: existing-home-sales
+    term2Id: case-shiller-index
+    type: correlation
+    description: 기존주택 거래와 전국 주택가격은 수요·재고·금리 국면에 따라 동행하거나 어긋날 수 있어 함께 봄
+    strength: medium
+    nature: correlational
+  - id: r1266
+    term1Id: existing-home-sales
+    term2Id: gdp
+    type: correlation
+    description: 기존주택판매도 미국 GDP에 대체로 수 분기 선행하는 경향이 있어 주택·소비·건설 파급을 읽는 경기 신호로 쓰임
+    strength: medium
+    nature: correlational
+  - id: r1267
+    term1Id: existing-home-sales
+    term2Id: consumption
+    type: proportional
+    description: 주택판매가 늘면 이사·가구·가전 등 관련 내구재 소비가 시차를 두고 늘어나는 경향
+    strength: medium
+    nature: causal
+  - id: r1268
+    term1Id: housing-inventory
+    term2Id: case-shiller-index
+    type: inverse
+    description: 매물·재고가 극도로 타이트하면 가격 상승 압력이 커지고, 재고가 쌓이면 가격 상승세가 둔화되기 쉬운 경향
+    strength: strong
+    nature: causal
+  - id: r1269
+    term1Id: housing-inventory
+    term2Id: existing-home-sales
+    type: correlation
+    description: 재고 부족은 거래 가능한 매물을 제한해 판매를 누르고, 재고 회복은 판매 여력을 키울 수 있어 함께 해석
+    strength: medium
+    nature: correlational
+  - id: r1270
+    term1Id: housing-inventory
+    term2Id: housing-starts
+    type: inverse
+    description: 재고가 낮을수록 신규공급(착공) 유인이 커지는 경향이 있으나, 자재·인력·허가 병목이면 착공이 바로 따라가지 못할 수 있음
+    strength: medium
+    nature: causal
