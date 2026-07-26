@@ -863,12 +863,17 @@ curriculum:
             - real-gdp
             - unemployment
             - business-cycle
+            - demand-shock
+            - quantitative-easing
+            - fiscal-policy
           propositionIds:
             - p173
             - p188
             - p97
             - p53
             - p80
+            - p11
+            - p255
 
     - id: sec-valuation
       order: 3
@@ -1777,6 +1782,7 @@ curriculum:
             - p102
             - p252
             - p11
+            - p255
 
         - id: part-gdp-limits
           title: "4. GDP가 못 보는 것"

@@ -201,7 +201,7 @@ terms:
     stockMarketImportance: 3
   - id: quantitative-easing
     name: 양적완화(QE) (Quantitative Easing)
-    description: 중앙은행이 국채·MBS 등을 매입하여 장기금리 인하와 유동성 확대를 유도하는 정책
+    description: "중앙은행이 국채·MBS 등을 매입하여 장기금리 인하와 유동성 확대를 유도하는 정책. 위기 시에는 매입 규모를 사실상 무제한으로 늘리거나 회사채까지 사들여 신용·주식시장의 패닉을 먼저 가라앉히는 데 쓰이기도 함(2020년 연준 등)"
     category: 통화정책
     stockMarketImportance: 8
   - id: quantitative-tightening
@@ -2271,7 +2271,7 @@ terms:
     stockMarketImportance: 7
   - id: demand-shock
     name: 수요 충격 (Demand Shock)
-    description: 소비·투자·정부지출 등 총수요를 갑자기 확대·위축시키는 충격으로, 팬데믹 봉쇄·대규모 부양·금융 위기 등이 대표적
+    description: "소비·투자·정부지출 등 총수요를 갑자기 확대·위축시키는 충격으로, 팬데믹 봉쇄·대규모 부양·금융 위기 등이 대표적. 봉쇄형 충격은 서비스·고용을 먼저 꺾는 경우가 많고, 기업 신용위험·이익 전망 악화가 신용스프레드·주가에 실물 지표보다 앞서 반영될 수 있음"
     category: 거시경제
     stockMarketImportance: 6
   - id: earnings

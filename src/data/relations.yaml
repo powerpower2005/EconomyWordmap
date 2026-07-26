@@ -9054,3 +9054,41 @@ relations:
     description: 둘 다 **확산지수**(좋아졌다 응답 비중)라 **50이 중립선** — 설문 대상만 건설업자 vs 구매관리자로 다름
     strength: medium
     nature: correlational
+  - id: r1305
+    term1Id: demand-shock
+    term2Id: recession
+    type: proportional
+    description: 봉쇄·소비 급감 등 큰 음의 수요 충격은 생산·고용 위축을 통해 경기침체로 이어질 수 있음
+    strength: strong
+    nature: causal
+  - id: r1306
+    term1Id: demand-shock
+    term2Id: stock-market
+    type: inverse
+    description: 음의 수요 충격은 기업 이익·신용 전망 악화로 주식시장에 먼저 반영되어 조정을 부를 수 있음
+    strength: strong
+    nature: causal
+  - id: r1307
+    term1Id: credit-spread
+    term2Id: stock-market
+    type: inverse
+    description: 신용스프레드 확대는 기업 부도·자금조달 위험 증가를 반영해 주식시장과 함께 위험자산 조정을 동반하는 경우가 많음
+    strength: medium
+    nature: correlational
+    bidirectional: true
+    reverseDescription: 주식시장 급락·위험회피 확산은 회사채 수요 위축으로 신용스프레드를 벌릴 수 있음
+    reverseStrength: medium
+  - id: r1308
+    term1Id: quantitative-easing
+    term2Id: stock-market
+    type: proportional
+    description: QE·대규모 자산매입은 유동성·신용여건을 완화해 주식시장 안정·반등에 기여할 수 있음
+    strength: medium
+    nature: policy
+  - id: r1309
+    term1Id: demand-shock
+    term2Id: fiscal-policy
+    type: correlation
+    description: 큰 음의 수요 충격에는 정부가 지출·이전지출 등 확장 재정으로 대응하는 경우가 많음
+    strength: strong
+    nature: policy
