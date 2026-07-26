@@ -24,8 +24,12 @@ Source files: `src/data/terms-all.yaml`, `src/data/relations.yaml`
 
 | Field | Description |
 |-------|-------------|
+| `createdAt` | First appearance date from Git (`YYYY-MM-DD`) |
 | `updatedAt` | Last change date from Git (`YYYY-MM-DD`) |
+| `relationsUpdatedAt` | Last related-edge change date (terms only) |
 | `changelog` | History entries ([TermChangeEntry](#termchangeentry-ui-history)) |
+
+Build also writes top-level `dateIndex` (date → terms/relations/propositions/curriculum changes). See [scripts/content-history.js](../scripts/content-history.js). UI: **날짜 인덱스** tab.
 
 ### YAML example
 

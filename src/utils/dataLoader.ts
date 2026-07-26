@@ -1,4 +1,4 @@
-import { Term, Relation, TermWithRelations, Proposition, Curriculum } from '../types';
+import { Term, Relation, TermWithRelations, Proposition, Curriculum, DateIndexDay } from '../types';
 import { compareTermsByUpdated, isTermUpdatedWithinDays } from './termDisplay';
 import termsData from '../data/terms.json';
 
@@ -6,6 +6,7 @@ export type TermSortOrder = 'default' | 'updated-desc' | 'updated-asc';
 
 const allTerms = termsData.terms as Term[];
 const allPropositions = ((termsData as { propositions?: Proposition[] }).propositions ?? []) as Proposition[];
+const allDateIndex = ((termsData as { dateIndex?: DateIndexDay[] }).dateIndex ?? []) as DateIndexDay[];
 
 export const loadTerms = (): Term[] => {
   return allTerms;
@@ -17,6 +18,10 @@ export const loadRelations = (): Relation[] => {
 
 export const loadPropositions = (): Proposition[] => {
   return allPropositions;
+};
+
+export const loadDateIndex = (): DateIndexDay[] => {
+  return allDateIndex;
 };
 
 export const loadCurriculum = (): Curriculum | null => {

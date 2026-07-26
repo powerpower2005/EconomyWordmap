@@ -2,7 +2,7 @@ import fs from 'fs';
 import yaml from 'js-yaml';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
-import { generateTermHistory, applyTermHistoryToTerms } from './term-history.js';
+import { applyContentHistory } from './content-history.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -62,12 +62,19 @@ export function convertYamlToJson() {
 
   if (fs.existsSync(join(dataDir, 'terms.json'))) {
     const termsData = JSON.parse(fs.readFileSync(join(dataDir, 'terms.json'), 'utf8'));
-    const historyMeta = generateTermHistory();
-    const count = Object.keys(historyMeta).length;
-    if (count > 0) {
-      termsData.terms = applyTermHistoryToTerms(termsData.terms || [], historyMeta);
+    const stats = applyContentHistory(termsData);
+    const any =
+      stats.termCount +
+        stats.relationCount +
+        stats.propositionCount +
+        stats.curriculumCount +
+        stats.dateCount >
+      0;
+    if (any) {
       fs.writeFileSync(join(dataDir, 'terms.json'), JSON.stringify(termsData, null, 2), 'utf8');
-      console.log(`✅ 용어·관계 변경 이력 적용 (${count}개 용어)`);
+      console.log(
+        `✅ 콘텐츠 변경 이력 적용 (용어 ${stats.termCount}, 관계 ${stats.relationCount}, 명제 ${stats.propositionCount}, 학습 ${stats.curriculumCount}, 날짜 ${stats.dateCount}일)`
+      );
     }
   }
 }

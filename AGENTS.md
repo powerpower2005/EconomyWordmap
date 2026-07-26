@@ -33,7 +33,7 @@ npm run build             # TypeScript + Vite (before PR)
 `validate-data` auto-catches: duplicate/missing ids, missing term refs, and enums (`type`, `reverseType`, `nature`, `strength`, `reverseStrength`).
 It does **not** catch: duplicate relation pairs, category vocabulary, direction consistency. Check those manually per `docs/agent-data-guide.md` section 4 (자동/수동 검증 + work-type matrix).
 
-Commit to Git so UI **changelog** / **updatedAt** update (`scripts/term-history.js` uses Git history).
+Commit to Git so UI **changelog** / **updatedAt** / **dateIndex** update (`scripts/term-history.js`, `scripts/content-history.js` use Git history).
 
 For **writing style** (tone, conditional phrasing): read `docs/agent-data-guide.md` (Korean).
 

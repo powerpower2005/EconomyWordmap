@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import { loadPropositions, getTermById } from '../utils/dataLoader';
 import { Proposition } from '../types';
 import PropositionBody from '../components/PropositionBody';
@@ -6,17 +6,34 @@ import LearnedToggle from '../components/LearnedToggle';
 import LearnedFilterBar from '../components/LearnedFilterBar';
 import { useLearnedItems } from '../hooks/useLearnedItems';
 import { countLearned, filterByLearned, type LearnedFilter } from '../utils/learnedItems';
+import { formatTermDate } from '../utils/termDisplay';
 
 interface PropositionsProps {
   onOpenTerm?: (termId: string) => void;
+  focusPropositionId?: string | null;
+  onFocusHandled?: () => void;
 }
 
-export default function Propositions({ onOpenTerm }: PropositionsProps) {
+export default function Propositions({
+  onOpenTerm,
+  focusPropositionId = null,
+  onFocusHandled,
+}: PropositionsProps) {
   const propositions = loadPropositions();
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [learnedFilter, setLearnedFilter] = useState<LearnedFilter>('all');
   const [expandedId, setExpandedId] = useState<string | null>(propositions[0]?.id ?? null);
   const { learned, isLearned, toggleLearned } = useLearnedItems();
+
+  useEffect(() => {
+    if (!focusPropositionId) return;
+    if (propositions.some((p) => p.id === focusPropositionId)) {
+      setExpandedId(focusPropositionId);
+      setSelectedCategory(null);
+      setLearnedFilter('all');
+    }
+    onFocusHandled?.();
+  }, [focusPropositionId, propositions, onFocusHandled]);
 
   const categories = useMemo(() => {
     const set = new Set<string>();
@@ -142,6 +159,13 @@ function PropositionCard({
               )}
               {learned && (
                 <span className="text-xs text-emerald-700 font-medium">배움</span>
+              )}
+              {(proposition.updatedAt || proposition.createdAt) && (
+                <span className="text-xs text-gray-400">
+                  {proposition.updatedAt
+                    ? `수정 ${formatTermDate(proposition.updatedAt)}`
+                    : `추가 ${formatTermDate(proposition.createdAt)}`}
+                </span>
               )}
               <span
                 className={`text-lg font-bold ${learned ? 'text-gray-700' : 'text-gray-900'}`}

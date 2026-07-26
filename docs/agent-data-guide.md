@@ -47,6 +47,7 @@
 2. `node build-data.js` 또는 `npm run dev` / `npm run build`
    - [scripts/data-build.js](../scripts/data-build.js): YAML → JSON 병합
    - [scripts/term-history.js](../scripts/term-history.js): Git 이력 → 용어별 `updatedAt`, `changelog`
+   - [scripts/content-history.js](../scripts/content-history.js): 관계·명제·학습 섹션 이력 + **날짜 인덱스** (`dateIndex`)
 3. 앱 [src/utils/dataLoader.ts](../src/utils/dataLoader.ts)가 `terms.json` 로드
 
 개발 중 YAML 저장 시 [vite-plugin-yaml-to-json.js](../vite-plugin-yaml-to-json.js)가 동일 빌드를 실행합니다.
@@ -54,9 +55,11 @@
 ### 변경 이력 (changelog)
 
 - `terms-all.yaml` 커밋: 이름·설명·카테고리·주식시장 중요도 변경 기록
-- `relations.yaml` 커밋: 관계 추가·수정·삭제 → **연결된 양쪽 용어**에 관계 이력 기록
-- UI: 검색 정렬(최근 수정순), 용어 모달의「변경 이력」
+- `relations.yaml` 커밋: 관계 추가·수정·삭제 → **연결된 양쪽 용어**에 관계 이력 + 관계 자체 `createdAt`/`updatedAt`
+- `propositions.yaml` / `curriculum.yaml` 커밋: 명제·학습 섹션 `createdAt`/`updatedAt`/`changelog`
+- UI: 검색 정렬(최근 수정순), 용어 모달「변경 이력」, 상단 탭 **날짜 인덱스**(날짜별 추가·수정 목록)
 - **커밋 후** 빌드해야 이력에 반영됩니다. 미커밋 로컬 변경만으로는 Git diff 기반 이력이 완전하지 않을 수 있습니다.
+- YAML에 `createdAt` / `updatedAt` / `changelog` / `dateIndex`를 **수동으로 넣지 않음** (빌드 자동)
 
 ---
 

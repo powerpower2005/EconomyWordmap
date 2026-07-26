@@ -13,8 +13,12 @@ export type RelationNature =
   | 'hierarchical'
   | 'policy';
 
+export type ContentKind = 'term' | 'relation' | 'proposition' | 'curriculum';
+
+export type ContentChangeAction = 'added' | 'updated' | 'deleted';
+
 export interface TermFieldChange {
-  field: 'name' | 'description' | 'category' | 'stockMarketImportance' | 'relation';
+  field: string;
   label: string;
   before: string;
   after: string;
@@ -24,10 +28,34 @@ export interface TermChangeEntry {
   date: string;
   commit?: string;
   message?: string;
-  // 'term': 용어 자체(이름·설명·카테고리·중요도·신규 등록), 'relation': 관계 변경
-  kind?: 'term' | 'relation';
+  // 'term': 용어 자체, 'relation': 관계 변경 (용어 changelog용)
+  // proposition / curriculum: 해당 엔티티 changelog
+  kind?: ContentKind;
   summary: string;
   changes: TermFieldChange[];
+}
+
+export interface DateIndexItem {
+  kind: ContentKind;
+  id: string;
+  label: string;
+  action: ContentChangeAction;
+  summary: string;
+  commit?: string;
+  term1Id?: string;
+  term2Id?: string;
+}
+
+export interface DateIndexDay {
+  date: string;
+  counts: {
+    term: number;
+    relation: number;
+    proposition: number;
+    curriculum: number;
+    total: number;
+  };
+  items: DateIndexItem[];
 }
 
 export interface Term {
@@ -36,6 +64,8 @@ export interface Term {
   description: string;
   category?: string;
   stockMarketImportance?: number; // 1-10, stock market importance rating
+  // Git 이력 — 최초 등록일 (빌드 전용)
+  createdAt?: string;
   // 용어 자체(이름·설명·카테고리·중요도·신규 등록)의 최신 변경일
   updatedAt?: string;
   // 이 용어에 연결된 관계의 최신 변경일 (용어 자체 수정과 분리)
@@ -65,6 +95,10 @@ export interface Relation {
   reverseType?: RelationType;
   reverseDescription?: string;
   reverseStrength?: 'weak' | 'medium' | 'strong';
+  // Git 이력 (빌드 전용)
+  createdAt?: string;
+  updatedAt?: string;
+  changelog?: TermChangeEntry[];
 }
 
 export interface TermWithRelations extends Term {
@@ -161,6 +195,10 @@ export interface CurriculumSection {
   /** 한국 투자자 전달 경로 */
   koreaPath?: CurriculumKoreaPath;
   parts: CurriculumPart[];
+  // Git 이력 (빌드 전용)
+  createdAt?: string;
+  updatedAt?: string;
+  changelog?: TermChangeEntry[];
 }
 
 export interface Curriculum {
@@ -186,4 +224,8 @@ export interface Proposition {
   fails: PropositionCase[];
   // 한 줄 결론 (조건부 참 등)
   verdict: string;
+  // Git 이력 (빌드 전용)
+  createdAt?: string;
+  updatedAt?: string;
+  changelog?: TermChangeEntry[];
 }

@@ -3,18 +3,31 @@ import Home from './pages/Home';
 import Propositions from './pages/Propositions';
 import MarketDashboard from './pages/MarketDashboard';
 import Learning from './pages/Learning';
+import DateIndexPage from './pages/DateIndex';
 import FeedbackForm from './components/FeedbackForm';
 
-type MainView = 'learning' | 'graph' | 'propositions' | 'market';
+type MainView = 'learning' | 'graph' | 'propositions' | 'market' | 'dates';
 
 function App() {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [view, setView] = useState<MainView>('learning');
   const [focusTermId, setFocusTermId] = useState<string | null>(null);
+  const [focusPropositionId, setFocusPropositionId] = useState<string | null>(null);
+  const [focusSectionId, setFocusSectionId] = useState<string | null>(null);
 
   const openTermInGraph = (termId: string) => {
     setView('graph');
     setFocusTermId(termId);
+  };
+
+  const openProposition = (propositionId: string) => {
+    setView('propositions');
+    setFocusPropositionId(propositionId);
+  };
+
+  const openCurriculumSection = (sectionId: string) => {
+    setView('learning');
+    setFocusSectionId(sectionId);
   };
 
   return (
@@ -76,6 +89,16 @@ function App() {
             >
               시장 지표
             </button>
+            <button
+              onClick={() => setView('dates')}
+              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
+                view === 'dates'
+                  ? 'text-slate-800 border-slate-800'
+                  : 'text-gray-500 border-transparent hover:text-gray-700'
+              }`}
+            >
+              날짜 인덱스
+            </button>
           </nav>
         </div>
       </header>
@@ -85,15 +108,28 @@ function App() {
             onOpenTerm={openTermInGraph}
             onOpenMarket={() => setView('market')}
             onOpenAllPropositions={() => setView('propositions')}
+            focusSectionId={focusSectionId}
+            onFocusHandled={() => setFocusSectionId(null)}
           />
         </div>
         <div className={view === 'graph' ? '' : 'hidden'}>
           <Home focusTermId={focusTermId} onFocusHandled={() => setFocusTermId(null)} />
         </div>
         <div className={view === 'propositions' ? '' : 'hidden'}>
-          <Propositions onOpenTerm={openTermInGraph} />
+          <Propositions
+            onOpenTerm={openTermInGraph}
+            focusPropositionId={focusPropositionId}
+            onFocusHandled={() => setFocusPropositionId(null)}
+          />
         </div>
         {view === 'market' && <MarketDashboard />}
+        {view === 'dates' && (
+          <DateIndexPage
+            onOpenTerm={openTermInGraph}
+            onOpenProposition={openProposition}
+            onOpenCurriculum={openCurriculumSection}
+          />
+        )}
       </main>
       <FeedbackForm
         isOpen={isFeedbackOpen}

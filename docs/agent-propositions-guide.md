@@ -75,7 +75,7 @@ npm run build             # PR 전 TypeScript·Vite 빌드
 ## 4. Git·커밋
 
 - `propositions.yaml` 수정 + 커밋 + build.
-- 명제는 용어·관계와 달리 Git 기반 `changelog`/`updatedAt`을 쓰지 않는다(용어 전용 기능).
+- 명제에도 Git 기반 `createdAt`/`updatedAt`/`changelog`가 붙는다(`scripts/content-history.js`). YAML에 수동으로 넣지 말 것. 커밋 후 `node build-data.js`로 반영.
 - 커밋 메시지 예: `data: add proposition p7 (관세와 무역수지)`.
 - push는 사용자가 명시적으로 요청할 때만.
 

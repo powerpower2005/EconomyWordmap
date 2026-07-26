@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import {
   loadCurriculum,
   getTermById,
@@ -9,7 +9,7 @@ import {
 import { CurriculumPart, CurriculumSection } from '../types';
 import MarkdownProse from '../components/MarkdownProse';
 import PropositionBody from '../components/PropositionBody';
-import { stripMarkdownInline } from '../utils/termDisplay';
+import { formatTermDate, stripMarkdownInline } from '../utils/termDisplay';
 import { loadBookmarks, toggleBookmark } from '../utils/learningProgress';
 import { useLearnedItems } from '../hooks/useLearnedItems';
 import LearnedToggle from '../components/LearnedToggle';
@@ -20,9 +20,17 @@ interface LearningProps {
   onOpenTerm: (termId: string) => void;
   onOpenMarket?: () => void;
   onOpenAllPropositions?: () => void;
+  focusSectionId?: string | null;
+  onFocusHandled?: () => void;
 }
 
-export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositions }: LearningProps) {
+export default function Learning({
+  onOpenTerm,
+  onOpenMarket,
+  onOpenAllPropositions,
+  focusSectionId = null,
+  onFocusHandled,
+}: LearningProps) {
   const curriculum = loadCurriculum();
   const [selectedSectionId, setSelectedSectionId] = useState<string | null>(null);
   const [learnFormat, setLearnFormat] = useState<LearnBodyFormat>('dialogue');
@@ -30,6 +38,14 @@ export default function Learning({ onOpenTerm, onOpenMarket, onOpenAllPropositio
   const [expandedPropId, setExpandedPropId] = useState<string | null>(null);
   const [bookmarks, setBookmarks] = useState<Set<string>>(() => loadBookmarks());
   const { isLearned, toggleLearned } = useLearnedItems();
+
+  useEffect(() => {
+    if (!focusSectionId || !curriculum) return;
+    if (curriculum.sections.some((s) => s.id === focusSectionId)) {
+      setSelectedSectionId(focusSectionId);
+    }
+    onFocusHandled?.();
+  }, [focusSectionId, curriculum, onFocusHandled]);
 
   const selectedSection = useMemo(
     () => curriculum?.sections.find(s => s.id === selectedSectionId) ?? null,
@@ -303,6 +319,7 @@ function SectionCard({
       <div className="flex gap-3 mt-3 text-xs text-gray-500">
         <span>{partCount}개 파트</span>
         <span>{itemCount}개 항목</span>
+        {section.updatedAt && <span>수정 {formatTermDate(section.updatedAt)}</span>}
         {bookmarkCount > 0 && (
           <span className="text-amber-600">★ {bookmarkCount} 북마크</span>
         )}
