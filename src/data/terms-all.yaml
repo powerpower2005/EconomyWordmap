@@ -331,7 +331,7 @@ terms:
     stockMarketImportance: 6
   - id: pce
     name: PCE 개인소비지출물가 (Personal Consumption Expenditures)
-    description: 연준이 인플레이션 목표 설정 시 선호하는 물가지표로 가계 소비지출의 가격 변동을 측정하며 CPI보다 넓은 범위와 가중치 변화를 반영
+    description: "연준이 인플레이션 목표 설정 시 선호하는 **물가지수**(PCE Price Index). 가계 소비지출의 **가격** 변동을 측정하며 CPI보다 대체·가중치 변화를 더 반영해 수치가 다소 낮게 나오는 편. **주의:** BEA **개인소득·지출 보고서**의 소비 지출(량·금액)과 약어가 겹치나, Wordmap의 `pce`는 **물가** 지표. 지출·소득 플로는 `consumption`·`disposable-income`·`personal-income`과 함께 봄"
     category: 거시경제
     stockMarketImportance: 8
   - id: core-pce
@@ -1451,12 +1451,12 @@ terms:
     stockMarketImportance: 7
   - id: business-condition-index
     name: 경기동향지수 (Composite Index)
-    description: "통계청 경기종합지수(CI) — 개별 월별 지표를 계절·불규칙 요인 제거·진폭 표준화 후 합성. 선행(재고순환·ESI·건설수주·코스피·장단기금리차 등 7개)·동행(광공업·서비스 생산·소매·수출입·취업 등 7개)·후행(재고·CPI·수입·취업 등 5개)으로 구분. 동행지수 순환변동치와 기준순환일(정·저점)로 경기 국면·전환점 판단. GDP는 분기·시차가 있어 단기 판단에 CI·PMI 등과 함께 봄"
+    description: "통계청 경기종합지수(CI) — 개별 월별 지표를 계절·불규칙 요인 제거·진폭 표준화 후 합성. 선행(재고순환·ESI·건설수주·코스피·장단기금리차 등 7개)·동행(광공업·서비스 생산·소매·수출입·취업 등 7개)·후행(재고·CPI·수입·취업 등 5개)으로 구분. 동행지수 순환변동치와 기준순환일(정·저점)로 경기 국면·전환점 판단. GDP는 분기·시차가 있어 단기 판단에 CI·PMI 등과 함께 봄. **미국 Conference Board LEI·OECD CLI**와도 '선행 합성' 아이디어는 같으나 **구성·국가·발표 주체**가 다름 — 합성지수는 편리하지만 구성 지표를 열어보지 않으면 정보를 잃기 쉬움"
     category: 거시경제
     stockMarketImportance: 5
   - id: purchasing-managers-index
     name: 구매관리자지수 (PMI)
-    description: "매월 구매·생산 관리자 설문(생산·신규주문·재고·고용·가격 등)으로 작성하는 속보성 경기 지표. 확산지수 방식으로 50 초과=호전·미만=악화(중립선). ISM(미국)·IHS Markit/S&P Global(글로벌·多국) 등. 제조·서비스·종합 PMI는 월초 직전월 통계로 발표되어 GDP·경기동향지수보다 빠른 선행·동행 신호로 투자자·정책당국이 널리 사용"
+    description: "매월 구매·생산 관리자 설문(생산·신규주문·재고·고용·가격 등)으로 작성하는 속보성 경기 지표. 확산지수 방식으로 50 초과=호전·미만=악화(중립선). ISM(미국)·IHS Markit/S&P Global(글로벌·多국) 등. 제조·서비스·종합 PMI는 월초 직전월 통계로 발표되어 GDP·경기동향지수보다 빠른 선행·동행 신호로 투자자·정책당국이 널리 사용. 시장 휴리스틱으로 **60 근처 이상**을 과열(금리 인상 기대)·**40 근처 이하**를 깊은 수축(완화 기대)으로 읽기도 하나, 50 미만≠공식 침체이며 제조만 약하고 서비스가 버틸 수 있음"
     category: 거시경제
     stockMarketImportance: 8
   - id: current-account
@@ -1501,7 +1501,7 @@ terms:
     stockMarketImportance: 6
   - id: employment-rate
     name: 고용률 (Employment Rate)
-    description: 15세 이상 생산가능인구 중 실제 취업자가 차지하는 비율로 구직 단념자의 영향을 받는 실업률을 보완해 고용 상황을 더 폭넓게 보여줌
+    description: "생산가능(또는 민간)인구 대비 **취업자** 비율 — 실업률과 분모가 다름. 한국은 보통 15세 이상 인구 대비 취업자. 미국 Employment Situation **Employment-to-Population Ratio**는 **총 민간비시설인구(Civilian noninstitutional population)** 대비 취업자. 구직단념·참가율 변화로 공식 실업률이 왜곡될 때 함께 보는 보완 지표"
     category: 거시경제
     stockMarketImportance: 5
   - id: fixed-rate
@@ -2396,7 +2396,7 @@ terms:
     stockMarketImportance: 6
   - id: housing-starts
     name: 주택착공 (Housing Starts)
-    description: "해당 월 **착공** 주택 호수 — 미 센서스국 매월 발표. 대부분 지역에서 **착공허가(Building Permits)** 뒤 착공되며, 허가는 착공과 거의 같이 움직이나 기상 등으로 착공 변동성이 더 클 수 있어 수개월 추세를 함께 봄. 착공허가는 미국 **경기선행지수(LEI)** 구성 지표 중 하나로도 쓰임. 신규주택·주택투자·GDP의 **경기선행** 신호로 읽히는 경향이 있으나, 착공 둔화가 수요 둔화인지 **공급 차질**(자재·인력·재고)인지는 **기존주택판매**·가격·금리와 함께 판단"
+    description: "해당 월 **착공** 주택 호수 — 미 센서스국 매월 발표. 대부분 지역에서 **건축허가(Building Permits)** 뒤 착공되며, 허가는 착공보다 1~3개월 선행하는 경우가 많아 LEI 구성으로도 쓰임. **허가 후 미착공**이 급등하면 수요를 건설이 못 따라가거나 자재·인력 수급 문제일 수 있음. 단독주택(1-unit) 착공이 선행성이 더 크다는 해석이 많음. 착공 둔화가 수요 둔화인지 **공급 차질**인지는 **기존주택판매**·재고·가격·금리와 함께 판단"
     category: 거시경제
     stockMarketImportance: 6
   - id: case-shiller-index
@@ -2419,3 +2419,28 @@ terms:
     description: "매매를 위해 나와 있는 주택 물량·재고개월수 등으로 읽는 **공급 여유**. 재고가 극도로 낮으면 가격 상승·거래 병목이 겹치기 쉽고, 착공·신규공급이 늘면 재고가 회복되는 경향. 저금리·수요 급증 국면에서 재고 부족이 가격·판매·착공 해석을 좌우할 수 있어 **기존주택판매**·케이스-실러·착공과 함께 봄"
     category: 거시경제
     stockMarketImportance: 5
+  - id: retail-sales
+    name: 소매판매 (Retail Sales)
+    description: "가계가 소매점에서 산 **재화** 매출 — 미국 Census 월간 Retail Sales. 수치가 좋을수록 경기·기업실적에 호재로 읽히나 **물가 압력** 신호도 됨. **주의:** 개인소비의 상당 비중인 **서비스**는 빠지고, 자동차·휘발유 비중이 커서 **ex-Autos / ex-Gas** 로도 봄. COVID처럼 서비스가 먼저 흔들릴 때 헤드라인만 보면 왜곡됨"
+    category: 거시경제
+    stockMarketImportance: 8
+  - id: initial-claims
+    name: 주간 실업수당 신청 (Initial Jobless Claims)
+    description: "실업수당을 **처음** 신청한 주간 건수 — 미국 DOL 매주 발표. 월간 고용보고서보다 **시의성**이 좋고 경기 **동행**에 가까운 신호로 쓰이나 주간 변동성이 커서 **4주 이동평균**을 함께 봄. 급증은 해고·고용 냉각, 안정·하락은 노동시장 완화로 해석되는 경우가 많음"
+    category: 거시경제
+    stockMarketImportance: 8
+  - id: average-weekly-hours
+    name: 평균 주당 노동시간 (Average Weekly Hours)
+    description: "Employment Situation 기관조사의 **주당 평균 근로시간**(산업별). 경기 회복·호황 초기에는 기업이 **신규 고용보다 기존 인력의 노동시간**을 먼저 늘리는 경향이 있어 **선행** 신호로 읽힘. 미국 Conference Board LEI에도 제조업 주당평균노동시간이 포함. **평균 시급(AHE)** 과 함께 보면 호황 산업(시간↑·임금↑) 힌트가 됨"
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: building-permits
+    name: 주택 건축허가 (Building Permits)
+    description: "신규 개인주택 **허가** 건수 — 미 센서스국 월간. **주택착공**보다 통상 1~3개월 선행하며 미국 LEI 구성 지표. 단독주택 허가가 선행성이 크다는 해석이 많음. **허가 후 미착공**이 급증하면 건설이 수요를 못 따라가거나 자재·인력 병목일 수 있어, 평소보다 큰 증감이 있을 때 주시"
+    category: 거시경제
+    stockMarketImportance: 6
+  - id: personal-income
+    name: 개인소득 (Personal Income)
+    description: "BEA **개인소득·지출 보고서**의 가계 소득 총량 — 근로·임대·자산소득 등. **실질 가처분소득(DPI, chained)** 과 함께 소비 여력을 봄. 같은 보고서의 지출·저축(소득−지출)과 짝으로 읽고, 저축 급락·이자지출 급등은 가계 부담 신호. 물가 지표인 **PCE Price Index**(`pce`)와 구분"
+    category: 거시경제
+    stockMarketImportance: 7

@@ -8806,3 +8806,144 @@ relations:
     description: 재고가 낮을수록 신규공급(착공) 유인이 커지는 경향이 있으나, 자재·인력·허가 병목이면 착공이 바로 따라가지 못할 수 있음
     strength: medium
     nature: causal
+  - id: r1271
+    term1Id: retail-sales
+    term2Id: consumption
+    type: proportional
+    description: 소매판매는 가계 재화 소비의 월간 속보 — 개인소비(C)의 일부(서비스 제외)를 빠르게 보여 줌
+    strength: strong
+    nature: hierarchical
+  - id: r1272
+    term1Id: retail-sales
+    term2Id: inflation
+    type: proportional
+    description: 소매판매가 강하면 수요 측 물가 압력으로 읽히는 경향 — 다만 가격 효과(명목 매출)와 물량 효과를 구분해야 함
+    strength: medium
+    nature: correlational
+  - id: r1273
+    term1Id: retail-sales
+    term2Id: earnings
+    type: proportional
+    description: 소매·소비재 매출 호조는 관련 기업 실적·이익 기대에 호재로 반영되는 경우가 많음
+    strength: medium
+    nature: correlational
+  - id: r1274
+    term1Id: initial-claims
+    term2Id: unemployment
+    type: proportional
+    description: 주간 실업수당 신규신청 증가는 해고·고용 냉각 신호로, 시차를 두고 실업률·고용 보고서에 반영되는 경향
+    strength: strong
+    nature: causal
+    lag: 수 주~수개월
+  - id: r1275
+    term1Id: initial-claims
+    term2Id: business-cycle
+    type: correlation
+    description: 주간 claims(및 4주 MA)는 경기 동행에 가까운 고주파 신호 — 급증은 수축, 안정·하락은 고용 완화로 읽힘
+    strength: strong
+    nature: correlational
+  - id: r1276
+    term1Id: initial-claims
+    term2Id: nonfarm-payroll
+    type: inverse
+    description: claims가 낮고 안정적이면 NFP가 견조할 개연성이 커지고, claims 급증은 NFP 약화 선행 신호로 쓰임
+    strength: medium
+    nature: correlational
+  - id: r1277
+    term1Id: average-weekly-hours
+    term2Id: nonfarm-payroll
+    type: proportional
+    description: 호황·회복 초기에는 주당 노동시간이 먼저 늘고, 이후 신규 고용(NFP)이 따라오는 경향
+    strength: medium
+    nature: causal
+    lag: 수개월
+  - id: r1278
+    term1Id: average-weekly-hours
+    term2Id: business-cycle
+    type: proportional
+    description: 제조업 등 평균 주당 노동시간은 경기 선행·동행 신호로 LEI 등에도 포함 — 시간이 늘면 확장, 줄면 둔화 신호
+    strength: medium
+    nature: correlational
+  - id: r1279
+    term1Id: average-weekly-hours
+    term2Id: average-hourly-earnings
+    type: correlation
+    description: 노동시간↑와 시급↑가 같은 산업에서 겹치면 해당 부문 수요·마진 호조의 힌트로 읽힘
+    strength: medium
+    nature: correlational
+  - id: r1280
+    term1Id: average-weekly-hours
+    term2Id: employment-situation-report
+    type: correlation
+    description: 평균 주당 노동시간은 Employment Situation 기관조사 구성 지표
+    strength: strong
+    nature: hierarchical
+  - id: r1281
+    term1Id: consumption
+    term2Id: industrial-production
+    type: proportional
+    description: 가계 소비(수요)가 늘면 시차를 두고 제조·산업생산(공급)이 늘어나는 실물 순환 — 선진국에선 소비가 더 큰 축
+    strength: medium
+    nature: causal
+    bidirectional: true
+    reverseType: proportional
+    reverseDescription: 산업생산·공급이 늘면 고용·소득을 통해 소비 여력이 커질 수 있음
+    reverseStrength: medium
+  - id: r1282
+    term1Id: building-permits
+    term2Id: housing-starts
+    type: proportional
+    description: 건축허가는 통상 착공에 1~3개월 선행 — 허가↑ 뒤 착공이 따라오는 경향
+    strength: strong
+    nature: causal
+    lag: 1~3개월
+  - id: r1283
+    term1Id: building-permits
+    term2Id: business-cycle
+    type: proportional
+    description: 신규 단독주택 허가 등은 미국 LEI 구성 — 주택·건설 경기 선행 신호
+    strength: medium
+    nature: correlational
+  - id: r1284
+    term1Id: building-permits
+    term2Id: consumption
+    type: proportional
+    description: 허가·착공 증가 뒤 이사·가구·가전 등 관련 소비가 시차를 두고 늘어나는 경향
+    strength: medium
+    nature: causal
+    lag: 수개월
+  - id: r1285
+    term1Id: personal-income
+    term2Id: disposable-income
+    type: proportional
+    description: 개인소득에서 세금·사회보험 등을 조정한 것이 가처분소득 — 소비·저축 여력의 출발점
+    strength: strong
+    nature: definitional
+  - id: r1286
+    term1Id: personal-income
+    term2Id: consumption
+    type: proportional
+    description: 개인소득·실질 가처분소득이 늘면 가계 지출(소비) 여력이 커지는 경향
+    strength: strong
+    nature: causal
+  - id: r1287
+    term1Id: personal-income
+    term2Id: savings
+    type: proportional
+    description: 소득−지출=개인저축 — 소득이 지출보다 빠르게 늘면 저축이 늘고, 위기 시 예비적 저축이 급등하기도 함
+    strength: medium
+    nature: definitional
+  - id: r1288
+    term1Id: unemployment
+    term2Id: federal-reserve
+    type: correlation
+    description: 실업률·최대고용은 Fed 이중목표의 고용 축 — 실업이 급등하거나 노동시장이 과열되면 정책 대응 기대가 커짐
+    strength: strong
+    nature: policy
+  - id: r1289
+    term1Id: retail-sales
+    term2Id: federal-reserve
+    type: correlation
+    description: 소매판매는 수요·물가 압력 신호로 시장이 Fed 경로를 재가격할 때 참고하나, Fed의 **직접 이중목표 변수**는 아님
+    strength: weak
+    nature: correlational

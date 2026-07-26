@@ -5417,3 +5417,162 @@ propositions:
       - label: 재고 과잉·가격 조정
         detail: 재고가 쌓이고 가격·판매가 동반 약화되면 착공 둔화는 수요·경기 둔화 신호에 더 가깝다.
     verdict: 재고·가격·판매와 대조해 공급 병목이 드러날 때는 성립하지만, 금리·신용이 수요를 꺾는 국면에서는 깨지는 조건부 명제다.
+  - id: p246
+    statement: 연준은 실업·물가에 개입하지만 소비·산업생산 단독으로는 개입하지 않는다
+    category: 통화정책
+    termIds:
+      - federal-reserve
+      - unemployment
+      - inflation
+      - full-employment
+      - consumption
+      - industrial-production
+      - retail-sales
+      - policy-rate
+    relationIds:
+      - r1288
+      - r1205
+      - r1213
+      - r1289
+    premise: 연준의 법정 목표(이중목표)는 **최대 고용**과 **물가 안정**(및 적정 장기금리)이며, 소비·산업생산은 그 목표를 읽는 **중간 신호**이지 직접 타깃이 아니라는 제도·정책 관행에 근거한다.
+    holds:
+      - label: 이중목표 프레임
+        detail: 실업률·고용·PCE/CPI가 목표에서 벗어나면 FOMC가 금리·대차대조표로 대응하는 서사가 지배적이다.
+      - label: 소비·IP만의 변동
+        detail: 소매·산업생산이 흔들려도 고용·물가가 안정이면 정책 반응이 약한 경우가 많다.
+    fails:
+      - label: 간접 경로
+        detail: 소비·생산 붕괴가 곧 실업·디스인플레로 이어질 전망이면 Fed가 선제 완화할 수 있다 — '절대 안 본다'가 아님.
+      - label: 금융 안정·비상
+        detail: 신용 경색·시장 기능 마비 등에서는 고용·물가 외 경로로도 개입할 수 있다.
+    verdict: 이중목표 중심 해석으로는 성립하지만, 소비·IP가 고용·물가로 전달될 때·위기 시에는 깨지는 조건부 명제다.
+  - id: p247
+    statement: 경기 회복기에는 기업이 고용보다 평균노동시간을 먼저 늘린다
+    category: 거시경제
+    termIds:
+      - average-weekly-hours
+      - nonfarm-payroll
+      - employment-situation-report
+      - business-cycle
+      - average-hourly-earnings
+    relationIds:
+      - r1277
+      - r1278
+      - r1280
+    premise: 채용·해고 비용이 있어 기업은 수요가 살아날 때 **기존 인력의 근로시간**을 먼저 늘리고, 수요가 지속될 때 신규 고용(NFP)을 늘린다는 노동수요 조정 순서에 근거한다.
+    holds:
+      - label: 회복·확장 초기
+        detail: 평균 주당 노동시간이 먼저 오르고 NFP·실업률 개선이 뒤따르는 패턴이 관찰된다.
+      - label: 산업별 힌트
+        detail: 특정 산업에서 시간↑와 시급↑가 겹치면 그 부문 수요 호조의 선행 신호로 쓸 수 있다.
+    fails:
+      - label: 대규모 구조조정·자동화
+        detail: 구조적으로 인력을 줄이는 국면에서는 시간이 늘어도 고용이 따라오지 않을 수 있다.
+      - label: 급격한 수요 붕괴
+        detail: 쇼크 시에는 시간 단축과 해고가 거의 동시에 일어나 순서가 안 보일 수 있다.
+    verdict: 전형적인 순환 회복에서는 성립하나, 구조조정·급격 쇼크 앞에서는 약한 조건부 명제다.
+  - id: p248
+    statement: 소매판매 호조는 경기·실적에 호재지만 서비스·자동차·에너지를 빼면 해석이 달라진다
+    category: 거시경제
+    termIds:
+      - retail-sales
+      - consumption
+      - inflation
+      - earnings
+      - personal-income
+    relationIds:
+      - r1271
+      - r1272
+      - r1273
+    premise: Retail Sales는 **재화 소매** 중심이라 개인소비의 큰 축인 서비스가 빠지고, 자동차·휘발유 비중이 커 헤드라인만으로 수요·실적을 단정하기 어렵다는 구성 편향에 근거한다.
+    holds:
+      - label: 헤드라인·핵심 동행
+        detail: 총액과 ex-auto·실질 지표가 같은 방향으로 강하면 소비·경기·소매 관련 실적 호재로 읽기 쉽다.
+      - label: 물가 압력
+        detail: 명목 소매가 강하고 고용이 타이트하면 수요 견인 물가 압력으로 Fed 경로 기대를 흔들 수 있다.
+    fails:
+      - label: 서비스 주도 충격
+        detail: COVID처럼 서비스가 먼저 무너지거나 회복하면 소매 헤드라인과 전체 소비(C)가 어긋난다.
+      - label: 가격·구성 효과
+        detail: 유가·차 가격만 올려 명목 매출이 커진 경우 물량·체감 소비와 괴리된다.
+      - label: ex-Autos 약화
+        detail: 헤드라인은 좋은데 자동차·에너지를 빼면 약하면 '광범위 소비 호조'로 보기 어렵다.
+    verdict: 구성·가격 효과를 통제할 때 성립하고, 서비스·에너지·차 왜곡 앞에서는 깨지는 조건부 명제다.
+  - id: p249
+    statement: 실업기간 단기(5주 이하) 급증은 대규모 해고, 장기(15주 이상) 증가는 침체 선행에 가깝다
+    category: 거시경제
+    termIds:
+      - unemployment
+      - employment-situation-report
+      - recession
+      - business-cycle
+      - initial-claims
+    relationIds:
+      - r1274
+      - r1212
+    premise: Employment Situation 실업기간 분포에서 **단기 실업** 급증은 신규 해고 물결, **장기 실업** 증가는 재취업 난항·침체 누적을 반영한다는 노동시장 지속기간 해석에 근거한다.
+    holds:
+      - label: 단기 실업 급증
+        detail: 5주 이하 실업자 비중이 빠르게 늘면 기업이 대규모로 인원을 줄이는 국면일 수 있다.
+      - label: 장기 실업 누적
+        detail: 15주 이상 실업이 침체 선언 전부터 꾸준히 늘면 노동시장 냉각이 깊어지는 신호로 읽힌다.
+    fails:
+      - label: 계절·표본 노이즈
+        detail: 월간 표본·계절조정 오차로 단기 구간만 출렁일 수 있어 추세 확인이 필요하다.
+      - label: 참가율·인구 구조
+        detail: 인구·은퇴·이민 변화로 기간 분포가 경기와 무관하게 바뀔 수 있다.
+      - label: 정책·급여 제도
+        detail: 실업급여 기간·자격 변화가 장기 실업 통계를 왜곡할 수 있다.
+    verdict: 해고 물결과 침체 누적을 구분하는 휴리스틱으로 유용하나, 계절·제도·인구 앞에서는 조건부다.
+  - id: p250
+    statement: 설비가동률이 해당 산업의 과거 평균보다 높으면 그 산업 설비투자가 늘어날 수 있다
+    category: 거시경제
+    termIds:
+      - capacity-utilization
+      - capital-expenditure
+      - manufacturing
+      - industrial-production
+      - investment
+    relationIds:
+      - r1233
+    premise: 산업별로 **과거 평균 대비** 가동률이 높으면 병목을 풀기 위한 증설·CapEx 유인이 커진다는, 전체 82% 룰을 산업 수준으로 좁힌 해석에 근거한다.
+    holds:
+      - label: 수요 지속·금융 여건 양호
+        detail: 고가동이 주문·마진 전망과 함께가면 해당 산업 CapEx·건설 수주가 늘어날 수 있다.
+      - label: 전체 평균과 괴리
+        detail: 총량 CU는 보통이어도 특정 산업만 과거 대비 고가동이면 그 섹터 투자 테마가 될 수 있다.
+    fails:
+      - label: 금리·신용 제약
+        detail: 고금리·신용 경색이면 산업 고가동에도 투자를 미룰 수 있다.
+      - label: 해외 생산·리쇼어링 시차
+        detail: 생산이 해외에 있거나 국내 회귀에 수년이 걸리면 가동률→국내 CapEx 연결이 약해진다.
+    verdict: 산업별 상대 가동과 수요·금융이 맞을 때 성립하는 조건부 명제다(전체 CU→물가 명제 p235와 보완).
+  - id: p251
+    statement: 고용·소비·생산의 균형이 깨지면 물가·연준·금융시장 변동으로 이어진다
+    category: 거시경제
+    termIds:
+      - unemployment
+      - consumption
+      - industrial-production
+      - inflation
+      - federal-reserve
+      - retail-sales
+      - business-cycle
+      - policy-rate
+    relationIds:
+      - r1281
+      - r451
+      - r1288
+      - r1271
+    premise: 실물에서 고용→소비→생산 순환이 한쪽에 막히면 수요·공급 불균형이 물가로 나타나고, 이중목표상 Fed가 금리를 움직이며 자산가격 변동성이 커진다는 전달경로에 근거한다.
+    holds:
+      - label: 수요 과열
+        detail: 고용·소득이 강한 채 공급(생산·재고)이 못 따라가면 물가↑·긴축 기대로 금리·주가가 흔들린다.
+      - label: 고용 쇼크
+        detail: 실업이 급등하면 소비·생산이 꺾이고 완화 기대로 시장이 재가격된다.
+    fails:
+      - label: 이미 선반영
+        detail: 물가·Fed 경로가 이미 가격에 반영됐으면 '불균형 발견' 시점에 시장 반응이 작을 수 있다.
+      - label: 금융 충격이 먼저
+        detail: 신용 경색·자산버블이 실물보다 먼저 터지면 순서가 반대가 된다.
+    verdict: 실물 불균형→물가→정책 경로의 기본 골격이나, 선반영·금융 선행 국면에서는 순서가 달라지는 조건부 명제다.
