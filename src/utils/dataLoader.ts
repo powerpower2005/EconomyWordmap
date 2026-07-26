@@ -42,6 +42,40 @@ export const getPropositionsByTermId = (termId: string): Proposition[] => {
   return allPropositions.filter(p => p.termIds.includes(termId));
 };
 
+const propositionCaseMatches = (cases: Proposition['holds'] | undefined, q: string): boolean => {
+  if (!cases?.length) return false;
+  return cases.some(
+    (c) =>
+      c.label.toLowerCase().includes(q) ||
+      c.detail.toLowerCase().includes(q) ||
+      (c.example != null && c.example.toLowerCase().includes(q))
+  );
+};
+
+/** Search propositions by statement, premise, verdict, category, cases, related term names, or id. */
+export const searchPropositions = (query: string, propositions: Proposition[] = allPropositions): Proposition[] => {
+  const q = query.trim().toLowerCase();
+  if (!q) return propositions;
+
+  return propositions.filter((p) => {
+    if (p.id.toLowerCase().includes(q)) return true;
+    if (p.statement.toLowerCase().includes(q)) return true;
+    if (p.premise?.toLowerCase().includes(q)) return true;
+    if (p.verdict?.toLowerCase().includes(q)) return true;
+    if (p.category?.toLowerCase().includes(q)) return true;
+    if (propositionCaseMatches(p.holds, q) || propositionCaseMatches(p.fails, q)) return true;
+    return p.termIds.some((termId) => {
+      const term = getTermById(termId);
+      if (!term) return termId.toLowerCase().includes(q);
+      return (
+        term.id.toLowerCase().includes(q) ||
+        term.name.toLowerCase().includes(q) ||
+        (term.category != null && term.category.toLowerCase().includes(q))
+      );
+    });
+  });
+};
+
 export const getTermById = (id: string): Term | undefined => {
   return allTerms.find(term => term.id === id);
 };

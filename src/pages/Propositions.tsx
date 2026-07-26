@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { loadPropositions, getTermById } from '../utils/dataLoader';
+import { loadPropositions, getTermById, searchPropositions } from '../utils/dataLoader';
 import { Proposition } from '../types';
 import PropositionBody from '../components/PropositionBody';
 import LearnedToggle from '../components/LearnedToggle';
@@ -20,6 +20,7 @@ export default function Propositions({
   onFocusHandled,
 }: PropositionsProps) {
   const propositions = loadPropositions();
+  const [searchQuery, setSearchQuery] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [learnedFilter, setLearnedFilter] = useState<LearnedFilter>('all');
   const [expandedId, setExpandedId] = useState<string | null>(propositions[0]?.id ?? null);
@@ -31,6 +32,7 @@ export default function Propositions({
       setExpandedId(focusPropositionId);
       setSelectedCategory(null);
       setLearnedFilter('all');
+      setSearchQuery('');
     }
     onFocusHandled?.();
   }, [focusPropositionId, propositions, onFocusHandled]);
@@ -41,9 +43,14 @@ export default function Propositions({
     return Array.from(set);
   }, [propositions]);
 
+  const searched = useMemo(
+    () => searchPropositions(searchQuery, propositions),
+    [searchQuery, propositions]
+  );
+
   const byCategory = selectedCategory
-    ? propositions.filter(p => p.category === selectedCategory)
-    : propositions;
+    ? searched.filter(p => p.category === selectedCategory)
+    : searched;
 
   const visible = filterByLearned(byCategory, learned, learnedFilter);
   const learnedInView = countLearned(
@@ -60,6 +67,25 @@ export default function Propositions({
           <span className="text-red-700 font-medium">어떤 경우에 깨지는지</span>를 논리와 사례로 정리했습니다.
           체크(✓)로 배운 명제를 표시할 수 있으며, 브라우저에 저장됩니다.
         </p>
+      </div>
+
+      <div className="mb-4">
+        <input
+          type="search"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          placeholder="명제·전제·결론·카테고리·관련 용어로 검색..."
+          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-transparent text-gray-900"
+          aria-label="명제 검색"
+        />
+        {searchQuery.trim().length > 0 && (
+          <p className="text-xs text-gray-500 mt-1.5">
+            {visible.length}개 표시
+            {selectedCategory || learnedFilter !== 'all'
+              ? ` (검색 ${searched.length}개 중 필터 적용)`
+              : ` / 전체 ${propositions.length}개`}
+          </p>
+        )}
       </div>
 
       <LearnedFilterBar
@@ -100,7 +126,11 @@ export default function Propositions({
 
       {visible.length === 0 ? (
         <p className="text-sm text-gray-500 py-8 text-center">
-          {learnedFilter === 'learned' ? '배움으로 표시한 명제가 없습니다.' : '표시할 명제가 없습니다.'}
+          {searchQuery.trim().length > 0
+            ? '검색 결과가 없습니다.'
+            : learnedFilter === 'learned'
+              ? '배움으로 표시한 명제가 없습니다.'
+              : '표시할 명제가 없습니다.'}
         </p>
       ) : (
         <div className="space-y-4">
