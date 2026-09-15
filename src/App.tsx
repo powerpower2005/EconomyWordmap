@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import Learning from './pages/Learning';
 import FeedbackForm from './components/FeedbackForm';
+import { loadReadingState } from './utils/readingState';
 
 const Home = lazy(() => import('./pages/Home'));
 const Propositions = lazy(() => import('./pages/Propositions'));
@@ -20,6 +21,7 @@ export default function App() {
   const [view, setView] = useState<MainView>('learning');
   const [visited, setVisited] = useState(new Set<MainView>(['learning']));
   const [focusTermId, setFocusTermId] = useState<string | null>(null);
+  const [focusPartId, setFocusPartId] = useState<string | null>(null);
   const [focusPropositionId, setFocusPropositionId] = useState<string | null>(null);
   const [focusSectionId, setFocusSectionId] = useState<string | null>(null);
   const [fromLearning, setFromLearning] = useState(false);
@@ -39,6 +41,7 @@ export default function App() {
 
   function openTermInGraph(id: string) {
     if (view === 'learning') setFromLearning(true);
+    setFocusPartId(view === 'learning' ? loadReadingState()?.partId || null : null);
     setFocusTermId(id);
     navigate('graph', true);
   }
@@ -78,7 +81,7 @@ export default function App() {
         </div>
         <Suspense fallback={<p className="page-loading" role="status">개념을 연결하고 있어요…</p>}>
           {visited.has('graph') && <div hidden={view !== 'graph'} className="explore-page">
-            <Home focusTermId={focusTermId} onFocusHandled={() => setFocusTermId(null)} />
+            <Home focusTermId={focusTermId} focusPartId={focusPartId} onFocusHandled={() => setFocusTermId(null)} />
           </div>}
           {visited.has('propositions') && <div hidden={view !== 'propositions'} className="explore-page">
             <Propositions onOpenTerm={openTermInGraph} focusPropositionId={focusPropositionId}

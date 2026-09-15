@@ -49,6 +49,7 @@ node scripts/ai-context.js get sec-money-value
 | 마크다운·대화 렌더링 | `src/components/MarkdownProse.tsx` |
 | 명제 조건·반례 | `src/components/PropositionBody.tsx`, `src/pages/Propositions.tsx` |
 | 용어 탐색·관계도 | `src/pages/Home.tsx`, `src/components/RelationGraph.tsx` |
+| 관계도 인덱스·방향 분류·고정 배치 | `src/utils/graphExplorer.ts`, `src/graph-explorer.css`; 검사: `scripts/check-graph-explorer.js` |
 | 읽기 위치·북마크 | `src/utils/readingState.ts`, `src/utils/learningProgress.ts` |
 | 데이터 타입·조회 | `src/types.ts`, `src/utils/dataLoader.ts` |
 | 빌드·검증·이력 | `scripts/data-build.js`, `scripts/validate-data.js`, `scripts/content-history.js` |
