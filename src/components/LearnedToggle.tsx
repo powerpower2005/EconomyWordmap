@@ -11,7 +11,7 @@ export default function LearnedToggle({
   size = 'md',
   className = '',
 }: LearnedToggleProps) {
-  const box = size === 'sm' ? 'w-4 h-4' : 'w-5 h-5';
+  const box = size === 'sm' ? 'w-8 h-8' : 'w-9 h-9';
   const icon = size === 'sm' ? 'text-[10px]' : 'text-xs';
 
   return (
@@ -27,6 +27,7 @@ export default function LearnedToggle({
           : 'bg-white border-gray-300 text-transparent hover:border-emerald-400'
       } ${className}`}
       aria-label={learned ? '배움 — 체크 해제' : '미배움 — 배움으로 표시'}
+      aria-pressed={learned}
       title={learned ? '배움' : '미배움'}
     >
       <span className={`${icon} leading-none font-bold`} aria-hidden>

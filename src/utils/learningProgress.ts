@@ -12,7 +12,7 @@ export function loadBookmarks(): Set<string> {
 }
 
 export function saveBookmarks(bookmarks: Set<string>): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...bookmarks]));
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...bookmarks])); } catch { /* Keep the current session usable when storage is unavailable. */ }
 }
 
 export function toggleBookmark(id: string, bookmarks: Set<string>): Set<string> {

@@ -17,7 +17,7 @@ export function loadLearned(): Set<string> {
 }
 
 export function saveLearned(learned: Set<string>): void {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify([...learned]));
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify([...learned])); } catch { /* Storage may be unavailable in private or restricted browsing. */ }
   listeners.forEach(fn => fn());
 }
 

@@ -1,4 +1,5 @@
 import { Proposition } from '../types';
+import MarkdownProse from './MarkdownProse';
 
 interface PropositionBodyProps {
   proposition: Proposition;
@@ -11,16 +12,17 @@ export default function PropositionBody({ proposition }: PropositionBodyProps) {
     <div className="space-y-5">
       <div className="rounded-lg bg-gray-50 border border-gray-100 p-4">
         <h4 className="text-sm font-semibold text-gray-700 mb-1">왜 이렇게 보는가 (논리)</h4>
-        <p className="text-sm text-gray-700 leading-relaxed">{proposition.premise}</p>
+        <MarkdownProse source={proposition.premise || ''} mode="prose" className="text-sm text-gray-700" />
       </div>
 
-      <CaseList title="성립하는 경우" accent="green" cases={proposition.holds} />
-
-      <CaseList title="성립하지 않는 경우 · 한계" accent="red" cases={proposition.fails} />
+      <div className="proposition-cases">
+        <CaseList title="이럴 때 성립해요" accent="green" cases={proposition.holds} />
+        <CaseList title="이럴 때 달라져요" accent="red" cases={proposition.fails} />
+      </div>
 
       <div className="rounded-lg bg-amber-50 border border-amber-200 p-4">
         <h4 className="text-sm font-semibold text-amber-800 mb-1">결론</h4>
-        <p className="text-sm text-amber-900 leading-relaxed">{proposition.verdict}</p>
+        <MarkdownProse source={proposition.verdict || ''} mode="prose" className="text-sm text-amber-900" />
       </div>
     </div>
   );
@@ -50,9 +52,9 @@ function CaseList({ title, accent, cases }: CaseListProps) {
         {cases.map((c, idx) => (
           <div key={idx} className={`rounded-lg border ${styles.border} ${styles.bg} p-3`}>
             <div className="text-sm font-medium text-gray-900">{c.label}</div>
-            <p className="text-sm text-gray-700 mt-1 leading-relaxed">{c.detail}</p>
+            <MarkdownProse source={c.detail} mode="prose" className="text-sm text-gray-700 mt-1" />
             {c.example && (
-              <p className="text-xs text-gray-500 mt-1.5">사례: {c.example}</p>
+              <div className="text-xs text-gray-500 mt-2"><span className="font-medium">사례</span><MarkdownProse source={c.example} mode="prose" /></div>
             )}
           </div>
         ))}

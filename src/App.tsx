@@ -1,142 +1,96 @@
-import { useState } from 'react';
-import Home from './pages/Home';
-import Propositions from './pages/Propositions';
-import MarketDashboard from './pages/MarketDashboard';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import Learning from './pages/Learning';
-import DateIndexPage from './pages/DateIndex';
 import FeedbackForm from './components/FeedbackForm';
 
+const Home = lazy(() => import('./pages/Home'));
+const Propositions = lazy(() => import('./pages/Propositions'));
+const MarketDashboard = lazy(() => import('./pages/MarketDashboard'));
+const DateIndexPage = lazy(() => import('./pages/DateIndex'));
 type MainView = 'learning' | 'graph' | 'propositions' | 'market' | 'dates';
+const views: { id: MainView; title: string; description: string }[] = [
+  { id: 'learning', title: '학습', description: '질문으로 배우기' },
+  { id: 'graph', title: '용어와 관계', description: '개념 연결하기' },
+  { id: 'propositions', title: '명제', description: '조건과 반례' },
+  { id: 'market', title: '시장 지표', description: '숫자로 확인하기' },
+  { id: 'dates', title: '업데이트', description: '새로 더한 지식' },
+];
 
-function App() {
+export default function App() {
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const [view, setView] = useState<MainView>('learning');
+  const [visited, setVisited] = useState(new Set<MainView>(['learning']));
   const [focusTermId, setFocusTermId] = useState<string | null>(null);
   const [focusPropositionId, setFocusPropositionId] = useState<string | null>(null);
   const [focusSectionId, setFocusSectionId] = useState<string | null>(null);
+  const [fromLearning, setFromLearning] = useState(false);
+  const scrollPositions = useRef<Partial<Record<MainView, number>>>({});
 
-  const openTermInGraph = (termId: string) => {
-    setView('graph');
-    setFocusTermId(termId);
-  };
+  function navigate(next: MainView, reset = false) {
+    if (next === view) return;
+    scrollPositions.current[view] = window.scrollY;
+    if (reset) scrollPositions.current[next] = 0;
+    setVisited(previous => new Set([...previous, next]));
+    setView(next);
+  }
+  useEffect(() => {
+    const frame = requestAnimationFrame(() => window.scrollTo({ top: scrollPositions.current[view] || 0 }));
+    return () => cancelAnimationFrame(frame);
+  }, [view]);
 
-  const openProposition = (propositionId: string) => {
-    setView('propositions');
-    setFocusPropositionId(propositionId);
-  };
-
-  const openCurriculumSection = (sectionId: string) => {
-    setView('learning');
-    setFocusSectionId(sectionId);
-  };
+  function openTermInGraph(id: string) {
+    if (view === 'learning') setFromLearning(true);
+    setFocusTermId(id);
+    navigate('graph', true);
+  }
+  function openProposition(id: string) {
+    setFocusPropositionId(id);
+    navigate('propositions', true);
+  }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* 최상단 우측 고정 피드백 버튼 */}
-      <button
-        onClick={() => setIsFeedbackOpen(true)}
-        className="fixed top-2 right-2 md:top-4 md:right-4 z-50 px-3 py-1.5 md:px-6 md:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl text-sm md:text-base font-semibold transform hover:scale-105"
-      >
-        💬 피드백 (GitHub 이슈)
-      </button>
-
-      <header className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <h1 className="text-2xl font-bold text-gray-900">
-            경제 명제 · 용어 관계 사전
-          </h1>
-          <p className="text-sm text-gray-600 mt-1">
-            경제 명제가 언제 성립하고 언제 깨지는지 조건과 한계로 이해하고, 용어 관계도로 그 배경을 탐색하세요
-          </p>
-          <nav className="flex gap-2 mt-4 flex-wrap">
-            <button
-              onClick={() => setView('learning')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'learning'
-                  ? 'text-violet-600 border-violet-600'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              학습
-            </button>
-            <button
-              onClick={() => setView('propositions')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'propositions'
-                  ? 'text-indigo-600 border-indigo-600'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              명제
-            </button>
-            <button
-              onClick={() => setView('graph')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'graph'
-                  ? 'text-blue-600 border-blue-600'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              관계도
-            </button>
-            <button
-              onClick={() => setView('market')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'market'
-                  ? 'text-emerald-600 border-emerald-600'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              시장 지표
-            </button>
-            <button
-              onClick={() => setView('dates')}
-              className={`px-4 py-2 text-sm font-semibold rounded-t-lg border-b-2 transition-colors ${
-                view === 'dates'
-                  ? 'text-slate-800 border-slate-800'
-                  : 'text-gray-500 border-transparent hover:text-gray-700'
-              }`}
-            >
-              날짜 인덱스
-            </button>
+    <div className="wordmap-app">
+      <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
+      <header className="site-header">
+        <div className="site-header-inner">
+          <button className="wordmap-brand" onClick={() => navigate('learning')} aria-label="Wordmap 학습으로">
+            <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
+            <span>wordmap<small>경제를 연결하다</small></span>
+          </button>
+          <nav className="main-navigation" aria-label="주요 메뉴">
+            {views.map(item => <button type="button" key={item.id}
+              aria-current={view === item.id ? 'page' : undefined}
+              className={view === item.id ? 'is-active' : ''}
+              onClick={() => navigate(item.id)} title={item.description}>{item.title}</button>)}
           </nav>
+          <button type="button" onClick={() => setIsFeedbackOpen(true)} className="feedback-button">의견 보내기 ↗</button>
         </div>
       </header>
-      <main>
-        <div className={view === 'learning' ? '' : 'hidden'}>
-          <Learning
-            onOpenTerm={openTermInGraph}
-            onOpenMarket={() => setView('market')}
-            onOpenAllPropositions={() => setView('propositions')}
-            focusSectionId={focusSectionId}
-            onFocusHandled={() => setFocusSectionId(null)}
-          />
+      {fromLearning && view !== 'learning' && <div className="learning-return">
+        <span>개념을 확인했나요? 읽던 이야기가 그대로 기다리고 있어요.</span>
+        <button type="button" onClick={() => { navigate('learning'); setFromLearning(false); }}>읽던 학습으로 돌아가기 →</button>
+      </div>}
+      <main id="main-content" tabIndex={-1}>
+        <div hidden={view !== 'learning'}>
+          <Learning isActive={view === 'learning'} onOpenTerm={openTermInGraph}
+            onOpenMarket={() => { setFromLearning(true); navigate('market'); }}
+            onOpenAllPropositions={() => { setFromLearning(true); navigate('propositions'); }}
+            focusSectionId={focusSectionId} onFocusHandled={() => setFocusSectionId(null)} />
         </div>
-        <div className={view === 'graph' ? '' : 'hidden'}>
-          <Home focusTermId={focusTermId} onFocusHandled={() => setFocusTermId(null)} />
-        </div>
-        <div className={view === 'propositions' ? '' : 'hidden'}>
-          <Propositions
-            onOpenTerm={openTermInGraph}
-            focusPropositionId={focusPropositionId}
-            onFocusHandled={() => setFocusPropositionId(null)}
-          />
-        </div>
-        {view === 'market' && <MarketDashboard />}
-        {view === 'dates' && (
-          <DateIndexPage
-            onOpenTerm={openTermInGraph}
-            onOpenProposition={openProposition}
-            onOpenCurriculum={openCurriculumSection}
-          />
-        )}
+        <Suspense fallback={<p className="page-loading" role="status">개념을 연결하고 있어요…</p>}>
+          {visited.has('graph') && <div hidden={view !== 'graph'} className="explore-page">
+            <Home focusTermId={focusTermId} onFocusHandled={() => setFocusTermId(null)} />
+          </div>}
+          {visited.has('propositions') && <div hidden={view !== 'propositions'} className="explore-page">
+            <Propositions onOpenTerm={openTermInGraph} focusPropositionId={focusPropositionId}
+              onFocusHandled={() => setFocusPropositionId(null)} />
+          </div>}
+          {view === 'market' && <div className="explore-page"><MarketDashboard /></div>}
+          {view === 'dates' && <div className="explore-page"><DateIndexPage onOpenTerm={openTermInGraph}
+            onOpenProposition={openProposition} onOpenCurriculum={id => { setFocusSectionId(id); navigate('learning', true); }} /></div>}
+        </Suspense>
       </main>
-      <FeedbackForm
-        isOpen={isFeedbackOpen}
-        onClose={() => setIsFeedbackOpen(false)}
-      />
+      <footer className="site-footer"><span>wordmap</span><p>외우는 경제에서, 연결하는 경제로.</p><span>읽던 위치와 저장한 항목은 이 브라우저에 보관됩니다.</span></footer>
+      <FeedbackForm isOpen={isFeedbackOpen} onClose={() => setIsFeedbackOpen(false)} />
     </div>
   );
 }
-
-export default App;
