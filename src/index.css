@@ -12,6 +12,17 @@ body {
 }
 
 /* A quiet reading surface, shared by the library and concept exploration. */
+.concept-glossary { padding: 18px; border: 1px solid #d1dfcf; border-radius: 10px; background: #f0f5eb; }
+.concept-glossary-heading { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; }
+.concept-glossary-heading h4 { font-size: 15px; font-weight: 650; color: #284d38; }.concept-glossary-heading > span { font-size: 11px; color: #658064; white-space: nowrap; }
+.concept-glossary > p { font-size: 12px; color: #62755f; line-height: 1.8; margin: 8px 0 14px; }
+.concept-glossary-terms { display: flex; flex-wrap: wrap; gap: 7px; }.concept-glossary-terms button { min-height: 42px; padding: 9px 12px; background: #fffefb; border: 1px solid #cadbc8; border-radius: 7px; color: #30553c; font-size: 12px; text-align: left; overflow-wrap: anywhere; }
+.concept-glossary-terms button[aria-expanded=true] { background: #244f3d; color: white; border-color: #244f3d; }.concept-glossary-terms button > span { margin-left: 6px; }
+.concept-definition { margin-top: 16px; padding: 20px; border: 1px solid #d1dec9; background: #fffefb; border-radius: 9px; }
+.concept-breadcrumb { font-size: 11px; color: #507448; margin-bottom: 8px; }.concept-parent { font-size: 12px; color: #697961; line-height: 1.7; margin-bottom: 16px; }
+.concept-definition-title { display: flex; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 12px; }.concept-definition-title h5 { font-size: 18px; font-weight: 650; color: #254832; overflow-wrap: anywhere; }
+.concept-definition .learn-prose { font-size: 15px; line-height: 1.9; overflow-wrap: anywhere; }.concept-definition-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin-top: 20px; }
+@media(max-width:520px) { .concept-glossary { padding: 12px; }.concept-definition { padding: 14px; }.concept-definition-actions { align-items: stretch; flex-direction: column; } }
 :root { color: #243a38; background: #f7f8f4; --ink: #173d36; --muted: #667873; --line: #dfe6df; --accent: #21624f; }
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }

@@ -1,15 +1,18 @@
 import { Proposition } from '../types';
 import MarkdownProse from './MarkdownProse';
+import ConceptGlossary from './ConceptGlossary';
 
 interface PropositionBodyProps {
   proposition: Proposition;
+  onOpenTerm?: (termId: string) => void;
 }
 
 // 명제의 본문(전제 / 성립·한계 / 결론)을 렌더링하는 공용 컴포넌트.
 // 명제 탭(Propositions)과 용어 답 카드(TermCard) 양쪽에서 동일 UI로 재사용.
-export default function PropositionBody({ proposition }: PropositionBodyProps) {
+export default function PropositionBody({ proposition, onOpenTerm }: PropositionBodyProps) {
   return (
     <div className="space-y-5">
+      <ConceptGlossary key={proposition.id} termIds={proposition.termIds} context={proposition.statement} onOpenTerm={onOpenTerm} />
       <div className="rounded-lg bg-gray-50 border border-gray-100 p-4">
         <h4 className="text-sm font-semibold text-gray-700 mb-1">왜 이렇게 보는가 (논리)</h4>
         <MarkdownProse source={proposition.premise || ''} mode="prose" className="text-sm text-gray-700" />

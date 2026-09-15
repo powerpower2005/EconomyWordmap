@@ -25,6 +25,7 @@ export default function App() {
   const [focusPropositionId, setFocusPropositionId] = useState<string | null>(null);
   const [focusSectionId, setFocusSectionId] = useState<string | null>(null);
   const [fromLearning, setFromLearning] = useState(false);
+  const [fromProposition, setFromProposition] = useState(false);
   const scrollPositions = useRef<Partial<Record<MainView, number>>>({});
 
   function navigate(next: MainView, reset = false) {
@@ -40,6 +41,7 @@ export default function App() {
   }, [view]);
 
   function openTermInGraph(id: string) {
+    if (view !== 'graph') setFromProposition(view === 'propositions');
     if (view === 'learning') setFromLearning(true);
     setFocusPartId(view === 'learning' ? loadReadingState()?.partId || null : null);
     setFocusTermId(id);
@@ -50,12 +52,18 @@ export default function App() {
     navigate('propositions', true);
   }
 
+  function openMainView(next: MainView) {
+    setFromLearning(false);
+    setFromProposition(false);
+    navigate(next);
+  }
+
   return (
     <div className="wordmap-app">
       <a className="skip-link" href="#main-content">본문으로 건너뛰기</a>
       <header className="site-header">
         <div className="site-header-inner">
-          <button className="wordmap-brand" onClick={() => navigate('learning')} aria-label="Wordmap 학습으로">
+          <button className="wordmap-brand" onClick={() => openMainView('learning')} aria-label="Wordmap 학습으로">
             <span className="brand-mark" aria-hidden="true"><i /><i /><i /></span>
             <span>wordmap<small>경제를 연결하다</small></span>
           </button>
@@ -63,11 +71,15 @@ export default function App() {
             {views.map(item => <button type="button" key={item.id}
               aria-current={view === item.id ? 'page' : undefined}
               className={view === item.id ? 'is-active' : ''}
-              onClick={() => navigate(item.id)} title={item.description}>{item.title}</button>)}
+              onClick={() => openMainView(item.id)} title={item.description}>{item.title}</button>)}
           </nav>
           <button type="button" onClick={() => setIsFeedbackOpen(true)} className="feedback-button">의견 보내기 ↗</button>
         </div>
       </header>
+      {fromProposition && view === 'graph' && <div className="learning-return">
+        <span>{fromLearning ? '학습 › 명제 › 용어 관계도' : '명제 › 용어 관계도'}</span>
+        <button type="button" onClick={() => { navigate('propositions'); setFromProposition(false); }}>읽던 명제로 돌아가기 →</button>
+      </div>}
       {fromLearning && view !== 'learning' && <div className="learning-return">
         <span>개념을 확인했나요? 읽던 이야기가 그대로 기다리고 있어요.</span>
         <button type="button" onClick={() => { navigate('learning'); setFromLearning(false); }}>읽던 학습으로 돌아가기 →</button>

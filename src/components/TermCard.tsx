@@ -218,7 +218,7 @@ export default function TermCard({ term, onOpenTerm }: TermCardProps) {
                     </div>
                     {isOpen && (
                       <div className="px-4 pb-4 ml-8">
-                        <PropositionBody proposition={prop} />
+                        <PropositionBody proposition={prop} onOpenTerm={onOpenTerm} />
                       </div>
                     )}
                   </div>

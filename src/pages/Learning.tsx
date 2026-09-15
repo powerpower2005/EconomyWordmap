@@ -537,6 +537,7 @@ function TermRow({
 
       {expanded && (
         <div className="px-3 pb-3 border-t border-gray-100 pt-2 space-y-2">
+          <p className="concept-breadcrumb">학습 › 용어 이해</p>
           <MarkdownProse source={term.description} mode="prose" className="text-sm text-gray-700" />
           {relatedProps.length > 0 && (
             <p className="text-xs text-gray-500">관련 명제 {relatedProps.length}개</p>
@@ -548,6 +549,7 @@ function TermRow({
           >
             관계도에서 보기
           </button>
+          <button type="button" className="text-action ml-3" onClick={onToggle}>용어 접고 학습 계속 읽기</button>
         </div>
       )}
     </div>
@@ -612,24 +614,9 @@ function PropositionRow({
 
       {expanded && (
         <div className="px-3 pb-3 border-t border-indigo-100/60 pt-2 space-y-3">
-          {proposition.termIds.length > 0 && (
-            <div className="flex flex-wrap gap-1">
-              {proposition.termIds.map(termId => {
-                const term = getTermById(termId);
-                return (
-                  <button
-                    key={termId}
-                    type="button"
-                    onClick={() => onOpenTerm(termId)}
-                    className="text-[10px] px-1.5 py-0.5 rounded-full bg-white text-gray-600 hover:bg-blue-100 hover:text-blue-800 border border-gray-100"
-                  >
-                    {term?.name ?? termId}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-          <PropositionBody proposition={proposition} />
+          <p className="concept-breadcrumb">학습 › 명제 이해</p>
+          <PropositionBody proposition={proposition} onOpenTerm={onOpenTerm} />
+          <button type="button" className="text-action" onClick={onToggle}>명제 접고 학습 계속 읽기</button>
         </div>
       )}
     </div>

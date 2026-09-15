@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { loadPropositions, getTermById, searchPropositions } from '../utils/dataLoader';
+import { loadPropositions, searchPropositions } from '../utils/dataLoader';
 import { Proposition } from '../types';
 import PropositionBody from '../components/PropositionBody';
 import LearnedToggle from '../components/LearnedToggle';
@@ -178,6 +178,7 @@ function PropositionCard({
         <LearnedToggle learned={learned} onToggle={onToggleLearned} className="mt-1" />
         <button
           onClick={onToggle}
+          aria-expanded={expanded}
           className="flex-1 text-left flex items-start justify-between gap-3 hover:opacity-90 transition-opacity min-w-0"
         >
           <div className="flex-1 min-w-0">
@@ -212,27 +213,8 @@ function PropositionCard({
       </div>
 
       {expanded && (
-        <div className="px-5 pb-5 space-y-5 border-t border-gray-100/80 pt-4 ml-12">
-          {proposition.termIds.length > 0 && (
-            <div className="flex flex-wrap gap-1.5">
-              {proposition.termIds.map(termId => {
-                const term = getTermById(termId);
-                if (!term) return null;
-                return (
-                  <button
-                    key={termId}
-                    onClick={() => onOpenTerm?.(termId)}
-                    className="text-xs px-2 py-1 rounded bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-100 transition-colors"
-                    title="관계도에서 보기"
-                  >
-                    {term.name}
-                  </button>
-                );
-              })}
-            </div>
-          )}
-
-          <PropositionBody proposition={proposition} />
+        <div className="px-5 pb-5 space-y-5 border-t border-gray-100/80 pt-4 sm:ml-12">
+          <PropositionBody proposition={proposition} onOpenTerm={onOpenTerm} />
         </div>
       )}
     </div>
