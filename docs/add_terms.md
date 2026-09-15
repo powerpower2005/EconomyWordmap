@@ -1,64 +1,19 @@
-# 단어·관계 추가 가이드 (사용자용)
+# Wordmap 데이터 작업 빠른 안내
 
-> **에이전트·개발자:** 데이터는 `terms.json`이 아니라 YAML입니다.  
-> 절차·문장 품질: [agent-data-guide.md](./agent-data-guide.md) (한국어)  
-> 프롬프트(한국어) + 실행 단계(영어): [agent-recipes.md](./agent-recipes.md)  
-> 필드 정의(영어): [data-schema.md](./data-schema.md) · 규칙 진입(영어): [AGENTS.md](../AGENTS.md)
+[프롬프트 모음](agent-recipes.md)에서 작업 유형을 선택해 복사하세요.
 
-## 빠른 요약
+- 처음 요청: R0 기본 적용 프롬프트
+- 기사 검토: R1 (파일 변경 없음)
+- 용어·관계·명제 추가: R2
+- 기존 설명 수정: R3
+- 학습 글 생성·개선: R4
+- 전체 구조 검토: R5
+- 화면 개선: R6
 
-| 편집 대상 | 경로 |
-|-----------|------|
-| 용어 | `src/data/terms-all.yaml` |
-| 관계 | `src/data/relations.yaml` |
-| 생성물 (수정 금지) | `src/data/terms.json` |
+파일 전체를 붙이는 대신 질문과 용어명 또는 ID를 알려주세요.
+AI는 [프로젝트 지도](ai-map.md)로 원본과 연결된 항목을 찾습니다.
+커밋·푸시는 기본적으로 수행하지 않으며 필요하면 레시피 마지막의 저장 문장으로 교체하세요.
 
-```bash
-node build-data.js
-npm run validate-data
-```
-
-## 프롬프트 템플릿
-
-```
-다음 단어를 terms-all.yaml에 추가하고, 필요한 관계는 relations.yaml에 추가해줘:
-
-[단어 목록]
-
-각 단어:
-- id: 영어 소문자, 하이픈
-- name: 한글 (English)
-- description: 상세 설명
-- category: 카테고리
-
-관계:
-- term1Id → term2Id: 비례/반비례/상관관계
-- 설명, 강도(strong/medium/weak)
-- 양방향이면 bidirectional: true, reverseDescription
-
-작업 후 build-data 실행하고 커밋해줘.
-```
-
-## 예시
-
-### 단어 하나
-
-```
-SOFR (Secured Overnight Financing Rate) 용어를 추가하고 기준금리와 관계를 relations.yaml에 넣어줘.
-agent-data-guide 절차를 따라줘.
-```
-
-### 단어 + 관계
-
-[agent-recipes.md](./agent-recipes.md)의 **R2** 참고.
-
-### 양방향 관계
-
-[agent-recipes.md](./agent-recipes.md)의 **R5** 참고 (예: IORB ↔ 금리, `r22`).
-
-## 더 보기
-
-- 상세 운영: [agent-data-guide.md](./agent-data-guide.md)
-- 레시피 모음: [agent-recipes.md](./agent-recipes.md)
-- 스키마: [data-schema.md](./data-schema.md)
-- 카테고리: [categories.md](./categories.md)
+직접 편집하는 데이터는 `src/data/terms-all.yaml`, `relations.yaml`,
+`propositions.yaml`, `curriculum.yaml`입니다.
+생성물 `terms.json`과 레거시 `src/data/terms/*.yaml`은 편집하지 않습니다.

@@ -1,62 +1,21 @@
 ---
-description: Wordmap term/relation YAML editing (terms-all, relations) — rules in English
+description: Route Wordmap YAML work to canonical data, quality and learning policies
 globs: src/data/**/*.yaml
 alwaysApply: false
 ---
 
-# Wordmap data files
+# Wordmap YAML routing
 
-## Source of truth
+Read `AGENTS.md` first, then its applicable task documents in full.
+Use `docs/ai-map.md` for ID-based retrieval; do not load all YAML by default.
 
-- Terms: `src/data/terms-all.yaml` (`terms:` list)
-- Relations: `src/data/relations.yaml` (`relations:` list)
-- Propositions (명제 tab): `src/data/propositions.yaml` (`propositions:` list)
-- Curriculum (학습 tab): `src/data/curriculum.yaml` (`curriculum:` list)
-
-Do **not** edit `src/data/terms.json` (generated). Do **not** use `src/data/terms/*.yaml` (not in build).
-
-## Workflow
-
-1. Read `docs/agent-data-guide.md` (Korean) for task steps and **description writing style**.
-2. Field reference: `docs/data-schema.md` (English).
-3. Edit YAML; quote long descriptions containing `=`, `:`, or `#`.
-4. Run `node build-data.js` and `npm run validate-data` (fix any error and re-run).
-5. Commit with `data: ...` so changelog / updatedAt apply (`scripts/term-history.js`).
-
-## Validation (after every change)
-
-- Auto (`validate-data`): duplicate/missing ids, missing term refs, enums (`type`, `reverseType`, `nature`, `strength`, `reverseStrength`).
-- Manual (NOT auto-caught): duplicate relation pairs, `category` vocabulary (`docs/categories.md`), `term1Id -> term2Id` direction consistency, bidirectional reverse fields.
-- Per work-type checks: `docs/agent-data-guide.md` section 4.3 matrix.
-- Before adding/supplementing: search existing data for dupes + gaps (both endpoint ids of a pair, in either order). See `AGENTS.md` "Finding existing data".
-- Article/column topic review: reply in four tiers (필수 / 보강 / 선택 / 제외) per `AGENTS.md` "Content / topic review — answer format".
-
-## Relations
-
-- New ids: last `r###` in `relations.yaml` + 1.
-- `term1Id` and `term2Id` must exist in `terms-all.yaml` (for **new** edges).
-- Types: `proportional`, `inverse`, `correlation`. Bidirectional: `bidirectional: true` + `reverseDescription`.
-
-## Propositions (명제 tab)
-
-- New ids: last `p###` in `propositions.yaml` + 1.
-- `termIds` must exist in `terms-all.yaml`.
-- Fill both `holds` (성립) and `fails` (한계) — the tab's purpose is to show a claim is conditional, not absolute.
-- Schema (EN): `docs/propositions-schema.md`. Workflow (KO): `docs/agent-propositions-guide.md`.
-
-## Stock market importance
-
-- `stockMarketImportance` (integer 1-10) = how directly the term moves prices / is used in real investing, **not** academic significance. Assign to every new term.
-- Bands: 9-10 live market-wide drivers, 7-8 core macro variables, 5-6 indirect, 3-4 background concepts, 1-2 pure theory/history. Full rubric: `AGENTS.md` (Stock market importance section).
-- **Curriculum** (investor path, not textbook): **sections + parts** in `curriculum.yaml` (`version: 2`) — optional **`bodyDialogue` + `bodyProse`** per section/part (Learn UI tabs: 대화로 / 설명으로); terms/propositions collapsed below each part. Canonical example: `sec-money-value`. Authoring: [Dual read modes](#dual-read-modes-dialogue--prose), [Dialogue format](#dialogue-format-optional--sec-money-value-style). On every term/relation/proposition change: **review and supplement** learn path (same task).
-
-## Content language
-
-- YAML `name` / `description` / relation text / proposition text: **Korean** (with English in parentheses in `name` when applicable).
-- Do not put Korean inside executable code; only in data strings.
-
-## References
-
-- Schema (EN): `docs/data-schema.md`, `docs/propositions-schema.md`
-- Prompts (KO) + steps (EN): `docs/agent-recipes.md`
-- Categories (KO): `docs/categories.md`
+- Canonical sources: `terms-all.yaml`, `relations.yaml`, `propositions.yaml`, `curriculum.yaml` in `src/data/`.
+- Do not edit generated `terms.json` or legacy `src/data/terms/*.yaml`.
+- Data changes: read `docs/agent-data-guide.md`, `docs/data-quality.md`, `docs/learning-authoring.md`.
+- Terms/relations: `docs/data-schema.md`; propositions: `docs/propositions-schema.md` and `docs/agent-propositions-guide.md`.
+- Example: `node scripts/ai-context.js search "금리"`, then `get interest-rate` and `context interest-rate`.
+- Search synonyms and both endpoint orders before adding; read complete matching records.
+- Update relevant learning references and missing graph bridges in the same authorized task.
+- Data validation: `node build-data.js`, `npm run validate-data`, `node scripts/audit-learning.js`, `npm run build`.
+- Economic meaning, direction and equivalence require manual review even if checks pass.
+- Commit and push only when the user explicitly requests each action.

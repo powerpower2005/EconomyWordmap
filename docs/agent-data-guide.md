@@ -14,6 +14,8 @@
 
 에이전트: **명령·경로·검증은 영어 그대로**, **설명 문장 톤은 이 문서(한국어)를 따릅니다.**
 
+탐색 진입은 [ai-map.md](./ai-map.md), 중복·중요도 기준은 [data-quality.md](./data-quality.md)를 참고하세요.
+
 ## 문서 맵
 
 | 문서 | 용도 | 언어 |
@@ -23,9 +25,9 @@
 | [agent-recipes.md](./agent-recipes.md) | 프롬프트 (KO) + 실행 단계 (EN) | KO + EN |
 | [categories.md](./categories.md) | 카테고리 목록·동기화 | KO |
 | [add_terms.md](./add_terms.md) | 사용자 프롬프트 요약 | KO |
-| [AGENTS.md](../AGENTS.md) § Investor learning path | 투자자 학습 단계·앵커·검토·보강 | EN |
+| [learning-authoring.md](./learning-authoring.md) | 투자자 학습 단계·앵커·검토·보강 | EN |
 
-용어·관계·명제를 **늘릴 때** (1) 콘텐츠는 **시장→매크로→금리→리스크→이론→명제** 단계에 배치하고, (2) **같은 작업에서** [AGENTS.md § Curriculum review and supplement](../AGENTS.md#curriculum-review-and-supplement-required)를 수행하세요 — **검토만**이 아니라, 학습 경로에 **빈 곳이 있으면 용어·관계·명제·앵커를 추가**합니다. 단계는 **분류·권장 순서**이지 사용자 강제 순서가 아닙니다. `stockMarketImportance`는 뉴스 중요도이지 단계 번호가 아닙니다.
+용어·관계·명제를 **늘릴 때** (1) 콘텐츠는 **시장→매크로→금리→리스크→이론→명제** 단계에 배치하고, (2) **같은 작업에서** [학습 검토·보강](./learning-authoring.md#curriculum-review-and-supplement-required)를 수행하세요 — **검토만**이 아니라, 학습 경로에 **빈 곳이 있으면 용어·관계·명제·앵커를 추가**합니다. 단계는 **분류·권장 순서**이지 사용자 강제 순서가 아닙니다. `stockMarketImportance`는 뉴스 중요도이지 단계 번호가 아닙니다.
 
 ---
 
@@ -35,7 +37,8 @@
 
 - `src/data/terms-all.yaml` — 용어 (`terms:` 배열)
 - `src/data/relations.yaml` — 관계 (`relations:` 배열)
-- `src/data/curriculum.yaml` — 학습 탭 단계·권장 순서 (`curriculum:`)
+- `src/data/propositions.yaml` — 조건부 명제 (`propositions:` 배열)
+- `src/data/curriculum.yaml` — 학습 섹션·파트와 권장 순서 (`curriculum:` 객체)
 
 **생성물 (편집 금지):**
 
@@ -65,7 +68,7 @@
 
 ## 2. 작업 유형별 절차
 
-각 작업은 **Before → Edit → Validate → Commit** 순서를 따릅니다.  
+각 작업은 **Before → Edit → Validate → Report** 순서를 따릅니다. 커밋과 푸시는 각각 사용자 요청이 있을 때만 수행합니다.
 검증 항목은 작업 유형별로 [4.3 검증 매트릭스](#43-작업-유형별-검증-매트릭스)를 따르고, 작업 후 반드시 [4. 검증](#4-검증-작업-후-필수)을 수행합니다.
 
 ### A. 용어 추가
@@ -149,7 +152,7 @@ grep "id: sofr" src/data/terms-all.yaml
 1. `terms-all.yaml`에 신규 용어
 2. `relations.yaml`에 기존 용어 ↔ 신규 용어 관계
 3. 필요 시 기존 용어 간 추가 관계
-4. `node build-data.js` → Git 커밋 (한 커밋 가능, 이력은 항목별 분리 기록)
+4. 아래 검증 절차를 수행하고 결과 보고. 사용자 요청이 있을 때만 Git 커밋 (이력은 항목별 분리 기록)
 
 ---
 
@@ -202,12 +205,12 @@ npm run build             # PR 전 TypeScript·Vite 빌드
 
 | 작업 | 자동 (4.1) | 추가 수동 확인 (4.2) |
 |------|-----------|----------------------|
-| 용어 추가 | id 중복·name 누락 | category 어휘, `name`이 `한글 (English)` 형식, **학습 단계(1–5) 배정·앵커/관계 검토·갭 시 보강 추가** ([AGENTS.md](../AGENTS.md#curriculum-review-and-supplement-required)) |
+| 용어 추가 | id 중복·name 누락 | category 어휘, `name`이 `한글 (English)` 형식, **학습 섹션·파트 배정·앵커/관계 검토·갭 시 보강 추가** ([학습 검토·보강](./learning-authoring.md#curriculum-review-and-supplement-required)) |
 | 용어 수정 | — | description 톤(경향·조건부) 유지, 단계·앵커 목록 갱신·누락 관계/명제 **추가** 필요 여부 |
 | 관계 추가 | id·term 참조·enum | **중복 관계쌍**, 방향성, (선택) nature/mechanism, **단계 클러스터 보강·브릿지·명제 갭 시 추가** |
 | 관계 수정 | enum | `id` 유지, 방향성·nature 정합, 양방향 필드 |
 | 관계 삭제 | — | 의도적 삭제 명시(커밋 메시지), 고아 노드 발생 여부, 학습 경로 상 대체 관계 **추가** 필요 여부 |
-| 명제 추가·수정 | termIds 참조 | holds/fails·톤, **stage 6 매핑·클러스터 명제 갭 시 명제/관계 추가** |
+| 명제 추가·수정 | termIds 참조 | holds/fails·톤, **관련 학습 파트 propositionIds 매핑·클러스터 명제 갭 시 명제/관계 추가** |
 
 **최종 체크리스트:**
 
@@ -234,7 +237,7 @@ npm run build             # PR 전 TypeScript·Vite 빌드
 - `data: enrich inflation description and r18 relation`
 - `data: add short/medium/long-term bond terms`
 
-**push:** 사용자가 명시적으로 요청할 때만 수행.
+**commit / push:** 각각 사용자가 명시적으로 요청할 때만 수행. 이력 생성이 필요하다는 설명 자체는 커밋 권한이 아닙니다.
 
 ---
 

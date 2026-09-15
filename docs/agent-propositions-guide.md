@@ -17,6 +17,8 @@
 
 **Before**
 
+- [ai-map.md](./ai-map.md)로 유사 statement와 연결된 학습 파트를 먼저 조회한다. 명제 추가·수정은 [학습 보강 규칙](./learning-authoring.md#curriculum-review-and-supplement-required)도 따른다.
+
 - `propositions.yaml`의 마지막 `- id: p###` 확인 → 다음 번호 사용 (예: p6 다음은 **p7**)
 - `termIds`에 넣을 용어가 `terms-all.yaml`에 실제로 존재하는지 확인
 
@@ -74,7 +76,7 @@ npm run build             # PR 전 TypeScript·Vite 빌드
 
 ## 4. Git·커밋
 
-- `propositions.yaml` 수정 + 커밋 + build.
+- 검증 후 결과 보고. 사용자가 커밋을 요청한 경우에만 `propositions.yaml` 수정 + 커밋 + build.
 - 명제에도 Git 기반 `createdAt`/`updatedAt`/`changelog`가 붙는다(`scripts/content-history.js`). YAML에 수동으로 넣지 말 것. 커밋 후 `node build-data.js`로 반영.
 - 커밋 메시지 예: `data: add proposition p7 (관세와 무역수지)`.
 - push는 사용자가 명시적으로 요청할 때만.
