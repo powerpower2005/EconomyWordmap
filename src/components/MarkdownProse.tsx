@@ -38,8 +38,13 @@ function getSpeakerStyle(speaker: string) {
   return SPEAKER_FALLBACK[idx];
 }
 
+function MarkdownStrong({ children }: { children?: ReactNode }) {
+  return <strong className="font-semibold text-gray-900">{children}</strong>;
+}
+
 function getSpeakerLabel(child: ReactNode): string | null {
-  if (!isValidElement(child) || child.type !== 'strong') return null;
+  // react-markdown passes its custom component, not a literal strong element.
+  if (!isValidElement(child) || (child.type !== 'strong' && child.type !== MarkdownStrong)) return null;
   const text = String(child.props.children ?? '');
   if (/^[A-Za-z]+:$/.test(text)) return text.slice(0, -1);
   return null;
@@ -103,7 +108,7 @@ export default function MarkdownProse({ source, className = '', mode = 'dialogue
             }
             return <p className="mb-4 last:mb-0">{children}</p>;
           },
-          strong: ({ children }) => <strong className="font-semibold text-gray-900">{children}</strong>,
+          strong: MarkdownStrong,
           em: ({ children }) =>
             dialogueMode ? (
               <em className="not-italic text-sm text-gray-500 before:content-['—_'] after:content-['_—']">

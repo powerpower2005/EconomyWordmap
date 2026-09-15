@@ -31,7 +31,7 @@ terms:
     stockMarketImportance: 6
   - id: term-premium
     name: 기간프리미엄 (Term Premium)
-    description: "장기금리=단기금리 기대+**기간프리미엄**+기대인플레이션. 장기 보유의 금리변동·인플레 리스크 보상 — **term-spread**·**yield-curve** 기울기 해석의 핵심"
+    description: "장기채 보유의 금리·물가 불확실성 등을 감수하는 데 대해 요구하는 보상. 장기 명목금리는 대략 미래 명목 단기금리의 평균 기대와 기간프리미엄으로 분해하며, 이때 기대인플레이션을 다시 더하지 않는다. 직접 관측되지 않아 모형으로 추정하고 음수일 수도 있다. 정책금리 인하에도 기간프리미엄 상승으로 장기금리가 오를 수 있어 장단기금리차·수익률곡선을 해석할 때 중요하다."
     category: 금리
     stockMarketImportance: 7
   - id: real-interest-rate
@@ -1301,7 +1301,7 @@ terms:
     stockMarketImportance: 3
   - id: loss-aversion
     name: 손실 회피 (Loss Aversion)
-    description: 같은 크기라도 이득의 기쁨보다 손실의 고통을 약 두 배 크게 느끼는 경향으로, 투자자가 손실 난 자산을 너무 오래 쥐고 있는 행동 등을 설명
+    description: "기준점 대비 같은 크기의 이익보다 손실에 더 큰 심리적 무게를 두는 경향. 강도는 개인·상황·측정 방식에 따라 달라 고정된 두 배 법칙은 아니다. 매수가를 기준으로 전망이 악화된 자산을 계속 보유하는 행동 등을 이해하는 데 쓰인다."
     category: 경제이론
     stockMarketImportance: 4
   - id: nudge
@@ -1581,7 +1581,7 @@ terms:
     stockMarketImportance: 4
   - id: duration
     name: 듀레이션 (Duration)
-    description: "채권 현금흐름의 가중평균 만기로, 시장금리 1%p 변동 시 채권가격이 대략 duration%만큼 반대 방향으로 움직이는 이자율위험(민감도) 지표. 만기·표면금리·YTM에 따라 결정(11.8)"
+    description: "채권 현금흐름의 시점과 금리 민감도를 나타내는 지표. 맥컬리 듀레이션은 현금흐름 현재가치로 가중한 평균 회수 기간이고, 수정듀레이션은 수익률 변화에 대한 가격 민감도다. 작은 수익률 변화에서는 가격 변화율을 대략 −수정듀레이션×수익률 변화로 계산하며, 큰 변화에서는 곡률에 따른 오차가 생긴다. 만기·표면금리·수익률에 따라 달라지고 신용·유동성 위험이나 이자 포함 총수익을 모두 설명하지는 않는다."
     category: 채권
     stockMarketImportance: 7
   - id: decoupling
@@ -2061,12 +2061,12 @@ terms:
     stockMarketImportance: 4
   - id: beta
     name: 베타 (Beta)
-    description: 시장 전체의 움직임에 연동된 수익·위험으로 지수추종처럼 시장 방향만 따라가도 얻는 리스크 기반 수익
+    description: "선택한 시장 벤치마크 수익률의 변화에 대한 자산 수익률의 민감도. 시장과 자산 수익률의 공분산을 시장 수익률의 분산으로 나누어 추정하며, 베타 1은 시장과 비슷한 민감도를 뜻한다. 추정 기간·벤치마크·시장 국면에 따라 달라지고 수익 자체나 모든 위험을 뜻하지는 않는다."
     category: 금융
     stockMarketImportance: 5
   - id: alpha
     name: 알파 (Alpha)
-    description: 시장(베타)을 초과해 얻는 수익으로 종목 선택·타이밍 등 운용 능력에서 나오는 초과 성과
+    description: "선택한 위험 모형이 설명하는 기대수익을 넘어선 초과성과. 단순한 지수 대비 수익 차이와는 구별하며 벤치마크·위험요인·비용·측정 기간에 따라 값이 달라진다. 관측된 양의 알파만으로 운용 능력이나 미래의 지속성을 확정할 수 없다."
     category: 금융
     stockMarketImportance: 5
   - id: political-cycle
